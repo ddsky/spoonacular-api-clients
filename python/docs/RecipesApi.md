@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **autocomplete_recipe_search**
-> List[AutocompleteRecipeSearch200ResponseInner] autocomplete_recipe_search(query=query, number=number)
+> List[AutocompleteRecipeSearch200ResponseInner] autocomplete_recipe_search(query, number=number)
 
 Autocomplete Recipe Search
 
@@ -248,12 +248,12 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    query = 'burger' # str | The (natural language) search query. (optional)
+    query = 'burger' # str | The (natural language) search query.
     number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
     try:
         # Autocomplete Recipe Search
-        api_response = api_instance.autocomplete_recipe_search(query=query, number=number)
+        api_response = api_instance.autocomplete_recipe_search(query, number=number)
         print("The response of RecipesApi->autocomplete_recipe_search:\n")
         pprint(api_response)
     except Exception as e:
@@ -267,7 +267,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
+ **query** | **str**| The (natural language) search query. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -696,7 +696,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 44860 # float | The recipe id.
+    id = 44860 # int | The recipe id.
 
     try:
         # Equipment by ID Image
@@ -714,7 +714,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_recipe_from_website**
-> GetRecipeInformation200Response extract_recipe_from_website(url, force_extraction=force_extraction, analyze=analyze, include_nutrition=include_nutrition, include_taste=include_taste)
+> RecipeInformation extract_recipe_from_website(url, force_extraction=force_extraction, analyze=analyze, include_nutrition=include_nutrition, include_taste=include_taste)
 
 Extract Recipe from Website
 
@@ -753,7 +753,7 @@ This endpoint lets you extract recipe data such as title, ingredients, and instr
 
 ```python
 import spoonacular
-from spoonacular.models.get_recipe_information200_response import GetRecipeInformation200Response
+from spoonacular.models.recipe_information import RecipeInformation
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -808,7 +808,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_analyzed_recipe_instructions**
-> GetAnalyzedRecipeInstructions200Response get_analyzed_recipe_instructions(id, step_breakdown=step_breakdown)
+> List[GetAnalyzedRecipeInstructions200ResponseInner] get_analyzed_recipe_instructions(id, step_breakdown=step_breakdown)
 
 Get Analyzed Recipe Instructions
 
@@ -843,7 +843,7 @@ Get an analyzed breakdown of a recipe's instructions. Each step is enriched with
 
 ```python
 import spoonacular
-from spoonacular.models.get_analyzed_recipe_instructions200_response import GetAnalyzedRecipeInstructions200Response
+from spoonacular.models.get_analyzed_recipe_instructions200_response_inner import GetAnalyzedRecipeInstructions200ResponseInner
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -868,7 +868,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 324694 # int | The recipe id.
     step_breakdown = true # bool | Whether to break down the recipe steps even more. (optional)
 
     try:
@@ -887,12 +887,12 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **step_breakdown** | **bool**| Whether to break down the recipe steps even more. | [optional] 
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**List[GetAnalyzedRecipeInstructions200ResponseInner]**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -1040,7 +1040,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1003464 # int | The recipe id.
 
     try:
         # Equipment by ID
@@ -1058,7 +1058,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1085,7 +1085,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_information**
-> GetRecipeInformation200Response get_recipe_information(id, include_nutrition=include_nutrition)
+> RecipeInformation get_recipe_information(id, include_nutrition=include_nutrition, add_wine_pairing=add_wine_pairing, add_taste_data=add_taste_data)
 
 Get Recipe Information
 
@@ -1097,7 +1097,7 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 
 ```python
 import spoonacular
-from spoonacular.models.get_recipe_information200_response import GetRecipeInformation200Response
+from spoonacular.models.recipe_information import RecipeInformation
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -1122,12 +1122,14 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 716429 # int | The id of the recipe.
     include_nutrition = False # bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional) (default to False)
+    add_wine_pairing = false # bool | Add a wine pairing to the recipe. (optional)
+    add_taste_data = false # bool | Add taste data to the recipe. (optional)
 
     try:
         # Get Recipe Information
-        api_response = api_instance.get_recipe_information(id, include_nutrition=include_nutrition)
+        api_response = api_instance.get_recipe_information(id, include_nutrition=include_nutrition, add_wine_pairing=add_wine_pairing, add_taste_data=add_taste_data)
         print("The response of RecipesApi->get_recipe_information:\n")
         pprint(api_response)
     except Exception as e:
@@ -1141,12 +1143,14 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the recipe. | 
  **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to False]
+ **add_wine_pairing** | **bool**| Add a wine pairing to the recipe. | [optional] 
+ **add_taste_data** | **bool**| Add taste data to the recipe. | [optional] 
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -1169,7 +1173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_information_bulk**
-> List[GetRecipeInformationBulk200ResponseInner] get_recipe_information_bulk(ids, include_nutrition=include_nutrition)
+> List[RecipeInformation] get_recipe_information_bulk(ids, include_nutrition=include_nutrition)
 
 Get Recipe Information Bulk
 
@@ -1181,7 +1185,7 @@ Get information about multiple recipes at once. This is equivalent to calling th
 
 ```python
 import spoonacular
-from spoonacular.models.get_recipe_information_bulk200_response_inner import GetRecipeInformationBulk200ResponseInner
+from spoonacular.models.recipe_information import RecipeInformation
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -1230,7 +1234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[GetRecipeInformationBulk200ResponseInner]**](GetRecipeInformationBulk200ResponseInner.md)
+[**List[RecipeInformation]**](RecipeInformation.md)
 
 ### Authorization
 
@@ -1290,7 +1294,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1003464 # int | The recipe id.
 
     try:
         # Ingredients by ID
@@ -1308,7 +1312,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1372,7 +1376,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1003464 # int | The recipe id.
 
     try:
         # Nutrition by ID
@@ -1390,7 +1394,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1454,7 +1458,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1003464 # int | The recipe id.
 
     try:
         # Price Breakdown by ID
@@ -1472,7 +1476,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1499,7 +1503,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_taste_by_id**
-> GetRecipeTasteByID200Response get_recipe_taste_by_id(id, normalize=normalize)
+> TasteInformation get_recipe_taste_by_id(id, normalize=normalize)
 
 Taste by ID
 
@@ -1511,7 +1515,7 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 
 ```python
 import spoonacular
-from spoonacular.models.get_recipe_taste_by_id200_response import GetRecipeTasteByID200Response
+from spoonacular.models.taste_information import TasteInformation
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -1536,7 +1540,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 69095 # int | The recipe id.
     normalize = True # bool | Normalize to the strongest taste. (optional) (default to True)
 
     try:
@@ -1555,12 +1559,12 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **bool**| Normalize to the strongest taste. | [optional] [default to True]
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -1620,7 +1624,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 715538 # int | The id of the source recipe for which similar recipes should be found.
     number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
     try:
@@ -1639,7 +1643,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -1749,7 +1753,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **parse_ingredients**
-> List[ParseIngredients200ResponseInner] parse_ingredients(ingredient_list, servings, language=language, include_nutrition=include_nutrition)
+> List[IngredientInformation] parse_ingredients(ingredient_list, servings, language=language, include_nutrition=include_nutrition)
 
 Parse Ingredients
 
@@ -1761,7 +1765,7 @@ Extract an ingredient from plain text.
 
 ```python
 import spoonacular
-from spoonacular.models.parse_ingredients200_response_inner import ParseIngredients200ResponseInner
+from spoonacular.models.ingredient_information import IngredientInformation
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -1789,7 +1793,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     ingredient_list = 'ingredient_list_example' # str | The ingredient list of the recipe, one ingredient per line.
     servings = 3.4 # float | The number of servings that you can make from the ingredients.
     language = 'en' # str | The language of the input. Either 'en' or 'de'. (optional)
-    include_nutrition = True # bool |  (optional)
+    include_nutrition = True # bool | Whether nutrition data should be added to correctly parsed ingredients. (optional)
 
     try:
         # Parse Ingredients
@@ -1810,11 +1814,11 @@ Name | Type | Description  | Notes
  **ingredient_list** | **str**| The ingredient list of the recipe, one ingredient per line. | 
  **servings** | **float**| The number of servings that you can make from the ingredients. | 
  **language** | **str**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **include_nutrition** | **bool**|  | [optional] 
+ **include_nutrition** | **bool**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] 
 
 ### Return type
 
-[**List[ParseIngredients200ResponseInner]**](ParseIngredients200ResponseInner.md)
+[**List[IngredientInformation]**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1873,7 +1877,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1082038 # float | The recipe id.
+    id = 1082038 # int | The recipe id.
 
     try:
         # Price Breakdown by ID Image
@@ -1891,7 +1895,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -2036,7 +2040,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1082038 # float | The recipe id.
+    id = 1082038 # int | The recipe id.
 
     try:
         # Recipe Nutrition by ID Image
@@ -2054,7 +2058,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -2117,7 +2121,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 641166 # float | The recipe id.
+    id = 641166 # int | The recipe id.
     show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
     show_zero_values = false # bool | Whether to show zero values. (optional)
     show_ingredients = false # bool | Whether to show a list of ingredients. (optional)
@@ -2138,7 +2142,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
  **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] 
@@ -2204,7 +2208,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 641166 # float | The recipe id.
+    id = 641166 # int | The recipe id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
     show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
     show_zero_values = false # bool | Whether to show zero values. (optional)
@@ -2226,7 +2230,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
  **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
@@ -2293,7 +2297,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 69095 # float | The recipe id.
+    id = 69095 # int | The recipe id.
     normalize = false # bool | Normalize to the strongest taste. (optional)
     rgb = '75,192,192' # str | Red, green, blue values for the chart color. (optional)
 
@@ -2313,7 +2317,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **bool**| Normalize to the strongest taste. | [optional] 
  **rgb** | **str**| Red, green, blue values for the chart color. | [optional] 
 
@@ -2342,7 +2346,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes**
-> SearchRecipes200Response search_recipes(query=query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, add_recipe_nutrition=add_recipe_nutrition, author=author, tags=tags, recipe_box_id=recipe_box_id, title_match=title_match, max_ready_time=max_ready_time, min_servings=min_servings, max_servings=max_servings, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number)
+> SearchRecipes200Response search_recipes(query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, add_recipe_nutrition=add_recipe_nutrition, author=author, tags=tags, recipe_box_id=recipe_box_id, title_match=title_match, max_ready_time=max_ready_time, min_servings=min_servings, max_servings=max_servings, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number)
 
 Search Recipes
 
@@ -2379,7 +2383,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    query = 'burger' # str | The (natural language) search query. (optional)
+    query = 'burger' # str | The (natural language) search query.
     cuisine = 'italian' # str | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional)
     exclude_cuisine = 'greek' # str | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. (optional)
     diet = 'vegetarian' # str | The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2394,7 +2398,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     add_recipe_nutrition = false # bool | If set to true, you get nutritional information about each recipes returned. (optional)
     author = 'coffeebean' # str | The username of the recipe author. (optional)
     tags = 'tags_example' # str | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-    recipe_box_id = 2468 # float | The id of the recipe box to which the search should be limited to. (optional)
+    recipe_box_id = 2468 # int | The id of the recipe box to which the search should be limited to. (optional)
     title_match = 'Crock Pot' # str | Enter text that must be found in the title of the recipes. (optional)
     max_ready_time = 20 # float | The maximum time in minutes it should take to prepare and cook the recipe. (optional)
     min_servings = 1 # float | The minimum amount of servings the recipe is for. (optional)
@@ -2479,7 +2483,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
     try:
         # Search Recipes
-        api_response = api_instance.search_recipes(query=query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, add_recipe_nutrition=add_recipe_nutrition, author=author, tags=tags, recipe_box_id=recipe_box_id, title_match=title_match, max_ready_time=max_ready_time, min_servings=min_servings, max_servings=max_servings, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number)
+        api_response = api_instance.search_recipes(query, cuisine=cuisine, exclude_cuisine=exclude_cuisine, diet=diet, intolerances=intolerances, equipment=equipment, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, type=type, instructions_required=instructions_required, fill_ingredients=fill_ingredients, add_recipe_information=add_recipe_information, add_recipe_nutrition=add_recipe_nutrition, author=author, tags=tags, recipe_box_id=recipe_box_id, title_match=title_match, max_ready_time=max_ready_time, min_servings=min_servings, max_servings=max_servings, ignore_pantry=ignore_pantry, sort=sort, sort_direction=sort_direction, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_calories=min_calories, max_calories=max_calories, min_fat=min_fat, max_fat=max_fat, min_alcohol=min_alcohol, max_alcohol=max_alcohol, min_caffeine=min_caffeine, max_caffeine=max_caffeine, min_copper=min_copper, max_copper=max_copper, min_calcium=min_calcium, max_calcium=max_calcium, min_choline=min_choline, max_choline=max_choline, min_cholesterol=min_cholesterol, max_cholesterol=max_cholesterol, min_fluoride=min_fluoride, max_fluoride=max_fluoride, min_saturated_fat=min_saturated_fat, max_saturated_fat=max_saturated_fat, min_vitamin_a=min_vitamin_a, max_vitamin_a=max_vitamin_a, min_vitamin_c=min_vitamin_c, max_vitamin_c=max_vitamin_c, min_vitamin_d=min_vitamin_d, max_vitamin_d=max_vitamin_d, min_vitamin_e=min_vitamin_e, max_vitamin_e=max_vitamin_e, min_vitamin_k=min_vitamin_k, max_vitamin_k=max_vitamin_k, min_vitamin_b1=min_vitamin_b1, max_vitamin_b1=max_vitamin_b1, min_vitamin_b2=min_vitamin_b2, max_vitamin_b2=max_vitamin_b2, min_vitamin_b5=min_vitamin_b5, max_vitamin_b5=max_vitamin_b5, min_vitamin_b3=min_vitamin_b3, max_vitamin_b3=max_vitamin_b3, min_vitamin_b6=min_vitamin_b6, max_vitamin_b6=max_vitamin_b6, min_vitamin_b12=min_vitamin_b12, max_vitamin_b12=max_vitamin_b12, min_fiber=min_fiber, max_fiber=max_fiber, min_folate=min_folate, max_folate=max_folate, min_folic_acid=min_folic_acid, max_folic_acid=max_folic_acid, min_iodine=min_iodine, max_iodine=max_iodine, min_iron=min_iron, max_iron=max_iron, min_magnesium=min_magnesium, max_magnesium=max_magnesium, min_manganese=min_manganese, max_manganese=max_manganese, min_phosphorus=min_phosphorus, max_phosphorus=max_phosphorus, min_potassium=min_potassium, max_potassium=max_potassium, min_selenium=min_selenium, max_selenium=max_selenium, min_sodium=min_sodium, max_sodium=max_sodium, min_sugar=min_sugar, max_sugar=max_sugar, min_zinc=min_zinc, max_zinc=max_zinc, offset=offset, number=number)
         print("The response of RecipesApi->search_recipes:\n")
         pprint(api_response)
     except Exception as e:
@@ -2493,7 +2497,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
+ **query** | **str**| The (natural language) search query. | 
  **cuisine** | **str**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] 
  **exclude_cuisine** | **str**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] 
  **diet** | **str**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
@@ -2508,7 +2512,7 @@ Name | Type | Description  | Notes
  **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional] 
  **author** | **str**| The username of the recipe author. | [optional] 
  **tags** | **str**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] 
- **recipe_box_id** | **float**| The id of the recipe box to which the search should be limited to. | [optional] 
+ **recipe_box_id** | **int**| The id of the recipe box to which the search should be limited to. | [optional] 
  **title_match** | **str**| Enter text that must be found in the title of the recipes. | [optional] 
  **max_ready_time** | **float**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
  **min_servings** | **float**| The minimum amount of servings the recipe is for. | [optional] 
@@ -2616,7 +2620,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_recipes_by_ingredients**
-> List[SearchRecipesByIngredients200ResponseInner] search_recipes_by_ingredients(ingredients=ingredients, number=number, ranking=ranking, ignore_pantry=ignore_pantry)
+> List[SearchRecipesByIngredients200ResponseInner] search_recipes_by_ingredients(ingredients, number=number, ranking=ranking, ignore_pantry=ignore_pantry)
 
 Search Recipes by Ingredients
 
@@ -2653,14 +2657,14 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    ingredients = 'carrots,tomatoes' # str | A comma-separated list of ingredients that the recipes should contain. (optional)
+    ingredients = 'carrots,tomatoes' # str | A comma-separated list of ingredients that the recipes should contain.
     number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-    ranking = 1 # float | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+    ranking = 1 # int | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
     ignore_pantry = False # bool | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional) (default to False)
 
     try:
         # Search Recipes by Ingredients
-        api_response = api_instance.search_recipes_by_ingredients(ingredients=ingredients, number=number, ranking=ranking, ignore_pantry=ignore_pantry)
+        api_response = api_instance.search_recipes_by_ingredients(ingredients, number=number, ranking=ranking, ignore_pantry=ignore_pantry)
         print("The response of RecipesApi->search_recipes_by_ingredients:\n")
         pprint(api_response)
     except Exception as e:
@@ -2674,9 +2678,9 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredients** | **str**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
+ **ingredients** | **str**| A comma-separated list of ingredients that the recipes should contain. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **ranking** | **float**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
+ **ranking** | **int**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
  **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to False]
 
 ### Return type
@@ -2971,7 +2975,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 4632 # int | The recipe id.
 
     try:
         # Summarize Recipe
@@ -2989,7 +2993,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -3230,7 +3234,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 44860 # int | The recipe id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
 
     try:
@@ -3249,7 +3253,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
 
 ### Return type
@@ -3313,7 +3317,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1082038 # int | The recipe id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
     measure = 'metric' # str | Whether the the measures should be 'us' or 'metric'. (optional)
 
@@ -3333,7 +3337,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
  **measure** | **str**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
 
@@ -3487,7 +3491,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1082038 # int | The recipe id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
 
     try:
@@ -3506,7 +3510,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
 
 ### Return type
@@ -3570,7 +3574,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1082038 # int | The recipe id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
 
     try:
@@ -3589,7 +3593,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
 
 ### Return type
@@ -3740,7 +3744,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.RecipesApi(api_client)
-    id = 1 # int | The item's id.
+    id = 69095 # int | The recipe id.
     normalize = True # bool | Whether to normalize to the strongest taste. (optional) (default to True)
     rgb = '75,192,192' # str | Red, green, blue values for the chart color. (optional)
 
@@ -3760,7 +3764,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] [default to True]
  **rgb** | **str**| Red, green, blue values for the chart color. | [optional] 
 

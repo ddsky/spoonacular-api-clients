@@ -11,14 +11,14 @@ defmodule SpoonacularAPI.Model.GetRecipeNutritionWidgetById200ResponseGoodInner 
     :amount,
     :indented,
     :percentOfDailyNeeds,
-    :name
+    :title
   ]
 
   @type t :: %__MODULE__{
     :amount => String.t,
     :indented => boolean(),
     :percentOfDailyNeeds => float(),
-    :name => String.t
+    :title => String.t
   }
 
   def decode(value) do

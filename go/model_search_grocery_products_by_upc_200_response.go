@@ -27,11 +27,11 @@ type SearchGroceryProductsByUPC200Response struct {
 	Badges []string `json:"badges"`
 	ImportantBadges []string `json:"importantBadges"`
 	Breadcrumbs []string `json:"breadcrumbs"`
-	GeneratedText string `json:"generatedText"`
+	GeneratedText NullableString `json:"generatedText"`
 	ImageType string `json:"imageType"`
 	IngredientCount *int32 `json:"ingredientCount,omitempty"`
 	IngredientList string `json:"ingredientList"`
-	Ingredients []SearchGroceryProductsByUPC200ResponseIngredientsInner `json:"ingredients"`
+	Ingredients []IngredientBasics `json:"ingredients"`
 	Likes float32 `json:"likes"`
 	Nutrition SearchGroceryProductsByUPC200ResponseNutrition `json:"nutrition"`
 	Price float32 `json:"price"`
@@ -45,7 +45,7 @@ type _SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC200Respons
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchGroceryProductsByUPC200Response(id int32, title string, badges []string, importantBadges []string, breadcrumbs []string, generatedText string, imageType string, ingredientList string, ingredients []SearchGroceryProductsByUPC200ResponseIngredientsInner, likes float32, nutrition SearchGroceryProductsByUPC200ResponseNutrition, price float32, servings SearchGroceryProductsByUPC200ResponseServings, spoonacularScore float32) *SearchGroceryProductsByUPC200Response {
+func NewSearchGroceryProductsByUPC200Response(id int32, title string, badges []string, importantBadges []string, breadcrumbs []string, generatedText NullableString, imageType string, ingredientList string, ingredients []IngredientBasics, likes float32, nutrition SearchGroceryProductsByUPC200ResponseNutrition, price float32, servings SearchGroceryProductsByUPC200ResponseServings, spoonacularScore float32) *SearchGroceryProductsByUPC200Response {
 	this := SearchGroceryProductsByUPC200Response{}
 	this.Id = id
 	this.Title = title
@@ -193,27 +193,29 @@ func (o *SearchGroceryProductsByUPC200Response) SetBreadcrumbs(v []string) {
 }
 
 // GetGeneratedText returns the GeneratedText field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *SearchGroceryProductsByUPC200Response) GetGeneratedText() string {
-	if o == nil {
+	if o == nil || o.GeneratedText.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.GeneratedText
+	return *o.GeneratedText.Get()
 }
 
 // GetGeneratedTextOk returns a tuple with the GeneratedText field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchGroceryProductsByUPC200Response) GetGeneratedTextOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.GeneratedText, true
+	return o.GeneratedText.Get(), o.GeneratedText.IsSet()
 }
 
 // SetGeneratedText sets field value
 func (o *SearchGroceryProductsByUPC200Response) SetGeneratedText(v string) {
-	o.GeneratedText = v
+	o.GeneratedText.Set(&v)
 }
 
 // GetImageType returns the ImageType field value
@@ -297,9 +299,9 @@ func (o *SearchGroceryProductsByUPC200Response) SetIngredientList(v string) {
 }
 
 // GetIngredients returns the Ingredients field value
-func (o *SearchGroceryProductsByUPC200Response) GetIngredients() []SearchGroceryProductsByUPC200ResponseIngredientsInner {
+func (o *SearchGroceryProductsByUPC200Response) GetIngredients() []IngredientBasics {
 	if o == nil {
-		var ret []SearchGroceryProductsByUPC200ResponseIngredientsInner
+		var ret []IngredientBasics
 		return ret
 	}
 
@@ -308,7 +310,7 @@ func (o *SearchGroceryProductsByUPC200Response) GetIngredients() []SearchGrocery
 
 // GetIngredientsOk returns a tuple with the Ingredients field value
 // and a boolean to check if the value has been set.
-func (o *SearchGroceryProductsByUPC200Response) GetIngredientsOk() ([]SearchGroceryProductsByUPC200ResponseIngredientsInner, bool) {
+func (o *SearchGroceryProductsByUPC200Response) GetIngredientsOk() ([]IngredientBasics, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -316,7 +318,7 @@ func (o *SearchGroceryProductsByUPC200Response) GetIngredientsOk() ([]SearchGroc
 }
 
 // SetIngredients sets field value
-func (o *SearchGroceryProductsByUPC200Response) SetIngredients(v []SearchGroceryProductsByUPC200ResponseIngredientsInner) {
+func (o *SearchGroceryProductsByUPC200Response) SetIngredients(v []IngredientBasics) {
 	o.Ingredients = v
 }
 
@@ -455,7 +457,7 @@ func (o SearchGroceryProductsByUPC200Response) ToMap() (map[string]interface{}, 
 	toSerialize["badges"] = o.Badges
 	toSerialize["importantBadges"] = o.ImportantBadges
 	toSerialize["breadcrumbs"] = o.Breadcrumbs
-	toSerialize["generatedText"] = o.GeneratedText
+	toSerialize["generatedText"] = o.GeneratedText.Get()
 	toSerialize["imageType"] = o.ImageType
 	if !IsNil(o.IngredientCount) {
 		toSerialize["ingredientCount"] = o.IngredientCount

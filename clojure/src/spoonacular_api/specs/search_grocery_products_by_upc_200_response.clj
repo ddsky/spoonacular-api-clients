@@ -1,7 +1,7 @@
 (ns spoonacular-api.specs.search-grocery-products-by-upc-200-response
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [spoonacular-api.specs.search-grocery-products-by-upc-200-response-ingredients-inner :refer :all]
+            [spoonacular-api.specs.ingredient-basics :refer :all]
             [spoonacular-api.specs.search-grocery-products-by-upc-200-response-nutrition :refer :all]
             [spoonacular-api.specs.search-grocery-products-by-upc-200-response-servings :refer :all]
             )
@@ -19,7 +19,7 @@
    (ds/req :imageType) string?
    (ds/opt :ingredientCount) int?
    (ds/req :ingredientList) string?
-   (ds/req :ingredients) (s/coll-of search-grocery-products-by-upc-200-response-ingredients-inner-spec)
+   (ds/req :ingredients) (s/coll-of ingredient-basics-spec)
    (ds/req :likes) float?
    (ds/req :nutrition) search-grocery-products-by-upc-200-response-nutrition-spec
    (ds/req :price) float?

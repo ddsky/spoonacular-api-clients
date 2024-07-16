@@ -93,10 +93,10 @@ QJsonObject OAIAnalyzeRecipeInstructions_200_response_parsedInstructions_inner_s
     return obj;
 }
 
-double OAIAnalyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner::getId() const {
+qint32 OAIAnalyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner::getId() const {
     return m_id;
 }
-void OAIAnalyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner::setId(const double &id) {
+void OAIAnalyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner::setId(const qint32 &id) {
     m_id = id;
     m_id_isSet = true;
 }

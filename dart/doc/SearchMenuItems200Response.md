@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**menuItems** | [**Set<SearchMenuItems200ResponseMenuItemsInner>**](SearchMenuItems200ResponseMenuItemsInner.md) |  | [default to const {}]
+**menuItems** | [**Set<MenuItem>**](MenuItem.md) |  | [default to const {}]
 **totalMenuItems** | **int** |  | 
 **type** | **String** |  | 
 **offset** | **int** |  | 

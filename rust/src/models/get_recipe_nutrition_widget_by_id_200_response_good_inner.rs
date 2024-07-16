@@ -19,17 +19,17 @@ pub struct GetRecipeNutritionWidgetById200ResponseGoodInner {
     pub indented: bool,
     #[serde(rename = "percentOfDailyNeeds")]
     pub percent_of_daily_needs: f64,
-    #[serde(rename = "name")]
-    pub name: String,
+    #[serde(rename = "title")]
+    pub title: String,
 }
 
 impl GetRecipeNutritionWidgetById200ResponseGoodInner {
-    pub fn new(amount: String, indented: bool, percent_of_daily_needs: f64, name: String) -> GetRecipeNutritionWidgetById200ResponseGoodInner {
+    pub fn new(amount: String, indented: bool, percent_of_daily_needs: f64, title: String) -> GetRecipeNutritionWidgetById200ResponseGoodInner {
         GetRecipeNutritionWidgetById200ResponseGoodInner {
             amount,
             indented,
             percent_of_daily_needs,
-            name,
+            title,
         }
     }
 }

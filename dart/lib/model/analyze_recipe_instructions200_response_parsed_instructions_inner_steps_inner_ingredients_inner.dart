@@ -19,7 +19,7 @@ class AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
     required this.image,
   });
 
-  num id;
+  int id;
 
   String name;
 
@@ -73,7 +73,7 @@ class AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
       }());
 
       return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(
-        id: num.parse('${json[r'id']}'),
+        id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
         localizedName: mapValueOfType<String>(json, r'localizedName')!,
         image: mapValueOfType<String>(json, r'image')!,

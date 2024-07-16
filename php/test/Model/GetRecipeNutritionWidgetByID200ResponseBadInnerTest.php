@@ -81,9 +81,9 @@ class GetRecipeNutritionWidgetByID200ResponseBadInnerTest extends TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "title"
      */
-    public function testPropertyName()
+    public function testPropertyTitle()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

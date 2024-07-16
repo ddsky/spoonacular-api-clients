@@ -46,7 +46,7 @@ namespace spoonacular.Model
         /// <param name="protein">protein (required).</param>
         /// <param name="spoonacularScore">spoonacularScore (required).</param>
         /// <param name="sugar">sugar (required).</param>
-        public GetComparableProducts200ResponseComparableProducts(List<Object> calories = default(List<Object>), List<Object> likes = default(List<Object>), List<Object> price = default(List<Object>), List<GetComparableProducts200ResponseComparableProductsProteinInner> protein = default(List<GetComparableProducts200ResponseComparableProductsProteinInner>), List<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore = default(List<GetComparableProducts200ResponseComparableProductsProteinInner>), List<Object> sugar = default(List<Object>))
+        public GetComparableProducts200ResponseComparableProducts(List<ComparableProduct> calories = default(List<ComparableProduct>), List<ComparableProduct> likes = default(List<ComparableProduct>), List<ComparableProduct> price = default(List<ComparableProduct>), List<ComparableProduct> protein = default(List<ComparableProduct>), List<ComparableProduct> spoonacularScore = default(List<ComparableProduct>), List<ComparableProduct> sugar = default(List<ComparableProduct>))
         {
             // to ensure "calories" is required (not null)
             if (calories == null)
@@ -90,37 +90,37 @@ namespace spoonacular.Model
         /// Gets or Sets Calories
         /// </summary>
         [DataMember(Name = "calories", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> Calories { get; set; }
+        public List<ComparableProduct> Calories { get; set; }
 
         /// <summary>
         /// Gets or Sets Likes
         /// </summary>
         [DataMember(Name = "likes", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> Likes { get; set; }
+        public List<ComparableProduct> Likes { get; set; }
 
         /// <summary>
         /// Gets or Sets Price
         /// </summary>
         [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> Price { get; set; }
+        public List<ComparableProduct> Price { get; set; }
 
         /// <summary>
         /// Gets or Sets Protein
         /// </summary>
         [DataMember(Name = "protein", IsRequired = true, EmitDefaultValue = true)]
-        public List<GetComparableProducts200ResponseComparableProductsProteinInner> Protein { get; set; }
+        public List<ComparableProduct> Protein { get; set; }
 
         /// <summary>
         /// Gets or Sets SpoonacularScore
         /// </summary>
-        [DataMember(Name = "spoonacularScore", IsRequired = true, EmitDefaultValue = true)]
-        public List<GetComparableProducts200ResponseComparableProductsProteinInner> SpoonacularScore { get; set; }
+        [DataMember(Name = "spoonacular_score", IsRequired = true, EmitDefaultValue = true)]
+        public List<ComparableProduct> SpoonacularScore { get; set; }
 
         /// <summary>
         /// Gets or Sets Sugar
         /// </summary>
         [DataMember(Name = "sugar", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> Sugar { get; set; }
+        public List<ComparableProduct> Sugar { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

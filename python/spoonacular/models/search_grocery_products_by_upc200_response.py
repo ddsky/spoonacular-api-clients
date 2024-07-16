@@ -20,8 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from typing_extensions import Annotated
-from spoonacular.models.search_grocery_products_by_upc200_response_ingredients_inner import SearchGroceryProductsByUPC200ResponseIngredientsInner
+from spoonacular.models.ingredient_basics import IngredientBasics
 from spoonacular.models.search_grocery_products_by_upc200_response_nutrition import SearchGroceryProductsByUPC200ResponseNutrition
 from spoonacular.models.search_grocery_products_by_upc200_response_servings import SearchGroceryProductsByUPC200ResponseServings
 from typing import Optional, Set
@@ -32,15 +31,15 @@ class SearchGroceryProductsByUPC200Response(BaseModel):
     
     """ # noqa: E501
     id: StrictInt
-    title: Annotated[str, Field(min_length=1, strict=True)]
+    title: StrictStr
     badges: List[StrictStr]
     important_badges: List[StrictStr] = Field(alias="importantBadges")
     breadcrumbs: List[StrictStr]
-    generated_text: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="generatedText")
-    image_type: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="imageType")
+    generated_text: Optional[StrictStr] = Field(alias="generatedText")
+    image_type: StrictStr = Field(alias="imageType")
     ingredient_count: Optional[StrictInt] = Field(default=None, alias="ingredientCount")
-    ingredient_list: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="ingredientList")
-    ingredients: Annotated[List[SearchGroceryProductsByUPC200ResponseIngredientsInner], Field(min_length=0)]
+    ingredient_list: StrictStr = Field(alias="ingredientList")
+    ingredients: List[IngredientBasics]
     likes: Union[StrictFloat, StrictInt]
     nutrition: SearchGroceryProductsByUPC200ResponseNutrition
     price: Union[StrictFloat, StrictInt]
@@ -100,6 +99,11 @@ class SearchGroceryProductsByUPC200Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of servings
         if self.servings:
             _dict['servings'] = self.servings.to_dict()
+        # set to None if generated_text (nullable) is None
+        # and model_fields_set contains the field
+        if self.generated_text is None and "generated_text" in self.model_fields_set:
+            _dict['generatedText'] = None
+
         return _dict
 
     @classmethod
@@ -121,7 +125,7 @@ class SearchGroceryProductsByUPC200Response(BaseModel):
             "imageType": obj.get("imageType"),
             "ingredientCount": obj.get("ingredientCount"),
             "ingredientList": obj.get("ingredientList"),
-            "ingredients": [SearchGroceryProductsByUPC200ResponseIngredientsInner.from_dict(_item) for _item in obj["ingredients"]] if obj.get("ingredients") is not None else None,
+            "ingredients": [IngredientBasics.from_dict(_item) for _item in obj["ingredients"]] if obj.get("ingredients") is not None else None,
             "likes": obj.get("likes"),
             "nutrition": SearchGroceryProductsByUPC200ResponseNutrition.from_dict(obj["nutrition"]) if obj.get("nutrition") is not None else None,
             "price": obj.get("price"),

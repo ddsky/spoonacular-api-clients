@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -54,7 +53,7 @@ import com.spoonacular.client.JSON;
 public class AnalyzeRecipeInstructions200ResponseIngredientsInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  private BigDecimal id;
+  private Integer id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -63,7 +62,7 @@ public class AnalyzeRecipeInstructions200ResponseIngredientsInner {
   public AnalyzeRecipeInstructions200ResponseIngredientsInner() {
   }
 
-  public AnalyzeRecipeInstructions200ResponseIngredientsInner id(BigDecimal id) {
+  public AnalyzeRecipeInstructions200ResponseIngredientsInner id(Integer id) {
     this.id = id;
     return this;
   }
@@ -73,11 +72,11 @@ public class AnalyzeRecipeInstructions200ResponseIngredientsInner {
    * @return id
    */
   @javax.annotation.Nonnull
-  public BigDecimal getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(BigDecimal id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

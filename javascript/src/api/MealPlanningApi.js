@@ -19,7 +19,6 @@ import AddToShoppingListRequest from '../model/AddToShoppingListRequest';
 import ConnectUser200Response from '../model/ConnectUser200Response';
 import ConnectUserRequest from '../model/ConnectUserRequest';
 import GenerateMealPlan200Response from '../model/GenerateMealPlan200Response';
-import GenerateShoppingList200Response from '../model/GenerateShoppingList200Response';
 import GetMealPlanTemplate200Response from '../model/GetMealPlanTemplate200Response';
 import GetMealPlanTemplates200Response from '../model/GetMealPlanTemplates200Response';
 import GetMealPlanWeek200Response from '../model/GetMealPlanWeek200Response';
@@ -151,7 +150,7 @@ export default class MealPlanningApi {
      * Callback function to receive the result of the addToShoppingList operation.
      * @callback module:api/MealPlanningApi~addToShoppingListCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GenerateShoppingList200Response} data The data returned by the service call.
+     * @param {module:model/GetShoppingList200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -162,7 +161,7 @@ export default class MealPlanningApi {
      * @param {String} hash The private hash for the username.
      * @param {module:model/AddToShoppingListRequest} addToShoppingListRequest 
      * @param {module:api/MealPlanningApi~addToShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GenerateShoppingList200Response}
+     * data is of type: {@link module:model/GetShoppingList200Response}
      */
     addToShoppingList(username, hash, addToShoppingListRequest, callback) {
       let postBody = addToShoppingListRequest;
@@ -193,7 +192,7 @@ export default class MealPlanningApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = GenerateShoppingList200Response;
+      let returnType = GetShoppingList200Response;
       return this.apiClient.callApi(
         '/mealplanner/{username}/shopping-list/items', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -365,7 +364,7 @@ export default class MealPlanningApi {
      * Delete from Shopping List
      * Delete an item from the current shopping list of the user.
      * @param {String} username The username.
-     * @param {Number} id The item's id.
+     * @param {Number} id The shopping list item id.
      * @param {String} hash The private hash for the username.
      * @param {module:api/MealPlanningApi~deleteFromShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -420,7 +419,7 @@ export default class MealPlanningApi {
      * Delete Meal Plan Template
      * Delete a meal plan template for a user.
      * @param {String} username The username.
-     * @param {Number} id The item's id.
+     * @param {Number} id The shopping list item id.
      * @param {String} hash The private hash for the username.
      * @param {module:api/MealPlanningApi~deleteMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -514,7 +513,7 @@ export default class MealPlanningApi {
      * Callback function to receive the result of the generateShoppingList operation.
      * @callback module:api/MealPlanningApi~generateShoppingListCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GenerateShoppingList200Response} data The data returned by the service call.
+     * @param {module:model/GetShoppingList200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -526,7 +525,7 @@ export default class MealPlanningApi {
      * @param {String} endDate The end date in the format yyyy-mm-dd.
      * @param {String} hash The private hash for the username.
      * @param {module:api/MealPlanningApi~generateShoppingListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GenerateShoppingList200Response}
+     * data is of type: {@link module:model/GetShoppingList200Response}
      */
     generateShoppingList(username, startDate, endDate, hash, callback) {
       let postBody = null;
@@ -563,7 +562,7 @@ export default class MealPlanningApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GenerateShoppingList200Response;
+      let returnType = GetShoppingList200Response;
       return this.apiClient.callApi(
         '/mealplanner/{username}/shopping-list/{start_date}/{end_date}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -583,7 +582,7 @@ export default class MealPlanningApi {
      * Get Meal Plan Template
      * Get information about a meal plan template.
      * @param {String} username The username.
-     * @param {Number} id The item's id.
+     * @param {Number} id The shopping list item id.
      * @param {String} hash The private hash for the username.
      * @param {module:api/MealPlanningApi~getMealPlanTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetMealPlanTemplate200Response}

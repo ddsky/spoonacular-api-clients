@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## getRandomFoodTrivia
 
-> GetRandomFoodTrivia200Response getRandomFoodTrivia()
+> GetARandomFoodJoke200Response getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -206,7 +206,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ## searchCustomFoods
 
-> SearchCustomFoods200Response searchCustomFoods(username, hash, opts)
+> SearchCustomFoods200Response searchCustomFoods(query, username, hash, opts)
 
 Search Custom Foods
 
@@ -397,14 +397,14 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
+let query = "burger"; // String | The (natural language) search query.
 let username = "dsky"; // String | The username.
 let hash = "4b5v4398573406"; // String | The private hash for the username.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
-apiInstance.searchCustomFoods(username, hash, opts, (error, data, response) => {
+apiInstance.searchCustomFoods(query, username, hash, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -418,9 +418,9 @@ apiInstance.searchCustomFoods(username, hash, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | **String**| The (natural language) search query. | 
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **query** | **String**| The (natural language) search query. | [optional] 
  **offset** | **Number**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ## searchFoodVideos
 
-> SearchFoodVideos200Response searchFoodVideos(opts)
+> SearchFoodVideos200Response searchFoodVideos(query, opts)
 
 Search Food Videos
 
@@ -458,8 +458,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MiscApi();
+let query = "burger"; // String | The (natural language) search query.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'type': "main course", // String | The type of the recipes. See a full list of supported meal types.
   'cuisine': "italian", // String | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
   'diet': "vegetarian", // String | The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -470,7 +470,7 @@ let opts = {
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
-apiInstance.searchFoodVideos(opts, (error, data, response) => {
+apiInstance.searchFoodVideos(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -484,7 +484,7 @@ apiInstance.searchFoodVideos(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **type** | **String**| The type of the recipes. See a full list of supported meal types. | [optional] 
  **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] 
  **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 

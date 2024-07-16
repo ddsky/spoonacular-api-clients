@@ -50,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] [default to null]
+ **query** | **String**| The (natural language) search query. | [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **metaInformation** | **Boolean**| Whether to return more meta information about the ingredients. | [optional] [default to null]
  **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] [default to null]
@@ -85,9 +85,9 @@ Compute the amount you need of a certain ingredient for a certain nutritional go
 //import com.spoonacular.IngredientsApi;
 
 IngredientsApi apiInstance = new IngredientsApi();
-BigDecimal id = 9266; // BigDecimal | The id of the ingredient you want the amount for.
+Integer id = 9266; // Integer | The id of the ingredient you want the amount for.
 String nutrient = protein; // String | The target nutrient. See a list of supported nutrients.
-BigDecimal target = 2; // BigDecimal | The target number of the given nutrient.
+Integer target = 2; // Integer | The target number of the given nutrient.
 String unit = oz; // String | The target unit.
 try {
     ComputeIngredientAmount200Response result = apiInstance.computeIngredientAmount(id, nutrient, target, unit);
@@ -103,9 +103,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The id of the ingredient you want the amount for. | [default to null]
+ **id** | **Integer**| The id of the ingredient you want the amount for. | [default to null]
  **nutrient** | **String**| The target nutrient. See a list of supported nutrients. | [default to null]
- **target** | **BigDecimal**| The target number of the given nutrient. | [default to null]
+ **target** | **Integer**| The target number of the given nutrient. | [default to null]
  **unit** | **String**| The target unit. | [optional] [default to null]
 
 ### Return type
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientInformation
 
-> GetIngredientInformation200Response getIngredientInformation(id, amount, unit)
+> IngredientInformation getIngredientInformation(id, amount, unit)
 
 Get Ingredient Information
 
@@ -137,11 +137,11 @@ Use an ingredient id to get all available information about an ingredient, such 
 //import com.spoonacular.IngredientsApi;
 
 IngredientsApi apiInstance = new IngredientsApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 9266; // Integer | The ingredient id.
 BigDecimal amount = 150; // BigDecimal | The amount of this ingredient.
 String unit = grams; // String | The unit for the given amount.
 try {
-    GetIngredientInformation200Response result = apiInstance.getIngredientInformation(id, amount, unit);
+    IngredientInformation result = apiInstance.getIngredientInformation(id, amount, unit);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling IngredientsApi#getIngredientInformation");
@@ -154,13 +154,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The ingredient id. | [default to null]
  **amount** | **BigDecimal**| The amount of this ingredient. | [optional] [default to null]
  **unit** | **String**| The unit for the given amount. | [optional] [default to null]
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Search for substitutes for a given ingredient.
 //import com.spoonacular.IngredientsApi;
 
 IngredientsApi apiInstance = new IngredientsApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1001; // Integer | The id of the ingredient you want substitutes for.
 try {
     GetIngredientSubstitutes200Response result = apiInstance.getIngredientSubstitutesByID(id);
     System.out.println(result);
@@ -248,7 +248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The id of the ingredient you want substitutes for. | [default to null]
 
 ### Return type
 
@@ -308,7 +308,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] [default to null]
+ **query** | **String**| The (natural language) search query. | [default to null]
  **addChildren** | **Boolean**| Whether to add children of found foods. | [optional] [default to null]
  **minProteinPercent** | **BigDecimal**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] [default to null]
  **maxProteinPercent** | **BigDecimal**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] [default to null]
@@ -353,7 +353,7 @@ Visualize a recipe&#39;s ingredient list.
 //import com.spoonacular.IngredientsApi;
 
 IngredientsApi apiInstance = new IngredientsApi();
-BigDecimal id = 1082038; // BigDecimal | The recipe id.
+Integer id = 1082038; // Integer | The recipe id.
 String measure = metric; // String | Whether the the measures should be 'us' or 'metric'.
 try {
     File result = apiInstance.ingredientsByIDImage(id, measure);
@@ -369,7 +369,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **measure** | **String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [default to null] [enum: us, metric]
 
 ### Return type

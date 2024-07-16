@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calories** | **[Object]** |  | 
-**likes** | **[Object]** |  | 
-**price** | **[Object]** |  | 
-**protein** | [**[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**spoonacularScore** | [**[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**sugar** | **[Object]** |  | 
+**calories** | [**[ComparableProduct]**](ComparableProduct.md) |  | 
+**likes** | [**[ComparableProduct]**](ComparableProduct.md) |  | 
+**price** | [**[ComparableProduct]**](ComparableProduct.md) |  | 
+**protein** | [**[ComparableProduct]**](ComparableProduct.md) |  | 
+**spoonacularScore** | [**[ComparableProduct]**](ComparableProduct.md) |  | 
+**sugar** | [**[ComparableProduct]**](ComparableProduct.md) |  | 
 
 

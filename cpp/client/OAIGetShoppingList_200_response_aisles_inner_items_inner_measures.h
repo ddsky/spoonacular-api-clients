@@ -21,13 +21,13 @@
 
 #include <QJsonObject>
 
-#include "OAIParseIngredients_200_response_inner_nutrition_weightPerServing.h"
+#include "OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIParseIngredients_200_response_inner_nutrition_weightPerServing;
+class OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original;
 
 class OAIGetShoppingList_200_response_aisles_inner_items_inner_measures : public OAIObject {
 public:
@@ -40,18 +40,18 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIParseIngredients_200_response_inner_nutrition_weightPerServing getOriginal() const;
-    void setOriginal(const OAIParseIngredients_200_response_inner_nutrition_weightPerServing &original);
+    OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original getOriginal() const;
+    void setOriginal(const OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original &original);
     bool is_original_Set() const;
     bool is_original_Valid() const;
 
-    OAIParseIngredients_200_response_inner_nutrition_weightPerServing getMetric() const;
-    void setMetric(const OAIParseIngredients_200_response_inner_nutrition_weightPerServing &metric);
+    OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original getMetric() const;
+    void setMetric(const OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original &metric);
     bool is_metric_Set() const;
     bool is_metric_Valid() const;
 
-    OAIParseIngredients_200_response_inner_nutrition_weightPerServing getUs() const;
-    void setUs(const OAIParseIngredients_200_response_inner_nutrition_weightPerServing &us);
+    OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original getUs() const;
+    void setUs(const OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original &us);
     bool is_us_Set() const;
     bool is_us_Valid() const;
 
@@ -61,15 +61,15 @@ public:
 private:
     void initializeModel();
 
-    OAIParseIngredients_200_response_inner_nutrition_weightPerServing m_original;
+    OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original m_original;
     bool m_original_isSet;
     bool m_original_isValid;
 
-    OAIParseIngredients_200_response_inner_nutrition_weightPerServing m_metric;
+    OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original m_metric;
     bool m_metric_isSet;
     bool m_metric_isValid;
 
-    OAIParseIngredients_200_response_inner_nutrition_weightPerServing m_us;
+    OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original m_us;
     bool m_us_isSet;
     bool m_us_isValid;
 };

@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAISearchSiteContent_200_response_Articles_inner.h"
-#include <QSet>
+#include "OAISearchResult.h"
+#include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAISearchSiteContent_200_response_Articles_inner;
+class OAISearchResult;
 
 class OAISearchSiteContent_200_response : public OAIObject {
 public:
@@ -41,23 +41,23 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> getArticles() const;
-    void setArticles(const QSet<OAISearchSiteContent_200_response_Articles_inner> &articles);
+    QList<OAISearchResult> getArticles() const;
+    void setArticles(const QList<OAISearchResult> &articles);
     bool is_articles_Set() const;
     bool is_articles_Valid() const;
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> getGroceryProducts() const;
-    void setGroceryProducts(const QSet<OAISearchSiteContent_200_response_Articles_inner> &grocery_products);
+    QList<OAISearchResult> getGroceryProducts() const;
+    void setGroceryProducts(const QList<OAISearchResult> &grocery_products);
     bool is_grocery_products_Set() const;
     bool is_grocery_products_Valid() const;
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> getMenuItems() const;
-    void setMenuItems(const QSet<OAISearchSiteContent_200_response_Articles_inner> &menu_items);
+    QList<OAISearchResult> getMenuItems() const;
+    void setMenuItems(const QList<OAISearchResult> &menu_items);
     bool is_menu_items_Set() const;
     bool is_menu_items_Valid() const;
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> getRecipes() const;
-    void setRecipes(const QSet<OAISearchSiteContent_200_response_Articles_inner> &recipes);
+    QList<OAISearchResult> getRecipes() const;
+    void setRecipes(const QList<OAISearchResult> &recipes);
     bool is_recipes_Set() const;
     bool is_recipes_Valid() const;
 
@@ -67,19 +67,19 @@ public:
 private:
     void initializeModel();
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> m_articles;
+    QList<OAISearchResult> m_articles;
     bool m_articles_isSet;
     bool m_articles_isValid;
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> m_grocery_products;
+    QList<OAISearchResult> m_grocery_products;
     bool m_grocery_products_isSet;
     bool m_grocery_products_isValid;
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> m_menu_items;
+    QList<OAISearchResult> m_menu_items;
     bool m_menu_items_isSet;
     bool m_menu_items_isValid;
 
-    QSet<OAISearchSiteContent_200_response_Articles_inner> m_recipes;
+    QList<OAISearchResult> m_recipes;
     bool m_recipes_isSet;
     bool m_recipes_isValid;
 };

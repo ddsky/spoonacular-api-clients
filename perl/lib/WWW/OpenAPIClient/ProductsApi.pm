@@ -281,11 +281,11 @@ sub classify_grocery_product_bulk {
 #
 # Get Comparable Products
 #
-# @param double $upc The UPC of the product for which you want to find comparable products. (required)
+# @param string $upc The UPC of the product for which you want to find comparable products. (required)
 {
     my $params = {
     'upc' => {
-        data_type => 'double',
+        data_type => 'string',
         description => 'The UPC of the product for which you want to find comparable products.',
         required => '1',
     },
@@ -348,22 +348,22 @@ sub get_comparable_products {
 #
 # Get Product Information
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The id of the packaged food. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The id of the packaged food.',
         required => '1',
     },
     };
     __PACKAGE__->method_documentation->{ 'get_product_information' } = {
         summary => 'Get Product Information',
         params => $params,
-        returns => 'GetProductInformation200Response',
+        returns => 'ProductInformation',
         };
 }
-# @return GetProductInformation200Response
+# @return ProductInformation
 #
 sub get_product_information {
     my ($self, %args) = @_;
@@ -406,7 +406,7 @@ sub get_product_information {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetProductInformation200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('ProductInformation', $response);
     return $_response_object;
 }
 
@@ -415,11 +415,11 @@ sub get_product_information {
 #
 # Product Nutrition by ID Image
 #
-# @param double $id The id of the product. (required)
+# @param int $id The id of the product. (required)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The id of the product.',
         required => '1',
     },
@@ -482,14 +482,14 @@ sub product_nutrition_by_id_image {
 #
 # Product Nutrition Label Image
 #
-# @param double $id The product id. (required)
+# @param int $id The product id. (required)
 # @param boolean $show_optional_nutrients Whether to show optional nutrients. (optional)
 # @param boolean $show_zero_values Whether to show zero values. (optional)
 # @param boolean $show_ingredients Whether to show a list of ingredients. (optional)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The product id.',
         required => '1',
     },
@@ -582,7 +582,7 @@ sub product_nutrition_label_image {
 #
 # Product Nutrition Label Widget
 #
-# @param double $id The product id. (required)
+# @param int $id The product id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 # @param boolean $show_optional_nutrients Whether to show optional nutrients. (optional)
 # @param boolean $show_zero_values Whether to show zero values. (optional)
@@ -590,7 +590,7 @@ sub product_nutrition_label_image {
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The product id.',
         required => '1',
     },
@@ -693,7 +693,7 @@ sub product_nutrition_label_widget {
 #
 # Search Grocery Products
 #
-# @param string $query The (natural language) search query. (optional)
+# @param string $query The (natural language) search query. (required)
 # @param double $min_calories The minimum amount of calories the product must have. (optional)
 # @param double $max_calories The maximum amount of calories the product can have. (optional)
 # @param double $min_carbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -710,7 +710,7 @@ sub product_nutrition_label_widget {
     'query' => {
         data_type => 'string',
         description => 'The (natural language) search query.',
-        required => '0',
+        required => '1',
     },
     'min_calories' => {
         data_type => 'double',
@@ -778,6 +778,11 @@ sub product_nutrition_label_widget {
 #
 sub search_grocery_products {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling search_grocery_products");
+    }
 
     # parse inputs
     my $_resource_path = '/food/products/search';
@@ -874,11 +879,11 @@ sub search_grocery_products {
 #
 # Search Grocery Products by UPC
 #
-# @param double $upc The product&#39;s UPC. (required)
+# @param string $upc The product&#39;s UPC. (required)
 {
     my $params = {
     'upc' => {
-        data_type => 'double',
+        data_type => 'string',
         description => 'The product&#39;s UPC.',
         required => '1',
     },
@@ -941,13 +946,13 @@ sub search_grocery_products_by_upc {
 #
 # Product Nutrition by ID Widget
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The id of the product. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The id of the product.',
         required => '1',
     },
     'default_css' => {

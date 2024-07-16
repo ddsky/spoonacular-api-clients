@@ -859,7 +859,7 @@ class MealPlanningApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GenerateShoppingList200Response
+     * @return \OpenAPI\Client\Model\GetShoppingList200Response
      */
     public function addToShoppingList($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
@@ -879,7 +879,7 @@ class MealPlanningApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GenerateShoppingList200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetShoppingList200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function addToShoppingListWithHttpInfo($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
@@ -922,11 +922,11 @@ class MealPlanningApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GenerateShoppingList200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetShoppingList200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GenerateShoppingList200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetShoppingList200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -944,13 +944,13 @@ class MealPlanningApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GenerateShoppingList200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetShoppingList200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GenerateShoppingList200Response';
+            $returnType = '\OpenAPI\Client\Model\GetShoppingList200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -983,7 +983,7 @@ class MealPlanningApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GenerateShoppingList200Response',
+                        '\OpenAPI\Client\Model\GetShoppingList200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1031,7 +1031,7 @@ class MealPlanningApi
      */
     public function addToShoppingListAsyncWithHttpInfo($username, $hash, $add_to_shopping_list_request, string $contentType = self::contentTypes['addToShoppingList'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GenerateShoppingList200Response';
+        $returnType = '\OpenAPI\Client\Model\GetShoppingList200Response';
         $request = $this->addToShoppingListRequest($username, $hash, $add_to_shopping_list_request, $contentType);
 
         return $this->client
@@ -1869,7 +1869,7 @@ class MealPlanningApi
      * Delete from Meal Plan
      *
      * @param  string $username The username. (required)
-     * @param  float $id The shopping list item id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
@@ -1889,7 +1889,7 @@ class MealPlanningApi
      * Delete from Meal Plan
      *
      * @param  string $username The username. (required)
-     * @param  float $id The shopping list item id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
@@ -2015,7 +2015,7 @@ class MealPlanningApi
      * Delete from Meal Plan
      *
      * @param  string $username The username. (required)
-     * @param  float $id The shopping list item id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
@@ -2038,7 +2038,7 @@ class MealPlanningApi
      * Delete from Meal Plan
      *
      * @param  string $username The username. (required)
-     * @param  float $id The shopping list item id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
@@ -2090,7 +2090,7 @@ class MealPlanningApi
      * Create request for operation 'deleteFromMealPlan'
      *
      * @param  string $username The username. (required)
-     * @param  float $id The shopping list item id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromMealPlan'] to see the possible values for this operation
      *
@@ -2222,7 +2222,7 @@ class MealPlanningApi
      * Delete from Shopping List
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
@@ -2242,7 +2242,7 @@ class MealPlanningApi
      * Delete from Shopping List
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
@@ -2368,7 +2368,7 @@ class MealPlanningApi
      * Delete from Shopping List
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
@@ -2391,7 +2391,7 @@ class MealPlanningApi
      * Delete from Shopping List
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
@@ -2443,7 +2443,7 @@ class MealPlanningApi
      * Create request for operation 'deleteFromShoppingList'
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFromShoppingList'] to see the possible values for this operation
      *
@@ -2575,7 +2575,7 @@ class MealPlanningApi
      * Delete Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
@@ -2595,7 +2595,7 @@ class MealPlanningApi
      * Delete Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
@@ -2721,7 +2721,7 @@ class MealPlanningApi
      * Delete Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
@@ -2744,7 +2744,7 @@ class MealPlanningApi
      * Delete Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
@@ -2796,7 +2796,7 @@ class MealPlanningApi
      * Create request for operation 'deleteMealPlanTemplate'
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMealPlanTemplate'] to see the possible values for this operation
      *
@@ -3287,7 +3287,7 @@ class MealPlanningApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GenerateShoppingList200Response
+     * @return \OpenAPI\Client\Model\GetShoppingList200Response
      */
     public function generateShoppingList($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
@@ -3308,7 +3308,7 @@ class MealPlanningApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GenerateShoppingList200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetShoppingList200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateShoppingListWithHttpInfo($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
@@ -3351,11 +3351,11 @@ class MealPlanningApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GenerateShoppingList200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetShoppingList200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GenerateShoppingList200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetShoppingList200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3373,13 +3373,13 @@ class MealPlanningApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GenerateShoppingList200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetShoppingList200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GenerateShoppingList200Response';
+            $returnType = '\OpenAPI\Client\Model\GetShoppingList200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3412,7 +3412,7 @@ class MealPlanningApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GenerateShoppingList200Response',
+                        '\OpenAPI\Client\Model\GetShoppingList200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3462,7 +3462,7 @@ class MealPlanningApi
      */
     public function generateShoppingListAsyncWithHttpInfo($username, $start_date, $end_date, $hash, string $contentType = self::contentTypes['generateShoppingList'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GenerateShoppingList200Response';
+        $returnType = '\OpenAPI\Client\Model\GetShoppingList200Response';
         $request = $this->generateShoppingListRequest($username, $start_date, $end_date, $hash, $contentType);
 
         return $this->client
@@ -3653,7 +3653,7 @@ class MealPlanningApi
      * Get Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMealPlanTemplate'] to see the possible values for this operation
      *
@@ -3673,7 +3673,7 @@ class MealPlanningApi
      * Get Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMealPlanTemplate'] to see the possible values for this operation
      *
@@ -3799,7 +3799,7 @@ class MealPlanningApi
      * Get Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMealPlanTemplate'] to see the possible values for this operation
      *
@@ -3822,7 +3822,7 @@ class MealPlanningApi
      * Get Meal Plan Template
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMealPlanTemplate'] to see the possible values for this operation
      *
@@ -3874,7 +3874,7 @@ class MealPlanningApi
      * Create request for operation 'getMealPlanTemplate'
      *
      * @param  string $username The username. (required)
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The shopping list item id. (required)
      * @param  string $hash The private hash for the username. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMealPlanTemplate'] to see the possible values for this operation
      *

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MenuItems** | [**List&lt;SearchMenuItems200ResponseMenuItemsInner&gt;**](SearchMenuItems200ResponseMenuItemsInner.md) |  | 
+**MenuItems** | [**List&lt;MenuItem&gt;**](MenuItem.md) |  | 
 **TotalMenuItems** | **int** |  | 
 **Type** | **string** |  | 
 **Offset** | **int** |  | 

@@ -16,7 +16,7 @@ void main() {
   // final instance = AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
 
   group('test AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner', () {
-    // num id
+    // int id
     test('to test the property `id`', () async {
       // TODO
     });

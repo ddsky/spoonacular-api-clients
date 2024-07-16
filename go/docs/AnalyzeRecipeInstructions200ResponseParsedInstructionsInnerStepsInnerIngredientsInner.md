@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
+**Id** | **int32** |  | 
 **Name** | **string** |  | 
 **LocalizedName** | **string** |  | 
 **Image** | **string** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
 
-`func NewAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(id float32, name string, localizedName string, image string, ) *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner`
+`func NewAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(id int32, name string, localizedName string, image string, ) *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner`
 
 NewAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner instantiates a new AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetId() float32`
+`func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetIdOk() (*float32, bool)`
+`func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) SetId(v float32)`
+`func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) SetId(v int32)`
 
 SetId sets Id field to given value.
 

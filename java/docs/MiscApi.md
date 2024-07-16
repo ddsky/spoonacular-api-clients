@@ -233,7 +233,7 @@ public class Example {
 
 <a id="getRandomFoodTrivia"></a>
 # **getRandomFoodTrivia**
-> GetRandomFoodTrivia200Response getRandomFoodTrivia()
+> GetARandomFoodJoke200Response getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -262,7 +262,7 @@ public class Example {
 
     MiscApi apiInstance = new MiscApi(defaultClient);
     try {
-      GetRandomFoodTrivia200Response result = apiInstance.getRandomFoodTrivia();
+      GetARandomFoodJoke200Response result = apiInstance.getRandomFoodTrivia();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MiscApi#getRandomFoodTrivia");
@@ -280,7 +280,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -521,7 +521,7 @@ public class Example {
 
 <a id="searchCustomFoods"></a>
 # **searchCustomFoods**
-> SearchCustomFoods200Response searchCustomFoods(username, hash, query, offset, number)
+> SearchCustomFoods200Response searchCustomFoods(query, username, hash, offset, number)
 
 Search Custom Foods
 
@@ -549,13 +549,13 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MiscApi apiInstance = new MiscApi(defaultClient);
+    String query = "burger"; // String | The (natural language) search query.
     String username = "dsky"; // String | The username.
     String hash = "4b5v4398573406"; // String | The private hash for the username.
-    String query = "burger"; // String | The (natural language) search query.
     Integer offset = 56; // Integer | The number of results to skip (between 0 and 900).
     Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
     try {
-      SearchCustomFoods200Response result = apiInstance.searchCustomFoods(username, hash, query, offset, number);
+      SearchCustomFoods200Response result = apiInstance.searchCustomFoods(query, username, hash, offset, number);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MiscApi#searchCustomFoods");
@@ -572,9 +572,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **query** | **String**| The (natural language) search query. | |
 | **username** | **String**| The username. | |
 | **hash** | **String**| The private hash for the username. | |
-| **query** | **String**| The (natural language) search query. | [optional] |
 | **offset** | **Integer**| The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
@@ -657,7 +657,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **query** | **String**| The (natural language) search query. | [optional] |
+| **query** | **String**| The (natural language) search query. | |
 | **type** | **String**| The type of the recipes. See a full list of supported meal types. | [optional] |
 | **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] |
 | **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |

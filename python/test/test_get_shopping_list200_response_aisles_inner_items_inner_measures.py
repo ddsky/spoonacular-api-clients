@@ -36,25 +36,25 @@ class TestGetShoppingList200ResponseAislesInnerItemsInnerMeasures(unittest.TestC
         model = GetShoppingList200ResponseAislesInnerItemsInnerMeasures()
         if include_optional:
             return GetShoppingList200ResponseAislesInnerItemsInnerMeasures(
-                original = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                original = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                     amount = 1.337, 
                     unit = '0', ),
-                metric = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                metric = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                     amount = 1.337, 
                     unit = '0', ),
-                us = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                us = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                     amount = 1.337, 
                     unit = '0', )
             )
         else:
             return GetShoppingList200ResponseAislesInnerItemsInnerMeasures(
-                original = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                original = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                     amount = 1.337, 
                     unit = '0', ),
-                metric = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                metric = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                     amount = 1.337, 
                     unit = '0', ),
-                us = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                us = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                     amount = 1.337, 
                     unit = '0', ),
         )

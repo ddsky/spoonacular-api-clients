@@ -433,7 +433,7 @@ func (a *ProductsAPIService) ClassifyGroceryProductBulkExecute(r ApiClassifyGroc
 type ApiGetComparableProductsRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
-	upc float32
+	upc string
 }
 
 func (r ApiGetComparableProductsRequest) Execute() (*GetComparableProducts200Response, *http.Response, error) {
@@ -449,7 +449,7 @@ Find comparable products to the given one.
  @param upc The UPC of the product for which you want to find comparable products.
  @return ApiGetComparableProductsRequest
 */
-func (a *ProductsAPIService) GetComparableProducts(ctx context.Context, upc float32) ApiGetComparableProductsRequest {
+func (a *ProductsAPIService) GetComparableProducts(ctx context.Context, upc string) ApiGetComparableProductsRequest {
 	return ApiGetComparableProductsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -553,7 +553,7 @@ type ApiGetProductInformationRequest struct {
 	id int32
 }
 
-func (r ApiGetProductInformationRequest) Execute() (*GetProductInformation200Response, *http.Response, error) {
+func (r ApiGetProductInformationRequest) Execute() (*ProductInformation, *http.Response, error) {
 	return r.ApiService.GetProductInformationExecute(r)
 }
 
@@ -563,7 +563,7 @@ GetProductInformation Get Product Information
 Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The id of the packaged food.
  @return ApiGetProductInformationRequest
 */
 func (a *ProductsAPIService) GetProductInformation(ctx context.Context, id int32) ApiGetProductInformationRequest {
@@ -575,13 +575,13 @@ func (a *ProductsAPIService) GetProductInformation(ctx context.Context, id int32
 }
 
 // Execute executes the request
-//  @return GetProductInformation200Response
-func (a *ProductsAPIService) GetProductInformationExecute(r ApiGetProductInformationRequest) (*GetProductInformation200Response, *http.Response, error) {
+//  @return ProductInformation
+func (a *ProductsAPIService) GetProductInformationExecute(r ApiGetProductInformationRequest) (*ProductInformation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetProductInformation200Response
+		localVarReturnValue  *ProductInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.GetProductInformation")
@@ -667,7 +667,7 @@ func (a *ProductsAPIService) GetProductInformationExecute(r ApiGetProductInforma
 type ApiProductNutritionByIDImageRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
-	id float32
+	id int32
 }
 
 func (r ApiProductNutritionByIDImageRequest) Execute() (*os.File, *http.Response, error) {
@@ -683,7 +683,7 @@ Visualize a product's nutritional information as an image.
  @param id The id of the product.
  @return ApiProductNutritionByIDImageRequest
 */
-func (a *ProductsAPIService) ProductNutritionByIDImage(ctx context.Context, id float32) ApiProductNutritionByIDImageRequest {
+func (a *ProductsAPIService) ProductNutritionByIDImage(ctx context.Context, id int32) ApiProductNutritionByIDImageRequest {
 	return ApiProductNutritionByIDImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -784,7 +784,7 @@ func (a *ProductsAPIService) ProductNutritionByIDImageExecute(r ApiProductNutrit
 type ApiProductNutritionLabelImageRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
-	id float32
+	id int32
 	showOptionalNutrients *bool
 	showZeroValues *bool
 	showIngredients *bool
@@ -821,7 +821,7 @@ Get a product's nutrition label as an image.
  @param id The product id.
  @return ApiProductNutritionLabelImageRequest
 */
-func (a *ProductsAPIService) ProductNutritionLabelImage(ctx context.Context, id float32) ApiProductNutritionLabelImageRequest {
+func (a *ProductsAPIService) ProductNutritionLabelImage(ctx context.Context, id int32) ApiProductNutritionLabelImageRequest {
 	return ApiProductNutritionLabelImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -931,7 +931,7 @@ func (a *ProductsAPIService) ProductNutritionLabelImageExecute(r ApiProductNutri
 type ApiProductNutritionLabelWidgetRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
-	id float32
+	id int32
 	defaultCss *bool
 	showOptionalNutrients *bool
 	showZeroValues *bool
@@ -975,7 +975,7 @@ Get a product's nutrition label as an HTML widget.
  @param id The product id.
  @return ApiProductNutritionLabelWidgetRequest
 */
-func (a *ProductsAPIService) ProductNutritionLabelWidget(ctx context.Context, id float32) ApiProductNutritionLabelWidgetRequest {
+func (a *ProductsAPIService) ProductNutritionLabelWidget(ctx context.Context, id int32) ApiProductNutritionLabelWidgetRequest {
 	return ApiProductNutritionLabelWidgetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1216,10 +1216,11 @@ func (a *ProductsAPIService) SearchGroceryProductsExecute(r ApiSearchGroceryProd
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.minCalories != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "minCalories", r.minCalories, "")
 	}
@@ -1327,7 +1328,7 @@ func (a *ProductsAPIService) SearchGroceryProductsExecute(r ApiSearchGroceryProd
 type ApiSearchGroceryProductsByUPCRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
-	upc float32
+	upc string
 }
 
 func (r ApiSearchGroceryProductsByUPCRequest) Execute() (*SearchGroceryProductsByUPC200Response, *http.Response, error) {
@@ -1343,7 +1344,7 @@ Get information about a packaged food using its UPC.
  @param upc The product's UPC.
  @return ApiSearchGroceryProductsByUPCRequest
 */
-func (a *ProductsAPIService) SearchGroceryProductsByUPC(ctx context.Context, upc float32) ApiSearchGroceryProductsByUPCRequest {
+func (a *ProductsAPIService) SearchGroceryProductsByUPC(ctx context.Context, upc string) ApiSearchGroceryProductsByUPCRequest {
 	return ApiSearchGroceryProductsByUPCRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1464,7 +1465,7 @@ VisualizeProductNutritionByID Product Nutrition by ID Widget
 Visualize a product's nutritional information as HTML including CSS.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The id of the product.
  @return ApiVisualizeProductNutritionByIDRequest
 */
 func (a *ProductsAPIService) VisualizeProductNutritionByID(ctx context.Context, id int32) ApiVisualizeProductNutritionByIDRequest {

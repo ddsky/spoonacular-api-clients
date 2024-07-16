@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **autocomplete_ingredient_search**
-> List[AutocompleteIngredientSearch200ResponseInner] autocomplete_ingredient_search(query=query, number=number, meta_information=meta_information, intolerances=intolerances, language=language)
+> List[AutocompleteIngredientSearch200ResponseInner] autocomplete_ingredient_search(query, number=number, meta_information=meta_information, intolerances=intolerances, language=language)
 
 Autocomplete Ingredient Search
 
@@ -53,7 +53,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.IngredientsApi(api_client)
-    query = 'burger' # str | The (natural language) search query. (optional)
+    query = 'burger' # str | The (natural language) search query.
     number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
     meta_information = false # bool | Whether to return more meta information about the ingredients. (optional)
     intolerances = 'egg' # str | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -61,7 +61,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
     try:
         # Autocomplete Ingredient Search
-        api_response = api_instance.autocomplete_ingredient_search(query=query, number=number, meta_information=meta_information, intolerances=intolerances, language=language)
+        api_response = api_instance.autocomplete_ingredient_search(query, number=number, meta_information=meta_information, intolerances=intolerances, language=language)
         print("The response of IngredientsApi->autocomplete_ingredient_search:\n")
         pprint(api_response)
     except Exception as e:
@@ -75,7 +75,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
+ **query** | **str**| The (natural language) search query. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **meta_information** | **bool**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **str**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
@@ -143,9 +143,9 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.IngredientsApi(api_client)
-    id = 9266 # float | The id of the ingredient you want the amount for.
+    id = 9266 # int | The id of the ingredient you want the amount for.
     nutrient = 'protein' # str | The target nutrient. See a list of supported nutrients.
-    target = 2 # float | The target number of the given nutrient.
+    target = 2 # int | The target number of the given nutrient.
     unit = 'oz' # str | The target unit. (optional)
 
     try:
@@ -164,9 +164,9 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The id of the ingredient you want the amount for. | 
+ **id** | **int**| The id of the ingredient you want the amount for. | 
  **nutrient** | **str**| The target nutrient. See a list of supported nutrients. | 
- **target** | **float**| The target number of the given nutrient. | 
+ **target** | **int**| The target number of the given nutrient. | 
  **unit** | **str**| The target unit. | [optional] 
 
 ### Return type
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ingredient_information**
-> GetIngredientInformation200Response get_ingredient_information(id, amount=amount, unit=unit)
+> IngredientInformation get_ingredient_information(id, amount=amount, unit=unit)
 
 Get Ingredient Information
 
@@ -206,7 +206,7 @@ Use an ingredient id to get all available information about an ingredient, such 
 
 ```python
 import spoonacular
-from spoonacular.models.get_ingredient_information200_response import GetIngredientInformation200Response
+from spoonacular.models.ingredient_information import IngredientInformation
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -231,7 +231,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.IngredientsApi(api_client)
-    id = 1 # int | The item's id.
+    id = 9266 # int | The ingredient id.
     amount = 150 # float | The amount of this ingredient. (optional)
     unit = 'grams' # str | The unit for the given amount. (optional)
 
@@ -251,13 +251,13 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The ingredient id. | 
  **amount** | **float**| The amount of this ingredient. | [optional] 
  **unit** | **str**| The unit for the given amount. | [optional] 
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -399,7 +399,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.IngredientsApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1001 # int | The id of the ingredient you want substitutes for.
 
     try:
         # Get Ingredient Substitutes by ID
@@ -417,7 +417,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the ingredient you want substitutes for. | 
 
 ### Return type
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ingredient_search**
-> IngredientSearch200Response ingredient_search(query=query, add_children=add_children, min_protein_percent=min_protein_percent, max_protein_percent=max_protein_percent, min_fat_percent=min_fat_percent, max_fat_percent=max_fat_percent, min_carbs_percent=min_carbs_percent, max_carbs_percent=max_carbs_percent, meta_information=meta_information, intolerances=intolerances, sort=sort, sort_direction=sort_direction, offset=offset, number=number, language=language)
+> IngredientSearch200Response ingredient_search(query, add_children=add_children, min_protein_percent=min_protein_percent, max_protein_percent=max_protein_percent, min_fat_percent=min_fat_percent, max_fat_percent=max_fat_percent, min_carbs_percent=min_carbs_percent, max_carbs_percent=max_carbs_percent, meta_information=meta_information, intolerances=intolerances, sort=sort, sort_direction=sort_direction, offset=offset, number=number, language=language)
 
 Ingredient Search
 
@@ -481,7 +481,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.IngredientsApi(api_client)
-    query = 'burger' # str | The (natural language) search query. (optional)
+    query = 'burger' # str | The (natural language) search query.
     add_children = true # bool | Whether to add children of found foods. (optional)
     min_protein_percent = 10 # float | The minimum percentage of protein the food must have (between 0 and 100). (optional)
     max_protein_percent = 90 # float | The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -499,7 +499,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
     try:
         # Ingredient Search
-        api_response = api_instance.ingredient_search(query=query, add_children=add_children, min_protein_percent=min_protein_percent, max_protein_percent=max_protein_percent, min_fat_percent=min_fat_percent, max_fat_percent=max_fat_percent, min_carbs_percent=min_carbs_percent, max_carbs_percent=max_carbs_percent, meta_information=meta_information, intolerances=intolerances, sort=sort, sort_direction=sort_direction, offset=offset, number=number, language=language)
+        api_response = api_instance.ingredient_search(query, add_children=add_children, min_protein_percent=min_protein_percent, max_protein_percent=max_protein_percent, min_fat_percent=min_fat_percent, max_fat_percent=max_fat_percent, min_carbs_percent=min_carbs_percent, max_carbs_percent=max_carbs_percent, meta_information=meta_information, intolerances=intolerances, sort=sort, sort_direction=sort_direction, offset=offset, number=number, language=language)
         print("The response of IngredientsApi->ingredient_search:\n")
         pprint(api_response)
     except Exception as e:
@@ -513,7 +513,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
+ **query** | **str**| The (natural language) search query. | 
  **add_children** | **bool**| Whether to add children of found foods. | [optional] 
  **min_protein_percent** | **float**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] 
  **max_protein_percent** | **float**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] 
@@ -590,7 +590,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.IngredientsApi(api_client)
-    id = 1082038 # float | The recipe id.
+    id = 1082038 # int | The recipe id.
     measure = 'metric' # str | Whether the the measures should be 'us' or 'metric'. (optional)
 
     try:
@@ -609,7 +609,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **measure** | **str**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
 
 ### Return type

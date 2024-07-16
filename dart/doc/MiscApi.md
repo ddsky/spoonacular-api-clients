@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRandomFoodTrivia**
-> GetRandomFoodTrivia200Response getRandomFoodTrivia()
+> GetARandomFoodJoke200Response getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -191,7 +191,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchCustomFoods**
-> SearchCustomFoods200Response searchCustomFoods(username, hash, query, offset, number)
+> SearchCustomFoods200Response searchCustomFoods(query, username, hash, offset, number)
 
 Search Custom Foods
 
@@ -365,14 +365,14 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MiscApi();
+final query = burger; // String | The (natural language) search query.
 final username = dsky; // String | The username.
 final hash = 4b5v4398573406; // String | The private hash for the username.
-final query = burger; // String | The (natural language) search query.
 final offset = 56; // int | The number of results to skip (between 0 and 900).
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try {
-    final result = api_instance.searchCustomFoods(username, hash, query, offset, number);
+    final result = api_instance.searchCustomFoods(query, username, hash, offset, number);
     print(result);
 } catch (e) {
     print('Exception when calling MiscApi->searchCustomFoods: $e\n');
@@ -383,9 +383,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | **String**| The (natural language) search query. | 
  **username** | **String**| The username. | 
  **hash** | **String**| The private hash for the username. | 
- **query** | **String**| The (natural language) search query. | [optional] 
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
@@ -443,7 +443,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **type** | **String**| The type of the recipes. See a full list of supported meal types. | [optional] 
  **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] 
  **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 

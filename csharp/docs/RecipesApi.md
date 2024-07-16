@@ -245,7 +245,7 @@ catch (ApiException e)
 
 <a id="autocompleterecipesearch"></a>
 # **AutocompleteRecipeSearch**
-> List&lt;AutocompleteRecipeSearch200ResponseInner&gt; AutocompleteRecipeSearch (string? query = null, int? number = null)
+> List&lt;AutocompleteRecipeSearch200ResponseInner&gt; AutocompleteRecipeSearch (string query, int? number = null)
 
 Autocomplete Recipe Search
 
@@ -273,7 +273,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var query = burger;  // string? | The (natural language) search query. (optional) 
+            var query = burger;  // string | The (natural language) search query.
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
 
             try
@@ -317,7 +317,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | The (natural language) search query. | [optional]  |
+| **query** | **string** | The (natural language) search query. |  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
@@ -778,7 +778,7 @@ catch (ApiException e)
 
 <a id="equipmentbyidimage"></a>
 # **EquipmentByIDImage**
-> System.IO.Stream EquipmentByIDImage (decimal id)
+> System.IO.Stream EquipmentByIDImage (int id)
 
 Equipment by ID Image
 
@@ -806,7 +806,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 44860;  // decimal | The recipe id.
+            var id = 44860;  // int | The recipe id.
 
             try
             {
@@ -849,7 +849,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -877,7 +877,7 @@ catch (ApiException e)
 
 <a id="extractrecipefromwebsite"></a>
 # **ExtractRecipeFromWebsite**
-> GetRecipeInformation200Response ExtractRecipeFromWebsite (string url, bool? forceExtraction = null, bool? analyze = null, bool? includeNutrition = null, bool? includeTaste = null)
+> RecipeInformation ExtractRecipeFromWebsite (string url, bool? forceExtraction = null, bool? analyze = null, bool? includeNutrition = null, bool? includeTaste = null)
 
 Extract Recipe from Website
 
@@ -914,7 +914,7 @@ namespace Example
             try
             {
                 // Extract Recipe from Website
-                GetRecipeInformation200Response result = apiInstance.ExtractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
+                RecipeInformation result = apiInstance.ExtractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -935,7 +935,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Extract Recipe from Website
-    ApiResponse<GetRecipeInformation200Response> response = apiInstance.ExtractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste);
+    ApiResponse<RecipeInformation> response = apiInstance.ExtractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -960,7 +960,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -984,7 +984,7 @@ catch (ApiException e)
 
 <a id="getanalyzedrecipeinstructions"></a>
 # **GetAnalyzedRecipeInstructions**
-> GetAnalyzedRecipeInstructions200Response GetAnalyzedRecipeInstructions (int id, bool? stepBreakdown = null)
+> List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt; GetAnalyzedRecipeInstructions (int id, bool? stepBreakdown = null)
 
 Get Analyzed Recipe Instructions
 
@@ -1012,13 +1012,13 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 324694;  // int | The recipe id.
             var stepBreakdown = true;  // bool? | Whether to break down the recipe steps even more. (optional) 
 
             try
             {
                 // Get Analyzed Recipe Instructions
-                GetAnalyzedRecipeInstructions200Response result = apiInstance.GetAnalyzedRecipeInstructions(id, stepBreakdown);
+                List<GetAnalyzedRecipeInstructions200ResponseInner> result = apiInstance.GetAnalyzedRecipeInstructions(id, stepBreakdown);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1039,7 +1039,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Analyzed Recipe Instructions
-    ApiResponse<GetAnalyzedRecipeInstructions200Response> response = apiInstance.GetAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown);
+    ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>> response = apiInstance.GetAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1056,12 +1056,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 | **stepBreakdown** | **bool?** | Whether to break down the recipe steps even more. | [optional]  |
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -1218,7 +1218,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1003464;  // int | The recipe id.
 
             try
             {
@@ -1261,7 +1261,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -1289,7 +1289,7 @@ catch (ApiException e)
 
 <a id="getrecipeinformation"></a>
 # **GetRecipeInformation**
-> GetRecipeInformation200Response GetRecipeInformation (int id, bool? includeNutrition = null)
+> RecipeInformation GetRecipeInformation (int id, bool? includeNutrition = null, bool? addWinePairing = null, bool? addTasteData = null)
 
 Get Recipe Information
 
@@ -1317,13 +1317,15 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 716429;  // int | The id of the recipe.
             var includeNutrition = false;  // bool? | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)  (default to false)
+            var addWinePairing = false;  // bool? | Add a wine pairing to the recipe. (optional) 
+            var addTasteData = false;  // bool? | Add taste data to the recipe. (optional) 
 
             try
             {
                 // Get Recipe Information
-                GetRecipeInformation200Response result = apiInstance.GetRecipeInformation(id, includeNutrition);
+                RecipeInformation result = apiInstance.GetRecipeInformation(id, includeNutrition, addWinePairing, addTasteData);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1344,7 +1346,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Recipe Information
-    ApiResponse<GetRecipeInformation200Response> response = apiInstance.GetRecipeInformationWithHttpInfo(id, includeNutrition);
+    ApiResponse<RecipeInformation> response = apiInstance.GetRecipeInformationWithHttpInfo(id, includeNutrition, addWinePairing, addTasteData);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1361,12 +1363,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The id of the recipe. |  |
 | **includeNutrition** | **bool?** | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| **addWinePairing** | **bool?** | Add a wine pairing to the recipe. | [optional]  |
+| **addTasteData** | **bool?** | Add taste data to the recipe. | [optional]  |
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -1390,7 +1394,7 @@ catch (ApiException e)
 
 <a id="getrecipeinformationbulk"></a>
 # **GetRecipeInformationBulk**
-> List&lt;GetRecipeInformationBulk200ResponseInner&gt; GetRecipeInformationBulk (string ids, bool? includeNutrition = null)
+> List&lt;RecipeInformation&gt; GetRecipeInformationBulk (string ids, bool? includeNutrition = null)
 
 Get Recipe Information Bulk
 
@@ -1424,7 +1428,7 @@ namespace Example
             try
             {
                 // Get Recipe Information Bulk
-                List<GetRecipeInformationBulk200ResponseInner> result = apiInstance.GetRecipeInformationBulk(ids, includeNutrition);
+                List<RecipeInformation> result = apiInstance.GetRecipeInformationBulk(ids, includeNutrition);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1445,7 +1449,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Recipe Information Bulk
-    ApiResponse<List<GetRecipeInformationBulk200ResponseInner>> response = apiInstance.GetRecipeInformationBulkWithHttpInfo(ids, includeNutrition);
+    ApiResponse<List<RecipeInformation>> response = apiInstance.GetRecipeInformationBulkWithHttpInfo(ids, includeNutrition);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1467,7 +1471,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;GetRecipeInformationBulk200ResponseInner&gt;**](GetRecipeInformationBulk200ResponseInner.md)
+[**List&lt;RecipeInformation&gt;**](RecipeInformation.md)
 
 ### Authorization
 
@@ -1519,7 +1523,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1003464;  // int | The recipe id.
 
             try
             {
@@ -1562,7 +1566,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -1618,7 +1622,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1003464;  // int | The recipe id.
 
             try
             {
@@ -1661,7 +1665,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -1717,7 +1721,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1003464;  // int | The recipe id.
 
             try
             {
@@ -1760,7 +1764,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -1788,7 +1792,7 @@ catch (ApiException e)
 
 <a id="getrecipetastebyid"></a>
 # **GetRecipeTasteByID**
-> GetRecipeTasteByID200Response GetRecipeTasteByID (int id, bool? normalize = null)
+> TasteInformation GetRecipeTasteByID (int id, bool? normalize = null)
 
 Taste by ID
 
@@ -1816,13 +1820,13 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 69095;  // int | The recipe id.
             var normalize = true;  // bool? | Normalize to the strongest taste. (optional)  (default to true)
 
             try
             {
                 // Taste by ID
-                GetRecipeTasteByID200Response result = apiInstance.GetRecipeTasteByID(id, normalize);
+                TasteInformation result = apiInstance.GetRecipeTasteByID(id, normalize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1843,7 +1847,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Taste by ID
-    ApiResponse<GetRecipeTasteByID200Response> response = apiInstance.GetRecipeTasteByIDWithHttpInfo(id, normalize);
+    ApiResponse<TasteInformation> response = apiInstance.GetRecipeTasteByIDWithHttpInfo(id, normalize);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1860,12 +1864,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 | **normalize** | **bool?** | Normalize to the strongest taste. | [optional] [default to true] |
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -1917,7 +1921,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 715538;  // int | The id of the source recipe for which similar recipes should be found.
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
 
             try
@@ -1961,7 +1965,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The id of the source recipe for which similar recipes should be found. |  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
@@ -2089,7 +2093,7 @@ catch (ApiException e)
 
 <a id="parseingredients"></a>
 # **ParseIngredients**
-> List&lt;ParseIngredients200ResponseInner&gt; ParseIngredients (string ingredientList, decimal servings, string? language = null, bool? includeNutrition = null)
+> List&lt;IngredientInformation&gt; ParseIngredients (string ingredientList, decimal servings, string? language = null, bool? includeNutrition = null)
 
 Parse Ingredients
 
@@ -2120,12 +2124,12 @@ namespace Example
             var ingredientList = "ingredientList_example";  // string | The ingredient list of the recipe, one ingredient per line.
             var servings = 8.14D;  // decimal | The number of servings that you can make from the ingredients.
             var language = en;  // string? | The language of the input. Either 'en' or 'de'. (optional) 
-            var includeNutrition = true;  // bool? |  (optional) 
+            var includeNutrition = true;  // bool? | Whether nutrition data should be added to correctly parsed ingredients. (optional) 
 
             try
             {
                 // Parse Ingredients
-                List<ParseIngredients200ResponseInner> result = apiInstance.ParseIngredients(ingredientList, servings, language, includeNutrition);
+                List<IngredientInformation> result = apiInstance.ParseIngredients(ingredientList, servings, language, includeNutrition);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2146,7 +2150,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Parse Ingredients
-    ApiResponse<List<ParseIngredients200ResponseInner>> response = apiInstance.ParseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
+    ApiResponse<List<IngredientInformation>> response = apiInstance.ParseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2166,11 +2170,11 @@ catch (ApiException e)
 | **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. |  |
 | **servings** | **decimal** | The number of servings that you can make from the ingredients. |  |
 | **language** | **string?** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional]  |
-| **includeNutrition** | **bool?** |  | [optional]  |
+| **includeNutrition** | **bool?** | Whether nutrition data should be added to correctly parsed ingredients. | [optional]  |
 
 ### Return type
 
-[**List&lt;ParseIngredients200ResponseInner&gt;**](ParseIngredients200ResponseInner.md)
+[**List&lt;IngredientInformation&gt;**](IngredientInformation.md)
 
 ### Authorization
 
@@ -2194,7 +2198,7 @@ catch (ApiException e)
 
 <a id="pricebreakdownbyidimage"></a>
 # **PriceBreakdownByIDImage**
-> System.IO.Stream PriceBreakdownByIDImage (decimal id)
+> System.IO.Stream PriceBreakdownByIDImage (int id)
 
 Price Breakdown by ID Image
 
@@ -2222,7 +2226,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1082038;  // decimal | The recipe id.
+            var id = 1082038;  // int | The recipe id.
 
             try
             {
@@ -2265,7 +2269,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -2392,7 +2396,7 @@ catch (ApiException e)
 
 <a id="recipenutritionbyidimage"></a>
 # **RecipeNutritionByIDImage**
-> System.IO.Stream RecipeNutritionByIDImage (decimal id)
+> System.IO.Stream RecipeNutritionByIDImage (int id)
 
 Recipe Nutrition by ID Image
 
@@ -2420,7 +2424,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1082038;  // decimal | The recipe id.
+            var id = 1082038;  // int | The recipe id.
 
             try
             {
@@ -2463,7 +2467,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -2491,7 +2495,7 @@ catch (ApiException e)
 
 <a id="recipenutritionlabelimage"></a>
 # **RecipeNutritionLabelImage**
-> System.IO.Stream RecipeNutritionLabelImage (decimal id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> System.IO.Stream RecipeNutritionLabelImage (int id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Recipe Nutrition Label Image
 
@@ -2519,7 +2523,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 641166;  // decimal | The recipe id.
+            var id = 641166;  // int | The recipe id.
             var showOptionalNutrients = false;  // bool? | Whether to show optional nutrients. (optional) 
             var showZeroValues = false;  // bool? | Whether to show zero values. (optional) 
             var showIngredients = false;  // bool? | Whether to show a list of ingredients. (optional) 
@@ -2565,7 +2569,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 | **showOptionalNutrients** | **bool?** | Whether to show optional nutrients. | [optional]  |
 | **showZeroValues** | **bool?** | Whether to show zero values. | [optional]  |
 | **showIngredients** | **bool?** | Whether to show a list of ingredients. | [optional]  |
@@ -2596,7 +2600,7 @@ catch (ApiException e)
 
 <a id="recipenutritionlabelwidget"></a>
 # **RecipeNutritionLabelWidget**
-> string RecipeNutritionLabelWidget (decimal id, bool? defaultCss = null, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> string RecipeNutritionLabelWidget (int id, bool? defaultCss = null, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Recipe Nutrition Label Widget
 
@@ -2624,7 +2628,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 641166;  // decimal | The recipe id.
+            var id = 641166;  // int | The recipe id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
             var showOptionalNutrients = false;  // bool? | Whether to show optional nutrients. (optional) 
             var showZeroValues = false;  // bool? | Whether to show zero values. (optional) 
@@ -2671,7 +2675,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **bool?** | Whether to show optional nutrients. | [optional]  |
 | **showZeroValues** | **bool?** | Whether to show zero values. | [optional]  |
@@ -2703,7 +2707,7 @@ catch (ApiException e)
 
 <a id="recipetastebyidimage"></a>
 # **RecipeTasteByIDImage**
-> System.IO.Stream RecipeTasteByIDImage (decimal id, bool? normalize = null, string? rgb = null)
+> System.IO.Stream RecipeTasteByIDImage (int id, bool? normalize = null, string? rgb = null)
 
 Recipe Taste by ID Image
 
@@ -2731,7 +2735,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 69095;  // decimal | The recipe id.
+            var id = 69095;  // int | The recipe id.
             var normalize = false;  // bool? | Normalize to the strongest taste. (optional) 
             var rgb = 75,192,192;  // string? | Red, green, blue values for the chart color. (optional) 
 
@@ -2776,7 +2780,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 | **normalize** | **bool?** | Normalize to the strongest taste. | [optional]  |
 | **rgb** | **string?** | Red, green, blue values for the chart color. | [optional]  |
 
@@ -2806,7 +2810,7 @@ catch (ApiException e)
 
 <a id="searchrecipes"></a>
 # **SearchRecipes**
-> SearchRecipes200Response SearchRecipes (string? query = null, string? cuisine = null, string? excludeCuisine = null, string? diet = null, string? intolerances = null, string? equipment = null, string? includeIngredients = null, string? excludeIngredients = null, string? type = null, bool? instructionsRequired = null, bool? fillIngredients = null, bool? addRecipeInformation = null, bool? addRecipeNutrition = null, string? author = null, string? tags = null, decimal? recipeBoxId = null, string? titleMatch = null, decimal? maxReadyTime = null, decimal? minServings = null, decimal? maxServings = null, bool? ignorePantry = null, string? sort = null, string? sortDirection = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minFat = null, decimal? maxFat = null, decimal? minAlcohol = null, decimal? maxAlcohol = null, decimal? minCaffeine = null, decimal? maxCaffeine = null, decimal? minCopper = null, decimal? maxCopper = null, decimal? minCalcium = null, decimal? maxCalcium = null, decimal? minCholine = null, decimal? maxCholine = null, decimal? minCholesterol = null, decimal? maxCholesterol = null, decimal? minFluoride = null, decimal? maxFluoride = null, decimal? minSaturatedFat = null, decimal? maxSaturatedFat = null, decimal? minVitaminA = null, decimal? maxVitaminA = null, decimal? minVitaminC = null, decimal? maxVitaminC = null, decimal? minVitaminD = null, decimal? maxVitaminD = null, decimal? minVitaminE = null, decimal? maxVitaminE = null, decimal? minVitaminK = null, decimal? maxVitaminK = null, decimal? minVitaminB1 = null, decimal? maxVitaminB1 = null, decimal? minVitaminB2 = null, decimal? maxVitaminB2 = null, decimal? minVitaminB5 = null, decimal? maxVitaminB5 = null, decimal? minVitaminB3 = null, decimal? maxVitaminB3 = null, decimal? minVitaminB6 = null, decimal? maxVitaminB6 = null, decimal? minVitaminB12 = null, decimal? maxVitaminB12 = null, decimal? minFiber = null, decimal? maxFiber = null, decimal? minFolate = null, decimal? maxFolate = null, decimal? minFolicAcid = null, decimal? maxFolicAcid = null, decimal? minIodine = null, decimal? maxIodine = null, decimal? minIron = null, decimal? maxIron = null, decimal? minMagnesium = null, decimal? maxMagnesium = null, decimal? minManganese = null, decimal? maxManganese = null, decimal? minPhosphorus = null, decimal? maxPhosphorus = null, decimal? minPotassium = null, decimal? maxPotassium = null, decimal? minSelenium = null, decimal? maxSelenium = null, decimal? minSodium = null, decimal? maxSodium = null, decimal? minSugar = null, decimal? maxSugar = null, decimal? minZinc = null, decimal? maxZinc = null, int? offset = null, int? number = null)
+> SearchRecipes200Response SearchRecipes (string query, string? cuisine = null, string? excludeCuisine = null, string? diet = null, string? intolerances = null, string? equipment = null, string? includeIngredients = null, string? excludeIngredients = null, string? type = null, bool? instructionsRequired = null, bool? fillIngredients = null, bool? addRecipeInformation = null, bool? addRecipeNutrition = null, string? author = null, string? tags = null, int? recipeBoxId = null, string? titleMatch = null, decimal? maxReadyTime = null, decimal? minServings = null, decimal? maxServings = null, bool? ignorePantry = null, string? sort = null, string? sortDirection = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minFat = null, decimal? maxFat = null, decimal? minAlcohol = null, decimal? maxAlcohol = null, decimal? minCaffeine = null, decimal? maxCaffeine = null, decimal? minCopper = null, decimal? maxCopper = null, decimal? minCalcium = null, decimal? maxCalcium = null, decimal? minCholine = null, decimal? maxCholine = null, decimal? minCholesterol = null, decimal? maxCholesterol = null, decimal? minFluoride = null, decimal? maxFluoride = null, decimal? minSaturatedFat = null, decimal? maxSaturatedFat = null, decimal? minVitaminA = null, decimal? maxVitaminA = null, decimal? minVitaminC = null, decimal? maxVitaminC = null, decimal? minVitaminD = null, decimal? maxVitaminD = null, decimal? minVitaminE = null, decimal? maxVitaminE = null, decimal? minVitaminK = null, decimal? maxVitaminK = null, decimal? minVitaminB1 = null, decimal? maxVitaminB1 = null, decimal? minVitaminB2 = null, decimal? maxVitaminB2 = null, decimal? minVitaminB5 = null, decimal? maxVitaminB5 = null, decimal? minVitaminB3 = null, decimal? maxVitaminB3 = null, decimal? minVitaminB6 = null, decimal? maxVitaminB6 = null, decimal? minVitaminB12 = null, decimal? maxVitaminB12 = null, decimal? minFiber = null, decimal? maxFiber = null, decimal? minFolate = null, decimal? maxFolate = null, decimal? minFolicAcid = null, decimal? maxFolicAcid = null, decimal? minIodine = null, decimal? maxIodine = null, decimal? minIron = null, decimal? maxIron = null, decimal? minMagnesium = null, decimal? maxMagnesium = null, decimal? minManganese = null, decimal? maxManganese = null, decimal? minPhosphorus = null, decimal? maxPhosphorus = null, decimal? minPotassium = null, decimal? maxPotassium = null, decimal? minSelenium = null, decimal? maxSelenium = null, decimal? minSodium = null, decimal? maxSodium = null, decimal? minSugar = null, decimal? maxSugar = null, decimal? minZinc = null, decimal? maxZinc = null, int? offset = null, int? number = null)
 
 Search Recipes
 
@@ -2834,7 +2838,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var query = burger;  // string? | The (natural language) search query. (optional) 
+            var query = burger;  // string | The (natural language) search query.
             var cuisine = italian;  // string? | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional) 
             var excludeCuisine = greek;  // string? | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. (optional) 
             var diet = vegetarian;  // string? | The diet for which the recipes must be suitable. See a full list of supported diets. (optional) 
@@ -2849,7 +2853,7 @@ namespace Example
             var addRecipeNutrition = false;  // bool? | If set to true, you get nutritional information about each recipes returned. (optional) 
             var author = coffeebean;  // string? | The username of the recipe author. (optional) 
             var tags = "tags_example";  // string? | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional) 
-            var recipeBoxId = 2468;  // decimal? | The id of the recipe box to which the search should be limited to. (optional) 
+            var recipeBoxId = 2468;  // int? | The id of the recipe box to which the search should be limited to. (optional) 
             var titleMatch = Crock Pot;  // string? | Enter text that must be found in the title of the recipes. (optional) 
             var maxReadyTime = 20;  // decimal? | The maximum time in minutes it should take to prepare and cook the recipe. (optional) 
             var minServings = 1;  // decimal? | The minimum amount of servings the recipe is for. (optional) 
@@ -2973,7 +2977,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | The (natural language) search query. | [optional]  |
+| **query** | **string** | The (natural language) search query. |  |
 | **cuisine** | **string?** | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional]  |
 | **excludeCuisine** | **string?** | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional]  |
 | **diet** | **string?** | The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]  |
@@ -2988,7 +2992,7 @@ catch (ApiException e)
 | **addRecipeNutrition** | **bool?** | If set to true, you get nutritional information about each recipes returned. | [optional]  |
 | **author** | **string?** | The username of the recipe author. | [optional]  |
 | **tags** | **string?** | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional]  |
-| **recipeBoxId** | **decimal?** | The id of the recipe box to which the search should be limited to. | [optional]  |
+| **recipeBoxId** | **int?** | The id of the recipe box to which the search should be limited to. | [optional]  |
 | **titleMatch** | **string?** | Enter text that must be found in the title of the recipes. | [optional]  |
 | **maxReadyTime** | **decimal?** | The maximum time in minutes it should take to prepare and cook the recipe. | [optional]  |
 | **minServings** | **decimal?** | The minimum amount of servings the recipe is for. | [optional]  |
@@ -3097,7 +3101,7 @@ catch (ApiException e)
 
 <a id="searchrecipesbyingredients"></a>
 # **SearchRecipesByIngredients**
-> List&lt;SearchRecipesByIngredients200ResponseInner&gt; SearchRecipesByIngredients (string? ingredients = null, int? number = null, decimal? ranking = null, bool? ignorePantry = null)
+> List&lt;SearchRecipesByIngredients200ResponseInner&gt; SearchRecipesByIngredients (string ingredients, int? number = null, int? ranking = null, bool? ignorePantry = null)
 
 Search Recipes by Ingredients
 
@@ -3125,9 +3129,9 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var ingredients = carrots,tomatoes;  // string? | A comma-separated list of ingredients that the recipes should contain. (optional) 
+            var ingredients = carrots,tomatoes;  // string | A comma-separated list of ingredients that the recipes should contain.
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
-            var ranking = 1;  // decimal? | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional) 
+            var ranking = 1;  // int? | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional) 
             var ignorePantry = false;  // bool? | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional)  (default to false)
 
             try
@@ -3171,9 +3175,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ingredients** | **string?** | A comma-separated list of ingredients that the recipes should contain. | [optional]  |
+| **ingredients** | **string** | A comma-separated list of ingredients that the recipes should contain. |  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **ranking** | **decimal?** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional]  |
+| **ranking** | **int?** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional]  |
 | **ignorePantry** | **bool?** | Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
 
 ### Return type
@@ -3477,7 +3481,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 4632;  // int | The recipe id.
 
             try
             {
@@ -3520,7 +3524,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 
 ### Return type
 
@@ -3790,7 +3794,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 44860;  // int | The recipe id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
 
             try
@@ -3834,7 +3838,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
@@ -3891,7 +3895,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1082038;  // int | The recipe id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
             var measure = metric;  // string? | Whether the the measures should be 'us' or 'metric'. (optional) 
 
@@ -3936,7 +3940,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **measure** | **string?** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional]  |
 
@@ -4101,7 +4105,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1082038;  // int | The recipe id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
 
             try
@@ -4145,7 +4149,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
@@ -4202,7 +4206,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1082038;  // int | The recipe id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
 
             try
@@ -4246,7 +4250,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
@@ -4408,7 +4412,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new RecipesApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 69095;  // int | The recipe id.
             var normalize = true;  // bool? | Whether to normalize to the strongest taste. (optional)  (default to true)
             var rgb = 75,192,192;  // string? | Red, green, blue values for the chart color. (optional) 
 
@@ -4453,7 +4457,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The recipe id. |  |
 | **normalize** | **bool?** | Whether to normalize to the strongest taste. | [optional] [default to true] |
 | **rgb** | **string?** | Red, green, blue values for the chart color. | [optional]  |
 

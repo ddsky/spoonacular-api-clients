@@ -225,7 +225,7 @@ QString OAIMenuItemsApi::getParamStyleDelimiter(const QString &style, const QStr
     }
 }
 
-void OAIMenuItemsApi::autocompleteMenuItemSearch(const QString &query, const ::OpenAPI::OptionalParam<double> &number) {
+void OAIMenuItemsApi::autocompleteMenuItemSearch(const QString &query, const ::OpenAPI::OptionalParam<qint32> &number) {
     QString fullPath = QString(_serverConfigs["autocompleteMenuItemSearch"][_serverIndices.value("autocompleteMenuItemSearch")].URL()+"/food/menuItems/suggest");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -297,7 +297,7 @@ void OAIMenuItemsApi::autocompleteMenuItemSearchCallback(OAIHttpRequestWorker *w
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIAutocompleteMenuItemSearch_200_response output(QString(worker->response));
+    OAIAutocompleteProductSearch_200_response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -390,7 +390,7 @@ void OAIMenuItemsApi::getMenuItemInformationCallback(OAIHttpRequestWorker *worke
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIGetMenuItemInformation_200_response output(QString(worker->response));
+    OAIMenuItem output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -428,7 +428,7 @@ void OAIMenuItemsApi::getMenuItemInformationCallback(OAIHttpRequestWorker *worke
     }
 }
 
-void OAIMenuItemsApi::menuItemNutritionByIDImage(const double &id) {
+void OAIMenuItemsApi::menuItemNutritionByIDImage(const qint32 &id) {
     QString fullPath = QString(_serverConfigs["menuItemNutritionByIDImage"][_serverIndices.value("menuItemNutritionByIDImage")].URL()+"/food/menuItems/{id}/nutritionWidget.png");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -521,7 +521,7 @@ void OAIMenuItemsApi::menuItemNutritionByIDImageCallback(OAIHttpRequestWorker *w
     }
 }
 
-void OAIMenuItemsApi::menuItemNutritionLabelImage(const double &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
+void OAIMenuItemsApi::menuItemNutritionLabelImage(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
     QString fullPath = QString(_serverConfigs["menuItemNutritionLabelImage"][_serverIndices.value("menuItemNutritionLabelImage")].URL()+"/food/menuItems/{id}/nutritionLabel.png");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -660,7 +660,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelImageCallback(OAIHttpRequestWorker *
     }
 }
 
-void OAIMenuItemsApi::menuItemNutritionLabelWidget(const double &id, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
+void OAIMenuItemsApi::menuItemNutritionLabelWidget(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
     QString fullPath = QString(_serverConfigs["menuItemNutritionLabelWidget"][_serverIndices.value("menuItemNutritionLabelWidget")].URL()+"/food/menuItems/{id}/nutritionLabel");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -815,7 +815,7 @@ void OAIMenuItemsApi::menuItemNutritionLabelWidgetCallback(OAIHttpRequestWorker 
     }
 }
 
-void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<double> &min_calories, const ::OpenAPI::OptionalParam<double> &max_calories, const ::OpenAPI::OptionalParam<double> &min_carbs, const ::OpenAPI::OptionalParam<double> &max_carbs, const ::OpenAPI::OptionalParam<double> &min_protein, const ::OpenAPI::OptionalParam<double> &max_protein, const ::OpenAPI::OptionalParam<double> &min_fat, const ::OpenAPI::OptionalParam<double> &max_fat, const ::OpenAPI::OptionalParam<bool> &add_menu_item_information, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
+void OAIMenuItemsApi::searchMenuItems(const QString &query, const ::OpenAPI::OptionalParam<double> &min_calories, const ::OpenAPI::OptionalParam<double> &max_calories, const ::OpenAPI::OptionalParam<double> &min_carbs, const ::OpenAPI::OptionalParam<double> &max_carbs, const ::OpenAPI::OptionalParam<double> &min_protein, const ::OpenAPI::OptionalParam<double> &max_protein, const ::OpenAPI::OptionalParam<double> &min_fat, const ::OpenAPI::OptionalParam<double> &max_fat, const ::OpenAPI::OptionalParam<bool> &add_menu_item_information, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
     QString fullPath = QString(_serverConfigs["searchMenuItems"][_serverIndices.value("searchMenuItems")].URL()+"/food/menuItems/search");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -823,7 +823,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
     }
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (query.hasValue())
+    
     {
         queryStyle = "form";
         if (queryStyle == "")
@@ -836,7 +836,7 @@ void OAIMenuItemsApi::searchMenuItems(const ::OpenAPI::OptionalParam<QString> &q
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (min_calories.hasValue())
     {

@@ -27,10 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response;
+import com.spoonacular.client.model.AutocompleteProductSearch200Response;
 import java.math.BigDecimal;
 import java.io.File;
-import com.spoonacular.client.model.GetMenuItemInformation200Response;
+import com.spoonacular.client.model.MenuItem;
 import com.spoonacular.client.model.SearchMenuItems200Response;
 
 import java.lang.reflect.Type;
@@ -94,7 +94,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Menu-Item-Search">Autocomplete Menu Item Search Documentation</a>
      */
-    public okhttp3.Call autocompleteMenuItemSearchCall(String query, BigDecimal number, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call autocompleteMenuItemSearchCall(String query, Integer number, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -147,7 +147,7 @@ public class MenuItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call autocompleteMenuItemSearchValidateBeforeCall(String query, BigDecimal number, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call autocompleteMenuItemSearchValidateBeforeCall(String query, Integer number, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'query' is set
         if (query == null) {
             throw new ApiException("Missing the required parameter 'query' when calling autocompleteMenuItemSearch(Async)");
@@ -162,7 +162,7 @@ public class MenuItemsApi {
      * Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
      * @param query The (partial) search query. (required)
      * @param number The number of results to return (between 1 and 25). (optional)
-     * @return AutocompleteMenuItemSearch200Response
+     * @return AutocompleteProductSearch200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -175,8 +175,8 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Menu-Item-Search">Autocomplete Menu Item Search Documentation</a>
      */
-    public AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(String query, BigDecimal number) throws ApiException {
-        ApiResponse<AutocompleteMenuItemSearch200Response> localVarResp = autocompleteMenuItemSearchWithHttpInfo(query, number);
+    public AutocompleteProductSearch200Response autocompleteMenuItemSearch(String query, Integer number) throws ApiException {
+        ApiResponse<AutocompleteProductSearch200Response> localVarResp = autocompleteMenuItemSearchWithHttpInfo(query, number);
         return localVarResp.getData();
     }
 
@@ -185,7 +185,7 @@ public class MenuItemsApi {
      * Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
      * @param query The (partial) search query. (required)
      * @param number The number of results to return (between 1 and 25). (optional)
-     * @return ApiResponse&lt;AutocompleteMenuItemSearch200Response&gt;
+     * @return ApiResponse&lt;AutocompleteProductSearch200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -198,9 +198,9 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Menu-Item-Search">Autocomplete Menu Item Search Documentation</a>
      */
-    public ApiResponse<AutocompleteMenuItemSearch200Response> autocompleteMenuItemSearchWithHttpInfo(String query, BigDecimal number) throws ApiException {
+    public ApiResponse<AutocompleteProductSearch200Response> autocompleteMenuItemSearchWithHttpInfo(String query, Integer number) throws ApiException {
         okhttp3.Call localVarCall = autocompleteMenuItemSearchValidateBeforeCall(query, number, null);
-        Type localVarReturnType = new TypeToken<AutocompleteMenuItemSearch200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<AutocompleteProductSearch200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -223,16 +223,16 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Autocomplete-Menu-Item-Search">Autocomplete Menu Item Search Documentation</a>
      */
-    public okhttp3.Call autocompleteMenuItemSearchAsync(String query, BigDecimal number, final ApiCallback<AutocompleteMenuItemSearch200Response> _callback) throws ApiException {
+    public okhttp3.Call autocompleteMenuItemSearchAsync(String query, Integer number, final ApiCallback<AutocompleteProductSearch200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = autocompleteMenuItemSearchValidateBeforeCall(query, number, _callback);
-        Type localVarReturnType = new TypeToken<AutocompleteMenuItemSearch200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<AutocompleteProductSearch200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getMenuItemInformation
-     * @param id The item&#39;s id. (required)
+     * @param id The menu item id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -306,8 +306,8 @@ public class MenuItemsApi {
     /**
      * Get Menu Item Information
      * Use a menu item id to get all available information about a menu item, such as nutrition.
-     * @param id The item&#39;s id. (required)
-     * @return GetMenuItemInformation200Response
+     * @param id The menu item id. (required)
+     * @return MenuItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -320,16 +320,16 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Menu-Item-Information">Get Menu Item Information Documentation</a>
      */
-    public GetMenuItemInformation200Response getMenuItemInformation(Integer id) throws ApiException {
-        ApiResponse<GetMenuItemInformation200Response> localVarResp = getMenuItemInformationWithHttpInfo(id);
+    public MenuItem getMenuItemInformation(Integer id) throws ApiException {
+        ApiResponse<MenuItem> localVarResp = getMenuItemInformationWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get Menu Item Information
      * Use a menu item id to get all available information about a menu item, such as nutrition.
-     * @param id The item&#39;s id. (required)
-     * @return ApiResponse&lt;GetMenuItemInformation200Response&gt;
+     * @param id The menu item id. (required)
+     * @return ApiResponse&lt;MenuItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -342,16 +342,16 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Menu-Item-Information">Get Menu Item Information Documentation</a>
      */
-    public ApiResponse<GetMenuItemInformation200Response> getMenuItemInformationWithHttpInfo(Integer id) throws ApiException {
+    public ApiResponse<MenuItem> getMenuItemInformationWithHttpInfo(Integer id) throws ApiException {
         okhttp3.Call localVarCall = getMenuItemInformationValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<GetMenuItemInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<MenuItem>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Menu Item Information (asynchronously)
      * Use a menu item id to get all available information about a menu item, such as nutrition.
-     * @param id The item&#39;s id. (required)
+     * @param id The menu item id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -366,10 +366,10 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Menu-Item-Information">Get Menu Item Information Documentation</a>
      */
-    public okhttp3.Call getMenuItemInformationAsync(Integer id, final ApiCallback<GetMenuItemInformation200Response> _callback) throws ApiException {
+    public okhttp3.Call getMenuItemInformationAsync(Integer id, final ApiCallback<MenuItem> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMenuItemInformationValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<GetMenuItemInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<MenuItem>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -390,7 +390,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-by-ID-Image">Menu Item Nutrition by ID Image Documentation</a>
      */
-    public okhttp3.Call menuItemNutritionByIDImageCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call menuItemNutritionByIDImageCall(Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -436,7 +436,7 @@ public class MenuItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call menuItemNutritionByIDImageValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call menuItemNutritionByIDImageValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling menuItemNutritionByIDImage(Async)");
@@ -463,7 +463,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-by-ID-Image">Menu Item Nutrition by ID Image Documentation</a>
      */
-    public File menuItemNutritionByIDImage(BigDecimal id) throws ApiException {
+    public File menuItemNutritionByIDImage(Integer id) throws ApiException {
         ApiResponse<File> localVarResp = menuItemNutritionByIDImageWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -485,7 +485,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-by-ID-Image">Menu Item Nutrition by ID Image Documentation</a>
      */
-    public ApiResponse<File> menuItemNutritionByIDImageWithHttpInfo(BigDecimal id) throws ApiException {
+    public ApiResponse<File> menuItemNutritionByIDImageWithHttpInfo(Integer id) throws ApiException {
         okhttp3.Call localVarCall = menuItemNutritionByIDImageValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -509,7 +509,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-by-ID-Image">Menu Item Nutrition by ID Image Documentation</a>
      */
-    public okhttp3.Call menuItemNutritionByIDImageAsync(BigDecimal id, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call menuItemNutritionByIDImageAsync(Integer id, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = menuItemNutritionByIDImageValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -536,7 +536,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Image">Menu Item Nutrition Label Image Documentation</a>
      */
-    public okhttp3.Call menuItemNutritionLabelImageCall(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call menuItemNutritionLabelImageCall(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -594,7 +594,7 @@ public class MenuItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call menuItemNutritionLabelImageValidateBeforeCall(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call menuItemNutritionLabelImageValidateBeforeCall(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling menuItemNutritionLabelImage(Async)");
@@ -624,7 +624,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Image">Menu Item Nutrition Label Image Documentation</a>
      */
-    public File menuItemNutritionLabelImage(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public File menuItemNutritionLabelImage(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         ApiResponse<File> localVarResp = menuItemNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
         return localVarResp.getData();
     }
@@ -649,7 +649,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Image">Menu Item Nutrition Label Image Documentation</a>
      */
-    public ApiResponse<File> menuItemNutritionLabelImageWithHttpInfo(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public ApiResponse<File> menuItemNutritionLabelImageWithHttpInfo(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         okhttp3.Call localVarCall = menuItemNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -676,7 +676,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Image">Menu Item Nutrition Label Image Documentation</a>
      */
-    public okhttp3.Call menuItemNutritionLabelImageAsync(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call menuItemNutritionLabelImageAsync(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = menuItemNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -704,7 +704,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Widget">Menu Item Nutrition Label Widget Documentation</a>
      */
-    public okhttp3.Call menuItemNutritionLabelWidgetCall(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call menuItemNutritionLabelWidgetCall(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -766,7 +766,7 @@ public class MenuItemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call menuItemNutritionLabelWidgetValidateBeforeCall(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call menuItemNutritionLabelWidgetValidateBeforeCall(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling menuItemNutritionLabelWidget(Async)");
@@ -797,7 +797,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Widget">Menu Item Nutrition Label Widget Documentation</a>
      */
-    public String menuItemNutritionLabelWidget(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public String menuItemNutritionLabelWidget(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         ApiResponse<String> localVarResp = menuItemNutritionLabelWidgetWithHttpInfo(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients);
         return localVarResp.getData();
     }
@@ -823,7 +823,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Widget">Menu Item Nutrition Label Widget Documentation</a>
      */
-    public ApiResponse<String> menuItemNutritionLabelWidgetWithHttpInfo(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public ApiResponse<String> menuItemNutritionLabelWidgetWithHttpInfo(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         okhttp3.Call localVarCall = menuItemNutritionLabelWidgetValidateBeforeCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -851,7 +851,7 @@ public class MenuItemsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Widget">Menu Item Nutrition Label Widget Documentation</a>
      */
-    public okhttp3.Call menuItemNutritionLabelWidgetAsync(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call menuItemNutritionLabelWidgetAsync(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = menuItemNutritionLabelWidgetValidateBeforeCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -860,7 +860,7 @@ public class MenuItemsApi {
     }
     /**
      * Build call for searchMenuItems
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the menu item must have. (optional)
      * @param maxCalories The maximum amount of calories the menu item can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -980,6 +980,11 @@ public class MenuItemsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchMenuItemsValidateBeforeCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchMenuItems(Async)");
+        }
+
         return searchMenuItemsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number, _callback);
 
     }
@@ -987,7 +992,7 @@ public class MenuItemsApi {
     /**
      * Search Menu Items
      * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the menu item must have. (optional)
      * @param maxCalories The maximum amount of calories the menu item can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -1020,7 +1025,7 @@ public class MenuItemsApi {
     /**
      * Search Menu Items
      * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the menu item must have. (optional)
      * @param maxCalories The maximum amount of calories the menu item can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -1054,7 +1059,7 @@ public class MenuItemsApi {
     /**
      * Search Menu Items (asynchronously)
      * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the menu item must have. (optional)
      * @param maxCalories The maximum amount of calories the menu item can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -1089,7 +1094,7 @@ public class MenuItemsApi {
     }
     /**
      * Build call for visualizeMenuItemNutritionByID
-     * @param id The item&#39;s id. (required)
+     * @param id The menu item id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1168,7 +1173,7 @@ public class MenuItemsApi {
     /**
      * Menu Item Nutrition by ID Widget
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The menu item id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1191,7 +1196,7 @@ public class MenuItemsApi {
     /**
      * Menu Item Nutrition by ID Widget
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The menu item id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1215,7 +1220,7 @@ public class MenuItemsApi {
     /**
      * Menu Item Nutrition by ID Widget (asynchronously)
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The menu item id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

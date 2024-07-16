@@ -312,7 +312,7 @@ catch (ApiException e)
 
 <a id="getrandomfoodtrivia"></a>
 # **GetRandomFoodTrivia**
-> GetRandomFoodTrivia200Response GetRandomFoodTrivia ()
+> GetARandomFoodJoke200Response GetRandomFoodTrivia ()
 
 Random Food Trivia
 
@@ -344,7 +344,7 @@ namespace Example
             try
             {
                 // Random Food Trivia
-                GetRandomFoodTrivia200Response result = apiInstance.GetRandomFoodTrivia();
+                GetARandomFoodJoke200Response result = apiInstance.GetRandomFoodTrivia();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -365,7 +365,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Random Food Trivia
-    ApiResponse<GetRandomFoodTrivia200Response> response = apiInstance.GetRandomFoodTriviaWithHttpInfo();
+    ApiResponse<GetARandomFoodJoke200Response> response = apiInstance.GetRandomFoodTriviaWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -382,7 +382,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -707,7 +707,7 @@ catch (ApiException e)
 
 <a id="searchcustomfoods"></a>
 # **SearchCustomFoods**
-> SearchCustomFoods200Response SearchCustomFoods (string username, string hash, string? query = null, int? offset = null, int? number = null)
+> SearchCustomFoods200Response SearchCustomFoods (string query, string username, string hash, int? offset = null, int? number = null)
 
 Search Custom Foods
 
@@ -735,16 +735,16 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi(config);
+            var query = burger;  // string | The (natural language) search query.
             var username = dsky;  // string | The username.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
-            var query = burger;  // string? | The (natural language) search query. (optional) 
             var offset = 56;  // int? | The number of results to skip (between 0 and 900). (optional) 
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
 
             try
             {
                 // Search Custom Foods
-                SearchCustomFoods200Response result = apiInstance.SearchCustomFoods(username, hash, query, offset, number);
+                SearchCustomFoods200Response result = apiInstance.SearchCustomFoods(query, username, hash, offset, number);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -765,7 +765,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Custom Foods
-    ApiResponse<SearchCustomFoods200Response> response = apiInstance.SearchCustomFoodsWithHttpInfo(username, hash, query, offset, number);
+    ApiResponse<SearchCustomFoods200Response> response = apiInstance.SearchCustomFoodsWithHttpInfo(query, username, hash, offset, number);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -782,9 +782,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **query** | **string** | The (natural language) search query. |  |
 | **username** | **string** | The username. |  |
 | **hash** | **string** | The private hash for the username. |  |
-| **query** | **string?** | The (natural language) search query. | [optional]  |
 | **offset** | **int?** | The number of results to skip (between 0 and 900). | [optional]  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
@@ -814,7 +814,7 @@ catch (ApiException e)
 
 <a id="searchfoodvideos"></a>
 # **SearchFoodVideos**
-> SearchFoodVideos200Response SearchFoodVideos (string? query = null, string? type = null, string? cuisine = null, string? diet = null, string? includeIngredients = null, string? excludeIngredients = null, decimal? minLength = null, decimal? maxLength = null, int? offset = null, int? number = null)
+> SearchFoodVideos200Response SearchFoodVideos (string query, string? type = null, string? cuisine = null, string? diet = null, string? includeIngredients = null, string? excludeIngredients = null, decimal? minLength = null, decimal? maxLength = null, int? offset = null, int? number = null)
 
 Search Food Videos
 
@@ -842,7 +842,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MiscApi(config);
-            var query = burger;  // string? | The (natural language) search query. (optional) 
+            var query = burger;  // string | The (natural language) search query.
             var type = main course;  // string? | The type of the recipes. See a full list of supported meal types. (optional) 
             var cuisine = italian;  // string? | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional) 
             var diet = vegetarian;  // string? | The diet for which the recipes must be suitable. See a full list of supported diets. (optional) 
@@ -894,7 +894,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | The (natural language) search query. | [optional]  |
+| **query** | **string** | The (natural language) search query. |  |
 | **type** | **string?** | The type of the recipes. See a full list of supported meal types. | [optional]  |
 | **cuisine** | **string?** | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional]  |
 | **diet** | **string?** | The diet for which the recipes must be suitable. See a full list of supported diets. | [optional]  |

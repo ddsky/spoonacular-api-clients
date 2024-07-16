@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_random_food_trivia**
-> GetRandomFoodTrivia200Response get_random_food_trivia()
+> GetARandomFoodJoke200Response get_random_food_trivia()
 
 Random Food Trivia
 
@@ -207,7 +207,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_custom_foods**
-> SearchCustomFoods200Response search_custom_foods(username => $username, hash => $hash, query => $query, offset => $offset, number => $number)
+> SearchCustomFoods200Response search_custom_foods(query => $query, username => $username, hash => $hash, offset => $offset, number => $number)
 
 Search Custom Foods
 
@@ -396,14 +396,14 @@ my $api_instance = WWW::OpenAPIClient::MiscApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
+my $query = burger; # string | The (natural language) search query.
 my $username = dsky; # string | The username.
 my $hash = 4b5v4398573406; # string | The private hash for the username.
-my $query = burger; # string | The (natural language) search query.
 my $offset = 56; # int | The number of results to skip (between 0 and 900).
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 eval {
-    my $result = $api_instance->search_custom_foods(username => $username, hash => $hash, query => $query, offset => $offset, number => $number);
+    my $result = $api_instance->search_custom_foods(query => $query, username => $username, hash => $hash, offset => $offset, number => $number);
     print Dumper($result);
 };
 if ($@) {
@@ -415,9 +415,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | **string**| The (natural language) search query. | 
  **username** | **string**| The username. | 
  **hash** | **string**| The private hash for the username. | 
- **query** | **string**| The (natural language) search query. | [optional] 
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
@@ -479,7 +479,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional] 
+ **query** | **string**| The (natural language) search query. | 
  **type** | **string**| The type of the recipes. See a full list of supported meal types. | [optional] 
  **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] 
  **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 

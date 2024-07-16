@@ -22,8 +22,8 @@ from typing import List, Optional, Union
 from typing_extensions import Annotated
 from spoonacular.models.autocomplete_ingredient_search200_response_inner import AutocompleteIngredientSearch200ResponseInner
 from spoonacular.models.compute_ingredient_amount200_response import ComputeIngredientAmount200Response
-from spoonacular.models.get_ingredient_information200_response import GetIngredientInformation200Response
 from spoonacular.models.get_ingredient_substitutes200_response import GetIngredientSubstitutes200Response
+from spoonacular.models.ingredient_information import IngredientInformation
 from spoonacular.models.ingredient_search200_response import IngredientSearch200Response
 from spoonacular.models.map_ingredients_to_grocery_products200_response_inner import MapIngredientsToGroceryProducts200ResponseInner
 from spoonacular.models.map_ingredients_to_grocery_products_request import MapIngredientsToGroceryProductsRequest
@@ -49,7 +49,7 @@ class IngredientsApi:
     @validate_call
     def autocomplete_ingredient_search(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         meta_information: Annotated[Optional[StrictBool], Field(description="Whether to return more meta information about the ingredients.")] = None,
         intolerances: Annotated[Optional[StrictStr], Field(description="A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.")] = None,
@@ -71,7 +71,7 @@ class IngredientsApi:
 
         Autocomplete the entry of an ingredient.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -135,7 +135,7 @@ class IngredientsApi:
     @validate_call
     def autocomplete_ingredient_search_with_http_info(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         meta_information: Annotated[Optional[StrictBool], Field(description="Whether to return more meta information about the ingredients.")] = None,
         intolerances: Annotated[Optional[StrictStr], Field(description="A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.")] = None,
@@ -157,7 +157,7 @@ class IngredientsApi:
 
         Autocomplete the entry of an ingredient.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -221,7 +221,7 @@ class IngredientsApi:
     @validate_call
     def autocomplete_ingredient_search_without_preload_content(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         meta_information: Annotated[Optional[StrictBool], Field(description="Whether to return more meta information about the ingredients.")] = None,
         intolerances: Annotated[Optional[StrictStr], Field(description="A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.")] = None,
@@ -243,7 +243,7 @@ class IngredientsApi:
 
         Autocomplete the entry of an ingredient.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -387,9 +387,9 @@ class IngredientsApi:
     @validate_call
     def compute_ingredient_amount(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The id of the ingredient you want the amount for.")],
+        id: Annotated[StrictInt, Field(description="The id of the ingredient you want the amount for.")],
         nutrient: Annotated[StrictStr, Field(description="The target nutrient. See a list of supported nutrients.")],
-        target: Annotated[Union[StrictFloat, StrictInt], Field(description="The target number of the given nutrient.")],
+        target: Annotated[StrictInt, Field(description="The target number of the given nutrient.")],
         unit: Annotated[Optional[StrictStr], Field(description="The target unit.")] = None,
         _request_timeout: Union[
             None,
@@ -409,11 +409,11 @@ class IngredientsApi:
         Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
 
         :param id: The id of the ingredient you want the amount for. (required)
-        :type id: float
+        :type id: int
         :param nutrient: The target nutrient. See a list of supported nutrients. (required)
         :type nutrient: str
         :param target: The target number of the given nutrient. (required)
-        :type target: float
+        :type target: int
         :param unit: The target unit.
         :type unit: str
         :param _request_timeout: timeout setting for this request. If one
@@ -469,9 +469,9 @@ class IngredientsApi:
     @validate_call
     def compute_ingredient_amount_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The id of the ingredient you want the amount for.")],
+        id: Annotated[StrictInt, Field(description="The id of the ingredient you want the amount for.")],
         nutrient: Annotated[StrictStr, Field(description="The target nutrient. See a list of supported nutrients.")],
-        target: Annotated[Union[StrictFloat, StrictInt], Field(description="The target number of the given nutrient.")],
+        target: Annotated[StrictInt, Field(description="The target number of the given nutrient.")],
         unit: Annotated[Optional[StrictStr], Field(description="The target unit.")] = None,
         _request_timeout: Union[
             None,
@@ -491,11 +491,11 @@ class IngredientsApi:
         Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
 
         :param id: The id of the ingredient you want the amount for. (required)
-        :type id: float
+        :type id: int
         :param nutrient: The target nutrient. See a list of supported nutrients. (required)
         :type nutrient: str
         :param target: The target number of the given nutrient. (required)
-        :type target: float
+        :type target: int
         :param unit: The target unit.
         :type unit: str
         :param _request_timeout: timeout setting for this request. If one
@@ -551,9 +551,9 @@ class IngredientsApi:
     @validate_call
     def compute_ingredient_amount_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The id of the ingredient you want the amount for.")],
+        id: Annotated[StrictInt, Field(description="The id of the ingredient you want the amount for.")],
         nutrient: Annotated[StrictStr, Field(description="The target nutrient. See a list of supported nutrients.")],
-        target: Annotated[Union[StrictFloat, StrictInt], Field(description="The target number of the given nutrient.")],
+        target: Annotated[StrictInt, Field(description="The target number of the given nutrient.")],
         unit: Annotated[Optional[StrictStr], Field(description="The target unit.")] = None,
         _request_timeout: Union[
             None,
@@ -573,11 +573,11 @@ class IngredientsApi:
         Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
 
         :param id: The id of the ingredient you want the amount for. (required)
-        :type id: float
+        :type id: int
         :param nutrient: The target nutrient. See a list of supported nutrients. (required)
         :type nutrient: str
         :param target: The target number of the given nutrient. (required)
-        :type target: float
+        :type target: int
         :param unit: The target unit.
         :type unit: str
         :param _request_timeout: timeout setting for this request. If one
@@ -706,7 +706,7 @@ class IngredientsApi:
     @validate_call
     def get_ingredient_information(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The ingredient id.")],
         amount: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The amount of this ingredient.")] = None,
         unit: Annotated[Optional[StrictStr], Field(description="The unit for the given amount.")] = None,
         _request_timeout: Union[
@@ -721,12 +721,12 @@ class IngredientsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetIngredientInformation200Response:
+    ) -> IngredientInformation:
         """Get Ingredient Information
 
         Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
-        :param id: The item's id. (required)
+        :param id: The ingredient id. (required)
         :type id: int
         :param amount: The amount of this ingredient.
         :type amount: float
@@ -765,7 +765,7 @@ class IngredientsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetIngredientInformation200Response",
+            '200': "IngredientInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -784,7 +784,7 @@ class IngredientsApi:
     @validate_call
     def get_ingredient_information_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The ingredient id.")],
         amount: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The amount of this ingredient.")] = None,
         unit: Annotated[Optional[StrictStr], Field(description="The unit for the given amount.")] = None,
         _request_timeout: Union[
@@ -799,12 +799,12 @@ class IngredientsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetIngredientInformation200Response]:
+    ) -> ApiResponse[IngredientInformation]:
         """Get Ingredient Information
 
         Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
-        :param id: The item's id. (required)
+        :param id: The ingredient id. (required)
         :type id: int
         :param amount: The amount of this ingredient.
         :type amount: float
@@ -843,7 +843,7 @@ class IngredientsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetIngredientInformation200Response",
+            '200': "IngredientInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -862,7 +862,7 @@ class IngredientsApi:
     @validate_call
     def get_ingredient_information_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The ingredient id.")],
         amount: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The amount of this ingredient.")] = None,
         unit: Annotated[Optional[StrictStr], Field(description="The unit for the given amount.")] = None,
         _request_timeout: Union[
@@ -882,7 +882,7 @@ class IngredientsApi:
 
         Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
-        :param id: The item's id. (required)
+        :param id: The ingredient id. (required)
         :type id: int
         :param amount: The amount of this ingredient.
         :type amount: float
@@ -921,7 +921,7 @@ class IngredientsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetIngredientInformation200Response",
+            '200': "IngredientInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -1278,7 +1278,7 @@ class IngredientsApi:
     @validate_call
     def get_ingredient_substitutes_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the ingredient you want substitutes for.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1296,7 +1296,7 @@ class IngredientsApi:
 
         Search for substitutes for a given ingredient.
 
-        :param id: The item's id. (required)
+        :param id: The id of the ingredient you want substitutes for. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1348,7 +1348,7 @@ class IngredientsApi:
     @validate_call
     def get_ingredient_substitutes_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the ingredient you want substitutes for.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1366,7 +1366,7 @@ class IngredientsApi:
 
         Search for substitutes for a given ingredient.
 
-        :param id: The item's id. (required)
+        :param id: The id of the ingredient you want substitutes for. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1418,7 +1418,7 @@ class IngredientsApi:
     @validate_call
     def get_ingredient_substitutes_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the ingredient you want substitutes for.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1436,7 +1436,7 @@ class IngredientsApi:
 
         Search for substitutes for a given ingredient.
 
-        :param id: The item's id. (required)
+        :param id: The id of the ingredient you want substitutes for. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1546,7 +1546,7 @@ class IngredientsApi:
     @validate_call
     def ingredient_search(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         add_children: Annotated[Optional[StrictBool], Field(description="Whether to add children of found foods.")] = None,
         min_protein_percent: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum percentage of protein the food must have (between 0 and 100).")] = None,
         max_protein_percent: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum percentage of protein the food can have (between 0 and 100).")] = None,
@@ -1578,7 +1578,7 @@ class IngredientsApi:
 
         Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param add_children: Whether to add children of found foods.
         :type add_children: bool
@@ -1672,7 +1672,7 @@ class IngredientsApi:
     @validate_call
     def ingredient_search_with_http_info(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         add_children: Annotated[Optional[StrictBool], Field(description="Whether to add children of found foods.")] = None,
         min_protein_percent: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum percentage of protein the food must have (between 0 and 100).")] = None,
         max_protein_percent: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum percentage of protein the food can have (between 0 and 100).")] = None,
@@ -1704,7 +1704,7 @@ class IngredientsApi:
 
         Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param add_children: Whether to add children of found foods.
         :type add_children: bool
@@ -1798,7 +1798,7 @@ class IngredientsApi:
     @validate_call
     def ingredient_search_without_preload_content(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         add_children: Annotated[Optional[StrictBool], Field(description="Whether to add children of found foods.")] = None,
         min_protein_percent: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum percentage of protein the food must have (between 0 and 100).")] = None,
         max_protein_percent: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum percentage of protein the food can have (between 0 and 100).")] = None,
@@ -1830,7 +1830,7 @@ class IngredientsApi:
 
         Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param add_children: Whether to add children of found foods.
         :type add_children: bool
@@ -2054,7 +2054,7 @@ class IngredientsApi:
     @validate_call
     def ingredients_by_id_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         measure: Annotated[Optional[StrictStr], Field(description="Whether the the measures should be 'us' or 'metric'.")] = None,
         _request_timeout: Union[
             None,
@@ -2074,7 +2074,7 @@ class IngredientsApi:
         Visualize a recipe's ingredient list.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param measure: Whether the the measures should be 'us' or 'metric'.
         :type measure: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2128,7 +2128,7 @@ class IngredientsApi:
     @validate_call
     def ingredients_by_id_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         measure: Annotated[Optional[StrictStr], Field(description="Whether the the measures should be 'us' or 'metric'.")] = None,
         _request_timeout: Union[
             None,
@@ -2148,7 +2148,7 @@ class IngredientsApi:
         Visualize a recipe's ingredient list.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param measure: Whether the the measures should be 'us' or 'metric'.
         :type measure: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2202,7 +2202,7 @@ class IngredientsApi:
     @validate_call
     def ingredients_by_id_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         measure: Annotated[Optional[StrictStr], Field(description="Whether the the measures should be 'us' or 'metric'.")] = None,
         _request_timeout: Union[
             None,
@@ -2222,7 +2222,7 @@ class IngredientsApi:
         Visualize a recipe's ingredient list.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param measure: Whether the the measures should be 'us' or 'metric'.
         :type measure: str
         :param _request_timeout: timeout setting for this request. If one

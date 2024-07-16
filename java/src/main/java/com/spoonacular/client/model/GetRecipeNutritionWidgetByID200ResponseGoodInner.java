@@ -64,9 +64,9 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
   @SerializedName(SERIALIZED_NAME_PERCENT_OF_DAILY_NEEDS)
   private BigDecimal percentOfDailyNeeds;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
   public GetRecipeNutritionWidgetByID200ResponseGoodInner() {
   }
@@ -128,22 +128,22 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
   }
 
 
-  public GetRecipeNutritionWidgetByID200ResponseGoodInner name(String name) {
-    this.name = name;
+  public GetRecipeNutritionWidgetByID200ResponseGoodInner title(String title) {
+    this.title = title;
     return this;
   }
 
   /**
-   * Get name
-   * @return name
+   * Get title
+   * @return title
    */
   @javax.annotation.Nonnull
-  public String getName() {
-    return name;
+  public String getTitle() {
+    return title;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -160,12 +160,12 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     return Objects.equals(this.amount, getRecipeNutritionWidgetByID200ResponseGoodInner.amount) &&
         Objects.equals(this.indented, getRecipeNutritionWidgetByID200ResponseGoodInner.indented) &&
         Objects.equals(this.percentOfDailyNeeds, getRecipeNutritionWidgetByID200ResponseGoodInner.percentOfDailyNeeds) &&
-        Objects.equals(this.name, getRecipeNutritionWidgetByID200ResponseGoodInner.name);
+        Objects.equals(this.title, getRecipeNutritionWidgetByID200ResponseGoodInner.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, indented, percentOfDailyNeeds, name);
+    return Objects.hash(amount, indented, percentOfDailyNeeds, title);
   }
 
   @Override
@@ -175,7 +175,7 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    indented: ").append(toIndentedString(indented)).append("\n");
     sb.append("    percentOfDailyNeeds: ").append(toIndentedString(percentOfDailyNeeds)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -201,14 +201,14 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     openapiFields.add("amount");
     openapiFields.add("indented");
     openapiFields.add("percentOfDailyNeeds");
-    openapiFields.add("name");
+    openapiFields.add("title");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("indented");
     openapiRequiredFields.add("percentOfDailyNeeds");
-    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("title");
   }
 
   /**
@@ -242,8 +242,8 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
       if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if (!jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
   }
 

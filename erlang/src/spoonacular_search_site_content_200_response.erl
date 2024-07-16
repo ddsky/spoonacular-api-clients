@@ -5,10 +5,10 @@
 -export_type([spoonacular_search_site_content_200_response/0]).
 
 -type spoonacular_search_site_content_200_response() ::
-    #{ 'Articles' := spoonacular_set:spoonacular_set(),
-       'Grocery_Products' := spoonacular_set:spoonacular_set(),
-       'Menu_Items' := spoonacular_set:spoonacular_set(),
-       'Recipes' := spoonacular_set:spoonacular_set()
+    #{ 'Articles' := list(),
+       'Grocery_Products' := list(),
+       'Menu_Items' := list(),
+       'Recipes' := list()
      }.
 
 encode(#{ 'Articles' := Articles,

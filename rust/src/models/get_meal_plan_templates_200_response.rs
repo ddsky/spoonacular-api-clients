@@ -15,12 +15,12 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetMealPlanTemplates200Response {
     #[serde(rename = "templates")]
-    pub templates: Vec<models::GetAnalyzedRecipeInstructions200ResponseIngredientsInner>,
+    pub templates: Vec<models::GetMealPlanTemplates200ResponseTemplatesInner>,
 }
 
 impl GetMealPlanTemplates200Response {
     /// 
-    pub fn new(templates: Vec<models::GetAnalyzedRecipeInstructions200ResponseIngredientsInner>) -> GetMealPlanTemplates200Response {
+    pub fn new(templates: Vec<models::GetMealPlanTemplates200ResponseTemplatesInner>) -> GetMealPlanTemplates200Response {
         GetMealPlanTemplates200Response {
             templates,
         }

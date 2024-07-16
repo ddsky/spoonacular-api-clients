@@ -62,7 +62,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **string**| The (natural language) search query. | [optional] |
+| **query** | **string**| The (natural language) search query. | |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | **meta_information** | **bool**| Whether to return more meta information about the ingredients. | [optional] |
 | **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
@@ -114,9 +114,9 @@ $apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 9266; // float | The id of the ingredient you want the amount for.
+$id = 9266; // int | The id of the ingredient you want the amount for.
 $nutrient = protein; // string | The target nutrient. See a list of supported nutrients.
-$target = 2; // float | The target number of the given nutrient.
+$target = 2; // int | The target number of the given nutrient.
 $unit = oz; // string | The target unit.
 
 try {
@@ -131,9 +131,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The id of the ingredient you want the amount for. | |
+| **id** | **int**| The id of the ingredient you want the amount for. | |
 | **nutrient** | **string**| The target nutrient. See a list of supported nutrients. | |
-| **target** | **float**| The target number of the given nutrient. | |
+| **target** | **int**| The target number of the given nutrient. | |
 | **unit** | **string**| The target unit. | [optional] |
 
 ### Return type
@@ -156,7 +156,7 @@ try {
 ## `getIngredientInformation()`
 
 ```php
-getIngredientInformation($id, $amount, $unit): \OpenAPI\Client\Model\GetIngredientInformation200Response
+getIngredientInformation($id, $amount, $unit): \OpenAPI\Client\Model\IngredientInformation
 ```
 
 Get Ingredient Information
@@ -182,7 +182,7 @@ $apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 9266; // int | The ingredient id.
 $amount = 150; // float | The amount of this ingredient.
 $unit = grams; // string | The unit for the given amount.
 
@@ -198,13 +198,13 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The ingredient id. | |
 | **amount** | **float**| The amount of this ingredient. | [optional] |
 | **unit** | **string**| The unit for the given amount. | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetIngredientInformation200Response**](../Model/GetIngredientInformation200Response.md)
+[**\OpenAPI\Client\Model\IngredientInformation**](../Model/IngredientInformation.md)
 
 ### Authorization
 
@@ -310,7 +310,7 @@ $apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1001; // int | The id of the ingredient you want substitutes for.
 
 try {
     $result = $apiInstance->getIngredientSubstitutesByID($id);
@@ -324,7 +324,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The id of the ingredient you want substitutes for. | |
 
 ### Return type
 
@@ -400,7 +400,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **string**| The (natural language) search query. | [optional] |
+| **query** | **string**| The (natural language) search query. | |
 | **add_children** | **bool**| Whether to add children of found foods. | [optional] |
 | **min_protein_percent** | **float**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] |
 | **max_protein_percent** | **float**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] |
@@ -462,7 +462,7 @@ $apiInstance = new OpenAPI\Client\Api\IngredientsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1082038; // float | The recipe id.
+$id = 1082038; // int | The recipe id.
 $measure = metric; // string | Whether the the measures should be 'us' or 'metric'.
 
 try {
@@ -477,7 +477,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 | **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
 
 ### Return type

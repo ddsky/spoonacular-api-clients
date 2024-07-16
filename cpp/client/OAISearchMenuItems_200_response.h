@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "OAISearchMenuItems_200_response_menuItems_inner.h"
+#include "OAIMenuItem.h"
 #include <QSet>
 #include <QString>
 
@@ -29,7 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAISearchMenuItems_200_response_menuItems_inner;
+class OAIMenuItem;
 
 class OAISearchMenuItems_200_response : public OAIObject {
 public:
@@ -42,8 +42,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QSet<OAISearchMenuItems_200_response_menuItems_inner> getMenuItems() const;
-    void setMenuItems(const QSet<OAISearchMenuItems_200_response_menuItems_inner> &menu_items);
+    QSet<OAIMenuItem> getMenuItems() const;
+    void setMenuItems(const QSet<OAIMenuItem> &menu_items);
     bool is_menu_items_Set() const;
     bool is_menu_items_Valid() const;
 
@@ -73,7 +73,7 @@ public:
 private:
     void initializeModel();
 
-    QSet<OAISearchMenuItems_200_response_menuItems_inner> m_menu_items;
+    QSet<OAIMenuItem> m_menu_items;
     bool m_menu_items_isSet;
     bool m_menu_items_isValid;
 

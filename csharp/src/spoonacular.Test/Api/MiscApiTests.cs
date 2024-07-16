@@ -99,7 +99,7 @@ namespace spoonacular.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetRandomFoodTrivia();
-            //Assert.IsType<GetRandomFoodTrivia200Response>(response);
+            //Assert.IsType<GetARandomFoodJoke200Response>(response);
         }
 
         /// <summary>
@@ -147,12 +147,12 @@ namespace spoonacular.Test.Api
         public void SearchCustomFoodsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string query = null;
             //string username = null;
             //string hash = null;
-            //string? query = null;
             //int? offset = null;
             //int? number = null;
-            //var response = instance.SearchCustomFoods(username, hash, query, offset, number);
+            //var response = instance.SearchCustomFoods(query, username, hash, offset, number);
             //Assert.IsType<SearchCustomFoods200Response>(response);
         }
 
@@ -163,7 +163,7 @@ namespace spoonacular.Test.Api
         public void SearchFoodVideosTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
+            //string query = null;
             //string? type = null;
             //string? cuisine = null;
             //string? diet = null;

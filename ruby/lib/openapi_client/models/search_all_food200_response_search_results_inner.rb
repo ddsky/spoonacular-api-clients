@@ -40,7 +40,7 @@ module OpenapiClient
       {
         :'name' => :'String',
         :'total_results' => :'Integer',
-        :'results' => :'Array<SearchAllFood200ResponseSearchResultsInnerResultsInner>'
+        :'results' => :'Array<SearchResult>'
       }
     end
 

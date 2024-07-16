@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseIngredientsInner
+import com.spoonacular.client.model.GetMealPlanTemplates200ResponseTemplatesInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class GetMealPlanTemplates200Response (
 
     @Json(name = "templates")
-    val templates: kotlin.collections.Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>
+    val templates: kotlin.collections.Set<GetMealPlanTemplates200ResponseTemplatesInner>
 
 ) {
 

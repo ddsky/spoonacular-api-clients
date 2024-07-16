@@ -110,7 +110,7 @@ class DefaultApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [String] mask:
@@ -124,7 +124,7 @@ class DefaultApi {
   ///
   /// * [String] fontColor:
   ///   The font color for the recipe card as a hex-string.
-  Future<Response> createRecipeCardGetWithHttpInfo(num id, { String? mask, String? backgroundImage, String? backgroundColor, String? fontColor, }) async {
+  Future<Response> createRecipeCardGetWithHttpInfo(int id, { String? mask, String? backgroundImage, String? backgroundColor, String? fontColor, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/card'
       .replaceAll('{id}', id.toString());
@@ -169,7 +169,7 @@ class DefaultApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [String] mask:
@@ -183,7 +183,7 @@ class DefaultApi {
   ///
   /// * [String] fontColor:
   ///   The font color for the recipe card as a hex-string.
-  Future<Object?> createRecipeCardGet(num id, { String? mask, String? backgroundImage, String? backgroundColor, String? fontColor, }) async {
+  Future<Object?> createRecipeCardGet(int id, { String? mask, String? backgroundImage, String? backgroundColor, String? fontColor, }) async {
     final response = await createRecipeCardGetWithHttpInfo(id,  mask: mask, backgroundImage: backgroundImage, backgroundColor: backgroundColor, fontColor: fontColor, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

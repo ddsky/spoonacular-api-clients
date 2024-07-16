@@ -79,7 +79,7 @@ getConversationSuggests query_query number_query =
 
 {-| Returns random food trivia.
 -}
-getRandomFoodTrivia : Api.Request Api.Data.GetRandomFoodTrivia200Response
+getRandomFoodTrivia : Api.Request Api.Data.GetARandomFoodJoke200Response
 getRandomFoodTrivia =
     Api.request
         "GET"
@@ -88,7 +88,7 @@ getRandomFoodTrivia =
         []
         []
         Nothing
-        Api.Data.getRandomFoodTrivia200ResponseDecoder
+        Api.Data.getARandomFoodJoke200ResponseDecoder
 
 
 {-| Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
@@ -135,13 +135,13 @@ searchAllFood query_query offset_query number_query =
 
 {-| Search custom foods in a user's account.
 -}
-searchCustomFoods : String -> String -> Maybe String -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchCustomFoods200Response
-searchCustomFoods username_query hash_query query_query offset_query number_query =
+searchCustomFoods : String -> String -> String -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchCustomFoods200Response
+searchCustomFoods query_query username_query hash_query offset_query number_query =
     Api.request
         "GET"
         "/food/customFoods/search"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "username", Just <| identity username_query ), ( "hash", Just <| identity hash_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "username", Just <| identity username_query ), ( "hash", Just <| identity hash_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
         []
         Nothing
         Api.Data.searchCustomFoods200ResponseDecoder
@@ -149,13 +149,13 @@ searchCustomFoods username_query hash_query query_query offset_query number_quer
 
 {-| Find recipe and other food related videos.
 -}
-searchFoodVideos : Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe Float -> Maybe Float -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchFoodVideos200Response
+searchFoodVideos : String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe Float -> Maybe Float -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchFoodVideos200Response
 searchFoodVideos query_query type__query cuisine_query diet_query includeIngredients_query excludeIngredients_query minLength_query maxLength_query offset_query number_query =
     Api.request
         "GET"
         "/food/videos/search"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "type", Maybe.map identity type__query ), ( "cuisine", Maybe.map identity cuisine_query ), ( "diet", Maybe.map identity diet_query ), ( "includeIngredients", Maybe.map identity includeIngredients_query ), ( "excludeIngredients", Maybe.map identity excludeIngredients_query ), ( "minLength", Maybe.map String.fromFloat minLength_query ), ( "maxLength", Maybe.map String.fromFloat maxLength_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "type", Maybe.map identity type__query ), ( "cuisine", Maybe.map identity cuisine_query ), ( "diet", Maybe.map identity diet_query ), ( "includeIngredients", Maybe.map identity includeIngredients_query ), ( "excludeIngredients", Maybe.map identity excludeIngredients_query ), ( "minLength", Maybe.map String.fromFloat minLength_query ), ( "maxLength", Maybe.map String.fromFloat maxLength_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
         []
         Nothing
         Api.Data.searchFoodVideos200ResponseDecoder

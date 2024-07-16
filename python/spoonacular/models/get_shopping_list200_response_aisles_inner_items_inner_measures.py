@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from spoonacular.models.parse_ingredients200_response_inner_nutrition_weight_per_serving import ParseIngredients200ResponseInnerNutritionWeightPerServing
+from spoonacular.models.get_shopping_list200_response_aisles_inner_items_inner_measures_original import GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures(BaseModel):
     """
     GetShoppingList200ResponseAislesInnerItemsInnerMeasures
     """ # noqa: E501
-    original: ParseIngredients200ResponseInnerNutritionWeightPerServing
-    metric: ParseIngredients200ResponseInnerNutritionWeightPerServing
-    us: ParseIngredients200ResponseInnerNutritionWeightPerServing
+    original: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+    metric: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+    us: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
     __properties: ClassVar[List[str]] = ["original", "metric", "us"]
 
     model_config = ConfigDict(
@@ -93,9 +93,9 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "original": ParseIngredients200ResponseInnerNutritionWeightPerServing.from_dict(obj["original"]) if obj.get("original") is not None else None,
-            "metric": ParseIngredients200ResponseInnerNutritionWeightPerServing.from_dict(obj["metric"]) if obj.get("metric") is not None else None,
-            "us": ParseIngredients200ResponseInnerNutritionWeightPerServing.from_dict(obj["us"]) if obj.get("us") is not None else None
+            "original": GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.from_dict(obj["original"]) if obj.get("original") is not None else None,
+            "metric": GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.from_dict(obj["metric"]) if obj.get("metric") is not None else None,
+            "us": GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.from_dict(obj["us"]) if obj.get("us") is not None else None
         })
         return _obj
 

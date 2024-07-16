@@ -42,7 +42,7 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="name">name (required).</param>
-        public AnalyzeRecipeInstructions200ResponseIngredientsInner(decimal id = default(decimal), string name = default(string))
+        public AnalyzeRecipeInstructions200ResponseIngredientsInner(int id = default(int), string name = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -57,7 +57,7 @@ namespace spoonacular.Model
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name

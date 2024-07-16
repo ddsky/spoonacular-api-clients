@@ -37,16 +37,7 @@ class TestSearchMenuItems200Response(unittest.TestCase):
         if include_optional:
             return SearchMenuItems200Response(
                 menu_items = [
-                    spoonacular.models.search_menu_items_200_response_menu_items_inner.searchMenuItems_200_response_menuItems_inner(
-                        id = 56, 
-                        title = '0', 
-                        restaurant_chain = '0', 
-                        image = '0', 
-                        image_type = '0', 
-                        servings = spoonacular.models.search_grocery_products_by_upc_200_response_servings.searchGroceryProductsByUPC_200_response_servings(
-                            number = 1.337, 
-                            size = 1.337, 
-                            unit = '0', ), )
+                    {"id":424571,"title":"Bacon King Burger","restaurantChain":"Burger King","nutrition":{"nutrients":[{"name":"Fat","amount":69,"unit":"g","percentOfDailyNeeds":30},{"name":"Protein","amount":57,"unit":"g","percentOfDailyNeeds":35},{"name":"Calories","amount":1040,"unit":"cal","percentOfDailyNeeds":50},{"name":"Carbohydrates","amount":48,"unit":"g","percentOfDailyNeeds":35}],"caloricBreakdown":{"percentProtein":35,"percentFat":30,"percentCarbs":35}},"badges":[],"breadcrumbs":["burger","main course","food product category"],"generatedText":"","imageType":"png","likes":0,"servings":{"number":1,"size":2,"unit":"oz"},"price":2.35,"spoonacularScore":12.5}
                     ],
                 total_menu_items = 56,
                 type = '0',
@@ -56,16 +47,7 @@ class TestSearchMenuItems200Response(unittest.TestCase):
         else:
             return SearchMenuItems200Response(
                 menu_items = [
-                    spoonacular.models.search_menu_items_200_response_menu_items_inner.searchMenuItems_200_response_menuItems_inner(
-                        id = 56, 
-                        title = '0', 
-                        restaurant_chain = '0', 
-                        image = '0', 
-                        image_type = '0', 
-                        servings = spoonacular.models.search_grocery_products_by_upc_200_response_servings.searchGroceryProductsByUPC_200_response_servings(
-                            number = 1.337, 
-                            size = 1.337, 
-                            unit = '0', ), )
+                    {"id":424571,"title":"Bacon King Burger","restaurantChain":"Burger King","nutrition":{"nutrients":[{"name":"Fat","amount":69,"unit":"g","percentOfDailyNeeds":30},{"name":"Protein","amount":57,"unit":"g","percentOfDailyNeeds":35},{"name":"Calories","amount":1040,"unit":"cal","percentOfDailyNeeds":50},{"name":"Carbohydrates","amount":48,"unit":"g","percentOfDailyNeeds":35}],"caloricBreakdown":{"percentProtein":35,"percentFat":30,"percentCarbs":35}},"badges":[],"breadcrumbs":["burger","main course","food product category"],"generatedText":"","imageType":"png","likes":0,"servings":{"number":1,"size":2,"unit":"oz"},"price":2.35,"spoonacularScore":12.5}
                     ],
                 total_menu_items = 56,
                 type = '0',

@@ -225,7 +225,7 @@ class MiscApi {
   /// Random Food Trivia
   ///
   /// Returns random food trivia.
-  Future<GetRandomFoodTrivia200Response?> getRandomFoodTrivia() async {
+  Future<GetARandomFoodJoke200Response?> getRandomFoodTrivia() async {
     final response = await getRandomFoodTriviaWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -234,7 +234,7 @@ class MiscApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetRandomFoodTrivia200Response',) as GetRandomFoodTrivia200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetARandomFoodJoke200Response',) as GetARandomFoodJoke200Response;
     
     }
     return null;
@@ -446,21 +446,21 @@ class MiscApi {
   ///
   /// Parameters:
   ///
+  /// * [String] query (required):
+  ///   The (natural language) search query.
+  ///
   /// * [String] username (required):
   ///   The username.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
   ///
-  /// * [String] query:
-  ///   The (natural language) search query.
-  ///
   /// * [int] offset:
   ///   The number of results to skip (between 0 and 900).
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> searchCustomFoodsWithHttpInfo(String username, String hash, { String? query, int? offset, int? number, }) async {
+  Future<Response> searchCustomFoodsWithHttpInfo(String query, String username, String hash, { int? offset, int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/customFoods/search';
 
@@ -471,9 +471,7 @@ class MiscApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
       queryParams.addAll(_queryParams('', 'username', username));
       queryParams.addAll(_queryParams('', 'hash', hash));
     if (offset != null) {
@@ -503,22 +501,22 @@ class MiscApi {
   ///
   /// Parameters:
   ///
+  /// * [String] query (required):
+  ///   The (natural language) search query.
+  ///
   /// * [String] username (required):
   ///   The username.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
   ///
-  /// * [String] query:
-  ///   The (natural language) search query.
-  ///
   /// * [int] offset:
   ///   The number of results to skip (between 0 and 900).
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<SearchCustomFoods200Response?> searchCustomFoods(String username, String hash, { String? query, int? offset, int? number, }) async {
-    final response = await searchCustomFoodsWithHttpInfo(username, hash,  query: query, offset: offset, number: number, );
+  Future<SearchCustomFoods200Response?> searchCustomFoods(String query, String username, String hash, { int? offset, int? number, }) async {
+    final response = await searchCustomFoodsWithHttpInfo(query, username, hash,  offset: offset, number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -540,7 +538,7 @@ class MiscApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [String] type:
@@ -569,7 +567,7 @@ class MiscApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> searchFoodVideosWithHttpInfo({ String? query, String? type, String? cuisine, String? diet, String? includeIngredients, String? excludeIngredients, num? minLength, num? maxLength, int? offset, int? number, }) async {
+  Future<Response> searchFoodVideosWithHttpInfo(String query, { String? type, String? cuisine, String? diet, String? includeIngredients, String? excludeIngredients, num? minLength, num? maxLength, int? offset, int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/videos/search';
 
@@ -580,9 +578,7 @@ class MiscApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
     }
@@ -631,7 +627,7 @@ class MiscApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [String] type:
@@ -660,8 +656,8 @@ class MiscApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<SearchFoodVideos200Response?> searchFoodVideos({ String? query, String? type, String? cuisine, String? diet, String? includeIngredients, String? excludeIngredients, num? minLength, num? maxLength, int? offset, int? number, }) async {
-    final response = await searchFoodVideosWithHttpInfo( query: query, type: type, cuisine: cuisine, diet: diet, includeIngredients: includeIngredients, excludeIngredients: excludeIngredients, minLength: minLength, maxLength: maxLength, offset: offset, number: number, );
+  Future<SearchFoodVideos200Response?> searchFoodVideos(String query, { String? type, String? cuisine, String? diet, String? includeIngredients, String? excludeIngredients, num? minLength, num? maxLength, int? offset, int? number, }) async {
+    final response = await searchFoodVideosWithHttpInfo(query,  type: type, cuisine: cuisine, diet: diet, includeIngredients: includeIngredients, excludeIngredients: excludeIngredients, minLength: minLength, maxLength: maxLength, offset: offset, number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

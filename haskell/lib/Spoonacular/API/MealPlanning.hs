@@ -129,7 +129,7 @@ addToShoppingList
   => AddToShoppingListRequest -- ^ "addToShoppingListRequest"
   -> Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
-  -> SpoonacularRequest AddToShoppingList MimeJSON GenerateShoppingList200Response MimeJSON
+  -> SpoonacularRequest AddToShoppingList MimeJSON GetShoppingList200Response MimeJSON
 addToShoppingList addToShoppingListRequest (Username username) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/items"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -212,10 +212,10 @@ instance Produces ConnectUser MimeJSON
 -- 
 deleteFromMealPlan
   :: Username -- ^ "username" -  The username.
-  -> IdDouble -- ^ "id" -  The shopping list item id.
+  -> Id -- ^ "id" -  The shopping list item id.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest DeleteFromMealPlan MimeNoContent A.Value MimeJSON
-deleteFromMealPlan (Username username) (IdDouble id) (Hash hash) =
+deleteFromMealPlan (Username username) (Id id) (Hash hash) =
   _mkRequest "DELETE" ["/mealplanner/",toPath username,"/items/",toPath id]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addQuery` toQuery ("hash", Just hash)
@@ -237,7 +237,7 @@ instance Produces DeleteFromMealPlan MimeJSON
 -- 
 deleteFromShoppingList
   :: Username -- ^ "username" -  The username.
-  -> Id -- ^ "id" -  The item's id.
+  -> Id -- ^ "id" -  The shopping list item id.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest DeleteFromShoppingList MimeNoContent A.Value MimeJSON
 deleteFromShoppingList (Username username) (Id id) (Hash hash) =
@@ -262,7 +262,7 @@ instance Produces DeleteFromShoppingList MimeJSON
 -- 
 deleteMealPlanTemplate
   :: Username -- ^ "username" -  The username.
-  -> Id -- ^ "id" -  The item's id.
+  -> Id -- ^ "id" -  The shopping list item id.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest DeleteMealPlanTemplate MimeNoContent A.Value MimeJSON
 deleteMealPlanTemplate (Username username) (Id id) (Hash hash) =
@@ -331,7 +331,7 @@ generateShoppingList
   -> StartDate -- ^ "startDate" -  The start date in the format yyyy-mm-dd.
   -> EndDate -- ^ "endDate" -  The end date in the format yyyy-mm-dd.
   -> Hash -- ^ "hash" -  The private hash for the username.
-  -> SpoonacularRequest GenerateShoppingList MimeNoContent GenerateShoppingList200Response MimeJSON
+  -> SpoonacularRequest GenerateShoppingList MimeNoContent GetShoppingList200Response MimeJSON
 generateShoppingList (Username username) (StartDate startDate) (EndDate endDate) (Hash hash) =
   _mkRequest "POST" ["/mealplanner/",toPath username,"/shopping-list/",toPath startDate,"/",toPath endDate]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -354,7 +354,7 @@ instance Produces GenerateShoppingList MimeJSON
 -- 
 getMealPlanTemplate
   :: Username -- ^ "username" -  The username.
-  -> Id -- ^ "id" -  The item's id.
+  -> Id -- ^ "id" -  The shopping list item id.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest GetMealPlanTemplate MimeNoContent GetMealPlanTemplate200Response MimeJSON
 getMealPlanTemplate (Username username) (Id id) (Hash hash) =

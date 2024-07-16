@@ -21,8 +21,8 @@ import okhttp3.HttpUrl
 
 import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner
 import com.spoonacular.client.model.ComputeIngredientAmount200Response
-import com.spoonacular.client.model.GetIngredientInformation200Response
 import com.spoonacular.client.model.GetIngredientSubstitutes200Response
+import com.spoonacular.client.model.IngredientInformation
 import com.spoonacular.client.model.IngredientSearch200Response
 import com.spoonacular.client.model.MapIngredientsToGroceryProducts200ResponseInner
 import com.spoonacular.client.model.MapIngredientsToGroceryProductsRequest
@@ -71,7 +71,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Autocomplete Ingredient Search
      * Autocomplete the entry of an ingredient.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -85,7 +85,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun autocompleteIngredientSearch(query: kotlin.String? = null, number: kotlin.Int? = 10, metaInformation: kotlin.Boolean? = null, intolerances: kotlin.String? = null, language: LanguageAutocompleteIngredientSearch? = null) : kotlin.collections.Set<AutocompleteIngredientSearch200ResponseInner> {
+    fun autocompleteIngredientSearch(query: kotlin.String, number: kotlin.Int? = 10, metaInformation: kotlin.Boolean? = null, intolerances: kotlin.String? = null, language: LanguageAutocompleteIngredientSearch? = null) : kotlin.collections.Set<AutocompleteIngredientSearch200ResponseInner> {
         val localVarResponse = autocompleteIngredientSearchWithHttpInfo(query = query, number = number, metaInformation = metaInformation, intolerances = intolerances, language = language)
 
         return when (localVarResponse.responseType) {
@@ -106,7 +106,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Autocomplete Ingredient Search
      * Autocomplete the entry of an ingredient.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -117,7 +117,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun autocompleteIngredientSearchWithHttpInfo(query: kotlin.String?, number: kotlin.Int?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, language: LanguageAutocompleteIngredientSearch?) : ApiResponse<kotlin.collections.Set<AutocompleteIngredientSearch200ResponseInner>?> {
+    fun autocompleteIngredientSearchWithHttpInfo(query: kotlin.String, number: kotlin.Int?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, language: LanguageAutocompleteIngredientSearch?) : ApiResponse<kotlin.collections.Set<AutocompleteIngredientSearch200ResponseInner>?> {
         val localVariableConfig = autocompleteIngredientSearchRequestConfig(query = query, number = number, metaInformation = metaInformation, intolerances = intolerances, language = language)
 
         return request<Unit, kotlin.collections.Set<AutocompleteIngredientSearch200ResponseInner>>(
@@ -128,20 +128,18 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * To obtain the request config of the operation autocompleteIngredientSearch
      *
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return RequestConfig
      */
-    fun autocompleteIngredientSearchRequestConfig(query: kotlin.String?, number: kotlin.Int?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, language: LanguageAutocompleteIngredientSearch?) : RequestConfig<Unit> {
+    fun autocompleteIngredientSearchRequestConfig(query: kotlin.String, number: kotlin.Int?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, language: LanguageAutocompleteIngredientSearch?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 if (number != null) {
                     put("number", listOf(number.toString()))
                 }
@@ -184,7 +182,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun computeIngredientAmount(id: java.math.BigDecimal, nutrient: kotlin.String, target: java.math.BigDecimal, unit: kotlin.String? = null) : ComputeIngredientAmount200Response {
+    fun computeIngredientAmount(id: kotlin.Int, nutrient: kotlin.String, target: kotlin.Int, unit: kotlin.String? = null) : ComputeIngredientAmount200Response {
         val localVarResponse = computeIngredientAmountWithHttpInfo(id = id, nutrient = nutrient, target = target, unit = unit)
 
         return when (localVarResponse.responseType) {
@@ -215,7 +213,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun computeIngredientAmountWithHttpInfo(id: java.math.BigDecimal, nutrient: kotlin.String, target: java.math.BigDecimal, unit: kotlin.String?) : ApiResponse<ComputeIngredientAmount200Response?> {
+    fun computeIngredientAmountWithHttpInfo(id: kotlin.Int, nutrient: kotlin.String, target: kotlin.Int, unit: kotlin.String?) : ApiResponse<ComputeIngredientAmount200Response?> {
         val localVariableConfig = computeIngredientAmountRequestConfig(id = id, nutrient = nutrient, target = target, unit = unit)
 
         return request<Unit, ComputeIngredientAmount200Response>(
@@ -232,7 +230,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      * @param unit The target unit. (optional)
      * @return RequestConfig
      */
-    fun computeIngredientAmountRequestConfig(id: java.math.BigDecimal, nutrient: kotlin.String, target: java.math.BigDecimal, unit: kotlin.String?) : RequestConfig<Unit> {
+    fun computeIngredientAmountRequestConfig(id: kotlin.Int, nutrient: kotlin.String, target: kotlin.Int, unit: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -258,10 +256,10 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Get Ingredient Information
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-     * @param id The item&#39;s id.
+     * @param id The ingredient id.
      * @param amount The amount of this ingredient. (optional)
      * @param unit The unit for the given amount. (optional)
-     * @return GetIngredientInformation200Response
+     * @return IngredientInformation
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -270,11 +268,11 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getIngredientInformation(id: kotlin.Int, amount: java.math.BigDecimal? = null, unit: kotlin.String? = null) : GetIngredientInformation200Response {
+    fun getIngredientInformation(id: kotlin.Int, amount: java.math.BigDecimal? = null, unit: kotlin.String? = null) : IngredientInformation {
         val localVarResponse = getIngredientInformationWithHttpInfo(id = id, amount = amount, unit = unit)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetIngredientInformation200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as IngredientInformation
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -291,19 +289,19 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Get Ingredient Information
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-     * @param id The item&#39;s id.
+     * @param id The ingredient id.
      * @param amount The amount of this ingredient. (optional)
      * @param unit The unit for the given amount. (optional)
-     * @return ApiResponse<GetIngredientInformation200Response?>
+     * @return ApiResponse<IngredientInformation?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getIngredientInformationWithHttpInfo(id: kotlin.Int, amount: java.math.BigDecimal?, unit: kotlin.String?) : ApiResponse<GetIngredientInformation200Response?> {
+    fun getIngredientInformationWithHttpInfo(id: kotlin.Int, amount: java.math.BigDecimal?, unit: kotlin.String?) : ApiResponse<IngredientInformation?> {
         val localVariableConfig = getIngredientInformationRequestConfig(id = id, amount = amount, unit = unit)
 
-        return request<Unit, GetIngredientInformation200Response>(
+        return request<Unit, IngredientInformation>(
             localVariableConfig
         )
     }
@@ -311,7 +309,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * To obtain the request config of the operation getIngredientInformation
      *
-     * @param id The item&#39;s id.
+     * @param id The ingredient id.
      * @param amount The amount of this ingredient. (optional)
      * @param unit The unit for the given amount. (optional)
      * @return RequestConfig
@@ -417,7 +415,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Get Ingredient Substitutes by ID
      * Search for substitutes for a given ingredient.
-     * @param id The item&#39;s id.
+     * @param id The id of the ingredient you want substitutes for.
      * @return GetIngredientSubstitutes200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -448,7 +446,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Get Ingredient Substitutes by ID
      * Search for substitutes for a given ingredient.
-     * @param id The item&#39;s id.
+     * @param id The id of the ingredient you want substitutes for.
      * @return ApiResponse<GetIngredientSubstitutes200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -466,7 +464,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * To obtain the request config of the operation getIngredientSubstitutesByID
      *
-     * @param id The item&#39;s id.
+     * @param id The id of the ingredient you want substitutes for.
      * @return RequestConfig
      */
     fun getIngredientSubstitutesByIDRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -505,7 +503,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Ingredient Search
      * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param addChildren Whether to add children of found foods. (optional)
      * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -529,7 +527,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun ingredientSearch(query: kotlin.String? = null, addChildren: kotlin.Boolean? = null, minProteinPercent: java.math.BigDecimal? = null, maxProteinPercent: java.math.BigDecimal? = null, minFatPercent: java.math.BigDecimal? = null, maxFatPercent: java.math.BigDecimal? = null, minCarbsPercent: java.math.BigDecimal? = null, maxCarbsPercent: java.math.BigDecimal? = null, metaInformation: kotlin.Boolean? = null, intolerances: kotlin.String? = null, sort: kotlin.String? = null, sortDirection: kotlin.String? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10, language: LanguageIngredientSearch? = null) : IngredientSearch200Response {
+    fun ingredientSearch(query: kotlin.String, addChildren: kotlin.Boolean? = null, minProteinPercent: java.math.BigDecimal? = null, maxProteinPercent: java.math.BigDecimal? = null, minFatPercent: java.math.BigDecimal? = null, maxFatPercent: java.math.BigDecimal? = null, minCarbsPercent: java.math.BigDecimal? = null, maxCarbsPercent: java.math.BigDecimal? = null, metaInformation: kotlin.Boolean? = null, intolerances: kotlin.String? = null, sort: kotlin.String? = null, sortDirection: kotlin.String? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10, language: LanguageIngredientSearch? = null) : IngredientSearch200Response {
         val localVarResponse = ingredientSearchWithHttpInfo(query = query, addChildren = addChildren, minProteinPercent = minProteinPercent, maxProteinPercent = maxProteinPercent, minFatPercent = minFatPercent, maxFatPercent = maxFatPercent, minCarbsPercent = minCarbsPercent, maxCarbsPercent = maxCarbsPercent, metaInformation = metaInformation, intolerances = intolerances, sort = sort, sortDirection = sortDirection, offset = offset, number = number, language = language)
 
         return when (localVarResponse.responseType) {
@@ -550,7 +548,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * Ingredient Search
      * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param addChildren Whether to add children of found foods. (optional)
      * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -571,7 +569,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun ingredientSearchWithHttpInfo(query: kotlin.String?, addChildren: kotlin.Boolean?, minProteinPercent: java.math.BigDecimal?, maxProteinPercent: java.math.BigDecimal?, minFatPercent: java.math.BigDecimal?, maxFatPercent: java.math.BigDecimal?, minCarbsPercent: java.math.BigDecimal?, maxCarbsPercent: java.math.BigDecimal?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, sort: kotlin.String?, sortDirection: kotlin.String?, offset: kotlin.Int?, number: kotlin.Int?, language: LanguageIngredientSearch?) : ApiResponse<IngredientSearch200Response?> {
+    fun ingredientSearchWithHttpInfo(query: kotlin.String, addChildren: kotlin.Boolean?, minProteinPercent: java.math.BigDecimal?, maxProteinPercent: java.math.BigDecimal?, minFatPercent: java.math.BigDecimal?, maxFatPercent: java.math.BigDecimal?, minCarbsPercent: java.math.BigDecimal?, maxCarbsPercent: java.math.BigDecimal?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, sort: kotlin.String?, sortDirection: kotlin.String?, offset: kotlin.Int?, number: kotlin.Int?, language: LanguageIngredientSearch?) : ApiResponse<IngredientSearch200Response?> {
         val localVariableConfig = ingredientSearchRequestConfig(query = query, addChildren = addChildren, minProteinPercent = minProteinPercent, maxProteinPercent = maxProteinPercent, minFatPercent = minFatPercent, maxFatPercent = maxFatPercent, minCarbsPercent = minCarbsPercent, maxCarbsPercent = maxCarbsPercent, metaInformation = metaInformation, intolerances = intolerances, sort = sort, sortDirection = sortDirection, offset = offset, number = number, language = language)
 
         return request<Unit, IngredientSearch200Response>(
@@ -582,7 +580,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
     /**
      * To obtain the request config of the operation ingredientSearch
      *
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param addChildren Whether to add children of found foods. (optional)
      * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -599,13 +597,11 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
      * @return RequestConfig
      */
-    fun ingredientSearchRequestConfig(query: kotlin.String?, addChildren: kotlin.Boolean?, minProteinPercent: java.math.BigDecimal?, maxProteinPercent: java.math.BigDecimal?, minFatPercent: java.math.BigDecimal?, maxFatPercent: java.math.BigDecimal?, minCarbsPercent: java.math.BigDecimal?, maxCarbsPercent: java.math.BigDecimal?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, sort: kotlin.String?, sortDirection: kotlin.String?, offset: kotlin.Int?, number: kotlin.Int?, language: LanguageIngredientSearch?) : RequestConfig<Unit> {
+    fun ingredientSearchRequestConfig(query: kotlin.String, addChildren: kotlin.Boolean?, minProteinPercent: java.math.BigDecimal?, maxProteinPercent: java.math.BigDecimal?, minFatPercent: java.math.BigDecimal?, maxFatPercent: java.math.BigDecimal?, minCarbsPercent: java.math.BigDecimal?, maxCarbsPercent: java.math.BigDecimal?, metaInformation: kotlin.Boolean?, intolerances: kotlin.String?, sort: kotlin.String?, sortDirection: kotlin.String?, offset: kotlin.Int?, number: kotlin.Int?, language: LanguageIngredientSearch?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 if (addChildren != null) {
                     put("addChildren", listOf(addChildren.toString()))
                 }
@@ -693,7 +689,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun ingredientsByIDImage(id: java.math.BigDecimal, measure: MeasureIngredientsByIDImage? = null) : java.io.File {
+    fun ingredientsByIDImage(id: kotlin.Int, measure: MeasureIngredientsByIDImage? = null) : java.io.File {
         val localVarResponse = ingredientsByIDImageWithHttpInfo(id = id, measure = measure)
 
         return when (localVarResponse.responseType) {
@@ -722,7 +718,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun ingredientsByIDImageWithHttpInfo(id: java.math.BigDecimal, measure: MeasureIngredientsByIDImage?) : ApiResponse<java.io.File?> {
+    fun ingredientsByIDImageWithHttpInfo(id: kotlin.Int, measure: MeasureIngredientsByIDImage?) : ApiResponse<java.io.File?> {
         val localVariableConfig = ingredientsByIDImageRequestConfig(id = id, measure = measure)
 
         return request<Unit, java.io.File>(
@@ -737,7 +733,7 @@ class IngredientsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpCl
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @return RequestConfig
      */
-    fun ingredientsByIDImageRequestConfig(id: java.math.BigDecimal, measure: MeasureIngredientsByIDImage?) : RequestConfig<Unit> {
+    fun ingredientsByIDImageRequestConfig(id: kotlin.Int, measure: MeasureIngredientsByIDImage?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

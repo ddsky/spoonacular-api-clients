@@ -68,7 +68,7 @@ addToMealPlan username_path hash_query addToMealPlanRequest_body =
 
 {-| Add an item to the current shopping list of a user.
 -}
-addToShoppingList : String -> String -> Api.Data.AddToShoppingListRequest -> Api.Request Api.Data.GenerateShoppingList200Response
+addToShoppingList : String -> String -> Api.Data.AddToShoppingListRequest -> Api.Request Api.Data.GetShoppingList200Response
 addToShoppingList username_path hash_query addToShoppingListRequest_body =
     Api.request
         "POST"
@@ -77,7 +77,7 @@ addToShoppingList username_path hash_query addToShoppingListRequest_body =
         [ ( "hash", Just <| identity hash_query ) ]
         []
         (Maybe.map Http.jsonBody (Just (Api.Data.encodeAddToShoppingListRequest addToShoppingListRequest_body)))
-        Api.Data.generateShoppingList200ResponseDecoder
+        Api.Data.getShoppingList200ResponseDecoder
 
 
 {-| Delete all planned items from the user's meal plan for a specific day.
@@ -110,12 +110,12 @@ connectUser connectUserRequest_body =
 
 {-| Delete an item from the user's meal plan.
 -}
-deleteFromMealPlan : String -> Float -> String -> Api.Request (Dict.Dict String Api.Data.Object)
+deleteFromMealPlan : String -> Int -> String -> Api.Request (Dict.Dict String Api.Data.Object)
 deleteFromMealPlan username_path id_path hash_query =
     Api.request
         "DELETE"
         "/mealplanner/{username}/items/{id}"
-        [ ( "username", identity username_path ), ( "id", String.fromFloat id_path ) ]
+        [ ( "username", identity username_path ), ( "id", String.fromInt id_path ) ]
         [ ( "hash", Just <| identity hash_query ) ]
         []
         Nothing
@@ -166,7 +166,7 @@ generateMealPlan timeFrame_query targetCalories_query diet_query exclude_query =
 
 {-| Generate the shopping list for a user from the meal planner in a given time frame.
 -}
-generateShoppingList : String -> String -> String -> String -> Api.Request Api.Data.GenerateShoppingList200Response
+generateShoppingList : String -> String -> String -> String -> Api.Request Api.Data.GetShoppingList200Response
 generateShoppingList username_path startDate_path endDate_path hash_query =
     Api.request
         "POST"
@@ -175,7 +175,7 @@ generateShoppingList username_path startDate_path endDate_path hash_query =
         [ ( "hash", Just <| identity hash_query ) ]
         []
         Nothing
-        Api.Data.generateShoppingList200ResponseDecoder
+        Api.Data.getShoppingList200ResponseDecoder
 
 
 {-| Get information about a meal plan template.

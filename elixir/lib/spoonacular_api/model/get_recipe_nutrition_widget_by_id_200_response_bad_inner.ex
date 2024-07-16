@@ -8,14 +8,14 @@ defmodule SpoonacularAPI.Model.GetRecipeNutritionWidgetById200ResponseBadInner d
 
   @derive Jason.Encoder
   defstruct [
-    :name,
+    :title,
     :amount,
     :indented,
     :percentOfDailyNeeds
   ]
 
   @type t :: %__MODULE__{
-    :name => String.t,
+    :title => String.t,
     :amount => String.t,
     :indented => boolean(),
     :percentOfDailyNeeds => float()

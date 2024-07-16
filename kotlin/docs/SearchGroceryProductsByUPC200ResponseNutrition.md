@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **nutrients** | [**kotlin.collections.Set&lt;ParseIngredients200ResponseInnerNutritionNutrientsInner&gt;**](ParseIngredients200ResponseInnerNutritionNutrientsInner.md) |  |  |
-| **caloricBreakdown** | [**ParseIngredients200ResponseInnerNutritionCaloricBreakdown**](ParseIngredients200ResponseInnerNutritionCaloricBreakdown.md) |  |  |
+| **nutrients** | [**kotlin.collections.Set&lt;SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner&gt;**](SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.md) |  |  |
+| **caloricBreakdown** | [**SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown**](SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.md) |  |  |
 
 
 

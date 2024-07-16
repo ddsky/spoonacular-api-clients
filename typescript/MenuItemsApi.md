@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **autocompleteMenuItemSearch**
-> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch()
+> AutocompleteProductSearch200Response autocompleteMenuItemSearch()
 
 Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**AutocompleteMenuItemSearch200Response**
+**AutocompleteProductSearch200Response**
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getMenuItemInformation**
-> GetMenuItemInformation200Response getMenuItemInformation()
+> MenuItem getMenuItemInformation()
 
 Use a menu item id to get all available information about a menu item, such as nutrition.
 
@@ -89,8 +89,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .MenuItemsApi(configuration);
 
 let body:.MenuItemsApiGetMenuItemInformationRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The menu item id.
+  id: 424571,
 };
 
 apiInstance.getMenuItemInformation(body).then((data:any) => {
@@ -103,12 +103,12 @@ apiInstance.getMenuItemInformation(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The menu item id. | defaults to undefined
 
 
 ### Return type
 
-**GetMenuItemInformation200Response**
+**MenuItem**
 
 ### Authorization
 
@@ -338,7 +338,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .MenuItemsApi(configuration);
 
 let body:.MenuItemsApiSearchMenuItemsRequest = {
-  // string | The (natural language) search query. (optional)
+  // string | The (natural language) search query.
   query: "burger",
   // number | The minimum amount of calories the menu item must have. (optional)
   minCalories: 50,
@@ -374,7 +374,7 @@ apiInstance.searchMenuItems(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **minCalories** | [**number**] | The minimum amount of calories the menu item must have. | (optional) defaults to undefined
  **maxCalories** | [**number**] | The maximum amount of calories the menu item can have. | (optional) defaults to undefined
  **minCarbs** | [**number**] | The minimum amount of carbohydrates in grams the menu item must have. | (optional) defaults to undefined
@@ -428,8 +428,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .MenuItemsApi(configuration);
 
 let body:.MenuItemsApiVisualizeMenuItemNutritionByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The menu item id.
+  id: 1003464,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
 };
@@ -444,7 +444,7 @@ apiInstance.visualizeMenuItemNutritionByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The menu item id. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
 
 

@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::SearchMenuItems200ResponseMenuItemsInner;
+use WWW::OpenAPIClient::Object::MenuItem;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -221,7 +221,7 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'menu_items' => {
-        datatype => 'ARRAY[SearchMenuItems200ResponseMenuItemsInner]',
+        datatype => 'ARRAY[MenuItem]',
         base_name => 'menuItems',
         description => '',
         format => '',
@@ -258,7 +258,7 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'menu_items' => 'ARRAY[SearchMenuItems200ResponseMenuItemsInner]',
+    'menu_items' => 'ARRAY[MenuItem]',
     'total_menu_items' => 'int',
     'type' => 'string',
     'offset' => 'int',

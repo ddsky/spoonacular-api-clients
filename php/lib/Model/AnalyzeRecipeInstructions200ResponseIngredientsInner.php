@@ -58,7 +58,7 @@ class AnalyzeRecipeInstructions200ResponseIngredientsInner implements ModelInter
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string'
     ];
 
@@ -310,7 +310,7 @@ class AnalyzeRecipeInstructions200ResponseIngredientsInner implements ModelInter
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -320,7 +320,7 @@ class AnalyzeRecipeInstructions200ResponseIngredientsInner implements ModelInter
     /**
      * Sets id
      *
-     * @param float $id id
+     * @param int $id id
      *
      * @return self
      */

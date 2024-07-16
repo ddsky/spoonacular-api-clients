@@ -35,15 +35,11 @@ import { ConvertAmounts200Response } from '../model/convertAmounts200Response';
 // @ts-ignore
 import { CreateRecipeCard200Response } from '../model/createRecipeCard200Response';
 // @ts-ignore
-import { GetAnalyzedRecipeInstructions200Response } from '../model/getAnalyzedRecipeInstructions200Response';
+import { GetAnalyzedRecipeInstructions200ResponseInner } from '../model/getAnalyzedRecipeInstructions200ResponseInner';
 // @ts-ignore
 import { GetRandomRecipes200Response } from '../model/getRandomRecipes200Response';
 // @ts-ignore
 import { GetRecipeEquipmentByID200Response } from '../model/getRecipeEquipmentByID200Response';
-// @ts-ignore
-import { GetRecipeInformation200Response } from '../model/getRecipeInformation200Response';
-// @ts-ignore
-import { GetRecipeInformationBulk200ResponseInner } from '../model/getRecipeInformationBulk200ResponseInner';
 // @ts-ignore
 import { GetRecipeIngredientsByID200Response } from '../model/getRecipeIngredientsByID200Response';
 // @ts-ignore
@@ -51,15 +47,15 @@ import { GetRecipeNutritionWidgetByID200Response } from '../model/getRecipeNutri
 // @ts-ignore
 import { GetRecipePriceBreakdownByID200Response } from '../model/getRecipePriceBreakdownByID200Response';
 // @ts-ignore
-import { GetRecipeTasteByID200Response } from '../model/getRecipeTasteByID200Response';
-// @ts-ignore
 import { GetSimilarRecipes200ResponseInner } from '../model/getSimilarRecipes200ResponseInner';
 // @ts-ignore
 import { GuessNutritionByDishName200Response } from '../model/guessNutritionByDishName200Response';
 // @ts-ignore
-import { ParseIngredients200ResponseInner } from '../model/parseIngredients200ResponseInner';
+import { IngredientInformation } from '../model/ingredientInformation';
 // @ts-ignore
 import { QuickAnswer200Response } from '../model/quickAnswer200Response';
+// @ts-ignore
+import { RecipeInformation } from '../model/recipeInformation';
 // @ts-ignore
 import { SearchRecipes200Response } from '../model/searchRecipes200Response';
 // @ts-ignore
@@ -68,6 +64,8 @@ import { SearchRecipesByIngredients200ResponseInner } from '../model/searchRecip
 import { SearchRecipesByNutrients200ResponseInner } from '../model/searchRecipesByNutrients200ResponseInner';
 // @ts-ignore
 import { SummarizeRecipe200Response } from '../model/summarizeRecipe200Response';
+// @ts-ignore
+import { TasteInformation } from '../model/tasteInformation';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -332,10 +330,13 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public autocompleteRecipeSearch(query?: string, number?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<AutocompleteRecipeSearch200ResponseInner>>;
-    public autocompleteRecipeSearch(query?: string, number?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<AutocompleteRecipeSearch200ResponseInner>>>;
-    public autocompleteRecipeSearch(query?: string, number?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<AutocompleteRecipeSearch200ResponseInner>>>;
-    public autocompleteRecipeSearch(query?: string, number?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public autocompleteRecipeSearch(query: string, number?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<AutocompleteRecipeSearch200ResponseInner>>;
+    public autocompleteRecipeSearch(query: string, number?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<AutocompleteRecipeSearch200ResponseInner>>>;
+    public autocompleteRecipeSearch(query: string, number?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<AutocompleteRecipeSearch200ResponseInner>>>;
+    public autocompleteRecipeSearch(query: string, number?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (query === null || query === undefined) {
+            throw new Error('Required parameter query was null or undefined when calling autocompleteRecipeSearch.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (query !== undefined && query !== null) {
@@ -938,9 +939,9 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetRecipeInformation200Response>;
-    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetRecipeInformation200Response>>;
-    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetRecipeInformation200Response>>;
+    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<RecipeInformation>;
+    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RecipeInformation>>;
+    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RecipeInformation>>;
     public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (url === null || url === undefined) {
             throw new Error('Required parameter url was null or undefined when calling extractRecipeFromWebsite.');
@@ -1012,7 +1013,7 @@ export class RecipesService {
         }
 
         let localVarPath = `/recipes/extract`;
-        return this.httpClient.request<GetRecipeInformation200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<RecipeInformation>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -1029,14 +1030,14 @@ export class RecipesService {
     /**
      * Get Analyzed Recipe Instructions
      * Get an analyzed breakdown of a recipe\&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param stepBreakdown Whether to break down the recipe steps even more.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetAnalyzedRecipeInstructions200Response>;
-    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetAnalyzedRecipeInstructions200Response>>;
-    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetAnalyzedRecipeInstructions200Response>>;
+    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<GetAnalyzedRecipeInstructions200ResponseInner>>;
+    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<GetAnalyzedRecipeInstructions200ResponseInner>>>;
+    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<GetAnalyzedRecipeInstructions200ResponseInner>>>;
     public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getAnalyzedRecipeInstructions.');
@@ -1092,7 +1093,7 @@ export class RecipesService {
         }
 
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/analyzedInstructions`;
-        return this.httpClient.request<GetAnalyzedRecipeInstructions200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<Array<GetAnalyzedRecipeInstructions200ResponseInner>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -1200,7 +1201,7 @@ export class RecipesService {
     /**
      * Equipment by ID
      * Get a recipe\&#39;s equipment list.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -1272,15 +1273,17 @@ export class RecipesService {
     /**
      * Get Recipe Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-     * @param id The item\&#39;s id.
+     * @param id The id of the recipe.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+     * @param addWinePairing Add a wine pairing to the recipe.
+     * @param addTasteData Add taste data to the recipe.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getRecipeInformation(id: number, includeNutrition?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetRecipeInformation200Response>;
-    public getRecipeInformation(id: number, includeNutrition?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetRecipeInformation200Response>>;
-    public getRecipeInformation(id: number, includeNutrition?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetRecipeInformation200Response>>;
-    public getRecipeInformation(id: number, includeNutrition?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getRecipeInformation(id: number, includeNutrition?: boolean, addWinePairing?: boolean, addTasteData?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<RecipeInformation>;
+    public getRecipeInformation(id: number, includeNutrition?: boolean, addWinePairing?: boolean, addTasteData?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<RecipeInformation>>;
+    public getRecipeInformation(id: number, includeNutrition?: boolean, addWinePairing?: boolean, addTasteData?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<RecipeInformation>>;
+    public getRecipeInformation(id: number, includeNutrition?: boolean, addWinePairing?: boolean, addTasteData?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getRecipeInformation.');
         }
@@ -1289,6 +1292,14 @@ export class RecipesService {
         if (includeNutrition !== undefined && includeNutrition !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>includeNutrition, 'includeNutrition');
+        }
+        if (addWinePairing !== undefined && addWinePairing !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>addWinePairing, 'addWinePairing');
+        }
+        if (addTasteData !== undefined && addTasteData !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>addTasteData, 'addTasteData');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -1335,7 +1346,7 @@ export class RecipesService {
         }
 
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/information`;
-        return this.httpClient.request<GetRecipeInformation200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<RecipeInformation>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -1357,9 +1368,9 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<GetRecipeInformationBulk200ResponseInner>>;
-    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<GetRecipeInformationBulk200ResponseInner>>>;
-    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<GetRecipeInformationBulk200ResponseInner>>>;
+    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<RecipeInformation>>;
+    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<RecipeInformation>>>;
+    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<RecipeInformation>>>;
     public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (ids === null || ids === undefined) {
             throw new Error('Required parameter ids was null or undefined when calling getRecipeInformationBulk.');
@@ -1419,7 +1430,7 @@ export class RecipesService {
         }
 
         let localVarPath = `/recipes/informationBulk`;
-        return this.httpClient.request<Set<GetRecipeInformationBulk200ResponseInner>>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<Set<RecipeInformation>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -1436,7 +1447,7 @@ export class RecipesService {
     /**
      * Ingredients by ID
      * Get a recipe\&#39;s ingredient list.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -1508,7 +1519,7 @@ export class RecipesService {
     /**
      * Nutrition by ID
      * Get a recipe\&#39;s nutrition data.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -1580,7 +1591,7 @@ export class RecipesService {
     /**
      * Price Breakdown by ID
      * Get a recipe\&#39;s price breakdown data.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -1652,14 +1663,14 @@ export class RecipesService {
     /**
      * Taste by ID
      * Get a recipe\&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Normalize to the strongest taste.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getRecipeTasteByID(id: number, normalize?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetRecipeTasteByID200Response>;
-    public getRecipeTasteByID(id: number, normalize?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetRecipeTasteByID200Response>>;
-    public getRecipeTasteByID(id: number, normalize?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetRecipeTasteByID200Response>>;
+    public getRecipeTasteByID(id: number, normalize?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<TasteInformation>;
+    public getRecipeTasteByID(id: number, normalize?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<TasteInformation>>;
+    public getRecipeTasteByID(id: number, normalize?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<TasteInformation>>;
     public getRecipeTasteByID(id: number, normalize?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getRecipeTasteByID.');
@@ -1715,7 +1726,7 @@ export class RecipesService {
         }
 
         let localVarPath = `/recipes/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/tasteWidget.json`;
-        return this.httpClient.request<GetRecipeTasteByID200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<TasteInformation>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -1732,7 +1743,7 @@ export class RecipesService {
     /**
      * Get Similar Recipes
      * Find recipes which are similar to the given one.
-     * @param id The item\&#39;s id.
+     * @param id The id of the source recipe for which similar recipes should be found.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -1894,13 +1905,13 @@ export class RecipesService {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param includeNutrition 
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<ParseIngredients200ResponseInner>>;
-    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<ParseIngredients200ResponseInner>>>;
-    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<ParseIngredients200ResponseInner>>>;
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<IngredientInformation>>;
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<IngredientInformation>>>;
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<IngredientInformation>>>;
     public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (ingredientList === null || ingredientList === undefined) {
             throw new Error('Required parameter ingredientList was null or undefined when calling parseIngredients.');
@@ -1984,7 +1995,7 @@ export class RecipesService {
         }
 
         let localVarPath = `/recipes/parseIngredients`;
-        return this.httpClient.request<Set<ParseIngredients200ResponseInner>>('post', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<Set<IngredientInformation>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: localVarConvertFormParamsToString ? localVarFormParams.toString() : localVarFormParams,
@@ -2551,10 +2562,13 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<SearchRecipes200Response>;
-    public searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchRecipes200Response>>;
-    public searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchRecipes200Response>>;
-    public searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public searchRecipes(query: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<SearchRecipes200Response>;
+    public searchRecipes(query: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchRecipes200Response>>;
+    public searchRecipes(query: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchRecipes200Response>>;
+    public searchRecipes(query: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (query === null || query === undefined) {
+            throw new Error('Required parameter query was null or undefined when calling searchRecipes.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (query !== undefined && query !== null) {
@@ -3014,10 +3028,13 @@ export class RecipesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public searchRecipesByIngredients(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<SearchRecipesByIngredients200ResponseInner>>;
-    public searchRecipesByIngredients(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<SearchRecipesByIngredients200ResponseInner>>>;
-    public searchRecipesByIngredients(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<SearchRecipesByIngredients200ResponseInner>>>;
-    public searchRecipesByIngredients(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public searchRecipesByIngredients(ingredients: string, number?: number, ranking?: number, ignorePantry?: boolean, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<SearchRecipesByIngredients200ResponseInner>>;
+    public searchRecipesByIngredients(ingredients: string, number?: number, ranking?: number, ignorePantry?: boolean, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<SearchRecipesByIngredients200ResponseInner>>>;
+    public searchRecipesByIngredients(ingredients: string, number?: number, ranking?: number, ignorePantry?: boolean, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<SearchRecipesByIngredients200ResponseInner>>>;
+    public searchRecipesByIngredients(ingredients: string, number?: number, ranking?: number, ignorePantry?: boolean, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (ingredients === null || ingredients === undefined) {
+            throw new Error('Required parameter ingredients was null or undefined when calling searchRecipesByIngredients.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (ingredients !== undefined && ingredients !== null) {
@@ -3544,7 +3561,7 @@ export class RecipesService {
     /**
      * Summarize Recipe
      * Automatically generate a short description that summarizes key information about the recipe.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -3839,7 +3856,7 @@ export class RecipesService {
     /**
      * Equipment by ID Widget
      * Visualize a recipe\&#39;s equipment list.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -3919,7 +3936,7 @@ export class RecipesService {
     /**
      * Ingredients by ID Widget
      * Visualize a recipe\&#39;s ingredient list.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -4119,7 +4136,7 @@ export class RecipesService {
     /**
      * Recipe Nutrition by ID Widget
      * Visualize a recipe\&#39;s nutritional information as HTML including CSS.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -4199,7 +4216,7 @@ export class RecipesService {
     /**
      * Price Breakdown by ID Widget
      * Visualize a recipe\&#39;s price breakdown.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -4387,7 +4404,7 @@ export class RecipesService {
     /**
      * Recipe Taste by ID Widget
      * Get a recipe\&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Whether to normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.

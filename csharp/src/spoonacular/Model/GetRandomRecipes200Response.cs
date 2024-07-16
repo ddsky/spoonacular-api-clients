@@ -41,7 +41,7 @@ namespace spoonacular.Model
         /// Initializes a new instance of the <see cref="GetRandomRecipes200Response" /> class.
         /// </summary>
         /// <param name="recipes">recipes (required).</param>
-        public GetRandomRecipes200Response(List<GetRandomRecipes200ResponseRecipesInner> recipes = default(List<GetRandomRecipes200ResponseRecipesInner>))
+        public GetRandomRecipes200Response(List<RecipeInformation> recipes = default(List<RecipeInformation>))
         {
             // to ensure "recipes" is required (not null)
             if (recipes == null)
@@ -55,7 +55,7 @@ namespace spoonacular.Model
         /// Gets or Sets Recipes
         /// </summary>
         [DataMember(Name = "recipes", IsRequired = true, EmitDefaultValue = true)]
-        public List<GetRandomRecipes200ResponseRecipesInner> Recipes { get; set; }
+        public List<RecipeInformation> Recipes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

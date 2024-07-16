@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ## AddToShoppingList
 
-> GenerateShoppingList200Response AddToShoppingList(ctx, username).Hash(hash).AddToShoppingListRequest(addToShoppingListRequest).Execute()
+> GetShoppingList200Response AddToShoppingList(ctx, username).Hash(hash).AddToShoppingListRequest(addToShoppingListRequest).Execute()
 
 Add to Shopping List
 
@@ -199,7 +199,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningAPI.AddToShoppingList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AddToShoppingList`: GenerateShoppingList200Response
+	// response from `AddToShoppingList`: GetShoppingList200Response
 	fmt.Fprintf(os.Stdout, "Response from `MealPlanningAPI.AddToShoppingList`: %v\n", resp)
 }
 ```
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -404,7 +404,7 @@ import (
 
 func main() {
 	username := "dsky" // string | The username.
-	id := float32(15678) // float32 | The shopping list item id.
+	id := int32(15678) // int32 | The shopping list item id.
 	hash := "hash_example" // string | The private hash for the username.
 
 	configuration := openapiclient.NewConfiguration()
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **username** | **string** | The username. | 
-**id** | **float32** | The shopping list item id. | 
+**id** | **int32** | The shopping list item id. | 
 
 ### Other Parameters
 
@@ -479,7 +479,7 @@ import (
 
 func main() {
 	username := "dsky" // string | The username.
-	id := int32(1) // int32 | The item's id.
+	id := int32(15678) // int32 | The shopping list item id.
 	hash := "hash_example" // string | The private hash for the username.
 
 	configuration := openapiclient.NewConfiguration()
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **username** | **string** | The username. | 
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The shopping list item id. | 
 
 ### Other Parameters
 
@@ -554,7 +554,7 @@ import (
 
 func main() {
 	username := "dsky" // string | The username.
-	id := int32(1) // int32 | The item's id.
+	id := int32(15678) // int32 | The shopping list item id.
 	hash := "4b5v4398573406" // string | The private hash for the username.
 
 	configuration := openapiclient.NewConfiguration()
@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **username** | **string** | The username. | 
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The shopping list item id. | 
 
 ### Other Parameters
 
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 
 ## GenerateShoppingList
 
-> GenerateShoppingList200Response GenerateShoppingList(ctx, username, startDate, endDate).Hash(hash).Execute()
+> GetShoppingList200Response GenerateShoppingList(ctx, username, startDate, endDate).Hash(hash).Execute()
 
 Generate Shopping List
 
@@ -712,7 +712,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MealPlanningAPI.GenerateShoppingList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GenerateShoppingList`: GenerateShoppingList200Response
+	// response from `GenerateShoppingList`: GetShoppingList200Response
 	fmt.Fprintf(os.Stdout, "Response from `MealPlanningAPI.GenerateShoppingList`: %v\n", resp)
 }
 ```
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -779,7 +779,7 @@ import (
 
 func main() {
 	username := "dsky" // string | The username.
-	id := int32(1) // int32 | The item's id.
+	id := int32(15678) // int32 | The shopping list item id.
 	hash := "hash_example" // string | The private hash for the username.
 
 	configuration := openapiclient.NewConfiguration()
@@ -801,7 +801,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **username** | **string** | The username. | 
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The shopping list item id. | 
 
 ### Other Parameters
 

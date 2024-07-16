@@ -223,8 +223,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .ProductsApi(configuration);
 
 let body:.ProductsApiGetComparableProductsRequest = {
-  // number | The UPC of the product for which you want to find comparable products.
-  upc: 33698816271,
+  // string | The UPC of the product for which you want to find comparable products.
+  upc: "033698816271",
 };
 
 apiInstance.getComparableProducts(body).then((data:any) => {
@@ -237,7 +237,7 @@ apiInstance.getComparableProducts(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | [**number**] | The UPC of the product for which you want to find comparable products. | defaults to undefined
+ **upc** | [**string**] | The UPC of the product for which you want to find comparable products. | defaults to undefined
 
 
 ### Return type
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getProductInformation**
-> GetProductInformation200Response getProductInformation()
+> ProductInformation getProductInformation()
 
 Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
@@ -280,8 +280,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .ProductsApi(configuration);
 
 let body:.ProductsApiGetProductInformationRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The id of the packaged food.
+  id: 22347,
 };
 
 apiInstance.getProductInformation(body).then((data:any) => {
@@ -294,12 +294,12 @@ apiInstance.getProductInformation(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The id of the packaged food. | defaults to undefined
 
 
 ### Return type
 
-**GetProductInformation200Response**
+**ProductInformation**
 
 ### Authorization
 
@@ -529,7 +529,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .ProductsApi(configuration);
 
 let body:.ProductsApiSearchGroceryProductsRequest = {
-  // string | The (natural language) search query. (optional)
+  // string | The (natural language) search query.
   query: "burger",
   // number | The minimum amount of calories the product must have. (optional)
   minCalories: 50,
@@ -565,7 +565,7 @@ apiInstance.searchGroceryProducts(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **minCalories** | [**number**] | The minimum amount of calories the product must have. | (optional) defaults to undefined
  **maxCalories** | [**number**] | The maximum amount of calories the product can have. | (optional) defaults to undefined
  **minCarbs** | [**number**] | The minimum amount of carbohydrates in grams the product must have. | (optional) defaults to undefined
@@ -619,8 +619,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .ProductsApi(configuration);
 
 let body:.ProductsApiSearchGroceryProductsByUPCRequest = {
-  // number | The product\'s UPC.
-  upc: 41631000564,
+  // string | The product\'s UPC.
+  upc: "041631000564",
 };
 
 apiInstance.searchGroceryProductsByUPC(body).then((data:any) => {
@@ -633,7 +633,7 @@ apiInstance.searchGroceryProductsByUPC(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | [**number**] | The product\&#39;s UPC. | defaults to undefined
+ **upc** | [**string**] | The product\&#39;s UPC. | defaults to undefined
 
 
 ### Return type
@@ -676,8 +676,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .ProductsApi(configuration);
 
 let body:.ProductsApiVisualizeProductNutritionByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The id of the product.
+  id: 7657,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
 };
@@ -692,7 +692,7 @@ apiInstance.visualizeProductNutritionByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The id of the product. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
 
 

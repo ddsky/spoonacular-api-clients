@@ -7,7 +7,7 @@
 
 (def analyze-recipe-instructions-200-response-parsed-instructions-inner-steps-inner-ingredients-inner-data
   {
-   (ds/req :id) float?
+   (ds/req :id) int?
    (ds/req :name) string?
    (ds/req :localizedName) string?
    (ds/req :image) string?

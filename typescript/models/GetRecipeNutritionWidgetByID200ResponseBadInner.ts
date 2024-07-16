@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class GetRecipeNutritionWidgetByID200ResponseBadInner {
-    'name': string;
+    'title': string;
     'amount': string;
     'indented': boolean;
     'percentOfDailyNeeds': number;
@@ -22,8 +22,8 @@ export class GetRecipeNutritionWidgetByID200ResponseBadInner {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "title",
+            "baseName": "title",
             "type": "string",
             "format": ""
         },

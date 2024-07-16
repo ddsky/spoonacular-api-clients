@@ -38,9 +38,9 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'original' => :'ParseIngredients200ResponseInnerNutritionWeightPerServing',
-        :'metric' => :'ParseIngredients200ResponseInnerNutritionWeightPerServing',
-        :'us' => :'ParseIngredients200ResponseInnerNutritionWeightPerServing'
+        :'original' => :'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
+        :'metric' => :'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
+        :'us' => :'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal'
       }
     end
 

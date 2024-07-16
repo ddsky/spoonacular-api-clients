@@ -24,7 +24,7 @@ var _ MappedNullable = &SearchAllFood200ResponseSearchResultsInner{}
 type SearchAllFood200ResponseSearchResultsInner struct {
 	Name string `json:"name"`
 	TotalResults int32 `json:"totalResults"`
-	Results []SearchAllFood200ResponseSearchResultsInnerResultsInner `json:"results,omitempty"`
+	Results []SearchResult `json:"results,omitempty"`
 }
 
 type _SearchAllFood200ResponseSearchResultsInner SearchAllFood200ResponseSearchResultsInner
@@ -97,9 +97,9 @@ func (o *SearchAllFood200ResponseSearchResultsInner) SetTotalResults(v int32) {
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *SearchAllFood200ResponseSearchResultsInner) GetResults() []SearchAllFood200ResponseSearchResultsInnerResultsInner {
+func (o *SearchAllFood200ResponseSearchResultsInner) GetResults() []SearchResult {
 	if o == nil || IsNil(o.Results) {
-		var ret []SearchAllFood200ResponseSearchResultsInnerResultsInner
+		var ret []SearchResult
 		return ret
 	}
 	return o.Results
@@ -107,7 +107,7 @@ func (o *SearchAllFood200ResponseSearchResultsInner) GetResults() []SearchAllFoo
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchAllFood200ResponseSearchResultsInner) GetResultsOk() ([]SearchAllFood200ResponseSearchResultsInnerResultsInner, bool) {
+func (o *SearchAllFood200ResponseSearchResultsInner) GetResultsOk() ([]SearchResult, bool) {
 	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
@@ -123,8 +123,8 @@ func (o *SearchAllFood200ResponseSearchResultsInner) HasResults() bool {
 	return false
 }
 
-// SetResults gets a reference to the given []SearchAllFood200ResponseSearchResultsInnerResultsInner and assigns it to the Results field.
-func (o *SearchAllFood200ResponseSearchResultsInner) SetResults(v []SearchAllFood200ResponseSearchResultsInnerResultsInner) {
+// SetResults gets a reference to the given []SearchResult and assigns it to the Results field.
+func (o *SearchAllFood200ResponseSearchResultsInner) SetResults(v []SearchResult) {
 	o.Results = v
 }
 

@@ -176,7 +176,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -434,7 +434,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 44860; // num | The recipe id.
+final id = 44860; // int | The recipe id.
 
 try {
     final result = api_instance.equipmentByIDImage(id);
@@ -448,7 +448,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extractRecipeFromWebsite**
-> GetRecipeInformation200Response extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
+> RecipeInformation extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
 
 Extract Recipe from Website
 
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAnalyzedRecipeInstructions**
-> GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(id, stepBreakdown)
+> List<GetAnalyzedRecipeInstructions200ResponseInner> getAnalyzedRecipeInstructions(id, stepBreakdown)
 
 Get Analyzed Recipe Instructions
 
@@ -536,7 +536,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 324694; // int | The recipe id.
 final stepBreakdown = true; // bool | Whether to break down the recipe steps even more.
 
 try {
@@ -551,12 +551,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
  **stepBreakdown** | **bool**| Whether to break down the recipe steps even more. | [optional] 
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**List<GetAnalyzedRecipeInstructions200ResponseInner>**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -638,7 +638,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 1003464; // int | The recipe id.
 
 try {
     final result = api_instance.getRecipeEquipmentByID(id);
@@ -652,7 +652,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRecipeInformation**
-> GetRecipeInformation200Response getRecipeInformation(id, includeNutrition)
+> RecipeInformation getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData)
 
 Get Recipe Information
 
@@ -685,11 +685,13 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 716429; // int | The id of the recipe.
 final includeNutrition = true; // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+final addWinePairing = false; // bool | Add a wine pairing to the recipe.
+final addTasteData = false; // bool | Add taste data to the recipe.
 
 try {
-    final result = api_instance.getRecipeInformation(id, includeNutrition);
+    final result = api_instance.getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData);
     print(result);
 } catch (e) {
     print('Exception when calling RecipesApi->getRecipeInformation: $e\n');
@@ -700,12 +702,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The id of the recipe. | 
  **includeNutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+ **addWinePairing** | **bool**| Add a wine pairing to the recipe. | [optional] 
+ **addTasteData** | **bool**| Add taste data to the recipe. | [optional] 
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -719,7 +723,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRecipeInformationBulk**
-> Set<GetRecipeInformationBulk200ResponseInner> getRecipeInformationBulk(ids, includeNutrition)
+> Set<RecipeInformation> getRecipeInformationBulk(ids, includeNutrition)
 
 Get Recipe Information Bulk
 
@@ -754,7 +758,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Set<GetRecipeInformationBulk200ResponseInner>**](GetRecipeInformationBulk200ResponseInner.md)
+[**Set<RecipeInformation>**](RecipeInformation.md)
 
 ### Authorization
 
@@ -783,7 +787,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 1003464; // int | The recipe id.
 
 try {
     final result = api_instance.getRecipeIngredientsByID(id);
@@ -797,7 +801,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -830,7 +834,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 1003464; // int | The recipe id.
 
 try {
     final result = api_instance.getRecipeNutritionWidgetByID(id);
@@ -844,7 +848,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -877,7 +881,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 1003464; // int | The recipe id.
 
 try {
     final result = api_instance.getRecipePriceBreakdownByID(id);
@@ -891,7 +895,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -909,7 +913,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRecipeTasteByID**
-> GetRecipeTasteByID200Response getRecipeTasteByID(id, normalize)
+> TasteInformation getRecipeTasteByID(id, normalize)
 
 Taste by ID
 
@@ -924,7 +928,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 69095; // int | The recipe id.
 final normalize = true; // bool | Normalize to the strongest taste.
 
 try {
@@ -939,12 +943,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **bool**| Normalize to the strongest taste. | [optional] [default to true]
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -973,7 +977,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 715538; // int | The id of the source recipe for which similar recipes should be found.
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try {
@@ -988,7 +992,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -1054,7 +1058,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **parseIngredients**
-> Set<ParseIngredients200ResponseInner> parseIngredients(ingredientList, servings, language, includeNutrition)
+> Set<IngredientInformation> parseIngredients(ingredientList, servings, language, includeNutrition)
 
 Parse Ingredients
 
@@ -1072,7 +1076,7 @@ final api_instance = RecipesApi();
 final ingredientList = ingredientList_example; // String | The ingredient list of the recipe, one ingredient per line.
 final servings = 8.14; // num | The number of servings that you can make from the ingredients.
 final language = en; // String | The language of the input. Either 'en' or 'de'.
-final includeNutrition = true; // bool | 
+final includeNutrition = true; // bool | Whether nutrition data should be added to correctly parsed ingredients.
 
 try {
     final result = api_instance.parseIngredients(ingredientList, servings, language, includeNutrition);
@@ -1089,11 +1093,11 @@ Name | Type | Description  | Notes
  **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
  **servings** | **num**| The number of servings that you can make from the ingredients. | 
  **language** | **String**| The language of the input. Either 'en' or 'de'. | [optional] 
- **includeNutrition** | **bool**|  | [optional] 
+ **includeNutrition** | **bool**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] 
 
 ### Return type
 
-[**Set<ParseIngredients200ResponseInner>**](ParseIngredients200ResponseInner.md)
+[**Set<IngredientInformation>**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1122,7 +1126,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1082038; // num | The recipe id.
+final id = 1082038; // int | The recipe id.
 
 try {
     final result = api_instance.priceBreakdownByIDImage(id);
@@ -1136,7 +1140,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1216,7 +1220,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1082038; // num | The recipe id.
+final id = 1082038; // int | The recipe id.
 
 try {
     final result = api_instance.recipeNutritionByIDImage(id);
@@ -1230,7 +1234,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1263,7 +1267,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 641166; // num | The recipe id.
+final id = 641166; // int | The recipe id.
 final showOptionalNutrients = false; // bool | Whether to show optional nutrients.
 final showZeroValues = false; // bool | Whether to show zero values.
 final showIngredients = false; // bool | Whether to show a list of ingredients.
@@ -1280,7 +1284,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **showOptionalNutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **showZeroValues** | **bool**| Whether to show zero values. | [optional] 
  **showIngredients** | **bool**| Whether to show a list of ingredients. | [optional] 
@@ -1316,7 +1320,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 641166; // num | The recipe id.
+final id = 641166; // int | The recipe id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 final showOptionalNutrients = false; // bool | Whether to show optional nutrients.
 final showZeroValues = false; // bool | Whether to show zero values.
@@ -1334,7 +1338,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **showOptionalNutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **showZeroValues** | **bool**| Whether to show zero values. | [optional] 
@@ -1371,7 +1375,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 69095; // num | The recipe id.
+final id = 69095; // int | The recipe id.
 final normalize = false; // bool | Normalize to the strongest taste.
 final rgb = 75,192,192; // String | Red, green, blue values for the chart color.
 
@@ -1387,7 +1391,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **bool**| Normalize to the strongest taste. | [optional] 
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] 
 
@@ -1437,7 +1441,7 @@ final addRecipeInformation = false; // bool | If set to true, you get more infor
 final addRecipeNutrition = false; // bool | If set to true, you get nutritional information about each recipes returned.
 final author = coffeebean; // String | The username of the recipe author.
 final tags = tags_example; // String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-final recipeBoxId = 2468; // num | The id of the recipe box to which the search should be limited to.
+final recipeBoxId = 2468; // int | The id of the recipe box to which the search should be limited to.
 final titleMatch = Crock Pot; // String | Enter text that must be found in the title of the recipes.
 final maxReadyTime = 20; // num | The maximum time in minutes it should take to prepare and cook the recipe.
 final minServings = 1; // num | The minimum amount of servings the recipe is for.
@@ -1532,7 +1536,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. | [optional] 
  **excludeCuisine** | **String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. | [optional] 
  **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
@@ -1547,7 +1551,7 @@ Name | Type | Description  | Notes
  **addRecipeNutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional] 
  **author** | **String**| The username of the recipe author. | [optional] 
  **tags** | **String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] 
- **recipeBoxId** | **num**| The id of the recipe box to which the search should be limited to. | [optional] 
+ **recipeBoxId** | **int**| The id of the recipe box to which the search should be limited to. | [optional] 
  **titleMatch** | **String**| Enter text that must be found in the title of the recipes. | [optional] 
  **maxReadyTime** | **num**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
  **minServings** | **num**| The minimum amount of servings the recipe is for. | [optional] 
@@ -1663,7 +1667,7 @@ import 'package:openapi/api.dart';
 final api_instance = RecipesApi();
 final ingredients = carrots,tomatoes; // String | A comma-separated list of ingredients that the recipes should contain.
 final number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-final ranking = 1; // num | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+final ranking = 1; // int | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 final ignorePantry = false; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 
 try {
@@ -1678,9 +1682,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
+ **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **ranking** | **num**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
+ **ranking** | **int**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
  **ignorePantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
 
 ### Return type
@@ -1909,7 +1913,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 4632; // int | The recipe id.
 
 try {
     final result = api_instance.summarizeRecipe(id);
@@ -1923,7 +1927,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -2066,7 +2070,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 44860; // int | The recipe id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -2081,7 +2085,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2115,7 +2119,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 1082038; // int | The recipe id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 final measure = metric; // String | Whether the the measures should be 'us' or 'metric'.
 
@@ -2131,7 +2135,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **measure** | **String**| Whether the the measures should be 'us' or 'metric'. | [optional] 
 
@@ -2221,7 +2225,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 1082038; // int | The recipe id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -2236,7 +2240,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2270,7 +2274,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 1082038; // int | The recipe id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -2285,7 +2289,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2372,7 +2376,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = RecipesApi();
-final id = 1; // int | The item's id.
+final id = 69095; // int | The recipe id.
 final normalize = true; // bool | Whether to normalize to the strongest taste.
 final rgb = 75,192,192; // String | Red, green, blue values for the chart color.
 
@@ -2388,7 +2392,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] [default to true]
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] 
 

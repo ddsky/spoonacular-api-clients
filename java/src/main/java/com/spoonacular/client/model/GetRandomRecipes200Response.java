@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.GetRandomRecipes200ResponseRecipesInner;
+import com.spoonacular.client.model.RecipeInformation;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -56,17 +56,17 @@ import com.spoonacular.client.JSON;
 public class GetRandomRecipes200Response {
   public static final String SERIALIZED_NAME_RECIPES = "recipes";
   @SerializedName(SERIALIZED_NAME_RECIPES)
-  private Set<GetRandomRecipes200ResponseRecipesInner> recipes = new LinkedHashSet<>();
+  private Set<RecipeInformation> recipes = new LinkedHashSet<>();
 
   public GetRandomRecipes200Response() {
   }
 
-  public GetRandomRecipes200Response recipes(Set<GetRandomRecipes200ResponseRecipesInner> recipes) {
+  public GetRandomRecipes200Response recipes(Set<RecipeInformation> recipes) {
     this.recipes = recipes;
     return this;
   }
 
-  public GetRandomRecipes200Response addRecipesItem(GetRandomRecipes200ResponseRecipesInner recipesItem) {
+  public GetRandomRecipes200Response addRecipesItem(RecipeInformation recipesItem) {
     if (this.recipes == null) {
       this.recipes = new LinkedHashSet<>();
     }
@@ -79,11 +79,11 @@ public class GetRandomRecipes200Response {
    * @return recipes
    */
   @javax.annotation.Nonnull
-  public Set<GetRandomRecipes200ResponseRecipesInner> getRecipes() {
+  public Set<RecipeInformation> getRecipes() {
     return recipes;
   }
 
-  public void setRecipes(Set<GetRandomRecipes200ResponseRecipesInner> recipes) {
+  public void setRecipes(Set<RecipeInformation> recipes) {
     this.recipes = recipes;
   }
 
@@ -176,7 +176,7 @@ public class GetRandomRecipes200Response {
       JsonArray jsonArrayrecipes = jsonObj.getAsJsonArray("recipes");
       // validate the required field `recipes` (array)
       for (int i = 0; i < jsonArrayrecipes.size(); i++) {
-        GetRandomRecipes200ResponseRecipesInner.validateJsonElement(jsonArrayrecipes.get(i));
+        RecipeInformation.validateJsonElement(jsonArrayrecipes.get(i));
       };
   }
 

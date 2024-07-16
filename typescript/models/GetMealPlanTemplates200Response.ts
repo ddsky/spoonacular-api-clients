@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
+import { GetMealPlanTemplates200ResponseTemplatesInner } from '../models/GetMealPlanTemplates200ResponseTemplatesInner';
 import { HttpFile } from '../http/http';
 
 /**
 * 
 */
 export class GetMealPlanTemplates200Response {
-    'templates': Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>;
+    'templates': Set<GetMealPlanTemplates200ResponseTemplatesInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -25,7 +25,7 @@ export class GetMealPlanTemplates200Response {
         {
             "name": "templates",
             "baseName": "templates",
-            "type": "Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>",
+            "type": "Set<GetMealPlanTemplates200ResponseTemplatesInner>",
             "format": ""
         }    ];
 

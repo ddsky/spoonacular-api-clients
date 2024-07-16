@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from './parseIngredients200ResponseInnerNutritionWeightPerServing';
+import { GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal } from './getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal';
 
 
 export interface GetShoppingList200ResponseAislesInnerItemsInnerMeasures { 
-    original: ParseIngredients200ResponseInnerNutritionWeightPerServing;
-    metric: ParseIngredients200ResponseInnerNutritionWeightPerServing;
-    us: ParseIngredients200ResponseInnerNutritionWeightPerServing;
+    original: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
+    metric: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
+    us: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
 }
 

@@ -21,7 +21,6 @@ import java.math.BigDecimal;
 import com.spoonacular.client.model.ConnectUser200Response;
 import com.spoonacular.client.model.ConnectUserRequest;
 import com.spoonacular.client.model.GenerateMealPlan200Response;
-import com.spoonacular.client.model.GenerateShoppingList200Response;
 import com.spoonacular.client.model.GetMealPlanTemplate200Response;
 import com.spoonacular.client.model.GetMealPlanTemplates200Response;
 import com.spoonacular.client.model.GetMealPlanWeek200Response;
@@ -85,7 +84,7 @@ public class MealPlanningApiTest {
         String username = null;
         String hash = null;
         AddToShoppingListRequest addToShoppingListRequest = null;
-        GenerateShoppingList200Response response = api.addToShoppingList(username, hash, addToShoppingListRequest);
+        GetShoppingList200Response response = api.addToShoppingList(username, hash, addToShoppingListRequest);
         // TODO: test validations
     }
 
@@ -129,7 +128,7 @@ public class MealPlanningApiTest {
     @Test
     public void deleteFromMealPlanTest() throws ApiException {
         String username = null;
-        BigDecimal id = null;
+        Integer id = null;
         String hash = null;
         Object response = api.deleteFromMealPlan(username, id, hash);
         // TODO: test validations
@@ -197,7 +196,7 @@ public class MealPlanningApiTest {
         String startDate = null;
         String endDate = null;
         String hash = null;
-        GenerateShoppingList200Response response = api.generateShoppingList(username, startDate, endDate, hash);
+        GetShoppingList200Response response = api.generateShoppingList(username, startDate, endDate, hash);
         // TODO: test validations
     }
 

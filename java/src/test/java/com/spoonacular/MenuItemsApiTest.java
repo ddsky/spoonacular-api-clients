@@ -14,10 +14,10 @@
 package com.spoonacular;
 
 import com.spoonacular.client.ApiException;
-import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response;
+import com.spoonacular.client.model.AutocompleteProductSearch200Response;
 import java.math.BigDecimal;
 import java.io.File;
-import com.spoonacular.client.model.GetMenuItemInformation200Response;
+import com.spoonacular.client.model.MenuItem;
 import com.spoonacular.client.model.SearchMenuItems200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -45,8 +45,8 @@ public class MenuItemsApiTest {
     @Test
     public void autocompleteMenuItemSearchTest() throws ApiException {
         String query = null;
-        BigDecimal number = null;
-        AutocompleteMenuItemSearch200Response response = api.autocompleteMenuItemSearch(query, number);
+        Integer number = null;
+        AutocompleteProductSearch200Response response = api.autocompleteMenuItemSearch(query, number);
         // TODO: test validations
     }
 
@@ -60,7 +60,7 @@ public class MenuItemsApiTest {
     @Test
     public void getMenuItemInformationTest() throws ApiException {
         Integer id = null;
-        GetMenuItemInformation200Response response = api.getMenuItemInformation(id);
+        MenuItem response = api.getMenuItemInformation(id);
         // TODO: test validations
     }
 
@@ -73,7 +73,7 @@ public class MenuItemsApiTest {
      */
     @Test
     public void menuItemNutritionByIDImageTest() throws ApiException {
-        BigDecimal id = null;
+        Integer id = null;
         File response = api.menuItemNutritionByIDImage(id);
         // TODO: test validations
     }
@@ -87,7 +87,7 @@ public class MenuItemsApiTest {
      */
     @Test
     public void menuItemNutritionLabelImageTest() throws ApiException {
-        BigDecimal id = null;
+        Integer id = null;
         Boolean showOptionalNutrients = null;
         Boolean showZeroValues = null;
         Boolean showIngredients = null;
@@ -104,7 +104,7 @@ public class MenuItemsApiTest {
      */
     @Test
     public void menuItemNutritionLabelWidgetTest() throws ApiException {
-        BigDecimal id = null;
+        Integer id = null;
         Boolean defaultCss = null;
         Boolean showOptionalNutrients = null;
         Boolean showZeroValues = null;

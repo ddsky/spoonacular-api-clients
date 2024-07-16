@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
     """
     AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
     """ # noqa: E501
-    id: Union[StrictFloat, StrictInt]
+    id: StrictInt
     name: Annotated[str, Field(min_length=1, strict=True)]
     localized_name: Annotated[str, Field(min_length=1, strict=True)] = Field(alias="localizedName")
     image: Annotated[str, Field(min_length=1, strict=True)]

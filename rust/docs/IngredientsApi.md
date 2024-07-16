@@ -28,7 +28,7 @@ Autocomplete the entry of an ingredient.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**query** | Option<**String**> | The (natural language) search query. |  |
+**query** | **String** | The (natural language) search query. | [required] |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 **meta_information** | Option<**bool**> | Whether to return more meta information about the ingredients. |  |
 **intolerances** | Option<**String**> | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. |  |
@@ -62,9 +62,9 @@ Compute the amount you need of a certain ingredient for a certain nutritional go
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The id of the ingredient you want the amount for. | [required] |
+**id** | **i32** | The id of the ingredient you want the amount for. | [required] |
 **nutrient** | **String** | The target nutrient. See a list of supported nutrients. | [required] |
-**target** | **f64** | The target number of the given nutrient. | [required] |
+**target** | **i32** | The target number of the given nutrient. | [required] |
 **unit** | Option<**String**> | The target unit. |  |
 
 ### Return type
@@ -85,7 +85,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_ingredient_information
 
-> models::GetIngredientInformation200Response get_ingredient_information(id, amount, unit)
+> models::IngredientInformation get_ingredient_information(id, amount, unit)
 Get Ingredient Information
 
 Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
@@ -95,13 +95,13 @@ Use an ingredient id to get all available information about an ingredient, such 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The ingredient id. | [required] |
 **amount** | Option<**f64**> | The amount of this ingredient. |  |
 **unit** | Option<**String**> | The unit for the given amount. |  |
 
 ### Return type
 
-[**models::GetIngredientInformation200Response**](getIngredientInformation_200_response.md)
+[**models::IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ Search for substitutes for a given ingredient.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The id of the ingredient you want substitutes for. | [required] |
 
 ### Return type
 
@@ -187,7 +187,7 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**query** | Option<**String**> | The (natural language) search query. |  |
+**query** | **String** | The (natural language) search query. | [required] |
 **add_children** | Option<**bool**> | Whether to add children of found foods. |  |
 **min_protein_percent** | Option<**f64**> | The minimum percentage of protein the food must have (between 0 and 100). |  |
 **max_protein_percent** | Option<**f64**> | The maximum percentage of protein the food can have (between 0 and 100). |  |
@@ -231,7 +231,7 @@ Visualize a recipe's ingredient list.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **measure** | Option<**String**> | Whether the the measures should be 'us' or 'metric'. |  |
 
 ### Return type

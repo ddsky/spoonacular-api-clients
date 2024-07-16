@@ -22,7 +22,7 @@ var _ MappedNullable = &GetRecipeNutritionWidgetByID200ResponseBadInner{}
 
 // GetRecipeNutritionWidgetByID200ResponseBadInner struct for GetRecipeNutritionWidgetByID200ResponseBadInner
 type GetRecipeNutritionWidgetByID200ResponseBadInner struct {
-	Name string `json:"name"`
+	Title string `json:"title"`
 	Amount string `json:"amount"`
 	Indented bool `json:"indented"`
 	PercentOfDailyNeeds float32 `json:"percentOfDailyNeeds"`
@@ -34,9 +34,9 @@ type _GetRecipeNutritionWidgetByID200ResponseBadInner GetRecipeNutritionWidgetBy
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetRecipeNutritionWidgetByID200ResponseBadInner(name string, amount string, indented bool, percentOfDailyNeeds float32) *GetRecipeNutritionWidgetByID200ResponseBadInner {
+func NewGetRecipeNutritionWidgetByID200ResponseBadInner(title string, amount string, indented bool, percentOfDailyNeeds float32) *GetRecipeNutritionWidgetByID200ResponseBadInner {
 	this := GetRecipeNutritionWidgetByID200ResponseBadInner{}
-	this.Name = name
+	this.Title = title
 	this.Amount = amount
 	this.Indented = indented
 	this.PercentOfDailyNeeds = percentOfDailyNeeds
@@ -51,28 +51,28 @@ func NewGetRecipeNutritionWidgetByID200ResponseBadInnerWithDefaults() *GetRecipe
 	return &this
 }
 
-// GetName returns the Name field value
-func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetName() string {
+// GetTitle returns the Title field value
+func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetTitle() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Name
+	return o.Title
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
-func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetNameOk() (*string, bool) {
+func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return &o.Title, true
 }
 
-// SetName sets field value
-func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) SetName(v string) {
-	o.Name = v
+// SetTitle sets field value
+func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) SetTitle(v string) {
+	o.Title = v
 }
 
 // GetAmount returns the Amount field value
@@ -157,7 +157,7 @@ func (o GetRecipeNutritionWidgetByID200ResponseBadInner) MarshalJSON() ([]byte, 
 
 func (o GetRecipeNutritionWidgetByID200ResponseBadInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["name"] = o.Name
+	toSerialize["title"] = o.Title
 	toSerialize["amount"] = o.Amount
 	toSerialize["indented"] = o.Indented
 	toSerialize["percentOfDailyNeeds"] = o.PercentOfDailyNeeds
@@ -169,7 +169,7 @@ func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) UnmarshalJSON(data []b
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"name",
+		"title",
 		"amount",
 		"indented",
 		"percentOfDailyNeeds",

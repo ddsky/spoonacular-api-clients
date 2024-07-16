@@ -21,18 +21,17 @@
 
 #include <QJsonObject>
 
-#include "OAISearchGroceryProductsByUPC_200_response_ingredients_inner.h"
+#include "OAIIngredientBasics.h"
 #include "OAISearchGroceryProductsByUPC_200_response_nutrition.h"
 #include "OAISearchGroceryProductsByUPC_200_response_servings.h"
 #include <QList>
-#include <QSet>
 #include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAISearchGroceryProductsByUPC_200_response_ingredients_inner;
+class OAIIngredientBasics;
 class OAISearchGroceryProductsByUPC_200_response_nutrition;
 class OAISearchGroceryProductsByUPC_200_response_servings;
 
@@ -92,8 +91,8 @@ public:
     bool is_ingredient_list_Set() const;
     bool is_ingredient_list_Valid() const;
 
-    QSet<OAISearchGroceryProductsByUPC_200_response_ingredients_inner> getIngredients() const;
-    void setIngredients(const QSet<OAISearchGroceryProductsByUPC_200_response_ingredients_inner> &ingredients);
+    QList<OAIIngredientBasics> getIngredients() const;
+    void setIngredients(const QList<OAIIngredientBasics> &ingredients);
     bool is_ingredients_Set() const;
     bool is_ingredients_Valid() const;
 
@@ -164,7 +163,7 @@ private:
     bool m_ingredient_list_isSet;
     bool m_ingredient_list_isValid;
 
-    QSet<OAISearchGroceryProductsByUPC_200_response_ingredients_inner> m_ingredients;
+    QList<OAIIngredientBasics> m_ingredients;
     bool m_ingredients_isSet;
     bool m_ingredients_isValid;
 

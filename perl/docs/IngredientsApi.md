@@ -58,7 +58,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional] 
+ **query** | **string**| The (natural language) search query. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **meta_information** | **boolean**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **string**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
@@ -98,9 +98,9 @@ my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 9266; # double | The id of the ingredient you want the amount for.
+my $id = 9266; # int | The id of the ingredient you want the amount for.
 my $nutrient = protein; # string | The target nutrient. See a list of supported nutrients.
-my $target = 2; # double | The target number of the given nutrient.
+my $target = 2; # int | The target number of the given nutrient.
 my $unit = oz; # string | The target unit.
 
 eval {
@@ -116,9 +116,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The id of the ingredient you want the amount for. | 
+ **id** | **int**| The id of the ingredient you want the amount for. | 
  **nutrient** | **string**| The target nutrient. See a list of supported nutrients. | 
- **target** | **double**| The target number of the given nutrient. | 
+ **target** | **int**| The target number of the given nutrient. | 
  **unit** | **string**| The target unit. | [optional] 
 
 ### Return type
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ingredient_information**
-> GetIngredientInformation200Response get_ingredient_information(id => $id, amount => $amount, unit => $unit)
+> IngredientInformation get_ingredient_information(id => $id, amount => $amount, unit => $unit)
 
 Get Ingredient Information
 
@@ -155,7 +155,7 @@ my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 9266; # int | The ingredient id.
 my $amount = 150; # double | The amount of this ingredient.
 my $unit = grams; # string | The unit for the given amount.
 
@@ -172,13 +172,13 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The ingredient id. | 
  **amount** | **double**| The amount of this ingredient. | [optional] 
  **unit** | **string**| The unit for the given amount. | [optional] 
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1001; # int | The id of the ingredient you want substitutes for.
 
 eval {
     my $result = $api_instance->get_ingredient_substitutes_by_id(id => $id);
@@ -276,7 +276,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the ingredient you want substitutes for. | 
 
 ### Return type
 
@@ -341,7 +341,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional] 
+ **query** | **string**| The (natural language) search query. | 
  **add_children** | **boolean**| Whether to add children of found foods. | [optional] 
  **min_protein_percent** | **double**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] 
  **max_protein_percent** | **double**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] 
@@ -391,7 +391,7 @@ my $api_instance = WWW::OpenAPIClient::IngredientsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1082038; # double | The recipe id.
+my $id = 1082038; # int | The recipe id.
 my $measure = metric; # string | Whether the the measures should be 'us' or 'metric'.
 
 eval {
@@ -407,7 +407,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
 
 ### Return type

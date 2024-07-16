@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipes** | [**[GetRandomRecipes200ResponseRecipesInner]**](GetRandomRecipes200ResponseRecipesInner.md) |  | 
+**recipes** | [**[RecipeInformation]**](RecipeInformation.md) |  | 
 
 

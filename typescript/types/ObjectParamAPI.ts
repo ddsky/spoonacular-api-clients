@@ -18,7 +18,6 @@ import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner }
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
 import { AnalyzeRecipeRequest } from '../models/AnalyzeRecipeRequest';
 import { AutocompleteIngredientSearch200ResponseInner } from '../models/AutocompleteIngredientSearch200ResponseInner';
-import { AutocompleteMenuItemSearch200Response } from '../models/AutocompleteMenuItemSearch200Response';
 import { AutocompleteProductSearch200Response } from '../models/AutocompleteProductSearch200Response';
 import { AutocompleteProductSearch200ResponseResultsInner } from '../models/AutocompleteProductSearch200ResponseResultsInner';
 import { AutocompleteRecipeSearch200ResponseInner } from '../models/AutocompleteRecipeSearch200ResponseInner';
@@ -27,6 +26,7 @@ import { ClassifyGroceryProduct200Response } from '../models/ClassifyGroceryProd
 import { ClassifyGroceryProductBulk200ResponseInner } from '../models/ClassifyGroceryProductBulk200ResponseInner';
 import { ClassifyGroceryProductBulkRequestInner } from '../models/ClassifyGroceryProductBulkRequestInner';
 import { ClassifyGroceryProductRequest } from '../models/ClassifyGroceryProductRequest';
+import { ComparableProduct } from '../models/ComparableProduct';
 import { ComputeGlycemicLoad200Response } from '../models/ComputeGlycemicLoad200Response';
 import { ComputeGlycemicLoad200ResponseIngredientsInner } from '../models/ComputeGlycemicLoad200ResponseIngredientsInner';
 import { ComputeGlycemicLoadRequest } from '../models/ComputeGlycemicLoadRequest';
@@ -39,49 +39,32 @@ import { DetectFoodInText200Response } from '../models/DetectFoodInText200Respon
 import { DetectFoodInText200ResponseAnnotationsInner } from '../models/DetectFoodInText200ResponseAnnotationsInner';
 import { GenerateMealPlan200Response } from '../models/GenerateMealPlan200Response';
 import { GenerateMealPlan200ResponseNutrients } from '../models/GenerateMealPlan200ResponseNutrients';
-import { GenerateShoppingList200Response } from '../models/GenerateShoppingList200Response';
 import { GetARandomFoodJoke200Response } from '../models/GetARandomFoodJoke200Response';
-import { GetAnalyzedRecipeInstructions200Response } from '../models/GetAnalyzedRecipeInstructions200Response';
-import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+import { GetAnalyzedRecipeInstructions200ResponseInner } from '../models/GetAnalyzedRecipeInstructions200ResponseInner';
+import { GetAnalyzedRecipeInstructions200ResponseInnerStepsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseInnerStepsInner';
+import { GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner';
 import { GetComparableProducts200Response } from '../models/GetComparableProducts200Response';
 import { GetComparableProducts200ResponseComparableProducts } from '../models/GetComparableProducts200ResponseComparableProducts';
-import { GetComparableProducts200ResponseComparableProductsProteinInner } from '../models/GetComparableProducts200ResponseComparableProductsProteinInner';
 import { GetConversationSuggests200Response } from '../models/GetConversationSuggests200Response';
 import { GetConversationSuggests200ResponseSuggests } from '../models/GetConversationSuggests200ResponseSuggests';
 import { GetConversationSuggests200ResponseSuggestsInner } from '../models/GetConversationSuggests200ResponseSuggestsInner';
 import { GetDishPairingForWine200Response } from '../models/GetDishPairingForWine200Response';
-import { GetIngredientInformation200Response } from '../models/GetIngredientInformation200Response';
-import { GetIngredientInformation200ResponseNutrition } from '../models/GetIngredientInformation200ResponseNutrition';
 import { GetIngredientSubstitutes200Response } from '../models/GetIngredientSubstitutes200Response';
 import { GetMealPlanTemplate200Response } from '../models/GetMealPlanTemplate200Response';
 import { GetMealPlanTemplate200ResponseDaysInner } from '../models/GetMealPlanTemplate200ResponseDaysInner';
 import { GetMealPlanTemplate200ResponseDaysInnerItemsInner } from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInner';
 import { GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue } from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue';
 import { GetMealPlanTemplates200Response } from '../models/GetMealPlanTemplates200Response';
+import { GetMealPlanTemplates200ResponseTemplatesInner } from '../models/GetMealPlanTemplates200ResponseTemplatesInner';
 import { GetMealPlanWeek200Response } from '../models/GetMealPlanWeek200Response';
 import { GetMealPlanWeek200ResponseDaysInner } from '../models/GetMealPlanWeek200ResponseDaysInner';
 import { GetMealPlanWeek200ResponseDaysInnerItemsInner } from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInner';
 import { GetMealPlanWeek200ResponseDaysInnerItemsInnerValue } from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInnerValue';
 import { GetMealPlanWeek200ResponseDaysInnerNutritionSummary } from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummary';
 import { GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner } from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner';
-import { GetMenuItemInformation200Response } from '../models/GetMenuItemInformation200Response';
-import { GetProductInformation200Response } from '../models/GetProductInformation200Response';
-import { GetProductInformation200ResponseIngredientsInner } from '../models/GetProductInformation200ResponseIngredientsInner';
-import { GetRandomFoodTrivia200Response } from '../models/GetRandomFoodTrivia200Response';
 import { GetRandomRecipes200Response } from '../models/GetRandomRecipes200Response';
-import { GetRandomRecipes200ResponseRecipesInner } from '../models/GetRandomRecipes200ResponseRecipesInner';
 import { GetRecipeEquipmentByID200Response } from '../models/GetRecipeEquipmentByID200Response';
 import { GetRecipeEquipmentByID200ResponseEquipmentInner } from '../models/GetRecipeEquipmentByID200ResponseEquipmentInner';
-import { GetRecipeInformation200Response } from '../models/GetRecipeInformation200Response';
-import { GetRecipeInformation200ResponseExtendedIngredientsInner } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInner';
-import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures';
-import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric';
-import { GetRecipeInformation200ResponseWinePairing } from '../models/GetRecipeInformation200ResponseWinePairing';
-import { GetRecipeInformation200ResponseWinePairingProductMatchesInner } from '../models/GetRecipeInformation200ResponseWinePairingProductMatchesInner';
-import { GetRecipeInformationBulk200ResponseInner } from '../models/GetRecipeInformationBulk200ResponseInner';
 import { GetRecipeIngredientsByID200Response } from '../models/GetRecipeIngredientsByID200Response';
 import { GetRecipeIngredientsByID200ResponseIngredientsInner } from '../models/GetRecipeIngredientsByID200ResponseIngredientsInner';
 import { GetRecipeNutritionWidgetByID200Response } from '../models/GetRecipeNutritionWidgetByID200Response';
@@ -91,11 +74,11 @@ import { GetRecipePriceBreakdownByID200Response } from '../models/GetRecipePrice
 import { GetRecipePriceBreakdownByID200ResponseIngredientsInner } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInner';
 import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount';
 import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric';
-import { GetRecipeTasteByID200Response } from '../models/GetRecipeTasteByID200Response';
 import { GetShoppingList200Response } from '../models/GetShoppingList200Response';
 import { GetShoppingList200ResponseAislesInner } from '../models/GetShoppingList200ResponseAislesInner';
 import { GetShoppingList200ResponseAislesInnerItemsInner } from '../models/GetShoppingList200ResponseAislesInnerItemsInner';
 import { GetShoppingList200ResponseAislesInnerItemsInnerMeasures } from '../models/GetShoppingList200ResponseAislesInnerItemsInnerMeasures';
+import { GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal } from '../models/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal';
 import { GetSimilarRecipes200ResponseInner } from '../models/GetSimilarRecipes200ResponseInner';
 import { GetWineDescription200Response } from '../models/GetWineDescription200Response';
 import { GetWinePairing200Response } from '../models/GetWinePairing200Response';
@@ -112,33 +95,40 @@ import { ImageAnalysisByURL200ResponseNutritionCalories } from '../models/ImageA
 import { ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent } from '../models/ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent';
 import { ImageAnalysisByURL200ResponseRecipesInner } from '../models/ImageAnalysisByURL200ResponseRecipesInner';
 import { ImageClassificationByURL200Response } from '../models/ImageClassificationByURL200Response';
+import { IngredientBasics } from '../models/IngredientBasics';
+import { IngredientInformation } from '../models/IngredientInformation';
+import { IngredientInformationEstimatedCost } from '../models/IngredientInformationEstimatedCost';
+import { IngredientInformationNutrition } from '../models/IngredientInformationNutrition';
+import { IngredientInformationNutritionPropertiesInner } from '../models/IngredientInformationNutritionPropertiesInner';
 import { IngredientSearch200Response } from '../models/IngredientSearch200Response';
 import { IngredientSearch200ResponseResultsInner } from '../models/IngredientSearch200ResponseResultsInner';
 import { MapIngredientsToGroceryProducts200ResponseInner } from '../models/MapIngredientsToGroceryProducts200ResponseInner';
 import { MapIngredientsToGroceryProducts200ResponseInnerProductsInner } from '../models/MapIngredientsToGroceryProducts200ResponseInnerProductsInner';
 import { MapIngredientsToGroceryProductsRequest } from '../models/MapIngredientsToGroceryProductsRequest';
-import { ParseIngredients200ResponseInner } from '../models/ParseIngredients200ResponseInner';
-import { ParseIngredients200ResponseInnerEstimatedCost } from '../models/ParseIngredients200ResponseInnerEstimatedCost';
-import { ParseIngredients200ResponseInnerNutrition } from '../models/ParseIngredients200ResponseInnerNutrition';
-import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from '../models/ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
-import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from '../models/ParseIngredients200ResponseInnerNutritionNutrientsInner';
-import { ParseIngredients200ResponseInnerNutritionPropertiesInner } from '../models/ParseIngredients200ResponseInnerNutritionPropertiesInner';
-import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from '../models/ParseIngredients200ResponseInnerNutritionWeightPerServing';
+import { MenuItem } from '../models/MenuItem';
+import { MenuItemServings } from '../models/MenuItemServings';
+import { ProductInformation } from '../models/ProductInformation';
+import { ProductInformationCredits } from '../models/ProductInformationCredits';
 import { QuickAnswer200Response } from '../models/QuickAnswer200Response';
+import { RecipeInformation } from '../models/RecipeInformation';
+import { RecipeInformationExtendedIngredientsInner } from '../models/RecipeInformationExtendedIngredientsInner';
+import { RecipeInformationExtendedIngredientsInnerMeasures } from '../models/RecipeInformationExtendedIngredientsInnerMeasures';
+import { RecipeInformationExtendedIngredientsInnerMeasuresMetric } from '../models/RecipeInformationExtendedIngredientsInnerMeasuresMetric';
+import { RecipeInformationWinePairing } from '../models/RecipeInformationWinePairing';
+import { RecipeInformationWinePairingProductMatchesInner } from '../models/RecipeInformationWinePairingProductMatchesInner';
 import { SearchAllFood200Response } from '../models/SearchAllFood200Response';
 import { SearchAllFood200ResponseSearchResultsInner } from '../models/SearchAllFood200ResponseSearchResultsInner';
-import { SearchAllFood200ResponseSearchResultsInnerResultsInner } from '../models/SearchAllFood200ResponseSearchResultsInnerResultsInner';
 import { SearchCustomFoods200Response } from '../models/SearchCustomFoods200Response';
 import { SearchCustomFoods200ResponseCustomFoodsInner } from '../models/SearchCustomFoods200ResponseCustomFoodsInner';
 import { SearchFoodVideos200Response } from '../models/SearchFoodVideos200Response';
 import { SearchFoodVideos200ResponseVideosInner } from '../models/SearchFoodVideos200ResponseVideosInner';
 import { SearchGroceryProducts200Response } from '../models/SearchGroceryProducts200Response';
 import { SearchGroceryProductsByUPC200Response } from '../models/SearchGroceryProductsByUPC200Response';
-import { SearchGroceryProductsByUPC200ResponseIngredientsInner } from '../models/SearchGroceryProductsByUPC200ResponseIngredientsInner';
 import { SearchGroceryProductsByUPC200ResponseNutrition } from '../models/SearchGroceryProductsByUPC200ResponseNutrition';
+import { SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown } from '../models/SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown';
+import { SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner } from '../models/SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner';
 import { SearchGroceryProductsByUPC200ResponseServings } from '../models/SearchGroceryProductsByUPC200ResponseServings';
 import { SearchMenuItems200Response } from '../models/SearchMenuItems200Response';
-import { SearchMenuItems200ResponseMenuItemsInner } from '../models/SearchMenuItems200ResponseMenuItemsInner';
 import { SearchRecipes200Response } from '../models/SearchRecipes200Response';
 import { SearchRecipes200ResponseResultsInner } from '../models/SearchRecipes200ResponseResultsInner';
 import { SearchRecipesByIngredients200ResponseInner } from '../models/SearchRecipesByIngredients200ResponseInner';
@@ -149,12 +139,13 @@ import { SearchRestaurants200ResponseRestaurantsInner } from '../models/SearchRe
 import { SearchRestaurants200ResponseRestaurantsInnerAddress } from '../models/SearchRestaurants200ResponseRestaurantsInnerAddress';
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
+import { SearchResult } from '../models/SearchResult';
+import { SearchResultDataPointsInner } from '../models/SearchResultDataPointsInner';
 import { SearchSiteContent200Response } from '../models/SearchSiteContent200Response';
-import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
-import { SearchSiteContent200ResponseArticlesInnerDataPointsInner } from '../models/SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
 import { TalkToChatbot200Response } from '../models/TalkToChatbot200Response';
 import { TalkToChatbot200ResponseMediaInner } from '../models/TalkToChatbot200ResponseMediaInner';
+import { TasteInformation } from '../models/TasteInformation';
 
 import { ObservableDefaultApi } from "./ObservableAPI";
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
@@ -354,7 +345,7 @@ export interface IngredientsApiAutocompleteIngredientSearchRequest {
      * @type string
      * @memberof IngredientsApiautocompleteIngredientSearch
      */
-    query?: string
+    query: string
     /**
      * The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @type number
@@ -410,7 +401,7 @@ export interface IngredientsApiComputeIngredientAmountRequest {
 
 export interface IngredientsApiGetIngredientInformationRequest {
     /**
-     * The item\&#39;s id.
+     * The ingredient id.
      * @type number
      * @memberof IngredientsApigetIngredientInformation
      */
@@ -440,7 +431,7 @@ export interface IngredientsApiGetIngredientSubstitutesRequest {
 
 export interface IngredientsApiGetIngredientSubstitutesByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The id of the ingredient you want substitutes for.
      * @type number
      * @memberof IngredientsApigetIngredientSubstitutesByID
      */
@@ -453,7 +444,7 @@ export interface IngredientsApiIngredientSearchRequest {
      * @type string
      * @memberof IngredientsApiingredientSearch
      */
-    query?: string
+    query: string
     /**
      * Whether to add children of found foods.
      * @type boolean
@@ -621,7 +612,7 @@ export class ObjectIngredientsApi {
      * Autocomplete Ingredient Search
      * @param param the request object
      */
-    public autocompleteIngredientSearchWithHttpInfo(param: IngredientsApiAutocompleteIngredientSearchRequest = {}, options?: Configuration): Promise<HttpInfo<Set<AutocompleteIngredientSearch200ResponseInner>>> {
+    public autocompleteIngredientSearchWithHttpInfo(param: IngredientsApiAutocompleteIngredientSearchRequest, options?: Configuration): Promise<HttpInfo<Set<AutocompleteIngredientSearch200ResponseInner>>> {
         return this.api.autocompleteIngredientSearchWithHttpInfo(param.query, param.number, param.metaInformation, param.intolerances, param.language,  options).toPromise();
     }
 
@@ -630,7 +621,7 @@ export class ObjectIngredientsApi {
      * Autocomplete Ingredient Search
      * @param param the request object
      */
-    public autocompleteIngredientSearch(param: IngredientsApiAutocompleteIngredientSearchRequest = {}, options?: Configuration): Promise<Set<AutocompleteIngredientSearch200ResponseInner>> {
+    public autocompleteIngredientSearch(param: IngredientsApiAutocompleteIngredientSearchRequest, options?: Configuration): Promise<Set<AutocompleteIngredientSearch200ResponseInner>> {
         return this.api.autocompleteIngredientSearch(param.query, param.number, param.metaInformation, param.intolerances, param.language,  options).toPromise();
     }
 
@@ -657,7 +648,7 @@ export class ObjectIngredientsApi {
      * Get Ingredient Information
      * @param param the request object
      */
-    public getIngredientInformationWithHttpInfo(param: IngredientsApiGetIngredientInformationRequest, options?: Configuration): Promise<HttpInfo<GetIngredientInformation200Response>> {
+    public getIngredientInformationWithHttpInfo(param: IngredientsApiGetIngredientInformationRequest, options?: Configuration): Promise<HttpInfo<IngredientInformation>> {
         return this.api.getIngredientInformationWithHttpInfo(param.id, param.amount, param.unit,  options).toPromise();
     }
 
@@ -666,7 +657,7 @@ export class ObjectIngredientsApi {
      * Get Ingredient Information
      * @param param the request object
      */
-    public getIngredientInformation(param: IngredientsApiGetIngredientInformationRequest, options?: Configuration): Promise<GetIngredientInformation200Response> {
+    public getIngredientInformation(param: IngredientsApiGetIngredientInformationRequest, options?: Configuration): Promise<IngredientInformation> {
         return this.api.getIngredientInformation(param.id, param.amount, param.unit,  options).toPromise();
     }
 
@@ -711,7 +702,7 @@ export class ObjectIngredientsApi {
      * Ingredient Search
      * @param param the request object
      */
-    public ingredientSearchWithHttpInfo(param: IngredientsApiIngredientSearchRequest = {}, options?: Configuration): Promise<HttpInfo<IngredientSearch200Response>> {
+    public ingredientSearchWithHttpInfo(param: IngredientsApiIngredientSearchRequest, options?: Configuration): Promise<HttpInfo<IngredientSearch200Response>> {
         return this.api.ingredientSearchWithHttpInfo(param.query, param.addChildren, param.minProteinPercent, param.maxProteinPercent, param.minFatPercent, param.maxFatPercent, param.minCarbsPercent, param.maxCarbsPercent, param.metaInformation, param.intolerances, param.sort, param.sortDirection, param.offset, param.number, param.language,  options).toPromise();
     }
 
@@ -720,7 +711,7 @@ export class ObjectIngredientsApi {
      * Ingredient Search
      * @param param the request object
      */
-    public ingredientSearch(param: IngredientsApiIngredientSearchRequest = {}, options?: Configuration): Promise<IngredientSearch200Response> {
+    public ingredientSearch(param: IngredientsApiIngredientSearchRequest, options?: Configuration): Promise<IngredientSearch200Response> {
         return this.api.ingredientSearch(param.query, param.addChildren, param.minProteinPercent, param.maxProteinPercent, param.minFatPercent, param.maxFatPercent, param.minCarbsPercent, param.maxCarbsPercent, param.metaInformation, param.intolerances, param.sort, param.sortDirection, param.offset, param.number, param.language,  options).toPromise();
     }
 
@@ -899,7 +890,7 @@ export interface MealPlanningApiDeleteFromShoppingListRequest {
      */
     username: string
     /**
-     * The item\&#39;s id.
+     * The shopping list item id.
      * @type number
      * @memberof MealPlanningApideleteFromShoppingList
      */
@@ -920,7 +911,7 @@ export interface MealPlanningApiDeleteMealPlanTemplateRequest {
      */
     username: string
     /**
-     * The item\&#39;s id.
+     * The shopping list item id.
      * @type number
      * @memberof MealPlanningApideleteMealPlanTemplate
      */
@@ -995,7 +986,7 @@ export interface MealPlanningApiGetMealPlanTemplateRequest {
      */
     username: string
     /**
-     * The item\&#39;s id.
+     * The shopping list item id.
      * @type number
      * @memberof MealPlanningApigetMealPlanTemplate
      */
@@ -1107,7 +1098,7 @@ export class ObjectMealPlanningApi {
      * Add to Shopping List
      * @param param the request object
      */
-    public addToShoppingListWithHttpInfo(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
+    public addToShoppingListWithHttpInfo(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<HttpInfo<GetShoppingList200Response>> {
         return this.api.addToShoppingListWithHttpInfo(param.username, param.hash, param.addToShoppingListRequest,  options).toPromise();
     }
 
@@ -1116,7 +1107,7 @@ export class ObjectMealPlanningApi {
      * Add to Shopping List
      * @param param the request object
      */
-    public addToShoppingList(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<GenerateShoppingList200Response> {
+    public addToShoppingList(param: MealPlanningApiAddToShoppingListRequest, options?: Configuration): Promise<GetShoppingList200Response> {
         return this.api.addToShoppingList(param.username, param.hash, param.addToShoppingListRequest,  options).toPromise();
     }
 
@@ -1233,7 +1224,7 @@ export class ObjectMealPlanningApi {
      * Generate Shopping List
      * @param param the request object
      */
-    public generateShoppingListWithHttpInfo(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<HttpInfo<GenerateShoppingList200Response>> {
+    public generateShoppingListWithHttpInfo(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<HttpInfo<GetShoppingList200Response>> {
         return this.api.generateShoppingListWithHttpInfo(param.username, param.startDate, param.endDate, param.hash,  options).toPromise();
     }
 
@@ -1242,7 +1233,7 @@ export class ObjectMealPlanningApi {
      * Generate Shopping List
      * @param param the request object
      */
-    public generateShoppingList(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<GenerateShoppingList200Response> {
+    public generateShoppingList(param: MealPlanningApiGenerateShoppingListRequest, options?: Configuration): Promise<GetShoppingList200Response> {
         return this.api.generateShoppingList(param.username, param.startDate, param.endDate, param.hash,  options).toPromise();
     }
 
@@ -1340,7 +1331,7 @@ export interface MenuItemsApiAutocompleteMenuItemSearchRequest {
 
 export interface MenuItemsApiGetMenuItemInformationRequest {
     /**
-     * The item\&#39;s id.
+     * The menu item id.
      * @type number
      * @memberof MenuItemsApigetMenuItemInformation
      */
@@ -1422,7 +1413,7 @@ export interface MenuItemsApiSearchMenuItemsRequest {
      * @type string
      * @memberof MenuItemsApisearchMenuItems
      */
-    query?: string
+    query: string
     /**
      * The minimum amount of calories the menu item must have.
      * @type number
@@ -1493,7 +1484,7 @@ export interface MenuItemsApiSearchMenuItemsRequest {
 
 export interface MenuItemsApiVisualizeMenuItemNutritionByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The menu item id.
      * @type number
      * @memberof MenuItemsApivisualizeMenuItemNutritionByID
      */
@@ -1518,7 +1509,7 @@ export class ObjectMenuItemsApi {
      * Autocomplete Menu Item Search
      * @param param the request object
      */
-    public autocompleteMenuItemSearchWithHttpInfo(param: MenuItemsApiAutocompleteMenuItemSearchRequest, options?: Configuration): Promise<HttpInfo<AutocompleteMenuItemSearch200Response>> {
+    public autocompleteMenuItemSearchWithHttpInfo(param: MenuItemsApiAutocompleteMenuItemSearchRequest, options?: Configuration): Promise<HttpInfo<AutocompleteProductSearch200Response>> {
         return this.api.autocompleteMenuItemSearchWithHttpInfo(param.query, param.number,  options).toPromise();
     }
 
@@ -1527,7 +1518,7 @@ export class ObjectMenuItemsApi {
      * Autocomplete Menu Item Search
      * @param param the request object
      */
-    public autocompleteMenuItemSearch(param: MenuItemsApiAutocompleteMenuItemSearchRequest, options?: Configuration): Promise<AutocompleteMenuItemSearch200Response> {
+    public autocompleteMenuItemSearch(param: MenuItemsApiAutocompleteMenuItemSearchRequest, options?: Configuration): Promise<AutocompleteProductSearch200Response> {
         return this.api.autocompleteMenuItemSearch(param.query, param.number,  options).toPromise();
     }
 
@@ -1536,7 +1527,7 @@ export class ObjectMenuItemsApi {
      * Get Menu Item Information
      * @param param the request object
      */
-    public getMenuItemInformationWithHttpInfo(param: MenuItemsApiGetMenuItemInformationRequest, options?: Configuration): Promise<HttpInfo<GetMenuItemInformation200Response>> {
+    public getMenuItemInformationWithHttpInfo(param: MenuItemsApiGetMenuItemInformationRequest, options?: Configuration): Promise<HttpInfo<MenuItem>> {
         return this.api.getMenuItemInformationWithHttpInfo(param.id,  options).toPromise();
     }
 
@@ -1545,7 +1536,7 @@ export class ObjectMenuItemsApi {
      * Get Menu Item Information
      * @param param the request object
      */
-    public getMenuItemInformation(param: MenuItemsApiGetMenuItemInformationRequest, options?: Configuration): Promise<GetMenuItemInformation200Response> {
+    public getMenuItemInformation(param: MenuItemsApiGetMenuItemInformationRequest, options?: Configuration): Promise<MenuItem> {
         return this.api.getMenuItemInformation(param.id,  options).toPromise();
     }
 
@@ -1608,7 +1599,7 @@ export class ObjectMenuItemsApi {
      * Search Menu Items
      * @param param the request object
      */
-    public searchMenuItemsWithHttpInfo(param: MenuItemsApiSearchMenuItemsRequest = {}, options?: Configuration): Promise<HttpInfo<SearchMenuItems200Response>> {
+    public searchMenuItemsWithHttpInfo(param: MenuItemsApiSearchMenuItemsRequest, options?: Configuration): Promise<HttpInfo<SearchMenuItems200Response>> {
         return this.api.searchMenuItemsWithHttpInfo(param.query, param.minCalories, param.maxCalories, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minFat, param.maxFat, param.addMenuItemInformation, param.offset, param.number,  options).toPromise();
     }
 
@@ -1617,7 +1608,7 @@ export class ObjectMenuItemsApi {
      * Search Menu Items
      * @param param the request object
      */
-    public searchMenuItems(param: MenuItemsApiSearchMenuItemsRequest = {}, options?: Configuration): Promise<SearchMenuItems200Response> {
+    public searchMenuItems(param: MenuItemsApiSearchMenuItemsRequest, options?: Configuration): Promise<SearchMenuItems200Response> {
         return this.api.searchMenuItems(param.query, param.minCalories, param.maxCalories, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minFat, param.maxFat, param.addMenuItemInformation, param.offset, param.number,  options).toPromise();
     }
 
@@ -1715,6 +1706,12 @@ export interface MiscApiSearchAllFoodRequest {
 
 export interface MiscApiSearchCustomFoodsRequest {
     /**
+     * The (natural language) search query.
+     * @type string
+     * @memberof MiscApisearchCustomFoods
+     */
+    query: string
+    /**
      * The username.
      * @type string
      * @memberof MiscApisearchCustomFoods
@@ -1726,12 +1723,6 @@ export interface MiscApiSearchCustomFoodsRequest {
      * @memberof MiscApisearchCustomFoods
      */
     hash: string
-    /**
-     * The (natural language) search query.
-     * @type string
-     * @memberof MiscApisearchCustomFoods
-     */
-    query?: string
     /**
      * The number of results to skip (between 0 and 900).
      * @type number
@@ -1752,7 +1743,7 @@ export interface MiscApiSearchFoodVideosRequest {
      * @type string
      * @memberof MiscApisearchFoodVideos
      */
-    query?: string
+    query: string
     /**
      * The type of the recipes. See a full list of supported meal types.
      * @type string
@@ -1899,7 +1890,7 @@ export class ObjectMiscApi {
      * Random Food Trivia
      * @param param the request object
      */
-    public getRandomFoodTriviaWithHttpInfo(param: MiscApiGetRandomFoodTriviaRequest = {}, options?: Configuration): Promise<HttpInfo<GetRandomFoodTrivia200Response>> {
+    public getRandomFoodTriviaWithHttpInfo(param: MiscApiGetRandomFoodTriviaRequest = {}, options?: Configuration): Promise<HttpInfo<GetARandomFoodJoke200Response>> {
         return this.api.getRandomFoodTriviaWithHttpInfo( options).toPromise();
     }
 
@@ -1908,7 +1899,7 @@ export class ObjectMiscApi {
      * Random Food Trivia
      * @param param the request object
      */
-    public getRandomFoodTrivia(param: MiscApiGetRandomFoodTriviaRequest = {}, options?: Configuration): Promise<GetRandomFoodTrivia200Response> {
+    public getRandomFoodTrivia(param: MiscApiGetRandomFoodTriviaRequest = {}, options?: Configuration): Promise<GetARandomFoodJoke200Response> {
         return this.api.getRandomFoodTrivia( options).toPromise();
     }
 
@@ -1972,7 +1963,7 @@ export class ObjectMiscApi {
      * @param param the request object
      */
     public searchCustomFoodsWithHttpInfo(param: MiscApiSearchCustomFoodsRequest, options?: Configuration): Promise<HttpInfo<SearchCustomFoods200Response>> {
-        return this.api.searchCustomFoodsWithHttpInfo(param.username, param.hash, param.query, param.offset, param.number,  options).toPromise();
+        return this.api.searchCustomFoodsWithHttpInfo(param.query, param.username, param.hash, param.offset, param.number,  options).toPromise();
     }
 
     /**
@@ -1981,7 +1972,7 @@ export class ObjectMiscApi {
      * @param param the request object
      */
     public searchCustomFoods(param: MiscApiSearchCustomFoodsRequest, options?: Configuration): Promise<SearchCustomFoods200Response> {
-        return this.api.searchCustomFoods(param.username, param.hash, param.query, param.offset, param.number,  options).toPromise();
+        return this.api.searchCustomFoods(param.query, param.username, param.hash, param.offset, param.number,  options).toPromise();
     }
 
     /**
@@ -1989,7 +1980,7 @@ export class ObjectMiscApi {
      * Search Food Videos
      * @param param the request object
      */
-    public searchFoodVideosWithHttpInfo(param: MiscApiSearchFoodVideosRequest = {}, options?: Configuration): Promise<HttpInfo<SearchFoodVideos200Response>> {
+    public searchFoodVideosWithHttpInfo(param: MiscApiSearchFoodVideosRequest, options?: Configuration): Promise<HttpInfo<SearchFoodVideos200Response>> {
         return this.api.searchFoodVideosWithHttpInfo(param.query, param.type, param.cuisine, param.diet, param.includeIngredients, param.excludeIngredients, param.minLength, param.maxLength, param.offset, param.number,  options).toPromise();
     }
 
@@ -1998,7 +1989,7 @@ export class ObjectMiscApi {
      * Search Food Videos
      * @param param the request object
      */
-    public searchFoodVideos(param: MiscApiSearchFoodVideosRequest = {}, options?: Configuration): Promise<SearchFoodVideos200Response> {
+    public searchFoodVideos(param: MiscApiSearchFoodVideosRequest, options?: Configuration): Promise<SearchFoodVideos200Response> {
         return this.api.searchFoodVideos(param.query, param.type, param.cuisine, param.diet, param.includeIngredients, param.excludeIngredients, param.minLength, param.maxLength, param.offset, param.number,  options).toPromise();
     }
 
@@ -2091,15 +2082,15 @@ export interface ProductsApiClassifyGroceryProductBulkRequest {
 export interface ProductsApiGetComparableProductsRequest {
     /**
      * The UPC of the product for which you want to find comparable products.
-     * @type number
+     * @type string
      * @memberof ProductsApigetComparableProducts
      */
-    upc: number
+    upc: string
 }
 
 export interface ProductsApiGetProductInformationRequest {
     /**
-     * The item\&#39;s id.
+     * The id of the packaged food.
      * @type number
      * @memberof ProductsApigetProductInformation
      */
@@ -2181,7 +2172,7 @@ export interface ProductsApiSearchGroceryProductsRequest {
      * @type string
      * @memberof ProductsApisearchGroceryProducts
      */
-    query?: string
+    query: string
     /**
      * The minimum amount of calories the product must have.
      * @type number
@@ -2253,15 +2244,15 @@ export interface ProductsApiSearchGroceryProductsRequest {
 export interface ProductsApiSearchGroceryProductsByUPCRequest {
     /**
      * The product\&#39;s UPC.
-     * @type number
+     * @type string
      * @memberof ProductsApisearchGroceryProductsByUPC
      */
-    upc: number
+    upc: string
 }
 
 export interface ProductsApiVisualizeProductNutritionByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The id of the product.
      * @type number
      * @memberof ProductsApivisualizeProductNutritionByID
      */
@@ -2358,7 +2349,7 @@ export class ObjectProductsApi {
      * Get Product Information
      * @param param the request object
      */
-    public getProductInformationWithHttpInfo(param: ProductsApiGetProductInformationRequest, options?: Configuration): Promise<HttpInfo<GetProductInformation200Response>> {
+    public getProductInformationWithHttpInfo(param: ProductsApiGetProductInformationRequest, options?: Configuration): Promise<HttpInfo<ProductInformation>> {
         return this.api.getProductInformationWithHttpInfo(param.id,  options).toPromise();
     }
 
@@ -2367,7 +2358,7 @@ export class ObjectProductsApi {
      * Get Product Information
      * @param param the request object
      */
-    public getProductInformation(param: ProductsApiGetProductInformationRequest, options?: Configuration): Promise<GetProductInformation200Response> {
+    public getProductInformation(param: ProductsApiGetProductInformationRequest, options?: Configuration): Promise<ProductInformation> {
         return this.api.getProductInformation(param.id,  options).toPromise();
     }
 
@@ -2430,7 +2421,7 @@ export class ObjectProductsApi {
      * Search Grocery Products
      * @param param the request object
      */
-    public searchGroceryProductsWithHttpInfo(param: ProductsApiSearchGroceryProductsRequest = {}, options?: Configuration): Promise<HttpInfo<SearchGroceryProducts200Response>> {
+    public searchGroceryProductsWithHttpInfo(param: ProductsApiSearchGroceryProductsRequest, options?: Configuration): Promise<HttpInfo<SearchGroceryProducts200Response>> {
         return this.api.searchGroceryProductsWithHttpInfo(param.query, param.minCalories, param.maxCalories, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minFat, param.maxFat, param.addProductInformation, param.offset, param.number,  options).toPromise();
     }
 
@@ -2439,7 +2430,7 @@ export class ObjectProductsApi {
      * Search Grocery Products
      * @param param the request object
      */
-    public searchGroceryProducts(param: ProductsApiSearchGroceryProductsRequest = {}, options?: Configuration): Promise<SearchGroceryProducts200Response> {
+    public searchGroceryProducts(param: ProductsApiSearchGroceryProductsRequest, options?: Configuration): Promise<SearchGroceryProducts200Response> {
         return this.api.searchGroceryProducts(param.query, param.minCalories, param.maxCalories, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minFat, param.maxFat, param.addProductInformation, param.offset, param.number,  options).toPromise();
     }
 
@@ -2508,7 +2499,7 @@ export interface RecipesApiAutocompleteRecipeSearchRequest {
      * @type string
      * @memberof RecipesApiautocompleteRecipeSearch
      */
-    query?: string
+    query: string
     /**
      * The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @type number
@@ -2705,7 +2696,7 @@ export interface RecipesApiExtractRecipeFromWebsiteRequest {
 
 export interface RecipesApiGetAnalyzedRecipeInstructionsRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApigetAnalyzedRecipeInstructions
      */
@@ -2747,7 +2738,7 @@ export interface RecipesApiGetRandomRecipesRequest {
 
 export interface RecipesApiGetRecipeEquipmentByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApigetRecipeEquipmentByID
      */
@@ -2756,7 +2747,7 @@ export interface RecipesApiGetRecipeEquipmentByIDRequest {
 
 export interface RecipesApiGetRecipeInformationRequest {
     /**
-     * The item\&#39;s id.
+     * The id of the recipe.
      * @type number
      * @memberof RecipesApigetRecipeInformation
      */
@@ -2767,6 +2758,18 @@ export interface RecipesApiGetRecipeInformationRequest {
      * @memberof RecipesApigetRecipeInformation
      */
     includeNutrition?: boolean
+    /**
+     * Add a wine pairing to the recipe.
+     * @type boolean
+     * @memberof RecipesApigetRecipeInformation
+     */
+    addWinePairing?: boolean
+    /**
+     * Add taste data to the recipe.
+     * @type boolean
+     * @memberof RecipesApigetRecipeInformation
+     */
+    addTasteData?: boolean
 }
 
 export interface RecipesApiGetRecipeInformationBulkRequest {
@@ -2786,7 +2789,7 @@ export interface RecipesApiGetRecipeInformationBulkRequest {
 
 export interface RecipesApiGetRecipeIngredientsByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApigetRecipeIngredientsByID
      */
@@ -2795,7 +2798,7 @@ export interface RecipesApiGetRecipeIngredientsByIDRequest {
 
 export interface RecipesApiGetRecipeNutritionWidgetByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApigetRecipeNutritionWidgetByID
      */
@@ -2804,7 +2807,7 @@ export interface RecipesApiGetRecipeNutritionWidgetByIDRequest {
 
 export interface RecipesApiGetRecipePriceBreakdownByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApigetRecipePriceBreakdownByID
      */
@@ -2813,7 +2816,7 @@ export interface RecipesApiGetRecipePriceBreakdownByIDRequest {
 
 export interface RecipesApiGetRecipeTasteByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApigetRecipeTasteByID
      */
@@ -2828,7 +2831,7 @@ export interface RecipesApiGetRecipeTasteByIDRequest {
 
 export interface RecipesApiGetSimilarRecipesRequest {
     /**
-     * The item\&#39;s id.
+     * The id of the source recipe for which similar recipes should be found.
      * @type number
      * @memberof RecipesApigetSimilarRecipes
      */
@@ -2870,7 +2873,7 @@ export interface RecipesApiParseIngredientsRequest {
      */
     language?: 'en' | 'de'
     /**
-     * 
+     * Whether nutrition data should be added to correctly parsed ingredients.
      * @type boolean
      * @memberof RecipesApiparseIngredients
      */
@@ -2991,7 +2994,7 @@ export interface RecipesApiSearchRecipesRequest {
      * @type string
      * @memberof RecipesApisearchRecipes
      */
-    query?: string
+    query: string
     /**
      * The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as \&#39;OR\&#39;). See a full list of supported cuisines.
      * @type string
@@ -3576,7 +3579,7 @@ export interface RecipesApiSearchRecipesByIngredientsRequest {
      * @type string
      * @memberof RecipesApisearchRecipesByIngredients
      */
-    ingredients?: string
+    ingredients: string
     /**
      * The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @type number
@@ -4052,7 +4055,7 @@ export interface RecipesApiSearchRecipesByNutrientsRequest {
 
 export interface RecipesApiSummarizeRecipeRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApisummarizeRecipe
      */
@@ -4127,7 +4130,7 @@ export interface RecipesApiVisualizePriceBreakdownRequest {
 
 export interface RecipesApiVisualizeRecipeEquipmentByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApivisualizeRecipeEquipmentByID
      */
@@ -4142,7 +4145,7 @@ export interface RecipesApiVisualizeRecipeEquipmentByIDRequest {
 
 export interface RecipesApiVisualizeRecipeIngredientsByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApivisualizeRecipeIngredientsByID
      */
@@ -4196,7 +4199,7 @@ export interface RecipesApiVisualizeRecipeNutritionRequest {
 
 export interface RecipesApiVisualizeRecipeNutritionByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApivisualizeRecipeNutritionByID
      */
@@ -4211,7 +4214,7 @@ export interface RecipesApiVisualizeRecipeNutritionByIDRequest {
 
 export interface RecipesApiVisualizeRecipePriceBreakdownByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApivisualizeRecipePriceBreakdownByID
      */
@@ -4253,7 +4256,7 @@ export interface RecipesApiVisualizeRecipeTasteRequest {
 
 export interface RecipesApiVisualizeRecipeTasteByIDRequest {
     /**
-     * The item\&#39;s id.
+     * The recipe id.
      * @type number
      * @memberof RecipesApivisualizeRecipeTasteByID
      */
@@ -4320,7 +4323,7 @@ export class ObjectRecipesApi {
      * Autocomplete Recipe Search
      * @param param the request object
      */
-    public autocompleteRecipeSearchWithHttpInfo(param: RecipesApiAutocompleteRecipeSearchRequest = {}, options?: Configuration): Promise<HttpInfo<Set<AutocompleteRecipeSearch200ResponseInner>>> {
+    public autocompleteRecipeSearchWithHttpInfo(param: RecipesApiAutocompleteRecipeSearchRequest, options?: Configuration): Promise<HttpInfo<Set<AutocompleteRecipeSearch200ResponseInner>>> {
         return this.api.autocompleteRecipeSearchWithHttpInfo(param.query, param.number,  options).toPromise();
     }
 
@@ -4329,7 +4332,7 @@ export class ObjectRecipesApi {
      * Autocomplete Recipe Search
      * @param param the request object
      */
-    public autocompleteRecipeSearch(param: RecipesApiAutocompleteRecipeSearchRequest = {}, options?: Configuration): Promise<Set<AutocompleteRecipeSearch200ResponseInner>> {
+    public autocompleteRecipeSearch(param: RecipesApiAutocompleteRecipeSearchRequest, options?: Configuration): Promise<Set<AutocompleteRecipeSearch200ResponseInner>> {
         return this.api.autocompleteRecipeSearch(param.query, param.number,  options).toPromise();
     }
 
@@ -4428,7 +4431,7 @@ export class ObjectRecipesApi {
      * Extract Recipe from Website
      * @param param the request object
      */
-    public extractRecipeFromWebsiteWithHttpInfo(param: RecipesApiExtractRecipeFromWebsiteRequest, options?: Configuration): Promise<HttpInfo<GetRecipeInformation200Response>> {
+    public extractRecipeFromWebsiteWithHttpInfo(param: RecipesApiExtractRecipeFromWebsiteRequest, options?: Configuration): Promise<HttpInfo<RecipeInformation>> {
         return this.api.extractRecipeFromWebsiteWithHttpInfo(param.url, param.forceExtraction, param.analyze, param.includeNutrition, param.includeTaste,  options).toPromise();
     }
 
@@ -4437,7 +4440,7 @@ export class ObjectRecipesApi {
      * Extract Recipe from Website
      * @param param the request object
      */
-    public extractRecipeFromWebsite(param: RecipesApiExtractRecipeFromWebsiteRequest, options?: Configuration): Promise<GetRecipeInformation200Response> {
+    public extractRecipeFromWebsite(param: RecipesApiExtractRecipeFromWebsiteRequest, options?: Configuration): Promise<RecipeInformation> {
         return this.api.extractRecipeFromWebsite(param.url, param.forceExtraction, param.analyze, param.includeNutrition, param.includeTaste,  options).toPromise();
     }
 
@@ -4446,7 +4449,7 @@ export class ObjectRecipesApi {
      * Get Analyzed Recipe Instructions
      * @param param the request object
      */
-    public getAnalyzedRecipeInstructionsWithHttpInfo(param: RecipesApiGetAnalyzedRecipeInstructionsRequest, options?: Configuration): Promise<HttpInfo<GetAnalyzedRecipeInstructions200Response>> {
+    public getAnalyzedRecipeInstructionsWithHttpInfo(param: RecipesApiGetAnalyzedRecipeInstructionsRequest, options?: Configuration): Promise<HttpInfo<Array<GetAnalyzedRecipeInstructions200ResponseInner>>> {
         return this.api.getAnalyzedRecipeInstructionsWithHttpInfo(param.id, param.stepBreakdown,  options).toPromise();
     }
 
@@ -4455,7 +4458,7 @@ export class ObjectRecipesApi {
      * Get Analyzed Recipe Instructions
      * @param param the request object
      */
-    public getAnalyzedRecipeInstructions(param: RecipesApiGetAnalyzedRecipeInstructionsRequest, options?: Configuration): Promise<GetAnalyzedRecipeInstructions200Response> {
+    public getAnalyzedRecipeInstructions(param: RecipesApiGetAnalyzedRecipeInstructionsRequest, options?: Configuration): Promise<Array<GetAnalyzedRecipeInstructions200ResponseInner>> {
         return this.api.getAnalyzedRecipeInstructions(param.id, param.stepBreakdown,  options).toPromise();
     }
 
@@ -4500,8 +4503,8 @@ export class ObjectRecipesApi {
      * Get Recipe Information
      * @param param the request object
      */
-    public getRecipeInformationWithHttpInfo(param: RecipesApiGetRecipeInformationRequest, options?: Configuration): Promise<HttpInfo<GetRecipeInformation200Response>> {
-        return this.api.getRecipeInformationWithHttpInfo(param.id, param.includeNutrition,  options).toPromise();
+    public getRecipeInformationWithHttpInfo(param: RecipesApiGetRecipeInformationRequest, options?: Configuration): Promise<HttpInfo<RecipeInformation>> {
+        return this.api.getRecipeInformationWithHttpInfo(param.id, param.includeNutrition, param.addWinePairing, param.addTasteData,  options).toPromise();
     }
 
     /**
@@ -4509,8 +4512,8 @@ export class ObjectRecipesApi {
      * Get Recipe Information
      * @param param the request object
      */
-    public getRecipeInformation(param: RecipesApiGetRecipeInformationRequest, options?: Configuration): Promise<GetRecipeInformation200Response> {
-        return this.api.getRecipeInformation(param.id, param.includeNutrition,  options).toPromise();
+    public getRecipeInformation(param: RecipesApiGetRecipeInformationRequest, options?: Configuration): Promise<RecipeInformation> {
+        return this.api.getRecipeInformation(param.id, param.includeNutrition, param.addWinePairing, param.addTasteData,  options).toPromise();
     }
 
     /**
@@ -4518,7 +4521,7 @@ export class ObjectRecipesApi {
      * Get Recipe Information Bulk
      * @param param the request object
      */
-    public getRecipeInformationBulkWithHttpInfo(param: RecipesApiGetRecipeInformationBulkRequest, options?: Configuration): Promise<HttpInfo<Set<GetRecipeInformationBulk200ResponseInner>>> {
+    public getRecipeInformationBulkWithHttpInfo(param: RecipesApiGetRecipeInformationBulkRequest, options?: Configuration): Promise<HttpInfo<Set<RecipeInformation>>> {
         return this.api.getRecipeInformationBulkWithHttpInfo(param.ids, param.includeNutrition,  options).toPromise();
     }
 
@@ -4527,7 +4530,7 @@ export class ObjectRecipesApi {
      * Get Recipe Information Bulk
      * @param param the request object
      */
-    public getRecipeInformationBulk(param: RecipesApiGetRecipeInformationBulkRequest, options?: Configuration): Promise<Set<GetRecipeInformationBulk200ResponseInner>> {
+    public getRecipeInformationBulk(param: RecipesApiGetRecipeInformationBulkRequest, options?: Configuration): Promise<Set<RecipeInformation>> {
         return this.api.getRecipeInformationBulk(param.ids, param.includeNutrition,  options).toPromise();
     }
 
@@ -4590,7 +4593,7 @@ export class ObjectRecipesApi {
      * Taste by ID
      * @param param the request object
      */
-    public getRecipeTasteByIDWithHttpInfo(param: RecipesApiGetRecipeTasteByIDRequest, options?: Configuration): Promise<HttpInfo<GetRecipeTasteByID200Response>> {
+    public getRecipeTasteByIDWithHttpInfo(param: RecipesApiGetRecipeTasteByIDRequest, options?: Configuration): Promise<HttpInfo<TasteInformation>> {
         return this.api.getRecipeTasteByIDWithHttpInfo(param.id, param.normalize,  options).toPromise();
     }
 
@@ -4599,7 +4602,7 @@ export class ObjectRecipesApi {
      * Taste by ID
      * @param param the request object
      */
-    public getRecipeTasteByID(param: RecipesApiGetRecipeTasteByIDRequest, options?: Configuration): Promise<GetRecipeTasteByID200Response> {
+    public getRecipeTasteByID(param: RecipesApiGetRecipeTasteByIDRequest, options?: Configuration): Promise<TasteInformation> {
         return this.api.getRecipeTasteByID(param.id, param.normalize,  options).toPromise();
     }
 
@@ -4644,7 +4647,7 @@ export class ObjectRecipesApi {
      * Parse Ingredients
      * @param param the request object
      */
-    public parseIngredientsWithHttpInfo(param: RecipesApiParseIngredientsRequest, options?: Configuration): Promise<HttpInfo<Set<ParseIngredients200ResponseInner>>> {
+    public parseIngredientsWithHttpInfo(param: RecipesApiParseIngredientsRequest, options?: Configuration): Promise<HttpInfo<Set<IngredientInformation>>> {
         return this.api.parseIngredientsWithHttpInfo(param.ingredientList, param.servings, param.language, param.includeNutrition,  options).toPromise();
     }
 
@@ -4653,7 +4656,7 @@ export class ObjectRecipesApi {
      * Parse Ingredients
      * @param param the request object
      */
-    public parseIngredients(param: RecipesApiParseIngredientsRequest, options?: Configuration): Promise<Set<ParseIngredients200ResponseInner>> {
+    public parseIngredients(param: RecipesApiParseIngredientsRequest, options?: Configuration): Promise<Set<IngredientInformation>> {
         return this.api.parseIngredients(param.ingredientList, param.servings, param.language, param.includeNutrition,  options).toPromise();
     }
 
@@ -4770,7 +4773,7 @@ export class ObjectRecipesApi {
      * Search Recipes
      * @param param the request object
      */
-    public searchRecipesWithHttpInfo(param: RecipesApiSearchRecipesRequest = {}, options?: Configuration): Promise<HttpInfo<SearchRecipes200Response>> {
+    public searchRecipesWithHttpInfo(param: RecipesApiSearchRecipesRequest, options?: Configuration): Promise<HttpInfo<SearchRecipes200Response>> {
         return this.api.searchRecipesWithHttpInfo(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.minServings, param.maxServings, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number,  options).toPromise();
     }
 
@@ -4779,7 +4782,7 @@ export class ObjectRecipesApi {
      * Search Recipes
      * @param param the request object
      */
-    public searchRecipes(param: RecipesApiSearchRecipesRequest = {}, options?: Configuration): Promise<SearchRecipes200Response> {
+    public searchRecipes(param: RecipesApiSearchRecipesRequest, options?: Configuration): Promise<SearchRecipes200Response> {
         return this.api.searchRecipes(param.query, param.cuisine, param.excludeCuisine, param.diet, param.intolerances, param.equipment, param.includeIngredients, param.excludeIngredients, param.type, param.instructionsRequired, param.fillIngredients, param.addRecipeInformation, param.addRecipeNutrition, param.author, param.tags, param.recipeBoxId, param.titleMatch, param.maxReadyTime, param.minServings, param.maxServings, param.ignorePantry, param.sort, param.sortDirection, param.minCarbs, param.maxCarbs, param.minProtein, param.maxProtein, param.minCalories, param.maxCalories, param.minFat, param.maxFat, param.minAlcohol, param.maxAlcohol, param.minCaffeine, param.maxCaffeine, param.minCopper, param.maxCopper, param.minCalcium, param.maxCalcium, param.minCholine, param.maxCholine, param.minCholesterol, param.maxCholesterol, param.minFluoride, param.maxFluoride, param.minSaturatedFat, param.maxSaturatedFat, param.minVitaminA, param.maxVitaminA, param.minVitaminC, param.maxVitaminC, param.minVitaminD, param.maxVitaminD, param.minVitaminE, param.maxVitaminE, param.minVitaminK, param.maxVitaminK, param.minVitaminB1, param.maxVitaminB1, param.minVitaminB2, param.maxVitaminB2, param.minVitaminB5, param.maxVitaminB5, param.minVitaminB3, param.maxVitaminB3, param.minVitaminB6, param.maxVitaminB6, param.minVitaminB12, param.maxVitaminB12, param.minFiber, param.maxFiber, param.minFolate, param.maxFolate, param.minFolicAcid, param.maxFolicAcid, param.minIodine, param.maxIodine, param.minIron, param.maxIron, param.minMagnesium, param.maxMagnesium, param.minManganese, param.maxManganese, param.minPhosphorus, param.maxPhosphorus, param.minPotassium, param.maxPotassium, param.minSelenium, param.maxSelenium, param.minSodium, param.maxSodium, param.minSugar, param.maxSugar, param.minZinc, param.maxZinc, param.offset, param.number,  options).toPromise();
     }
 
@@ -4788,7 +4791,7 @@ export class ObjectRecipesApi {
      * Search Recipes by Ingredients
      * @param param the request object
      */
-    public searchRecipesByIngredientsWithHttpInfo(param: RecipesApiSearchRecipesByIngredientsRequest = {}, options?: Configuration): Promise<HttpInfo<Set<SearchRecipesByIngredients200ResponseInner>>> {
+    public searchRecipesByIngredientsWithHttpInfo(param: RecipesApiSearchRecipesByIngredientsRequest, options?: Configuration): Promise<HttpInfo<Set<SearchRecipesByIngredients200ResponseInner>>> {
         return this.api.searchRecipesByIngredientsWithHttpInfo(param.ingredients, param.number, param.ranking, param.ignorePantry,  options).toPromise();
     }
 
@@ -4797,7 +4800,7 @@ export class ObjectRecipesApi {
      * Search Recipes by Ingredients
      * @param param the request object
      */
-    public searchRecipesByIngredients(param: RecipesApiSearchRecipesByIngredientsRequest = {}, options?: Configuration): Promise<Set<SearchRecipesByIngredients200ResponseInner>> {
+    public searchRecipesByIngredients(param: RecipesApiSearchRecipesByIngredientsRequest, options?: Configuration): Promise<Set<SearchRecipesByIngredients200ResponseInner>> {
         return this.api.searchRecipesByIngredients(param.ingredients, param.number, param.ranking, param.ignorePantry,  options).toPromise();
     }
 

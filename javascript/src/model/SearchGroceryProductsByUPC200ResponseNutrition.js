@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import ParseIngredients200ResponseInnerNutritionCaloricBreakdown from './ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
-import ParseIngredients200ResponseInnerNutritionNutrientsInner from './ParseIngredients200ResponseInnerNutritionNutrientsInner';
+import SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown from './SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown';
+import SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner from './SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner';
 
 /**
  * The SearchGroceryProductsByUPC200ResponseNutrition model module.
@@ -24,8 +24,8 @@ class SearchGroceryProductsByUPC200ResponseNutrition {
     /**
      * Constructs a new <code>SearchGroceryProductsByUPC200ResponseNutrition</code>.
      * @alias module:model/SearchGroceryProductsByUPC200ResponseNutrition
-     * @param nutrients {Array.<module:model/ParseIngredients200ResponseInnerNutritionNutrientsInner>} 
-     * @param caloricBreakdown {module:model/ParseIngredients200ResponseInnerNutritionCaloricBreakdown} 
+     * @param nutrients {Array.<module:model/SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>} 
+     * @param caloricBreakdown {module:model/SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown} 
      */
     constructor(nutrients, caloricBreakdown) { 
         
@@ -54,10 +54,10 @@ class SearchGroceryProductsByUPC200ResponseNutrition {
             obj = obj || new SearchGroceryProductsByUPC200ResponseNutrition();
 
             if (data.hasOwnProperty('nutrients')) {
-                obj['nutrients'] = ApiClient.convertToType(data['nutrients'], [ParseIngredients200ResponseInnerNutritionNutrientsInner]);
+                obj['nutrients'] = ApiClient.convertToType(data['nutrients'], [SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner]);
             }
             if (data.hasOwnProperty('caloricBreakdown')) {
-                obj['caloricBreakdown'] = ParseIngredients200ResponseInnerNutritionCaloricBreakdown.constructFromObject(data['caloricBreakdown']);
+                obj['caloricBreakdown'] = SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.constructFromObject(data['caloricBreakdown']);
             }
         }
         return obj;
@@ -82,12 +82,12 @@ class SearchGroceryProductsByUPC200ResponseNutrition {
             }
             // validate the optional field `nutrients` (array)
             for (const item of data['nutrients']) {
-                ParseIngredients200ResponseInnerNutritionNutrientsInner.validateJSON(item);
+                SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.validateJSON(item);
             };
         }
         // validate the optional field `caloricBreakdown`
         if (data['caloricBreakdown']) { // data not null
-          ParseIngredients200ResponseInnerNutritionCaloricBreakdown.validateJSON(data['caloricBreakdown']);
+          SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.validateJSON(data['caloricBreakdown']);
         }
 
         return true;
@@ -99,12 +99,12 @@ class SearchGroceryProductsByUPC200ResponseNutrition {
 SearchGroceryProductsByUPC200ResponseNutrition.RequiredProperties = ["nutrients", "caloricBreakdown"];
 
 /**
- * @member {Array.<module:model/ParseIngredients200ResponseInnerNutritionNutrientsInner>} nutrients
+ * @member {Array.<module:model/SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>} nutrients
  */
 SearchGroceryProductsByUPC200ResponseNutrition.prototype['nutrients'] = undefined;
 
 /**
- * @member {module:model/ParseIngredients200ResponseInnerNutritionCaloricBreakdown} caloricBreakdown
+ * @member {module:model/SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown} caloricBreakdown
  */
 SearchGroceryProductsByUPC200ResponseNutrition.prototype['caloricBreakdown'] = undefined;
 

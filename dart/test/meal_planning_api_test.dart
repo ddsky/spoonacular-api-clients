@@ -39,7 +39,7 @@ void main() {
     //
     // Add an item to the current shopping list of a user.
     //
-    //Future<GenerateShoppingList200Response> addToShoppingList(String username, String hash, AddToShoppingListRequest addToShoppingListRequest) async
+    //Future<GetShoppingList200Response> addToShoppingList(String username, String hash, AddToShoppingListRequest addToShoppingListRequest) async
     test('test addToShoppingList', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Delete an item from the user's meal plan.
     //
-    //Future<Object> deleteFromMealPlan(String username, num id, String hash) async
+    //Future<Object> deleteFromMealPlan(String username, int id, String hash) async
     test('test deleteFromMealPlan', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Generate the shopping list for a user from the meal planner in a given time frame.
     //
-    //Future<GenerateShoppingList200Response> generateShoppingList(String username, String startDate, String endDate, String hash) async
+    //Future<GetShoppingList200Response> generateShoppingList(String username, String startDate, String endDate, String hash) async
     test('test generateShoppingList', () async {
       // TODO
     });

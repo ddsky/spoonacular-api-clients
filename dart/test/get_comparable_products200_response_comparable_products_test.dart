@@ -16,32 +16,32 @@ void main() {
   // final instance = GetComparableProducts200ResponseComparableProducts();
 
   group('test GetComparableProducts200ResponseComparableProducts', () {
-    // List<Object> calories (default value: const [])
+    // List<ComparableProduct> calories (default value: const [])
     test('to test the property `calories`', () async {
       // TODO
     });
 
-    // List<Object> likes (default value: const [])
+    // List<ComparableProduct> likes (default value: const [])
     test('to test the property `likes`', () async {
       // TODO
     });
 
-    // List<Object> price (default value: const [])
+    // List<ComparableProduct> price (default value: const [])
     test('to test the property `price`', () async {
       // TODO
     });
 
-    // Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein (default value: const {})
+    // List<ComparableProduct> protein (default value: const [])
     test('to test the property `protein`', () async {
       // TODO
     });
 
-    // Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore (default value: const {})
+    // List<ComparableProduct> spoonacularScore (default value: const [])
     test('to test the property `spoonacularScore`', () async {
       // TODO
     });
 
-    // List<Object> sugar (default value: const [])
+    // List<ComparableProduct> sugar (default value: const [])
     test('to test the property `sugar`', () async {
       // TODO
     });

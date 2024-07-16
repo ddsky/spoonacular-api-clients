@@ -60,7 +60,7 @@ class SearchAllFood200ResponseSearchResultsInner implements ModelInterface, Arra
     protected static $openAPITypes = [
         'name' => 'string',
         'total_results' => 'int',
-        'results' => '\OpenAPI\Client\Model\SearchAllFood200ResponseSearchResultsInnerResultsInner[]'
+        'results' => '\OpenAPI\Client\Model\SearchResult[]'
     ];
 
     /**
@@ -380,7 +380,7 @@ class SearchAllFood200ResponseSearchResultsInner implements ModelInterface, Arra
     /**
      * Gets results
      *
-     * @return \OpenAPI\Client\Model\SearchAllFood200ResponseSearchResultsInnerResultsInner[]|null
+     * @return \OpenAPI\Client\Model\SearchResult[]|null
      */
     public function getResults()
     {
@@ -390,7 +390,7 @@ class SearchAllFood200ResponseSearchResultsInner implements ModelInterface, Arra
     /**
      * Sets results
      *
-     * @param \OpenAPI\Client\Model\SearchAllFood200ResponseSearchResultsInnerResultsInner[]|null $results results
+     * @param \OpenAPI\Client\Model\SearchResult[]|null $results results
      *
      * @return self
      */

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **TotalResults** | **int32** |  | 
-**Results** | Pointer to [**[]SearchAllFood200ResponseSearchResultsInnerResultsInner**](SearchAllFood200ResponseSearchResultsInnerResultsInner.md) |  | [optional] 
+**Results** | Pointer to [**[]SearchResult**](SearchResult.md) |  | [optional] 
 
 ## Methods
 
@@ -69,20 +69,20 @@ SetTotalResults sets TotalResults field to given value.
 
 ### GetResults
 
-`func (o *SearchAllFood200ResponseSearchResultsInner) GetResults() []SearchAllFood200ResponseSearchResultsInnerResultsInner`
+`func (o *SearchAllFood200ResponseSearchResultsInner) GetResults() []SearchResult`
 
 GetResults returns the Results field if non-nil, zero value otherwise.
 
 ### GetResultsOk
 
-`func (o *SearchAllFood200ResponseSearchResultsInner) GetResultsOk() (*[]SearchAllFood200ResponseSearchResultsInnerResultsInner, bool)`
+`func (o *SearchAllFood200ResponseSearchResultsInner) GetResultsOk() (*[]SearchResult, bool)`
 
 GetResultsOk returns a tuple with the Results field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResults
 
-`func (o *SearchAllFood200ResponseSearchResultsInner) SetResults(v []SearchAllFood200ResponseSearchResultsInnerResultsInner)`
+`func (o *SearchAllFood200ResponseSearchResultsInner) SetResults(v []SearchResult)`
 
 SetResults sets Results field to given value.
 

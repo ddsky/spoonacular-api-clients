@@ -77,7 +77,7 @@ namespace spoonacular.Test.Api
         public void CreateRecipeCardGetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //string? mask = null;
             //string? backgroundImage = null;
             //string? backgroundColor = null;

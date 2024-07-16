@@ -35,7 +35,7 @@ import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner;
 import com.spoonacular.client.model.ClassifyGroceryProductRequest;
 import java.io.File;
 import com.spoonacular.client.model.GetComparableProducts200Response;
-import com.spoonacular.client.model.GetProductInformation200Response;
+import com.spoonacular.client.model.ProductInformation;
 import com.spoonacular.client.model.SearchGroceryProducts200Response;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200Response;
 import java.util.Set;
@@ -556,7 +556,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Comparable-Products">Get Comparable Products Documentation</a>
      */
-    public okhttp3.Call getComparableProductsCall(BigDecimal upc, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getComparableProductsCall(String upc, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -602,7 +602,7 @@ public class ProductsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getComparableProductsValidateBeforeCall(BigDecimal upc, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getComparableProductsValidateBeforeCall(String upc, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'upc' is set
         if (upc == null) {
             throw new ApiException("Missing the required parameter 'upc' when calling getComparableProducts(Async)");
@@ -629,7 +629,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Comparable-Products">Get Comparable Products Documentation</a>
      */
-    public GetComparableProducts200Response getComparableProducts(BigDecimal upc) throws ApiException {
+    public GetComparableProducts200Response getComparableProducts(String upc) throws ApiException {
         ApiResponse<GetComparableProducts200Response> localVarResp = getComparableProductsWithHttpInfo(upc);
         return localVarResp.getData();
     }
@@ -651,7 +651,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Comparable-Products">Get Comparable Products Documentation</a>
      */
-    public ApiResponse<GetComparableProducts200Response> getComparableProductsWithHttpInfo(BigDecimal upc) throws ApiException {
+    public ApiResponse<GetComparableProducts200Response> getComparableProductsWithHttpInfo(String upc) throws ApiException {
         okhttp3.Call localVarCall = getComparableProductsValidateBeforeCall(upc, null);
         Type localVarReturnType = new TypeToken<GetComparableProducts200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -675,7 +675,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Comparable-Products">Get Comparable Products Documentation</a>
      */
-    public okhttp3.Call getComparableProductsAsync(BigDecimal upc, final ApiCallback<GetComparableProducts200Response> _callback) throws ApiException {
+    public okhttp3.Call getComparableProductsAsync(String upc, final ApiCallback<GetComparableProducts200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getComparableProductsValidateBeforeCall(upc, _callback);
         Type localVarReturnType = new TypeToken<GetComparableProducts200Response>(){}.getType();
@@ -684,7 +684,7 @@ public class ProductsApi {
     }
     /**
      * Build call for getProductInformation
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the packaged food. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -758,8 +758,8 @@ public class ProductsApi {
     /**
      * Get Product Information
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-     * @param id The item&#39;s id. (required)
-     * @return GetProductInformation200Response
+     * @param id The id of the packaged food. (required)
+     * @return ProductInformation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -772,16 +772,16 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Product-Information">Get Product Information Documentation</a>
      */
-    public GetProductInformation200Response getProductInformation(Integer id) throws ApiException {
-        ApiResponse<GetProductInformation200Response> localVarResp = getProductInformationWithHttpInfo(id);
+    public ProductInformation getProductInformation(Integer id) throws ApiException {
+        ApiResponse<ProductInformation> localVarResp = getProductInformationWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
      * Get Product Information
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-     * @param id The item&#39;s id. (required)
-     * @return ApiResponse&lt;GetProductInformation200Response&gt;
+     * @param id The id of the packaged food. (required)
+     * @return ApiResponse&lt;ProductInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -794,16 +794,16 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Product-Information">Get Product Information Documentation</a>
      */
-    public ApiResponse<GetProductInformation200Response> getProductInformationWithHttpInfo(Integer id) throws ApiException {
+    public ApiResponse<ProductInformation> getProductInformationWithHttpInfo(Integer id) throws ApiException {
         okhttp3.Call localVarCall = getProductInformationValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<GetProductInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProductInformation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Product Information (asynchronously)
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the packaged food. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -818,10 +818,10 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Product-Information">Get Product Information Documentation</a>
      */
-    public okhttp3.Call getProductInformationAsync(Integer id, final ApiCallback<GetProductInformation200Response> _callback) throws ApiException {
+    public okhttp3.Call getProductInformationAsync(Integer id, final ApiCallback<ProductInformation> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getProductInformationValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<GetProductInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProductInformation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -842,7 +842,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image">Product Nutrition by ID Image Documentation</a>
      */
-    public okhttp3.Call productNutritionByIDImageCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call productNutritionByIDImageCall(Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -888,7 +888,7 @@ public class ProductsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call productNutritionByIDImageValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call productNutritionByIDImageValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling productNutritionByIDImage(Async)");
@@ -915,7 +915,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image">Product Nutrition by ID Image Documentation</a>
      */
-    public File productNutritionByIDImage(BigDecimal id) throws ApiException {
+    public File productNutritionByIDImage(Integer id) throws ApiException {
         ApiResponse<File> localVarResp = productNutritionByIDImageWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -937,7 +937,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image">Product Nutrition by ID Image Documentation</a>
      */
-    public ApiResponse<File> productNutritionByIDImageWithHttpInfo(BigDecimal id) throws ApiException {
+    public ApiResponse<File> productNutritionByIDImageWithHttpInfo(Integer id) throws ApiException {
         okhttp3.Call localVarCall = productNutritionByIDImageValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -961,7 +961,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image">Product Nutrition by ID Image Documentation</a>
      */
-    public okhttp3.Call productNutritionByIDImageAsync(BigDecimal id, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call productNutritionByIDImageAsync(Integer id, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = productNutritionByIDImageValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -988,7 +988,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image">Product Nutrition Label Image Documentation</a>
      */
-    public okhttp3.Call productNutritionLabelImageCall(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call productNutritionLabelImageCall(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1046,7 +1046,7 @@ public class ProductsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call productNutritionLabelImageValidateBeforeCall(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call productNutritionLabelImageValidateBeforeCall(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling productNutritionLabelImage(Async)");
@@ -1076,7 +1076,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image">Product Nutrition Label Image Documentation</a>
      */
-    public File productNutritionLabelImage(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public File productNutritionLabelImage(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         ApiResponse<File> localVarResp = productNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
         return localVarResp.getData();
     }
@@ -1101,7 +1101,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image">Product Nutrition Label Image Documentation</a>
      */
-    public ApiResponse<File> productNutritionLabelImageWithHttpInfo(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public ApiResponse<File> productNutritionLabelImageWithHttpInfo(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         okhttp3.Call localVarCall = productNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1128,7 +1128,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image">Product Nutrition Label Image Documentation</a>
      */
-    public okhttp3.Call productNutritionLabelImageAsync(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call productNutritionLabelImageAsync(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = productNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -1156,7 +1156,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Widget">Product Nutrition Label Widget Documentation</a>
      */
-    public okhttp3.Call productNutritionLabelWidgetCall(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call productNutritionLabelWidgetCall(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1218,7 +1218,7 @@ public class ProductsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call productNutritionLabelWidgetValidateBeforeCall(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call productNutritionLabelWidgetValidateBeforeCall(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling productNutritionLabelWidget(Async)");
@@ -1249,7 +1249,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Widget">Product Nutrition Label Widget Documentation</a>
      */
-    public String productNutritionLabelWidget(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public String productNutritionLabelWidget(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         ApiResponse<String> localVarResp = productNutritionLabelWidgetWithHttpInfo(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients);
         return localVarResp.getData();
     }
@@ -1275,7 +1275,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Widget">Product Nutrition Label Widget Documentation</a>
      */
-    public ApiResponse<String> productNutritionLabelWidgetWithHttpInfo(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public ApiResponse<String> productNutritionLabelWidgetWithHttpInfo(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         okhttp3.Call localVarCall = productNutritionLabelWidgetValidateBeforeCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1303,7 +1303,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Widget">Product Nutrition Label Widget Documentation</a>
      */
-    public okhttp3.Call productNutritionLabelWidgetAsync(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call productNutritionLabelWidgetAsync(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = productNutritionLabelWidgetValidateBeforeCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -1312,7 +1312,7 @@ public class ProductsApi {
     }
     /**
      * Build call for searchGroceryProducts
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the product must have. (optional)
      * @param maxCalories The maximum amount of calories the product can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -1432,6 +1432,11 @@ public class ProductsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchGroceryProductsValidateBeforeCall(String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchGroceryProducts(Async)");
+        }
+
         return searchGroceryProductsCall(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, _callback);
 
     }
@@ -1439,7 +1444,7 @@ public class ProductsApi {
     /**
      * Search Grocery Products
      * Search packaged food products, such as frozen pizza or Greek yogurt.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the product must have. (optional)
      * @param maxCalories The maximum amount of calories the product can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -1472,7 +1477,7 @@ public class ProductsApi {
     /**
      * Search Grocery Products
      * Search packaged food products, such as frozen pizza or Greek yogurt.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the product must have. (optional)
      * @param maxCalories The maximum amount of calories the product can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -1506,7 +1511,7 @@ public class ProductsApi {
     /**
      * Search Grocery Products (asynchronously)
      * Search packaged food products, such as frozen pizza or Greek yogurt.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param minCalories The minimum amount of calories the product must have. (optional)
      * @param maxCalories The maximum amount of calories the product can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -1556,7 +1561,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products-by-UPC">Search Grocery Products by UPC Documentation</a>
      */
-    public okhttp3.Call searchGroceryProductsByUPCCall(BigDecimal upc, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchGroceryProductsByUPCCall(String upc, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1602,7 +1607,7 @@ public class ProductsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchGroceryProductsByUPCValidateBeforeCall(BigDecimal upc, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchGroceryProductsByUPCValidateBeforeCall(String upc, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'upc' is set
         if (upc == null) {
             throw new ApiException("Missing the required parameter 'upc' when calling searchGroceryProductsByUPC(Async)");
@@ -1629,7 +1634,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products-by-UPC">Search Grocery Products by UPC Documentation</a>
      */
-    public SearchGroceryProductsByUPC200Response searchGroceryProductsByUPC(BigDecimal upc) throws ApiException {
+    public SearchGroceryProductsByUPC200Response searchGroceryProductsByUPC(String upc) throws ApiException {
         ApiResponse<SearchGroceryProductsByUPC200Response> localVarResp = searchGroceryProductsByUPCWithHttpInfo(upc);
         return localVarResp.getData();
     }
@@ -1651,7 +1656,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products-by-UPC">Search Grocery Products by UPC Documentation</a>
      */
-    public ApiResponse<SearchGroceryProductsByUPC200Response> searchGroceryProductsByUPCWithHttpInfo(BigDecimal upc) throws ApiException {
+    public ApiResponse<SearchGroceryProductsByUPC200Response> searchGroceryProductsByUPCWithHttpInfo(String upc) throws ApiException {
         okhttp3.Call localVarCall = searchGroceryProductsByUPCValidateBeforeCall(upc, null);
         Type localVarReturnType = new TypeToken<SearchGroceryProductsByUPC200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1675,7 +1680,7 @@ public class ProductsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Grocery-Products-by-UPC">Search Grocery Products by UPC Documentation</a>
      */
-    public okhttp3.Call searchGroceryProductsByUPCAsync(BigDecimal upc, final ApiCallback<SearchGroceryProductsByUPC200Response> _callback) throws ApiException {
+    public okhttp3.Call searchGroceryProductsByUPCAsync(String upc, final ApiCallback<SearchGroceryProductsByUPC200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchGroceryProductsByUPCValidateBeforeCall(upc, _callback);
         Type localVarReturnType = new TypeToken<SearchGroceryProductsByUPC200Response>(){}.getType();
@@ -1684,7 +1689,7 @@ public class ProductsApi {
     }
     /**
      * Build call for visualizeProductNutritionByID
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the product. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1763,7 +1768,7 @@ public class ProductsApi {
     /**
      * Product Nutrition by ID Widget
      * Visualize a product&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the product. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1786,7 +1791,7 @@ public class ProductsApi {
     /**
      * Product Nutrition by ID Widget
      * Visualize a product&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the product. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1810,7 +1815,7 @@ public class ProductsApi {
     /**
      * Product Nutrition by ID Widget (asynchronously)
      * Visualize a product&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the product. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

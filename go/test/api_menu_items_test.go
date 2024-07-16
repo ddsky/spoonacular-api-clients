@@ -52,7 +52,7 @@ func Test_spoonacular_MenuItemsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.MenuItemsAPI.MenuItemNutritionByIDImage(context.Background(), id).Execute()
 
@@ -66,7 +66,7 @@ func Test_spoonacular_MenuItemsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.MenuItemsAPI.MenuItemNutritionLabelImage(context.Background(), id).Execute()
 
@@ -80,7 +80,7 @@ func Test_spoonacular_MenuItemsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.MenuItemsAPI.MenuItemNutritionLabelWidget(context.Background(), id).Execute()
 

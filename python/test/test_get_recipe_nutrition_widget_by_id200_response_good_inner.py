@@ -39,14 +39,14 @@ class TestGetRecipeNutritionWidgetByID200ResponseGoodInner(unittest.TestCase):
                 amount = '0',
                 indented = True,
                 percent_of_daily_needs = 1.337,
-                name = '0'
+                title = '0'
             )
         else:
             return GetRecipeNutritionWidgetByID200ResponseGoodInner(
                 amount = '0',
                 indented = True,
                 percent_of_daily_needs = 1.337,
-                name = '0',
+                title = '0',
         )
         """
 

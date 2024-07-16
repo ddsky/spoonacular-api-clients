@@ -16,7 +16,7 @@ export class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     'amount': string;
     'indented': boolean;
     'percentOfDailyNeeds': number;
-    'name': string;
+    'title': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -40,8 +40,8 @@ export class GetRecipeNutritionWidgetByID200ResponseGoodInner {
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "title",
+            "baseName": "title",
             "type": "string",
             "format": ""
         }    ];

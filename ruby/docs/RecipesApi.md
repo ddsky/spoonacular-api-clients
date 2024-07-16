@@ -190,7 +190,7 @@ end
 
 ## autocomplete_recipe_search
 
-> <Array<AutocompleteRecipeSearch200ResponseInner>> autocomplete_recipe_search(opts)
+> <Array<AutocompleteRecipeSearch200ResponseInner>> autocomplete_recipe_search(query, opts)
 
 Autocomplete Recipe Search
 
@@ -210,14 +210,14 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+query = 'burger' # String | The (natural language) search query.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 }
 
 begin
   # Autocomplete Recipe Search
-  result = api_instance.autocomplete_recipe_search(opts)
+  result = api_instance.autocomplete_recipe_search(query, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->autocomplete_recipe_search: #{e}"
@@ -228,12 +228,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AutocompleteRecipeSearch200ResponseInner>>, Integer, Hash)> autocomplete_recipe_search_with_http_info(opts)
+> <Array(<Array<AutocompleteRecipeSearch200ResponseInner>>, Integer, Hash)> autocomplete_recipe_search_with_http_info(query, opts)
 
 ```ruby
 begin
   # Autocomplete Recipe Search
-  data, status_code, headers = api_instance.autocomplete_recipe_search_with_http_info(opts)
+  data, status_code, headers = api_instance.autocomplete_recipe_search_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AutocompleteRecipeSearch200ResponseInner>>
@@ -246,7 +246,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query** | **String** | The (natural language) search query. | [optional] |
+| **query** | **String** | The (natural language) search query. |  |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
 
 ### Return type
@@ -611,7 +611,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 44860 # Float | The recipe id.
+id = 44860 # Integer | The recipe id.
 
 begin
   # Equipment by ID Image
@@ -644,7 +644,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -662,7 +662,7 @@ end
 
 ## extract_recipe_from_website
 
-> <GetRecipeInformation200Response> extract_recipe_from_website(url, opts)
+> <RecipeInformation> extract_recipe_from_website(url, opts)
 
 Extract Recipe from Website
 
@@ -703,7 +703,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetRecipeInformation200Response>, Integer, Hash)> extract_recipe_from_website_with_http_info(url, opts)
+> <Array(<RecipeInformation>, Integer, Hash)> extract_recipe_from_website_with_http_info(url, opts)
 
 ```ruby
 begin
@@ -711,7 +711,7 @@ begin
   data, status_code, headers = api_instance.extract_recipe_from_website_with_http_info(url, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetRecipeInformation200Response>
+  p data # => <RecipeInformation>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->extract_recipe_from_website_with_http_info: #{e}"
 end
@@ -729,7 +729,7 @@ end
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -743,7 +743,7 @@ end
 
 ## get_analyzed_recipe_instructions
 
-> <GetAnalyzedRecipeInstructions200Response> get_analyzed_recipe_instructions(id, opts)
+> <Array<GetAnalyzedRecipeInstructions200ResponseInner>> get_analyzed_recipe_instructions(id, opts)
 
 Get Analyzed Recipe Instructions
 
@@ -763,7 +763,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 324694 # Integer | The recipe id.
 opts = {
   step_breakdown: true # Boolean | Whether to break down the recipe steps even more.
 }
@@ -781,7 +781,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetAnalyzedRecipeInstructions200Response>, Integer, Hash)> get_analyzed_recipe_instructions_with_http_info(id, opts)
+> <Array(<Array<GetAnalyzedRecipeInstructions200ResponseInner>>, Integer, Hash)> get_analyzed_recipe_instructions_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -789,7 +789,7 @@ begin
   data, status_code, headers = api_instance.get_analyzed_recipe_instructions_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetAnalyzedRecipeInstructions200Response>
+  p data # => <Array<GetAnalyzedRecipeInstructions200ResponseInner>>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->get_analyzed_recipe_instructions_with_http_info: #{e}"
 end
@@ -799,12 +799,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **step_breakdown** | **Boolean** | Whether to break down the recipe steps even more. | [optional] |
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**Array&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -917,7 +917,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 1003464 # Integer | The recipe id.
 
 begin
   # Equipment by ID
@@ -950,7 +950,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -968,7 +968,7 @@ end
 
 ## get_recipe_information
 
-> <GetRecipeInformation200Response> get_recipe_information(id, opts)
+> <RecipeInformation> get_recipe_information(id, opts)
 
 Get Recipe Information
 
@@ -988,9 +988,11 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 716429 # Integer | The id of the recipe.
 opts = {
-  include_nutrition: true # Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+  include_nutrition: true, # Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+  add_wine_pairing: false, # Boolean | Add a wine pairing to the recipe.
+  add_taste_data: false # Boolean | Add taste data to the recipe.
 }
 
 begin
@@ -1006,7 +1008,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetRecipeInformation200Response>, Integer, Hash)> get_recipe_information_with_http_info(id, opts)
+> <Array(<RecipeInformation>, Integer, Hash)> get_recipe_information_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -1014,7 +1016,7 @@ begin
   data, status_code, headers = api_instance.get_recipe_information_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetRecipeInformation200Response>
+  p data # => <RecipeInformation>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->get_recipe_information_with_http_info: #{e}"
 end
@@ -1024,12 +1026,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The id of the recipe. |  |
 | **include_nutrition** | **Boolean** | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional][default to false] |
+| **add_wine_pairing** | **Boolean** | Add a wine pairing to the recipe. | [optional] |
+| **add_taste_data** | **Boolean** | Add taste data to the recipe. | [optional] |
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -1043,7 +1047,7 @@ end
 
 ## get_recipe_information_bulk
 
-> <Array<GetRecipeInformationBulk200ResponseInner>> get_recipe_information_bulk(ids, opts)
+> <Array<RecipeInformation>> get_recipe_information_bulk(ids, opts)
 
 Get Recipe Information Bulk
 
@@ -1081,7 +1085,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<GetRecipeInformationBulk200ResponseInner>>, Integer, Hash)> get_recipe_information_bulk_with_http_info(ids, opts)
+> <Array(<Array<RecipeInformation>>, Integer, Hash)> get_recipe_information_bulk_with_http_info(ids, opts)
 
 ```ruby
 begin
@@ -1089,7 +1093,7 @@ begin
   data, status_code, headers = api_instance.get_recipe_information_bulk_with_http_info(ids, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<GetRecipeInformationBulk200ResponseInner>>
+  p data # => <Array<RecipeInformation>>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->get_recipe_information_bulk_with_http_info: #{e}"
 end
@@ -1104,7 +1108,7 @@ end
 
 ### Return type
 
-[**Array&lt;GetRecipeInformationBulk200ResponseInner&gt;**](GetRecipeInformationBulk200ResponseInner.md)
+[**Array&lt;RecipeInformation&gt;**](RecipeInformation.md)
 
 ### Authorization
 
@@ -1138,7 +1142,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 1003464 # Integer | The recipe id.
 
 begin
   # Ingredients by ID
@@ -1171,7 +1175,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -1209,7 +1213,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 1003464 # Integer | The recipe id.
 
 begin
   # Nutrition by ID
@@ -1242,7 +1246,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -1280,7 +1284,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 1003464 # Integer | The recipe id.
 
 begin
   # Price Breakdown by ID
@@ -1313,7 +1317,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -1331,7 +1335,7 @@ end
 
 ## get_recipe_taste_by_id
 
-> <GetRecipeTasteByID200Response> get_recipe_taste_by_id(id, opts)
+> <TasteInformation> get_recipe_taste_by_id(id, opts)
 
 Taste by ID
 
@@ -1351,7 +1355,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 69095 # Integer | The recipe id.
 opts = {
   normalize: true # Boolean | Normalize to the strongest taste.
 }
@@ -1369,7 +1373,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetRecipeTasteByID200Response>, Integer, Hash)> get_recipe_taste_by_id_with_http_info(id, opts)
+> <Array(<TasteInformation>, Integer, Hash)> get_recipe_taste_by_id_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -1377,7 +1381,7 @@ begin
   data, status_code, headers = api_instance.get_recipe_taste_by_id_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetRecipeTasteByID200Response>
+  p data # => <TasteInformation>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->get_recipe_taste_by_id_with_http_info: #{e}"
 end
@@ -1387,12 +1391,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **normalize** | **Boolean** | Normalize to the strongest taste. | [optional][default to true] |
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -1426,7 +1430,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 715538 # Integer | The id of the source recipe for which similar recipes should be found.
 opts = {
   number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 }
@@ -1462,7 +1466,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The id of the source recipe for which similar recipes should be found. |  |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
 
 ### Return type
@@ -1552,7 +1556,7 @@ end
 
 ## parse_ingredients
 
-> <Array<ParseIngredients200ResponseInner>> parse_ingredients(ingredient_list, servings, opts)
+> <Array<IngredientInformation>> parse_ingredients(ingredient_list, servings, opts)
 
 Parse Ingredients
 
@@ -1576,7 +1580,7 @@ ingredient_list = 'ingredient_list_example' # String | The ingredient list of th
 servings = 8.14 # Float | The number of servings that you can make from the ingredients.
 opts = {
   language: 'en', # String | The language of the input. Either 'en' or 'de'.
-  include_nutrition: true # Boolean | 
+  include_nutrition: true # Boolean | Whether nutrition data should be added to correctly parsed ingredients.
 }
 
 begin
@@ -1592,7 +1596,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<ParseIngredients200ResponseInner>>, Integer, Hash)> parse_ingredients_with_http_info(ingredient_list, servings, opts)
+> <Array(<Array<IngredientInformation>>, Integer, Hash)> parse_ingredients_with_http_info(ingredient_list, servings, opts)
 
 ```ruby
 begin
@@ -1600,7 +1604,7 @@ begin
   data, status_code, headers = api_instance.parse_ingredients_with_http_info(ingredient_list, servings, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<ParseIngredients200ResponseInner>>
+  p data # => <Array<IngredientInformation>>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->parse_ingredients_with_http_info: #{e}"
 end
@@ -1613,11 +1617,11 @@ end
 | **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. |  |
 | **servings** | **Float** | The number of servings that you can make from the ingredients. |  |
 | **language** | **String** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
-| **include_nutrition** | **Boolean** |  | [optional] |
+| **include_nutrition** | **Boolean** | Whether nutrition data should be added to correctly parsed ingredients. | [optional] |
 
 ### Return type
 
-[**Array&lt;ParseIngredients200ResponseInner&gt;**](ParseIngredients200ResponseInner.md)
+[**Array&lt;IngredientInformation&gt;**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1651,7 +1655,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1082038 # Float | The recipe id.
+id = 1082038 # Integer | The recipe id.
 
 begin
   # Price Breakdown by ID Image
@@ -1684,7 +1688,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -1793,7 +1797,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1082038 # Float | The recipe id.
+id = 1082038 # Integer | The recipe id.
 
 begin
   # Recipe Nutrition by ID Image
@@ -1826,7 +1830,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -1864,7 +1868,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 641166 # Float | The recipe id.
+id = 641166 # Integer | The recipe id.
 opts = {
   show_optional_nutrients: false, # Boolean | Whether to show optional nutrients.
   show_zero_values: false, # Boolean | Whether to show zero values.
@@ -1902,7 +1906,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **show_optional_nutrients** | **Boolean** | Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **Boolean** | Whether to show zero values. | [optional] |
 | **show_ingredients** | **Boolean** | Whether to show a list of ingredients. | [optional] |
@@ -1943,7 +1947,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 641166 # Float | The recipe id.
+id = 641166 # Integer | The recipe id.
 opts = {
   default_css: false, # Boolean | Whether the default CSS should be added to the response.
   show_optional_nutrients: false, # Boolean | Whether to show optional nutrients.
@@ -1982,7 +1986,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 | **show_optional_nutrients** | **Boolean** | Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **Boolean** | Whether to show zero values. | [optional] |
@@ -2024,7 +2028,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 69095 # Float | The recipe id.
+id = 69095 # Integer | The recipe id.
 opts = {
   normalize: false, # Boolean | Normalize to the strongest taste.
   rgb: '75,192,192' # String | Red, green, blue values for the chart color.
@@ -2061,7 +2065,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **normalize** | **Boolean** | Normalize to the strongest taste. | [optional] |
 | **rgb** | **String** | Red, green, blue values for the chart color. | [optional] |
 
@@ -2081,7 +2085,7 @@ end
 
 ## search_recipes
 
-> <SearchRecipes200Response> search_recipes(opts)
+> <SearchRecipes200Response> search_recipes(query, opts)
 
 Search Recipes
 
@@ -2101,8 +2105,8 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+query = 'burger' # String | The (natural language) search query.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   cuisine: 'italian', # String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
   exclude_cuisine: 'greek', # String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
   diet: 'vegetarian', # String | The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -2117,7 +2121,7 @@ opts = {
   add_recipe_nutrition: false, # Boolean | If set to true, you get nutritional information about each recipes returned.
   author: 'coffeebean', # String | The username of the recipe author.
   tags: 'tags_example', # String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-  recipe_box_id: 2468, # Float | The id of the recipe box to which the search should be limited to.
+  recipe_box_id: 2468, # Integer | The id of the recipe box to which the search should be limited to.
   title_match: 'Crock Pot', # String | Enter text that must be found in the title of the recipes.
   max_ready_time: 20, # Float | The maximum time in minutes it should take to prepare and cook the recipe.
   min_servings: 1, # Float | The minimum amount of servings the recipe is for.
@@ -2203,7 +2207,7 @@ opts = {
 
 begin
   # Search Recipes
-  result = api_instance.search_recipes(opts)
+  result = api_instance.search_recipes(query, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->search_recipes: #{e}"
@@ -2214,12 +2218,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SearchRecipes200Response>, Integer, Hash)> search_recipes_with_http_info(opts)
+> <Array(<SearchRecipes200Response>, Integer, Hash)> search_recipes_with_http_info(query, opts)
 
 ```ruby
 begin
   # Search Recipes
-  data, status_code, headers = api_instance.search_recipes_with_http_info(opts)
+  data, status_code, headers = api_instance.search_recipes_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SearchRecipes200Response>
@@ -2232,7 +2236,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query** | **String** | The (natural language) search query. | [optional] |
+| **query** | **String** | The (natural language) search query. |  |
 | **cuisine** | **String** | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] |
 | **exclude_cuisine** | **String** | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] |
 | **diet** | **String** | The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |
@@ -2247,7 +2251,7 @@ end
 | **add_recipe_nutrition** | **Boolean** | If set to true, you get nutritional information about each recipes returned. | [optional] |
 | **author** | **String** | The username of the recipe author. | [optional] |
 | **tags** | **String** | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
-| **recipe_box_id** | **Float** | The id of the recipe box to which the search should be limited to. | [optional] |
+| **recipe_box_id** | **Integer** | The id of the recipe box to which the search should be limited to. | [optional] |
 | **title_match** | **String** | Enter text that must be found in the title of the recipes. | [optional] |
 | **max_ready_time** | **Float** | The maximum time in minutes it should take to prepare and cook the recipe. | [optional] |
 | **min_servings** | **Float** | The minimum amount of servings the recipe is for. | [optional] |
@@ -2346,7 +2350,7 @@ end
 
 ## search_recipes_by_ingredients
 
-> <Array<SearchRecipesByIngredients200ResponseInner>> search_recipes_by_ingredients(opts)
+> <Array<SearchRecipesByIngredients200ResponseInner>> search_recipes_by_ingredients(ingredients, opts)
 
 Search Recipes by Ingredients
 
@@ -2366,16 +2370,16 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
+ingredients = 'carrots,tomatoes' # String | A comma-separated list of ingredients that the recipes should contain.
 opts = {
-  ingredients: 'carrots,tomatoes', # String | A comma-separated list of ingredients that the recipes should contain.
   number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-  ranking: 1, # Float | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+  ranking: 1, # Integer | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   ignore_pantry: false # Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 }
 
 begin
   # Search Recipes by Ingredients
-  result = api_instance.search_recipes_by_ingredients(opts)
+  result = api_instance.search_recipes_by_ingredients(ingredients, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling RecipesApi->search_recipes_by_ingredients: #{e}"
@@ -2386,12 +2390,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<SearchRecipesByIngredients200ResponseInner>>, Integer, Hash)> search_recipes_by_ingredients_with_http_info(opts)
+> <Array(<Array<SearchRecipesByIngredients200ResponseInner>>, Integer, Hash)> search_recipes_by_ingredients_with_http_info(ingredients, opts)
 
 ```ruby
 begin
   # Search Recipes by Ingredients
-  data, status_code, headers = api_instance.search_recipes_by_ingredients_with_http_info(opts)
+  data, status_code, headers = api_instance.search_recipes_by_ingredients_with_http_info(ingredients, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<SearchRecipesByIngredients200ResponseInner>>
@@ -2404,9 +2408,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **ingredients** | **String** | A comma-separated list of ingredients that the recipes should contain. | [optional] |
+| **ingredients** | **String** | A comma-separated list of ingredients that the recipes should contain. |  |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
-| **ranking** | **Float** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
+| **ranking** | **Integer** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
 | **ignore_pantry** | **Boolean** | Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional][default to false] |
 
 ### Return type
@@ -2666,7 +2670,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 4632 # Integer | The recipe id.
 
 begin
   # Summarize Recipe
@@ -2699,7 +2703,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 
 ### Return type
 
@@ -2899,7 +2903,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 44860 # Integer | The recipe id.
 opts = {
   default_css: false # Boolean | Whether the default CSS should be added to the response.
 }
@@ -2935,7 +2939,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 
 ### Return type
@@ -2974,7 +2978,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 1082038 # Integer | The recipe id.
 opts = {
   default_css: false, # Boolean | Whether the default CSS should be added to the response.
   measure: 'us' # String | Whether the the measures should be 'us' or 'metric'.
@@ -3011,7 +3015,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 | **measure** | **String** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
 
@@ -3132,7 +3136,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 1082038 # Integer | The recipe id.
 opts = {
   default_css: false # Boolean | Whether the default CSS should be added to the response.
 }
@@ -3168,7 +3172,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 
 ### Return type
@@ -3207,7 +3211,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 1082038 # Integer | The recipe id.
 opts = {
   default_css: false # Boolean | Whether the default CSS should be added to the response.
 }
@@ -3243,7 +3247,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 
 ### Return type
@@ -3361,7 +3365,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::RecipesApi.new
-id = 1 # Integer | The item's id.
+id = 69095 # Integer | The recipe id.
 opts = {
   normalize: true, # Boolean | Whether to normalize to the strongest taste.
   rgb: '75,192,192' # String | Red, green, blue values for the chart color.
@@ -3398,7 +3402,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **normalize** | **Boolean** | Whether to normalize to the strongest taste. | [optional][default to true] |
 | **rgb** | **String** | Red, green, blue values for the chart color. | [optional] |
 

@@ -37,13 +37,13 @@ class TestSearchGroceryProductsByUPC200ResponseNutrition(unittest.TestCase):
         if include_optional:
             return SearchGroceryProductsByUPC200ResponseNutrition(
                 nutrients = [
-                    spoonacular.models.parse_ingredients_200_response_inner_nutrition_nutrients_inner.parseIngredients_200_response_inner_nutrition_nutrients_inner(
+                    spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_nutrients_inner.searchGroceryProductsByUPC_200_response_nutrition_nutrients_inner(
                         name = '0', 
                         amount = 1.337, 
                         unit = '0', 
                         percent_of_daily_needs = 1.337, )
                     ],
-                caloric_breakdown = spoonacular.models.parse_ingredients_200_response_inner_nutrition_caloric_breakdown.parseIngredients_200_response_inner_nutrition_caloricBreakdown(
+                caloric_breakdown = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_caloric_breakdown.searchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown(
                     percent_protein = 1.337, 
                     percent_fat = 1.337, 
                     percent_carbs = 1.337, )
@@ -51,13 +51,13 @@ class TestSearchGroceryProductsByUPC200ResponseNutrition(unittest.TestCase):
         else:
             return SearchGroceryProductsByUPC200ResponseNutrition(
                 nutrients = [
-                    spoonacular.models.parse_ingredients_200_response_inner_nutrition_nutrients_inner.parseIngredients_200_response_inner_nutrition_nutrients_inner(
+                    spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_nutrients_inner.searchGroceryProductsByUPC_200_response_nutrition_nutrients_inner(
                         name = '0', 
                         amount = 1.337, 
                         unit = '0', 
                         percent_of_daily_needs = 1.337, )
                     ],
-                caloric_breakdown = spoonacular.models.parse_ingredients_200_response_inner_nutrition_caloric_breakdown.parseIngredients_200_response_inner_nutrition_caloricBreakdown(
+                caloric_breakdown = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_caloric_breakdown.searchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown(
                     percent_protein = 1.337, 
                     percent_fat = 1.337, 
                     percent_carbs = 1.337, ),

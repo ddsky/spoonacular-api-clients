@@ -12,14 +12,14 @@ defmodule SpoonacularAPI.Model.GetMealPlanTemplates200Response do
   ]
 
   @type t :: %__MODULE__{
-    :templates => [SpoonacularAPI.Model.GetAnalyzedRecipeInstructions200ResponseIngredientsInner.t]
+    :templates => [SpoonacularAPI.Model.GetMealPlanTemplates200ResponseTemplatesInner.t]
   }
 
   alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:templates, :list, SpoonacularAPI.Model.GetAnalyzedRecipeInstructions200ResponseIngredientsInner)
+     |> Deserializer.deserialize(:templates, :list, SpoonacularAPI.Model.GetMealPlanTemplates200ResponseTemplatesInner)
   end
 end
 

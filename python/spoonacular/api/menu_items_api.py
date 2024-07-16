@@ -20,8 +20,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr
 from typing import Optional, Union
 from typing_extensions import Annotated
-from spoonacular.models.autocomplete_menu_item_search200_response import AutocompleteMenuItemSearch200Response
-from spoonacular.models.get_menu_item_information200_response import GetMenuItemInformation200Response
+from spoonacular.models.autocomplete_product_search200_response import AutocompleteProductSearch200Response
+from spoonacular.models.menu_item import MenuItem
 from spoonacular.models.search_menu_items200_response import SearchMenuItems200Response
 
 from spoonacular.api_client import ApiClient, RequestSerialized
@@ -46,7 +46,7 @@ class MenuItemsApi:
     def autocomplete_menu_item_search(
         self,
         query: Annotated[StrictStr, Field(description="The (partial) search query.")],
-        number: Annotated[Optional[Union[Annotated[float, Field(le=25, strict=True, ge=1)], Annotated[int, Field(le=25, strict=True, ge=1)]]], Field(description="The number of results to return (between 1 and 25).")] = None,
+        number: Annotated[Optional[Annotated[int, Field(le=25, strict=True, ge=1)]], Field(description="The number of results to return (between 1 and 25).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,7 +59,7 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AutocompleteMenuItemSearch200Response:
+    ) -> AutocompleteProductSearch200Response:
         """Autocomplete Menu Item Search
 
         Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
@@ -67,7 +67,7 @@ class MenuItemsApi:
         :param query: The (partial) search query. (required)
         :type query: str
         :param number: The number of results to return (between 1 and 25).
-        :type number: float
+        :type number: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -100,7 +100,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AutocompleteMenuItemSearch200Response",
+            '200': "AutocompleteProductSearch200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -120,7 +120,7 @@ class MenuItemsApi:
     def autocomplete_menu_item_search_with_http_info(
         self,
         query: Annotated[StrictStr, Field(description="The (partial) search query.")],
-        number: Annotated[Optional[Union[Annotated[float, Field(le=25, strict=True, ge=1)], Annotated[int, Field(le=25, strict=True, ge=1)]]], Field(description="The number of results to return (between 1 and 25).")] = None,
+        number: Annotated[Optional[Annotated[int, Field(le=25, strict=True, ge=1)]], Field(description="The number of results to return (between 1 and 25).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,7 +133,7 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AutocompleteMenuItemSearch200Response]:
+    ) -> ApiResponse[AutocompleteProductSearch200Response]:
         """Autocomplete Menu Item Search
 
         Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
@@ -141,7 +141,7 @@ class MenuItemsApi:
         :param query: The (partial) search query. (required)
         :type query: str
         :param number: The number of results to return (between 1 and 25).
-        :type number: float
+        :type number: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -174,7 +174,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AutocompleteMenuItemSearch200Response",
+            '200': "AutocompleteProductSearch200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -194,7 +194,7 @@ class MenuItemsApi:
     def autocomplete_menu_item_search_without_preload_content(
         self,
         query: Annotated[StrictStr, Field(description="The (partial) search query.")],
-        number: Annotated[Optional[Union[Annotated[float, Field(le=25, strict=True, ge=1)], Annotated[int, Field(le=25, strict=True, ge=1)]]], Field(description="The number of results to return (between 1 and 25).")] = None,
+        number: Annotated[Optional[Annotated[int, Field(le=25, strict=True, ge=1)]], Field(description="The number of results to return (between 1 and 25).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -215,7 +215,7 @@ class MenuItemsApi:
         :param query: The (partial) search query. (required)
         :type query: str
         :param number: The number of results to return (between 1 and 25).
-        :type number: float
+        :type number: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -248,7 +248,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AutocompleteMenuItemSearch200Response",
+            '200': "AutocompleteProductSearch200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -332,7 +332,7 @@ class MenuItemsApi:
     @validate_call
     def get_menu_item_information(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -345,12 +345,12 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetMenuItemInformation200Response:
+    ) -> MenuItem:
         """Get Menu Item Information
 
         Use a menu item id to get all available information about a menu item, such as nutrition.
 
-        :param id: The item's id. (required)
+        :param id: The menu item id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -383,7 +383,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMenuItemInformation200Response",
+            '200': "MenuItem",
             '401': None,
             '403': None,
             '404': None,
@@ -402,7 +402,7 @@ class MenuItemsApi:
     @validate_call
     def get_menu_item_information_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -415,12 +415,12 @@ class MenuItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetMenuItemInformation200Response]:
+    ) -> ApiResponse[MenuItem]:
         """Get Menu Item Information
 
         Use a menu item id to get all available information about a menu item, such as nutrition.
 
-        :param id: The item's id. (required)
+        :param id: The menu item id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -453,7 +453,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMenuItemInformation200Response",
+            '200': "MenuItem",
             '401': None,
             '403': None,
             '404': None,
@@ -472,7 +472,7 @@ class MenuItemsApi:
     @validate_call
     def get_menu_item_information_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -490,7 +490,7 @@ class MenuItemsApi:
 
         Use a menu item id to get all available information about a menu item, such as nutrition.
 
-        :param id: The item's id. (required)
+        :param id: The menu item id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -523,7 +523,7 @@ class MenuItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMenuItemInformation200Response",
+            '200': "MenuItem",
             '401': None,
             '403': None,
             '404': None,
@@ -600,7 +600,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_by_id_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -619,7 +619,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional information as HTML including CSS.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -670,7 +670,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_by_id_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -689,7 +689,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional information as HTML including CSS.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -740,7 +740,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_by_id_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -759,7 +759,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional information as HTML including CSS.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -868,7 +868,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_label_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -890,7 +890,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional label information as an image.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -950,7 +950,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_label_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -972,7 +972,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional label information as an image.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -1032,7 +1032,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_label_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -1054,7 +1054,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional label information as an image.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -1187,7 +1187,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_label_widget(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -1210,7 +1210,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional label information as HTML including CSS.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -1273,7 +1273,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_label_widget_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -1296,7 +1296,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional label information as HTML including CSS.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -1359,7 +1359,7 @@ class MenuItemsApi:
     @validate_call
     def menu_item_nutrition_label_widget_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The menu item id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -1382,7 +1382,7 @@ class MenuItemsApi:
         Visualize a menu item's nutritional label information as HTML including CSS.
 
         :param id: The menu item id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -1523,7 +1523,7 @@ class MenuItemsApi:
     @validate_call
     def search_menu_items(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         min_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of calories the menu item must have.")] = None,
         max_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of calories the menu item can have.")] = None,
         min_carbs: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of carbohydrates in grams the menu item must have.")] = None,
@@ -1552,7 +1552,7 @@ class MenuItemsApi:
 
         Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param min_calories: The minimum amount of calories the menu item must have.
         :type min_calories: float
@@ -1637,7 +1637,7 @@ class MenuItemsApi:
     @validate_call
     def search_menu_items_with_http_info(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         min_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of calories the menu item must have.")] = None,
         max_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of calories the menu item can have.")] = None,
         min_carbs: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of carbohydrates in grams the menu item must have.")] = None,
@@ -1666,7 +1666,7 @@ class MenuItemsApi:
 
         Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param min_calories: The minimum amount of calories the menu item must have.
         :type min_calories: float
@@ -1751,7 +1751,7 @@ class MenuItemsApi:
     @validate_call
     def search_menu_items_without_preload_content(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         min_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of calories the menu item must have.")] = None,
         max_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of calories the menu item can have.")] = None,
         min_carbs: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of carbohydrates in grams the menu item must have.")] = None,
@@ -1780,7 +1780,7 @@ class MenuItemsApi:
 
         Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param min_calories: The minimum amount of calories the menu item must have.
         :type min_calories: float
@@ -1980,7 +1980,7 @@ class MenuItemsApi:
     @validate_call
     def visualize_menu_item_nutrition_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -1999,7 +1999,7 @@ class MenuItemsApi:
 
         Visualize a menu item's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The menu item id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -2054,7 +2054,7 @@ class MenuItemsApi:
     @validate_call
     def visualize_menu_item_nutrition_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -2073,7 +2073,7 @@ class MenuItemsApi:
 
         Visualize a menu item's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The menu item id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -2128,7 +2128,7 @@ class MenuItemsApi:
     @validate_call
     def visualize_menu_item_nutrition_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The menu item id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -2147,7 +2147,7 @@ class MenuItemsApi:
 
         Visualize a menu item's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The menu item id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool

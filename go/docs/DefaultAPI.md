@@ -103,7 +103,7 @@ import (
 )
 
 func main() {
-	id := float32(4632) // float32 | The recipe id.
+	id := int32(4632) // int32 | The recipe id.
 	mask := "ellipseMask" // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
 	backgroundImage := "background1" // string | The background image (\"none\",\"background1\", or \"background2\"). (optional)
 	backgroundColor := "ffffff" // string | The background color for the recipe card as a hex-string. (optional)
@@ -127,7 +127,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 

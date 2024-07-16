@@ -106,7 +106,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 4632; // float | The recipe id.
+$id = 4632; // int | The recipe id.
 $mask = ellipseMask; // string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
 $background_image = background1; // string | The background image (\"none\",\"background1\", or \"background2\").
 $background_color = ffffff; // string | The background color for the recipe card as a hex-string.
@@ -124,7 +124,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 | **mask** | **string**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] |
 | **background_image** | **string**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] |
 | **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional] |

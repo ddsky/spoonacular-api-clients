@@ -40,18 +40,18 @@ namespace spoonacular.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetRecipeNutritionWidgetByID200ResponseBadInner" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
+        /// <param name="title">title (required).</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="indented">indented (required).</param>
         /// <param name="percentOfDailyNeeds">percentOfDailyNeeds (required).</param>
-        public GetRecipeNutritionWidgetByID200ResponseBadInner(string name = default(string), string amount = default(string), bool indented = default(bool), decimal percentOfDailyNeeds = default(decimal))
+        public GetRecipeNutritionWidgetByID200ResponseBadInner(string title = default(string), string amount = default(string), bool indented = default(bool), decimal percentOfDailyNeeds = default(decimal))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "title" is required (not null)
+            if (title == null)
             {
-                throw new ArgumentNullException("name is a required property for GetRecipeNutritionWidgetByID200ResponseBadInner and cannot be null");
+                throw new ArgumentNullException("title is a required property for GetRecipeNutritionWidgetByID200ResponseBadInner and cannot be null");
             }
-            this.Name = name;
+            this.Title = title;
             // to ensure "amount" is required (not null)
             if (amount == null)
             {
@@ -63,10 +63,10 @@ namespace spoonacular.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -94,7 +94,7 @@ namespace spoonacular.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetRecipeNutritionWidgetByID200ResponseBadInner {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Indented: ").Append(Indented).Append("\n");
             sb.Append("  PercentOfDailyNeeds: ").Append(PercentOfDailyNeeds).Append("\n");
@@ -118,10 +118,10 @@ namespace spoonacular.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // Title (string) minLength
+            if (this.Title != null && this.Title.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
 
             // Amount (string) minLength

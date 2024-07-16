@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::SearchAllFood200ResponseSearchResultsInnerResultsInner;
+use WWW::OpenAPIClient::Object::SearchResult;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -235,7 +235,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'results' => {
-        datatype => 'ARRAY[SearchAllFood200ResponseSearchResultsInnerResultsInner]',
+        datatype => 'ARRAY[SearchResult]',
         base_name => 'results',
         description => '',
         format => '',
@@ -246,7 +246,7 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->openapi_types( {
     'name' => 'string',
     'total_results' => 'int',
-    'results' => 'ARRAY[SearchAllFood200ResponseSearchResultsInnerResultsInner]'
+    'results' => 'ARRAY[SearchResult]'
 } );
 
 __PACKAGE__->attribute_map( {

@@ -9,14 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { SearchMenuItems200ResponseMenuItemsInner } from './searchMenuItems200ResponseMenuItemsInner';
+import { MenuItem } from './menuItem';
 
 
 /**
  * 
  */
 export interface SearchMenuItems200Response { 
-    menuItems: Set<SearchMenuItems200ResponseMenuItemsInner>;
+    menuItems: Set<MenuItem>;
     totalMenuItems: number;
     type: string;
     offset: number;

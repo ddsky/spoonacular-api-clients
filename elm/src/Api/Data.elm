@@ -32,7 +32,6 @@ module Api.Data exposing
     , AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
     , AnalyzeRecipeRequest
     , AutocompleteIngredientSearch200ResponseInner
-    , AutocompleteMenuItemSearch200Response
     , AutocompleteProductSearch200Response
     , AutocompleteProductSearch200ResponseResultsInner
     , AutocompleteRecipeSearch200ResponseInner
@@ -41,6 +40,7 @@ module Api.Data exposing
     , ClassifyGroceryProductBulk200ResponseInner
     , ClassifyGroceryProductBulkRequestInner
     , ClassifyGroceryProductRequest
+    , ComparableProduct
     , ComputeGlycemicLoad200Response
     , ComputeGlycemicLoad200ResponseIngredientsInner
     , ComputeGlycemicLoadRequest
@@ -53,49 +53,32 @@ module Api.Data exposing
     , DetectFoodInText200ResponseAnnotationsInner
     , GenerateMealPlan200Response
     , GenerateMealPlan200ResponseNutrients
-    , GenerateShoppingList200Response
     , GetARandomFoodJoke200Response
-    , GetAnalyzedRecipeInstructions200Response
-    , GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-    , GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-    , GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-    , GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+    , GetAnalyzedRecipeInstructions200ResponseInner
+    , GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+    , GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
     , GetComparableProducts200Response
     , GetComparableProducts200ResponseComparableProducts
-    , GetComparableProducts200ResponseComparableProductsProteinInner
     , GetConversationSuggests200Response
     , GetConversationSuggests200ResponseSuggests
     , GetConversationSuggests200ResponseSuggestsInner
     , GetDishPairingForWine200Response
-    , GetIngredientInformation200Response
-    , GetIngredientInformation200ResponseNutrition
     , GetIngredientSubstitutes200Response
     , GetMealPlanTemplate200Response
     , GetMealPlanTemplate200ResponseDaysInner
     , GetMealPlanTemplate200ResponseDaysInnerItemsInner
     , GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
     , GetMealPlanTemplates200Response
+    , GetMealPlanTemplates200ResponseTemplatesInner
     , GetMealPlanWeek200Response
     , GetMealPlanWeek200ResponseDaysInner
     , GetMealPlanWeek200ResponseDaysInnerItemsInner
     , GetMealPlanWeek200ResponseDaysInnerItemsInnerValue
     , GetMealPlanWeek200ResponseDaysInnerNutritionSummary
     , GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
-    , GetMenuItemInformation200Response
-    , GetProductInformation200Response
-    , GetProductInformation200ResponseIngredientsInner
-    , GetRandomFoodTrivia200Response
     , GetRandomRecipes200Response
-    , GetRandomRecipes200ResponseRecipesInner
     , GetRecipeEquipmentByID200Response
     , GetRecipeEquipmentByID200ResponseEquipmentInner
-    , GetRecipeInformation200Response
-    , GetRecipeInformation200ResponseExtendedIngredientsInner
-    , GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-    , GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-    , GetRecipeInformation200ResponseWinePairing
-    , GetRecipeInformation200ResponseWinePairingProductMatchesInner
-    , GetRecipeInformationBulk200ResponseInner
     , GetRecipeIngredientsByID200Response
     , GetRecipeIngredientsByID200ResponseIngredientsInner
     , GetRecipeNutritionWidgetByID200Response
@@ -105,11 +88,11 @@ module Api.Data exposing
     , GetRecipePriceBreakdownByID200ResponseIngredientsInner
     , GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
     , GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
-    , GetRecipeTasteByID200Response
     , GetShoppingList200Response
     , GetShoppingList200ResponseAislesInner
     , GetShoppingList200ResponseAislesInnerItemsInner
     , GetShoppingList200ResponseAislesInnerItemsInnerMeasures
+    , GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
     , GetSimilarRecipes200ResponseInner
     , GetWineDescription200Response
     , GetWinePairing200Response
@@ -126,33 +109,40 @@ module Api.Data exposing
     , ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
     , ImageAnalysisByURL200ResponseRecipesInner
     , ImageClassificationByURL200Response
+    , IngredientBasics
+    , IngredientInformation
+    , IngredientInformationEstimatedCost
+    , IngredientInformationNutrition
+    , IngredientInformationNutritionPropertiesInner
     , IngredientSearch200Response
     , IngredientSearch200ResponseResultsInner
     , MapIngredientsToGroceryProducts200ResponseInner
     , MapIngredientsToGroceryProducts200ResponseInnerProductsInner
     , MapIngredientsToGroceryProductsRequest
-    , ParseIngredients200ResponseInner
-    , ParseIngredients200ResponseInnerEstimatedCost
-    , ParseIngredients200ResponseInnerNutrition
-    , ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-    , ParseIngredients200ResponseInnerNutritionNutrientsInner
-    , ParseIngredients200ResponseInnerNutritionPropertiesInner
-    , ParseIngredients200ResponseInnerNutritionWeightPerServing
+    , MenuItem
+    , MenuItemServings
+    , ProductInformation
+    , ProductInformationCredits
     , QuickAnswer200Response
+    , RecipeInformation
+    , RecipeInformationExtendedIngredientsInner
+    , RecipeInformationExtendedIngredientsInnerMeasures
+    , RecipeInformationExtendedIngredientsInnerMeasuresMetric
+    , RecipeInformationWinePairing
+    , RecipeInformationWinePairingProductMatchesInner
     , SearchAllFood200Response
     , SearchAllFood200ResponseSearchResultsInner
-    , SearchAllFood200ResponseSearchResultsInnerResultsInner
     , SearchCustomFoods200Response
     , SearchCustomFoods200ResponseCustomFoodsInner
     , SearchFoodVideos200Response
     , SearchFoodVideos200ResponseVideosInner
     , SearchGroceryProducts200Response
     , SearchGroceryProductsByUPC200Response
-    , SearchGroceryProductsByUPC200ResponseIngredientsInner
     , SearchGroceryProductsByUPC200ResponseNutrition
+    , SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+    , SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
     , SearchGroceryProductsByUPC200ResponseServings
     , SearchMenuItems200Response
-    , SearchMenuItems200ResponseMenuItemsInner
     , SearchRecipes200Response
     , SearchRecipes200ResponseResultsInner
     , SearchRecipesByIngredients200ResponseInner
@@ -163,12 +153,13 @@ module Api.Data exposing
     , SearchRestaurants200ResponseRestaurantsInnerAddress
     , SearchRestaurants200ResponseRestaurantsInnerLocalHours
     , SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+    , SearchResult
+    , SearchResultDataPointsInner
     , SearchSiteContent200Response
-    , SearchSiteContent200ResponseArticlesInner
-    , SearchSiteContent200ResponseArticlesInnerDataPointsInner
     , SummarizeRecipe200Response
     , TalkToChatbot200Response
     , TalkToChatbot200ResponseMediaInner
+    , TasteInformation
     , encodeAddMealPlanTemplate200Response
     , encodeAddMealPlanTemplate200ResponseItemsInner
     , encodeAddMealPlanTemplate200ResponseItemsInnerValue
@@ -186,7 +177,6 @@ module Api.Data exposing
     , encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
     , encodeAnalyzeRecipeRequest
     , encodeAutocompleteIngredientSearch200ResponseInner
-    , encodeAutocompleteMenuItemSearch200Response
     , encodeAutocompleteProductSearch200Response
     , encodeAutocompleteProductSearch200ResponseResultsInner
     , encodeAutocompleteRecipeSearch200ResponseInner
@@ -195,6 +185,7 @@ module Api.Data exposing
     , encodeClassifyGroceryProductBulk200ResponseInner
     , encodeClassifyGroceryProductBulkRequestInner
     , encodeClassifyGroceryProductRequest
+    , encodeComparableProduct
     , encodeComputeGlycemicLoad200Response
     , encodeComputeGlycemicLoad200ResponseIngredientsInner
     , encodeComputeGlycemicLoadRequest
@@ -207,49 +198,32 @@ module Api.Data exposing
     , encodeDetectFoodInText200ResponseAnnotationsInner
     , encodeGenerateMealPlan200Response
     , encodeGenerateMealPlan200ResponseNutrients
-    , encodeGenerateShoppingList200Response
     , encodeGetARandomFoodJoke200Response
-    , encodeGetAnalyzedRecipeInstructions200Response
-    , encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInner
-    , encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-    , encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-    , encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+    , encodeGetAnalyzedRecipeInstructions200ResponseInner
+    , encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+    , encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
     , encodeGetComparableProducts200Response
     , encodeGetComparableProducts200ResponseComparableProducts
-    , encodeGetComparableProducts200ResponseComparableProductsProteinInner
     , encodeGetConversationSuggests200Response
     , encodeGetConversationSuggests200ResponseSuggests
     , encodeGetConversationSuggests200ResponseSuggestsInner
     , encodeGetDishPairingForWine200Response
-    , encodeGetIngredientInformation200Response
-    , encodeGetIngredientInformation200ResponseNutrition
     , encodeGetIngredientSubstitutes200Response
     , encodeGetMealPlanTemplate200Response
     , encodeGetMealPlanTemplate200ResponseDaysInner
     , encodeGetMealPlanTemplate200ResponseDaysInnerItemsInner
     , encodeGetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
     , encodeGetMealPlanTemplates200Response
+    , encodeGetMealPlanTemplates200ResponseTemplatesInner
     , encodeGetMealPlanWeek200Response
     , encodeGetMealPlanWeek200ResponseDaysInner
     , encodeGetMealPlanWeek200ResponseDaysInnerItemsInner
     , encodeGetMealPlanWeek200ResponseDaysInnerItemsInnerValue
     , encodeGetMealPlanWeek200ResponseDaysInnerNutritionSummary
     , encodeGetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner
-    , encodeGetMenuItemInformation200Response
-    , encodeGetProductInformation200Response
-    , encodeGetProductInformation200ResponseIngredientsInner
-    , encodeGetRandomFoodTrivia200Response
     , encodeGetRandomRecipes200Response
-    , encodeGetRandomRecipes200ResponseRecipesInner
     , encodeGetRecipeEquipmentByID200Response
     , encodeGetRecipeEquipmentByID200ResponseEquipmentInner
-    , encodeGetRecipeInformation200Response
-    , encodeGetRecipeInformation200ResponseExtendedIngredientsInner
-    , encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-    , encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-    , encodeGetRecipeInformation200ResponseWinePairing
-    , encodeGetRecipeInformation200ResponseWinePairingProductMatchesInner
-    , encodeGetRecipeInformationBulk200ResponseInner
     , encodeGetRecipeIngredientsByID200Response
     , encodeGetRecipeIngredientsByID200ResponseIngredientsInner
     , encodeGetRecipeNutritionWidgetByID200Response
@@ -259,11 +233,11 @@ module Api.Data exposing
     , encodeGetRecipePriceBreakdownByID200ResponseIngredientsInner
     , encodeGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
     , encodeGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric
-    , encodeGetRecipeTasteByID200Response
     , encodeGetShoppingList200Response
     , encodeGetShoppingList200ResponseAislesInner
     , encodeGetShoppingList200ResponseAislesInnerItemsInner
     , encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasures
+    , encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
     , encodeGetSimilarRecipes200ResponseInner
     , encodeGetWineDescription200Response
     , encodeGetWinePairing200Response
@@ -280,33 +254,40 @@ module Api.Data exposing
     , encodeImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
     , encodeImageAnalysisByURL200ResponseRecipesInner
     , encodeImageClassificationByURL200Response
+    , encodeIngredientBasics
+    , encodeIngredientInformation
+    , encodeIngredientInformationEstimatedCost
+    , encodeIngredientInformationNutrition
+    , encodeIngredientInformationNutritionPropertiesInner
     , encodeIngredientSearch200Response
     , encodeIngredientSearch200ResponseResultsInner
     , encodeMapIngredientsToGroceryProducts200ResponseInner
     , encodeMapIngredientsToGroceryProducts200ResponseInnerProductsInner
     , encodeMapIngredientsToGroceryProductsRequest
-    , encodeParseIngredients200ResponseInner
-    , encodeParseIngredients200ResponseInnerEstimatedCost
-    , encodeParseIngredients200ResponseInnerNutrition
-    , encodeParseIngredients200ResponseInnerNutritionCaloricBreakdown
-    , encodeParseIngredients200ResponseInnerNutritionNutrientsInner
-    , encodeParseIngredients200ResponseInnerNutritionPropertiesInner
-    , encodeParseIngredients200ResponseInnerNutritionWeightPerServing
+    , encodeMenuItem
+    , encodeMenuItemServings
+    , encodeProductInformation
+    , encodeProductInformationCredits
     , encodeQuickAnswer200Response
+    , encodeRecipeInformation
+    , encodeRecipeInformationExtendedIngredientsInner
+    , encodeRecipeInformationExtendedIngredientsInnerMeasures
+    , encodeRecipeInformationExtendedIngredientsInnerMeasuresMetric
+    , encodeRecipeInformationWinePairing
+    , encodeRecipeInformationWinePairingProductMatchesInner
     , encodeSearchAllFood200Response
     , encodeSearchAllFood200ResponseSearchResultsInner
-    , encodeSearchAllFood200ResponseSearchResultsInnerResultsInner
     , encodeSearchCustomFoods200Response
     , encodeSearchCustomFoods200ResponseCustomFoodsInner
     , encodeSearchFoodVideos200Response
     , encodeSearchFoodVideos200ResponseVideosInner
     , encodeSearchGroceryProducts200Response
     , encodeSearchGroceryProductsByUPC200Response
-    , encodeSearchGroceryProductsByUPC200ResponseIngredientsInner
     , encodeSearchGroceryProductsByUPC200ResponseNutrition
+    , encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+    , encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
     , encodeSearchGroceryProductsByUPC200ResponseServings
     , encodeSearchMenuItems200Response
-    , encodeSearchMenuItems200ResponseMenuItemsInner
     , encodeSearchRecipes200Response
     , encodeSearchRecipes200ResponseResultsInner
     , encodeSearchRecipesByIngredients200ResponseInner
@@ -317,12 +298,13 @@ module Api.Data exposing
     , encodeSearchRestaurants200ResponseRestaurantsInnerAddress
     , encodeSearchRestaurants200ResponseRestaurantsInnerLocalHours
     , encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+    , encodeSearchResult
+    , encodeSearchResultDataPointsInner
     , encodeSearchSiteContent200Response
-    , encodeSearchSiteContent200ResponseArticlesInner
-    , encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner
     , encodeSummarizeRecipe200Response
     , encodeTalkToChatbot200Response
     , encodeTalkToChatbot200ResponseMediaInner
+    , encodeTasteInformation
     , addMealPlanTemplate200ResponseDecoder
     , addMealPlanTemplate200ResponseItemsInnerDecoder
     , addMealPlanTemplate200ResponseItemsInnerValueDecoder
@@ -340,7 +322,6 @@ module Api.Data exposing
     , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder
     , analyzeRecipeRequestDecoder
     , autocompleteIngredientSearch200ResponseInnerDecoder
-    , autocompleteMenuItemSearch200ResponseDecoder
     , autocompleteProductSearch200ResponseDecoder
     , autocompleteProductSearch200ResponseResultsInnerDecoder
     , autocompleteRecipeSearch200ResponseInnerDecoder
@@ -349,6 +330,7 @@ module Api.Data exposing
     , classifyGroceryProductBulk200ResponseInnerDecoder
     , classifyGroceryProductBulkRequestInnerDecoder
     , classifyGroceryProductRequestDecoder
+    , comparableProductDecoder
     , computeGlycemicLoad200ResponseDecoder
     , computeGlycemicLoad200ResponseIngredientsInnerDecoder
     , computeGlycemicLoadRequestDecoder
@@ -361,49 +343,32 @@ module Api.Data exposing
     , detectFoodInText200ResponseAnnotationsInnerDecoder
     , generateMealPlan200ResponseDecoder
     , generateMealPlan200ResponseNutrientsDecoder
-    , generateShoppingList200ResponseDecoder
     , getARandomFoodJoke200ResponseDecoder
-    , getAnalyzedRecipeInstructions200ResponseDecoder
-    , getAnalyzedRecipeInstructions200ResponseIngredientsInnerDecoder
-    , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerDecoder
-    , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerDecoder
-    , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder
+    , getAnalyzedRecipeInstructions200ResponseInnerDecoder
+    , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerDecoder
+    , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerDecoder
     , getComparableProducts200ResponseDecoder
     , getComparableProducts200ResponseComparableProductsDecoder
-    , getComparableProducts200ResponseComparableProductsProteinInnerDecoder
     , getConversationSuggests200ResponseDecoder
     , getConversationSuggests200ResponseSuggestsDecoder
     , getConversationSuggests200ResponseSuggestsInnerDecoder
     , getDishPairingForWine200ResponseDecoder
-    , getIngredientInformation200ResponseDecoder
-    , getIngredientInformation200ResponseNutritionDecoder
     , getIngredientSubstitutes200ResponseDecoder
     , getMealPlanTemplate200ResponseDecoder
     , getMealPlanTemplate200ResponseDaysInnerDecoder
     , getMealPlanTemplate200ResponseDaysInnerItemsInnerDecoder
     , getMealPlanTemplate200ResponseDaysInnerItemsInnerValueDecoder
     , getMealPlanTemplates200ResponseDecoder
+    , getMealPlanTemplates200ResponseTemplatesInnerDecoder
     , getMealPlanWeek200ResponseDecoder
     , getMealPlanWeek200ResponseDaysInnerDecoder
     , getMealPlanWeek200ResponseDaysInnerItemsInnerDecoder
     , getMealPlanWeek200ResponseDaysInnerItemsInnerValueDecoder
     , getMealPlanWeek200ResponseDaysInnerNutritionSummaryDecoder
     , getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerDecoder
-    , getMenuItemInformation200ResponseDecoder
-    , getProductInformation200ResponseDecoder
-    , getProductInformation200ResponseIngredientsInnerDecoder
-    , getRandomFoodTrivia200ResponseDecoder
     , getRandomRecipes200ResponseDecoder
-    , getRandomRecipes200ResponseRecipesInnerDecoder
     , getRecipeEquipmentByID200ResponseDecoder
     , getRecipeEquipmentByID200ResponseEquipmentInnerDecoder
-    , getRecipeInformation200ResponseDecoder
-    , getRecipeInformation200ResponseExtendedIngredientsInnerDecoder
-    , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresDecoder
-    , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricDecoder
-    , getRecipeInformation200ResponseWinePairingDecoder
-    , getRecipeInformation200ResponseWinePairingProductMatchesInnerDecoder
-    , getRecipeInformationBulk200ResponseInnerDecoder
     , getRecipeIngredientsByID200ResponseDecoder
     , getRecipeIngredientsByID200ResponseIngredientsInnerDecoder
     , getRecipeNutritionWidgetByID200ResponseDecoder
@@ -413,11 +378,11 @@ module Api.Data exposing
     , getRecipePriceBreakdownByID200ResponseIngredientsInnerDecoder
     , getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountDecoder
     , getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetricDecoder
-    , getRecipeTasteByID200ResponseDecoder
     , getShoppingList200ResponseDecoder
     , getShoppingList200ResponseAislesInnerDecoder
     , getShoppingList200ResponseAislesInnerItemsInnerDecoder
     , getShoppingList200ResponseAislesInnerItemsInnerMeasuresDecoder
+    , getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalDecoder
     , getSimilarRecipes200ResponseInnerDecoder
     , getWineDescription200ResponseDecoder
     , getWinePairing200ResponseDecoder
@@ -434,33 +399,40 @@ module Api.Data exposing
     , imageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95PercentDecoder
     , imageAnalysisByURL200ResponseRecipesInnerDecoder
     , imageClassificationByURL200ResponseDecoder
+    , ingredientBasicsDecoder
+    , ingredientInformationDecoder
+    , ingredientInformationEstimatedCostDecoder
+    , ingredientInformationNutritionDecoder
+    , ingredientInformationNutritionPropertiesInnerDecoder
     , ingredientSearch200ResponseDecoder
     , ingredientSearch200ResponseResultsInnerDecoder
     , mapIngredientsToGroceryProducts200ResponseInnerDecoder
     , mapIngredientsToGroceryProducts200ResponseInnerProductsInnerDecoder
     , mapIngredientsToGroceryProductsRequestDecoder
-    , parseIngredients200ResponseInnerDecoder
-    , parseIngredients200ResponseInnerEstimatedCostDecoder
-    , parseIngredients200ResponseInnerNutritionDecoder
-    , parseIngredients200ResponseInnerNutritionCaloricBreakdownDecoder
-    , parseIngredients200ResponseInnerNutritionNutrientsInnerDecoder
-    , parseIngredients200ResponseInnerNutritionPropertiesInnerDecoder
-    , parseIngredients200ResponseInnerNutritionWeightPerServingDecoder
+    , menuItemDecoder
+    , menuItemServingsDecoder
+    , productInformationDecoder
+    , productInformationCreditsDecoder
     , quickAnswer200ResponseDecoder
+    , recipeInformationDecoder
+    , recipeInformationExtendedIngredientsInnerDecoder
+    , recipeInformationExtendedIngredientsInnerMeasuresDecoder
+    , recipeInformationExtendedIngredientsInnerMeasuresMetricDecoder
+    , recipeInformationWinePairingDecoder
+    , recipeInformationWinePairingProductMatchesInnerDecoder
     , searchAllFood200ResponseDecoder
     , searchAllFood200ResponseSearchResultsInnerDecoder
-    , searchAllFood200ResponseSearchResultsInnerResultsInnerDecoder
     , searchCustomFoods200ResponseDecoder
     , searchCustomFoods200ResponseCustomFoodsInnerDecoder
     , searchFoodVideos200ResponseDecoder
     , searchFoodVideos200ResponseVideosInnerDecoder
     , searchGroceryProducts200ResponseDecoder
     , searchGroceryProductsByUPC200ResponseDecoder
-    , searchGroceryProductsByUPC200ResponseIngredientsInnerDecoder
     , searchGroceryProductsByUPC200ResponseNutritionDecoder
+    , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownDecoder
+    , searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerDecoder
     , searchGroceryProductsByUPC200ResponseServingsDecoder
     , searchMenuItems200ResponseDecoder
-    , searchMenuItems200ResponseMenuItemsInnerDecoder
     , searchRecipes200ResponseDecoder
     , searchRecipes200ResponseResultsInnerDecoder
     , searchRecipesByIngredients200ResponseInnerDecoder
@@ -471,12 +443,13 @@ module Api.Data exposing
     , searchRestaurants200ResponseRestaurantsInnerAddressDecoder
     , searchRestaurants200ResponseRestaurantsInnerLocalHoursDecoder
     , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder
+    , searchResultDecoder
+    , searchResultDataPointsInnerDecoder
     , searchSiteContent200ResponseDecoder
-    , searchSiteContent200ResponseArticlesInnerDecoder
-    , searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder
     , summarizeRecipe200ResponseDecoder
     , talkToChatbot200ResponseDecoder
     , talkToChatbot200ResponseMediaInnerDecoder
+    , tasteInformationDecoder
     )
 
 import Api
@@ -577,7 +550,7 @@ type alias AnalyzeRecipeInstructions200Response =
 
 
 type alias AnalyzeRecipeInstructions200ResponseIngredientsInner =
-    { id : Float
+    { id : Int
     , name : String
     }
 
@@ -597,7 +570,7 @@ type alias AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
 
 
 type alias AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner =
-    { id : Float
+    { id : Int
     , name : String
     , localizedName : String
     , image : String
@@ -618,13 +591,6 @@ type alias AutocompleteIngredientSearch200ResponseInner =
     , id : Maybe Int
     , aisle : Maybe String
     , possibleUnits : Maybe ( List String )
-    }
-
-
-{-| 
--}
-type alias AutocompleteMenuItemSearch200Response =
-    { results : List AutocompleteProductSearch200ResponseResultsInner
     }
 
 
@@ -690,6 +656,14 @@ type alias ClassifyGroceryProductRequest =
     { title : String
     , upc : String
     , pluCode : String
+    }
+
+
+type alias ComparableProduct =
+    { difference : Float
+    , id : Int
+    , image : String
+    , title : String
     }
 
 
@@ -792,51 +766,26 @@ type alias GenerateMealPlan200ResponseNutrients =
 
 {-| 
 -}
-type alias GenerateShoppingList200Response =
-    { aisles : List GetShoppingList200ResponseAislesInner
-    , cost : Float
-    , startDate : Float
-    , endDate : Float
-    }
-
-
-{-| 
--}
 type alias GetARandomFoodJoke200Response =
     { text : String
     }
 
 
-{-| 
--}
-type alias GetAnalyzedRecipeInstructions200Response =
-    { parsedInstructions : List GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-    , ingredients : List GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-    , equipment : List GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-    }
-
-
-type alias GetAnalyzedRecipeInstructions200ResponseIngredientsInner =
-    { id : Int
-    , name : String
-    }
-
-
-type alias GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner =
+type alias GetAnalyzedRecipeInstructions200ResponseInner =
     { name : String
-    , steps : Maybe ( List GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner )
+    , steps : Maybe ( List GetAnalyzedRecipeInstructions200ResponseInnerStepsInner )
     }
 
 
-type alias GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner =
+type alias GetAnalyzedRecipeInstructions200ResponseInnerStepsInner =
     { number : Float
     , step : String
-    , ingredients : Maybe ( List GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner )
-    , equipment : Maybe ( List GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner )
+    , ingredients : Maybe ( List GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner )
+    , equipment : Maybe ( List GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner )
     }
 
 
-type alias GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner =
+type alias GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner =
     { id : Int
     , name : String
     , localizedName : String
@@ -852,20 +801,12 @@ type alias GetComparableProducts200Response =
 
 
 type alias GetComparableProducts200ResponseComparableProducts =
-    { calories : List Object
-    , likes : List Object
-    , price : List Object
-    , protein : List GetComparableProducts200ResponseComparableProductsProteinInner
-    , spoonacularScore : List GetComparableProducts200ResponseComparableProductsProteinInner
-    , sugar : List Object
-    }
-
-
-type alias GetComparableProducts200ResponseComparableProductsProteinInner =
-    { difference : Float
-    , id : Int
-    , image : String
-    , title : String
+    { calories : List ComparableProduct
+    , likes : List ComparableProduct
+    , price : List ComparableProduct
+    , protein : List ComparableProduct
+    , spoonacularScore : List ComparableProduct
+    , sugar : List ComparableProduct
     }
 
 
@@ -892,38 +833,6 @@ type alias GetConversationSuggests200ResponseSuggestsInner =
 type alias GetDishPairingForWine200Response =
     { pairings : List String
     , text : String
-    }
-
-
-{-| 
--}
-type alias GetIngredientInformation200Response =
-    { id : Int
-    , original : String
-    , originalName : String
-    , name : String
-    , nameClean : String
-    , amount : Float
-    , unit : String
-    , unitShort : String
-    , unitLong : String
-    , possibleUnits : List String
-    , estimatedCost : ParseIngredients200ResponseInnerEstimatedCost
-    , consistency : String
-    , shoppingListUnits : List String
-    , aisle : String
-    , image : String
-    , meta : List Object
-    , nutrition : GetIngredientInformation200ResponseNutrition
-    , categoryPath : List String
-    }
-
-
-type alias GetIngredientInformation200ResponseNutrition =
-    { nutrients : List ParseIngredients200ResponseInnerNutritionNutrientsInner
-    , properties : List ParseIngredients200ResponseInnerNutritionPropertiesInner
-    , caloricBreakdown : ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-    , weightPerServing : ParseIngredients200ResponseInnerNutritionWeightPerServing
     }
 
 
@@ -974,7 +883,13 @@ type alias GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue =
 {-| 
 -}
 type alias GetMealPlanTemplates200Response =
-    { templates : List GetAnalyzedRecipeInstructions200ResponseIngredientsInner
+    { templates : List GetMealPlanTemplates200ResponseTemplatesInner
+    }
+
+
+type alias GetMealPlanTemplates200ResponseTemplatesInner =
+    { id : Int
+    , name : String
     }
 
 
@@ -1028,103 +943,8 @@ type alias GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner =
 
 {-| 
 -}
-type alias GetMenuItemInformation200Response =
-    { id : Int
-    , title : String
-    , restaurantChain : String
-    , nutrition : SearchGroceryProductsByUPC200ResponseNutrition
-    , badges : List String
-    , breadcrumbs : List String
-    , generatedText : Maybe String
-    , imageType : String
-    , likes : Float
-    , servings : SearchGroceryProductsByUPC200ResponseServings
-    , price : Maybe Float
-    , spoonacularScore : Maybe Float
-    }
-
-
-{-| 
--}
-type alias GetProductInformation200Response =
-    { id : Int
-    , title : String
-    , breadcrumbs : List String
-    , imageType : String
-    , badges : List String
-    , importantBadges : List String
-    , ingredientCount : Int
-    , generatedText : Maybe String
-    , ingredientList : String
-    , ingredients : List GetProductInformation200ResponseIngredientsInner
-    , likes : Float
-    , aisle : String
-    , nutrition : SearchGroceryProductsByUPC200ResponseNutrition
-    , price : Float
-    , servings : SearchGroceryProductsByUPC200ResponseServings
-    , spoonacularScore : Float
-    }
-
-
-type alias GetProductInformation200ResponseIngredientsInner =
-    { description : Maybe String
-    , name : String
-    , safetyLevel : Maybe String
-    }
-
-
-{-| 
--}
-type alias GetRandomFoodTrivia200Response =
-    { text : String
-    }
-
-
-{-| 
--}
 type alias GetRandomRecipes200Response =
-    { recipes : List GetRandomRecipes200ResponseRecipesInner
-    }
-
-
-type alias GetRandomRecipes200ResponseRecipesInner =
-    { id : Int
-    , title : String
-    , image : String
-    , imageType : String
-    , servings : Float
-    , readyInMinutes : Int
-    , license : String
-    , sourceName : String
-    , sourceUrl : String
-    , spoonacularSourceUrl : String
-    , aggregateLikes : Float
-    , healthScore : Float
-    , spoonacularScore : Float
-    , pricePerServing : Float
-    , analyzedInstructions : Maybe ( List Object )
-    , cheap : Bool
-    , creditsText : String
-    , cuisines : Maybe ( List String )
-    , dairyFree : Bool
-    , diets : Maybe ( List String )
-    , gaps : String
-    , glutenFree : Bool
-    , instructions : String
-    , ketogenic : Bool
-    , lowFodmap : Bool
-    , occasions : Maybe ( List String )
-    , sustainable : Bool
-    , vegan : Bool
-    , vegetarian : Bool
-    , veryHealthy : Bool
-    , veryPopular : Bool
-    , whole30 : Bool
-    , weightWatcherSmartPoints : Float
-    , dishTypes : Maybe ( List String )
-    , extendedIngredients : Maybe ( List GetRecipeInformation200ResponseExtendedIngredientsInner )
-    , summary : String
-    , winePairing : Maybe GetRecipeInformation200ResponseWinePairing
+    { recipes : List RecipeInformation
     }
 
 
@@ -1138,138 +958,6 @@ type alias GetRecipeEquipmentByID200Response =
 type alias GetRecipeEquipmentByID200ResponseEquipmentInner =
     { image : String
     , name : String
-    }
-
-
-{-| 
--}
-type alias GetRecipeInformation200Response =
-    { id : Int
-    , title : String
-    , image : String
-    , imageType : String
-    , servings : Float
-    , readyInMinutes : Int
-    , license : String
-    , sourceName : String
-    , sourceUrl : String
-    , spoonacularSourceUrl : String
-    , aggregateLikes : Int
-    , healthScore : Float
-    , spoonacularScore : Float
-    , pricePerServing : Float
-    , analyzedInstructions : List Object
-    , cheap : Bool
-    , creditsText : String
-    , cuisines : List String
-    , dairyFree : Bool
-    , diets : List String
-    , gaps : String
-    , glutenFree : Bool
-    , instructions : String
-    , ketogenic : Bool
-    , lowFodmap : Bool
-    , occasions : List String
-    , sustainable : Bool
-    , vegan : Bool
-    , vegetarian : Bool
-    , veryHealthy : Bool
-    , veryPopular : Bool
-    , whole30 : Bool
-    , weightWatcherSmartPoints : Float
-    , dishTypes : List String
-    , extendedIngredients : List GetRecipeInformation200ResponseExtendedIngredientsInner
-    , summary : String
-    , winePairing : GetRecipeInformation200ResponseWinePairing
-    }
-
-
-type alias GetRecipeInformation200ResponseExtendedIngredientsInner =
-    { aisle : String
-    , amount : Float
-    , consistency : String
-    , id : Int
-    , image : String
-    , measures : Maybe GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-    , meta : Maybe ( List String )
-    , name : String
-    , original : String
-    , originalName : String
-    , unit : String
-    }
-
-
-type alias GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures =
-    { metric : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-    , us : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-    }
-
-
-type alias GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric =
-    { amount : Float
-    , unitLong : String
-    , unitShort : String
-    }
-
-
-type alias GetRecipeInformation200ResponseWinePairing =
-    { pairedWines : List String
-    , pairingText : String
-    , productMatches : List GetRecipeInformation200ResponseWinePairingProductMatchesInner
-    }
-
-
-type alias GetRecipeInformation200ResponseWinePairingProductMatchesInner =
-    { id : Int
-    , title : String
-    , description : String
-    , price : String
-    , imageUrl : String
-    , averageRating : Float
-    , ratingCount : Int
-    , score : Float
-    , link : String
-    }
-
-
-type alias GetRecipeInformationBulk200ResponseInner =
-    { id : Int
-    , title : String
-    , image : String
-    , imageType : String
-    , servings : Float
-    , readyInMinutes : Int
-    , license : String
-    , sourceName : String
-    , sourceUrl : String
-    , spoonacularSourceUrl : String
-    , aggregateLikes : Int
-    , healthScore : Float
-    , spoonacularScore : Float
-    , pricePerServing : Float
-    , analyzedInstructions : List String
-    , cheap : Bool
-    , creditsText : String
-    , cuisines : List String
-    , dairyFree : Bool
-    , diets : List String
-    , gaps : String
-    , glutenFree : Bool
-    , instructions : String
-    , ketogenic : Bool
-    , lowFodmap : Bool
-    , occasions : List String
-    , sustainable : Bool
-    , vegan : Bool
-    , vegetarian : Bool
-    , veryHealthy : Bool
-    , veryPopular : Bool
-    , whole30 : Bool
-    , weightWatcherSmartPoints : Float
-    , dishTypes : List String
-    , extendedIngredients : List GetRecipeInformation200ResponseExtendedIngredientsInner
-    , summary : String
-    , winePairing : GetRecipeInformation200ResponseWinePairing
     }
 
 
@@ -1300,7 +988,7 @@ type alias GetRecipeNutritionWidgetByID200Response =
 
 
 type alias GetRecipeNutritionWidgetByID200ResponseBadInner =
-    { name : String
+    { title : String
     , amount : String
     , indented : Bool
     , percentOfDailyNeeds : Float
@@ -1311,7 +999,7 @@ type alias GetRecipeNutritionWidgetByID200ResponseGoodInner =
     { amount : String
     , indented : Bool
     , percentOfDailyNeeds : Float
-    , name : String
+    , title : String
     }
 
 
@@ -1346,19 +1034,6 @@ type alias GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric =
 
 {-| 
 -}
-type alias GetRecipeTasteByID200Response =
-    { sweetness : Float
-    , saltiness : Float
-    , sourness : Float
-    , bitterness : Float
-    , savoriness : Float
-    , fattiness : Float
-    , spiciness : Float
-    }
-
-
-{-| 
--}
 type alias GetShoppingList200Response =
     { aisles : List GetShoppingList200ResponseAislesInner
     , cost : Float
@@ -1385,9 +1060,15 @@ type alias GetShoppingList200ResponseAislesInnerItemsInner =
 
 
 type alias GetShoppingList200ResponseAislesInnerItemsInnerMeasures =
-    { original : ParseIngredients200ResponseInnerNutritionWeightPerServing
-    , metric : ParseIngredients200ResponseInnerNutritionWeightPerServing
-    , us : ParseIngredients200ResponseInnerNutritionWeightPerServing
+    { original : GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+    , metric : GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+    , us : GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+    }
+
+
+type alias GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal =
+    { amount : Float
+    , unit : String
     }
 
 
@@ -1530,6 +1211,57 @@ type alias ImageClassificationByURL200Response =
     }
 
 
+type alias IngredientBasics =
+    { description : Maybe String
+    , name : String
+    , safetyLevel : Maybe String
+    }
+
+
+{-| 
+-}
+type alias IngredientInformation =
+    { id : Int
+    , original : String
+    , originalName : String
+    , name : String
+    , amount : Float
+    , unit : String
+    , unitShort : String
+    , unitLong : String
+    , possibleUnits : List String
+    , estimatedCost : IngredientInformationEstimatedCost
+    , consistency : String
+    , shoppingListUnits : Maybe ( List String )
+    , aisle : String
+    , image : String
+    , meta : List String
+    , nutrition : Maybe IngredientInformationNutrition
+    , categoryPath : Maybe ( List String )
+    }
+
+
+type alias IngredientInformationEstimatedCost =
+    { value : Float
+    , unit : String
+    }
+
+
+type alias IngredientInformationNutrition =
+    { nutrients : List SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+    , properties : List IngredientInformationNutritionPropertiesInner
+    , caloricBreakdown : SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+    , weightPerServing : GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+    }
+
+
+type alias IngredientInformationNutritionPropertiesInner =
+    { name : String
+    , amount : Float
+    , unit : String
+    }
+
+
 {-| 
 -}
 type alias IngredientSearch200Response =
@@ -1571,66 +1303,61 @@ type alias MapIngredientsToGroceryProductsRequest =
     }
 
 
-type alias ParseIngredients200ResponseInner =
+{-| 
+-}
+type alias MenuItem =
     { id : Int
-    , original : String
-    , originalName : String
-    , name : String
-    , nameClean : String
-    , amount : Float
-    , unit : String
-    , unitShort : String
-    , unitLong : String
-    , possibleUnits : List String
-    , estimatedCost : ParseIngredients200ResponseInnerEstimatedCost
-    , consistency : String
-    , aisle : String
-    , image : String
-    , meta : List String
-    , nutrition : ParseIngredients200ResponseInnerNutrition
+    , title : String
+    , restaurantChain : String
+    , nutrition : Maybe SearchGroceryProductsByUPC200ResponseNutrition
+    , badges : Maybe ( List String )
+    , breadcrumbs : Maybe ( List String )
+    , generatedText : Maybe String
+    , imageType : Maybe String
+    , likes : Maybe Int
+    , servings : Maybe MenuItemServings
+    , price : Maybe Float
+    , spoonacularScore : Maybe Float
     }
 
 
-type alias ParseIngredients200ResponseInnerEstimatedCost =
-    { value : Float
-    , unit : String
+type alias MenuItemServings =
+    { number : Float
+    , size : Maybe Float
+    , unit : Maybe String
     }
 
 
-type alias ParseIngredients200ResponseInnerNutrition =
-    { nutrients : List ParseIngredients200ResponseInnerNutritionNutrientsInner
-    , properties : List ParseIngredients200ResponseInnerNutritionPropertiesInner
-    , flavonoids : List ParseIngredients200ResponseInnerNutritionPropertiesInner
-    , caloricBreakdown : ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-    , weightPerServing : ParseIngredients200ResponseInnerNutritionWeightPerServing
+{-| 
+-}
+type alias ProductInformation =
+    { id : Int
+    , title : String
+    , upc : Maybe String
+    , usdaCode : Maybe String
+    , breadcrumbs : List String
+    , imageType : String
+    , badges : List String
+    , importantBadges : List String
+    , ingredientCount : Int
+    , generatedText : Maybe String
+    , ingredientList : String
+    , ingredients : List IngredientBasics
+    , likes : Float
+    , aisle : Maybe String
+    , credits : Maybe ProductInformationCredits
+    , nutrition : SearchGroceryProductsByUPC200ResponseNutrition
+    , price : Float
+    , servings : SearchGroceryProductsByUPC200ResponseServings
+    , spoonacularScore : Float
     }
 
 
-type alias ParseIngredients200ResponseInnerNutritionCaloricBreakdown =
-    { percentProtein : Float
-    , percentFat : Float
-    , percentCarbs : Float
-    }
-
-
-type alias ParseIngredients200ResponseInnerNutritionNutrientsInner =
-    { name : String
-    , amount : Float
-    , unit : String
-    , percentOfDailyNeeds : Float
-    }
-
-
-type alias ParseIngredients200ResponseInnerNutritionPropertiesInner =
-    { name : String
-    , amount : Float
-    , unit : String
-    }
-
-
-type alias ParseIngredients200ResponseInnerNutritionWeightPerServing =
-    { amount : Float
-    , unit : String
+type alias ProductInformationCredits =
+    { text : Maybe String
+    , link : Maybe String
+    , image : Maybe String
+    , imageLink : Maybe String
     }
 
 
@@ -1639,6 +1366,98 @@ type alias ParseIngredients200ResponseInnerNutritionWeightPerServing =
 type alias QuickAnswer200Response =
     { answer : String
     , image : String
+    }
+
+
+{-| 
+-}
+type alias RecipeInformation =
+    { id : Int
+    , title : String
+    , image : Maybe String
+    , imageType : Maybe String
+    , servings : Float
+    , readyInMinutes : Int
+    , preparationMinutes : Maybe Int
+    , cookingMinutes : Maybe Int
+    , license : Maybe String
+    , sourceName : String
+    , sourceUrl : String
+    , spoonacularSourceUrl : String
+    , aggregateLikes : Int
+    , healthScore : Float
+    , spoonacularScore : Float
+    , pricePerServing : Float
+    , analyzedInstructions : List Object
+    , cheap : Bool
+    , creditsText : String
+    , cuisines : List String
+    , dairyFree : Bool
+    , diets : List String
+    , gaps : String
+    , glutenFree : Bool
+    , instructions : Maybe String
+    , lowFodmap : Bool
+    , occasions : List String
+    , sustainable : Bool
+    , vegan : Bool
+    , vegetarian : Bool
+    , veryHealthy : Bool
+    , veryPopular : Bool
+    , weightWatcherSmartPoints : Float
+    , dishTypes : List String
+    , extendedIngredients : List RecipeInformationExtendedIngredientsInner
+    , summary : String
+    , winePairing : Maybe RecipeInformationWinePairing
+    , taste : Maybe TasteInformation
+    }
+
+
+type alias RecipeInformationExtendedIngredientsInner =
+    { aisle : String
+    , amount : Float
+    , consistency : String
+    , id : Int
+    , image : String
+    , measures : Maybe RecipeInformationExtendedIngredientsInnerMeasures
+    , meta : Maybe ( List String )
+    , name : String
+    , original : String
+    , originalName : String
+    , unit : String
+    }
+
+
+type alias RecipeInformationExtendedIngredientsInnerMeasures =
+    { metric : RecipeInformationExtendedIngredientsInnerMeasuresMetric
+    , us : RecipeInformationExtendedIngredientsInnerMeasuresMetric
+    }
+
+
+type alias RecipeInformationExtendedIngredientsInnerMeasuresMetric =
+    { amount : Float
+    , unitLong : String
+    , unitShort : String
+    }
+
+
+type alias RecipeInformationWinePairing =
+    { pairedWines : Maybe ( List String )
+    , pairingText : Maybe String
+    , productMatches : Maybe ( List RecipeInformationWinePairingProductMatchesInner )
+    }
+
+
+type alias RecipeInformationWinePairingProductMatchesInner =
+    { id : Int
+    , title : String
+    , description : String
+    , price : String
+    , imageUrl : String
+    , averageRating : Float
+    , ratingCount : Int
+    , score : Float
+    , link : String
     }
 
 
@@ -1656,18 +1475,7 @@ type alias SearchAllFood200Response =
 type alias SearchAllFood200ResponseSearchResultsInner =
     { name : String
     , totalResults : Int
-    , results : Maybe ( List SearchAllFood200ResponseSearchResultsInnerResultsInner )
-    }
-
-
-type alias SearchAllFood200ResponseSearchResultsInnerResultsInner =
-    { id : String
-    , name : String
-    , image : Maybe String
-    , link : Maybe String
-    , type_ : String
-    , relevance : Float
-    , content : Maybe String
+    , results : Maybe ( List SearchResult )
     }
 
 
@@ -1728,11 +1536,11 @@ type alias SearchGroceryProductsByUPC200Response =
     , badges : List String
     , importantBadges : List String
     , breadcrumbs : List String
-    , generatedText : String
+    , generatedText : Maybe String
     , imageType : String
     , ingredientCount : Maybe Int
     , ingredientList : String
-    , ingredients : List SearchGroceryProductsByUPC200ResponseIngredientsInner
+    , ingredients : List IngredientBasics
     , likes : Float
     , nutrition : SearchGroceryProductsByUPC200ResponseNutrition
     , price : Float
@@ -1741,16 +1549,24 @@ type alias SearchGroceryProductsByUPC200Response =
     }
 
 
-type alias SearchGroceryProductsByUPC200ResponseIngredientsInner =
-    { description : Maybe String
-    , name : String
-    , safetyLevel : Maybe String
+type alias SearchGroceryProductsByUPC200ResponseNutrition =
+    { nutrients : List SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+    , caloricBreakdown : SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
     }
 
 
-type alias SearchGroceryProductsByUPC200ResponseNutrition =
-    { nutrients : List ParseIngredients200ResponseInnerNutritionNutrientsInner
-    , caloricBreakdown : ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+type alias SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown =
+    { percentProtein : Float
+    , percentFat : Float
+    , percentCarbs : Float
+    }
+
+
+type alias SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner =
+    { name : String
+    , amount : Float
+    , unit : String
+    , percentOfDailyNeeds : Float
     }
 
 
@@ -1764,21 +1580,11 @@ type alias SearchGroceryProductsByUPC200ResponseServings =
 {-| 
 -}
 type alias SearchMenuItems200Response =
-    { menuItems : List SearchMenuItems200ResponseMenuItemsInner
+    { menuItems : List MenuItem
     , totalMenuItems : Int
     , type_ : String
     , offset : Int
     , number : Int
-    }
-
-
-type alias SearchMenuItems200ResponseMenuItemsInner =
-    { id : Int
-    , title : String
-    , restaurantChain : String
-    , image : String
-    , imageType : String
-    , servings : Maybe SearchGroceryProductsByUPC200ResponseServings
     }
 
 
@@ -1906,25 +1712,33 @@ type alias SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
 
 {-| 
 -}
-type alias SearchSiteContent200Response =
-    { articles : List SearchSiteContent200ResponseArticlesInner
-    , groceryProducts : List SearchSiteContent200ResponseArticlesInner
-    , menuItems : List SearchSiteContent200ResponseArticlesInner
-    , recipes : List SearchSiteContent200ResponseArticlesInner
-    }
-
-
-type alias SearchSiteContent200ResponseArticlesInner =
-    { dataPoints : Maybe ( List SearchSiteContent200ResponseArticlesInnerDataPointsInner )
-    , image : String
-    , link : String
+type alias SearchResult =
+    { dataPoints : Maybe ( List SearchResultDataPointsInner )
+    , image : Maybe String
+    , link : Maybe String
     , name : String
+    , type_ : Maybe String
+    , kvtable : Maybe String
+    , content : Maybe String
+    , id : Maybe Int
+    , relevance : Maybe Float
     }
 
 
-type alias SearchSiteContent200ResponseArticlesInnerDataPointsInner =
+type alias SearchResultDataPointsInner =
     { key : String
-    , value : String
+    , value : Maybe AnyType
+    , show : Maybe Bool
+    }
+
+
+{-| 
+-}
+type alias SearchSiteContent200Response =
+    { articles : List SearchResult
+    , groceryProducts : List SearchResult
+    , menuItems : List SearchResult
+    , recipes : List SearchResult
     }
 
 
@@ -1949,6 +1763,19 @@ type alias TalkToChatbot200ResponseMediaInner =
     { title : Maybe String
     , image : Maybe String
     , link : Maybe String
+    }
+
+
+{-| 
+-}
+type alias TasteInformation =
+    { sweetness : Float
+    , saltiness : Float
+    , sourness : Float
+    , bitterness : Float
+    , savoriness : Float
+    , fattiness : Float
+    , spiciness : Float
     }
 
 
@@ -2212,7 +2039,7 @@ encodeAnalyzeRecipeInstructions200ResponseIngredientsInnerPairs : AnalyzeRecipeI
 encodeAnalyzeRecipeInstructions200ResponseIngredientsInnerPairs model =
     let
         pairs =
-            [ encode "id" Json.Encode.float model.id
+            [ encode "id" Json.Encode.int model.id
             , encode "name" Json.Encode.string model.name
             ]
     in
@@ -2277,7 +2104,7 @@ encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
 encodeAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerPairs model =
     let
         pairs =
-            [ encode "id" Json.Encode.float model.id
+            [ encode "id" Json.Encode.int model.id
             , encode "name" Json.Encode.string model.name
             , encode "localizedName" Json.Encode.string model.localizedName
             , encode "image" Json.Encode.string model.image
@@ -2328,26 +2155,6 @@ encodeAutocompleteIngredientSearch200ResponseInnerPairs model =
             , maybeEncode "id" Json.Encode.int model.id
             , maybeEncode "aisle" Json.Encode.string model.aisle
             , maybeEncode "possibleUnits" (Json.Encode.list Json.Encode.string) model.possibleUnits
-            ]
-    in
-    pairs
-
-
-encodeAutocompleteMenuItemSearch200Response : AutocompleteMenuItemSearch200Response -> Json.Encode.Value
-encodeAutocompleteMenuItemSearch200Response =
-    encodeObject << encodeAutocompleteMenuItemSearch200ResponsePairs
-
-
-encodeAutocompleteMenuItemSearch200ResponseWithTag : ( String, String ) -> AutocompleteMenuItemSearch200Response -> Json.Encode.Value
-encodeAutocompleteMenuItemSearch200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeAutocompleteMenuItemSearch200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeAutocompleteMenuItemSearch200ResponsePairs : AutocompleteMenuItemSearch200Response -> List EncodedField
-encodeAutocompleteMenuItemSearch200ResponsePairs model =
-    let
-        pairs =
-            [ encode "results" (Json.Encode.list encodeAutocompleteProductSearch200ResponseResultsInner) model.results
             ]
     in
     pairs
@@ -2525,6 +2332,29 @@ encodeClassifyGroceryProductRequestPairs model =
             [ encode "title" Json.Encode.string model.title
             , encode "upc" Json.Encode.string model.upc
             , encode "plu_code" Json.Encode.string model.pluCode
+            ]
+    in
+    pairs
+
+
+encodeComparableProduct : ComparableProduct -> Json.Encode.Value
+encodeComparableProduct =
+    encodeObject << encodeComparableProductPairs
+
+
+encodeComparableProductWithTag : ( String, String ) -> ComparableProduct -> Json.Encode.Value
+encodeComparableProductWithTag (tagField, tag) model =
+    encodeObject (encodeComparableProductPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeComparableProductPairs : ComparableProduct -> List EncodedField
+encodeComparableProductPairs model =
+    let
+        pairs =
+            [ encode "difference" Json.Encode.float model.difference
+            , encode "id" Json.Encode.int model.id
+            , encode "image" Json.Encode.string model.image
+            , encode "title" Json.Encode.string model.title
             ]
     in
     pairs
@@ -2789,29 +2619,6 @@ encodeGenerateMealPlan200ResponseNutrientsPairs model =
     pairs
 
 
-encodeGenerateShoppingList200Response : GenerateShoppingList200Response -> Json.Encode.Value
-encodeGenerateShoppingList200Response =
-    encodeObject << encodeGenerateShoppingList200ResponsePairs
-
-
-encodeGenerateShoppingList200ResponseWithTag : ( String, String ) -> GenerateShoppingList200Response -> Json.Encode.Value
-encodeGenerateShoppingList200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGenerateShoppingList200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGenerateShoppingList200ResponsePairs : GenerateShoppingList200Response -> List EncodedField
-encodeGenerateShoppingList200ResponsePairs model =
-    let
-        pairs =
-            [ encode "aisles" (Json.Encode.list encodeGetShoppingList200ResponseAislesInner) model.aisles
-            , encode "cost" Json.Encode.float model.cost
-            , encode "startDate" Json.Encode.float model.startDate
-            , encode "endDate" Json.Encode.float model.endDate
-            ]
-    in
-    pairs
-
-
 encodeGetARandomFoodJoke200Response : GetARandomFoodJoke200Response -> Json.Encode.Value
 encodeGetARandomFoodJoke200Response =
     encodeObject << encodeGetARandomFoodJoke200ResponsePairs
@@ -2832,105 +2639,62 @@ encodeGetARandomFoodJoke200ResponsePairs model =
     pairs
 
 
-encodeGetAnalyzedRecipeInstructions200Response : GetAnalyzedRecipeInstructions200Response -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200Response =
-    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponsePairs
+encodeGetAnalyzedRecipeInstructions200ResponseInner : GetAnalyzedRecipeInstructions200ResponseInner -> Json.Encode.Value
+encodeGetAnalyzedRecipeInstructions200ResponseInner =
+    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponseInnerPairs
 
 
-encodeGetAnalyzedRecipeInstructions200ResponseWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200Response -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeGetAnalyzedRecipeInstructions200ResponseInnerWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200ResponseInner -> Json.Encode.Value
+encodeGetAnalyzedRecipeInstructions200ResponseInnerWithTag (tagField, tag) model =
+    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponseInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeGetAnalyzedRecipeInstructions200ResponsePairs : GetAnalyzedRecipeInstructions200Response -> List EncodedField
-encodeGetAnalyzedRecipeInstructions200ResponsePairs model =
-    let
-        pairs =
-            [ encode "parsedInstructions" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner) model.parsedInstructions
-            , encode "ingredients" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInner) model.ingredients
-            , encode "equipment" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInner) model.equipment
-            ]
-    in
-    pairs
-
-
-encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInner : GetAnalyzedRecipeInstructions200ResponseIngredientsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInner =
-    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInnerPairs
-
-
-encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInnerWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200ResponseIngredientsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInnerPairs : GetAnalyzedRecipeInstructions200ResponseIngredientsInner -> List EncodedField
-encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInnerPairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "name" Json.Encode.string model.name
-            ]
-    in
-    pairs
-
-
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner : GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner =
-    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerPairs
-
-
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerPairs : GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner -> List EncodedField
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerPairs model =
+encodeGetAnalyzedRecipeInstructions200ResponseInnerPairs : GetAnalyzedRecipeInstructions200ResponseInner -> List EncodedField
+encodeGetAnalyzedRecipeInstructions200ResponseInnerPairs model =
     let
         pairs =
             [ encode "name" Json.Encode.string model.name
-            , maybeEncode "steps" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner) model.steps
+            , maybeEncode "steps" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInner) model.steps
             ]
     in
     pairs
 
 
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner : GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner =
-    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerPairs
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInner : GetAnalyzedRecipeInstructions200ResponseInnerStepsInner -> Json.Encode.Value
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInner =
+    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerPairs
 
 
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200ResponseInnerStepsInner -> Json.Encode.Value
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerPairs : GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner -> List EncodedField
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerPairs model =
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerPairs : GetAnalyzedRecipeInstructions200ResponseInnerStepsInner -> List EncodedField
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerPairs model =
     let
         pairs =
             [ encode "number" Json.Encode.float model.number
             , encode "step" Json.Encode.string model.step
-            , maybeEncode "ingredients" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) model.ingredients
-            , maybeEncode "equipment" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) model.equipment
+            , maybeEncode "ingredients" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner) model.ingredients
+            , maybeEncode "equipment" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner) model.equipment
             ]
     in
     pairs
 
 
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner : GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner =
-    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerPairs
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner : GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner -> Json.Encode.Value
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner =
+    encodeObject << encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerPairs
 
 
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner -> Json.Encode.Value
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerWithTag : ( String, String ) -> GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner -> Json.Encode.Value
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerPairs : GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner -> List EncodedField
-encodeGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerPairs model =
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerPairs : GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner -> List EncodedField
+encodeGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerPairs model =
     let
         pairs =
             [ encode "id" Json.Encode.int model.id
@@ -2976,35 +2740,12 @@ encodeGetComparableProducts200ResponseComparableProductsPairs : GetComparablePro
 encodeGetComparableProducts200ResponseComparableProductsPairs model =
     let
         pairs =
-            [ encode "calories" (Json.Encode.list encodeObject) model.calories
-            , encode "likes" (Json.Encode.list encodeObject) model.likes
-            , encode "price" (Json.Encode.list encodeObject) model.price
-            , encode "protein" (Json.Encode.list encodeGetComparableProducts200ResponseComparableProductsProteinInner) model.protein
-            , encode "spoonacularScore" (Json.Encode.list encodeGetComparableProducts200ResponseComparableProductsProteinInner) model.spoonacularScore
-            , encode "sugar" (Json.Encode.list encodeObject) model.sugar
-            ]
-    in
-    pairs
-
-
-encodeGetComparableProducts200ResponseComparableProductsProteinInner : GetComparableProducts200ResponseComparableProductsProteinInner -> Json.Encode.Value
-encodeGetComparableProducts200ResponseComparableProductsProteinInner =
-    encodeObject << encodeGetComparableProducts200ResponseComparableProductsProteinInnerPairs
-
-
-encodeGetComparableProducts200ResponseComparableProductsProteinInnerWithTag : ( String, String ) -> GetComparableProducts200ResponseComparableProductsProteinInner -> Json.Encode.Value
-encodeGetComparableProducts200ResponseComparableProductsProteinInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetComparableProducts200ResponseComparableProductsProteinInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetComparableProducts200ResponseComparableProductsProteinInnerPairs : GetComparableProducts200ResponseComparableProductsProteinInner -> List EncodedField
-encodeGetComparableProducts200ResponseComparableProductsProteinInnerPairs model =
-    let
-        pairs =
-            [ encode "difference" Json.Encode.float model.difference
-            , encode "id" Json.Encode.int model.id
-            , encode "image" Json.Encode.string model.image
-            , encode "title" Json.Encode.string model.title
+            [ encode "calories" (Json.Encode.list encodeComparableProduct) model.calories
+            , encode "likes" (Json.Encode.list encodeComparableProduct) model.likes
+            , encode "price" (Json.Encode.list encodeComparableProduct) model.price
+            , encode "protein" (Json.Encode.list encodeComparableProduct) model.protein
+            , encode "spoonacular_score" (Json.Encode.list encodeComparableProduct) model.spoonacularScore
+            , encode "sugar" (Json.Encode.list encodeComparableProduct) model.sugar
             ]
     in
     pairs
@@ -3087,66 +2828,6 @@ encodeGetDishPairingForWine200ResponsePairs model =
         pairs =
             [ encode "pairings" (Json.Encode.list Json.Encode.string) model.pairings
             , encode "text" Json.Encode.string model.text
-            ]
-    in
-    pairs
-
-
-encodeGetIngredientInformation200Response : GetIngredientInformation200Response -> Json.Encode.Value
-encodeGetIngredientInformation200Response =
-    encodeObject << encodeGetIngredientInformation200ResponsePairs
-
-
-encodeGetIngredientInformation200ResponseWithTag : ( String, String ) -> GetIngredientInformation200Response -> Json.Encode.Value
-encodeGetIngredientInformation200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetIngredientInformation200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetIngredientInformation200ResponsePairs : GetIngredientInformation200Response -> List EncodedField
-encodeGetIngredientInformation200ResponsePairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "original" Json.Encode.string model.original
-            , encode "originalName" Json.Encode.string model.originalName
-            , encode "name" Json.Encode.string model.name
-            , encode "nameClean" Json.Encode.string model.nameClean
-            , encode "amount" Json.Encode.float model.amount
-            , encode "unit" Json.Encode.string model.unit
-            , encode "unitShort" Json.Encode.string model.unitShort
-            , encode "unitLong" Json.Encode.string model.unitLong
-            , encode "possibleUnits" (Json.Encode.list Json.Encode.string) model.possibleUnits
-            , encode "estimatedCost" encodeParseIngredients200ResponseInnerEstimatedCost model.estimatedCost
-            , encode "consistency" Json.Encode.string model.consistency
-            , encode "shoppingListUnits" (Json.Encode.list Json.Encode.string) model.shoppingListUnits
-            , encode "aisle" Json.Encode.string model.aisle
-            , encode "image" Json.Encode.string model.image
-            , encode "meta" (Json.Encode.list encodeObject) model.meta
-            , encode "nutrition" encodeGetIngredientInformation200ResponseNutrition model.nutrition
-            , encode "categoryPath" (Json.Encode.list Json.Encode.string) model.categoryPath
-            ]
-    in
-    pairs
-
-
-encodeGetIngredientInformation200ResponseNutrition : GetIngredientInformation200ResponseNutrition -> Json.Encode.Value
-encodeGetIngredientInformation200ResponseNutrition =
-    encodeObject << encodeGetIngredientInformation200ResponseNutritionPairs
-
-
-encodeGetIngredientInformation200ResponseNutritionWithTag : ( String, String ) -> GetIngredientInformation200ResponseNutrition -> Json.Encode.Value
-encodeGetIngredientInformation200ResponseNutritionWithTag (tagField, tag) model =
-    encodeObject (encodeGetIngredientInformation200ResponseNutritionPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetIngredientInformation200ResponseNutritionPairs : GetIngredientInformation200ResponseNutrition -> List EncodedField
-encodeGetIngredientInformation200ResponseNutritionPairs model =
-    let
-        pairs =
-            [ encode "nutrients" (Json.Encode.list encodeParseIngredients200ResponseInnerNutritionNutrientsInner) model.nutrients
-            , encode "properties" (Json.Encode.list encodeParseIngredients200ResponseInnerNutritionPropertiesInner) model.properties
-            , encode "caloricBreakdown" encodeParseIngredients200ResponseInnerNutritionCaloricBreakdown model.caloricBreakdown
-            , encode "weightPerServing" encodeParseIngredients200ResponseInnerNutritionWeightPerServing model.weightPerServing
             ]
     in
     pairs
@@ -3281,7 +2962,28 @@ encodeGetMealPlanTemplates200ResponsePairs : GetMealPlanTemplates200Response -> 
 encodeGetMealPlanTemplates200ResponsePairs model =
     let
         pairs =
-            [ encode "templates" (Json.Encode.list encodeGetAnalyzedRecipeInstructions200ResponseIngredientsInner) model.templates
+            [ encode "templates" (Json.Encode.list encodeGetMealPlanTemplates200ResponseTemplatesInner) model.templates
+            ]
+    in
+    pairs
+
+
+encodeGetMealPlanTemplates200ResponseTemplatesInner : GetMealPlanTemplates200ResponseTemplatesInner -> Json.Encode.Value
+encodeGetMealPlanTemplates200ResponseTemplatesInner =
+    encodeObject << encodeGetMealPlanTemplates200ResponseTemplatesInnerPairs
+
+
+encodeGetMealPlanTemplates200ResponseTemplatesInnerWithTag : ( String, String ) -> GetMealPlanTemplates200ResponseTemplatesInner -> Json.Encode.Value
+encodeGetMealPlanTemplates200ResponseTemplatesInnerWithTag (tagField, tag) model =
+    encodeObject (encodeGetMealPlanTemplates200ResponseTemplatesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeGetMealPlanTemplates200ResponseTemplatesInnerPairs : GetMealPlanTemplates200ResponseTemplatesInner -> List EncodedField
+encodeGetMealPlanTemplates200ResponseTemplatesInnerPairs model =
+    let
+        pairs =
+            [ encode "id" Json.Encode.int model.id
+            , encode "name" Json.Encode.string model.name
             ]
     in
     pairs
@@ -3423,114 +3125,6 @@ encodeGetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerPairs mod
     pairs
 
 
-encodeGetMenuItemInformation200Response : GetMenuItemInformation200Response -> Json.Encode.Value
-encodeGetMenuItemInformation200Response =
-    encodeObject << encodeGetMenuItemInformation200ResponsePairs
-
-
-encodeGetMenuItemInformation200ResponseWithTag : ( String, String ) -> GetMenuItemInformation200Response -> Json.Encode.Value
-encodeGetMenuItemInformation200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetMenuItemInformation200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetMenuItemInformation200ResponsePairs : GetMenuItemInformation200Response -> List EncodedField
-encodeGetMenuItemInformation200ResponsePairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "title" Json.Encode.string model.title
-            , encode "restaurantChain" Json.Encode.string model.restaurantChain
-            , encode "nutrition" encodeSearchGroceryProductsByUPC200ResponseNutrition model.nutrition
-            , encode "badges" (Json.Encode.list Json.Encode.string) model.badges
-            , encode "breadcrumbs" (Json.Encode.list Json.Encode.string) model.breadcrumbs
-            , maybeEncode "generatedText" Json.Encode.string model.generatedText
-            , encode "imageType" Json.Encode.string model.imageType
-            , encode "likes" Json.Encode.float model.likes
-            , encode "servings" encodeSearchGroceryProductsByUPC200ResponseServings model.servings
-            , maybeEncode "price" Json.Encode.float model.price
-            , maybeEncode "spoonacularScore" Json.Encode.float model.spoonacularScore
-            ]
-    in
-    pairs
-
-
-encodeGetProductInformation200Response : GetProductInformation200Response -> Json.Encode.Value
-encodeGetProductInformation200Response =
-    encodeObject << encodeGetProductInformation200ResponsePairs
-
-
-encodeGetProductInformation200ResponseWithTag : ( String, String ) -> GetProductInformation200Response -> Json.Encode.Value
-encodeGetProductInformation200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetProductInformation200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetProductInformation200ResponsePairs : GetProductInformation200Response -> List EncodedField
-encodeGetProductInformation200ResponsePairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "title" Json.Encode.string model.title
-            , encode "breadcrumbs" (Json.Encode.list Json.Encode.string) model.breadcrumbs
-            , encode "imageType" Json.Encode.string model.imageType
-            , encode "badges" (Json.Encode.list Json.Encode.string) model.badges
-            , encode "importantBadges" (Json.Encode.list Json.Encode.string) model.importantBadges
-            , encode "ingredientCount" Json.Encode.int model.ingredientCount
-            , maybeEncode "generatedText" Json.Encode.string model.generatedText
-            , encode "ingredientList" Json.Encode.string model.ingredientList
-            , encode "ingredients" (Json.Encode.list encodeGetProductInformation200ResponseIngredientsInner) model.ingredients
-            , encode "likes" Json.Encode.float model.likes
-            , encode "aisle" Json.Encode.string model.aisle
-            , encode "nutrition" encodeSearchGroceryProductsByUPC200ResponseNutrition model.nutrition
-            , encode "price" Json.Encode.float model.price
-            , encode "servings" encodeSearchGroceryProductsByUPC200ResponseServings model.servings
-            , encode "spoonacularScore" Json.Encode.float model.spoonacularScore
-            ]
-    in
-    pairs
-
-
-encodeGetProductInformation200ResponseIngredientsInner : GetProductInformation200ResponseIngredientsInner -> Json.Encode.Value
-encodeGetProductInformation200ResponseIngredientsInner =
-    encodeObject << encodeGetProductInformation200ResponseIngredientsInnerPairs
-
-
-encodeGetProductInformation200ResponseIngredientsInnerWithTag : ( String, String ) -> GetProductInformation200ResponseIngredientsInner -> Json.Encode.Value
-encodeGetProductInformation200ResponseIngredientsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetProductInformation200ResponseIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetProductInformation200ResponseIngredientsInnerPairs : GetProductInformation200ResponseIngredientsInner -> List EncodedField
-encodeGetProductInformation200ResponseIngredientsInnerPairs model =
-    let
-        pairs =
-            [ maybeEncode "description" Json.Encode.string model.description
-            , encode "name" Json.Encode.string model.name
-            , maybeEncode "safety_level" Json.Encode.string model.safetyLevel
-            ]
-    in
-    pairs
-
-
-encodeGetRandomFoodTrivia200Response : GetRandomFoodTrivia200Response -> Json.Encode.Value
-encodeGetRandomFoodTrivia200Response =
-    encodeObject << encodeGetRandomFoodTrivia200ResponsePairs
-
-
-encodeGetRandomFoodTrivia200ResponseWithTag : ( String, String ) -> GetRandomFoodTrivia200Response -> Json.Encode.Value
-encodeGetRandomFoodTrivia200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetRandomFoodTrivia200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRandomFoodTrivia200ResponsePairs : GetRandomFoodTrivia200Response -> List EncodedField
-encodeGetRandomFoodTrivia200ResponsePairs model =
-    let
-        pairs =
-            [ encode "text" Json.Encode.string model.text
-            ]
-    in
-    pairs
-
-
 encodeGetRandomRecipes200Response : GetRandomRecipes200Response -> Json.Encode.Value
 encodeGetRandomRecipes200Response =
     encodeObject << encodeGetRandomRecipes200ResponsePairs
@@ -3545,63 +3139,7 @@ encodeGetRandomRecipes200ResponsePairs : GetRandomRecipes200Response -> List Enc
 encodeGetRandomRecipes200ResponsePairs model =
     let
         pairs =
-            [ encode "recipes" (Json.Encode.list encodeGetRandomRecipes200ResponseRecipesInner) model.recipes
-            ]
-    in
-    pairs
-
-
-encodeGetRandomRecipes200ResponseRecipesInner : GetRandomRecipes200ResponseRecipesInner -> Json.Encode.Value
-encodeGetRandomRecipes200ResponseRecipesInner =
-    encodeObject << encodeGetRandomRecipes200ResponseRecipesInnerPairs
-
-
-encodeGetRandomRecipes200ResponseRecipesInnerWithTag : ( String, String ) -> GetRandomRecipes200ResponseRecipesInner -> Json.Encode.Value
-encodeGetRandomRecipes200ResponseRecipesInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetRandomRecipes200ResponseRecipesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRandomRecipes200ResponseRecipesInnerPairs : GetRandomRecipes200ResponseRecipesInner -> List EncodedField
-encodeGetRandomRecipes200ResponseRecipesInnerPairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "title" Json.Encode.string model.title
-            , encode "image" Json.Encode.string model.image
-            , encode "imageType" Json.Encode.string model.imageType
-            , encode "servings" Json.Encode.float model.servings
-            , encode "readyInMinutes" Json.Encode.int model.readyInMinutes
-            , encode "license" Json.Encode.string model.license
-            , encode "sourceName" Json.Encode.string model.sourceName
-            , encode "sourceUrl" Json.Encode.string model.sourceUrl
-            , encode "spoonacularSourceUrl" Json.Encode.string model.spoonacularSourceUrl
-            , encode "aggregateLikes" Json.Encode.float model.aggregateLikes
-            , encode "healthScore" Json.Encode.float model.healthScore
-            , encode "spoonacularScore" Json.Encode.float model.spoonacularScore
-            , encode "pricePerServing" Json.Encode.float model.pricePerServing
-            , maybeEncode "analyzedInstructions" (Json.Encode.list encodeObject) model.analyzedInstructions
-            , encode "cheap" Json.Encode.bool model.cheap
-            , encode "creditsText" Json.Encode.string model.creditsText
-            , maybeEncode "cuisines" (Json.Encode.list Json.Encode.string) model.cuisines
-            , encode "dairyFree" Json.Encode.bool model.dairyFree
-            , maybeEncode "diets" (Json.Encode.list Json.Encode.string) model.diets
-            , encode "gaps" Json.Encode.string model.gaps
-            , encode "glutenFree" Json.Encode.bool model.glutenFree
-            , encode "instructions" Json.Encode.string model.instructions
-            , encode "ketogenic" Json.Encode.bool model.ketogenic
-            , encode "lowFodmap" Json.Encode.bool model.lowFodmap
-            , maybeEncode "occasions" (Json.Encode.list Json.Encode.string) model.occasions
-            , encode "sustainable" Json.Encode.bool model.sustainable
-            , encode "vegan" Json.Encode.bool model.vegan
-            , encode "vegetarian" Json.Encode.bool model.vegetarian
-            , encode "veryHealthy" Json.Encode.bool model.veryHealthy
-            , encode "veryPopular" Json.Encode.bool model.veryPopular
-            , encode "whole30" Json.Encode.bool model.whole30
-            , encode "weightWatcherSmartPoints" Json.Encode.float model.weightWatcherSmartPoints
-            , maybeEncode "dishTypes" (Json.Encode.list Json.Encode.string) model.dishTypes
-            , maybeEncode "extendedIngredients" (Json.Encode.list encodeGetRecipeInformation200ResponseExtendedIngredientsInner) model.extendedIngredients
-            , encode "summary" Json.Encode.string model.summary
-            , maybeEncode "winePairing" encodeGetRecipeInformation200ResponseWinePairing model.winePairing
+            [ encode "recipes" (Json.Encode.list encodeRecipeInformation) model.recipes
             ]
     in
     pairs
@@ -3643,241 +3181,6 @@ encodeGetRecipeEquipmentByID200ResponseEquipmentInnerPairs model =
         pairs =
             [ encode "image" Json.Encode.string model.image
             , encode "name" Json.Encode.string model.name
-            ]
-    in
-    pairs
-
-
-encodeGetRecipeInformation200Response : GetRecipeInformation200Response -> Json.Encode.Value
-encodeGetRecipeInformation200Response =
-    encodeObject << encodeGetRecipeInformation200ResponsePairs
-
-
-encodeGetRecipeInformation200ResponseWithTag : ( String, String ) -> GetRecipeInformation200Response -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeInformation200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeInformation200ResponsePairs : GetRecipeInformation200Response -> List EncodedField
-encodeGetRecipeInformation200ResponsePairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "title" Json.Encode.string model.title
-            , encode "image" Json.Encode.string model.image
-            , encode "imageType" Json.Encode.string model.imageType
-            , encode "servings" Json.Encode.float model.servings
-            , encode "readyInMinutes" Json.Encode.int model.readyInMinutes
-            , encode "license" Json.Encode.string model.license
-            , encode "sourceName" Json.Encode.string model.sourceName
-            , encode "sourceUrl" Json.Encode.string model.sourceUrl
-            , encode "spoonacularSourceUrl" Json.Encode.string model.spoonacularSourceUrl
-            , encode "aggregateLikes" Json.Encode.int model.aggregateLikes
-            , encode "healthScore" Json.Encode.float model.healthScore
-            , encode "spoonacularScore" Json.Encode.float model.spoonacularScore
-            , encode "pricePerServing" Json.Encode.float model.pricePerServing
-            , encode "analyzedInstructions" (Json.Encode.list encodeObject) model.analyzedInstructions
-            , encode "cheap" Json.Encode.bool model.cheap
-            , encode "creditsText" Json.Encode.string model.creditsText
-            , encode "cuisines" (Json.Encode.list Json.Encode.string) model.cuisines
-            , encode "dairyFree" Json.Encode.bool model.dairyFree
-            , encode "diets" (Json.Encode.list Json.Encode.string) model.diets
-            , encode "gaps" Json.Encode.string model.gaps
-            , encode "glutenFree" Json.Encode.bool model.glutenFree
-            , encode "instructions" Json.Encode.string model.instructions
-            , encode "ketogenic" Json.Encode.bool model.ketogenic
-            , encode "lowFodmap" Json.Encode.bool model.lowFodmap
-            , encode "occasions" (Json.Encode.list Json.Encode.string) model.occasions
-            , encode "sustainable" Json.Encode.bool model.sustainable
-            , encode "vegan" Json.Encode.bool model.vegan
-            , encode "vegetarian" Json.Encode.bool model.vegetarian
-            , encode "veryHealthy" Json.Encode.bool model.veryHealthy
-            , encode "veryPopular" Json.Encode.bool model.veryPopular
-            , encode "whole30" Json.Encode.bool model.whole30
-            , encode "weightWatcherSmartPoints" Json.Encode.float model.weightWatcherSmartPoints
-            , encode "dishTypes" (Json.Encode.list Json.Encode.string) model.dishTypes
-            , encode "extendedIngredients" (Json.Encode.list encodeGetRecipeInformation200ResponseExtendedIngredientsInner) model.extendedIngredients
-            , encode "summary" Json.Encode.string model.summary
-            , encode "winePairing" encodeGetRecipeInformation200ResponseWinePairing model.winePairing
-            ]
-    in
-    pairs
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInner : GetRecipeInformation200ResponseExtendedIngredientsInner -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseExtendedIngredientsInner =
-    encodeObject << encodeGetRecipeInformation200ResponseExtendedIngredientsInnerPairs
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerWithTag : ( String, String ) -> GetRecipeInformation200ResponseExtendedIngredientsInner -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeInformation200ResponseExtendedIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerPairs : GetRecipeInformation200ResponseExtendedIngredientsInner -> List EncodedField
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerPairs model =
-    let
-        pairs =
-            [ encode "aisle" Json.Encode.string model.aisle
-            , encode "amount" Json.Encode.float model.amount
-            , encode "consistency" Json.Encode.string model.consistency
-            , encode "id" Json.Encode.int model.id
-            , encode "image" Json.Encode.string model.image
-            , maybeEncode "measures" encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures model.measures
-            , maybeEncode "meta" (Json.Encode.list Json.Encode.string) model.meta
-            , encode "name" Json.Encode.string model.name
-            , encode "original" Json.Encode.string model.original
-            , encode "originalName" Json.Encode.string model.originalName
-            , encode "unit" Json.Encode.string model.unit
-            ]
-    in
-    pairs
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures =
-    encodeObject << encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresPairs
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresWithTag : ( String, String ) -> GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresPairs : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures -> List EncodedField
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresPairs model =
-    let
-        pairs =
-            [ encode "metric" encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric model.metric
-            , encode "us" encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric model.us
-            ]
-    in
-    pairs
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric =
-    encodeObject << encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricPairs
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricWithTag : ( String, String ) -> GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricPairs : GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric -> List EncodedField
-encodeGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricPairs model =
-    let
-        pairs =
-            [ encode "amount" Json.Encode.float model.amount
-            , encode "unitLong" Json.Encode.string model.unitLong
-            , encode "unitShort" Json.Encode.string model.unitShort
-            ]
-    in
-    pairs
-
-
-encodeGetRecipeInformation200ResponseWinePairing : GetRecipeInformation200ResponseWinePairing -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseWinePairing =
-    encodeObject << encodeGetRecipeInformation200ResponseWinePairingPairs
-
-
-encodeGetRecipeInformation200ResponseWinePairingWithTag : ( String, String ) -> GetRecipeInformation200ResponseWinePairing -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseWinePairingWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeInformation200ResponseWinePairingPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeInformation200ResponseWinePairingPairs : GetRecipeInformation200ResponseWinePairing -> List EncodedField
-encodeGetRecipeInformation200ResponseWinePairingPairs model =
-    let
-        pairs =
-            [ encode "pairedWines" (Json.Encode.list Json.Encode.string) model.pairedWines
-            , encode "pairingText" Json.Encode.string model.pairingText
-            , encode "productMatches" (Json.Encode.list encodeGetRecipeInformation200ResponseWinePairingProductMatchesInner) model.productMatches
-            ]
-    in
-    pairs
-
-
-encodeGetRecipeInformation200ResponseWinePairingProductMatchesInner : GetRecipeInformation200ResponseWinePairingProductMatchesInner -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseWinePairingProductMatchesInner =
-    encodeObject << encodeGetRecipeInformation200ResponseWinePairingProductMatchesInnerPairs
-
-
-encodeGetRecipeInformation200ResponseWinePairingProductMatchesInnerWithTag : ( String, String ) -> GetRecipeInformation200ResponseWinePairingProductMatchesInner -> Json.Encode.Value
-encodeGetRecipeInformation200ResponseWinePairingProductMatchesInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeInformation200ResponseWinePairingProductMatchesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeInformation200ResponseWinePairingProductMatchesInnerPairs : GetRecipeInformation200ResponseWinePairingProductMatchesInner -> List EncodedField
-encodeGetRecipeInformation200ResponseWinePairingProductMatchesInnerPairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "title" Json.Encode.string model.title
-            , encode "description" Json.Encode.string model.description
-            , encode "price" Json.Encode.string model.price
-            , encode "imageUrl" Json.Encode.string model.imageUrl
-            , encode "averageRating" Json.Encode.float model.averageRating
-            , encode "ratingCount" Json.Encode.int model.ratingCount
-            , encode "score" Json.Encode.float model.score
-            , encode "link" Json.Encode.string model.link
-            ]
-    in
-    pairs
-
-
-encodeGetRecipeInformationBulk200ResponseInner : GetRecipeInformationBulk200ResponseInner -> Json.Encode.Value
-encodeGetRecipeInformationBulk200ResponseInner =
-    encodeObject << encodeGetRecipeInformationBulk200ResponseInnerPairs
-
-
-encodeGetRecipeInformationBulk200ResponseInnerWithTag : ( String, String ) -> GetRecipeInformationBulk200ResponseInner -> Json.Encode.Value
-encodeGetRecipeInformationBulk200ResponseInnerWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeInformationBulk200ResponseInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeInformationBulk200ResponseInnerPairs : GetRecipeInformationBulk200ResponseInner -> List EncodedField
-encodeGetRecipeInformationBulk200ResponseInnerPairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "title" Json.Encode.string model.title
-            , encode "image" Json.Encode.string model.image
-            , encode "imageType" Json.Encode.string model.imageType
-            , encode "servings" Json.Encode.float model.servings
-            , encode "readyInMinutes" Json.Encode.int model.readyInMinutes
-            , encode "license" Json.Encode.string model.license
-            , encode "sourceName" Json.Encode.string model.sourceName
-            , encode "sourceUrl" Json.Encode.string model.sourceUrl
-            , encode "spoonacularSourceUrl" Json.Encode.string model.spoonacularSourceUrl
-            , encode "aggregateLikes" Json.Encode.int model.aggregateLikes
-            , encode "healthScore" Json.Encode.float model.healthScore
-            , encode "spoonacularScore" Json.Encode.float model.spoonacularScore
-            , encode "pricePerServing" Json.Encode.float model.pricePerServing
-            , encode "analyzedInstructions" (Json.Encode.list Json.Encode.string) model.analyzedInstructions
-            , encode "cheap" Json.Encode.bool model.cheap
-            , encode "creditsText" Json.Encode.string model.creditsText
-            , encode "cuisines" (Json.Encode.list Json.Encode.string) model.cuisines
-            , encode "dairyFree" Json.Encode.bool model.dairyFree
-            , encode "diets" (Json.Encode.list Json.Encode.string) model.diets
-            , encode "gaps" Json.Encode.string model.gaps
-            , encode "glutenFree" Json.Encode.bool model.glutenFree
-            , encode "instructions" Json.Encode.string model.instructions
-            , encode "ketogenic" Json.Encode.bool model.ketogenic
-            , encode "lowFodmap" Json.Encode.bool model.lowFodmap
-            , encode "occasions" (Json.Encode.list Json.Encode.string) model.occasions
-            , encode "sustainable" Json.Encode.bool model.sustainable
-            , encode "vegan" Json.Encode.bool model.vegan
-            , encode "vegetarian" Json.Encode.bool model.vegetarian
-            , encode "veryHealthy" Json.Encode.bool model.veryHealthy
-            , encode "veryPopular" Json.Encode.bool model.veryPopular
-            , encode "whole30" Json.Encode.bool model.whole30
-            , encode "weightWatcherSmartPoints" Json.Encode.float model.weightWatcherSmartPoints
-            , encode "dishTypes" (Json.Encode.list Json.Encode.string) model.dishTypes
-            , encode "extendedIngredients" (Json.Encode.list encodeGetRecipeInformation200ResponseExtendedIngredientsInner) model.extendedIngredients
-            , encode "summary" Json.Encode.string model.summary
-            , encode "winePairing" encodeGetRecipeInformation200ResponseWinePairing model.winePairing
             ]
     in
     pairs
@@ -3964,7 +3267,7 @@ encodeGetRecipeNutritionWidgetByID200ResponseBadInnerPairs : GetRecipeNutritionW
 encodeGetRecipeNutritionWidgetByID200ResponseBadInnerPairs model =
     let
         pairs =
-            [ encode "name" Json.Encode.string model.name
+            [ encode "title" Json.Encode.string model.title
             , encode "amount" Json.Encode.string model.amount
             , encode "indented" Json.Encode.bool model.indented
             , encode "percentOfDailyNeeds" Json.Encode.float model.percentOfDailyNeeds
@@ -3990,7 +3293,7 @@ encodeGetRecipeNutritionWidgetByID200ResponseGoodInnerPairs model =
             [ encode "amount" Json.Encode.string model.amount
             , encode "indented" Json.Encode.bool model.indented
             , encode "percentOfDailyNeeds" Json.Encode.float model.percentOfDailyNeeds
-            , encode "name" Json.Encode.string model.name
+            , encode "title" Json.Encode.string model.title
             ]
     in
     pairs
@@ -4083,32 +3386,6 @@ encodeGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetricPairs mo
     pairs
 
 
-encodeGetRecipeTasteByID200Response : GetRecipeTasteByID200Response -> Json.Encode.Value
-encodeGetRecipeTasteByID200Response =
-    encodeObject << encodeGetRecipeTasteByID200ResponsePairs
-
-
-encodeGetRecipeTasteByID200ResponseWithTag : ( String, String ) -> GetRecipeTasteByID200Response -> Json.Encode.Value
-encodeGetRecipeTasteByID200ResponseWithTag (tagField, tag) model =
-    encodeObject (encodeGetRecipeTasteByID200ResponsePairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeGetRecipeTasteByID200ResponsePairs : GetRecipeTasteByID200Response -> List EncodedField
-encodeGetRecipeTasteByID200ResponsePairs model =
-    let
-        pairs =
-            [ encode "sweetness" Json.Encode.float model.sweetness
-            , encode "saltiness" Json.Encode.float model.saltiness
-            , encode "sourness" Json.Encode.float model.sourness
-            , encode "bitterness" Json.Encode.float model.bitterness
-            , encode "savoriness" Json.Encode.float model.savoriness
-            , encode "fattiness" Json.Encode.float model.fattiness
-            , encode "spiciness" Json.Encode.float model.spiciness
-            ]
-    in
-    pairs
-
-
 encodeGetShoppingList200Response : GetShoppingList200Response -> Json.Encode.Value
 encodeGetShoppingList200Response =
     encodeObject << encodeGetShoppingList200ResponsePairs
@@ -4193,9 +3470,30 @@ encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresPairs : GetShopping
 encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresPairs model =
     let
         pairs =
-            [ encode "original" encodeParseIngredients200ResponseInnerNutritionWeightPerServing model.original
-            , encode "metric" encodeParseIngredients200ResponseInnerNutritionWeightPerServing model.metric
-            , encode "us" encodeParseIngredients200ResponseInnerNutritionWeightPerServing model.us
+            [ encode "original" encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal model.original
+            , encode "metric" encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal model.metric
+            , encode "us" encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal model.us
+            ]
+    in
+    pairs
+
+
+encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal : GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal -> Json.Encode.Value
+encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal =
+    encodeObject << encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalPairs
+
+
+encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalWithTag : ( String, String ) -> GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal -> Json.Encode.Value
+encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalWithTag (tagField, tag) model =
+    encodeObject (encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalPairs : GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal -> List EncodedField
+encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalPairs model =
+    let
+        pairs =
+            [ encode "amount" Json.Encode.float model.amount
+            , encode "unit" Json.Encode.string model.unit
             ]
     in
     pairs
@@ -4568,6 +3866,130 @@ encodeImageClassificationByURL200ResponsePairs model =
     pairs
 
 
+encodeIngredientBasics : IngredientBasics -> Json.Encode.Value
+encodeIngredientBasics =
+    encodeObject << encodeIngredientBasicsPairs
+
+
+encodeIngredientBasicsWithTag : ( String, String ) -> IngredientBasics -> Json.Encode.Value
+encodeIngredientBasicsWithTag (tagField, tag) model =
+    encodeObject (encodeIngredientBasicsPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeIngredientBasicsPairs : IngredientBasics -> List EncodedField
+encodeIngredientBasicsPairs model =
+    let
+        pairs =
+            [ encodeNullable "description" Json.Encode.string model.description
+            , encode "name" Json.Encode.string model.name
+            , encodeNullable "safety_level" Json.Encode.string model.safetyLevel
+            ]
+    in
+    pairs
+
+
+encodeIngredientInformation : IngredientInformation -> Json.Encode.Value
+encodeIngredientInformation =
+    encodeObject << encodeIngredientInformationPairs
+
+
+encodeIngredientInformationWithTag : ( String, String ) -> IngredientInformation -> Json.Encode.Value
+encodeIngredientInformationWithTag (tagField, tag) model =
+    encodeObject (encodeIngredientInformationPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeIngredientInformationPairs : IngredientInformation -> List EncodedField
+encodeIngredientInformationPairs model =
+    let
+        pairs =
+            [ encode "id" Json.Encode.int model.id
+            , encode "original" Json.Encode.string model.original
+            , encode "originalName" Json.Encode.string model.originalName
+            , encode "name" Json.Encode.string model.name
+            , encode "amount" Json.Encode.float model.amount
+            , encode "unit" Json.Encode.string model.unit
+            , encode "unitShort" Json.Encode.string model.unitShort
+            , encode "unitLong" Json.Encode.string model.unitLong
+            , encode "possibleUnits" (Json.Encode.list Json.Encode.string) model.possibleUnits
+            , encode "estimatedCost" encodeIngredientInformationEstimatedCost model.estimatedCost
+            , encode "consistency" Json.Encode.string model.consistency
+            , maybeEncode "shoppingListUnits" (Json.Encode.list Json.Encode.string) model.shoppingListUnits
+            , encode "aisle" Json.Encode.string model.aisle
+            , encode "image" Json.Encode.string model.image
+            , encode "meta" (Json.Encode.list Json.Encode.string) model.meta
+            , maybeEncode "nutrition" encodeIngredientInformationNutrition model.nutrition
+            , maybeEncode "categoryPath" (Json.Encode.list Json.Encode.string) model.categoryPath
+            ]
+    in
+    pairs
+
+
+encodeIngredientInformationEstimatedCost : IngredientInformationEstimatedCost -> Json.Encode.Value
+encodeIngredientInformationEstimatedCost =
+    encodeObject << encodeIngredientInformationEstimatedCostPairs
+
+
+encodeIngredientInformationEstimatedCostWithTag : ( String, String ) -> IngredientInformationEstimatedCost -> Json.Encode.Value
+encodeIngredientInformationEstimatedCostWithTag (tagField, tag) model =
+    encodeObject (encodeIngredientInformationEstimatedCostPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeIngredientInformationEstimatedCostPairs : IngredientInformationEstimatedCost -> List EncodedField
+encodeIngredientInformationEstimatedCostPairs model =
+    let
+        pairs =
+            [ encode "value" Json.Encode.float model.value
+            , encode "unit" Json.Encode.string model.unit
+            ]
+    in
+    pairs
+
+
+encodeIngredientInformationNutrition : IngredientInformationNutrition -> Json.Encode.Value
+encodeIngredientInformationNutrition =
+    encodeObject << encodeIngredientInformationNutritionPairs
+
+
+encodeIngredientInformationNutritionWithTag : ( String, String ) -> IngredientInformationNutrition -> Json.Encode.Value
+encodeIngredientInformationNutritionWithTag (tagField, tag) model =
+    encodeObject (encodeIngredientInformationNutritionPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeIngredientInformationNutritionPairs : IngredientInformationNutrition -> List EncodedField
+encodeIngredientInformationNutritionPairs model =
+    let
+        pairs =
+            [ encode "nutrients" (Json.Encode.list encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInner) model.nutrients
+            , encode "properties" (Json.Encode.list encodeIngredientInformationNutritionPropertiesInner) model.properties
+            , encode "caloricBreakdown" encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown model.caloricBreakdown
+            , encode "weightPerServing" encodeGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal model.weightPerServing
+            ]
+    in
+    pairs
+
+
+encodeIngredientInformationNutritionPropertiesInner : IngredientInformationNutritionPropertiesInner -> Json.Encode.Value
+encodeIngredientInformationNutritionPropertiesInner =
+    encodeObject << encodeIngredientInformationNutritionPropertiesInnerPairs
+
+
+encodeIngredientInformationNutritionPropertiesInnerWithTag : ( String, String ) -> IngredientInformationNutritionPropertiesInner -> Json.Encode.Value
+encodeIngredientInformationNutritionPropertiesInnerWithTag (tagField, tag) model =
+    encodeObject (encodeIngredientInformationNutritionPropertiesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeIngredientInformationNutritionPropertiesInnerPairs : IngredientInformationNutritionPropertiesInner -> List EncodedField
+encodeIngredientInformationNutritionPropertiesInnerPairs model =
+    let
+        pairs =
+            [ encode "name" Json.Encode.string model.name
+            , encode "amount" Json.Encode.float model.amount
+            , encode "unit" Json.Encode.string model.unit
+            ]
+    in
+    pairs
+
+
 encodeIngredientSearch200Response : IngredientSearch200Response -> Json.Encode.Value
 encodeIngredientSearch200Response =
     encodeObject << encodeIngredientSearch200ResponsePairs
@@ -4680,169 +4102,115 @@ encodeMapIngredientsToGroceryProductsRequestPairs model =
     pairs
 
 
-encodeParseIngredients200ResponseInner : ParseIngredients200ResponseInner -> Json.Encode.Value
-encodeParseIngredients200ResponseInner =
-    encodeObject << encodeParseIngredients200ResponseInnerPairs
+encodeMenuItem : MenuItem -> Json.Encode.Value
+encodeMenuItem =
+    encodeObject << encodeMenuItemPairs
 
 
-encodeParseIngredients200ResponseInnerWithTag : ( String, String ) -> ParseIngredients200ResponseInner -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerWithTag (tagField, tag) model =
-    encodeObject (encodeParseIngredients200ResponseInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeMenuItemWithTag : ( String, String ) -> MenuItem -> Json.Encode.Value
+encodeMenuItemWithTag (tagField, tag) model =
+    encodeObject (encodeMenuItemPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeParseIngredients200ResponseInnerPairs : ParseIngredients200ResponseInner -> List EncodedField
-encodeParseIngredients200ResponseInnerPairs model =
+encodeMenuItemPairs : MenuItem -> List EncodedField
+encodeMenuItemPairs model =
     let
         pairs =
             [ encode "id" Json.Encode.int model.id
-            , encode "original" Json.Encode.string model.original
-            , encode "originalName" Json.Encode.string model.originalName
-            , encode "name" Json.Encode.string model.name
-            , encode "nameClean" Json.Encode.string model.nameClean
-            , encode "amount" Json.Encode.float model.amount
-            , encode "unit" Json.Encode.string model.unit
-            , encode "unitShort" Json.Encode.string model.unitShort
-            , encode "unitLong" Json.Encode.string model.unitLong
-            , encode "possibleUnits" (Json.Encode.list Json.Encode.string) model.possibleUnits
-            , encode "estimatedCost" encodeParseIngredients200ResponseInnerEstimatedCost model.estimatedCost
-            , encode "consistency" Json.Encode.string model.consistency
-            , encode "aisle" Json.Encode.string model.aisle
-            , encode "image" Json.Encode.string model.image
-            , encode "meta" (Json.Encode.list Json.Encode.string) model.meta
-            , encode "nutrition" encodeParseIngredients200ResponseInnerNutrition model.nutrition
+            , encode "title" Json.Encode.string model.title
+            , encode "restaurantChain" Json.Encode.string model.restaurantChain
+            , maybeEncode "nutrition" encodeSearchGroceryProductsByUPC200ResponseNutrition model.nutrition
+            , maybeEncode "badges" (Json.Encode.list Json.Encode.string) model.badges
+            , maybeEncode "breadcrumbs" (Json.Encode.list Json.Encode.string) model.breadcrumbs
+            , maybeEncodeNullable "generatedText" Json.Encode.string model.generatedText
+            , maybeEncode "imageType" Json.Encode.string model.imageType
+            , maybeEncode "likes" Json.Encode.int model.likes
+            , maybeEncode "servings" encodeMenuItemServings model.servings
+            , encodeNullable "price" Json.Encode.float model.price
+            , encodeNullable "spoonacularScore" Json.Encode.float model.spoonacularScore
             ]
     in
     pairs
 
 
-encodeParseIngredients200ResponseInnerEstimatedCost : ParseIngredients200ResponseInnerEstimatedCost -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerEstimatedCost =
-    encodeObject << encodeParseIngredients200ResponseInnerEstimatedCostPairs
+encodeMenuItemServings : MenuItemServings -> Json.Encode.Value
+encodeMenuItemServings =
+    encodeObject << encodeMenuItemServingsPairs
 
 
-encodeParseIngredients200ResponseInnerEstimatedCostWithTag : ( String, String ) -> ParseIngredients200ResponseInnerEstimatedCost -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerEstimatedCostWithTag (tagField, tag) model =
-    encodeObject (encodeParseIngredients200ResponseInnerEstimatedCostPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeMenuItemServingsWithTag : ( String, String ) -> MenuItemServings -> Json.Encode.Value
+encodeMenuItemServingsWithTag (tagField, tag) model =
+    encodeObject (encodeMenuItemServingsPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeParseIngredients200ResponseInnerEstimatedCostPairs : ParseIngredients200ResponseInnerEstimatedCost -> List EncodedField
-encodeParseIngredients200ResponseInnerEstimatedCostPairs model =
+encodeMenuItemServingsPairs : MenuItemServings -> List EncodedField
+encodeMenuItemServingsPairs model =
     let
         pairs =
-            [ encode "value" Json.Encode.float model.value
-            , encode "unit" Json.Encode.string model.unit
+            [ encode "number" Json.Encode.float model.number
+            , encodeNullable "size" Json.Encode.float model.size
+            , encodeNullable "unit" Json.Encode.string model.unit
             ]
     in
     pairs
 
 
-encodeParseIngredients200ResponseInnerNutrition : ParseIngredients200ResponseInnerNutrition -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutrition =
-    encodeObject << encodeParseIngredients200ResponseInnerNutritionPairs
+encodeProductInformation : ProductInformation -> Json.Encode.Value
+encodeProductInformation =
+    encodeObject << encodeProductInformationPairs
 
 
-encodeParseIngredients200ResponseInnerNutritionWithTag : ( String, String ) -> ParseIngredients200ResponseInnerNutrition -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionWithTag (tagField, tag) model =
-    encodeObject (encodeParseIngredients200ResponseInnerNutritionPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeProductInformationWithTag : ( String, String ) -> ProductInformation -> Json.Encode.Value
+encodeProductInformationWithTag (tagField, tag) model =
+    encodeObject (encodeProductInformationPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeParseIngredients200ResponseInnerNutritionPairs : ParseIngredients200ResponseInnerNutrition -> List EncodedField
-encodeParseIngredients200ResponseInnerNutritionPairs model =
+encodeProductInformationPairs : ProductInformation -> List EncodedField
+encodeProductInformationPairs model =
     let
         pairs =
-            [ encode "nutrients" (Json.Encode.list encodeParseIngredients200ResponseInnerNutritionNutrientsInner) model.nutrients
-            , encode "properties" (Json.Encode.list encodeParseIngredients200ResponseInnerNutritionPropertiesInner) model.properties
-            , encode "flavonoids" (Json.Encode.list encodeParseIngredients200ResponseInnerNutritionPropertiesInner) model.flavonoids
-            , encode "caloricBreakdown" encodeParseIngredients200ResponseInnerNutritionCaloricBreakdown model.caloricBreakdown
-            , encode "weightPerServing" encodeParseIngredients200ResponseInnerNutritionWeightPerServing model.weightPerServing
+            [ encode "id" Json.Encode.int model.id
+            , encode "title" Json.Encode.string model.title
+            , maybeEncodeNullable "upc" Json.Encode.string model.upc
+            , maybeEncodeNullable "usdaCode" Json.Encode.string model.usdaCode
+            , encode "breadcrumbs" (Json.Encode.list Json.Encode.string) model.breadcrumbs
+            , encode "imageType" Json.Encode.string model.imageType
+            , encode "badges" (Json.Encode.list Json.Encode.string) model.badges
+            , encode "importantBadges" (Json.Encode.list Json.Encode.string) model.importantBadges
+            , encode "ingredientCount" Json.Encode.int model.ingredientCount
+            , maybeEncodeNullable "generatedText" Json.Encode.string model.generatedText
+            , encode "ingredientList" Json.Encode.string model.ingredientList
+            , encode "ingredients" (Json.Encode.list encodeIngredientBasics) model.ingredients
+            , encode "likes" Json.Encode.float model.likes
+            , encodeNullable "aisle" Json.Encode.string model.aisle
+            , maybeEncode "credits" encodeProductInformationCredits model.credits
+            , encode "nutrition" encodeSearchGroceryProductsByUPC200ResponseNutrition model.nutrition
+            , encode "price" Json.Encode.float model.price
+            , encode "servings" encodeSearchGroceryProductsByUPC200ResponseServings model.servings
+            , encode "spoonacularScore" Json.Encode.float model.spoonacularScore
             ]
     in
     pairs
 
 
-encodeParseIngredients200ResponseInnerNutritionCaloricBreakdown : ParseIngredients200ResponseInnerNutritionCaloricBreakdown -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionCaloricBreakdown =
-    encodeObject << encodeParseIngredients200ResponseInnerNutritionCaloricBreakdownPairs
+encodeProductInformationCredits : ProductInformationCredits -> Json.Encode.Value
+encodeProductInformationCredits =
+    encodeObject << encodeProductInformationCreditsPairs
 
 
-encodeParseIngredients200ResponseInnerNutritionCaloricBreakdownWithTag : ( String, String ) -> ParseIngredients200ResponseInnerNutritionCaloricBreakdown -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionCaloricBreakdownWithTag (tagField, tag) model =
-    encodeObject (encodeParseIngredients200ResponseInnerNutritionCaloricBreakdownPairs model ++ [ encode tagField Json.Encode.string tag ])
+encodeProductInformationCreditsWithTag : ( String, String ) -> ProductInformationCredits -> Json.Encode.Value
+encodeProductInformationCreditsWithTag (tagField, tag) model =
+    encodeObject (encodeProductInformationCreditsPairs model ++ [ encode tagField Json.Encode.string tag ])
 
 
-encodeParseIngredients200ResponseInnerNutritionCaloricBreakdownPairs : ParseIngredients200ResponseInnerNutritionCaloricBreakdown -> List EncodedField
-encodeParseIngredients200ResponseInnerNutritionCaloricBreakdownPairs model =
+encodeProductInformationCreditsPairs : ProductInformationCredits -> List EncodedField
+encodeProductInformationCreditsPairs model =
     let
         pairs =
-            [ encode "percentProtein" Json.Encode.float model.percentProtein
-            , encode "percentFat" Json.Encode.float model.percentFat
-            , encode "percentCarbs" Json.Encode.float model.percentCarbs
-            ]
-    in
-    pairs
-
-
-encodeParseIngredients200ResponseInnerNutritionNutrientsInner : ParseIngredients200ResponseInnerNutritionNutrientsInner -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionNutrientsInner =
-    encodeObject << encodeParseIngredients200ResponseInnerNutritionNutrientsInnerPairs
-
-
-encodeParseIngredients200ResponseInnerNutritionNutrientsInnerWithTag : ( String, String ) -> ParseIngredients200ResponseInnerNutritionNutrientsInner -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionNutrientsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeParseIngredients200ResponseInnerNutritionNutrientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeParseIngredients200ResponseInnerNutritionNutrientsInnerPairs : ParseIngredients200ResponseInnerNutritionNutrientsInner -> List EncodedField
-encodeParseIngredients200ResponseInnerNutritionNutrientsInnerPairs model =
-    let
-        pairs =
-            [ encode "name" Json.Encode.string model.name
-            , encode "amount" Json.Encode.float model.amount
-            , encode "unit" Json.Encode.string model.unit
-            , encode "percentOfDailyNeeds" Json.Encode.float model.percentOfDailyNeeds
-            ]
-    in
-    pairs
-
-
-encodeParseIngredients200ResponseInnerNutritionPropertiesInner : ParseIngredients200ResponseInnerNutritionPropertiesInner -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionPropertiesInner =
-    encodeObject << encodeParseIngredients200ResponseInnerNutritionPropertiesInnerPairs
-
-
-encodeParseIngredients200ResponseInnerNutritionPropertiesInnerWithTag : ( String, String ) -> ParseIngredients200ResponseInnerNutritionPropertiesInner -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionPropertiesInnerWithTag (tagField, tag) model =
-    encodeObject (encodeParseIngredients200ResponseInnerNutritionPropertiesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeParseIngredients200ResponseInnerNutritionPropertiesInnerPairs : ParseIngredients200ResponseInnerNutritionPropertiesInner -> List EncodedField
-encodeParseIngredients200ResponseInnerNutritionPropertiesInnerPairs model =
-    let
-        pairs =
-            [ encode "name" Json.Encode.string model.name
-            , encode "amount" Json.Encode.float model.amount
-            , encode "unit" Json.Encode.string model.unit
-            ]
-    in
-    pairs
-
-
-encodeParseIngredients200ResponseInnerNutritionWeightPerServing : ParseIngredients200ResponseInnerNutritionWeightPerServing -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionWeightPerServing =
-    encodeObject << encodeParseIngredients200ResponseInnerNutritionWeightPerServingPairs
-
-
-encodeParseIngredients200ResponseInnerNutritionWeightPerServingWithTag : ( String, String ) -> ParseIngredients200ResponseInnerNutritionWeightPerServing -> Json.Encode.Value
-encodeParseIngredients200ResponseInnerNutritionWeightPerServingWithTag (tagField, tag) model =
-    encodeObject (encodeParseIngredients200ResponseInnerNutritionWeightPerServingPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeParseIngredients200ResponseInnerNutritionWeightPerServingPairs : ParseIngredients200ResponseInnerNutritionWeightPerServing -> List EncodedField
-encodeParseIngredients200ResponseInnerNutritionWeightPerServingPairs model =
-    let
-        pairs =
-            [ encode "amount" Json.Encode.float model.amount
-            , encode "unit" Json.Encode.string model.unit
+            [ maybeEncode "text" Json.Encode.string model.text
+            , maybeEncode "link" Json.Encode.string model.link
+            , maybeEncode "image" Json.Encode.string model.image
+            , maybeEncode "imageLink" Json.Encode.string model.imageLink
             ]
     in
     pairs
@@ -4864,6 +4232,186 @@ encodeQuickAnswer200ResponsePairs model =
         pairs =
             [ encode "answer" Json.Encode.string model.answer
             , encode "image" Json.Encode.string model.image
+            ]
+    in
+    pairs
+
+
+encodeRecipeInformation : RecipeInformation -> Json.Encode.Value
+encodeRecipeInformation =
+    encodeObject << encodeRecipeInformationPairs
+
+
+encodeRecipeInformationWithTag : ( String, String ) -> RecipeInformation -> Json.Encode.Value
+encodeRecipeInformationWithTag (tagField, tag) model =
+    encodeObject (encodeRecipeInformationPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeRecipeInformationPairs : RecipeInformation -> List EncodedField
+encodeRecipeInformationPairs model =
+    let
+        pairs =
+            [ encode "id" Json.Encode.int model.id
+            , encode "title" Json.Encode.string model.title
+            , encodeNullable "image" Json.Encode.string model.image
+            , maybeEncode "imageType" Json.Encode.string model.imageType
+            , encode "servings" Json.Encode.float model.servings
+            , encode "readyInMinutes" Json.Encode.int model.readyInMinutes
+            , maybeEncodeNullable "preparationMinutes" Json.Encode.int model.preparationMinutes
+            , maybeEncodeNullable "cookingMinutes" Json.Encode.int model.cookingMinutes
+            , maybeEncode "license" Json.Encode.string model.license
+            , encode "sourceName" Json.Encode.string model.sourceName
+            , encode "sourceUrl" Json.Encode.string model.sourceUrl
+            , encode "spoonacularSourceUrl" Json.Encode.string model.spoonacularSourceUrl
+            , encode "aggregateLikes" Json.Encode.int model.aggregateLikes
+            , encode "healthScore" Json.Encode.float model.healthScore
+            , encode "spoonacularScore" Json.Encode.float model.spoonacularScore
+            , encode "pricePerServing" Json.Encode.float model.pricePerServing
+            , encode "analyzedInstructions" (Json.Encode.list encodeObject) model.analyzedInstructions
+            , encode "cheap" Json.Encode.bool model.cheap
+            , encode "creditsText" Json.Encode.string model.creditsText
+            , encode "cuisines" (Json.Encode.list Json.Encode.string) model.cuisines
+            , encode "dairyFree" Json.Encode.bool model.dairyFree
+            , encode "diets" (Json.Encode.list Json.Encode.string) model.diets
+            , encode "gaps" Json.Encode.string model.gaps
+            , encode "glutenFree" Json.Encode.bool model.glutenFree
+            , encodeNullable "instructions" Json.Encode.string model.instructions
+            , encode "lowFodmap" Json.Encode.bool model.lowFodmap
+            , encode "occasions" (Json.Encode.list Json.Encode.string) model.occasions
+            , encode "sustainable" Json.Encode.bool model.sustainable
+            , encode "vegan" Json.Encode.bool model.vegan
+            , encode "vegetarian" Json.Encode.bool model.vegetarian
+            , encode "veryHealthy" Json.Encode.bool model.veryHealthy
+            , encode "veryPopular" Json.Encode.bool model.veryPopular
+            , encode "weightWatcherSmartPoints" Json.Encode.float model.weightWatcherSmartPoints
+            , encode "dishTypes" (Json.Encode.list Json.Encode.string) model.dishTypes
+            , encode "extendedIngredients" (Json.Encode.list encodeRecipeInformationExtendedIngredientsInner) model.extendedIngredients
+            , encode "summary" Json.Encode.string model.summary
+            , maybeEncode "winePairing" encodeRecipeInformationWinePairing model.winePairing
+            , maybeEncode "taste" encodeTasteInformation model.taste
+            ]
+    in
+    pairs
+
+
+encodeRecipeInformationExtendedIngredientsInner : RecipeInformationExtendedIngredientsInner -> Json.Encode.Value
+encodeRecipeInformationExtendedIngredientsInner =
+    encodeObject << encodeRecipeInformationExtendedIngredientsInnerPairs
+
+
+encodeRecipeInformationExtendedIngredientsInnerWithTag : ( String, String ) -> RecipeInformationExtendedIngredientsInner -> Json.Encode.Value
+encodeRecipeInformationExtendedIngredientsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeRecipeInformationExtendedIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeRecipeInformationExtendedIngredientsInnerPairs : RecipeInformationExtendedIngredientsInner -> List EncodedField
+encodeRecipeInformationExtendedIngredientsInnerPairs model =
+    let
+        pairs =
+            [ encode "aisle" Json.Encode.string model.aisle
+            , encode "amount" Json.Encode.float model.amount
+            , encode "consistency" Json.Encode.string model.consistency
+            , encode "id" Json.Encode.int model.id
+            , encode "image" Json.Encode.string model.image
+            , maybeEncode "measures" encodeRecipeInformationExtendedIngredientsInnerMeasures model.measures
+            , maybeEncode "meta" (Json.Encode.list Json.Encode.string) model.meta
+            , encode "name" Json.Encode.string model.name
+            , encode "original" Json.Encode.string model.original
+            , encode "originalName" Json.Encode.string model.originalName
+            , encode "unit" Json.Encode.string model.unit
+            ]
+    in
+    pairs
+
+
+encodeRecipeInformationExtendedIngredientsInnerMeasures : RecipeInformationExtendedIngredientsInnerMeasures -> Json.Encode.Value
+encodeRecipeInformationExtendedIngredientsInnerMeasures =
+    encodeObject << encodeRecipeInformationExtendedIngredientsInnerMeasuresPairs
+
+
+encodeRecipeInformationExtendedIngredientsInnerMeasuresWithTag : ( String, String ) -> RecipeInformationExtendedIngredientsInnerMeasures -> Json.Encode.Value
+encodeRecipeInformationExtendedIngredientsInnerMeasuresWithTag (tagField, tag) model =
+    encodeObject (encodeRecipeInformationExtendedIngredientsInnerMeasuresPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeRecipeInformationExtendedIngredientsInnerMeasuresPairs : RecipeInformationExtendedIngredientsInnerMeasures -> List EncodedField
+encodeRecipeInformationExtendedIngredientsInnerMeasuresPairs model =
+    let
+        pairs =
+            [ encode "metric" encodeRecipeInformationExtendedIngredientsInnerMeasuresMetric model.metric
+            , encode "us" encodeRecipeInformationExtendedIngredientsInnerMeasuresMetric model.us
+            ]
+    in
+    pairs
+
+
+encodeRecipeInformationExtendedIngredientsInnerMeasuresMetric : RecipeInformationExtendedIngredientsInnerMeasuresMetric -> Json.Encode.Value
+encodeRecipeInformationExtendedIngredientsInnerMeasuresMetric =
+    encodeObject << encodeRecipeInformationExtendedIngredientsInnerMeasuresMetricPairs
+
+
+encodeRecipeInformationExtendedIngredientsInnerMeasuresMetricWithTag : ( String, String ) -> RecipeInformationExtendedIngredientsInnerMeasuresMetric -> Json.Encode.Value
+encodeRecipeInformationExtendedIngredientsInnerMeasuresMetricWithTag (tagField, tag) model =
+    encodeObject (encodeRecipeInformationExtendedIngredientsInnerMeasuresMetricPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeRecipeInformationExtendedIngredientsInnerMeasuresMetricPairs : RecipeInformationExtendedIngredientsInnerMeasuresMetric -> List EncodedField
+encodeRecipeInformationExtendedIngredientsInnerMeasuresMetricPairs model =
+    let
+        pairs =
+            [ encode "amount" Json.Encode.float model.amount
+            , encode "unitLong" Json.Encode.string model.unitLong
+            , encode "unitShort" Json.Encode.string model.unitShort
+            ]
+    in
+    pairs
+
+
+encodeRecipeInformationWinePairing : RecipeInformationWinePairing -> Json.Encode.Value
+encodeRecipeInformationWinePairing =
+    encodeObject << encodeRecipeInformationWinePairingPairs
+
+
+encodeRecipeInformationWinePairingWithTag : ( String, String ) -> RecipeInformationWinePairing -> Json.Encode.Value
+encodeRecipeInformationWinePairingWithTag (tagField, tag) model =
+    encodeObject (encodeRecipeInformationWinePairingPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeRecipeInformationWinePairingPairs : RecipeInformationWinePairing -> List EncodedField
+encodeRecipeInformationWinePairingPairs model =
+    let
+        pairs =
+            [ maybeEncode "pairedWines" (Json.Encode.list Json.Encode.string) model.pairedWines
+            , maybeEncode "pairingText" Json.Encode.string model.pairingText
+            , maybeEncode "productMatches" (Json.Encode.list encodeRecipeInformationWinePairingProductMatchesInner) model.productMatches
+            ]
+    in
+    pairs
+
+
+encodeRecipeInformationWinePairingProductMatchesInner : RecipeInformationWinePairingProductMatchesInner -> Json.Encode.Value
+encodeRecipeInformationWinePairingProductMatchesInner =
+    encodeObject << encodeRecipeInformationWinePairingProductMatchesInnerPairs
+
+
+encodeRecipeInformationWinePairingProductMatchesInnerWithTag : ( String, String ) -> RecipeInformationWinePairingProductMatchesInner -> Json.Encode.Value
+encodeRecipeInformationWinePairingProductMatchesInnerWithTag (tagField, tag) model =
+    encodeObject (encodeRecipeInformationWinePairingProductMatchesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeRecipeInformationWinePairingProductMatchesInnerPairs : RecipeInformationWinePairingProductMatchesInner -> List EncodedField
+encodeRecipeInformationWinePairingProductMatchesInnerPairs model =
+    let
+        pairs =
+            [ encode "id" Json.Encode.int model.id
+            , encode "title" Json.Encode.string model.title
+            , encode "description" Json.Encode.string model.description
+            , encode "price" Json.Encode.string model.price
+            , encode "imageUrl" Json.Encode.string model.imageUrl
+            , encode "averageRating" Json.Encode.float model.averageRating
+            , encode "ratingCount" Json.Encode.int model.ratingCount
+            , encode "score" Json.Encode.float model.score
+            , encode "link" Json.Encode.string model.link
             ]
     in
     pairs
@@ -4909,33 +4457,7 @@ encodeSearchAllFood200ResponseSearchResultsInnerPairs model =
         pairs =
             [ encode "name" Json.Encode.string model.name
             , encode "totalResults" Json.Encode.int model.totalResults
-            , maybeEncode "results" (Json.Encode.list encodeSearchAllFood200ResponseSearchResultsInnerResultsInner) model.results
-            ]
-    in
-    pairs
-
-
-encodeSearchAllFood200ResponseSearchResultsInnerResultsInner : SearchAllFood200ResponseSearchResultsInnerResultsInner -> Json.Encode.Value
-encodeSearchAllFood200ResponseSearchResultsInnerResultsInner =
-    encodeObject << encodeSearchAllFood200ResponseSearchResultsInnerResultsInnerPairs
-
-
-encodeSearchAllFood200ResponseSearchResultsInnerResultsInnerWithTag : ( String, String ) -> SearchAllFood200ResponseSearchResultsInnerResultsInner -> Json.Encode.Value
-encodeSearchAllFood200ResponseSearchResultsInnerResultsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchAllFood200ResponseSearchResultsInnerResultsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeSearchAllFood200ResponseSearchResultsInnerResultsInnerPairs : SearchAllFood200ResponseSearchResultsInnerResultsInner -> List EncodedField
-encodeSearchAllFood200ResponseSearchResultsInnerResultsInnerPairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.string model.id
-            , encode "name" Json.Encode.string model.name
-            , encodeNullable "image" Json.Encode.string model.image
-            , encodeNullable "link" Json.Encode.string model.link
-            , encode "type" Json.Encode.string model.type_
-            , encode "relevance" Json.Encode.float model.relevance
-            , encodeNullable "content" Json.Encode.string model.content
+            , maybeEncode "results" (Json.Encode.list encodeSearchResult) model.results
             ]
     in
     pairs
@@ -5078,38 +4600,16 @@ encodeSearchGroceryProductsByUPC200ResponsePairs model =
             , encode "badges" (Json.Encode.list Json.Encode.string) model.badges
             , encode "importantBadges" (Json.Encode.list Json.Encode.string) model.importantBadges
             , encode "breadcrumbs" (Json.Encode.list Json.Encode.string) model.breadcrumbs
-            , encode "generatedText" Json.Encode.string model.generatedText
+            , encodeNullable "generatedText" Json.Encode.string model.generatedText
             , encode "imageType" Json.Encode.string model.imageType
             , maybeEncode "ingredientCount" Json.Encode.int model.ingredientCount
             , encode "ingredientList" Json.Encode.string model.ingredientList
-            , encode "ingredients" (Json.Encode.list encodeSearchGroceryProductsByUPC200ResponseIngredientsInner) model.ingredients
+            , encode "ingredients" (Json.Encode.list encodeIngredientBasics) model.ingredients
             , encode "likes" Json.Encode.float model.likes
             , encode "nutrition" encodeSearchGroceryProductsByUPC200ResponseNutrition model.nutrition
             , encode "price" Json.Encode.float model.price
             , encode "servings" encodeSearchGroceryProductsByUPC200ResponseServings model.servings
             , encode "spoonacularScore" Json.Encode.float model.spoonacularScore
-            ]
-    in
-    pairs
-
-
-encodeSearchGroceryProductsByUPC200ResponseIngredientsInner : SearchGroceryProductsByUPC200ResponseIngredientsInner -> Json.Encode.Value
-encodeSearchGroceryProductsByUPC200ResponseIngredientsInner =
-    encodeObject << encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerPairs
-
-
-encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerWithTag : ( String, String ) -> SearchGroceryProductsByUPC200ResponseIngredientsInner -> Json.Encode.Value
-encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerPairs : SearchGroceryProductsByUPC200ResponseIngredientsInner -> List EncodedField
-encodeSearchGroceryProductsByUPC200ResponseIngredientsInnerPairs model =
-    let
-        pairs =
-            [ maybeEncode "description" Json.Encode.string model.description
-            , encode "name" Json.Encode.string model.name
-            , maybeEncode "safety_level" Json.Encode.string model.safetyLevel
             ]
     in
     pairs
@@ -5129,8 +4629,53 @@ encodeSearchGroceryProductsByUPC200ResponseNutritionPairs : SearchGroceryProduct
 encodeSearchGroceryProductsByUPC200ResponseNutritionPairs model =
     let
         pairs =
-            [ encode "nutrients" (Json.Encode.list encodeParseIngredients200ResponseInnerNutritionNutrientsInner) model.nutrients
-            , encode "caloricBreakdown" encodeParseIngredients200ResponseInnerNutritionCaloricBreakdown model.caloricBreakdown
+            [ encode "nutrients" (Json.Encode.list encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInner) model.nutrients
+            , encode "caloricBreakdown" encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown model.caloricBreakdown
+            ]
+    in
+    pairs
+
+
+encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown : SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown -> Json.Encode.Value
+encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown =
+    encodeObject << encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPairs
+
+
+encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownWithTag : ( String, String ) -> SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown -> Json.Encode.Value
+encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownWithTag (tagField, tag) model =
+    encodeObject (encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPairs : SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown -> List EncodedField
+encodeSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPairs model =
+    let
+        pairs =
+            [ encode "percentProtein" Json.Encode.float model.percentProtein
+            , encode "percentFat" Json.Encode.float model.percentFat
+            , encode "percentCarbs" Json.Encode.float model.percentCarbs
+            ]
+    in
+    pairs
+
+
+encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInner : SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner -> Json.Encode.Value
+encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInner =
+    encodeObject << encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPairs
+
+
+encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInnerWithTag : ( String, String ) -> SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner -> Json.Encode.Value
+encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPairs : SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner -> List EncodedField
+encodeSearchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPairs model =
+    let
+        pairs =
+            [ encode "name" Json.Encode.string model.name
+            , encode "amount" Json.Encode.float model.amount
+            , encode "unit" Json.Encode.string model.unit
+            , encode "percentOfDailyNeeds" Json.Encode.float model.percentOfDailyNeeds
             ]
     in
     pairs
@@ -5172,36 +4717,11 @@ encodeSearchMenuItems200ResponsePairs : SearchMenuItems200Response -> List Encod
 encodeSearchMenuItems200ResponsePairs model =
     let
         pairs =
-            [ encode "menuItems" (Json.Encode.list encodeSearchMenuItems200ResponseMenuItemsInner) model.menuItems
+            [ encode "menuItems" (Json.Encode.list encodeMenuItem) model.menuItems
             , encode "totalMenuItems" Json.Encode.int model.totalMenuItems
             , encode "type" Json.Encode.string model.type_
             , encode "offset" Json.Encode.int model.offset
             , encode "number" Json.Encode.int model.number
-            ]
-    in
-    pairs
-
-
-encodeSearchMenuItems200ResponseMenuItemsInner : SearchMenuItems200ResponseMenuItemsInner -> Json.Encode.Value
-encodeSearchMenuItems200ResponseMenuItemsInner =
-    encodeObject << encodeSearchMenuItems200ResponseMenuItemsInnerPairs
-
-
-encodeSearchMenuItems200ResponseMenuItemsInnerWithTag : ( String, String ) -> SearchMenuItems200ResponseMenuItemsInner -> Json.Encode.Value
-encodeSearchMenuItems200ResponseMenuItemsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchMenuItems200ResponseMenuItemsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeSearchMenuItems200ResponseMenuItemsInnerPairs : SearchMenuItems200ResponseMenuItemsInner -> List EncodedField
-encodeSearchMenuItems200ResponseMenuItemsInnerPairs model =
-    let
-        pairs =
-            [ encode "id" Json.Encode.int model.id
-            , encode "title" Json.Encode.string model.title
-            , encode "restaurantChain" Json.Encode.string model.restaurantChain
-            , encode "image" Json.Encode.string model.image
-            , encode "imageType" Json.Encode.string model.imageType
-            , maybeEncode "servings" encodeSearchGroceryProductsByUPC200ResponseServings model.servings
             ]
     in
     pairs
@@ -5477,6 +4997,56 @@ encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalPairs mod
     pairs
 
 
+encodeSearchResult : SearchResult -> Json.Encode.Value
+encodeSearchResult =
+    encodeObject << encodeSearchResultPairs
+
+
+encodeSearchResultWithTag : ( String, String ) -> SearchResult -> Json.Encode.Value
+encodeSearchResultWithTag (tagField, tag) model =
+    encodeObject (encodeSearchResultPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchResultPairs : SearchResult -> List EncodedField
+encodeSearchResultPairs model =
+    let
+        pairs =
+            [ maybeEncode "dataPoints" (Json.Encode.list encodeSearchResultDataPointsInner) model.dataPoints
+            , maybeEncode "image" Json.Encode.string model.image
+            , maybeEncodeNullable "link" Json.Encode.string model.link
+            , encode "name" Json.Encode.string model.name
+            , maybeEncode "type" Json.Encode.string model.type_
+            , maybeEncode "kvtable" Json.Encode.string model.kvtable
+            , maybeEncodeNullable "content" Json.Encode.string model.content
+            , maybeEncode "id" Json.Encode.int model.id
+            , maybeEncode "relevance" Json.Encode.float model.relevance
+            ]
+    in
+    pairs
+
+
+encodeSearchResultDataPointsInner : SearchResultDataPointsInner -> Json.Encode.Value
+encodeSearchResultDataPointsInner =
+    encodeObject << encodeSearchResultDataPointsInnerPairs
+
+
+encodeSearchResultDataPointsInnerWithTag : ( String, String ) -> SearchResultDataPointsInner -> Json.Encode.Value
+encodeSearchResultDataPointsInnerWithTag (tagField, tag) model =
+    encodeObject (encodeSearchResultDataPointsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeSearchResultDataPointsInnerPairs : SearchResultDataPointsInner -> List EncodedField
+encodeSearchResultDataPointsInnerPairs model =
+    let
+        pairs =
+            [ encode "key" Json.Encode.string model.key
+            , encodeNullable "value" encodeAnyType model.value
+            , maybeEncode "show" Json.Encode.bool model.show
+            ]
+    in
+    pairs
+
+
 encodeSearchSiteContent200Response : SearchSiteContent200Response -> Json.Encode.Value
 encodeSearchSiteContent200Response =
     encodeObject << encodeSearchSiteContent200ResponsePairs
@@ -5491,54 +5061,10 @@ encodeSearchSiteContent200ResponsePairs : SearchSiteContent200Response -> List E
 encodeSearchSiteContent200ResponsePairs model =
     let
         pairs =
-            [ encode "Articles" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.articles
-            , encode "Grocery Products" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.groceryProducts
-            , encode "Menu Items" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.menuItems
-            , encode "Recipes" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInner) model.recipes
-            ]
-    in
-    pairs
-
-
-encodeSearchSiteContent200ResponseArticlesInner : SearchSiteContent200ResponseArticlesInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseArticlesInner =
-    encodeObject << encodeSearchSiteContent200ResponseArticlesInnerPairs
-
-
-encodeSearchSiteContent200ResponseArticlesInnerWithTag : ( String, String ) -> SearchSiteContent200ResponseArticlesInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseArticlesInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchSiteContent200ResponseArticlesInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeSearchSiteContent200ResponseArticlesInnerPairs : SearchSiteContent200ResponseArticlesInner -> List EncodedField
-encodeSearchSiteContent200ResponseArticlesInnerPairs model =
-    let
-        pairs =
-            [ maybeEncode "dataPoints" (Json.Encode.list encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner) model.dataPoints
-            , encode "image" Json.Encode.string model.image
-            , encode "link" Json.Encode.string model.link
-            , encode "name" Json.Encode.string model.name
-            ]
-    in
-    pairs
-
-
-encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner : SearchSiteContent200ResponseArticlesInnerDataPointsInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseArticlesInnerDataPointsInner =
-    encodeObject << encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs
-
-
-encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerWithTag : ( String, String ) -> SearchSiteContent200ResponseArticlesInnerDataPointsInner -> Json.Encode.Value
-encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs : SearchSiteContent200ResponseArticlesInnerDataPointsInner -> List EncodedField
-encodeSearchSiteContent200ResponseArticlesInnerDataPointsInnerPairs model =
-    let
-        pairs =
-            [ encode "key" Json.Encode.string model.key
-            , encode "value" Json.Encode.string model.value
+            [ encode "Articles" (Json.Encode.list encodeSearchResult) model.articles
+            , encode "Grocery Products" (Json.Encode.list encodeSearchResult) model.groceryProducts
+            , encode "Menu Items" (Json.Encode.list encodeSearchResult) model.menuItems
+            , encode "Recipes" (Json.Encode.list encodeSearchResult) model.recipes
             ]
     in
     pairs
@@ -5604,6 +5130,32 @@ encodeTalkToChatbot200ResponseMediaInnerPairs model =
             [ maybeEncode "title" Json.Encode.string model.title
             , maybeEncode "image" Json.Encode.string model.image
             , maybeEncode "link" Json.Encode.string model.link
+            ]
+    in
+    pairs
+
+
+encodeTasteInformation : TasteInformation -> Json.Encode.Value
+encodeTasteInformation =
+    encodeObject << encodeTasteInformationPairs
+
+
+encodeTasteInformationWithTag : ( String, String ) -> TasteInformation -> Json.Encode.Value
+encodeTasteInformationWithTag (tagField, tag) model =
+    encodeObject (encodeTasteInformationPairs model ++ [ encode tagField Json.Encode.string tag ])
+
+
+encodeTasteInformationPairs : TasteInformation -> List EncodedField
+encodeTasteInformationPairs model =
+    let
+        pairs =
+            [ encode "sweetness" Json.Encode.float model.sweetness
+            , encode "saltiness" Json.Encode.float model.saltiness
+            , encode "sourness" Json.Encode.float model.sourness
+            , encode "bitterness" Json.Encode.float model.bitterness
+            , encode "savoriness" Json.Encode.float model.savoriness
+            , encode "fattiness" Json.Encode.float model.fattiness
+            , encode "spiciness" Json.Encode.float model.spiciness
             ]
     in
     pairs
@@ -5704,7 +5256,7 @@ analyzeRecipeInstructions200ResponseDecoder =
 analyzeRecipeInstructions200ResponseIngredientsInnerDecoder : Json.Decode.Decoder AnalyzeRecipeInstructions200ResponseIngredientsInner
 analyzeRecipeInstructions200ResponseIngredientsInnerDecoder =
     Json.Decode.succeed AnalyzeRecipeInstructions200ResponseIngredientsInner
-        |> decode "id" Json.Decode.float 
+        |> decode "id" Json.Decode.int 
         |> decode "name" Json.Decode.string 
 
 
@@ -5727,7 +5279,7 @@ analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerDecoder =
 analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder : Json.Decode.Decoder AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
 analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder =
     Json.Decode.succeed AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-        |> decode "id" Json.Decode.float 
+        |> decode "id" Json.Decode.int 
         |> decode "name" Json.Decode.string 
         |> decode "localizedName" Json.Decode.string 
         |> decode "image" Json.Decode.string 
@@ -5750,12 +5302,6 @@ autocompleteIngredientSearch200ResponseInnerDecoder =
         |> maybeDecode "id" Json.Decode.int Nothing
         |> maybeDecode "aisle" Json.Decode.string Nothing
         |> maybeDecode "possibleUnits" (Json.Decode.list Json.Decode.string) Nothing
-
-
-autocompleteMenuItemSearch200ResponseDecoder : Json.Decode.Decoder AutocompleteMenuItemSearch200Response
-autocompleteMenuItemSearch200ResponseDecoder =
-    Json.Decode.succeed AutocompleteMenuItemSearch200Response
-        |> decode "results" (Json.Decode.list autocompleteProductSearch200ResponseResultsInnerDecoder) 
 
 
 autocompleteProductSearch200ResponseDecoder : Json.Decode.Decoder AutocompleteProductSearch200Response
@@ -5821,6 +5367,15 @@ classifyGroceryProductRequestDecoder =
         |> decode "title" Json.Decode.string 
         |> decode "upc" Json.Decode.string 
         |> decode "plu_code" Json.Decode.string 
+
+
+comparableProductDecoder : Json.Decode.Decoder ComparableProduct
+comparableProductDecoder =
+    Json.Decode.succeed ComparableProduct
+        |> decode "difference" Json.Decode.float 
+        |> decode "id" Json.Decode.int 
+        |> decode "image" Json.Decode.string 
+        |> decode "title" Json.Decode.string 
 
 
 computeGlycemicLoad200ResponseDecoder : Json.Decode.Decoder ComputeGlycemicLoad200Response
@@ -5914,55 +5469,31 @@ generateMealPlan200ResponseNutrientsDecoder =
         |> decode "protein" Json.Decode.float 
 
 
-generateShoppingList200ResponseDecoder : Json.Decode.Decoder GenerateShoppingList200Response
-generateShoppingList200ResponseDecoder =
-    Json.Decode.succeed GenerateShoppingList200Response
-        |> decode "aisles" (Json.Decode.list getShoppingList200ResponseAislesInnerDecoder) 
-        |> decode "cost" Json.Decode.float 
-        |> decode "startDate" Json.Decode.float 
-        |> decode "endDate" Json.Decode.float 
-
-
 getARandomFoodJoke200ResponseDecoder : Json.Decode.Decoder GetARandomFoodJoke200Response
 getARandomFoodJoke200ResponseDecoder =
     Json.Decode.succeed GetARandomFoodJoke200Response
         |> decode "text" Json.Decode.string 
 
 
-getAnalyzedRecipeInstructions200ResponseDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200Response
-getAnalyzedRecipeInstructions200ResponseDecoder =
-    Json.Decode.succeed GetAnalyzedRecipeInstructions200Response
-        |> decode "parsedInstructions" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerDecoder) 
-        |> decode "ingredients" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseIngredientsInnerDecoder) 
-        |> decode "equipment" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseIngredientsInnerDecoder) 
-
-
-getAnalyzedRecipeInstructions200ResponseIngredientsInnerDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-getAnalyzedRecipeInstructions200ResponseIngredientsInnerDecoder =
-    Json.Decode.succeed GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-        |> decode "id" Json.Decode.int 
+getAnalyzedRecipeInstructions200ResponseInnerDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200ResponseInner
+getAnalyzedRecipeInstructions200ResponseInnerDecoder =
+    Json.Decode.succeed GetAnalyzedRecipeInstructions200ResponseInner
         |> decode "name" Json.Decode.string 
+        |> maybeDecode "steps" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseInnerStepsInnerDecoder) Nothing
 
 
-getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerDecoder =
-    Json.Decode.succeed GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-        |> decode "name" Json.Decode.string 
-        |> maybeDecode "steps" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerDecoder) Nothing
-
-
-getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerDecoder =
-    Json.Decode.succeed GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+getAnalyzedRecipeInstructions200ResponseInnerStepsInnerDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+getAnalyzedRecipeInstructions200ResponseInnerStepsInnerDecoder =
+    Json.Decode.succeed GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
         |> decode "number" Json.Decode.float 
         |> decode "step" Json.Decode.string 
-        |> maybeDecode "ingredients" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder) Nothing
-        |> maybeDecode "equipment" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder) Nothing
+        |> maybeDecode "ingredients" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerDecoder) Nothing
+        |> maybeDecode "equipment" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerDecoder) Nothing
 
 
-getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerDecoder =
-    Json.Decode.succeed GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerDecoder : Json.Decode.Decoder GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerDecoder =
+    Json.Decode.succeed GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
         |> decode "id" Json.Decode.int 
         |> decode "name" Json.Decode.string 
         |> decode "localizedName" Json.Decode.string 
@@ -5978,21 +5509,12 @@ getComparableProducts200ResponseDecoder =
 getComparableProducts200ResponseComparableProductsDecoder : Json.Decode.Decoder GetComparableProducts200ResponseComparableProducts
 getComparableProducts200ResponseComparableProductsDecoder =
     Json.Decode.succeed GetComparableProducts200ResponseComparableProducts
-        |> decode "calories" (Json.Decode.list objectDecoder) 
-        |> decode "likes" (Json.Decode.list objectDecoder) 
-        |> decode "price" (Json.Decode.list objectDecoder) 
-        |> decode "protein" (Json.Decode.list getComparableProducts200ResponseComparableProductsProteinInnerDecoder) 
-        |> decode "spoonacularScore" (Json.Decode.list getComparableProducts200ResponseComparableProductsProteinInnerDecoder) 
-        |> decode "sugar" (Json.Decode.list objectDecoder) 
-
-
-getComparableProducts200ResponseComparableProductsProteinInnerDecoder : Json.Decode.Decoder GetComparableProducts200ResponseComparableProductsProteinInner
-getComparableProducts200ResponseComparableProductsProteinInnerDecoder =
-    Json.Decode.succeed GetComparableProducts200ResponseComparableProductsProteinInner
-        |> decode "difference" Json.Decode.float 
-        |> decode "id" Json.Decode.int 
-        |> decode "image" Json.Decode.string 
-        |> decode "title" Json.Decode.string 
+        |> decode "calories" (Json.Decode.list comparableProductDecoder) 
+        |> decode "likes" (Json.Decode.list comparableProductDecoder) 
+        |> decode "price" (Json.Decode.list comparableProductDecoder) 
+        |> decode "protein" (Json.Decode.list comparableProductDecoder) 
+        |> decode "spoonacular_score" (Json.Decode.list comparableProductDecoder) 
+        |> decode "sugar" (Json.Decode.list comparableProductDecoder) 
 
 
 getConversationSuggests200ResponseDecoder : Json.Decode.Decoder GetConversationSuggests200Response
@@ -6019,38 +5541,6 @@ getDishPairingForWine200ResponseDecoder =
     Json.Decode.succeed GetDishPairingForWine200Response
         |> decode "pairings" (Json.Decode.list Json.Decode.string) 
         |> decode "text" Json.Decode.string 
-
-
-getIngredientInformation200ResponseDecoder : Json.Decode.Decoder GetIngredientInformation200Response
-getIngredientInformation200ResponseDecoder =
-    Json.Decode.succeed GetIngredientInformation200Response
-        |> decode "id" Json.Decode.int 
-        |> decode "original" Json.Decode.string 
-        |> decode "originalName" Json.Decode.string 
-        |> decode "name" Json.Decode.string 
-        |> decode "nameClean" Json.Decode.string 
-        |> decode "amount" Json.Decode.float 
-        |> decode "unit" Json.Decode.string 
-        |> decode "unitShort" Json.Decode.string 
-        |> decode "unitLong" Json.Decode.string 
-        |> decode "possibleUnits" (Json.Decode.list Json.Decode.string) 
-        |> decode "estimatedCost" parseIngredients200ResponseInnerEstimatedCostDecoder 
-        |> decode "consistency" Json.Decode.string 
-        |> decode "shoppingListUnits" (Json.Decode.list Json.Decode.string) 
-        |> decode "aisle" Json.Decode.string 
-        |> decode "image" Json.Decode.string 
-        |> decode "meta" (Json.Decode.list objectDecoder) 
-        |> decode "nutrition" getIngredientInformation200ResponseNutritionDecoder 
-        |> decode "categoryPath" (Json.Decode.list Json.Decode.string) 
-
-
-getIngredientInformation200ResponseNutritionDecoder : Json.Decode.Decoder GetIngredientInformation200ResponseNutrition
-getIngredientInformation200ResponseNutritionDecoder =
-    Json.Decode.succeed GetIngredientInformation200ResponseNutrition
-        |> decode "nutrients" (Json.Decode.list parseIngredients200ResponseInnerNutritionNutrientsInnerDecoder) 
-        |> decode "properties" (Json.Decode.list parseIngredients200ResponseInnerNutritionPropertiesInnerDecoder) 
-        |> decode "caloricBreakdown" parseIngredients200ResponseInnerNutritionCaloricBreakdownDecoder 
-        |> decode "weightPerServing" parseIngredients200ResponseInnerNutritionWeightPerServingDecoder 
 
 
 getIngredientSubstitutes200ResponseDecoder : Json.Decode.Decoder GetIngredientSubstitutes200Response
@@ -6101,7 +5591,14 @@ getMealPlanTemplate200ResponseDaysInnerItemsInnerValueDecoder =
 getMealPlanTemplates200ResponseDecoder : Json.Decode.Decoder GetMealPlanTemplates200Response
 getMealPlanTemplates200ResponseDecoder =
     Json.Decode.succeed GetMealPlanTemplates200Response
-        |> decode "templates" (Json.Decode.list getAnalyzedRecipeInstructions200ResponseIngredientsInnerDecoder) 
+        |> decode "templates" (Json.Decode.list getMealPlanTemplates200ResponseTemplatesInnerDecoder) 
+
+
+getMealPlanTemplates200ResponseTemplatesInnerDecoder : Json.Decode.Decoder GetMealPlanTemplates200ResponseTemplatesInner
+getMealPlanTemplates200ResponseTemplatesInnerDecoder =
+    Json.Decode.succeed GetMealPlanTemplates200ResponseTemplatesInner
+        |> decode "id" Json.Decode.int 
+        |> decode "name" Json.Decode.string 
 
 
 getMealPlanWeek200ResponseDecoder : Json.Decode.Decoder GetMealPlanWeek200Response
@@ -6156,104 +5653,10 @@ getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerDecoder =
         |> decode "percentDailyNeeds" Json.Decode.float 
 
 
-getMenuItemInformation200ResponseDecoder : Json.Decode.Decoder GetMenuItemInformation200Response
-getMenuItemInformation200ResponseDecoder =
-    Json.Decode.succeed GetMenuItemInformation200Response
-        |> decode "id" Json.Decode.int 
-        |> decode "title" Json.Decode.string 
-        |> decode "restaurantChain" Json.Decode.string 
-        |> decode "nutrition" searchGroceryProductsByUPC200ResponseNutritionDecoder 
-        |> decode "badges" (Json.Decode.list Json.Decode.string) 
-        |> decode "breadcrumbs" (Json.Decode.list Json.Decode.string) 
-        |> maybeDecode "generatedText" Json.Decode.string Nothing
-        |> decode "imageType" Json.Decode.string 
-        |> decode "likes" Json.Decode.float 
-        |> decode "servings" searchGroceryProductsByUPC200ResponseServingsDecoder 
-        |> maybeDecode "price" Json.Decode.float Nothing
-        |> maybeDecode "spoonacularScore" Json.Decode.float Nothing
-
-
-getProductInformation200ResponseDecoder : Json.Decode.Decoder GetProductInformation200Response
-getProductInformation200ResponseDecoder =
-    Json.Decode.succeed GetProductInformation200Response
-        |> decode "id" Json.Decode.int 
-        |> decode "title" Json.Decode.string 
-        |> decode "breadcrumbs" (Json.Decode.list Json.Decode.string) 
-        |> decode "imageType" Json.Decode.string 
-        |> decode "badges" (Json.Decode.list Json.Decode.string) 
-        |> decode "importantBadges" (Json.Decode.list Json.Decode.string) 
-        |> decode "ingredientCount" Json.Decode.int 
-        |> maybeDecode "generatedText" Json.Decode.string Nothing
-        |> decode "ingredientList" Json.Decode.string 
-        |> decode "ingredients" (Json.Decode.list getProductInformation200ResponseIngredientsInnerDecoder) 
-        |> decode "likes" Json.Decode.float 
-        |> decode "aisle" Json.Decode.string 
-        |> decode "nutrition" searchGroceryProductsByUPC200ResponseNutritionDecoder 
-        |> decode "price" Json.Decode.float 
-        |> decode "servings" searchGroceryProductsByUPC200ResponseServingsDecoder 
-        |> decode "spoonacularScore" Json.Decode.float 
-
-
-getProductInformation200ResponseIngredientsInnerDecoder : Json.Decode.Decoder GetProductInformation200ResponseIngredientsInner
-getProductInformation200ResponseIngredientsInnerDecoder =
-    Json.Decode.succeed GetProductInformation200ResponseIngredientsInner
-        |> maybeDecode "description" Json.Decode.string Nothing
-        |> decode "name" Json.Decode.string 
-        |> maybeDecode "safety_level" Json.Decode.string Nothing
-
-
-getRandomFoodTrivia200ResponseDecoder : Json.Decode.Decoder GetRandomFoodTrivia200Response
-getRandomFoodTrivia200ResponseDecoder =
-    Json.Decode.succeed GetRandomFoodTrivia200Response
-        |> decode "text" Json.Decode.string 
-
-
 getRandomRecipes200ResponseDecoder : Json.Decode.Decoder GetRandomRecipes200Response
 getRandomRecipes200ResponseDecoder =
     Json.Decode.succeed GetRandomRecipes200Response
-        |> decode "recipes" (Json.Decode.list getRandomRecipes200ResponseRecipesInnerDecoder) 
-
-
-getRandomRecipes200ResponseRecipesInnerDecoder : Json.Decode.Decoder GetRandomRecipes200ResponseRecipesInner
-getRandomRecipes200ResponseRecipesInnerDecoder =
-    Json.Decode.succeed GetRandomRecipes200ResponseRecipesInner
-        |> decode "id" Json.Decode.int 
-        |> decode "title" Json.Decode.string 
-        |> decode "image" Json.Decode.string 
-        |> decode "imageType" Json.Decode.string 
-        |> decode "servings" Json.Decode.float 
-        |> decode "readyInMinutes" Json.Decode.int 
-        |> decode "license" Json.Decode.string 
-        |> decode "sourceName" Json.Decode.string 
-        |> decode "sourceUrl" Json.Decode.string 
-        |> decode "spoonacularSourceUrl" Json.Decode.string 
-        |> decode "aggregateLikes" Json.Decode.float 
-        |> decode "healthScore" Json.Decode.float 
-        |> decode "spoonacularScore" Json.Decode.float 
-        |> decode "pricePerServing" Json.Decode.float 
-        |> maybeDecode "analyzedInstructions" (Json.Decode.list objectDecoder) Nothing
-        |> decode "cheap" Json.Decode.bool 
-        |> decode "creditsText" Json.Decode.string 
-        |> maybeDecode "cuisines" (Json.Decode.list Json.Decode.string) Nothing
-        |> decode "dairyFree" Json.Decode.bool 
-        |> maybeDecode "diets" (Json.Decode.list Json.Decode.string) Nothing
-        |> decode "gaps" Json.Decode.string 
-        |> decode "glutenFree" Json.Decode.bool 
-        |> decode "instructions" Json.Decode.string 
-        |> decode "ketogenic" Json.Decode.bool 
-        |> decode "lowFodmap" Json.Decode.bool 
-        |> maybeDecode "occasions" (Json.Decode.list Json.Decode.string) Nothing
-        |> decode "sustainable" Json.Decode.bool 
-        |> decode "vegan" Json.Decode.bool 
-        |> decode "vegetarian" Json.Decode.bool 
-        |> decode "veryHealthy" Json.Decode.bool 
-        |> decode "veryPopular" Json.Decode.bool 
-        |> decode "whole30" Json.Decode.bool 
-        |> decode "weightWatcherSmartPoints" Json.Decode.float 
-        |> maybeDecode "dishTypes" (Json.Decode.list Json.Decode.string) Nothing
-        |> maybeDecode "extendedIngredients" (Json.Decode.list getRecipeInformation200ResponseExtendedIngredientsInnerDecoder) Nothing
-        |> decode "summary" Json.Decode.string 
-        |> maybeDecode "winePairing" getRecipeInformation200ResponseWinePairingDecoder Nothing
+        |> decode "recipes" (Json.Decode.list recipeInformationDecoder) 
 
 
 getRecipeEquipmentByID200ResponseDecoder : Json.Decode.Decoder GetRecipeEquipmentByID200Response
@@ -6267,143 +5670,6 @@ getRecipeEquipmentByID200ResponseEquipmentInnerDecoder =
     Json.Decode.succeed GetRecipeEquipmentByID200ResponseEquipmentInner
         |> decode "image" Json.Decode.string 
         |> decode "name" Json.Decode.string 
-
-
-getRecipeInformation200ResponseDecoder : Json.Decode.Decoder GetRecipeInformation200Response
-getRecipeInformation200ResponseDecoder =
-    Json.Decode.succeed GetRecipeInformation200Response
-        |> decode "id" Json.Decode.int 
-        |> decode "title" Json.Decode.string 
-        |> decode "image" Json.Decode.string 
-        |> decode "imageType" Json.Decode.string 
-        |> decode "servings" Json.Decode.float 
-        |> decode "readyInMinutes" Json.Decode.int 
-        |> decode "license" Json.Decode.string 
-        |> decode "sourceName" Json.Decode.string 
-        |> decode "sourceUrl" Json.Decode.string 
-        |> decode "spoonacularSourceUrl" Json.Decode.string 
-        |> decode "aggregateLikes" Json.Decode.int 
-        |> decode "healthScore" Json.Decode.float 
-        |> decode "spoonacularScore" Json.Decode.float 
-        |> decode "pricePerServing" Json.Decode.float 
-        |> decode "analyzedInstructions" (Json.Decode.list objectDecoder) 
-        |> decode "cheap" Json.Decode.bool 
-        |> decode "creditsText" Json.Decode.string 
-        |> decode "cuisines" (Json.Decode.list Json.Decode.string) 
-        |> decode "dairyFree" Json.Decode.bool 
-        |> decode "diets" (Json.Decode.list Json.Decode.string) 
-        |> decode "gaps" Json.Decode.string 
-        |> decode "glutenFree" Json.Decode.bool 
-        |> decode "instructions" Json.Decode.string 
-        |> decode "ketogenic" Json.Decode.bool 
-        |> decode "lowFodmap" Json.Decode.bool 
-        |> decode "occasions" (Json.Decode.list Json.Decode.string) 
-        |> decode "sustainable" Json.Decode.bool 
-        |> decode "vegan" Json.Decode.bool 
-        |> decode "vegetarian" Json.Decode.bool 
-        |> decode "veryHealthy" Json.Decode.bool 
-        |> decode "veryPopular" Json.Decode.bool 
-        |> decode "whole30" Json.Decode.bool 
-        |> decode "weightWatcherSmartPoints" Json.Decode.float 
-        |> decode "dishTypes" (Json.Decode.list Json.Decode.string) 
-        |> decode "extendedIngredients" (Json.Decode.list getRecipeInformation200ResponseExtendedIngredientsInnerDecoder) 
-        |> decode "summary" Json.Decode.string 
-        |> decode "winePairing" getRecipeInformation200ResponseWinePairingDecoder 
-
-
-getRecipeInformation200ResponseExtendedIngredientsInnerDecoder : Json.Decode.Decoder GetRecipeInformation200ResponseExtendedIngredientsInner
-getRecipeInformation200ResponseExtendedIngredientsInnerDecoder =
-    Json.Decode.succeed GetRecipeInformation200ResponseExtendedIngredientsInner
-        |> decode "aisle" Json.Decode.string 
-        |> decode "amount" Json.Decode.float 
-        |> decode "consistency" Json.Decode.string 
-        |> decode "id" Json.Decode.int 
-        |> decode "image" Json.Decode.string 
-        |> maybeDecode "measures" getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresDecoder Nothing
-        |> maybeDecode "meta" (Json.Decode.list Json.Decode.string) Nothing
-        |> decode "name" Json.Decode.string 
-        |> decode "original" Json.Decode.string 
-        |> decode "originalName" Json.Decode.string 
-        |> decode "unit" Json.Decode.string 
-
-
-getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresDecoder : Json.Decode.Decoder GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresDecoder =
-    Json.Decode.succeed GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-        |> decode "metric" getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricDecoder 
-        |> decode "us" getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricDecoder 
-
-
-getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricDecoder : Json.Decode.Decoder GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricDecoder =
-    Json.Decode.succeed GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-        |> decode "amount" Json.Decode.float 
-        |> decode "unitLong" Json.Decode.string 
-        |> decode "unitShort" Json.Decode.string 
-
-
-getRecipeInformation200ResponseWinePairingDecoder : Json.Decode.Decoder GetRecipeInformation200ResponseWinePairing
-getRecipeInformation200ResponseWinePairingDecoder =
-    Json.Decode.succeed GetRecipeInformation200ResponseWinePairing
-        |> decode "pairedWines" (Json.Decode.list Json.Decode.string) 
-        |> decode "pairingText" Json.Decode.string 
-        |> decode "productMatches" (Json.Decode.list getRecipeInformation200ResponseWinePairingProductMatchesInnerDecoder) 
-
-
-getRecipeInformation200ResponseWinePairingProductMatchesInnerDecoder : Json.Decode.Decoder GetRecipeInformation200ResponseWinePairingProductMatchesInner
-getRecipeInformation200ResponseWinePairingProductMatchesInnerDecoder =
-    Json.Decode.succeed GetRecipeInformation200ResponseWinePairingProductMatchesInner
-        |> decode "id" Json.Decode.int 
-        |> decode "title" Json.Decode.string 
-        |> decode "description" Json.Decode.string 
-        |> decode "price" Json.Decode.string 
-        |> decode "imageUrl" Json.Decode.string 
-        |> decode "averageRating" Json.Decode.float 
-        |> decode "ratingCount" Json.Decode.int 
-        |> decode "score" Json.Decode.float 
-        |> decode "link" Json.Decode.string 
-
-
-getRecipeInformationBulk200ResponseInnerDecoder : Json.Decode.Decoder GetRecipeInformationBulk200ResponseInner
-getRecipeInformationBulk200ResponseInnerDecoder =
-    Json.Decode.succeed GetRecipeInformationBulk200ResponseInner
-        |> decode "id" Json.Decode.int 
-        |> decode "title" Json.Decode.string 
-        |> decode "image" Json.Decode.string 
-        |> decode "imageType" Json.Decode.string 
-        |> decode "servings" Json.Decode.float 
-        |> decode "readyInMinutes" Json.Decode.int 
-        |> decode "license" Json.Decode.string 
-        |> decode "sourceName" Json.Decode.string 
-        |> decode "sourceUrl" Json.Decode.string 
-        |> decode "spoonacularSourceUrl" Json.Decode.string 
-        |> decode "aggregateLikes" Json.Decode.int 
-        |> decode "healthScore" Json.Decode.float 
-        |> decode "spoonacularScore" Json.Decode.float 
-        |> decode "pricePerServing" Json.Decode.float 
-        |> decode "analyzedInstructions" (Json.Decode.list Json.Decode.string) 
-        |> decode "cheap" Json.Decode.bool 
-        |> decode "creditsText" Json.Decode.string 
-        |> decode "cuisines" (Json.Decode.list Json.Decode.string) 
-        |> decode "dairyFree" Json.Decode.bool 
-        |> decode "diets" (Json.Decode.list Json.Decode.string) 
-        |> decode "gaps" Json.Decode.string 
-        |> decode "glutenFree" Json.Decode.bool 
-        |> decode "instructions" Json.Decode.string 
-        |> decode "ketogenic" Json.Decode.bool 
-        |> decode "lowFodmap" Json.Decode.bool 
-        |> decode "occasions" (Json.Decode.list Json.Decode.string) 
-        |> decode "sustainable" Json.Decode.bool 
-        |> decode "vegan" Json.Decode.bool 
-        |> decode "vegetarian" Json.Decode.bool 
-        |> decode "veryHealthy" Json.Decode.bool 
-        |> decode "veryPopular" Json.Decode.bool 
-        |> decode "whole30" Json.Decode.bool 
-        |> decode "weightWatcherSmartPoints" Json.Decode.float 
-        |> decode "dishTypes" (Json.Decode.list Json.Decode.string) 
-        |> decode "extendedIngredients" (Json.Decode.list getRecipeInformation200ResponseExtendedIngredientsInnerDecoder) 
-        |> decode "summary" Json.Decode.string 
-        |> decode "winePairing" getRecipeInformation200ResponseWinePairingDecoder 
 
 
 getRecipeIngredientsByID200ResponseDecoder : Json.Decode.Decoder GetRecipeIngredientsByID200Response
@@ -6434,7 +5700,7 @@ getRecipeNutritionWidgetByID200ResponseDecoder =
 getRecipeNutritionWidgetByID200ResponseBadInnerDecoder : Json.Decode.Decoder GetRecipeNutritionWidgetByID200ResponseBadInner
 getRecipeNutritionWidgetByID200ResponseBadInnerDecoder =
     Json.Decode.succeed GetRecipeNutritionWidgetByID200ResponseBadInner
-        |> decode "name" Json.Decode.string 
+        |> decode "title" Json.Decode.string 
         |> decode "amount" Json.Decode.string 
         |> decode "indented" Json.Decode.bool 
         |> decode "percentOfDailyNeeds" Json.Decode.float 
@@ -6446,7 +5712,7 @@ getRecipeNutritionWidgetByID200ResponseGoodInnerDecoder =
         |> decode "amount" Json.Decode.string 
         |> decode "indented" Json.Decode.bool 
         |> decode "percentOfDailyNeeds" Json.Decode.float 
-        |> decode "name" Json.Decode.string 
+        |> decode "title" Json.Decode.string 
 
 
 getRecipePriceBreakdownByID200ResponseDecoder : Json.Decode.Decoder GetRecipePriceBreakdownByID200Response
@@ -6480,18 +5746,6 @@ getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetricDecoder =
         |> decode "value" Json.Decode.float 
 
 
-getRecipeTasteByID200ResponseDecoder : Json.Decode.Decoder GetRecipeTasteByID200Response
-getRecipeTasteByID200ResponseDecoder =
-    Json.Decode.succeed GetRecipeTasteByID200Response
-        |> decode "sweetness" Json.Decode.float 
-        |> decode "saltiness" Json.Decode.float 
-        |> decode "sourness" Json.Decode.float 
-        |> decode "bitterness" Json.Decode.float 
-        |> decode "savoriness" Json.Decode.float 
-        |> decode "fattiness" Json.Decode.float 
-        |> decode "spiciness" Json.Decode.float 
-
-
 getShoppingList200ResponseDecoder : Json.Decode.Decoder GetShoppingList200Response
 getShoppingList200ResponseDecoder =
     Json.Decode.succeed GetShoppingList200Response
@@ -6523,9 +5777,16 @@ getShoppingList200ResponseAislesInnerItemsInnerDecoder =
 getShoppingList200ResponseAislesInnerItemsInnerMeasuresDecoder : Json.Decode.Decoder GetShoppingList200ResponseAislesInnerItemsInnerMeasures
 getShoppingList200ResponseAislesInnerItemsInnerMeasuresDecoder =
     Json.Decode.succeed GetShoppingList200ResponseAislesInnerItemsInnerMeasures
-        |> decode "original" parseIngredients200ResponseInnerNutritionWeightPerServingDecoder 
-        |> decode "metric" parseIngredients200ResponseInnerNutritionWeightPerServingDecoder 
-        |> decode "us" parseIngredients200ResponseInnerNutritionWeightPerServingDecoder 
+        |> decode "original" getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalDecoder 
+        |> decode "metric" getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalDecoder 
+        |> decode "us" getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalDecoder 
+
+
+getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalDecoder : Json.Decode.Decoder GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalDecoder =
+    Json.Decode.succeed GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+        |> decode "amount" Json.Decode.float 
+        |> decode "unit" Json.Decode.string 
 
 
 getSimilarRecipes200ResponseInnerDecoder : Json.Decode.Decoder GetSimilarRecipes200ResponseInner
@@ -6671,6 +5932,60 @@ imageClassificationByURL200ResponseDecoder =
         |> decode "probability" Json.Decode.float 
 
 
+ingredientBasicsDecoder : Json.Decode.Decoder IngredientBasics
+ingredientBasicsDecoder =
+    Json.Decode.succeed IngredientBasics
+        |> decodeNullable "description" Json.Decode.string 
+        |> decode "name" Json.Decode.string 
+        |> decodeNullable "safety_level" Json.Decode.string 
+
+
+ingredientInformationDecoder : Json.Decode.Decoder IngredientInformation
+ingredientInformationDecoder =
+    Json.Decode.succeed IngredientInformation
+        |> decode "id" Json.Decode.int 
+        |> decode "original" Json.Decode.string 
+        |> decode "originalName" Json.Decode.string 
+        |> decode "name" Json.Decode.string 
+        |> decode "amount" Json.Decode.float 
+        |> decode "unit" Json.Decode.string 
+        |> decode "unitShort" Json.Decode.string 
+        |> decode "unitLong" Json.Decode.string 
+        |> decode "possibleUnits" (Json.Decode.list Json.Decode.string) 
+        |> decode "estimatedCost" ingredientInformationEstimatedCostDecoder 
+        |> decode "consistency" Json.Decode.string 
+        |> maybeDecode "shoppingListUnits" (Json.Decode.list Json.Decode.string) Nothing
+        |> decode "aisle" Json.Decode.string 
+        |> decode "image" Json.Decode.string 
+        |> decode "meta" (Json.Decode.list Json.Decode.string) 
+        |> maybeDecode "nutrition" ingredientInformationNutritionDecoder Nothing
+        |> maybeDecode "categoryPath" (Json.Decode.list Json.Decode.string) Nothing
+
+
+ingredientInformationEstimatedCostDecoder : Json.Decode.Decoder IngredientInformationEstimatedCost
+ingredientInformationEstimatedCostDecoder =
+    Json.Decode.succeed IngredientInformationEstimatedCost
+        |> decode "value" Json.Decode.float 
+        |> decode "unit" Json.Decode.string 
+
+
+ingredientInformationNutritionDecoder : Json.Decode.Decoder IngredientInformationNutrition
+ingredientInformationNutritionDecoder =
+    Json.Decode.succeed IngredientInformationNutrition
+        |> decode "nutrients" (Json.Decode.list searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerDecoder) 
+        |> decode "properties" (Json.Decode.list ingredientInformationNutritionPropertiesInnerDecoder) 
+        |> decode "caloricBreakdown" searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownDecoder 
+        |> decode "weightPerServing" getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalDecoder 
+
+
+ingredientInformationNutritionPropertiesInnerDecoder : Json.Decode.Decoder IngredientInformationNutritionPropertiesInner
+ingredientInformationNutritionPropertiesInnerDecoder =
+    Json.Decode.succeed IngredientInformationNutritionPropertiesInner
+        |> decode "name" Json.Decode.string 
+        |> decode "amount" Json.Decode.float 
+        |> decode "unit" Json.Decode.string 
+
+
 ingredientSearch200ResponseDecoder : Json.Decode.Decoder IngredientSearch200Response
 ingredientSearch200ResponseDecoder =
     Json.Decode.succeed IngredientSearch200Response
@@ -6713,74 +6028,62 @@ mapIngredientsToGroceryProductsRequestDecoder =
         |> decode "servings" Json.Decode.float 
 
 
-parseIngredients200ResponseInnerDecoder : Json.Decode.Decoder ParseIngredients200ResponseInner
-parseIngredients200ResponseInnerDecoder =
-    Json.Decode.succeed ParseIngredients200ResponseInner
+menuItemDecoder : Json.Decode.Decoder MenuItem
+menuItemDecoder =
+    Json.Decode.succeed MenuItem
         |> decode "id" Json.Decode.int 
-        |> decode "original" Json.Decode.string 
-        |> decode "originalName" Json.Decode.string 
-        |> decode "name" Json.Decode.string 
-        |> decode "nameClean" Json.Decode.string 
-        |> decode "amount" Json.Decode.float 
-        |> decode "unit" Json.Decode.string 
-        |> decode "unitShort" Json.Decode.string 
-        |> decode "unitLong" Json.Decode.string 
-        |> decode "possibleUnits" (Json.Decode.list Json.Decode.string) 
-        |> decode "estimatedCost" parseIngredients200ResponseInnerEstimatedCostDecoder 
-        |> decode "consistency" Json.Decode.string 
-        |> decode "aisle" Json.Decode.string 
-        |> decode "image" Json.Decode.string 
-        |> decode "meta" (Json.Decode.list Json.Decode.string) 
-        |> decode "nutrition" parseIngredients200ResponseInnerNutritionDecoder 
+        |> decode "title" Json.Decode.string 
+        |> decode "restaurantChain" Json.Decode.string 
+        |> maybeDecode "nutrition" searchGroceryProductsByUPC200ResponseNutritionDecoder Nothing
+        |> maybeDecode "badges" (Json.Decode.list Json.Decode.string) Nothing
+        |> maybeDecode "breadcrumbs" (Json.Decode.list Json.Decode.string) Nothing
+        |> maybeDecodeNullable "generatedText" Json.Decode.string Nothing
+        |> maybeDecode "imageType" Json.Decode.string Nothing
+        |> maybeDecode "likes" Json.Decode.int Nothing
+        |> maybeDecode "servings" menuItemServingsDecoder Nothing
+        |> decodeNullable "price" Json.Decode.float 
+        |> decodeNullable "spoonacularScore" Json.Decode.float 
 
 
-parseIngredients200ResponseInnerEstimatedCostDecoder : Json.Decode.Decoder ParseIngredients200ResponseInnerEstimatedCost
-parseIngredients200ResponseInnerEstimatedCostDecoder =
-    Json.Decode.succeed ParseIngredients200ResponseInnerEstimatedCost
-        |> decode "value" Json.Decode.float 
-        |> decode "unit" Json.Decode.string 
+menuItemServingsDecoder : Json.Decode.Decoder MenuItemServings
+menuItemServingsDecoder =
+    Json.Decode.succeed MenuItemServings
+        |> decode "number" Json.Decode.float 
+        |> decodeNullable "size" Json.Decode.float 
+        |> decodeNullable "unit" Json.Decode.string 
 
 
-parseIngredients200ResponseInnerNutritionDecoder : Json.Decode.Decoder ParseIngredients200ResponseInnerNutrition
-parseIngredients200ResponseInnerNutritionDecoder =
-    Json.Decode.succeed ParseIngredients200ResponseInnerNutrition
-        |> decode "nutrients" (Json.Decode.list parseIngredients200ResponseInnerNutritionNutrientsInnerDecoder) 
-        |> decode "properties" (Json.Decode.list parseIngredients200ResponseInnerNutritionPropertiesInnerDecoder) 
-        |> decode "flavonoids" (Json.Decode.list parseIngredients200ResponseInnerNutritionPropertiesInnerDecoder) 
-        |> decode "caloricBreakdown" parseIngredients200ResponseInnerNutritionCaloricBreakdownDecoder 
-        |> decode "weightPerServing" parseIngredients200ResponseInnerNutritionWeightPerServingDecoder 
+productInformationDecoder : Json.Decode.Decoder ProductInformation
+productInformationDecoder =
+    Json.Decode.succeed ProductInformation
+        |> decode "id" Json.Decode.int 
+        |> decode "title" Json.Decode.string 
+        |> maybeDecodeNullable "upc" Json.Decode.string Nothing
+        |> maybeDecodeNullable "usdaCode" Json.Decode.string Nothing
+        |> decode "breadcrumbs" (Json.Decode.list Json.Decode.string) 
+        |> decode "imageType" Json.Decode.string 
+        |> decode "badges" (Json.Decode.list Json.Decode.string) 
+        |> decode "importantBadges" (Json.Decode.list Json.Decode.string) 
+        |> decode "ingredientCount" Json.Decode.int 
+        |> maybeDecodeNullable "generatedText" Json.Decode.string Nothing
+        |> decode "ingredientList" Json.Decode.string 
+        |> decode "ingredients" (Json.Decode.list ingredientBasicsDecoder) 
+        |> decode "likes" Json.Decode.float 
+        |> decodeNullable "aisle" Json.Decode.string 
+        |> maybeDecode "credits" productInformationCreditsDecoder Nothing
+        |> decode "nutrition" searchGroceryProductsByUPC200ResponseNutritionDecoder 
+        |> decode "price" Json.Decode.float 
+        |> decode "servings" searchGroceryProductsByUPC200ResponseServingsDecoder 
+        |> decode "spoonacularScore" Json.Decode.float 
 
 
-parseIngredients200ResponseInnerNutritionCaloricBreakdownDecoder : Json.Decode.Decoder ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-parseIngredients200ResponseInnerNutritionCaloricBreakdownDecoder =
-    Json.Decode.succeed ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-        |> decode "percentProtein" Json.Decode.float 
-        |> decode "percentFat" Json.Decode.float 
-        |> decode "percentCarbs" Json.Decode.float 
-
-
-parseIngredients200ResponseInnerNutritionNutrientsInnerDecoder : Json.Decode.Decoder ParseIngredients200ResponseInnerNutritionNutrientsInner
-parseIngredients200ResponseInnerNutritionNutrientsInnerDecoder =
-    Json.Decode.succeed ParseIngredients200ResponseInnerNutritionNutrientsInner
-        |> decode "name" Json.Decode.string 
-        |> decode "amount" Json.Decode.float 
-        |> decode "unit" Json.Decode.string 
-        |> decode "percentOfDailyNeeds" Json.Decode.float 
-
-
-parseIngredients200ResponseInnerNutritionPropertiesInnerDecoder : Json.Decode.Decoder ParseIngredients200ResponseInnerNutritionPropertiesInner
-parseIngredients200ResponseInnerNutritionPropertiesInnerDecoder =
-    Json.Decode.succeed ParseIngredients200ResponseInnerNutritionPropertiesInner
-        |> decode "name" Json.Decode.string 
-        |> decode "amount" Json.Decode.float 
-        |> decode "unit" Json.Decode.string 
-
-
-parseIngredients200ResponseInnerNutritionWeightPerServingDecoder : Json.Decode.Decoder ParseIngredients200ResponseInnerNutritionWeightPerServing
-parseIngredients200ResponseInnerNutritionWeightPerServingDecoder =
-    Json.Decode.succeed ParseIngredients200ResponseInnerNutritionWeightPerServing
-        |> decode "amount" Json.Decode.float 
-        |> decode "unit" Json.Decode.string 
+productInformationCreditsDecoder : Json.Decode.Decoder ProductInformationCredits
+productInformationCreditsDecoder =
+    Json.Decode.succeed ProductInformationCredits
+        |> maybeDecode "text" Json.Decode.string Nothing
+        |> maybeDecode "link" Json.Decode.string Nothing
+        |> maybeDecode "image" Json.Decode.string Nothing
+        |> maybeDecode "imageLink" Json.Decode.string Nothing
 
 
 quickAnswer200ResponseDecoder : Json.Decode.Decoder QuickAnswer200Response
@@ -6788,6 +6091,102 @@ quickAnswer200ResponseDecoder =
     Json.Decode.succeed QuickAnswer200Response
         |> decode "answer" Json.Decode.string 
         |> decode "image" Json.Decode.string 
+
+
+recipeInformationDecoder : Json.Decode.Decoder RecipeInformation
+recipeInformationDecoder =
+    Json.Decode.succeed RecipeInformation
+        |> decode "id" Json.Decode.int 
+        |> decode "title" Json.Decode.string 
+        |> decodeNullable "image" Json.Decode.string 
+        |> maybeDecode "imageType" Json.Decode.string Nothing
+        |> decode "servings" Json.Decode.float 
+        |> decode "readyInMinutes" Json.Decode.int 
+        |> maybeDecodeNullable "preparationMinutes" Json.Decode.int Nothing
+        |> maybeDecodeNullable "cookingMinutes" Json.Decode.int Nothing
+        |> maybeDecode "license" Json.Decode.string Nothing
+        |> decode "sourceName" Json.Decode.string 
+        |> decode "sourceUrl" Json.Decode.string 
+        |> decode "spoonacularSourceUrl" Json.Decode.string 
+        |> decode "aggregateLikes" Json.Decode.int 
+        |> decode "healthScore" Json.Decode.float 
+        |> decode "spoonacularScore" Json.Decode.float 
+        |> decode "pricePerServing" Json.Decode.float 
+        |> decode "analyzedInstructions" (Json.Decode.list objectDecoder) 
+        |> decode "cheap" Json.Decode.bool 
+        |> decode "creditsText" Json.Decode.string 
+        |> decode "cuisines" (Json.Decode.list Json.Decode.string) 
+        |> decode "dairyFree" Json.Decode.bool 
+        |> decode "diets" (Json.Decode.list Json.Decode.string) 
+        |> decode "gaps" Json.Decode.string 
+        |> decode "glutenFree" Json.Decode.bool 
+        |> decodeNullable "instructions" Json.Decode.string 
+        |> decode "lowFodmap" Json.Decode.bool 
+        |> decode "occasions" (Json.Decode.list Json.Decode.string) 
+        |> decode "sustainable" Json.Decode.bool 
+        |> decode "vegan" Json.Decode.bool 
+        |> decode "vegetarian" Json.Decode.bool 
+        |> decode "veryHealthy" Json.Decode.bool 
+        |> decode "veryPopular" Json.Decode.bool 
+        |> decode "weightWatcherSmartPoints" Json.Decode.float 
+        |> decode "dishTypes" (Json.Decode.list Json.Decode.string) 
+        |> decode "extendedIngredients" (Json.Decode.list recipeInformationExtendedIngredientsInnerDecoder) 
+        |> decode "summary" Json.Decode.string 
+        |> maybeDecode "winePairing" recipeInformationWinePairingDecoder Nothing
+        |> maybeDecode "taste" tasteInformationDecoder Nothing
+
+
+recipeInformationExtendedIngredientsInnerDecoder : Json.Decode.Decoder RecipeInformationExtendedIngredientsInner
+recipeInformationExtendedIngredientsInnerDecoder =
+    Json.Decode.succeed RecipeInformationExtendedIngredientsInner
+        |> decode "aisle" Json.Decode.string 
+        |> decode "amount" Json.Decode.float 
+        |> decode "consistency" Json.Decode.string 
+        |> decode "id" Json.Decode.int 
+        |> decode "image" Json.Decode.string 
+        |> maybeDecode "measures" recipeInformationExtendedIngredientsInnerMeasuresDecoder Nothing
+        |> maybeDecode "meta" (Json.Decode.list Json.Decode.string) Nothing
+        |> decode "name" Json.Decode.string 
+        |> decode "original" Json.Decode.string 
+        |> decode "originalName" Json.Decode.string 
+        |> decode "unit" Json.Decode.string 
+
+
+recipeInformationExtendedIngredientsInnerMeasuresDecoder : Json.Decode.Decoder RecipeInformationExtendedIngredientsInnerMeasures
+recipeInformationExtendedIngredientsInnerMeasuresDecoder =
+    Json.Decode.succeed RecipeInformationExtendedIngredientsInnerMeasures
+        |> decode "metric" recipeInformationExtendedIngredientsInnerMeasuresMetricDecoder 
+        |> decode "us" recipeInformationExtendedIngredientsInnerMeasuresMetricDecoder 
+
+
+recipeInformationExtendedIngredientsInnerMeasuresMetricDecoder : Json.Decode.Decoder RecipeInformationExtendedIngredientsInnerMeasuresMetric
+recipeInformationExtendedIngredientsInnerMeasuresMetricDecoder =
+    Json.Decode.succeed RecipeInformationExtendedIngredientsInnerMeasuresMetric
+        |> decode "amount" Json.Decode.float 
+        |> decode "unitLong" Json.Decode.string 
+        |> decode "unitShort" Json.Decode.string 
+
+
+recipeInformationWinePairingDecoder : Json.Decode.Decoder RecipeInformationWinePairing
+recipeInformationWinePairingDecoder =
+    Json.Decode.succeed RecipeInformationWinePairing
+        |> maybeDecode "pairedWines" (Json.Decode.list Json.Decode.string) Nothing
+        |> maybeDecode "pairingText" Json.Decode.string Nothing
+        |> maybeDecode "productMatches" (Json.Decode.list recipeInformationWinePairingProductMatchesInnerDecoder) Nothing
+
+
+recipeInformationWinePairingProductMatchesInnerDecoder : Json.Decode.Decoder RecipeInformationWinePairingProductMatchesInner
+recipeInformationWinePairingProductMatchesInnerDecoder =
+    Json.Decode.succeed RecipeInformationWinePairingProductMatchesInner
+        |> decode "id" Json.Decode.int 
+        |> decode "title" Json.Decode.string 
+        |> decode "description" Json.Decode.string 
+        |> decode "price" Json.Decode.string 
+        |> decode "imageUrl" Json.Decode.string 
+        |> decode "averageRating" Json.Decode.float 
+        |> decode "ratingCount" Json.Decode.int 
+        |> decode "score" Json.Decode.float 
+        |> decode "link" Json.Decode.string 
 
 
 searchAllFood200ResponseDecoder : Json.Decode.Decoder SearchAllFood200Response
@@ -6805,19 +6204,7 @@ searchAllFood200ResponseSearchResultsInnerDecoder =
     Json.Decode.succeed SearchAllFood200ResponseSearchResultsInner
         |> decode "name" Json.Decode.string 
         |> decode "totalResults" Json.Decode.int 
-        |> maybeDecode "results" (Json.Decode.list searchAllFood200ResponseSearchResultsInnerResultsInnerDecoder) Nothing
-
-
-searchAllFood200ResponseSearchResultsInnerResultsInnerDecoder : Json.Decode.Decoder SearchAllFood200ResponseSearchResultsInnerResultsInner
-searchAllFood200ResponseSearchResultsInnerResultsInnerDecoder =
-    Json.Decode.succeed SearchAllFood200ResponseSearchResultsInnerResultsInner
-        |> decode "id" Json.Decode.string 
-        |> decode "name" Json.Decode.string 
-        |> decodeNullable "image" Json.Decode.string 
-        |> decodeNullable "link" Json.Decode.string 
-        |> decode "type" Json.Decode.string 
-        |> decode "relevance" Json.Decode.float 
-        |> decodeNullable "content" Json.Decode.string 
+        |> maybeDecode "results" (Json.Decode.list searchResultDecoder) Nothing
 
 
 searchCustomFoods200ResponseDecoder : Json.Decode.Decoder SearchCustomFoods200Response
@@ -6876,11 +6263,11 @@ searchGroceryProductsByUPC200ResponseDecoder =
         |> decode "badges" (Json.Decode.list Json.Decode.string) 
         |> decode "importantBadges" (Json.Decode.list Json.Decode.string) 
         |> decode "breadcrumbs" (Json.Decode.list Json.Decode.string) 
-        |> decode "generatedText" Json.Decode.string 
+        |> decodeNullable "generatedText" Json.Decode.string 
         |> decode "imageType" Json.Decode.string 
         |> maybeDecode "ingredientCount" Json.Decode.int Nothing
         |> decode "ingredientList" Json.Decode.string 
-        |> decode "ingredients" (Json.Decode.list searchGroceryProductsByUPC200ResponseIngredientsInnerDecoder) 
+        |> decode "ingredients" (Json.Decode.list ingredientBasicsDecoder) 
         |> decode "likes" Json.Decode.float 
         |> decode "nutrition" searchGroceryProductsByUPC200ResponseNutritionDecoder 
         |> decode "price" Json.Decode.float 
@@ -6888,19 +6275,28 @@ searchGroceryProductsByUPC200ResponseDecoder =
         |> decode "spoonacularScore" Json.Decode.float 
 
 
-searchGroceryProductsByUPC200ResponseIngredientsInnerDecoder : Json.Decode.Decoder SearchGroceryProductsByUPC200ResponseIngredientsInner
-searchGroceryProductsByUPC200ResponseIngredientsInnerDecoder =
-    Json.Decode.succeed SearchGroceryProductsByUPC200ResponseIngredientsInner
-        |> maybeDecode "description" Json.Decode.string Nothing
-        |> decode "name" Json.Decode.string 
-        |> maybeDecode "safety_level" Json.Decode.string Nothing
-
-
 searchGroceryProductsByUPC200ResponseNutritionDecoder : Json.Decode.Decoder SearchGroceryProductsByUPC200ResponseNutrition
 searchGroceryProductsByUPC200ResponseNutritionDecoder =
     Json.Decode.succeed SearchGroceryProductsByUPC200ResponseNutrition
-        |> decode "nutrients" (Json.Decode.list parseIngredients200ResponseInnerNutritionNutrientsInnerDecoder) 
-        |> decode "caloricBreakdown" parseIngredients200ResponseInnerNutritionCaloricBreakdownDecoder 
+        |> decode "nutrients" (Json.Decode.list searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerDecoder) 
+        |> decode "caloricBreakdown" searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownDecoder 
+
+
+searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownDecoder : Json.Decode.Decoder SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownDecoder =
+    Json.Decode.succeed SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+        |> decode "percentProtein" Json.Decode.float 
+        |> decode "percentFat" Json.Decode.float 
+        |> decode "percentCarbs" Json.Decode.float 
+
+
+searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerDecoder : Json.Decode.Decoder SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerDecoder =
+    Json.Decode.succeed SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+        |> decode "name" Json.Decode.string 
+        |> decode "amount" Json.Decode.float 
+        |> decode "unit" Json.Decode.string 
+        |> decode "percentOfDailyNeeds" Json.Decode.float 
 
 
 searchGroceryProductsByUPC200ResponseServingsDecoder : Json.Decode.Decoder SearchGroceryProductsByUPC200ResponseServings
@@ -6914,22 +6310,11 @@ searchGroceryProductsByUPC200ResponseServingsDecoder =
 searchMenuItems200ResponseDecoder : Json.Decode.Decoder SearchMenuItems200Response
 searchMenuItems200ResponseDecoder =
     Json.Decode.succeed SearchMenuItems200Response
-        |> decode "menuItems" (Json.Decode.list searchMenuItems200ResponseMenuItemsInnerDecoder) 
+        |> decode "menuItems" (Json.Decode.list menuItemDecoder) 
         |> decode "totalMenuItems" Json.Decode.int 
         |> decode "type" Json.Decode.string 
         |> decode "offset" Json.Decode.int 
         |> decode "number" Json.Decode.int 
-
-
-searchMenuItems200ResponseMenuItemsInnerDecoder : Json.Decode.Decoder SearchMenuItems200ResponseMenuItemsInner
-searchMenuItems200ResponseMenuItemsInnerDecoder =
-    Json.Decode.succeed SearchMenuItems200ResponseMenuItemsInner
-        |> decode "id" Json.Decode.int 
-        |> decode "title" Json.Decode.string 
-        |> decode "restaurantChain" Json.Decode.string 
-        |> decode "image" Json.Decode.string 
-        |> decode "imageType" Json.Decode.string 
-        |> maybeDecode "servings" searchGroceryProductsByUPC200ResponseServingsDecoder Nothing
 
 
 searchRecipes200ResponseDecoder : Json.Decode.Decoder SearchRecipes200Response
@@ -7062,29 +6447,35 @@ searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder =
         |> maybeDecode "Sunday" Json.Decode.string Nothing
 
 
+searchResultDecoder : Json.Decode.Decoder SearchResult
+searchResultDecoder =
+    Json.Decode.succeed SearchResult
+        |> maybeDecode "dataPoints" (Json.Decode.list searchResultDataPointsInnerDecoder) Nothing
+        |> maybeDecode "image" Json.Decode.string Nothing
+        |> maybeDecodeNullable "link" Json.Decode.string Nothing
+        |> decode "name" Json.Decode.string 
+        |> maybeDecode "type" Json.Decode.string Nothing
+        |> maybeDecode "kvtable" Json.Decode.string Nothing
+        |> maybeDecodeNullable "content" Json.Decode.string Nothing
+        |> maybeDecode "id" Json.Decode.int Nothing
+        |> maybeDecode "relevance" Json.Decode.float Nothing
+
+
+searchResultDataPointsInnerDecoder : Json.Decode.Decoder SearchResultDataPointsInner
+searchResultDataPointsInnerDecoder =
+    Json.Decode.succeed SearchResultDataPointsInner
+        |> decode "key" Json.Decode.string 
+        |> decodeNullable "value" anyTypeDecoder 
+        |> maybeDecode "show" Json.Decode.bool Nothing
+
+
 searchSiteContent200ResponseDecoder : Json.Decode.Decoder SearchSiteContent200Response
 searchSiteContent200ResponseDecoder =
     Json.Decode.succeed SearchSiteContent200Response
-        |> decode "Articles" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
-        |> decode "Grocery Products" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
-        |> decode "Menu Items" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
-        |> decode "Recipes" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDecoder) 
-
-
-searchSiteContent200ResponseArticlesInnerDecoder : Json.Decode.Decoder SearchSiteContent200ResponseArticlesInner
-searchSiteContent200ResponseArticlesInnerDecoder =
-    Json.Decode.succeed SearchSiteContent200ResponseArticlesInner
-        |> maybeDecode "dataPoints" (Json.Decode.list searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder) Nothing
-        |> decode "image" Json.Decode.string 
-        |> decode "link" Json.Decode.string 
-        |> decode "name" Json.Decode.string 
-
-
-searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder : Json.Decode.Decoder SearchSiteContent200ResponseArticlesInnerDataPointsInner
-searchSiteContent200ResponseArticlesInnerDataPointsInnerDecoder =
-    Json.Decode.succeed SearchSiteContent200ResponseArticlesInnerDataPointsInner
-        |> decode "key" Json.Decode.string 
-        |> decode "value" Json.Decode.string 
+        |> decode "Articles" (Json.Decode.list searchResultDecoder) 
+        |> decode "Grocery Products" (Json.Decode.list searchResultDecoder) 
+        |> decode "Menu Items" (Json.Decode.list searchResultDecoder) 
+        |> decode "Recipes" (Json.Decode.list searchResultDecoder) 
 
 
 summarizeRecipe200ResponseDecoder : Json.Decode.Decoder SummarizeRecipe200Response
@@ -7108,6 +6499,18 @@ talkToChatbot200ResponseMediaInnerDecoder =
         |> maybeDecode "title" Json.Decode.string Nothing
         |> maybeDecode "image" Json.Decode.string Nothing
         |> maybeDecode "link" Json.Decode.string Nothing
+
+
+tasteInformationDecoder : Json.Decode.Decoder TasteInformation
+tasteInformationDecoder =
+    Json.Decode.succeed TasteInformation
+        |> decode "sweetness" Json.Decode.float 
+        |> decode "saltiness" Json.Decode.float 
+        |> decode "sourness" Json.Decode.float 
+        |> decode "bitterness" Json.Decode.float 
+        |> decode "savoriness" Json.Decode.float 
+        |> decode "fattiness" Json.Decode.float 
+        |> decode "spiciness" Json.Decode.float 
 
 
 

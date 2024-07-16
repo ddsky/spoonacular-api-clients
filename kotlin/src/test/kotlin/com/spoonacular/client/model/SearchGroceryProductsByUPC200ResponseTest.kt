@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200Response
-import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseIngredientsInner
+import com.spoonacular.client.model.IngredientBasics
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseServings
 

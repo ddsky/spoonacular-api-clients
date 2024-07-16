@@ -7,8 +7,8 @@
          image_analysis_by_url/2, image_analysis_by_url/3,
          image_classification_by_url/2, image_classification_by_url/3,
          search_all_food/2, search_all_food/3,
-         search_custom_foods/3, search_custom_foods/4,
-         search_food_videos/1, search_food_videos/2,
+         search_custom_foods/4, search_custom_foods/5,
+         search_food_videos/2, search_food_videos/3,
          search_site_content/2, search_site_content/3,
          talk_to_chatbot/2, talk_to_chatbot/3]).
 
@@ -79,11 +79,11 @@ get_conversation_suggests(Ctx, Query, Optional) ->
 
 %% @doc Random Food Trivia
 %% Returns random food trivia.
--spec get_random_food_trivia(ctx:ctx()) -> {ok, spoonacular_get_random_food_trivia_200_response:spoonacular_get_random_food_trivia_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_random_food_trivia(ctx:ctx()) -> {ok, spoonacular_get_a_random_food_joke_200_response:spoonacular_get_a_random_food_joke_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_random_food_trivia(Ctx) ->
     get_random_food_trivia(Ctx, #{}).
 
--spec get_random_food_trivia(ctx:ctx(), maps:map()) -> {ok, spoonacular_get_random_food_trivia_200_response:spoonacular_get_random_food_trivia_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_random_food_trivia(ctx:ctx(), maps:map()) -> {ok, spoonacular_get_a_random_food_joke_200_response:spoonacular_get_a_random_food_joke_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_random_food_trivia(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
@@ -163,18 +163,18 @@ search_all_food(Ctx, Query, Optional) ->
 
 %% @doc Search Custom Foods
 %% Search custom foods in a user's account.
--spec search_custom_foods(ctx:ctx(), binary(), binary()) -> {ok, spoonacular_search_custom_foods_200_response:spoonacular_search_custom_foods_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_custom_foods(Ctx, Username, Hash) ->
-    search_custom_foods(Ctx, Username, Hash, #{}).
+-spec search_custom_foods(ctx:ctx(), binary(), binary(), binary()) -> {ok, spoonacular_search_custom_foods_200_response:spoonacular_search_custom_foods_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_custom_foods(Ctx, Query, Username, Hash) ->
+    search_custom_foods(Ctx, Query, Username, Hash, #{}).
 
--spec search_custom_foods(ctx:ctx(), binary(), binary(), maps:map()) -> {ok, spoonacular_search_custom_foods_200_response:spoonacular_search_custom_foods_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_custom_foods(Ctx, Username, Hash, Optional) ->
+-spec search_custom_foods(ctx:ctx(), binary(), binary(), binary(), maps:map()) -> {ok, spoonacular_search_custom_foods_200_response:spoonacular_search_custom_foods_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_custom_foods(Ctx, Query, Username, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
     Method = get,
     Path = [?BASE_URL, "/food/customFoods/search"],
-    QS = lists:flatten([{<<"username">>, Username}, {<<"hash">>, Hash}])++spoonacular_utils:optional_params(['query', 'offset', 'number'], _OptionalParams),
+    QS = lists:flatten([{<<"query">>, Query}, {<<"username">>, Username}, {<<"hash">>, Hash}])++spoonacular_utils:optional_params(['offset', 'number'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),
@@ -184,18 +184,18 @@ search_custom_foods(Ctx, Username, Hash, Optional) ->
 
 %% @doc Search Food Videos
 %% Find recipe and other food related videos.
--spec search_food_videos(ctx:ctx()) -> {ok, spoonacular_search_food_videos_200_response:spoonacular_search_food_videos_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_food_videos(Ctx) ->
-    search_food_videos(Ctx, #{}).
+-spec search_food_videos(ctx:ctx(), binary()) -> {ok, spoonacular_search_food_videos_200_response:spoonacular_search_food_videos_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_food_videos(Ctx, Query) ->
+    search_food_videos(Ctx, Query, #{}).
 
--spec search_food_videos(ctx:ctx(), maps:map()) -> {ok, spoonacular_search_food_videos_200_response:spoonacular_search_food_videos_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_food_videos(Ctx, Optional) ->
+-spec search_food_videos(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_search_food_videos_200_response:spoonacular_search_food_videos_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_food_videos(Ctx, Query, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
     Method = get,
     Path = [?BASE_URL, "/food/videos/search"],
-    QS = lists:flatten([])++spoonacular_utils:optional_params(['query', 'type', 'cuisine', 'diet', 'includeIngredients', 'excludeIngredients', 'minLength', 'maxLength', 'offset', 'number'], _OptionalParams),
+    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['type', 'cuisine', 'diet', 'includeIngredients', 'excludeIngredients', 'minLength', 'maxLength', 'offset', 'number'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),

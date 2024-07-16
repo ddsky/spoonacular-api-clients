@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from './parseIngredients200ResponseInnerNutritionNutrientsInner';
-import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from './parseIngredients200ResponseInnerNutritionCaloricBreakdown';
+import { SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner } from './searchGroceryProductsByUPC200ResponseNutritionNutrientsInner';
+import { SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown } from './searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown';
 
 
 export interface SearchGroceryProductsByUPC200ResponseNutrition { 
-    nutrients: Set<ParseIngredients200ResponseInnerNutritionNutrientsInner>;
-    caloricBreakdown: ParseIngredients200ResponseInnerNutritionCaloricBreakdown;
+    nutrients: Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>;
+    caloricBreakdown: SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown;
 }
 

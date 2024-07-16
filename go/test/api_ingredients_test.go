@@ -38,7 +38,7 @@ func Test_spoonacular_IngredientsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.IngredientsAPI.ComputeIngredientAmount(context.Background(), id).Execute()
 
@@ -104,7 +104,7 @@ func Test_spoonacular_IngredientsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.IngredientsAPI.IngredientsByIDImage(context.Background(), id).Execute()
 

@@ -21,16 +21,16 @@
 
 #include <QJsonObject>
 
-#include "OAIParseIngredients_200_response_inner_nutrition_caloricBreakdown.h"
-#include "OAIParseIngredients_200_response_inner_nutrition_nutrients_inner.h"
+#include "OAISearchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown.h"
+#include "OAISearchGroceryProductsByUPC_200_response_nutrition_nutrients_inner.h"
 #include <QSet>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIParseIngredients_200_response_inner_nutrition_nutrients_inner;
-class OAIParseIngredients_200_response_inner_nutrition_caloricBreakdown;
+class OAISearchGroceryProductsByUPC_200_response_nutrition_nutrients_inner;
+class OAISearchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown;
 
 class OAISearchGroceryProductsByUPC_200_response_nutrition : public OAIObject {
 public:
@@ -43,13 +43,13 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QSet<OAIParseIngredients_200_response_inner_nutrition_nutrients_inner> getNutrients() const;
-    void setNutrients(const QSet<OAIParseIngredients_200_response_inner_nutrition_nutrients_inner> &nutrients);
+    QSet<OAISearchGroceryProductsByUPC_200_response_nutrition_nutrients_inner> getNutrients() const;
+    void setNutrients(const QSet<OAISearchGroceryProductsByUPC_200_response_nutrition_nutrients_inner> &nutrients);
     bool is_nutrients_Set() const;
     bool is_nutrients_Valid() const;
 
-    OAIParseIngredients_200_response_inner_nutrition_caloricBreakdown getCaloricBreakdown() const;
-    void setCaloricBreakdown(const OAIParseIngredients_200_response_inner_nutrition_caloricBreakdown &caloric_breakdown);
+    OAISearchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown getCaloricBreakdown() const;
+    void setCaloricBreakdown(const OAISearchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown &caloric_breakdown);
     bool is_caloric_breakdown_Set() const;
     bool is_caloric_breakdown_Valid() const;
 
@@ -59,11 +59,11 @@ public:
 private:
     void initializeModel();
 
-    QSet<OAIParseIngredients_200_response_inner_nutrition_nutrients_inner> m_nutrients;
+    QSet<OAISearchGroceryProductsByUPC_200_response_nutrition_nutrients_inner> m_nutrients;
     bool m_nutrients_isSet;
     bool m_nutrients_isValid;
 
-    OAIParseIngredients_200_response_inner_nutrition_caloricBreakdown m_caloric_breakdown;
+    OAISearchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown m_caloric_breakdown;
     bool m_caloric_breakdown_isSet;
     bool m_caloric_breakdown_isValid;
 };

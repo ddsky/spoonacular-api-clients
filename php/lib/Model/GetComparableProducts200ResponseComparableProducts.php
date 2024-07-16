@@ -58,12 +58,12 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'calories' => 'object[]',
-        'likes' => 'object[]',
-        'price' => 'object[]',
-        'protein' => '\OpenAPI\Client\Model\GetComparableProducts200ResponseComparableProductsProteinInner[]',
-        'spoonacular_score' => '\OpenAPI\Client\Model\GetComparableProducts200ResponseComparableProductsProteinInner[]',
-        'sugar' => 'object[]'
+        'calories' => '\OpenAPI\Client\Model\ComparableProduct[]',
+        'likes' => '\OpenAPI\Client\Model\ComparableProduct[]',
+        'price' => '\OpenAPI\Client\Model\ComparableProduct[]',
+        'protein' => '\OpenAPI\Client\Model\ComparableProduct[]',
+        'spoonacular_score' => '\OpenAPI\Client\Model\ComparableProduct[]',
+        'sugar' => '\OpenAPI\Client\Model\ComparableProduct[]'
     ];
 
     /**
@@ -186,7 +186,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
         'likes' => 'likes',
         'price' => 'price',
         'protein' => 'protein',
-        'spoonacular_score' => 'spoonacularScore',
+        'spoonacular_score' => 'spoonacular_score',
         'sugar' => 'sugar'
     ];
 
@@ -322,17 +322,9 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
         if ($this->container['protein'] === null) {
             $invalidProperties[] = "'protein' can't be null";
         }
-        if ((count($this->container['protein']) < 0)) {
-            $invalidProperties[] = "invalid value for 'protein', number of items must be greater than or equal to 0.";
-        }
-
         if ($this->container['spoonacular_score'] === null) {
             $invalidProperties[] = "'spoonacular_score' can't be null";
         }
-        if ((count($this->container['spoonacular_score']) < 0)) {
-            $invalidProperties[] = "invalid value for 'spoonacular_score', number of items must be greater than or equal to 0.";
-        }
-
         if ($this->container['sugar'] === null) {
             $invalidProperties[] = "'sugar' can't be null";
         }
@@ -354,7 +346,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Gets calories
      *
-     * @return object[]
+     * @return \OpenAPI\Client\Model\ComparableProduct[]
      */
     public function getCalories()
     {
@@ -364,7 +356,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Sets calories
      *
-     * @param object[] $calories calories
+     * @param \OpenAPI\Client\Model\ComparableProduct[] $calories calories
      *
      * @return self
      */
@@ -381,7 +373,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Gets likes
      *
-     * @return object[]
+     * @return \OpenAPI\Client\Model\ComparableProduct[]
      */
     public function getLikes()
     {
@@ -391,7 +383,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Sets likes
      *
-     * @param object[] $likes likes
+     * @param \OpenAPI\Client\Model\ComparableProduct[] $likes likes
      *
      * @return self
      */
@@ -408,7 +400,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Gets price
      *
-     * @return object[]
+     * @return \OpenAPI\Client\Model\ComparableProduct[]
      */
     public function getPrice()
     {
@@ -418,7 +410,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Sets price
      *
-     * @param object[] $price price
+     * @param \OpenAPI\Client\Model\ComparableProduct[] $price price
      *
      * @return self
      */
@@ -435,7 +427,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Gets protein
      *
-     * @return \OpenAPI\Client\Model\GetComparableProducts200ResponseComparableProductsProteinInner[]
+     * @return \OpenAPI\Client\Model\ComparableProduct[]
      */
     public function getProtein()
     {
@@ -445,7 +437,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Sets protein
      *
-     * @param \OpenAPI\Client\Model\GetComparableProducts200ResponseComparableProductsProteinInner[] $protein protein
+     * @param \OpenAPI\Client\Model\ComparableProduct[] $protein protein
      *
      * @return self
      */
@@ -453,11 +445,6 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     {
         if (is_null($protein)) {
             throw new \InvalidArgumentException('non-nullable protein cannot be null');
-        }
-
-
-        if ((count($protein) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $protein when calling GetComparableProducts200ResponseComparableProducts., number of items must be greater than or equal to 0.');
         }
         $this->container['protein'] = $protein;
 
@@ -467,7 +454,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Gets spoonacular_score
      *
-     * @return \OpenAPI\Client\Model\GetComparableProducts200ResponseComparableProductsProteinInner[]
+     * @return \OpenAPI\Client\Model\ComparableProduct[]
      */
     public function getSpoonacularScore()
     {
@@ -477,7 +464,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Sets spoonacular_score
      *
-     * @param \OpenAPI\Client\Model\GetComparableProducts200ResponseComparableProductsProteinInner[] $spoonacular_score spoonacular_score
+     * @param \OpenAPI\Client\Model\ComparableProduct[] $spoonacular_score spoonacular_score
      *
      * @return self
      */
@@ -485,11 +472,6 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     {
         if (is_null($spoonacular_score)) {
             throw new \InvalidArgumentException('non-nullable spoonacular_score cannot be null');
-        }
-
-
-        if ((count($spoonacular_score) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $spoonacular_score when calling GetComparableProducts200ResponseComparableProducts., number of items must be greater than or equal to 0.');
         }
         $this->container['spoonacular_score'] = $spoonacular_score;
 
@@ -499,7 +481,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Gets sugar
      *
-     * @return object[]
+     * @return \OpenAPI\Client\Model\ComparableProduct[]
      */
     public function getSugar()
     {
@@ -509,7 +491,7 @@ class GetComparableProducts200ResponseComparableProducts implements ModelInterfa
     /**
      * Sets sugar
      *
-     * @param object[] $sugar sugar
+     * @param \OpenAPI\Client\Model\ComparableProduct[] $sugar sugar
      *
      * @return self
      */

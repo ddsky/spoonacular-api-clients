@@ -152,7 +152,7 @@ class IngredientsApi
      *
      * Autocomplete Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -163,7 +163,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AutocompleteIngredientSearch200ResponseInner[]
      */
-    public function autocompleteIngredientSearch($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
+    public function autocompleteIngredientSearch($query, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
     {
         list($response) = $this->autocompleteIngredientSearchWithHttpInfo($query, $number, $meta_information, $intolerances, $language, $contentType);
         return $response;
@@ -174,7 +174,7 @@ class IngredientsApi
      *
      * Autocomplete Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -185,7 +185,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AutocompleteIngredientSearch200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function autocompleteIngredientSearchWithHttpInfo($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
+    public function autocompleteIngredientSearchWithHttpInfo($query, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
     {
         $request = $this->autocompleteIngredientSearchRequest($query, $number, $meta_information, $intolerances, $language, $contentType);
 
@@ -302,7 +302,7 @@ class IngredientsApi
      *
      * Autocomplete Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -312,7 +312,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function autocompleteIngredientSearchAsync($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
+    public function autocompleteIngredientSearchAsync($query, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
     {
         return $this->autocompleteIngredientSearchAsyncWithHttpInfo($query, $number, $meta_information, $intolerances, $language, $contentType)
             ->then(
@@ -327,7 +327,7 @@ class IngredientsApi
      *
      * Autocomplete Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -337,7 +337,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function autocompleteIngredientSearchAsyncWithHttpInfo($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
+    public function autocompleteIngredientSearchAsyncWithHttpInfo($query, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AutocompleteIngredientSearch200ResponseInner[]';
         $request = $this->autocompleteIngredientSearchRequest($query, $number, $meta_information, $intolerances, $language, $contentType);
@@ -381,7 +381,7 @@ class IngredientsApi
     /**
      * Create request for operation 'autocompleteIngredientSearch'
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  bool $meta_information Whether to return more meta information about the ingredients. (optional)
      * @param  string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -391,9 +391,15 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function autocompleteIngredientSearchRequest($query = null, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
+    public function autocompleteIngredientSearchRequest($query, $number = 10, $meta_information = null, $intolerances = null, $language = null, string $contentType = self::contentTypes['autocompleteIngredientSearch'][0])
     {
 
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling autocompleteIngredientSearch'
+            );
+        }
 
         if ($number !== null && $number > 100) {
             throw new \InvalidArgumentException('invalid value for "$number" when calling IngredientsApi.autocompleteIngredientSearch, must be smaller than or equal to 100.');
@@ -420,7 +426,7 @@ class IngredientsApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -525,9 +531,9 @@ class IngredientsApi
      *
      * Compute Ingredient Amount
      *
-     * @param  float $id The id of the ingredient you want the amount for. (required)
+     * @param  int $id The id of the ingredient you want the amount for. (required)
      * @param  string $nutrient The target nutrient. See a list of supported nutrients. (required)
-     * @param  float $target The target number of the given nutrient. (required)
+     * @param  int $target The target number of the given nutrient. (required)
      * @param  string $unit The target unit. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeIngredientAmount'] to see the possible values for this operation
      *
@@ -546,9 +552,9 @@ class IngredientsApi
      *
      * Compute Ingredient Amount
      *
-     * @param  float $id The id of the ingredient you want the amount for. (required)
+     * @param  int $id The id of the ingredient you want the amount for. (required)
      * @param  string $nutrient The target nutrient. See a list of supported nutrients. (required)
-     * @param  float $target The target number of the given nutrient. (required)
+     * @param  int $target The target number of the given nutrient. (required)
      * @param  string $unit The target unit. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeIngredientAmount'] to see the possible values for this operation
      *
@@ -673,9 +679,9 @@ class IngredientsApi
      *
      * Compute Ingredient Amount
      *
-     * @param  float $id The id of the ingredient you want the amount for. (required)
+     * @param  int $id The id of the ingredient you want the amount for. (required)
      * @param  string $nutrient The target nutrient. See a list of supported nutrients. (required)
-     * @param  float $target The target number of the given nutrient. (required)
+     * @param  int $target The target number of the given nutrient. (required)
      * @param  string $unit The target unit. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeIngredientAmount'] to see the possible values for this operation
      *
@@ -697,9 +703,9 @@ class IngredientsApi
      *
      * Compute Ingredient Amount
      *
-     * @param  float $id The id of the ingredient you want the amount for. (required)
+     * @param  int $id The id of the ingredient you want the amount for. (required)
      * @param  string $nutrient The target nutrient. See a list of supported nutrients. (required)
-     * @param  float $target The target number of the given nutrient. (required)
+     * @param  int $target The target number of the given nutrient. (required)
      * @param  string $unit The target unit. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeIngredientAmount'] to see the possible values for this operation
      *
@@ -750,9 +756,9 @@ class IngredientsApi
     /**
      * Create request for operation 'computeIngredientAmount'
      *
-     * @param  float $id The id of the ingredient you want the amount for. (required)
+     * @param  int $id The id of the ingredient you want the amount for. (required)
      * @param  string $nutrient The target nutrient. See a list of supported nutrients. (required)
-     * @param  float $target The target number of the given nutrient. (required)
+     * @param  int $target The target number of the given nutrient. (required)
      * @param  string $unit The target unit. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['computeIngredientAmount'] to see the possible values for this operation
      *
@@ -805,7 +811,7 @@ class IngredientsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $target,
             'target', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             false, // explode
             true // required
@@ -894,14 +900,14 @@ class IngredientsApi
      *
      * Get Ingredient Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The ingredient id. (required)
      * @param  float $amount The amount of this ingredient. (optional)
      * @param  string $unit The unit for the given amount. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetIngredientInformation200Response
+     * @return \OpenAPI\Client\Model\IngredientInformation
      */
     public function getIngredientInformation($id, $amount = null, $unit = null, string $contentType = self::contentTypes['getIngredientInformation'][0])
     {
@@ -914,14 +920,14 @@ class IngredientsApi
      *
      * Get Ingredient Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The ingredient id. (required)
      * @param  float $amount The amount of this ingredient. (optional)
      * @param  string $unit The unit for the given amount. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetIngredientInformation200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\IngredientInformation, HTTP status code, HTTP response headers (array of strings)
      */
     public function getIngredientInformationWithHttpInfo($id, $amount = null, $unit = null, string $contentType = self::contentTypes['getIngredientInformation'][0])
     {
@@ -964,11 +970,11 @@ class IngredientsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetIngredientInformation200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\IngredientInformation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetIngredientInformation200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\IngredientInformation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -986,13 +992,13 @@ class IngredientsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetIngredientInformation200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\IngredientInformation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetIngredientInformation200Response';
+            $returnType = '\OpenAPI\Client\Model\IngredientInformation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1025,7 +1031,7 @@ class IngredientsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetIngredientInformation200Response',
+                        '\OpenAPI\Client\Model\IngredientInformation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1040,7 +1046,7 @@ class IngredientsApi
      *
      * Get Ingredient Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The ingredient id. (required)
      * @param  float $amount The amount of this ingredient. (optional)
      * @param  string $unit The unit for the given amount. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientInformation'] to see the possible values for this operation
@@ -1063,7 +1069,7 @@ class IngredientsApi
      *
      * Get Ingredient Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The ingredient id. (required)
      * @param  float $amount The amount of this ingredient. (optional)
      * @param  string $unit The unit for the given amount. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientInformation'] to see the possible values for this operation
@@ -1073,7 +1079,7 @@ class IngredientsApi
      */
     public function getIngredientInformationAsyncWithHttpInfo($id, $amount = null, $unit = null, string $contentType = self::contentTypes['getIngredientInformation'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetIngredientInformation200Response';
+        $returnType = '\OpenAPI\Client\Model\IngredientInformation';
         $request = $this->getIngredientInformationRequest($id, $amount, $unit, $contentType);
 
         return $this->client
@@ -1115,7 +1121,7 @@ class IngredientsApi
     /**
      * Create request for operation 'getIngredientInformation'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The ingredient id. (required)
      * @param  float $amount The amount of this ingredient. (optional)
      * @param  string $unit The unit for the given amount. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientInformation'] to see the possible values for this operation
@@ -1549,7 +1555,7 @@ class IngredientsApi
      *
      * Get Ingredient Substitutes by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the ingredient you want substitutes for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientSubstitutesByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1567,7 +1573,7 @@ class IngredientsApi
      *
      * Get Ingredient Substitutes by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the ingredient you want substitutes for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientSubstitutesByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1691,7 +1697,7 @@ class IngredientsApi
      *
      * Get Ingredient Substitutes by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the ingredient you want substitutes for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientSubstitutesByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1712,7 +1718,7 @@ class IngredientsApi
      *
      * Get Ingredient Substitutes by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the ingredient you want substitutes for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientSubstitutesByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1762,7 +1768,7 @@ class IngredientsApi
     /**
      * Create request for operation 'getIngredientSubstitutesByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the ingredient you want substitutes for. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getIngredientSubstitutesByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1861,7 +1867,7 @@ class IngredientsApi
      *
      * Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  bool $add_children Whether to add children of found foods. (optional)
      * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -1882,7 +1888,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\IngredientSearch200Response
      */
-    public function ingredientSearch($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
+    public function ingredientSearch($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
     {
         list($response) = $this->ingredientSearchWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language, $contentType);
         return $response;
@@ -1893,7 +1899,7 @@ class IngredientsApi
      *
      * Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  bool $add_children Whether to add children of found foods. (optional)
      * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -1914,7 +1920,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\IngredientSearch200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ingredientSearchWithHttpInfo($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
+    public function ingredientSearchWithHttpInfo($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
     {
         $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language, $contentType);
 
@@ -2031,7 +2037,7 @@ class IngredientsApi
      *
      * Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  bool $add_children Whether to add children of found foods. (optional)
      * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -2051,7 +2057,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ingredientSearchAsync($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
+    public function ingredientSearchAsync($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
     {
         return $this->ingredientSearchAsyncWithHttpInfo($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language, $contentType)
             ->then(
@@ -2066,7 +2072,7 @@ class IngredientsApi
      *
      * Ingredient Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  bool $add_children Whether to add children of found foods. (optional)
      * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -2086,7 +2092,7 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ingredientSearchAsyncWithHttpInfo($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
+    public function ingredientSearchAsyncWithHttpInfo($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\IngredientSearch200Response';
         $request = $this->ingredientSearchRequest($query, $add_children, $min_protein_percent, $max_protein_percent, $min_fat_percent, $max_fat_percent, $min_carbs_percent, $max_carbs_percent, $meta_information, $intolerances, $sort, $sort_direction, $offset, $number, $language, $contentType);
@@ -2130,7 +2136,7 @@ class IngredientsApi
     /**
      * Create request for operation 'ingredientSearch'
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  bool $add_children Whether to add children of found foods. (optional)
      * @param  float $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param  float $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -2150,9 +2156,15 @@ class IngredientsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ingredientSearchRequest($query = null, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
+    public function ingredientSearchRequest($query, $add_children = null, $min_protein_percent = null, $max_protein_percent = null, $min_fat_percent = null, $max_fat_percent = null, $min_carbs_percent = null, $max_carbs_percent = null, $meta_information = null, $intolerances = null, $sort = null, $sort_direction = null, $offset = null, $number = 10, $language = null, string $contentType = self::contentTypes['ingredientSearch'][0])
     {
 
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling ingredientSearch'
+            );
+        }
 
 
 
@@ -2195,7 +2207,7 @@ class IngredientsApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2390,7 +2402,7 @@ class IngredientsApi
      *
      * Ingredients by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingredientsByIDImage'] to see the possible values for this operation
      *
@@ -2409,7 +2421,7 @@ class IngredientsApi
      *
      * Ingredients by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingredientsByIDImage'] to see the possible values for this operation
      *
@@ -2534,7 +2546,7 @@ class IngredientsApi
      *
      * Ingredients by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingredientsByIDImage'] to see the possible values for this operation
      *
@@ -2556,7 +2568,7 @@ class IngredientsApi
      *
      * Ingredients by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingredientsByIDImage'] to see the possible values for this operation
      *
@@ -2607,7 +2619,7 @@ class IngredientsApi
     /**
      * Create request for operation 'ingredientsByIDImage'
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['ingredientsByIDImage'] to see the possible values for this operation
      *

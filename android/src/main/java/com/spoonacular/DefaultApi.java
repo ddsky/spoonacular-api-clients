@@ -204,7 +204,7 @@ public class DefaultApi {
    * @param fontColor The font color for the recipe card as a hex-string.
    * @return Object
   */
-  public Object createRecipeCardGet (BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Object createRecipeCardGet (Integer id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -269,7 +269,7 @@ public class DefaultApi {
    * Generate a recipe card for a recipe.
    * @param id The recipe id.   * @param mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).   * @param backgroundImage The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).   * @param backgroundColor The background color for the recipe card as a hex-string.   * @param fontColor The font color for the recipe card as a hex-string.
   */
-  public void createRecipeCardGet (BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void createRecipeCardGet (Integer id, String mask, String backgroundImage, String backgroundColor, String fontColor, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set

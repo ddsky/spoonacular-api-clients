@@ -33,24 +33,23 @@ import com.spoonacular.client.model.ComputeGlycemicLoadRequest;
 import com.spoonacular.client.model.ConvertAmounts200Response;
 import com.spoonacular.client.model.CreateRecipeCard200Response;
 import java.io.File;
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response;
+import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseInner;
 import com.spoonacular.client.model.GetRandomRecipes200Response;
 import com.spoonacular.client.model.GetRecipeEquipmentByID200Response;
-import com.spoonacular.client.model.GetRecipeInformation200Response;
-import com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInner;
 import com.spoonacular.client.model.GetRecipeIngredientsByID200Response;
 import com.spoonacular.client.model.GetRecipeNutritionWidgetByID200Response;
 import com.spoonacular.client.model.GetRecipePriceBreakdownByID200Response;
-import com.spoonacular.client.model.GetRecipeTasteByID200Response;
 import com.spoonacular.client.model.GetSimilarRecipes200ResponseInner;
 import com.spoonacular.client.model.GuessNutritionByDishName200Response;
-import com.spoonacular.client.model.ParseIngredients200ResponseInner;
+import com.spoonacular.client.model.IngredientInformation;
 import com.spoonacular.client.model.QuickAnswer200Response;
+import com.spoonacular.client.model.RecipeInformation;
 import com.spoonacular.client.model.SearchRecipes200Response;
 import com.spoonacular.client.model.SearchRecipesByIngredients200ResponseInner;
 import com.spoonacular.client.model.SearchRecipesByNutrients200ResponseInner;
 import java.util.*;
 import com.spoonacular.client.model.SummarizeRecipe200Response;
+import com.spoonacular.client.model.TasteInformation;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -357,6 +356,11 @@ public class RecipesApi {
   */
   public Set<AutocompleteRecipeSearch200ResponseInner> autocompleteRecipeSearch (String query, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling autocompleteRecipeSearch",
+        new ApiException(400, "Missing the required parameter 'query' when calling autocompleteRecipeSearch"));
+    }
 
     // create path and map variables
     String path = "/recipes/autocomplete";
@@ -416,6 +420,11 @@ public class RecipesApi {
   public void autocompleteRecipeSearch (String query, Integer number, final Response.Listener<Set<AutocompleteRecipeSearch200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling autocompleteRecipeSearch",
+        new ApiException(400, "Missing the required parameter 'query' when calling autocompleteRecipeSearch"));
+    }
 
     // create path and map variables
     String path = "/recipes/autocomplete".replaceAll("\\{format\\}","json");
@@ -1251,7 +1260,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
    * @param id The recipe id.
    * @return File
   */
-  public File equipmentByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File equipmentByIDImage (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1312,7 +1321,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
    * Visualize a recipe&#39;s equipment list as an image.
    * @param id The recipe id.
   */
-  public void equipmentByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void equipmentByIDImage (Integer id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1380,9 +1389,9 @@ formParams.put("source", ApiInvoker.parameterToString(source));
    * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
    * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
    * @param includeTaste Whether taste data should be added to correctly parsed ingredients.
-   * @return GetRecipeInformation200Response
+   * @return RecipeInformation
   */
-  public GetRecipeInformation200Response extractRecipeFromWebsite (String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RecipeInformation extractRecipeFromWebsite (String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'url' is set
     if (url == null) {
@@ -1422,7 +1431,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetRecipeInformation200Response) ApiInvoker.deserialize(localVarResponse, "", GetRecipeInformation200Response.class);
+         return (RecipeInformation) ApiInvoker.deserialize(localVarResponse, "", RecipeInformation.class);
       } else {
          return null;
       }
@@ -1448,7 +1457,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
    * This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
    * @param url The URL of the recipe page.   * @param forceExtraction If true, the extraction will be triggered whether we already know the recipe or not. Use this only if information is missing as this operation is slower.   * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.   * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.   * @param includeTaste Whether taste data should be added to correctly parsed ingredients.
   */
-  public void extractRecipeFromWebsite (String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste, final Response.Listener<GetRecipeInformation200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void extractRecipeFromWebsite (String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste, final Response.Listener<RecipeInformation> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'url' is set
@@ -1498,7 +1507,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetRecipeInformation200Response) ApiInvoker.deserialize(localVarResponse,  "", GetRecipeInformation200Response.class));
+              responseListener.onResponse((RecipeInformation) ApiInvoker.deserialize(localVarResponse,  "", RecipeInformation.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1516,11 +1525,11 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Get Analyzed Recipe Instructions
   * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @param stepBreakdown Whether to break down the recipe steps even more.
-   * @return GetAnalyzedRecipeInstructions200Response
+   * @return List<GetAnalyzedRecipeInstructions200ResponseInner>
   */
-  public GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions (Integer id, Boolean stepBreakdown) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<GetAnalyzedRecipeInstructions200ResponseInner> getAnalyzedRecipeInstructions (Integer id, Boolean stepBreakdown) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1556,7 +1565,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetAnalyzedRecipeInstructions200Response) ApiInvoker.deserialize(localVarResponse, "", GetAnalyzedRecipeInstructions200Response.class);
+         return (List<GetAnalyzedRecipeInstructions200ResponseInner>) ApiInvoker.deserialize(localVarResponse, "array", GetAnalyzedRecipeInstructions200ResponseInner.class);
       } else {
          return null;
       }
@@ -1580,9 +1589,9 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Get Analyzed Recipe Instructions
    * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-   * @param id The item&#39;s id.   * @param stepBreakdown Whether to break down the recipe steps even more.
+   * @param id The recipe id.   * @param stepBreakdown Whether to break down the recipe steps even more.
   */
-  public void getAnalyzedRecipeInstructions (Integer id, Boolean stepBreakdown, final Response.Listener<GetAnalyzedRecipeInstructions200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getAnalyzedRecipeInstructions (Integer id, Boolean stepBreakdown, final Response.Listener<List<GetAnalyzedRecipeInstructions200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1628,7 +1637,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetAnalyzedRecipeInstructions200Response) ApiInvoker.deserialize(localVarResponse,  "", GetAnalyzedRecipeInstructions200Response.class));
+              responseListener.onResponse((List<GetAnalyzedRecipeInstructions200ResponseInner>) ApiInvoker.deserialize(localVarResponse,  "array", GetAnalyzedRecipeInstructions200ResponseInner.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1774,7 +1783,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Equipment by ID
   * Get a recipe&#39;s equipment list.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @return GetRecipeEquipmentByID200Response
   */
   public GetRecipeEquipmentByID200Response getRecipeEquipmentByID (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -1836,7 +1845,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Equipment by ID
    * Get a recipe&#39;s equipment list.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
   */
   public void getRecipeEquipmentByID (Integer id, final Response.Listener<GetRecipeEquipmentByID200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -1901,11 +1910,13 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Get Recipe Information
   * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-   * @param id The item&#39;s id.
+   * @param id The id of the recipe.
    * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-   * @return GetRecipeInformation200Response
+   * @param addWinePairing Add a wine pairing to the recipe.
+   * @param addTasteData Add taste data to the recipe.
+   * @return RecipeInformation
   */
-  public GetRecipeInformation200Response getRecipeInformation (Integer id, Boolean includeNutrition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RecipeInformation getRecipeInformation (Integer id, Boolean includeNutrition, Boolean addWinePairing, Boolean addTasteData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1923,6 +1934,8 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "includeNutrition", includeNutrition));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "addWinePairing", addWinePairing));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "addTasteData", addTasteData));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1941,7 +1954,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetRecipeInformation200Response) ApiInvoker.deserialize(localVarResponse, "", GetRecipeInformation200Response.class);
+         return (RecipeInformation) ApiInvoker.deserialize(localVarResponse, "", RecipeInformation.class);
       } else {
          return null;
       }
@@ -1965,9 +1978,9 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Get Recipe Information
    * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-   * @param id The item&#39;s id.   * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+   * @param id The id of the recipe.   * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.   * @param addWinePairing Add a wine pairing to the recipe.   * @param addTasteData Add taste data to the recipe.
   */
-  public void getRecipeInformation (Integer id, Boolean includeNutrition, final Response.Listener<GetRecipeInformation200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getRecipeInformation (Integer id, Boolean includeNutrition, Boolean addWinePairing, Boolean addTasteData, final Response.Listener<RecipeInformation> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1987,6 +2000,8 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "includeNutrition", includeNutrition));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "addWinePairing", addWinePairing));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "addTasteData", addTasteData));
 
 
     String[] contentTypes = {
@@ -2013,7 +2028,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetRecipeInformation200Response) ApiInvoker.deserialize(localVarResponse,  "", GetRecipeInformation200Response.class));
+              responseListener.onResponse((RecipeInformation) ApiInvoker.deserialize(localVarResponse,  "", RecipeInformation.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -2033,9 +2048,9 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
    * @param ids A comma-separated list of recipe ids.
    * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-   * @return Set<GetRecipeInformationBulk200ResponseInner>
+   * @return Set<RecipeInformation>
   */
-  public Set<GetRecipeInformationBulk200ResponseInner> getRecipeInformationBulk (String ids, Boolean includeNutrition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Set<RecipeInformation> getRecipeInformationBulk (String ids, Boolean includeNutrition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'ids' is set
     if (ids == null) {
@@ -2072,7 +2087,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Set<GetRecipeInformationBulk200ResponseInner>) ApiInvoker.deserialize(localVarResponse, "set", GetRecipeInformationBulk200ResponseInner.class);
+         return (Set<RecipeInformation>) ApiInvoker.deserialize(localVarResponse, "set", RecipeInformation.class);
       } else {
          return null;
       }
@@ -2098,7 +2113,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
    * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
    * @param ids A comma-separated list of recipe ids.   * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
   */
-  public void getRecipeInformationBulk (String ids, Boolean includeNutrition, final Response.Listener<Set<GetRecipeInformationBulk200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
+  public void getRecipeInformationBulk (String ids, Boolean includeNutrition, final Response.Listener<Set<RecipeInformation>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'ids' is set
@@ -2145,7 +2160,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Set<GetRecipeInformationBulk200ResponseInner>) ApiInvoker.deserialize(localVarResponse,  "set", GetRecipeInformationBulk200ResponseInner.class));
+              responseListener.onResponse((Set<RecipeInformation>) ApiInvoker.deserialize(localVarResponse,  "set", RecipeInformation.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -2163,7 +2178,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Ingredients by ID
   * Get a recipe&#39;s ingredient list.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @return GetRecipeIngredientsByID200Response
   */
   public GetRecipeIngredientsByID200Response getRecipeIngredientsByID (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -2225,7 +2240,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Ingredients by ID
    * Get a recipe&#39;s ingredient list.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
   */
   public void getRecipeIngredientsByID (Integer id, final Response.Listener<GetRecipeIngredientsByID200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -2290,7 +2305,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Nutrition by ID
   * Get a recipe&#39;s nutrition data.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @return GetRecipeNutritionWidgetByID200Response
   */
   public GetRecipeNutritionWidgetByID200Response getRecipeNutritionWidgetByID (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -2352,7 +2367,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Nutrition by ID
    * Get a recipe&#39;s nutrition data.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
   */
   public void getRecipeNutritionWidgetByID (Integer id, final Response.Listener<GetRecipeNutritionWidgetByID200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -2417,7 +2432,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Price Breakdown by ID
   * Get a recipe&#39;s price breakdown data.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @return GetRecipePriceBreakdownByID200Response
   */
   public GetRecipePriceBreakdownByID200Response getRecipePriceBreakdownByID (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -2479,7 +2494,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Price Breakdown by ID
    * Get a recipe&#39;s price breakdown data.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
   */
   public void getRecipePriceBreakdownByID (Integer id, final Response.Listener<GetRecipePriceBreakdownByID200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -2544,11 +2559,11 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Taste by ID
   * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @param normalize Normalize to the strongest taste.
-   * @return GetRecipeTasteByID200Response
+   * @return TasteInformation
   */
-  public GetRecipeTasteByID200Response getRecipeTasteByID (Integer id, Boolean normalize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TasteInformation getRecipeTasteByID (Integer id, Boolean normalize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -2584,7 +2599,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetRecipeTasteByID200Response) ApiInvoker.deserialize(localVarResponse, "", GetRecipeTasteByID200Response.class);
+         return (TasteInformation) ApiInvoker.deserialize(localVarResponse, "", TasteInformation.class);
       } else {
          return null;
       }
@@ -2608,9 +2623,9 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Taste by ID
    * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-   * @param id The item&#39;s id.   * @param normalize Normalize to the strongest taste.
+   * @param id The recipe id.   * @param normalize Normalize to the strongest taste.
   */
-  public void getRecipeTasteByID (Integer id, Boolean normalize, final Response.Listener<GetRecipeTasteByID200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getRecipeTasteByID (Integer id, Boolean normalize, final Response.Listener<TasteInformation> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -2656,7 +2671,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetRecipeTasteByID200Response) ApiInvoker.deserialize(localVarResponse,  "", GetRecipeTasteByID200Response.class));
+              responseListener.onResponse((TasteInformation) ApiInvoker.deserialize(localVarResponse,  "", TasteInformation.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -2674,7 +2689,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
   /**
   * Get Similar Recipes
   * Find recipes which are similar to the given one.
-   * @param id The item&#39;s id.
+   * @param id The id of the source recipe for which similar recipes should be found.
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
    * @return Set<GetSimilarRecipes200ResponseInner>
   */
@@ -2738,7 +2753,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Get Similar Recipes
    * Find recipes which are similar to the given one.
-   * @param id The item&#39;s id.   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
+   * @param id The id of the source recipe for which similar recipes should be found.   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
   */
   public void getSimilarRecipes (Integer id, Integer number, final Response.Listener<Set<GetSimilarRecipes200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -2936,10 +2951,10 @@ formParams.put("source", ApiInvoker.parameterToString(source));
    * @param ingredientList The ingredient list of the recipe, one ingredient per line.
    * @param servings The number of servings that you can make from the ingredients.
    * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-   * @param includeNutrition 
-   * @return Set<ParseIngredients200ResponseInner>
+   * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
+   * @return Set<IngredientInformation>
   */
-  public Set<ParseIngredients200ResponseInner> parseIngredients (String ingredientList, BigDecimal servings, String language, Boolean includeNutrition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Set<IngredientInformation> parseIngredients (String ingredientList, BigDecimal servings, String language, Boolean includeNutrition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'ingredientList' is set
     if (ingredientList == null) {
@@ -2993,7 +3008,7 @@ formParams.put("source", ApiInvoker.parameterToString(source));
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Set<ParseIngredients200ResponseInner>) ApiInvoker.deserialize(localVarResponse, "set", ParseIngredients200ResponseInner.class);
+         return (Set<IngredientInformation>) ApiInvoker.deserialize(localVarResponse, "set", IngredientInformation.class);
       } else {
          return null;
       }
@@ -3017,9 +3032,9 @@ formParams.put("source", ApiInvoker.parameterToString(source));
       /**
    * Parse Ingredients
    * Extract an ingredient from plain text.
-   * @param ingredientList The ingredient list of the recipe, one ingredient per line.   * @param servings The number of servings that you can make from the ingredients.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.   * @param includeNutrition 
+   * @param ingredientList The ingredient list of the recipe, one ingredient per line.   * @param servings The number of servings that you can make from the ingredients.   * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;.   * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
   */
-  public void parseIngredients (String ingredientList, BigDecimal servings, String language, Boolean includeNutrition, final Response.Listener<Set<ParseIngredients200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
+  public void parseIngredients (String ingredientList, BigDecimal servings, String language, Boolean includeNutrition, final Response.Listener<Set<IngredientInformation>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'ingredientList' is set
@@ -3085,7 +3100,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Set<ParseIngredients200ResponseInner>) ApiInvoker.deserialize(localVarResponse,  "set", ParseIngredients200ResponseInner.class));
+              responseListener.onResponse((Set<IngredientInformation>) ApiInvoker.deserialize(localVarResponse,  "set", IngredientInformation.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -3106,7 +3121,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * @param id The recipe id.
    * @return File
   */
-  public File priceBreakdownByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File priceBreakdownByIDImage (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3167,7 +3182,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * Visualize a recipe&#39;s price breakdown.
    * @param id The recipe id.
   */
-  public void priceBreakdownByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void priceBreakdownByIDImage (Integer id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3362,7 +3377,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * @param id The recipe id.
    * @return File
   */
-  public File recipeNutritionByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File recipeNutritionByIDImage (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3423,7 +3438,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * Visualize a recipe&#39;s nutritional information as an image.
    * @param id The recipe id.
   */
-  public void recipeNutritionByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void recipeNutritionByIDImage (Integer id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3492,7 +3507,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * @param showIngredients Whether to show a list of ingredients.
    * @return File
   */
-  public File recipeNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File recipeNutritionLabelImage (Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3556,7 +3571,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * Get a recipe&#39;s nutrition label as an image.
    * @param id The recipe id.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void recipeNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void recipeNutritionLabelImage (Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3629,7 +3644,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * @param showIngredients Whether to show a list of ingredients.
    * @return String
   */
-  public String recipeNutritionLabelWidget (BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String recipeNutritionLabelWidget (Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3694,7 +3709,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * Get a recipe&#39;s nutrition label as an HTML widget.
    * @param id The recipe id.   * @param defaultCss Whether the default CSS should be added to the response.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void recipeNutritionLabelWidget (BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void recipeNutritionLabelWidget (Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3766,7 +3781,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * @param rgb Red, green, blue values for the chart color.
    * @return File
   */
-  public File recipeTasteByIDImage (BigDecimal id, Boolean normalize, String rgb) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File recipeTasteByIDImage (Integer id, Boolean normalize, String rgb) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -3829,7 +3844,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * Get a recipe&#39;s taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
    * @param id The recipe id.   * @param normalize Normalize to the strongest taste.   * @param rgb Red, green, blue values for the chart color.
   */
-  public void recipeTasteByIDImage (BigDecimal id, Boolean normalize, String rgb, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void recipeTasteByIDImage (Integer id, Boolean normalize, String rgb, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -3993,8 +4008,13 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
    * @return SearchRecipes200Response
   */
-  public SearchRecipes200Response searchRecipes (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SearchRecipes200Response searchRecipes (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, Integer recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchRecipes",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchRecipes"));
+    }
 
     // create path and map variables
     String path = "/recipes/complexSearch";
@@ -4146,9 +4166,14 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
    * @param query The (natural language) search query.   * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.   * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.   * @param diet The diet for which the recipes must be suitable. See a full list of supported diets.   * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.   * @param equipment The equipment required. Multiple values will be interpreted as &#39;or&#39;. For example, value could be \&quot;blender, frying pan, bowl\&quot;.   * @param includeIngredients A comma-separated list of ingredients that should/must be used in the recipes.   * @param excludeIngredients A comma-separated list of ingredients or ingredient types that the recipes must not contain.   * @param type The type of recipe. See a full list of supported meal types.   * @param instructionsRequired Whether the recipes must have instructions.   * @param fillIngredients Add information about the ingredients and whether they are used or missing in relation to the query.   * @param addRecipeInformation If set to true, you get more information about the recipes returned.   * @param addRecipeNutrition If set to true, you get nutritional information about each recipes returned.   * @param author The username of the recipe author.   * @param tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.   * @param recipeBoxId The id of the recipe box to which the search should be limited to.   * @param titleMatch Enter text that must be found in the title of the recipes.   * @param maxReadyTime The maximum time in minutes it should take to prepare and cook the recipe.   * @param minServings The minimum amount of servings the recipe is for.   * @param maxServings The maximum amount of servings the recipe is for.   * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.   * @param sort The strategy to sort recipes by. See a full list of supported sorting options.   * @param sortDirection The direction in which to sort. Must be either &#39;asc&#39; (ascending) or &#39;desc&#39; (descending).   * @param minCarbs The minimum amount of carbohydrates in grams the recipe must have.   * @param maxCarbs The maximum amount of carbohydrates in grams the recipe can have.   * @param minProtein The minimum amount of protein in grams the recipe must have.   * @param maxProtein The maximum amount of protein in grams the recipe can have.   * @param minCalories The minimum amount of calories the recipe must have.   * @param maxCalories The maximum amount of calories the recipe can have.   * @param minFat The minimum amount of fat in grams the recipe must have.   * @param maxFat The maximum amount of fat in grams the recipe can have.   * @param minAlcohol The minimum amount of alcohol in grams the recipe must have.   * @param maxAlcohol The maximum amount of alcohol in grams the recipe can have.   * @param minCaffeine The minimum amount of caffeine in milligrams the recipe must have.   * @param maxCaffeine The maximum amount of caffeine in milligrams the recipe can have.   * @param minCopper The minimum amount of copper in milligrams the recipe must have.   * @param maxCopper The maximum amount of copper in milligrams the recipe can have.   * @param minCalcium The minimum amount of calcium in milligrams the recipe must have.   * @param maxCalcium The maximum amount of calcium in milligrams the recipe can have.   * @param minCholine The minimum amount of choline in milligrams the recipe must have.   * @param maxCholine The maximum amount of choline in milligrams the recipe can have.   * @param minCholesterol The minimum amount of cholesterol in milligrams the recipe must have.   * @param maxCholesterol The maximum amount of cholesterol in milligrams the recipe can have.   * @param minFluoride The minimum amount of fluoride in milligrams the recipe must have.   * @param maxFluoride The maximum amount of fluoride in milligrams the recipe can have.   * @param minSaturatedFat The minimum amount of saturated fat in grams the recipe must have.   * @param maxSaturatedFat The maximum amount of saturated fat in grams the recipe can have.   * @param minVitaminA The minimum amount of Vitamin A in IU the recipe must have.   * @param maxVitaminA The maximum amount of Vitamin A in IU the recipe can have.   * @param minVitaminC The minimum amount of Vitamin C milligrams the recipe must have.   * @param maxVitaminC The maximum amount of Vitamin C in milligrams the recipe can have.   * @param minVitaminD The minimum amount of Vitamin D in micrograms the recipe must have.   * @param maxVitaminD The maximum amount of Vitamin D in micrograms the recipe can have.   * @param minVitaminE The minimum amount of Vitamin E in milligrams the recipe must have.   * @param maxVitaminE The maximum amount of Vitamin E in milligrams the recipe can have.   * @param minVitaminK The minimum amount of Vitamin K in micrograms the recipe must have.   * @param maxVitaminK The maximum amount of Vitamin K in micrograms the recipe can have.   * @param minVitaminB1 The minimum amount of Vitamin B1 in milligrams the recipe must have.   * @param maxVitaminB1 The maximum amount of Vitamin B1 in milligrams the recipe can have.   * @param minVitaminB2 The minimum amount of Vitamin B2 in milligrams the recipe must have.   * @param maxVitaminB2 The maximum amount of Vitamin B2 in milligrams the recipe can have.   * @param minVitaminB5 The minimum amount of Vitamin B5 in milligrams the recipe must have.   * @param maxVitaminB5 The maximum amount of Vitamin B5 in milligrams the recipe can have.   * @param minVitaminB3 The minimum amount of Vitamin B3 in milligrams the recipe must have.   * @param maxVitaminB3 The maximum amount of Vitamin B3 in milligrams the recipe can have.   * @param minVitaminB6 The minimum amount of Vitamin B6 in milligrams the recipe must have.   * @param maxVitaminB6 The maximum amount of Vitamin B6 in milligrams the recipe can have.   * @param minVitaminB12 The minimum amount of Vitamin B12 in micrograms the recipe must have.   * @param maxVitaminB12 The maximum amount of Vitamin B12 in micrograms the recipe can have.   * @param minFiber The minimum amount of fiber in grams the recipe must have.   * @param maxFiber The maximum amount of fiber in grams the recipe can have.   * @param minFolate The minimum amount of folate in micrograms the recipe must have.   * @param maxFolate The maximum amount of folate in micrograms the recipe can have.   * @param minFolicAcid The minimum amount of folic acid in micrograms the recipe must have.   * @param maxFolicAcid The maximum amount of folic acid in micrograms the recipe can have.   * @param minIodine The minimum amount of iodine in micrograms the recipe must have.   * @param maxIodine The maximum amount of iodine in micrograms the recipe can have.   * @param minIron The minimum amount of iron in milligrams the recipe must have.   * @param maxIron The maximum amount of iron in milligrams the recipe can have.   * @param minMagnesium The minimum amount of magnesium in milligrams the recipe must have.   * @param maxMagnesium The maximum amount of magnesium in milligrams the recipe can have.   * @param minManganese The minimum amount of manganese in milligrams the recipe must have.   * @param maxManganese The maximum amount of manganese in milligrams the recipe can have.   * @param minPhosphorus The minimum amount of phosphorus in milligrams the recipe must have.   * @param maxPhosphorus The maximum amount of phosphorus in milligrams the recipe can have.   * @param minPotassium The minimum amount of potassium in milligrams the recipe must have.   * @param maxPotassium The maximum amount of potassium in milligrams the recipe can have.   * @param minSelenium The minimum amount of selenium in micrograms the recipe must have.   * @param maxSelenium The maximum amount of selenium in micrograms the recipe can have.   * @param minSodium The minimum amount of sodium in milligrams the recipe must have.   * @param maxSodium The maximum amount of sodium in milligrams the recipe can have.   * @param minSugar The minimum amount of sugar in grams the recipe must have.   * @param maxSugar The maximum amount of sugar in grams the recipe can have.   * @param minZinc The minimum amount of zinc in milligrams the recipe must have.   * @param maxZinc The maximum amount of zinc in milligrams the recipe can have.   * @param offset The number of results to skip (between 0 and 900).   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
   */
-  public void searchRecipes (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final Response.Listener<SearchRecipes200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRecipes (String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, Integer recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final Response.Listener<SearchRecipes200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchRecipes",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchRecipes"));
+    }
 
     // create path and map variables
     String path = "/recipes/complexSearch".replaceAll("\\{format\\}","json");
@@ -4307,8 +4332,13 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
    * @return Set<SearchRecipesByIngredients200ResponseInner>
   */
-  public Set<SearchRecipesByIngredients200ResponseInner> searchRecipesByIngredients (String ingredients, Integer number, BigDecimal ranking, Boolean ignorePantry) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Set<SearchRecipesByIngredients200ResponseInner> searchRecipesByIngredients (String ingredients, Integer number, Integer ranking, Boolean ignorePantry) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'ingredients' is set
+    if (ingredients == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredients' when calling searchRecipesByIngredients",
+        new ApiException(400, "Missing the required parameter 'ingredients' when calling searchRecipesByIngredients"));
+    }
 
     // create path and map variables
     String path = "/recipes/findByIngredients";
@@ -4367,9 +4397,14 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
    *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
    * @param ingredients A comma-separated list of ingredients that the recipes should contain.   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.   * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.   * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
   */
-  public void searchRecipesByIngredients (String ingredients, Integer number, BigDecimal ranking, Boolean ignorePantry, final Response.Listener<Set<SearchRecipesByIngredients200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRecipesByIngredients (String ingredients, Integer number, Integer ranking, Boolean ignorePantry, final Response.Listener<Set<SearchRecipesByIngredients200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'ingredients' is set
+    if (ingredients == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'ingredients' when calling searchRecipesByIngredients",
+        new ApiException(400, "Missing the required parameter 'ingredients' when calling searchRecipesByIngredients"));
+    }
 
     // create path and map variables
     String path = "/recipes/findByIngredients".replaceAll("\\{format\\}","json");
@@ -4770,7 +4805,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
   /**
   * Summarize Recipe
   * Automatically generate a short description that summarizes key information about the recipe.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @return SummarizeRecipe200Response
   */
   public SummarizeRecipe200Response summarizeRecipe (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -4832,7 +4867,7 @@ formParams.put("includeNutrition", ApiInvoker.parameterToString(includeNutrition
       /**
    * Summarize Recipe
    * Automatically generate a short description that summarizes key information about the recipe.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
   */
   public void summarizeRecipe (Integer id, final Response.Listener<SummarizeRecipe200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -5254,7 +5289,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
   /**
   * Equipment by ID Widget
   * Visualize a recipe&#39;s equipment list.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @param defaultCss Whether the default CSS should be added to the response.
    * @return String
   */
@@ -5318,7 +5353,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
       /**
    * Equipment by ID Widget
    * Visualize a recipe&#39;s equipment list.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param id The recipe id.   * @param defaultCss Whether the default CSS should be added to the response.
   */
   public void visualizeRecipeEquipmentByID (Integer id, Boolean defaultCss, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -5384,7 +5419,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
   /**
   * Ingredients by ID Widget
   * Visualize a recipe&#39;s ingredient list.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @param defaultCss Whether the default CSS should be added to the response.
    * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
    * @return String
@@ -5450,7 +5485,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
       /**
    * Ingredients by ID Widget
    * Visualize a recipe&#39;s ingredient list.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.   * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
+   * @param id The recipe id.   * @param defaultCss Whether the default CSS should be added to the response.   * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
   */
   public void visualizeRecipeIngredientsByID (Integer id, Boolean defaultCss, String measure, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -5697,7 +5732,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
   /**
   * Recipe Nutrition by ID Widget
   * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @param defaultCss Whether the default CSS should be added to the response.
    * @return String
   */
@@ -5761,7 +5796,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
       /**
    * Recipe Nutrition by ID Widget
    * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param id The recipe id.   * @param defaultCss Whether the default CSS should be added to the response.
   */
   public void visualizeRecipeNutritionByID (Integer id, Boolean defaultCss, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -5827,7 +5862,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
   /**
   * Price Breakdown by ID Widget
   * Visualize a recipe&#39;s price breakdown.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @param defaultCss Whether the default CSS should be added to the response.
    * @return String
   */
@@ -5891,7 +5926,7 @@ formParams.put("showBacklink", ApiInvoker.parameterToString(showBacklink));
       /**
    * Price Breakdown by ID Widget
    * Visualize a recipe&#39;s price breakdown.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param id The recipe id.   * @param defaultCss Whether the default CSS should be added to the response.
   */
   public void visualizeRecipePriceBreakdownByID (Integer id, Boolean defaultCss, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -6117,7 +6152,7 @@ formParams.put("rgb", ApiInvoker.parameterToString(rgb));
   /**
   * Recipe Taste by ID Widget
   * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-   * @param id The item&#39;s id.
+   * @param id The recipe id.
    * @param normalize Whether to normalize to the strongest taste.
    * @param rgb Red, green, blue values for the chart color.
    * @return String
@@ -6183,7 +6218,7 @@ formParams.put("rgb", ApiInvoker.parameterToString(rgb));
       /**
    * Recipe Taste by ID Widget
    * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-   * @param id The item&#39;s id.   * @param normalize Whether to normalize to the strongest taste.   * @param rgb Red, green, blue values for the chart color.
+   * @param id The recipe id.   * @param normalize Whether to normalize to the strongest taste.   * @param rgb Red, green, blue values for the chart color.
   */
   public void visualizeRecipeTasteByID (Integer id, Boolean normalize, String rgb, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;

@@ -72,7 +72,7 @@ describe 'MiscApi' do
   # Random Food Trivia
   # Returns random food trivia.
   # @param [Hash] opts the optional parameters
-  # @return [GetRandomFoodTrivia200Response]
+  # @return [GetARandomFoodJoke200Response]
   describe 'get_random_food_trivia test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -120,10 +120,10 @@ describe 'MiscApi' do
   # unit tests for search_custom_foods
   # Search Custom Foods
   # Search custom foods in a user&#39;s account.
+  # @param query The (natural language) search query.
   # @param username The username.
   # @param hash The private hash for the username.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
   # @return [SearchCustomFoods200Response]
@@ -136,8 +136,8 @@ describe 'MiscApi' do
   # unit tests for search_food_videos
   # Search Food Videos
   # Find recipe and other food related videos.
+  # @param query The (natural language) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [String] :type The type of the recipes. See a full list of supported meal types.
   # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
   # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.

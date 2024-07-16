@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param name 
+ * @param title 
  * @param amount 
  * @param indented 
  * @param percentOfDailyNeeds 
@@ -31,8 +31,8 @@ import com.squareup.moshi.JsonClass
 
 data class GetRecipeNutritionWidgetByID200ResponseBadInner (
 
-    @Json(name = "name")
-    val name: kotlin.String,
+    @Json(name = "title")
+    val title: kotlin.String,
 
     @Json(name = "amount")
     val amount: kotlin.String,

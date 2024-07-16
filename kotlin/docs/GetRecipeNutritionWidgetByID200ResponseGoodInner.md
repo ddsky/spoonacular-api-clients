@@ -7,7 +7,7 @@
 | **amount** | **kotlin.String** |  |  |
 | **indented** | **kotlin.Boolean** |  |  |
 | **percentOfDailyNeeds** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
-| **name** | **kotlin.String** |  |  |
+| **title** | **kotlin.String** |  |  |
 
 
 

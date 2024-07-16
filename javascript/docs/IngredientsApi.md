@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## autocompleteIngredientSearch
 
-> [AutocompleteIngredientSearch200ResponseInner] autocompleteIngredientSearch(opts)
+> [AutocompleteIngredientSearch200ResponseInner] autocompleteIngredientSearch(query, opts)
 
 Autocomplete Ingredient Search
 
@@ -36,14 +36,14 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
+let query = "burger"; // String | The (natural language) search query.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'metaInformation': false, // Boolean | Whether to return more meta information about the ingredients.
   'intolerances': "egg", // String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
   'language': "en" // String | The language of the input. Either 'en' or 'de'.
 };
-apiInstance.autocompleteIngredientSearch(opts, (error, data, response) => {
+apiInstance.autocompleteIngredientSearch(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -57,7 +57,7 @@ apiInstance.autocompleteIngredientSearch(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **metaInformation** | **Boolean**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ## getIngredientInformation
 
-> GetIngredientInformation200Response getIngredientInformation(id, opts)
+> IngredientInformation getIngredientInformation(id, opts)
 
 Get Ingredient Information
 
@@ -156,7 +156,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
-let id = 1; // Number | The item's id.
+let id = 9266; // Number | The ingredient id.
 let opts = {
   'amount': 150, // Number | The amount of this ingredient.
   'unit': "grams" // String | The unit for the given amount.
@@ -175,13 +175,13 @@ apiInstance.getIngredientInformation(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The ingredient id. | 
  **amount** | **Number**| The amount of this ingredient. | [optional] 
  **unit** | **String**| The unit for the given amount. | [optional] 
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
-let id = 1; // Number | The item's id.
+let id = 1001; // Number | The id of the ingredient you want substitutes for.
 apiInstance.getIngredientSubstitutesByID(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -279,7 +279,7 @@ apiInstance.getIngredientSubstitutesByID(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The id of the ingredient you want substitutes for. | 
 
 ### Return type
 
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 ## ingredientSearch
 
-> IngredientSearch200Response ingredientSearch(opts)
+> IngredientSearch200Response ingredientSearch(query, opts)
 
 Ingredient Search
 
@@ -315,8 +315,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.IngredientsApi();
+let query = "burger"; // String | The (natural language) search query.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'addChildren': true, // Boolean | Whether to add children of found foods.
   'minProteinPercent': 10, // Number | The minimum percentage of protein the food must have (between 0 and 100).
   'maxProteinPercent': 90, // Number | The maximum percentage of protein the food can have (between 0 and 100).
@@ -332,7 +332,7 @@ let opts = {
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'language': "en" // String | The language of the input. Either 'en' or 'de'.
 };
-apiInstance.ingredientSearch(opts, (error, data, response) => {
+apiInstance.ingredientSearch(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -346,7 +346,7 @@ apiInstance.ingredientSearch(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **addChildren** | **Boolean**| Whether to add children of found foods. | [optional] 
  **minProteinPercent** | **Number**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] 
  **maxProteinPercent** | **Number**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] 

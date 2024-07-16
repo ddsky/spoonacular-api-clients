@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **articles** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-| **grocery_products** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-| **menu_items** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-| **recipes** | [**Array&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
+| **articles** | [**Array&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+| **grocery_products** | [**Array&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+| **menu_items** | [**Array&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+| **recipes** | [**Array&lt;SearchResult&gt;**](SearchResult.md) |  |  |
 
 ## Example
 

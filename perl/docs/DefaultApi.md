@@ -90,7 +90,7 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 4632; # double | The recipe id.
+my $id = 4632; # int | The recipe id.
 my $mask = ellipseMask; # string | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
 my $background_image = background1; # string | The background image (\"none\",\"background1\", or \"background2\").
 my $background_color = ffffff; # string | The background color for the recipe card as a hex-string.
@@ -109,7 +109,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **mask** | **string**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] 
  **background_image** | **string**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] 
  **background_color** | **string**| The background color for the recipe card as a hex-string. | [optional] 

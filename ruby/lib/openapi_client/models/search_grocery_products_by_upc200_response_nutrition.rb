@@ -35,8 +35,8 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'nutrients' => :'Array<ParseIngredients200ResponseInnerNutritionNutrientsInner>',
-        :'caloric_breakdown' => :'ParseIngredients200ResponseInnerNutritionCaloricBreakdown'
+        :'nutrients' => :'Array<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>',
+        :'caloric_breakdown' => :'SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown'
       }
     end
 

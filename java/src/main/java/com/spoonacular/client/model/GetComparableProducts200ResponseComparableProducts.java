@@ -19,13 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.GetComparableProducts200ResponseComparableProductsProteinInner;
+import com.spoonacular.client.model.ComparableProduct;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -58,37 +56,37 @@ import com.spoonacular.client.JSON;
 public class GetComparableProducts200ResponseComparableProducts {
   public static final String SERIALIZED_NAME_CALORIES = "calories";
   @SerializedName(SERIALIZED_NAME_CALORIES)
-  private List<Object> calories = new ArrayList<>();
+  private List<ComparableProduct> calories = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LIKES = "likes";
   @SerializedName(SERIALIZED_NAME_LIKES)
-  private List<Object> likes = new ArrayList<>();
+  private List<ComparableProduct> likes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRICE = "price";
   @SerializedName(SERIALIZED_NAME_PRICE)
-  private List<Object> price = new ArrayList<>();
+  private List<ComparableProduct> price = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PROTEIN = "protein";
   @SerializedName(SERIALIZED_NAME_PROTEIN)
-  private Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein = new LinkedHashSet<>();
+  private List<ComparableProduct> protein = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SPOONACULAR_SCORE = "spoonacularScore";
+  public static final String SERIALIZED_NAME_SPOONACULAR_SCORE = "spoonacular_score";
   @SerializedName(SERIALIZED_NAME_SPOONACULAR_SCORE)
-  private Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore = new LinkedHashSet<>();
+  private List<ComparableProduct> spoonacularScore = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SUGAR = "sugar";
   @SerializedName(SERIALIZED_NAME_SUGAR)
-  private List<Object> sugar = new ArrayList<>();
+  private List<ComparableProduct> sugar = new ArrayList<>();
 
   public GetComparableProducts200ResponseComparableProducts() {
   }
 
-  public GetComparableProducts200ResponseComparableProducts calories(List<Object> calories) {
+  public GetComparableProducts200ResponseComparableProducts calories(List<ComparableProduct> calories) {
     this.calories = calories;
     return this;
   }
 
-  public GetComparableProducts200ResponseComparableProducts addCaloriesItem(Object caloriesItem) {
+  public GetComparableProducts200ResponseComparableProducts addCaloriesItem(ComparableProduct caloriesItem) {
     if (this.calories == null) {
       this.calories = new ArrayList<>();
     }
@@ -101,21 +99,21 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return calories
    */
   @javax.annotation.Nonnull
-  public List<Object> getCalories() {
+  public List<ComparableProduct> getCalories() {
     return calories;
   }
 
-  public void setCalories(List<Object> calories) {
+  public void setCalories(List<ComparableProduct> calories) {
     this.calories = calories;
   }
 
 
-  public GetComparableProducts200ResponseComparableProducts likes(List<Object> likes) {
+  public GetComparableProducts200ResponseComparableProducts likes(List<ComparableProduct> likes) {
     this.likes = likes;
     return this;
   }
 
-  public GetComparableProducts200ResponseComparableProducts addLikesItem(Object likesItem) {
+  public GetComparableProducts200ResponseComparableProducts addLikesItem(ComparableProduct likesItem) {
     if (this.likes == null) {
       this.likes = new ArrayList<>();
     }
@@ -128,21 +126,21 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return likes
    */
   @javax.annotation.Nonnull
-  public List<Object> getLikes() {
+  public List<ComparableProduct> getLikes() {
     return likes;
   }
 
-  public void setLikes(List<Object> likes) {
+  public void setLikes(List<ComparableProduct> likes) {
     this.likes = likes;
   }
 
 
-  public GetComparableProducts200ResponseComparableProducts price(List<Object> price) {
+  public GetComparableProducts200ResponseComparableProducts price(List<ComparableProduct> price) {
     this.price = price;
     return this;
   }
 
-  public GetComparableProducts200ResponseComparableProducts addPriceItem(Object priceItem) {
+  public GetComparableProducts200ResponseComparableProducts addPriceItem(ComparableProduct priceItem) {
     if (this.price == null) {
       this.price = new ArrayList<>();
     }
@@ -155,23 +153,23 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return price
    */
   @javax.annotation.Nonnull
-  public List<Object> getPrice() {
+  public List<ComparableProduct> getPrice() {
     return price;
   }
 
-  public void setPrice(List<Object> price) {
+  public void setPrice(List<ComparableProduct> price) {
     this.price = price;
   }
 
 
-  public GetComparableProducts200ResponseComparableProducts protein(Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein) {
+  public GetComparableProducts200ResponseComparableProducts protein(List<ComparableProduct> protein) {
     this.protein = protein;
     return this;
   }
 
-  public GetComparableProducts200ResponseComparableProducts addProteinItem(GetComparableProducts200ResponseComparableProductsProteinInner proteinItem) {
+  public GetComparableProducts200ResponseComparableProducts addProteinItem(ComparableProduct proteinItem) {
     if (this.protein == null) {
-      this.protein = new LinkedHashSet<>();
+      this.protein = new ArrayList<>();
     }
     this.protein.add(proteinItem);
     return this;
@@ -182,23 +180,23 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return protein
    */
   @javax.annotation.Nonnull
-  public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getProtein() {
+  public List<ComparableProduct> getProtein() {
     return protein;
   }
 
-  public void setProtein(Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein) {
+  public void setProtein(List<ComparableProduct> protein) {
     this.protein = protein;
   }
 
 
-  public GetComparableProducts200ResponseComparableProducts spoonacularScore(Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore) {
+  public GetComparableProducts200ResponseComparableProducts spoonacularScore(List<ComparableProduct> spoonacularScore) {
     this.spoonacularScore = spoonacularScore;
     return this;
   }
 
-  public GetComparableProducts200ResponseComparableProducts addSpoonacularScoreItem(GetComparableProducts200ResponseComparableProductsProteinInner spoonacularScoreItem) {
+  public GetComparableProducts200ResponseComparableProducts addSpoonacularScoreItem(ComparableProduct spoonacularScoreItem) {
     if (this.spoonacularScore == null) {
-      this.spoonacularScore = new LinkedHashSet<>();
+      this.spoonacularScore = new ArrayList<>();
     }
     this.spoonacularScore.add(spoonacularScoreItem);
     return this;
@@ -209,21 +207,21 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return spoonacularScore
    */
   @javax.annotation.Nonnull
-  public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getSpoonacularScore() {
+  public List<ComparableProduct> getSpoonacularScore() {
     return spoonacularScore;
   }
 
-  public void setSpoonacularScore(Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore) {
+  public void setSpoonacularScore(List<ComparableProduct> spoonacularScore) {
     this.spoonacularScore = spoonacularScore;
   }
 
 
-  public GetComparableProducts200ResponseComparableProducts sugar(List<Object> sugar) {
+  public GetComparableProducts200ResponseComparableProducts sugar(List<ComparableProduct> sugar) {
     this.sugar = sugar;
     return this;
   }
 
-  public GetComparableProducts200ResponseComparableProducts addSugarItem(Object sugarItem) {
+  public GetComparableProducts200ResponseComparableProducts addSugarItem(ComparableProduct sugarItem) {
     if (this.sugar == null) {
       this.sugar = new ArrayList<>();
     }
@@ -236,11 +234,11 @@ public class GetComparableProducts200ResponseComparableProducts {
    * @return sugar
    */
   @javax.annotation.Nonnull
-  public List<Object> getSugar() {
+  public List<ComparableProduct> getSugar() {
     return sugar;
   }
 
-  public void setSugar(List<Object> sugar) {
+  public void setSugar(List<ComparableProduct> sugar) {
     this.sugar = sugar;
   }
 
@@ -304,7 +302,7 @@ public class GetComparableProducts200ResponseComparableProducts {
     openapiFields.add("likes");
     openapiFields.add("price");
     openapiFields.add("protein");
-    openapiFields.add("spoonacularScore");
+    openapiFields.add("spoonacular_score");
     openapiFields.add("sugar");
 
     // a set of required properties/fields (JSON key names)
@@ -313,7 +311,7 @@ public class GetComparableProducts200ResponseComparableProducts {
     openapiRequiredFields.add("likes");
     openapiRequiredFields.add("price");
     openapiRequiredFields.add("protein");
-    openapiRequiredFields.add("spoonacularScore");
+    openapiRequiredFields.add("spoonacular_score");
     openapiRequiredFields.add("sugar");
   }
 
@@ -345,24 +343,36 @@ public class GetComparableProducts200ResponseComparableProducts {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("calories") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("calories").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("calories").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `calories` to be an array in the JSON string but got `%s`", jsonObj.get("calories").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("likes") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("likes").isJsonArray()) {
+
+      JsonArray jsonArraycalories = jsonObj.getAsJsonArray("calories");
+      // validate the required field `calories` (array)
+      for (int i = 0; i < jsonArraycalories.size(); i++) {
+        ComparableProduct.validateJsonElement(jsonArraycalories.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("likes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `likes` to be an array in the JSON string but got `%s`", jsonObj.get("likes").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("price") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("price").isJsonArray()) {
+
+      JsonArray jsonArraylikes = jsonObj.getAsJsonArray("likes");
+      // validate the required field `likes` (array)
+      for (int i = 0; i < jsonArraylikes.size(); i++) {
+        ComparableProduct.validateJsonElement(jsonArraylikes.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("price").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `price` to be an array in the JSON string but got `%s`", jsonObj.get("price").toString()));
       }
+
+      JsonArray jsonArrayprice = jsonObj.getAsJsonArray("price");
+      // validate the required field `price` (array)
+      for (int i = 0; i < jsonArrayprice.size(); i++) {
+        ComparableProduct.validateJsonElement(jsonArrayprice.get(i));
+      };
       // ensure the json data is an array
       if (!jsonObj.get("protein").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `protein` to be an array in the JSON string but got `%s`", jsonObj.get("protein").toString()));
@@ -371,24 +381,28 @@ public class GetComparableProducts200ResponseComparableProducts {
       JsonArray jsonArrayprotein = jsonObj.getAsJsonArray("protein");
       // validate the required field `protein` (array)
       for (int i = 0; i < jsonArrayprotein.size(); i++) {
-        GetComparableProducts200ResponseComparableProductsProteinInner.validateJsonElement(jsonArrayprotein.get(i));
+        ComparableProduct.validateJsonElement(jsonArrayprotein.get(i));
       };
       // ensure the json data is an array
-      if (!jsonObj.get("spoonacularScore").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `spoonacularScore` to be an array in the JSON string but got `%s`", jsonObj.get("spoonacularScore").toString()));
+      if (!jsonObj.get("spoonacular_score").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `spoonacular_score` to be an array in the JSON string but got `%s`", jsonObj.get("spoonacular_score").toString()));
       }
 
-      JsonArray jsonArrayspoonacularScore = jsonObj.getAsJsonArray("spoonacularScore");
-      // validate the required field `spoonacularScore` (array)
+      JsonArray jsonArrayspoonacularScore = jsonObj.getAsJsonArray("spoonacular_score");
+      // validate the required field `spoonacular_score` (array)
       for (int i = 0; i < jsonArrayspoonacularScore.size(); i++) {
-        GetComparableProducts200ResponseComparableProductsProteinInner.validateJsonElement(jsonArrayspoonacularScore.get(i));
+        ComparableProduct.validateJsonElement(jsonArrayspoonacularScore.get(i));
       };
-      // ensure the required json array is present
-      if (jsonObj.get("sugar") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("sugar").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("sugar").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `sugar` to be an array in the JSON string but got `%s`", jsonObj.get("sugar").toString()));
       }
+
+      JsonArray jsonArraysugar = jsonObj.getAsJsonArray("sugar");
+      // validate the required field `sugar` (array)
+      for (int i = 0; i < jsonArraysugar.size(); i++) {
+        ComparableProduct.validateJsonElement(jsonArraysugar.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

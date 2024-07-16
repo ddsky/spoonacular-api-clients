@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
+**title** | **str** |  | 
 **amount** | **str** |  | 
 **indented** | **bool** |  | 
 **percent_of_daily_needs** | **float** |  | 

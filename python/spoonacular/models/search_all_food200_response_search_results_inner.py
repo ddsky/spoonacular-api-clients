@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from spoonacular.models.search_all_food200_response_search_results_inner_results_inner import SearchAllFood200ResponseSearchResultsInnerResultsInner
+from spoonacular.models.search_result import SearchResult
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class SearchAllFood200ResponseSearchResultsInner(BaseModel):
     """ # noqa: E501
     name: Annotated[str, Field(min_length=1, strict=True)]
     total_results: StrictInt = Field(alias="totalResults")
-    results: Optional[Annotated[List[SearchAllFood200ResponseSearchResultsInnerResultsInner], Field(min_length=0)]] = None
+    results: Optional[Annotated[List[SearchResult], Field(min_length=0)]] = None
     __properties: ClassVar[List[str]] = ["name", "totalResults", "results"]
 
     model_config = ConfigDict(
@@ -94,7 +94,7 @@ class SearchAllFood200ResponseSearchResultsInner(BaseModel):
         _obj = cls.model_validate({
             "name": obj.get("name"),
             "totalResults": obj.get("totalResults"),
-            "results": [SearchAllFood200ResponseSearchResultsInnerResultsInner.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
+            "results": [SearchResult.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
         })
         return _obj
 

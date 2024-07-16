@@ -26,24 +26,23 @@
 #include "OAIComputeGlycemicLoad_request.h"
 #include "OAIConvertAmounts_200_response.h"
 #include "OAICreateRecipeCard_200_response.h"
-#include "OAIGetAnalyzedRecipeInstructions_200_response.h"
+#include "OAIGetAnalyzedRecipeInstructions_200_response_inner.h"
 #include "OAIGetRandomRecipes_200_response.h"
 #include "OAIGetRecipeEquipmentByID_200_response.h"
-#include "OAIGetRecipeInformationBulk_200_response_inner.h"
-#include "OAIGetRecipeInformation_200_response.h"
 #include "OAIGetRecipeIngredientsByID_200_response.h"
 #include "OAIGetRecipeNutritionWidgetByID_200_response.h"
 #include "OAIGetRecipePriceBreakdownByID_200_response.h"
-#include "OAIGetRecipeTasteByID_200_response.h"
 #include "OAIGetSimilarRecipes_200_response_inner.h"
 #include "OAIGuessNutritionByDishName_200_response.h"
 #include "OAIHttpFileElement.h"
-#include "OAIParseIngredients_200_response_inner.h"
+#include "OAIIngredientInformation.h"
 #include "OAIQuickAnswer_200_response.h"
+#include "OAIRecipeInformation.h"
 #include "OAISearchRecipesByIngredients_200_response_inner.h"
 #include "OAISearchRecipesByNutrients_200_response_inner.h"
 #include "OAISearchRecipes_200_response.h"
 #include "OAISummarizeRecipe_200_response.h"
+#include "OAITasteInformation.h"
 #include <QSet>
 #include <QString>
 
@@ -94,10 +93,10 @@ public:
     void analyzeRecipeInstructions(const QString &instructions);
 
     /**
-    * @param[in]  query QString [optional]
+    * @param[in]  query QString [required]
     * @param[in]  number qint32 [optional]
     */
-    void autocompleteRecipeSearch(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
+    void autocompleteRecipeSearch(const QString &query, const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  title QString [required]
@@ -138,9 +137,9 @@ public:
     void createRecipeCard(const QString &title, const QString &ingredients, const QString &instructions, const double &ready_in_minutes, const double &servings, const QString &mask, const QString &background_image, const ::OpenAPI::OptionalParam<OAIHttpFileElement> &image = ::OpenAPI::OptionalParam<OAIHttpFileElement>(), const ::OpenAPI::OptionalParam<QString> &image_url = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &author = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &background_color = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &font_color = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &source = ::OpenAPI::OptionalParam<QString>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     */
-    void equipmentByIDImage(const double &id);
+    void equipmentByIDImage(const qint32 &id);
 
     /**
     * @param[in]  url QString [required]
@@ -173,8 +172,10 @@ public:
     /**
     * @param[in]  id qint32 [required]
     * @param[in]  include_nutrition bool [optional]
+    * @param[in]  add_wine_pairing bool [optional]
+    * @param[in]  add_taste_data bool [optional]
     */
-    void getRecipeInformation(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &include_nutrition = ::OpenAPI::OptionalParam<bool>());
+    void getRecipeInformation(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &include_nutrition = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &add_wine_pairing = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &add_taste_data = ::OpenAPI::OptionalParam<bool>());
 
     /**
     * @param[in]  ids QString [required]
@@ -223,9 +224,9 @@ public:
     void parseIngredients(const QString &ingredient_list, const double &servings, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &include_nutrition = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     */
-    void priceBreakdownByIDImage(const double &id);
+    void priceBreakdownByIDImage(const qint32 &id);
 
     /**
     * @param[in]  q QString [required]
@@ -233,36 +234,36 @@ public:
     void quickAnswer(const QString &q);
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     */
-    void recipeNutritionByIDImage(const double &id);
+    void recipeNutritionByIDImage(const qint32 &id);
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  show_optional_nutrients bool [optional]
     * @param[in]  show_zero_values bool [optional]
     * @param[in]  show_ingredients bool [optional]
     */
-    void recipeNutritionLabelImage(const double &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
+    void recipeNutritionLabelImage(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  default_css bool [optional]
     * @param[in]  show_optional_nutrients bool [optional]
     * @param[in]  show_zero_values bool [optional]
     * @param[in]  show_ingredients bool [optional]
     */
-    void recipeNutritionLabelWidget(const double &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
+    void recipeNutritionLabelWidget(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  normalize bool [optional]
     * @param[in]  rgb QString [optional]
     */
-    void recipeTasteByIDImage(const double &id, const ::OpenAPI::OptionalParam<bool> &normalize = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &rgb = ::OpenAPI::OptionalParam<QString>());
+    void recipeTasteByIDImage(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &normalize = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &rgb = ::OpenAPI::OptionalParam<QString>());
 
     /**
-    * @param[in]  query QString [optional]
+    * @param[in]  query QString [required]
     * @param[in]  cuisine QString [optional]
     * @param[in]  exclude_cuisine QString [optional]
     * @param[in]  diet QString [optional]
@@ -277,7 +278,7 @@ public:
     * @param[in]  add_recipe_nutrition bool [optional]
     * @param[in]  author QString [optional]
     * @param[in]  tags QString [optional]
-    * @param[in]  recipe_box_id double [optional]
+    * @param[in]  recipe_box_id qint32 [optional]
     * @param[in]  title_match QString [optional]
     * @param[in]  max_ready_time double [optional]
     * @param[in]  min_servings double [optional]
@@ -360,15 +361,15 @@ public:
     * @param[in]  offset qint32 [optional]
     * @param[in]  number qint32 [optional]
     */
-    void searchRecipes(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &cuisine = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &exclude_cuisine = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &diet = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &intolerances = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &equipment = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &include_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &exclude_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &instructions_required = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &fill_ingredients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &add_recipe_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &add_recipe_nutrition = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &author = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &tags = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &recipe_box_id = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<QString> &title_match = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &max_ready_time = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_servings = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_servings = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &ignore_pantry = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &sort = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &sort_direction = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &min_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_alcohol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_alcohol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_caffeine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_caffeine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_copper = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_copper = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_calcium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calcium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_choline = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_choline = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_cholesterol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_cholesterol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fluoride = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fluoride = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_saturated_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_saturated_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_a = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_a = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_c = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_c = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_d = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_d = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_e = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_e = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_k = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_k = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b1 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b1 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b2 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b2 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b5 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b5 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b3 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b3 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b6 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b6 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b12 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b12 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fiber = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fiber = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_folate = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_folate = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_folic_acid = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_folic_acid = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_iodine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_iodine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_iron = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_iron = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_magnesium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_magnesium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_manganese = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_manganese = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_phosphorus = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_phosphorus = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_potassium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_potassium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_selenium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_selenium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_sodium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_sodium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_sugar = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_sugar = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_zinc = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_zinc = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
+    void searchRecipes(const QString &query, const ::OpenAPI::OptionalParam<QString> &cuisine = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &exclude_cuisine = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &diet = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &intolerances = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &equipment = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &include_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &exclude_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &instructions_required = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &fill_ingredients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &add_recipe_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &add_recipe_nutrition = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &author = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &tags = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &recipe_box_id = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<QString> &title_match = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &max_ready_time = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_servings = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_servings = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &ignore_pantry = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &sort = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &sort_direction = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &min_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_alcohol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_alcohol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_caffeine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_caffeine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_copper = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_copper = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_calcium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calcium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_choline = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_choline = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_cholesterol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_cholesterol = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fluoride = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fluoride = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_saturated_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_saturated_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_a = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_a = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_c = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_c = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_d = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_d = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_e = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_e = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_k = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_k = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b1 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b1 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b2 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b2 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b5 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b5 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b3 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b3 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b6 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b6 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_vitamin_b12 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_vitamin_b12 = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fiber = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fiber = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_folate = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_folate = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_folic_acid = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_folic_acid = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_iodine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_iodine = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_iron = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_iron = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_magnesium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_magnesium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_manganese = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_manganese = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_phosphorus = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_phosphorus = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_potassium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_potassium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_selenium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_selenium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_sodium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_sodium = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_sugar = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_sugar = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_zinc = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_zinc = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
-    * @param[in]  ingredients QString [optional]
+    * @param[in]  ingredients QString [required]
     * @param[in]  number qint32 [optional]
-    * @param[in]  ranking double [optional]
+    * @param[in]  ranking qint32 [optional]
     * @param[in]  ignore_pantry bool [optional]
     */
-    void searchRecipesByIngredients(const ::OpenAPI::OptionalParam<QString> &ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<double> &ranking = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &ignore_pantry = ::OpenAPI::OptionalParam<bool>());
+    void searchRecipesByIngredients(const QString &ingredients, const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &ranking = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<bool> &ignore_pantry = ::OpenAPI::OptionalParam<bool>());
 
     /**
     * @param[in]  min_carbs double [optional]
@@ -595,19 +596,19 @@ Q_SIGNALS:
     void convertAmountsSignal(OAIConvertAmounts_200_response summary);
     void createRecipeCardSignal(OAICreateRecipeCard_200_response summary);
     void equipmentByIDImageSignal(OAIHttpFileElement summary);
-    void extractRecipeFromWebsiteSignal(OAIGetRecipeInformation_200_response summary);
-    void getAnalyzedRecipeInstructionsSignal(OAIGetAnalyzedRecipeInstructions_200_response summary);
+    void extractRecipeFromWebsiteSignal(OAIRecipeInformation summary);
+    void getAnalyzedRecipeInstructionsSignal(QList<OAIGetAnalyzedRecipeInstructions_200_response_inner> summary);
     void getRandomRecipesSignal(OAIGetRandomRecipes_200_response summary);
     void getRecipeEquipmentByIDSignal(OAIGetRecipeEquipmentByID_200_response summary);
-    void getRecipeInformationSignal(OAIGetRecipeInformation_200_response summary);
-    void getRecipeInformationBulkSignal(QSet<OAIGetRecipeInformationBulk_200_response_inner> summary);
+    void getRecipeInformationSignal(OAIRecipeInformation summary);
+    void getRecipeInformationBulkSignal(QSet<OAIRecipeInformation> summary);
     void getRecipeIngredientsByIDSignal(OAIGetRecipeIngredientsByID_200_response summary);
     void getRecipeNutritionWidgetByIDSignal(OAIGetRecipeNutritionWidgetByID_200_response summary);
     void getRecipePriceBreakdownByIDSignal(OAIGetRecipePriceBreakdownByID_200_response summary);
-    void getRecipeTasteByIDSignal(OAIGetRecipeTasteByID_200_response summary);
+    void getRecipeTasteByIDSignal(OAITasteInformation summary);
     void getSimilarRecipesSignal(QSet<OAIGetSimilarRecipes_200_response_inner> summary);
     void guessNutritionByDishNameSignal(OAIGuessNutritionByDishName_200_response summary);
-    void parseIngredientsSignal(QSet<OAIParseIngredients_200_response_inner> summary);
+    void parseIngredientsSignal(QSet<OAIIngredientInformation> summary);
     void priceBreakdownByIDImageSignal(OAIHttpFileElement summary);
     void quickAnswerSignal(OAIQuickAnswer_200_response summary);
     void recipeNutritionByIDImageSignal(OAIHttpFileElement summary);
@@ -636,19 +637,19 @@ Q_SIGNALS:
     void convertAmountsSignalFull(OAIHttpRequestWorker *worker, OAIConvertAmounts_200_response summary);
     void createRecipeCardSignalFull(OAIHttpRequestWorker *worker, OAICreateRecipeCard_200_response summary);
     void equipmentByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
-    void extractRecipeFromWebsiteSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeInformation_200_response summary);
-    void getAnalyzedRecipeInstructionsSignalFull(OAIHttpRequestWorker *worker, OAIGetAnalyzedRecipeInstructions_200_response summary);
+    void extractRecipeFromWebsiteSignalFull(OAIHttpRequestWorker *worker, OAIRecipeInformation summary);
+    void getAnalyzedRecipeInstructionsSignalFull(OAIHttpRequestWorker *worker, QList<OAIGetAnalyzedRecipeInstructions_200_response_inner> summary);
     void getRandomRecipesSignalFull(OAIHttpRequestWorker *worker, OAIGetRandomRecipes_200_response summary);
     void getRecipeEquipmentByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeEquipmentByID_200_response summary);
-    void getRecipeInformationSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeInformation_200_response summary);
-    void getRecipeInformationBulkSignalFull(OAIHttpRequestWorker *worker, QSet<OAIGetRecipeInformationBulk_200_response_inner> summary);
+    void getRecipeInformationSignalFull(OAIHttpRequestWorker *worker, OAIRecipeInformation summary);
+    void getRecipeInformationBulkSignalFull(OAIHttpRequestWorker *worker, QSet<OAIRecipeInformation> summary);
     void getRecipeIngredientsByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeIngredientsByID_200_response summary);
     void getRecipeNutritionWidgetByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeNutritionWidgetByID_200_response summary);
     void getRecipePriceBreakdownByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipePriceBreakdownByID_200_response summary);
-    void getRecipeTasteByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetRecipeTasteByID_200_response summary);
+    void getRecipeTasteByIDSignalFull(OAIHttpRequestWorker *worker, OAITasteInformation summary);
     void getSimilarRecipesSignalFull(OAIHttpRequestWorker *worker, QSet<OAIGetSimilarRecipes_200_response_inner> summary);
     void guessNutritionByDishNameSignalFull(OAIHttpRequestWorker *worker, OAIGuessNutritionByDishName_200_response summary);
-    void parseIngredientsSignalFull(OAIHttpRequestWorker *worker, QSet<OAIParseIngredients_200_response_inner> summary);
+    void parseIngredientsSignalFull(OAIHttpRequestWorker *worker, QSet<OAIIngredientInformation> summary);
     void priceBreakdownByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void quickAnswerSignalFull(OAIHttpRequestWorker *worker, OAIQuickAnswer_200_response summary);
     void recipeNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
@@ -694,11 +695,11 @@ Q_SIGNALS:
     void equipmentByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
     void equipmentByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use extractRecipeFromWebsiteSignalError() instead")
-    void extractRecipeFromWebsiteSignalE(OAIGetRecipeInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void extractRecipeFromWebsiteSignalError(OAIGetRecipeInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void extractRecipeFromWebsiteSignalE(OAIRecipeInformation summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void extractRecipeFromWebsiteSignalError(OAIRecipeInformation summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getAnalyzedRecipeInstructionsSignalError() instead")
-    void getAnalyzedRecipeInstructionsSignalE(OAIGetAnalyzedRecipeInstructions_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getAnalyzedRecipeInstructionsSignalError(OAIGetAnalyzedRecipeInstructions_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getAnalyzedRecipeInstructionsSignalE(QList<OAIGetAnalyzedRecipeInstructions_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getAnalyzedRecipeInstructionsSignalError(QList<OAIGetAnalyzedRecipeInstructions_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getRandomRecipesSignalError() instead")
     void getRandomRecipesSignalE(OAIGetRandomRecipes_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getRandomRecipesSignalError(OAIGetRandomRecipes_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -706,11 +707,11 @@ Q_SIGNALS:
     void getRecipeEquipmentByIDSignalE(OAIGetRecipeEquipmentByID_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getRecipeEquipmentByIDSignalError(OAIGetRecipeEquipmentByID_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getRecipeInformationSignalError() instead")
-    void getRecipeInformationSignalE(OAIGetRecipeInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getRecipeInformationSignalError(OAIGetRecipeInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getRecipeInformationSignalE(OAIRecipeInformation summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getRecipeInformationSignalError(OAIRecipeInformation summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getRecipeInformationBulkSignalError() instead")
-    void getRecipeInformationBulkSignalE(QSet<OAIGetRecipeInformationBulk_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getRecipeInformationBulkSignalError(QSet<OAIGetRecipeInformationBulk_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getRecipeInformationBulkSignalE(QSet<OAIRecipeInformation> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getRecipeInformationBulkSignalError(QSet<OAIRecipeInformation> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getRecipeIngredientsByIDSignalError() instead")
     void getRecipeIngredientsByIDSignalE(OAIGetRecipeIngredientsByID_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getRecipeIngredientsByIDSignalError(OAIGetRecipeIngredientsByID_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -721,8 +722,8 @@ Q_SIGNALS:
     void getRecipePriceBreakdownByIDSignalE(OAIGetRecipePriceBreakdownByID_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getRecipePriceBreakdownByIDSignalError(OAIGetRecipePriceBreakdownByID_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getRecipeTasteByIDSignalError() instead")
-    void getRecipeTasteByIDSignalE(OAIGetRecipeTasteByID_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getRecipeTasteByIDSignalError(OAIGetRecipeTasteByID_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getRecipeTasteByIDSignalE(OAITasteInformation summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getRecipeTasteByIDSignalError(OAITasteInformation summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getSimilarRecipesSignalError() instead")
     void getSimilarRecipesSignalE(QSet<OAIGetSimilarRecipes_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getSimilarRecipesSignalError(QSet<OAIGetSimilarRecipes_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -730,8 +731,8 @@ Q_SIGNALS:
     void guessNutritionByDishNameSignalE(OAIGuessNutritionByDishName_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void guessNutritionByDishNameSignalError(OAIGuessNutritionByDishName_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use parseIngredientsSignalError() instead")
-    void parseIngredientsSignalE(QSet<OAIParseIngredients_200_response_inner> summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void parseIngredientsSignalError(QSet<OAIParseIngredients_200_response_inner> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void parseIngredientsSignalE(QSet<OAIIngredientInformation> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void parseIngredientsSignalError(QSet<OAIIngredientInformation> summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use priceBreakdownByIDImageSignalError() instead")
     void priceBreakdownByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
     void priceBreakdownByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);

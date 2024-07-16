@@ -21,7 +21,7 @@
 
 #include <QJsonObject>
 
-#include "OAISearchAllFood_200_response_searchResults_inner_results_inner.h"
+#include "OAISearchResult.h"
 #include <QSet>
 #include <QString>
 
@@ -29,7 +29,7 @@
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAISearchAllFood_200_response_searchResults_inner_results_inner;
+class OAISearchResult;
 
 class OAISearchAllFood_200_response_searchResults_inner : public OAIObject {
 public:
@@ -52,8 +52,8 @@ public:
     bool is_total_results_Set() const;
     bool is_total_results_Valid() const;
 
-    QSet<OAISearchAllFood_200_response_searchResults_inner_results_inner> getResults() const;
-    void setResults(const QSet<OAISearchAllFood_200_response_searchResults_inner_results_inner> &results);
+    QSet<OAISearchResult> getResults() const;
+    void setResults(const QSet<OAISearchResult> &results);
     bool is_results_Set() const;
     bool is_results_Valid() const;
 
@@ -71,7 +71,7 @@ private:
     bool m_total_results_isSet;
     bool m_total_results_isValid;
 
-    QSet<OAISearchAllFood_200_response_searchResults_inner_results_inner> m_results;
+    QSet<OAISearchResult> m_results;
     bool m_results_isSet;
     bool m_results_isValid;
 };

@@ -10,7 +10,7 @@
 |**amount** | **String** |  |  |
 |**indented** | **Boolean** |  |  |
 |**percentOfDailyNeeds** | **BigDecimal** |  |  |
-|**name** | **String** |  |  |
+|**title** | **String** |  |  |
 
 
 

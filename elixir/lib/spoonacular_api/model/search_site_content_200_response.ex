@@ -15,20 +15,20 @@ defmodule SpoonacularAPI.Model.SearchSiteContent200Response do
   ]
 
   @type t :: %__MODULE__{
-    :Articles => [SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner.t],
-    :"Grocery Products" => [SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner.t],
-    :"Menu Items" => [SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner.t],
-    :Recipes => [SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner.t]
+    :Articles => [SpoonacularAPI.Model.SearchResult.t],
+    :"Grocery Products" => [SpoonacularAPI.Model.SearchResult.t],
+    :"Menu Items" => [SpoonacularAPI.Model.SearchResult.t],
+    :Recipes => [SpoonacularAPI.Model.SearchResult.t]
   }
 
   alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:Articles, :list, SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner)
-     |> Deserializer.deserialize(:"Grocery Products", :list, SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner)
-     |> Deserializer.deserialize(:"Menu Items", :list, SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner)
-     |> Deserializer.deserialize(:Recipes, :list, SpoonacularAPI.Model.SearchSiteContent200ResponseArticlesInner)
+     |> Deserializer.deserialize(:Articles, :list, SpoonacularAPI.Model.SearchResult)
+     |> Deserializer.deserialize(:"Grocery Products", :list, SpoonacularAPI.Model.SearchResult)
+     |> Deserializer.deserialize(:"Menu Items", :list, SpoonacularAPI.Model.SearchResult)
+     |> Deserializer.deserialize(:Recipes, :list, SpoonacularAPI.Model.SearchResult)
   end
 end
 

@@ -22,14 +22,14 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
     /**
      * Constructs a new <code>GetRecipeNutritionWidgetByID200ResponseBadInner</code>.
      * @alias module:model/GetRecipeNutritionWidgetByID200ResponseBadInner
-     * @param name {String} 
+     * @param title {String} 
      * @param amount {String} 
      * @param indented {Boolean} 
      * @param percentOfDailyNeeds {Number} 
      */
-    constructor(name, amount, indented, percentOfDailyNeeds) { 
+    constructor(title, amount, indented, percentOfDailyNeeds) { 
         
-        GetRecipeNutritionWidgetByID200ResponseBadInner.initialize(this, name, amount, indented, percentOfDailyNeeds);
+        GetRecipeNutritionWidgetByID200ResponseBadInner.initialize(this, title, amount, indented, percentOfDailyNeeds);
     }
 
     /**
@@ -37,8 +37,8 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, amount, indented, percentOfDailyNeeds) { 
-        obj['name'] = name;
+    static initialize(obj, title, amount, indented, percentOfDailyNeeds) { 
+        obj['title'] = title;
         obj['amount'] = amount;
         obj['indented'] = indented;
         obj['percentOfDailyNeeds'] = percentOfDailyNeeds;
@@ -55,8 +55,8 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
         if (data) {
             obj = obj || new GetRecipeNutritionWidgetByID200ResponseBadInner();
 
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
             if (data.hasOwnProperty('amount')) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'String');
@@ -84,8 +84,8 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
             }
         }
         // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        if (data['title'] && !(typeof data['title'] === 'string' || data['title'] instanceof String)) {
+            throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
         }
         // ensure the json data is a string
         if (data['amount'] && !(typeof data['amount'] === 'string' || data['amount'] instanceof String)) {
@@ -98,12 +98,12 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
 
 }
 
-GetRecipeNutritionWidgetByID200ResponseBadInner.RequiredProperties = ["name", "amount", "indented", "percentOfDailyNeeds"];
+GetRecipeNutritionWidgetByID200ResponseBadInner.RequiredProperties = ["title", "amount", "indented", "percentOfDailyNeeds"];
 
 /**
- * @member {String} name
+ * @member {String} title
  */
-GetRecipeNutritionWidgetByID200ResponseBadInner.prototype['name'] = undefined;
+GetRecipeNutritionWidgetByID200ResponseBadInner.prototype['title'] = undefined;
 
 /**
  * @member {String} amount

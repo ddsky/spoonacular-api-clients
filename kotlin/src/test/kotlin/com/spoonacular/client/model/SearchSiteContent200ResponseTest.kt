@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.SearchSiteContent200Response
-import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner
+import com.spoonacular.client.model.SearchResult
 
 class SearchSiteContent200ResponseTest : ShouldSpec() {
     init {

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.SearchAllFood200ResponseSearchResultsInnerResultsInner;
+import com.spoonacular.client.model.SearchResult;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -64,7 +64,7 @@ public class SearchAllFood200ResponseSearchResultsInner {
 
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
-  private Set<SearchAllFood200ResponseSearchResultsInnerResultsInner> results = new LinkedHashSet<>();
+  private Set<SearchResult> results = new LinkedHashSet<>();
 
   public SearchAllFood200ResponseSearchResultsInner() {
   }
@@ -107,12 +107,12 @@ public class SearchAllFood200ResponseSearchResultsInner {
   }
 
 
-  public SearchAllFood200ResponseSearchResultsInner results(Set<SearchAllFood200ResponseSearchResultsInnerResultsInner> results) {
+  public SearchAllFood200ResponseSearchResultsInner results(Set<SearchResult> results) {
     this.results = results;
     return this;
   }
 
-  public SearchAllFood200ResponseSearchResultsInner addResultsItem(SearchAllFood200ResponseSearchResultsInnerResultsInner resultsItem) {
+  public SearchAllFood200ResponseSearchResultsInner addResultsItem(SearchResult resultsItem) {
     if (this.results == null) {
       this.results = new LinkedHashSet<>();
     }
@@ -125,11 +125,11 @@ public class SearchAllFood200ResponseSearchResultsInner {
    * @return results
    */
   @javax.annotation.Nullable
-  public Set<SearchAllFood200ResponseSearchResultsInnerResultsInner> getResults() {
+  public Set<SearchResult> getResults() {
     return results;
   }
 
-  public void setResults(Set<SearchAllFood200ResponseSearchResultsInnerResultsInner> results) {
+  public void setResults(Set<SearchResult> results) {
     this.results = results;
   }
 
@@ -234,7 +234,7 @@ public class SearchAllFood200ResponseSearchResultsInner {
 
           // validate the optional field `results` (array)
           for (int i = 0; i < jsonArrayresults.size(); i++) {
-            SearchAllFood200ResponseSearchResultsInnerResultsInner.validateJsonElement(jsonArrayresults.get(i));
+            SearchResult.validateJsonElement(jsonArrayresults.get(i));
           };
         }
       }

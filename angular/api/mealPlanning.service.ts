@@ -31,8 +31,6 @@ import { ConnectUserRequest } from '../model/connectUserRequest';
 // @ts-ignore
 import { GenerateMealPlan200Response } from '../model/generateMealPlan200Response';
 // @ts-ignore
-import { GenerateShoppingList200Response } from '../model/generateShoppingList200Response';
-// @ts-ignore
 import { GetMealPlanTemplate200Response } from '../model/getMealPlanTemplate200Response';
 // @ts-ignore
 import { GetMealPlanTemplates200Response } from '../model/getMealPlanTemplates200Response';
@@ -301,9 +299,9 @@ export class MealPlanningService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GenerateShoppingList200Response>;
-    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GenerateShoppingList200Response>>;
-    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GenerateShoppingList200Response>>;
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetShoppingList200Response>;
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetShoppingList200Response>>;
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetShoppingList200Response>>;
     public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling addToShoppingList.');
@@ -374,7 +372,7 @@ export class MealPlanningService {
         }
 
         let localVarPath = `/mealplanner/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/shopping-list/items`;
-        return this.httpClient.request<GenerateShoppingList200Response>('post', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<GetShoppingList200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: addToShoppingListRequest,
@@ -649,7 +647,7 @@ export class MealPlanningService {
      * Delete from Shopping List
      * Delete an item from the current shopping list of the user.
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -736,7 +734,7 @@ export class MealPlanningService {
      * Delete Meal Plan Template
      * Delete a meal plan template for a user.
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -920,9 +918,9 @@ export class MealPlanningService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GenerateShoppingList200Response>;
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GenerateShoppingList200Response>>;
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GenerateShoppingList200Response>>;
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetShoppingList200Response>;
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetShoppingList200Response>>;
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetShoppingList200Response>>;
     public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (username === null || username === undefined) {
             throw new Error('Required parameter username was null or undefined when calling generateShoppingList.');
@@ -987,7 +985,7 @@ export class MealPlanningService {
         }
 
         let localVarPath = `/mealplanner/${this.configuration.encodeParam({name: "username", value: username, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/shopping-list/${this.configuration.encodeParam({name: "startDate", value: startDate, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/${this.configuration.encodeParam({name: "endDate", value: endDate, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
-        return this.httpClient.request<GenerateShoppingList200Response>('post', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<GetShoppingList200Response>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -1005,7 +1003,7 @@ export class MealPlanningService {
      * Get Meal Plan Template
      * Get information about a meal plan template.
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

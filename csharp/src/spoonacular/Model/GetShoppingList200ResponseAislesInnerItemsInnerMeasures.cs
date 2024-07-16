@@ -43,7 +43,7 @@ namespace spoonacular.Model
         /// <param name="original">original (required).</param>
         /// <param name="metric">metric (required).</param>
         /// <param name="us">us (required).</param>
-        public GetShoppingList200ResponseAislesInnerItemsInnerMeasures(ParseIngredients200ResponseInnerNutritionWeightPerServing original = default(ParseIngredients200ResponseInnerNutritionWeightPerServing), ParseIngredients200ResponseInnerNutritionWeightPerServing metric = default(ParseIngredients200ResponseInnerNutritionWeightPerServing), ParseIngredients200ResponseInnerNutritionWeightPerServing us = default(ParseIngredients200ResponseInnerNutritionWeightPerServing))
+        public GetShoppingList200ResponseAislesInnerItemsInnerMeasures(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original = default(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal), GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric = default(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal), GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us = default(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal))
         {
             // to ensure "original" is required (not null)
             if (original == null)
@@ -69,19 +69,19 @@ namespace spoonacular.Model
         /// Gets or Sets Original
         /// </summary>
         [DataMember(Name = "original", IsRequired = true, EmitDefaultValue = true)]
-        public ParseIngredients200ResponseInnerNutritionWeightPerServing Original { get; set; }
+        public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal Original { get; set; }
 
         /// <summary>
         /// Gets or Sets Metric
         /// </summary>
         [DataMember(Name = "metric", IsRequired = true, EmitDefaultValue = true)]
-        public ParseIngredients200ResponseInnerNutritionWeightPerServing Metric { get; set; }
+        public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal Metric { get; set; }
 
         /// <summary>
         /// Gets or Sets Us
         /// </summary>
         [DataMember(Name = "us", IsRequired = true, EmitDefaultValue = true)]
-        public ParseIngredients200ResponseInnerNutritionWeightPerServing Us { get; set; }
+        public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal Us { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

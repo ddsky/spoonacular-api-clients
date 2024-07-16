@@ -25,7 +25,7 @@ import com.spoonacular.client.model.ClassifyGroceryProductBulk200ResponseInner
 import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner
 import com.spoonacular.client.model.ClassifyGroceryProductRequest
 import com.spoonacular.client.model.GetComparableProducts200Response
-import com.spoonacular.client.model.GetProductInformation200Response
+import com.spoonacular.client.model.ProductInformation
 import com.spoonacular.client.model.SearchGroceryProducts200Response
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200Response
 
@@ -323,7 +323,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getComparableProducts(upc: java.math.BigDecimal) : GetComparableProducts200Response {
+    fun getComparableProducts(upc: kotlin.String) : GetComparableProducts200Response {
         val localVarResponse = getComparableProductsWithHttpInfo(upc = upc)
 
         return when (localVarResponse.responseType) {
@@ -351,7 +351,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getComparableProductsWithHttpInfo(upc: java.math.BigDecimal) : ApiResponse<GetComparableProducts200Response?> {
+    fun getComparableProductsWithHttpInfo(upc: kotlin.String) : ApiResponse<GetComparableProducts200Response?> {
         val localVariableConfig = getComparableProductsRequestConfig(upc = upc)
 
         return request<Unit, GetComparableProducts200Response>(
@@ -365,7 +365,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      * @param upc The UPC of the product for which you want to find comparable products.
      * @return RequestConfig
      */
-    fun getComparableProductsRequestConfig(upc: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun getComparableProductsRequestConfig(upc: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -384,8 +384,8 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * Get Product Information
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-     * @param id The item&#39;s id.
-     * @return GetProductInformation200Response
+     * @param id The id of the packaged food.
+     * @return ProductInformation
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -394,11 +394,11 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getProductInformation(id: kotlin.Int) : GetProductInformation200Response {
+    fun getProductInformation(id: kotlin.Int) : ProductInformation {
         val localVarResponse = getProductInformationWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetProductInformation200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as ProductInformation
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -415,17 +415,17 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * Get Product Information
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-     * @param id The item&#39;s id.
-     * @return ApiResponse<GetProductInformation200Response?>
+     * @param id The id of the packaged food.
+     * @return ApiResponse<ProductInformation?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getProductInformationWithHttpInfo(id: kotlin.Int) : ApiResponse<GetProductInformation200Response?> {
+    fun getProductInformationWithHttpInfo(id: kotlin.Int) : ApiResponse<ProductInformation?> {
         val localVariableConfig = getProductInformationRequestConfig(id = id)
 
-        return request<Unit, GetProductInformation200Response>(
+        return request<Unit, ProductInformation>(
             localVariableConfig
         )
     }
@@ -433,7 +433,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation getProductInformation
      *
-     * @param id The item&#39;s id.
+     * @param id The id of the packaged food.
      * @return RequestConfig
      */
     fun getProductInformationRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -465,7 +465,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun productNutritionByIDImage(id: java.math.BigDecimal) : java.io.File {
+    fun productNutritionByIDImage(id: kotlin.Int) : java.io.File {
         val localVarResponse = productNutritionByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
@@ -493,7 +493,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun productNutritionByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
+    fun productNutritionByIDImageWithHttpInfo(id: kotlin.Int) : ApiResponse<java.io.File?> {
         val localVariableConfig = productNutritionByIDImageRequestConfig(id = id)
 
         return request<Unit, java.io.File>(
@@ -507,7 +507,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      * @param id The id of the product.
      * @return RequestConfig
      */
-    fun productNutritionByIDImageRequestConfig(id: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun productNutritionByIDImageRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -538,7 +538,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun productNutritionLabelImage(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
+    fun productNutritionLabelImage(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
         val localVarResponse = productNutritionLabelImageWithHttpInfo(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
@@ -569,7 +569,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun productNutritionLabelImageWithHttpInfo(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
+    fun productNutritionLabelImageWithHttpInfo(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
         val localVariableConfig = productNutritionLabelImageRequestConfig(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return request<Unit, java.io.File>(
@@ -586,7 +586,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      * @param showIngredients Whether to show a list of ingredients. (optional)
      * @return RequestConfig
      */
-    fun productNutritionLabelImageRequestConfig(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun productNutritionLabelImageRequestConfig(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -629,7 +629,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun productNutritionLabelWidget(id: java.math.BigDecimal, defaultCss: kotlin.Boolean? = true, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.String {
+    fun productNutritionLabelWidget(id: kotlin.Int, defaultCss: kotlin.Boolean? = true, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.String {
         val localVarResponse = productNutritionLabelWidgetWithHttpInfo(id = id, defaultCss = defaultCss, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
@@ -661,7 +661,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun productNutritionLabelWidgetWithHttpInfo(id: java.math.BigDecimal, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+    fun productNutritionLabelWidgetWithHttpInfo(id: kotlin.Int, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
         val localVariableConfig = productNutritionLabelWidgetRequestConfig(id = id, defaultCss = defaultCss, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return request<Unit, kotlin.String>(
@@ -679,7 +679,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      * @param showIngredients Whether to show a list of ingredients. (optional)
      * @return RequestConfig
      */
-    fun productNutritionLabelWidgetRequestConfig(id: java.math.BigDecimal, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun productNutritionLabelWidgetRequestConfig(id: kotlin.Int, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -711,7 +711,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * Search Grocery Products
      * Search packaged food products, such as frozen pizza or Greek yogurt.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param minCalories The minimum amount of calories the product must have. (optional)
      * @param maxCalories The maximum amount of calories the product can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -732,7 +732,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchGroceryProducts(query: kotlin.String? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, addProductInformation: kotlin.Boolean? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchGroceryProducts200Response {
+    fun searchGroceryProducts(query: kotlin.String, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, addProductInformation: kotlin.Boolean? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchGroceryProducts200Response {
         val localVarResponse = searchGroceryProductsWithHttpInfo(query = query, minCalories = minCalories, maxCalories = maxCalories, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minFat = minFat, maxFat = maxFat, addProductInformation = addProductInformation, offset = offset, number = number)
 
         return when (localVarResponse.responseType) {
@@ -753,7 +753,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * Search Grocery Products
      * Search packaged food products, such as frozen pizza or Greek yogurt.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param minCalories The minimum amount of calories the product must have. (optional)
      * @param maxCalories The maximum amount of calories the product can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -771,7 +771,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchGroceryProductsWithHttpInfo(query: kotlin.String?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addProductInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchGroceryProducts200Response?> {
+    fun searchGroceryProductsWithHttpInfo(query: kotlin.String, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addProductInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchGroceryProducts200Response?> {
         val localVariableConfig = searchGroceryProductsRequestConfig(query = query, minCalories = minCalories, maxCalories = maxCalories, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minFat = minFat, maxFat = maxFat, addProductInformation = addProductInformation, offset = offset, number = number)
 
         return request<Unit, SearchGroceryProducts200Response>(
@@ -782,7 +782,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation searchGroceryProducts
      *
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param minCalories The minimum amount of calories the product must have. (optional)
      * @param maxCalories The maximum amount of calories the product can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -796,13 +796,11 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
-    fun searchGroceryProductsRequestConfig(query: kotlin.String?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addProductInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchGroceryProductsRequestConfig(query: kotlin.String, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addProductInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 if (minCalories != null) {
                     put("minCalories", listOf(minCalories.toString()))
                 }
@@ -863,7 +861,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchGroceryProductsByUPC(upc: java.math.BigDecimal) : SearchGroceryProductsByUPC200Response {
+    fun searchGroceryProductsByUPC(upc: kotlin.String) : SearchGroceryProductsByUPC200Response {
         val localVarResponse = searchGroceryProductsByUPCWithHttpInfo(upc = upc)
 
         return when (localVarResponse.responseType) {
@@ -891,7 +889,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchGroceryProductsByUPCWithHttpInfo(upc: java.math.BigDecimal) : ApiResponse<SearchGroceryProductsByUPC200Response?> {
+    fun searchGroceryProductsByUPCWithHttpInfo(upc: kotlin.String) : ApiResponse<SearchGroceryProductsByUPC200Response?> {
         val localVariableConfig = searchGroceryProductsByUPCRequestConfig(upc = upc)
 
         return request<Unit, SearchGroceryProductsByUPC200Response>(
@@ -905,7 +903,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
      * @param upc The product&#39;s UPC.
      * @return RequestConfig
      */
-    fun searchGroceryProductsByUPCRequestConfig(upc: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun searchGroceryProductsByUPCRequestConfig(upc: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -924,7 +922,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * Product Nutrition by ID Widget
      * Visualize a product&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id.
+     * @param id The id of the product.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -956,7 +954,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * Product Nutrition by ID Widget
      * Visualize a product&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id.
+     * @param id The id of the product.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -975,7 +973,7 @@ class ProductsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClien
     /**
      * To obtain the request config of the operation visualizeProductNutritionByID
      *
-     * @param id The item&#39;s id.
+     * @param id The id of the product.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return RequestConfig
      */

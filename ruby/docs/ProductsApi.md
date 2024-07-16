@@ -264,7 +264,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
-upc = 33698816271 # Float | The UPC of the product for which you want to find comparable products.
+upc = '033698816271' # String | The UPC of the product for which you want to find comparable products.
 
 begin
   # Get Comparable Products
@@ -297,7 +297,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **upc** | **Float** | The UPC of the product for which you want to find comparable products. |  |
+| **upc** | **String** | The UPC of the product for which you want to find comparable products. |  |
 
 ### Return type
 
@@ -315,7 +315,7 @@ end
 
 ## get_product_information
 
-> <GetProductInformation200Response> get_product_information(id)
+> <ProductInformation> get_product_information(id)
 
 Get Product Information
 
@@ -335,7 +335,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
-id = 1 # Integer | The item's id.
+id = 22347 # Integer | The id of the packaged food.
 
 begin
   # Get Product Information
@@ -350,7 +350,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetProductInformation200Response>, Integer, Hash)> get_product_information_with_http_info(id)
+> <Array(<ProductInformation>, Integer, Hash)> get_product_information_with_http_info(id)
 
 ```ruby
 begin
@@ -358,7 +358,7 @@ begin
   data, status_code, headers = api_instance.get_product_information_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetProductInformation200Response>
+  p data # => <ProductInformation>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling ProductsApi->get_product_information_with_http_info: #{e}"
 end
@@ -368,11 +368,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The id of the packaged food. |  |
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -406,7 +406,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
-id = 7657 # Float | The id of the product.
+id = 7657 # Integer | The id of the product.
 
 begin
   # Product Nutrition by ID Image
@@ -439,7 +439,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The id of the product. |  |
+| **id** | **Integer** | The id of the product. |  |
 
 ### Return type
 
@@ -477,7 +477,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
-id = 22347 # Float | The product id.
+id = 22347 # Integer | The product id.
 opts = {
   show_optional_nutrients: false, # Boolean | Whether to show optional nutrients.
   show_zero_values: false, # Boolean | Whether to show zero values.
@@ -515,7 +515,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The product id. |  |
+| **id** | **Integer** | The product id. |  |
 | **show_optional_nutrients** | **Boolean** | Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **Boolean** | Whether to show zero values. | [optional] |
 | **show_ingredients** | **Boolean** | Whether to show a list of ingredients. | [optional] |
@@ -556,7 +556,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
-id = 22347 # Float | The product id.
+id = 22347 # Integer | The product id.
 opts = {
   default_css: false, # Boolean | Whether the default CSS should be added to the response.
   show_optional_nutrients: false, # Boolean | Whether to show optional nutrients.
@@ -595,7 +595,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The product id. |  |
+| **id** | **Integer** | The product id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 | **show_optional_nutrients** | **Boolean** | Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **Boolean** | Whether to show zero values. | [optional] |
@@ -617,7 +617,7 @@ end
 
 ## search_grocery_products
 
-> <SearchGroceryProducts200Response> search_grocery_products(opts)
+> <SearchGroceryProducts200Response> search_grocery_products(query, opts)
 
 Search Grocery Products
 
@@ -637,8 +637,8 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
+query = 'burger' # String | The (natural language) search query.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   min_calories: 50, # Float | The minimum amount of calories the product must have.
   max_calories: 800, # Float | The maximum amount of calories the product can have.
   min_carbs: 10, # Float | The minimum amount of carbohydrates in grams the product must have.
@@ -654,7 +654,7 @@ opts = {
 
 begin
   # Search Grocery Products
-  result = api_instance.search_grocery_products(opts)
+  result = api_instance.search_grocery_products(query, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling ProductsApi->search_grocery_products: #{e}"
@@ -665,12 +665,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SearchGroceryProducts200Response>, Integer, Hash)> search_grocery_products_with_http_info(opts)
+> <Array(<SearchGroceryProducts200Response>, Integer, Hash)> search_grocery_products_with_http_info(query, opts)
 
 ```ruby
 begin
   # Search Grocery Products
-  data, status_code, headers = api_instance.search_grocery_products_with_http_info(opts)
+  data, status_code, headers = api_instance.search_grocery_products_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SearchGroceryProducts200Response>
@@ -683,7 +683,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query** | **String** | The (natural language) search query. | [optional] |
+| **query** | **String** | The (natural language) search query. |  |
 | **min_calories** | **Float** | The minimum amount of calories the product must have. | [optional] |
 | **max_calories** | **Float** | The maximum amount of calories the product can have. | [optional] |
 | **min_carbs** | **Float** | The minimum amount of carbohydrates in grams the product must have. | [optional] |
@@ -732,7 +732,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
-upc = 41631000564 # Float | The product's UPC.
+upc = '041631000564' # String | The product's UPC.
 
 begin
   # Search Grocery Products by UPC
@@ -765,7 +765,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **upc** | **Float** | The product&#39;s UPC. |  |
+| **upc** | **String** | The product&#39;s UPC. |  |
 
 ### Return type
 
@@ -803,7 +803,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ProductsApi.new
-id = 1 # Integer | The item's id.
+id = 7657 # Integer | The id of the product.
 opts = {
   default_css: false # Boolean | Whether the default CSS should be added to the response.
 }
@@ -839,7 +839,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The id of the product. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 
 ### Return type

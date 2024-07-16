@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetRecipeNutritionWidgetById200ResponseBadInner {
-    #[serde(rename = "name")]
-    pub name: String,
+    #[serde(rename = "title")]
+    pub title: String,
     #[serde(rename = "amount")]
     pub amount: String,
     #[serde(rename = "indented")]
@@ -24,9 +24,9 @@ pub struct GetRecipeNutritionWidgetById200ResponseBadInner {
 }
 
 impl GetRecipeNutritionWidgetById200ResponseBadInner {
-    pub fn new(name: String, amount: String, indented: bool, percent_of_daily_needs: f64) -> GetRecipeNutritionWidgetById200ResponseBadInner {
+    pub fn new(title: String, amount: String, indented: bool, percent_of_daily_needs: f64) -> GetRecipeNutritionWidgetById200ResponseBadInner {
         GetRecipeNutritionWidgetById200ResponseBadInner {
-            name,
+            title,
             amount,
             indented,
             percent_of_daily_needs,

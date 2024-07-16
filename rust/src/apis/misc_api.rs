@@ -242,7 +242,7 @@ pub async fn get_conversation_suggests(configuration: &configuration::Configurat
 }
 
 /// Returns random food trivia.
-pub async fn get_random_food_trivia(configuration: &configuration::Configuration, ) -> Result<models::GetRandomFoodTrivia200Response, Error<GetRandomFoodTriviaError>> {
+pub async fn get_random_food_trivia(configuration: &configuration::Configuration, ) -> Result<models::GetARandomFoodJoke200Response, Error<GetRandomFoodTriviaError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -395,7 +395,7 @@ pub async fn search_all_food(configuration: &configuration::Configuration, query
 }
 
 /// Search custom foods in a user's account.
-pub async fn search_custom_foods(configuration: &configuration::Configuration, username: &str, hash: &str, query: Option<&str>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchCustomFoods200Response, Error<SearchCustomFoodsError>> {
+pub async fn search_custom_foods(configuration: &configuration::Configuration, query: &str, username: &str, hash: &str, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchCustomFoods200Response, Error<SearchCustomFoodsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -403,9 +403,7 @@ pub async fn search_custom_foods(configuration: &configuration::Configuration, u
     let local_var_uri_str = format!("{}/food/customFoods/search", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query {
-        local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("query", &query.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("username", &username.to_string())]);
     local_var_req_builder = local_var_req_builder.query(&[("hash", &hash.to_string())]);
     if let Some(ref local_var_str) = offset {
@@ -442,7 +440,7 @@ pub async fn search_custom_foods(configuration: &configuration::Configuration, u
 }
 
 /// Find recipe and other food related videos.
-pub async fn search_food_videos(configuration: &configuration::Configuration, query: Option<&str>, r#type: Option<&str>, cuisine: Option<&str>, diet: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, min_length: Option<f64>, max_length: Option<f64>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchFoodVideos200Response, Error<SearchFoodVideosError>> {
+pub async fn search_food_videos(configuration: &configuration::Configuration, query: &str, r#type: Option<&str>, cuisine: Option<&str>, diet: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, min_length: Option<f64>, max_length: Option<f64>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchFoodVideos200Response, Error<SearchFoodVideosError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -450,9 +448,7 @@ pub async fn search_food_videos(configuration: &configuration::Configuration, qu
     let local_var_uri_str = format!("{}/food/videos/search", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query {
-        local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("query", &query.to_string())]);
     if let Some(ref local_var_str) = r#type {
         local_var_req_builder = local_var_req_builder.query(&[("type", &local_var_str.to_string())]);
     }

@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseBadInner);
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
+    it('should have the property title (base name: "title")', function() {
+      // uncomment below and update the code to test the property title
       //var instance = new SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseBadInner();
       //expect(instance).to.be();
     });

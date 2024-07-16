@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SearchMenuItems200ResponseMenuItemsInner from './SearchMenuItems200ResponseMenuItemsInner';
+import MenuItem from './MenuItem';
 
 /**
  * The SearchMenuItems200Response model module.
@@ -24,7 +24,7 @@ class SearchMenuItems200Response {
      * Constructs a new <code>SearchMenuItems200Response</code>.
      * 
      * @alias module:model/SearchMenuItems200Response
-     * @param menuItems {Array.<module:model/SearchMenuItems200ResponseMenuItemsInner>} 
+     * @param menuItems {Array.<module:model/MenuItem>} 
      * @param totalMenuItems {Number} 
      * @param type {String} 
      * @param offset {Number} 
@@ -60,7 +60,7 @@ class SearchMenuItems200Response {
             obj = obj || new SearchMenuItems200Response();
 
             if (data.hasOwnProperty('menuItems')) {
-                obj['menuItems'] = ApiClient.convertToType(data['menuItems'], [SearchMenuItems200ResponseMenuItemsInner]);
+                obj['menuItems'] = ApiClient.convertToType(data['menuItems'], [MenuItem]);
             }
             if (data.hasOwnProperty('totalMenuItems')) {
                 obj['totalMenuItems'] = ApiClient.convertToType(data['totalMenuItems'], 'Number');
@@ -97,7 +97,7 @@ class SearchMenuItems200Response {
             }
             // validate the optional field `menuItems` (array)
             for (const item of data['menuItems']) {
-                SearchMenuItems200ResponseMenuItemsInner.validateJSON(item);
+                MenuItem.validateJSON(item);
             };
         }
         // ensure the json data is a string
@@ -114,7 +114,7 @@ class SearchMenuItems200Response {
 SearchMenuItems200Response.RequiredProperties = ["menuItems", "totalMenuItems", "type", "offset", "number"];
 
 /**
- * @member {Array.<module:model/SearchMenuItems200ResponseMenuItemsInner>} menuItems
+ * @member {Array.<module:model/MenuItem>} menuItems
  */
 SearchMenuItems200Response.prototype['menuItems'] = undefined;
 

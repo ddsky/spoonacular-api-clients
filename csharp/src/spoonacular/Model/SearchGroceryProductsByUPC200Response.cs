@@ -55,7 +55,7 @@ namespace spoonacular.Model
         /// <param name="price">price (required).</param>
         /// <param name="servings">servings (required).</param>
         /// <param name="spoonacularScore">spoonacularScore (required).</param>
-        public SearchGroceryProductsByUPC200Response(int id = default(int), string title = default(string), List<string> badges = default(List<string>), List<string> importantBadges = default(List<string>), List<string> breadcrumbs = default(List<string>), string generatedText = default(string), string imageType = default(string), int ingredientCount = default(int), string ingredientList = default(string), List<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients = default(List<SearchGroceryProductsByUPC200ResponseIngredientsInner>), decimal likes = default(decimal), SearchGroceryProductsByUPC200ResponseNutrition nutrition = default(SearchGroceryProductsByUPC200ResponseNutrition), decimal price = default(decimal), SearchGroceryProductsByUPC200ResponseServings servings = default(SearchGroceryProductsByUPC200ResponseServings), decimal spoonacularScore = default(decimal))
+        public SearchGroceryProductsByUPC200Response(int id = default(int), string title = default(string), List<string> badges = default(List<string>), List<string> importantBadges = default(List<string>), List<string> breadcrumbs = default(List<string>), string generatedText = default(string), string imageType = default(string), int ingredientCount = default(int), string ingredientList = default(string), List<IngredientBasics> ingredients = default(List<IngredientBasics>), decimal likes = default(decimal), SearchGroceryProductsByUPC200ResponseNutrition nutrition = default(SearchGroceryProductsByUPC200ResponseNutrition), decimal price = default(decimal), SearchGroceryProductsByUPC200ResponseServings servings = default(SearchGroceryProductsByUPC200ResponseServings), decimal spoonacularScore = default(decimal))
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -182,7 +182,7 @@ namespace spoonacular.Model
         /// Gets or Sets Ingredients
         /// </summary>
         [DataMember(Name = "ingredients", IsRequired = true, EmitDefaultValue = true)]
-        public List<SearchGroceryProductsByUPC200ResponseIngredientsInner> Ingredients { get; set; }
+        public List<IngredientBasics> Ingredients { get; set; }
 
         /// <summary>
         /// Gets or Sets Likes
@@ -257,30 +257,6 @@ namespace spoonacular.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Title (string) minLength
-            if (this.Title != null && this.Title.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
-            }
-
-            // GeneratedText (string) minLength
-            if (this.GeneratedText != null && this.GeneratedText.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for GeneratedText, length must be greater than 1.", new [] { "GeneratedText" });
-            }
-
-            // ImageType (string) minLength
-            if (this.ImageType != null && this.ImageType.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for ImageType, length must be greater than 1.", new [] { "ImageType" });
-            }
-
-            // IngredientList (string) minLength
-            if (this.IngredientList != null && this.IngredientList.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for IngredientList, length must be greater than 1.", new [] { "IngredientList" });
-            }
-
             yield break;
         }
     }

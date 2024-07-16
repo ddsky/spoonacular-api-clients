@@ -59,7 +59,7 @@ class GetRandomRecipes200Response implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'recipes' => '\OpenAPI\Client\Model\GetRandomRecipes200ResponseRecipesInner[]'
+        'recipes' => '\OpenAPI\Client\Model\RecipeInformation[]'
     ];
 
     /**
@@ -301,7 +301,7 @@ class GetRandomRecipes200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets recipes
      *
-     * @return \OpenAPI\Client\Model\GetRandomRecipes200ResponseRecipesInner[]
+     * @return \OpenAPI\Client\Model\RecipeInformation[]
      */
     public function getRecipes()
     {
@@ -311,7 +311,7 @@ class GetRandomRecipes200Response implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets recipes
      *
-     * @param \OpenAPI\Client\Model\GetRandomRecipes200ResponseRecipesInner[] $recipes recipes
+     * @param \OpenAPI\Client\Model\RecipeInformation[] $recipes recipes
      *
      * @return self
      */

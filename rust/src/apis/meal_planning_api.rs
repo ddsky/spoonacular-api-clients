@@ -232,7 +232,7 @@ pub async fn add_to_meal_plan(configuration: &configuration::Configuration, user
 }
 
 /// Add an item to the current shopping list of a user.
-pub async fn add_to_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_shopping_list_request: models::AddToShoppingListRequest) -> Result<models::GenerateShoppingList200Response, Error<AddToShoppingListError>> {
+pub async fn add_to_shopping_list(configuration: &configuration::Configuration, username: &str, hash: &str, add_to_shopping_list_request: models::AddToShoppingListRequest) -> Result<models::GetShoppingList200Response, Error<AddToShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -344,7 +344,7 @@ pub async fn connect_user(configuration: &configuration::Configuration, connect_
 }
 
 /// Delete an item from the user's meal plan.
-pub async fn delete_from_meal_plan(configuration: &configuration::Configuration, username: &str, id: f64, hash: &str) -> Result<serde_json::Value, Error<DeleteFromMealPlanError>> {
+pub async fn delete_from_meal_plan(configuration: &configuration::Configuration, username: &str, id: i32, hash: &str) -> Result<serde_json::Value, Error<DeleteFromMealPlanError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -503,7 +503,7 @@ pub async fn generate_meal_plan(configuration: &configuration::Configuration, ti
 }
 
 /// Generate the shopping list for a user from the meal planner in a given time frame.
-pub async fn generate_shopping_list(configuration: &configuration::Configuration, username: &str, start_date: &str, end_date: &str, hash: &str) -> Result<models::GenerateShoppingList200Response, Error<GenerateShoppingListError>> {
+pub async fn generate_shopping_list(configuration: &configuration::Configuration, username: &str, start_date: &str, end_date: &str, hash: &str) -> Result<models::GetShoppingList200Response, Error<GenerateShoppingListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -21,23 +21,22 @@ import ComputeGlycemicLoad200Response from '../model/ComputeGlycemicLoad200Respo
 import ComputeGlycemicLoadRequest from '../model/ComputeGlycemicLoadRequest';
 import ConvertAmounts200Response from '../model/ConvertAmounts200Response';
 import CreateRecipeCard200Response from '../model/CreateRecipeCard200Response';
-import GetAnalyzedRecipeInstructions200Response from '../model/GetAnalyzedRecipeInstructions200Response';
+import GetAnalyzedRecipeInstructions200ResponseInner from '../model/GetAnalyzedRecipeInstructions200ResponseInner';
 import GetRandomRecipes200Response from '../model/GetRandomRecipes200Response';
 import GetRecipeEquipmentByID200Response from '../model/GetRecipeEquipmentByID200Response';
-import GetRecipeInformation200Response from '../model/GetRecipeInformation200Response';
-import GetRecipeInformationBulk200ResponseInner from '../model/GetRecipeInformationBulk200ResponseInner';
 import GetRecipeIngredientsByID200Response from '../model/GetRecipeIngredientsByID200Response';
 import GetRecipeNutritionWidgetByID200Response from '../model/GetRecipeNutritionWidgetByID200Response';
 import GetRecipePriceBreakdownByID200Response from '../model/GetRecipePriceBreakdownByID200Response';
-import GetRecipeTasteByID200Response from '../model/GetRecipeTasteByID200Response';
 import GetSimilarRecipes200ResponseInner from '../model/GetSimilarRecipes200ResponseInner';
 import GuessNutritionByDishName200Response from '../model/GuessNutritionByDishName200Response';
-import ParseIngredients200ResponseInner from '../model/ParseIngredients200ResponseInner';
+import IngredientInformation from '../model/IngredientInformation';
 import QuickAnswer200Response from '../model/QuickAnswer200Response';
+import RecipeInformation from '../model/RecipeInformation';
 import SearchRecipes200Response from '../model/SearchRecipes200Response';
 import SearchRecipesByIngredients200ResponseInner from '../model/SearchRecipesByIngredients200ResponseInner';
 import SearchRecipesByNutrients200ResponseInner from '../model/SearchRecipesByNutrients200ResponseInner';
 import SummarizeRecipe200Response from '../model/SummarizeRecipe200Response';
+import TasteInformation from '../model/TasteInformation';
 
 /**
 * Recipes service.
@@ -155,20 +154,24 @@ export default class RecipesApi {
     /**
      * Autocomplete Recipe Search
      * Autocomplete a partial input to suggest possible recipe names.
+     * @param {String} query The (natural language) search query.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param {module:api/RecipesApi~autocompleteRecipeSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AutocompleteRecipeSearch200ResponseInner>}
      */
-    autocompleteRecipeSearch(opts, callback) {
+    autocompleteRecipeSearch(query, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling autocompleteRecipeSearch");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'number': opts['number']
       };
       let headerParams = {
@@ -487,7 +490,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the extractRecipeFromWebsite operation.
      * @callback module:api/RecipesApi~extractRecipeFromWebsiteCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetRecipeInformation200Response} data The data returned by the service call.
+     * @param {module:model/RecipeInformation} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -501,7 +504,7 @@ export default class RecipesApi {
      * @param {Boolean} [includeNutrition = false)] Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      * @param {Boolean} [includeTaste = false)] Whether taste data should be added to correctly parsed ingredients.
      * @param {module:api/RecipesApi~extractRecipeFromWebsiteCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetRecipeInformation200Response}
+     * data is of type: {@link module:model/RecipeInformation}
      */
     extractRecipeFromWebsite(url, opts, callback) {
       opts = opts || {};
@@ -528,7 +531,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetRecipeInformation200Response;
+      let returnType = RecipeInformation;
       return this.apiClient.callApi(
         '/recipes/extract', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -540,18 +543,18 @@ export default class RecipesApi {
      * Callback function to receive the result of the getAnalyzedRecipeInstructions operation.
      * @callback module:api/RecipesApi~getAnalyzedRecipeInstructionsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetAnalyzedRecipeInstructions200Response} data The data returned by the service call.
+     * @param {Array.<module:model/GetAnalyzedRecipeInstructions200ResponseInner>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Analyzed Recipe Instructions
      * Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [stepBreakdown] Whether to break down the recipe steps even more.
      * @param {module:api/RecipesApi~getAnalyzedRecipeInstructionsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetAnalyzedRecipeInstructions200Response}
+     * data is of type: {@link Array.<module:model/GetAnalyzedRecipeInstructions200ResponseInner>}
      */
     getAnalyzedRecipeInstructions(id, opts, callback) {
       opts = opts || {};
@@ -575,7 +578,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetAnalyzedRecipeInstructions200Response;
+      let returnType = [GetAnalyzedRecipeInstructions200ResponseInner];
       return this.apiClient.callApi(
         '/recipes/{id}/analyzedInstructions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -641,7 +644,7 @@ export default class RecipesApi {
     /**
      * Equipment by ID
      * Get a recipe's equipment list.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~getRecipeEquipmentByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetRecipeEquipmentByID200Response}
      */
@@ -677,18 +680,20 @@ export default class RecipesApi {
      * Callback function to receive the result of the getRecipeInformation operation.
      * @callback module:api/RecipesApi~getRecipeInformationCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetRecipeInformation200Response} data The data returned by the service call.
+     * @param {module:model/RecipeInformation} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Recipe Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-     * @param {Number} id The item's id.
+     * @param {Number} id The id of the recipe.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [includeNutrition = false)] Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+     * @param {Boolean} [addWinePairing] Add a wine pairing to the recipe.
+     * @param {Boolean} [addTasteData] Add taste data to the recipe.
      * @param {module:api/RecipesApi~getRecipeInformationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetRecipeInformation200Response}
+     * data is of type: {@link module:model/RecipeInformation}
      */
     getRecipeInformation(id, opts, callback) {
       opts = opts || {};
@@ -702,7 +707,9 @@ export default class RecipesApi {
         'id': id
       };
       let queryParams = {
-        'includeNutrition': opts['includeNutrition']
+        'includeNutrition': opts['includeNutrition'],
+        'addWinePairing': opts['addWinePairing'],
+        'addTasteData': opts['addTasteData']
       };
       let headerParams = {
       };
@@ -712,7 +719,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetRecipeInformation200Response;
+      let returnType = RecipeInformation;
       return this.apiClient.callApi(
         '/recipes/{id}/information', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -724,7 +731,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the getRecipeInformationBulk operation.
      * @callback module:api/RecipesApi~getRecipeInformationBulkCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/GetRecipeInformationBulk200ResponseInner>} data The data returned by the service call.
+     * @param {Array.<module:model/RecipeInformation>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -735,7 +742,7 @@ export default class RecipesApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} [includeNutrition = false)] Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      * @param {module:api/RecipesApi~getRecipeInformationBulkCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/GetRecipeInformationBulk200ResponseInner>}
+     * data is of type: {@link Array.<module:model/RecipeInformation>}
      */
     getRecipeInformationBulk(ids, opts, callback) {
       opts = opts || {};
@@ -759,7 +766,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [GetRecipeInformationBulk200ResponseInner];
+      let returnType = [RecipeInformation];
       return this.apiClient.callApi(
         '/recipes/informationBulk', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -778,7 +785,7 @@ export default class RecipesApi {
     /**
      * Ingredients by ID
      * Get a recipe's ingredient list.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~getRecipeIngredientsByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetRecipeIngredientsByID200Response}
      */
@@ -821,7 +828,7 @@ export default class RecipesApi {
     /**
      * Nutrition by ID
      * Get a recipe's nutrition data.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~getRecipeNutritionWidgetByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetRecipeNutritionWidgetByID200Response}
      */
@@ -864,7 +871,7 @@ export default class RecipesApi {
     /**
      * Price Breakdown by ID
      * Get a recipe's price breakdown data.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~getRecipePriceBreakdownByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetRecipePriceBreakdownByID200Response}
      */
@@ -900,18 +907,18 @@ export default class RecipesApi {
      * Callback function to receive the result of the getRecipeTasteByID operation.
      * @callback module:api/RecipesApi~getRecipeTasteByIDCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetRecipeTasteByID200Response} data The data returned by the service call.
+     * @param {module:model/TasteInformation} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Taste by ID
      * Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [normalize = true)] Normalize to the strongest taste.
      * @param {module:api/RecipesApi~getRecipeTasteByIDCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetRecipeTasteByID200Response}
+     * data is of type: {@link module:model/TasteInformation}
      */
     getRecipeTasteByID(id, opts, callback) {
       opts = opts || {};
@@ -935,7 +942,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetRecipeTasteByID200Response;
+      let returnType = TasteInformation;
       return this.apiClient.callApi(
         '/recipes/{id}/tasteWidget.json', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -954,7 +961,7 @@ export default class RecipesApi {
     /**
      * Get Similar Recipes
      * Find recipes which are similar to the given one.
-     * @param {Number} id The item's id.
+     * @param {Number} id The id of the source recipe for which similar recipes should be found.
      * @param {Object} opts Optional parameters
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param {module:api/RecipesApi~getSimilarRecipesCallback} callback The callback function, accepting three arguments: error, data, response
@@ -1037,7 +1044,7 @@ export default class RecipesApi {
      * Callback function to receive the result of the parseIngredients operation.
      * @callback module:api/RecipesApi~parseIngredientsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ParseIngredients200ResponseInner>} data The data returned by the service call.
+     * @param {Array.<module:model/IngredientInformation>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1048,9 +1055,9 @@ export default class RecipesApi {
      * @param {Number} servings The number of servings that you can make from the ingredients.
      * @param {Object} opts Optional parameters
      * @param {module:model/String} [language] The language of the input. Either 'en' or 'de'.
-     * @param {Boolean} [includeNutrition] 
+     * @param {Boolean} [includeNutrition] Whether nutrition data should be added to correctly parsed ingredients.
      * @param {module:api/RecipesApi~parseIngredientsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ParseIngredients200ResponseInner>}
+     * data is of type: {@link Array.<module:model/IngredientInformation>}
      */
     parseIngredients(ingredientList, servings, opts, callback) {
       opts = opts || {};
@@ -1080,7 +1087,7 @@ export default class RecipesApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = ['application/x-www-form-urlencoded'];
       let accepts = ['application/json'];
-      let returnType = [ParseIngredients200ResponseInner];
+      let returnType = [IngredientInformation];
       return this.apiClient.callApi(
         '/recipes/parseIngredients', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1381,8 +1388,8 @@ export default class RecipesApi {
     /**
      * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+     * @param {String} query The (natural language) search query.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {String} [cuisine] The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
      * @param {String} [excludeCuisine] The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
      * @param {String} [diet] The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -1482,14 +1489,18 @@ export default class RecipesApi {
      * @param {module:api/RecipesApi~searchRecipesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchRecipes200Response}
      */
-    searchRecipes(opts, callback) {
+    searchRecipes(query, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling searchRecipes");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'cuisine': opts['cuisine'],
         'excludeCuisine': opts['excludeCuisine'],
         'diet': opts['diet'],
@@ -1614,22 +1625,26 @@ export default class RecipesApi {
     /**
      * Search Recipes by Ingredients
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
+     * @param {String} ingredients A comma-separated list of ingredients that the recipes should contain.
      * @param {Object} opts Optional parameters
-     * @param {String} [ingredients] A comma-separated list of ingredients that the recipes should contain.
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param {Number} [ranking] Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
      * @param {Boolean} [ignorePantry = false)] Whether to ignore typical pantry items, such as water, salt, flour, etc.
      * @param {module:api/RecipesApi~searchRecipesByIngredientsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SearchRecipesByIngredients200ResponseInner>}
      */
-    searchRecipesByIngredients(opts, callback) {
+    searchRecipesByIngredients(ingredients, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'ingredients' is set
+      if (ingredients === undefined || ingredients === null) {
+        throw new Error("Missing the required parameter 'ingredients' when calling searchRecipesByIngredients");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'ingredients': opts['ingredients'],
+        'ingredients': ingredients,
         'number': opts['number'],
         'ranking': opts['ranking'],
         'ignorePantry': opts['ignorePantry']
@@ -1850,7 +1865,7 @@ export default class RecipesApi {
     /**
      * Summarize Recipe
      * Automatically generate a short description that summarizes key information about the recipe.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {module:api/RecipesApi~summarizeRecipeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SummarizeRecipe200Response}
      */
@@ -2003,7 +2018,7 @@ export default class RecipesApi {
     /**
      * Equipment by ID Widget
      * Visualize a recipe's equipment list.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
      * @param {module:api/RecipesApi~visualizeRecipeEquipmentByIDCallback} callback The callback function, accepting three arguments: error, data, response
@@ -2050,7 +2065,7 @@ export default class RecipesApi {
     /**
      * Ingredients by ID Widget
      * Visualize a recipe's ingredient list.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
      * @param {module:model/String} [measure] Whether the the measures should be 'us' or 'metric'.
@@ -2156,7 +2171,7 @@ export default class RecipesApi {
     /**
      * Recipe Nutrition by ID Widget
      * Visualize a recipe's nutritional information as HTML including CSS.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
      * @param {module:api/RecipesApi~visualizeRecipeNutritionByIDCallback} callback The callback function, accepting three arguments: error, data, response
@@ -2203,7 +2218,7 @@ export default class RecipesApi {
     /**
      * Price Breakdown by ID Widget
      * Visualize a recipe's price breakdown.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
      * @param {module:api/RecipesApi~visualizeRecipePriceBreakdownByIDCallback} callback The callback function, accepting three arguments: error, data, response
@@ -2301,7 +2316,7 @@ export default class RecipesApi {
     /**
      * Recipe Taste by ID Widget
      * Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param {Number} id The item's id.
+     * @param {Number} id The recipe id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [normalize = true)] Whether to normalize to the strongest taste.
      * @param {String} [rgb] Red, green, blue values for the chart color.

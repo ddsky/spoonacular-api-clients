@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **autocomplete_menu_item_search**
-> AutocompleteMenuItemSearch200Response autocomplete_menu_item_search(query => $query, number => $number)
+> AutocompleteProductSearch200Response autocomplete_menu_item_search(query => $query, number => $number)
 
 Autocomplete Menu Item Search
 
@@ -38,7 +38,7 @@ my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
 );
 
 my $query = chicke; # string | The (partial) search query.
-my $number = 10; # double | The number of results to return (between 1 and 25).
+my $number = 10; # int | The number of results to return (between 1 and 25).
 
 eval {
     my $result = $api_instance->autocomplete_menu_item_search(query => $query, number => $number);
@@ -54,11 +54,11 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| The (partial) search query. | 
- **number** | **double**| The number of results to return (between 1 and 25). | [optional] 
+ **number** | **int**| The number of results to return (between 1 and 25). | [optional] 
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_menu_item_information**
-> GetMenuItemInformation200Response get_menu_item_information(id => $id)
+> MenuItem get_menu_item_information(id => $id)
 
 Get Menu Item Information
 
@@ -90,7 +90,7 @@ my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 424571; # int | The menu item id.
 
 eval {
     my $result = $api_instance->get_menu_item_information(id => $id);
@@ -105,11 +105,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The menu item id. | 
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 424571; # double | The menu item id.
+my $id = 424571; # int | The menu item id.
 
 eval {
     my $result = $api_instance->menu_item_nutrition_by_id_image(id => $id);
@@ -156,7 +156,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
 
 ### Return type
 
@@ -192,7 +192,7 @@ my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 342313; # double | The menu item id.
+my $id = 342313; # int | The menu item id.
 my $show_optional_nutrients = false; # boolean | Whether to show optional nutrients.
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
@@ -210,7 +210,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
  **show_optional_nutrients** | **boolean**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **boolean**| Whether to show zero values. | [optional] 
  **show_ingredients** | **boolean**| Whether to show a list of ingredients. | [optional] 
@@ -249,7 +249,7 @@ my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 342313; # double | The menu item id.
+my $id = 342313; # int | The menu item id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $show_optional_nutrients = false; # boolean | Whether to show optional nutrients.
 my $show_zero_values = false; # boolean | Whether to show zero values.
@@ -268,7 +268,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **show_optional_nutrients** | **boolean**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **boolean**| Whether to show zero values. | [optional] 
@@ -334,7 +334,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional] 
+ **query** | **string**| The (natural language) search query. | 
  **min_calories** | **double**| The minimum amount of calories the menu item must have. | [optional] 
  **max_calories** | **double**| The maximum amount of calories the menu item can have. | [optional] 
  **min_carbs** | **double**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] 
@@ -381,7 +381,7 @@ my $api_instance = WWW::OpenAPIClient::MenuItemsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1003464; # int | The menu item id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 
 eval {
@@ -397,7 +397,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The menu item id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

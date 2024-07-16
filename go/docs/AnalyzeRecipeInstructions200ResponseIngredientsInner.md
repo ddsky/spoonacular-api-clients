@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** |  | 
+**Id** | **int32** |  | 
 **Name** | **string** |  | 
 
 ## Methods
 
 ### NewAnalyzeRecipeInstructions200ResponseIngredientsInner
 
-`func NewAnalyzeRecipeInstructions200ResponseIngredientsInner(id float32, name string, ) *AnalyzeRecipeInstructions200ResponseIngredientsInner`
+`func NewAnalyzeRecipeInstructions200ResponseIngredientsInner(id int32, name string, ) *AnalyzeRecipeInstructions200ResponseIngredientsInner`
 
 NewAnalyzeRecipeInstructions200ResponseIngredientsInner instantiates a new AnalyzeRecipeInstructions200ResponseIngredientsInner object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetId() float32`
+`func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetId() int32`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetIdOk() (*float32, bool)`
+`func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetIdOk() (*int32, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) SetId(v float32)`
+`func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) SetId(v int32)`
 
 SetId sets Id field to given value.
 

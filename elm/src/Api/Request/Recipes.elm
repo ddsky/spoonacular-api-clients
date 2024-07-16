@@ -360,13 +360,13 @@ analyzeRecipeInstructions instructions =
 
 {-| Autocomplete a partial input to suggest possible recipe names.
 -}
-autocompleteRecipeSearch : Maybe String -> Maybe Int -> Api.Request (List Api.Data.AutocompleteRecipeSearch200ResponseInner)
+autocompleteRecipeSearch : String -> Maybe Int -> Api.Request (List Api.Data.AutocompleteRecipeSearch200ResponseInner)
 autocompleteRecipeSearch query_query number_query =
     Api.request
         "GET"
         "/recipes/autocomplete"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "number", Maybe.map String.fromInt number_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "number", Maybe.map String.fromInt number_query ) ]
         []
         Nothing
         (Json.Decode.list Api.Data.autocompleteRecipeSearch200ResponseInnerDecoder)
@@ -430,12 +430,12 @@ createRecipeCard title ingredients instructions readyInMinutes servings mask bac
 
 {-| Visualize a recipe's equipment list as an image.
 -}
-equipmentByIDImage : Float -> Api.Request File
+equipmentByIDImage : Int -> Api.Request File
 equipmentByIDImage id_path =
     Api.request
         "GET"
         "/recipes/{id}/equipmentWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         []
         []
         Nothing
@@ -444,7 +444,7 @@ equipmentByIDImage id_path =
 
 {-| This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
 -}
-extractRecipeFromWebsite : String -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request Api.Data.GetRecipeInformation200Response
+extractRecipeFromWebsite : String -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request Api.Data.RecipeInformation
 extractRecipeFromWebsite url_query forceExtraction_query analyze_query includeNutrition_query includeTaste_query =
     Api.request
         "GET"
@@ -453,12 +453,12 @@ extractRecipeFromWebsite url_query forceExtraction_query analyze_query includeNu
         [ ( "url", Just <| identity url_query ), ( "forceExtraction", Maybe.map (\val -> if val then "true" else "false") forceExtraction_query ), ( "analyze", Maybe.map (\val -> if val then "true" else "false") analyze_query ), ( "includeNutrition", Maybe.map (\val -> if val then "true" else "false") includeNutrition_query ), ( "includeTaste", Maybe.map (\val -> if val then "true" else "false") includeTaste_query ) ]
         []
         Nothing
-        Api.Data.getRecipeInformation200ResponseDecoder
+        Api.Data.recipeInformationDecoder
 
 
 {-| Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 -}
-getAnalyzedRecipeInstructions : Int -> Maybe Bool -> Api.Request Api.Data.GetAnalyzedRecipeInstructions200Response
+getAnalyzedRecipeInstructions : Int -> Maybe Bool -> Api.Request (List Api.Data.GetAnalyzedRecipeInstructions200ResponseInner)
 getAnalyzedRecipeInstructions id_path stepBreakdown_query =
     Api.request
         "GET"
@@ -467,7 +467,7 @@ getAnalyzedRecipeInstructions id_path stepBreakdown_query =
         [ ( "stepBreakdown", Maybe.map (\val -> if val then "true" else "false") stepBreakdown_query ) ]
         []
         Nothing
-        Api.Data.getAnalyzedRecipeInstructions200ResponseDecoder
+        (Json.Decode.list Api.Data.getAnalyzedRecipeInstructions200ResponseInnerDecoder)
 
 
 {-| Find random (popular) recipes. If you need to filter recipes by diet, nutrition etc. you might want to consider using the complex recipe search endpoint and set the sort request parameter to random.
@@ -500,21 +500,21 @@ getRecipeEquipmentByID id_path =
 
 {-| Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 -}
-getRecipeInformation : Int -> Maybe Bool -> Api.Request Api.Data.GetRecipeInformation200Response
-getRecipeInformation id_path includeNutrition_query =
+getRecipeInformation : Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request Api.Data.RecipeInformation
+getRecipeInformation id_path includeNutrition_query addWinePairing_query addTasteData_query =
     Api.request
         "GET"
         "/recipes/{id}/information"
         [ ( "id", String.fromInt id_path ) ]
-        [ ( "includeNutrition", Maybe.map (\val -> if val then "true" else "false") includeNutrition_query ) ]
+        [ ( "includeNutrition", Maybe.map (\val -> if val then "true" else "false") includeNutrition_query ), ( "addWinePairing", Maybe.map (\val -> if val then "true" else "false") addWinePairing_query ), ( "addTasteData", Maybe.map (\val -> if val then "true" else "false") addTasteData_query ) ]
         []
         Nothing
-        Api.Data.getRecipeInformation200ResponseDecoder
+        Api.Data.recipeInformationDecoder
 
 
 {-| Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
 -}
-getRecipeInformationBulk : String -> Maybe Bool -> Api.Request (List Api.Data.GetRecipeInformationBulk200ResponseInner)
+getRecipeInformationBulk : String -> Maybe Bool -> Api.Request (List Api.Data.RecipeInformation)
 getRecipeInformationBulk ids_query includeNutrition_query =
     Api.request
         "GET"
@@ -523,7 +523,7 @@ getRecipeInformationBulk ids_query includeNutrition_query =
         [ ( "ids", Just <| identity ids_query ), ( "includeNutrition", Maybe.map (\val -> if val then "true" else "false") includeNutrition_query ) ]
         []
         Nothing
-        (Json.Decode.list Api.Data.getRecipeInformationBulk200ResponseInnerDecoder)
+        (Json.Decode.list Api.Data.recipeInformationDecoder)
 
 
 {-| Get a recipe's ingredient list.
@@ -570,7 +570,7 @@ getRecipePriceBreakdownByID id_path =
 
 {-| Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 -}
-getRecipeTasteByID : Int -> Maybe Bool -> Api.Request Api.Data.GetRecipeTasteByID200Response
+getRecipeTasteByID : Int -> Maybe Bool -> Api.Request Api.Data.TasteInformation
 getRecipeTasteByID id_path normalize_query =
     Api.request
         "GET"
@@ -579,7 +579,7 @@ getRecipeTasteByID id_path normalize_query =
         [ ( "normalize", Maybe.map (\val -> if val then "true" else "false") normalize_query ) ]
         []
         Nothing
-        Api.Data.getRecipeTasteByID200ResponseDecoder
+        Api.Data.tasteInformationDecoder
 
 
 {-| Find recipes which are similar to the given one.
@@ -612,7 +612,7 @@ guessNutritionByDishName title_query =
 
 {-| Extract an ingredient from plain text.
 -}
-parseIngredients : Maybe Language -> String -> Float -> Maybe Bool -> Api.Request (List Api.Data.ParseIngredients200ResponseInner)
+parseIngredients : Maybe Language -> String -> Float -> Maybe Bool -> Api.Request (List Api.Data.IngredientInformation)
 parseIngredients language_query ingredientList servings includeNutrition =
     Api.request
         "POST"
@@ -621,17 +621,17 @@ parseIngredients language_query ingredientList servings includeNutrition =
         [ ( "language", Maybe.map stringFromLanguage language_query ) ]
         []
         (Just <| Http.multipartBody <| List.filterMap identity [ Just <| Http.stringPart "ingredientList" ingredientList, Just <| Http.stringPart "servings"String.fromFloat servings, Maybe.map (Http.stringPart "includeNutrition"(\val -> if val then "true" else "false")) includeNutrition ])
-        (Json.Decode.list Api.Data.parseIngredients200ResponseInnerDecoder)
+        (Json.Decode.list Api.Data.ingredientInformationDecoder)
 
 
 {-| Visualize a recipe's price breakdown.
 -}
-priceBreakdownByIDImage : Float -> Api.Request File
+priceBreakdownByIDImage : Int -> Api.Request File
 priceBreakdownByIDImage id_path =
     Api.request
         "GET"
         "/recipes/{id}/priceBreakdownWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         []
         []
         Nothing
@@ -654,12 +654,12 @@ quickAnswer q_query =
 
 {-| Visualize a recipe's nutritional information as an image.
 -}
-recipeNutritionByIDImage : Float -> Api.Request File
+recipeNutritionByIDImage : Int -> Api.Request File
 recipeNutritionByIDImage id_path =
     Api.request
         "GET"
         "/recipes/{id}/nutritionWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         []
         []
         Nothing
@@ -668,12 +668,12 @@ recipeNutritionByIDImage id_path =
 
 {-| Get a recipe's nutrition label as an image.
 -}
-recipeNutritionLabelImage : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
+recipeNutritionLabelImage : Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
 recipeNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
         "/recipes/{id}/nutritionLabel.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
@@ -682,12 +682,12 @@ recipeNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_que
 
 {-| Get a recipe's nutrition label as an HTML widget.
 -}
-recipeNutritionLabelWidget : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request String
+recipeNutritionLabelWidget : Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request String
 recipeNutritionLabelWidget id_path defaultCss_query showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
         "/recipes/{id}/nutritionLabel"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "defaultCss", Maybe.map (\val -> if val then "true" else "false") defaultCss_query ), ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
@@ -696,12 +696,12 @@ recipeNutritionLabelWidget id_path defaultCss_query showOptionalNutrients_query 
 
 {-| Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 -}
-recipeTasteByIDImage : Float -> Maybe Bool -> Maybe String -> Api.Request File
+recipeTasteByIDImage : Int -> Maybe Bool -> Maybe String -> Api.Request File
 recipeTasteByIDImage id_path normalize_query rgb_query =
     Api.request
         "GET"
         "/recipes/{id}/tasteWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "normalize", Maybe.map (\val -> if val then "true" else "false") normalize_query ), ( "rgb", Maybe.map identity rgb_query ) ]
         []
         Nothing
@@ -710,13 +710,13 @@ recipeTasteByIDImage id_path normalize_query rgb_query =
 
 {-| Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 -}
-searchRecipes : Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe String -> Maybe String -> Maybe Float -> Maybe String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe String -> Maybe String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchRecipes200Response
+searchRecipes : String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe String -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe String -> Maybe String -> Maybe Int -> Maybe String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe String -> Maybe String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchRecipes200Response
 searchRecipes query_query cuisine_query excludeCuisine_query diet_query intolerances_query equipment_query includeIngredients_query excludeIngredients_query type__query instructionsRequired_query fillIngredients_query addRecipeInformation_query addRecipeNutrition_query author_query tags_query recipeBoxId_query titleMatch_query maxReadyTime_query minServings_query maxServings_query ignorePantry_query sort_query sortDirection_query minCarbs_query maxCarbs_query minProtein_query maxProtein_query minCalories_query maxCalories_query minFat_query maxFat_query minAlcohol_query maxAlcohol_query minCaffeine_query maxCaffeine_query minCopper_query maxCopper_query minCalcium_query maxCalcium_query minCholine_query maxCholine_query minCholesterol_query maxCholesterol_query minFluoride_query maxFluoride_query minSaturatedFat_query maxSaturatedFat_query minVitaminA_query maxVitaminA_query minVitaminC_query maxVitaminC_query minVitaminD_query maxVitaminD_query minVitaminE_query maxVitaminE_query minVitaminK_query maxVitaminK_query minVitaminB1_query maxVitaminB1_query minVitaminB2_query maxVitaminB2_query minVitaminB5_query maxVitaminB5_query minVitaminB3_query maxVitaminB3_query minVitaminB6_query maxVitaminB6_query minVitaminB12_query maxVitaminB12_query minFiber_query maxFiber_query minFolate_query maxFolate_query minFolicAcid_query maxFolicAcid_query minIodine_query maxIodine_query minIron_query maxIron_query minMagnesium_query maxMagnesium_query minManganese_query maxManganese_query minPhosphorus_query maxPhosphorus_query minPotassium_query maxPotassium_query minSelenium_query maxSelenium_query minSodium_query maxSodium_query minSugar_query maxSugar_query minZinc_query maxZinc_query offset_query number_query =
     Api.request
         "GET"
         "/recipes/complexSearch"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "cuisine", Maybe.map identity cuisine_query ), ( "excludeCuisine", Maybe.map identity excludeCuisine_query ), ( "diet", Maybe.map identity diet_query ), ( "intolerances", Maybe.map identity intolerances_query ), ( "equipment", Maybe.map identity equipment_query ), ( "includeIngredients", Maybe.map identity includeIngredients_query ), ( "excludeIngredients", Maybe.map identity excludeIngredients_query ), ( "type", Maybe.map identity type__query ), ( "instructionsRequired", Maybe.map (\val -> if val then "true" else "false") instructionsRequired_query ), ( "fillIngredients", Maybe.map (\val -> if val then "true" else "false") fillIngredients_query ), ( "addRecipeInformation", Maybe.map (\val -> if val then "true" else "false") addRecipeInformation_query ), ( "addRecipeNutrition", Maybe.map (\val -> if val then "true" else "false") addRecipeNutrition_query ), ( "author", Maybe.map identity author_query ), ( "tags", Maybe.map identity tags_query ), ( "recipeBoxId", Maybe.map String.fromFloat recipeBoxId_query ), ( "titleMatch", Maybe.map identity titleMatch_query ), ( "maxReadyTime", Maybe.map String.fromFloat maxReadyTime_query ), ( "minServings", Maybe.map String.fromFloat minServings_query ), ( "maxServings", Maybe.map String.fromFloat maxServings_query ), ( "ignorePantry", Maybe.map (\val -> if val then "true" else "false") ignorePantry_query ), ( "sort", Maybe.map identity sort_query ), ( "sortDirection", Maybe.map identity sortDirection_query ), ( "minCarbs", Maybe.map String.fromFloat minCarbs_query ), ( "maxCarbs", Maybe.map String.fromFloat maxCarbs_query ), ( "minProtein", Maybe.map String.fromFloat minProtein_query ), ( "maxProtein", Maybe.map String.fromFloat maxProtein_query ), ( "minCalories", Maybe.map String.fromFloat minCalories_query ), ( "maxCalories", Maybe.map String.fromFloat maxCalories_query ), ( "minFat", Maybe.map String.fromFloat minFat_query ), ( "maxFat", Maybe.map String.fromFloat maxFat_query ), ( "minAlcohol", Maybe.map String.fromFloat minAlcohol_query ), ( "maxAlcohol", Maybe.map String.fromFloat maxAlcohol_query ), ( "minCaffeine", Maybe.map String.fromFloat minCaffeine_query ), ( "maxCaffeine", Maybe.map String.fromFloat maxCaffeine_query ), ( "minCopper", Maybe.map String.fromFloat minCopper_query ), ( "maxCopper", Maybe.map String.fromFloat maxCopper_query ), ( "minCalcium", Maybe.map String.fromFloat minCalcium_query ), ( "maxCalcium", Maybe.map String.fromFloat maxCalcium_query ), ( "minCholine", Maybe.map String.fromFloat minCholine_query ), ( "maxCholine", Maybe.map String.fromFloat maxCholine_query ), ( "minCholesterol", Maybe.map String.fromFloat minCholesterol_query ), ( "maxCholesterol", Maybe.map String.fromFloat maxCholesterol_query ), ( "minFluoride", Maybe.map String.fromFloat minFluoride_query ), ( "maxFluoride", Maybe.map String.fromFloat maxFluoride_query ), ( "minSaturatedFat", Maybe.map String.fromFloat minSaturatedFat_query ), ( "maxSaturatedFat", Maybe.map String.fromFloat maxSaturatedFat_query ), ( "minVitaminA", Maybe.map String.fromFloat minVitaminA_query ), ( "maxVitaminA", Maybe.map String.fromFloat maxVitaminA_query ), ( "minVitaminC", Maybe.map String.fromFloat minVitaminC_query ), ( "maxVitaminC", Maybe.map String.fromFloat maxVitaminC_query ), ( "minVitaminD", Maybe.map String.fromFloat minVitaminD_query ), ( "maxVitaminD", Maybe.map String.fromFloat maxVitaminD_query ), ( "minVitaminE", Maybe.map String.fromFloat minVitaminE_query ), ( "maxVitaminE", Maybe.map String.fromFloat maxVitaminE_query ), ( "minVitaminK", Maybe.map String.fromFloat minVitaminK_query ), ( "maxVitaminK", Maybe.map String.fromFloat maxVitaminK_query ), ( "minVitaminB1", Maybe.map String.fromFloat minVitaminB1_query ), ( "maxVitaminB1", Maybe.map String.fromFloat maxVitaminB1_query ), ( "minVitaminB2", Maybe.map String.fromFloat minVitaminB2_query ), ( "maxVitaminB2", Maybe.map String.fromFloat maxVitaminB2_query ), ( "minVitaminB5", Maybe.map String.fromFloat minVitaminB5_query ), ( "maxVitaminB5", Maybe.map String.fromFloat maxVitaminB5_query ), ( "minVitaminB3", Maybe.map String.fromFloat minVitaminB3_query ), ( "maxVitaminB3", Maybe.map String.fromFloat maxVitaminB3_query ), ( "minVitaminB6", Maybe.map String.fromFloat minVitaminB6_query ), ( "maxVitaminB6", Maybe.map String.fromFloat maxVitaminB6_query ), ( "minVitaminB12", Maybe.map String.fromFloat minVitaminB12_query ), ( "maxVitaminB12", Maybe.map String.fromFloat maxVitaminB12_query ), ( "minFiber", Maybe.map String.fromFloat minFiber_query ), ( "maxFiber", Maybe.map String.fromFloat maxFiber_query ), ( "minFolate", Maybe.map String.fromFloat minFolate_query ), ( "maxFolate", Maybe.map String.fromFloat maxFolate_query ), ( "minFolicAcid", Maybe.map String.fromFloat minFolicAcid_query ), ( "maxFolicAcid", Maybe.map String.fromFloat maxFolicAcid_query ), ( "minIodine", Maybe.map String.fromFloat minIodine_query ), ( "maxIodine", Maybe.map String.fromFloat maxIodine_query ), ( "minIron", Maybe.map String.fromFloat minIron_query ), ( "maxIron", Maybe.map String.fromFloat maxIron_query ), ( "minMagnesium", Maybe.map String.fromFloat minMagnesium_query ), ( "maxMagnesium", Maybe.map String.fromFloat maxMagnesium_query ), ( "minManganese", Maybe.map String.fromFloat minManganese_query ), ( "maxManganese", Maybe.map String.fromFloat maxManganese_query ), ( "minPhosphorus", Maybe.map String.fromFloat minPhosphorus_query ), ( "maxPhosphorus", Maybe.map String.fromFloat maxPhosphorus_query ), ( "minPotassium", Maybe.map String.fromFloat minPotassium_query ), ( "maxPotassium", Maybe.map String.fromFloat maxPotassium_query ), ( "minSelenium", Maybe.map String.fromFloat minSelenium_query ), ( "maxSelenium", Maybe.map String.fromFloat maxSelenium_query ), ( "minSodium", Maybe.map String.fromFloat minSodium_query ), ( "maxSodium", Maybe.map String.fromFloat maxSodium_query ), ( "minSugar", Maybe.map String.fromFloat minSugar_query ), ( "maxSugar", Maybe.map String.fromFloat maxSugar_query ), ( "minZinc", Maybe.map String.fromFloat minZinc_query ), ( "maxZinc", Maybe.map String.fromFloat maxZinc_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "cuisine", Maybe.map identity cuisine_query ), ( "excludeCuisine", Maybe.map identity excludeCuisine_query ), ( "diet", Maybe.map identity diet_query ), ( "intolerances", Maybe.map identity intolerances_query ), ( "equipment", Maybe.map identity equipment_query ), ( "includeIngredients", Maybe.map identity includeIngredients_query ), ( "excludeIngredients", Maybe.map identity excludeIngredients_query ), ( "type", Maybe.map identity type__query ), ( "instructionsRequired", Maybe.map (\val -> if val then "true" else "false") instructionsRequired_query ), ( "fillIngredients", Maybe.map (\val -> if val then "true" else "false") fillIngredients_query ), ( "addRecipeInformation", Maybe.map (\val -> if val then "true" else "false") addRecipeInformation_query ), ( "addRecipeNutrition", Maybe.map (\val -> if val then "true" else "false") addRecipeNutrition_query ), ( "author", Maybe.map identity author_query ), ( "tags", Maybe.map identity tags_query ), ( "recipeBoxId", Maybe.map String.fromInt recipeBoxId_query ), ( "titleMatch", Maybe.map identity titleMatch_query ), ( "maxReadyTime", Maybe.map String.fromFloat maxReadyTime_query ), ( "minServings", Maybe.map String.fromFloat minServings_query ), ( "maxServings", Maybe.map String.fromFloat maxServings_query ), ( "ignorePantry", Maybe.map (\val -> if val then "true" else "false") ignorePantry_query ), ( "sort", Maybe.map identity sort_query ), ( "sortDirection", Maybe.map identity sortDirection_query ), ( "minCarbs", Maybe.map String.fromFloat minCarbs_query ), ( "maxCarbs", Maybe.map String.fromFloat maxCarbs_query ), ( "minProtein", Maybe.map String.fromFloat minProtein_query ), ( "maxProtein", Maybe.map String.fromFloat maxProtein_query ), ( "minCalories", Maybe.map String.fromFloat minCalories_query ), ( "maxCalories", Maybe.map String.fromFloat maxCalories_query ), ( "minFat", Maybe.map String.fromFloat minFat_query ), ( "maxFat", Maybe.map String.fromFloat maxFat_query ), ( "minAlcohol", Maybe.map String.fromFloat minAlcohol_query ), ( "maxAlcohol", Maybe.map String.fromFloat maxAlcohol_query ), ( "minCaffeine", Maybe.map String.fromFloat minCaffeine_query ), ( "maxCaffeine", Maybe.map String.fromFloat maxCaffeine_query ), ( "minCopper", Maybe.map String.fromFloat minCopper_query ), ( "maxCopper", Maybe.map String.fromFloat maxCopper_query ), ( "minCalcium", Maybe.map String.fromFloat minCalcium_query ), ( "maxCalcium", Maybe.map String.fromFloat maxCalcium_query ), ( "minCholine", Maybe.map String.fromFloat minCholine_query ), ( "maxCholine", Maybe.map String.fromFloat maxCholine_query ), ( "minCholesterol", Maybe.map String.fromFloat minCholesterol_query ), ( "maxCholesterol", Maybe.map String.fromFloat maxCholesterol_query ), ( "minFluoride", Maybe.map String.fromFloat minFluoride_query ), ( "maxFluoride", Maybe.map String.fromFloat maxFluoride_query ), ( "minSaturatedFat", Maybe.map String.fromFloat minSaturatedFat_query ), ( "maxSaturatedFat", Maybe.map String.fromFloat maxSaturatedFat_query ), ( "minVitaminA", Maybe.map String.fromFloat minVitaminA_query ), ( "maxVitaminA", Maybe.map String.fromFloat maxVitaminA_query ), ( "minVitaminC", Maybe.map String.fromFloat minVitaminC_query ), ( "maxVitaminC", Maybe.map String.fromFloat maxVitaminC_query ), ( "minVitaminD", Maybe.map String.fromFloat minVitaminD_query ), ( "maxVitaminD", Maybe.map String.fromFloat maxVitaminD_query ), ( "minVitaminE", Maybe.map String.fromFloat minVitaminE_query ), ( "maxVitaminE", Maybe.map String.fromFloat maxVitaminE_query ), ( "minVitaminK", Maybe.map String.fromFloat minVitaminK_query ), ( "maxVitaminK", Maybe.map String.fromFloat maxVitaminK_query ), ( "minVitaminB1", Maybe.map String.fromFloat minVitaminB1_query ), ( "maxVitaminB1", Maybe.map String.fromFloat maxVitaminB1_query ), ( "minVitaminB2", Maybe.map String.fromFloat minVitaminB2_query ), ( "maxVitaminB2", Maybe.map String.fromFloat maxVitaminB2_query ), ( "minVitaminB5", Maybe.map String.fromFloat minVitaminB5_query ), ( "maxVitaminB5", Maybe.map String.fromFloat maxVitaminB5_query ), ( "minVitaminB3", Maybe.map String.fromFloat minVitaminB3_query ), ( "maxVitaminB3", Maybe.map String.fromFloat maxVitaminB3_query ), ( "minVitaminB6", Maybe.map String.fromFloat minVitaminB6_query ), ( "maxVitaminB6", Maybe.map String.fromFloat maxVitaminB6_query ), ( "minVitaminB12", Maybe.map String.fromFloat minVitaminB12_query ), ( "maxVitaminB12", Maybe.map String.fromFloat maxVitaminB12_query ), ( "minFiber", Maybe.map String.fromFloat minFiber_query ), ( "maxFiber", Maybe.map String.fromFloat maxFiber_query ), ( "minFolate", Maybe.map String.fromFloat minFolate_query ), ( "maxFolate", Maybe.map String.fromFloat maxFolate_query ), ( "minFolicAcid", Maybe.map String.fromFloat minFolicAcid_query ), ( "maxFolicAcid", Maybe.map String.fromFloat maxFolicAcid_query ), ( "minIodine", Maybe.map String.fromFloat minIodine_query ), ( "maxIodine", Maybe.map String.fromFloat maxIodine_query ), ( "minIron", Maybe.map String.fromFloat minIron_query ), ( "maxIron", Maybe.map String.fromFloat maxIron_query ), ( "minMagnesium", Maybe.map String.fromFloat minMagnesium_query ), ( "maxMagnesium", Maybe.map String.fromFloat maxMagnesium_query ), ( "minManganese", Maybe.map String.fromFloat minManganese_query ), ( "maxManganese", Maybe.map String.fromFloat maxManganese_query ), ( "minPhosphorus", Maybe.map String.fromFloat minPhosphorus_query ), ( "maxPhosphorus", Maybe.map String.fromFloat maxPhosphorus_query ), ( "minPotassium", Maybe.map String.fromFloat minPotassium_query ), ( "maxPotassium", Maybe.map String.fromFloat maxPotassium_query ), ( "minSelenium", Maybe.map String.fromFloat minSelenium_query ), ( "maxSelenium", Maybe.map String.fromFloat maxSelenium_query ), ( "minSodium", Maybe.map String.fromFloat minSodium_query ), ( "maxSodium", Maybe.map String.fromFloat maxSodium_query ), ( "minSugar", Maybe.map String.fromFloat minSugar_query ), ( "maxSugar", Maybe.map String.fromFloat maxSugar_query ), ( "minZinc", Maybe.map String.fromFloat minZinc_query ), ( "maxZinc", Maybe.map String.fromFloat maxZinc_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
         []
         Nothing
         Api.Data.searchRecipes200ResponseDecoder
@@ -724,13 +724,13 @@ searchRecipes query_query cuisine_query excludeCuisine_query diet_query intolera
 
 {-|  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 -}
-searchRecipesByIngredients : Maybe String -> Maybe Int -> Maybe Float -> Maybe Bool -> Api.Request (List Api.Data.SearchRecipesByIngredients200ResponseInner)
+searchRecipesByIngredients : String -> Maybe Int -> Maybe Int -> Maybe Bool -> Api.Request (List Api.Data.SearchRecipesByIngredients200ResponseInner)
 searchRecipesByIngredients ingredients_query number_query ranking_query ignorePantry_query =
     Api.request
         "GET"
         "/recipes/findByIngredients"
         []
-        [ ( "ingredients", Maybe.map identity ingredients_query ), ( "number", Maybe.map String.fromInt number_query ), ( "ranking", Maybe.map String.fromFloat ranking_query ), ( "ignorePantry", Maybe.map (\val -> if val then "true" else "false") ignorePantry_query ) ]
+        [ ( "ingredients", Just <| identity ingredients_query ), ( "number", Maybe.map String.fromInt number_query ), ( "ranking", Maybe.map String.fromInt ranking_query ), ( "ignorePantry", Maybe.map (\val -> if val then "true" else "false") ignorePantry_query ) ]
         []
         Nothing
         (Json.Decode.list Api.Data.searchRecipesByIngredients200ResponseInnerDecoder)

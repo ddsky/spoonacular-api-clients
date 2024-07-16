@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 
-import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from '../models/ParseIngredients200ResponseInnerNutritionWeightPerServing';
+import { GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal } from '../models/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal';
 import { HttpFile } from '../http/http';
 
 export class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
-    'original': ParseIngredients200ResponseInnerNutritionWeightPerServing;
-    'metric': ParseIngredients200ResponseInnerNutritionWeightPerServing;
-    'us': ParseIngredients200ResponseInnerNutritionWeightPerServing;
+    'original': GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
+    'metric': GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
+    'us': GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -24,19 +24,19 @@ export class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
         {
             "name": "original",
             "baseName": "original",
-            "type": "ParseIngredients200ResponseInnerNutritionWeightPerServing",
+            "type": "GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal",
             "format": ""
         },
         {
             "name": "metric",
             "baseName": "metric",
-            "type": "ParseIngredients200ResponseInnerNutritionWeightPerServing",
+            "type": "GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal",
             "format": ""
         },
         {
             "name": "us",
             "baseName": "us",
-            "type": "ParseIngredients200ResponseInnerNutritionWeightPerServing",
+            "type": "GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal",
             "format": ""
         }    ];
 

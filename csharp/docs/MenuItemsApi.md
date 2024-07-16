@@ -14,7 +14,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="autocompletemenuitemsearch"></a>
 # **AutocompleteMenuItemSearch**
-> AutocompleteMenuItemSearch200Response AutocompleteMenuItemSearch (string query, decimal? number = null)
+> AutocompleteProductSearch200Response AutocompleteMenuItemSearch (string query, int? number = null)
 
 Autocomplete Menu Item Search
 
@@ -43,12 +43,12 @@ namespace Example
 
             var apiInstance = new MenuItemsApi(config);
             var query = chicke;  // string | The (partial) search query.
-            var number = 10;  // decimal? | The number of results to return (between 1 and 25). (optional) 
+            var number = 10;  // int? | The number of results to return (between 1 and 25). (optional) 
 
             try
             {
                 // Autocomplete Menu Item Search
-                AutocompleteMenuItemSearch200Response result = apiInstance.AutocompleteMenuItemSearch(query, number);
+                AutocompleteProductSearch200Response result = apiInstance.AutocompleteMenuItemSearch(query, number);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Autocomplete Menu Item Search
-    ApiResponse<AutocompleteMenuItemSearch200Response> response = apiInstance.AutocompleteMenuItemSearchWithHttpInfo(query, number);
+    ApiResponse<AutocompleteProductSearch200Response> response = apiInstance.AutocompleteMenuItemSearchWithHttpInfo(query, number);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -87,11 +87,11 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | The (partial) search query. |  |
-| **number** | **decimal?** | The number of results to return (between 1 and 25). | [optional]  |
+| **number** | **int?** | The number of results to return (between 1 and 25). | [optional]  |
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ catch (ApiException e)
 
 <a id="getmenuiteminformation"></a>
 # **GetMenuItemInformation**
-> GetMenuItemInformation200Response GetMenuItemInformation (int id)
+> MenuItem GetMenuItemInformation (int id)
 
 Get Menu Item Information
 
@@ -143,12 +143,12 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 424571;  // int | The menu item id.
 
             try
             {
                 // Get Menu Item Information
-                GetMenuItemInformation200Response result = apiInstance.GetMenuItemInformation(id);
+                MenuItem result = apiInstance.GetMenuItemInformation(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -169,7 +169,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Menu Item Information
-    ApiResponse<GetMenuItemInformation200Response> response = apiInstance.GetMenuItemInformationWithHttpInfo(id);
+    ApiResponse<MenuItem> response = apiInstance.GetMenuItemInformationWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -186,11 +186,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The menu item id. |  |
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ catch (ApiException e)
 
 <a id="menuitemnutritionbyidimage"></a>
 # **MenuItemNutritionByIDImage**
-> System.IO.Stream MenuItemNutritionByIDImage (decimal id)
+> System.IO.Stream MenuItemNutritionByIDImage (int id)
 
 Menu Item Nutrition by ID Image
 
@@ -242,7 +242,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi(config);
-            var id = 424571;  // decimal | The menu item id.
+            var id = 424571;  // int | The menu item id.
 
             try
             {
@@ -285,7 +285,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The menu item id. |  |
+| **id** | **int** | The menu item id. |  |
 
 ### Return type
 
@@ -313,7 +313,7 @@ catch (ApiException e)
 
 <a id="menuitemnutritionlabelimage"></a>
 # **MenuItemNutritionLabelImage**
-> System.IO.Stream MenuItemNutritionLabelImage (decimal id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> System.IO.Stream MenuItemNutritionLabelImage (int id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Menu Item Nutrition Label Image
 
@@ -341,7 +341,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi(config);
-            var id = 342313;  // decimal | The menu item id.
+            var id = 342313;  // int | The menu item id.
             var showOptionalNutrients = false;  // bool? | Whether to show optional nutrients. (optional) 
             var showZeroValues = false;  // bool? | Whether to show zero values. (optional) 
             var showIngredients = false;  // bool? | Whether to show a list of ingredients. (optional) 
@@ -387,7 +387,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The menu item id. |  |
+| **id** | **int** | The menu item id. |  |
 | **showOptionalNutrients** | **bool?** | Whether to show optional nutrients. | [optional]  |
 | **showZeroValues** | **bool?** | Whether to show zero values. | [optional]  |
 | **showIngredients** | **bool?** | Whether to show a list of ingredients. | [optional]  |
@@ -418,7 +418,7 @@ catch (ApiException e)
 
 <a id="menuitemnutritionlabelwidget"></a>
 # **MenuItemNutritionLabelWidget**
-> string MenuItemNutritionLabelWidget (decimal id, bool? defaultCss = null, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> string MenuItemNutritionLabelWidget (int id, bool? defaultCss = null, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Menu Item Nutrition Label Widget
 
@@ -446,7 +446,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi(config);
-            var id = 342313;  // decimal | The menu item id.
+            var id = 342313;  // int | The menu item id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
             var showOptionalNutrients = false;  // bool? | Whether to show optional nutrients. (optional) 
             var showZeroValues = false;  // bool? | Whether to show zero values. (optional) 
@@ -493,7 +493,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The menu item id. |  |
+| **id** | **int** | The menu item id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **bool?** | Whether to show optional nutrients. | [optional]  |
 | **showZeroValues** | **bool?** | Whether to show zero values. | [optional]  |
@@ -525,7 +525,7 @@ catch (ApiException e)
 
 <a id="searchmenuitems"></a>
 # **SearchMenuItems**
-> SearchMenuItems200Response SearchMenuItems (string? query = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minFat = null, decimal? maxFat = null, bool? addMenuItemInformation = null, int? offset = null, int? number = null)
+> SearchMenuItems200Response SearchMenuItems (string query, decimal? minCalories = null, decimal? maxCalories = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minFat = null, decimal? maxFat = null, bool? addMenuItemInformation = null, int? offset = null, int? number = null)
 
 Search Menu Items
 
@@ -553,7 +553,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi(config);
-            var query = burger;  // string? | The (natural language) search query. (optional) 
+            var query = burger;  // string | The (natural language) search query.
             var minCalories = 50;  // decimal? | The minimum amount of calories the menu item must have. (optional) 
             var maxCalories = 800;  // decimal? | The maximum amount of calories the menu item can have. (optional) 
             var minCarbs = 10;  // decimal? | The minimum amount of carbohydrates in grams the menu item must have. (optional) 
@@ -607,7 +607,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | The (natural language) search query. | [optional]  |
+| **query** | **string** | The (natural language) search query. |  |
 | **minCalories** | **decimal?** | The minimum amount of calories the menu item must have. | [optional]  |
 | **maxCalories** | **decimal?** | The maximum amount of calories the menu item can have. | [optional]  |
 | **minCarbs** | **decimal?** | The minimum amount of carbohydrates in grams the menu item must have. | [optional]  |
@@ -674,7 +674,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new MenuItemsApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1003464;  // int | The menu item id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
 
             try
@@ -718,7 +718,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The menu item id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type

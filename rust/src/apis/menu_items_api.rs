@@ -87,7 +87,7 @@ pub enum VisualizeMenuItemNutritionByIdError {
 
 
 /// Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
-pub async fn autocomplete_menu_item_search(configuration: &configuration::Configuration, query: &str, number: Option<f64>) -> Result<models::AutocompleteMenuItemSearch200Response, Error<AutocompleteMenuItemSearchError>> {
+pub async fn autocomplete_menu_item_search(configuration: &configuration::Configuration, query: &str, number: Option<i32>) -> Result<models::AutocompleteProductSearch200Response, Error<AutocompleteMenuItemSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -127,7 +127,7 @@ pub async fn autocomplete_menu_item_search(configuration: &configuration::Config
 }
 
 /// Use a menu item id to get all available information about a menu item, such as nutrition.
-pub async fn get_menu_item_information(configuration: &configuration::Configuration, id: i32) -> Result<models::GetMenuItemInformation200Response, Error<GetMenuItemInformationError>> {
+pub async fn get_menu_item_information(configuration: &configuration::Configuration, id: i32) -> Result<models::MenuItem, Error<GetMenuItemInformationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -163,7 +163,7 @@ pub async fn get_menu_item_information(configuration: &configuration::Configurat
 }
 
 /// Visualize a menu item's nutritional information as HTML including CSS.
-pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Configuration, id: f64) -> Result<std::path::PathBuf, Error<MenuItemNutritionByIdImageError>> {
+pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Configuration, id: i32) -> Result<std::path::PathBuf, Error<MenuItemNutritionByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,7 +199,7 @@ pub async fn menu_item_nutrition_by_id_image(configuration: &configuration::Conf
 }
 
 /// Visualize a menu item's nutritional label information as an image.
-pub async fn menu_item_nutrition_label_image(configuration: &configuration::Configuration, id: f64, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<MenuItemNutritionLabelImageError>> {
+pub async fn menu_item_nutrition_label_image(configuration: &configuration::Configuration, id: i32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<MenuItemNutritionLabelImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,7 +244,7 @@ pub async fn menu_item_nutrition_label_image(configuration: &configuration::Conf
 }
 
 /// Visualize a menu item's nutritional label information as HTML including CSS.
-pub async fn menu_item_nutrition_label_widget(configuration: &configuration::Configuration, id: f64, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<MenuItemNutritionLabelWidgetError>> {
+pub async fn menu_item_nutrition_label_widget(configuration: &configuration::Configuration, id: i32, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<MenuItemNutritionLabelWidgetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -292,7 +292,7 @@ pub async fn menu_item_nutrition_label_widget(configuration: &configuration::Con
 }
 
 /// Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
-pub async fn search_menu_items(configuration: &configuration::Configuration, query: Option<&str>, min_calories: Option<f64>, max_calories: Option<f64>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, add_menu_item_information: Option<bool>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchMenuItems200Response, Error<SearchMenuItemsError>> {
+pub async fn search_menu_items(configuration: &configuration::Configuration, query: &str, min_calories: Option<f64>, max_calories: Option<f64>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, add_menu_item_information: Option<bool>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchMenuItems200Response, Error<SearchMenuItemsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -300,9 +300,7 @@ pub async fn search_menu_items(configuration: &configuration::Configuration, que
     let local_var_uri_str = format!("{}/food/menuItems/search", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query {
-        local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("query", &query.to_string())]);
     if let Some(ref local_var_str) = min_calories {
         local_var_req_builder = local_var_req_builder.query(&[("minCalories", &local_var_str.to_string())]);
     }

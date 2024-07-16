@@ -13,19 +13,19 @@ part of openapi.api;
 class SearchSiteContent200Response {
   /// Returns a new [SearchSiteContent200Response] instance.
   SearchSiteContent200Response({
-    this.articles = const {},
-    this.groceryProducts = const {},
-    this.menuItems = const {},
-    this.recipes = const {},
+    this.articles = const [],
+    this.groceryProducts = const [],
+    this.menuItems = const [],
+    this.recipes = const [],
   });
 
-  Set<SearchSiteContent200ResponseArticlesInner> articles;
+  List<SearchResult> articles;
 
-  Set<SearchSiteContent200ResponseArticlesInner> groceryProducts;
+  List<SearchResult> groceryProducts;
 
-  Set<SearchSiteContent200ResponseArticlesInner> menuItems;
+  List<SearchResult> menuItems;
 
-  Set<SearchSiteContent200ResponseArticlesInner> recipes;
+  List<SearchResult> recipes;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchSiteContent200Response &&
@@ -47,10 +47,10 @@ class SearchSiteContent200Response {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'Articles'] = this.articles.toList(growable: false);
-      json[r'Grocery Products'] = this.groceryProducts.toList(growable: false);
-      json[r'Menu Items'] = this.menuItems.toList(growable: false);
-      json[r'Recipes'] = this.recipes.toList(growable: false);
+      json[r'Articles'] = this.articles;
+      json[r'Grocery Products'] = this.groceryProducts;
+      json[r'Menu Items'] = this.menuItems;
+      json[r'Recipes'] = this.recipes;
     return json;
   }
 
@@ -73,10 +73,10 @@ class SearchSiteContent200Response {
       }());
 
       return SearchSiteContent200Response(
-        articles: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Articles']).toSet(),
-        groceryProducts: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Grocery Products']).toSet(),
-        menuItems: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Menu Items']).toSet(),
-        recipes: SearchSiteContent200ResponseArticlesInner.listFromJson(json[r'Recipes']).toSet(),
+        articles: SearchResult.listFromJson(json[r'Articles']),
+        groceryProducts: SearchResult.listFromJson(json[r'Grocery Products']),
+        menuItems: SearchResult.listFromJson(json[r'Menu Items']),
+        recipes: SearchResult.listFromJson(json[r'Recipes']),
       );
     }
     return null;

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SearchSiteContent200ResponseArticlesInner from './SearchSiteContent200ResponseArticlesInner';
+import SearchResult from './SearchResult';
 
 /**
  * The SearchSiteContent200Response model module.
@@ -24,10 +24,10 @@ class SearchSiteContent200Response {
      * Constructs a new <code>SearchSiteContent200Response</code>.
      * 
      * @alias module:model/SearchSiteContent200Response
-     * @param articles {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
-     * @param groceryProducts {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
-     * @param menuItems {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
-     * @param recipes {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} 
+     * @param articles {Array.<module:model/SearchResult>} 
+     * @param groceryProducts {Array.<module:model/SearchResult>} 
+     * @param menuItems {Array.<module:model/SearchResult>} 
+     * @param recipes {Array.<module:model/SearchResult>} 
      */
     constructor(articles, groceryProducts, menuItems, recipes) { 
         
@@ -58,16 +58,16 @@ class SearchSiteContent200Response {
             obj = obj || new SearchSiteContent200Response();
 
             if (data.hasOwnProperty('Articles')) {
-                obj['Articles'] = ApiClient.convertToType(data['Articles'], [SearchSiteContent200ResponseArticlesInner]);
+                obj['Articles'] = ApiClient.convertToType(data['Articles'], [SearchResult]);
             }
             if (data.hasOwnProperty('Grocery Products')) {
-                obj['Grocery Products'] = ApiClient.convertToType(data['Grocery Products'], [SearchSiteContent200ResponseArticlesInner]);
+                obj['Grocery Products'] = ApiClient.convertToType(data['Grocery Products'], [SearchResult]);
             }
             if (data.hasOwnProperty('Menu Items')) {
-                obj['Menu Items'] = ApiClient.convertToType(data['Menu Items'], [SearchSiteContent200ResponseArticlesInner]);
+                obj['Menu Items'] = ApiClient.convertToType(data['Menu Items'], [SearchResult]);
             }
             if (data.hasOwnProperty('Recipes')) {
-                obj['Recipes'] = ApiClient.convertToType(data['Recipes'], [SearchSiteContent200ResponseArticlesInner]);
+                obj['Recipes'] = ApiClient.convertToType(data['Recipes'], [SearchResult]);
             }
         }
         return obj;
@@ -92,7 +92,7 @@ class SearchSiteContent200Response {
             }
             // validate the optional field `Articles` (array)
             for (const item of data['Articles']) {
-                SearchSiteContent200ResponseArticlesInner.validateJSON(item);
+                SearchResult.validateJSON(item);
             };
         }
         if (data['Grocery Products']) { // data not null
@@ -102,7 +102,7 @@ class SearchSiteContent200Response {
             }
             // validate the optional field `Grocery Products` (array)
             for (const item of data['Grocery Products']) {
-                SearchSiteContent200ResponseArticlesInner.validateJSON(item);
+                SearchResult.validateJSON(item);
             };
         }
         if (data['Menu Items']) { // data not null
@@ -112,7 +112,7 @@ class SearchSiteContent200Response {
             }
             // validate the optional field `Menu Items` (array)
             for (const item of data['Menu Items']) {
-                SearchSiteContent200ResponseArticlesInner.validateJSON(item);
+                SearchResult.validateJSON(item);
             };
         }
         if (data['Recipes']) { // data not null
@@ -122,7 +122,7 @@ class SearchSiteContent200Response {
             }
             // validate the optional field `Recipes` (array)
             for (const item of data['Recipes']) {
-                SearchSiteContent200ResponseArticlesInner.validateJSON(item);
+                SearchResult.validateJSON(item);
             };
         }
 
@@ -135,22 +135,22 @@ class SearchSiteContent200Response {
 SearchSiteContent200Response.RequiredProperties = ["Articles", "Grocery Products", "Menu Items", "Recipes"];
 
 /**
- * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} Articles
+ * @member {Array.<module:model/SearchResult>} Articles
  */
 SearchSiteContent200Response.prototype['Articles'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} Grocery Products
+ * @member {Array.<module:model/SearchResult>} Grocery Products
  */
 SearchSiteContent200Response.prototype['Grocery Products'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} Menu Items
+ * @member {Array.<module:model/SearchResult>} Menu Items
  */
 SearchSiteContent200Response.prototype['Menu Items'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchSiteContent200ResponseArticlesInner>} Recipes
+ * @member {Array.<module:model/SearchResult>} Recipes
  */
 SearchSiteContent200Response.prototype['Recipes'] = undefined;
 

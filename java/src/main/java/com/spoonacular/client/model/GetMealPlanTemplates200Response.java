@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseIngredientsInner;
+import com.spoonacular.client.model.GetMealPlanTemplates200ResponseTemplatesInner;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -56,17 +56,17 @@ import com.spoonacular.client.JSON;
 public class GetMealPlanTemplates200Response {
   public static final String SERIALIZED_NAME_TEMPLATES = "templates";
   @SerializedName(SERIALIZED_NAME_TEMPLATES)
-  private Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates = new LinkedHashSet<>();
+  private Set<GetMealPlanTemplates200ResponseTemplatesInner> templates = new LinkedHashSet<>();
 
   public GetMealPlanTemplates200Response() {
   }
 
-  public GetMealPlanTemplates200Response templates(Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates) {
+  public GetMealPlanTemplates200Response templates(Set<GetMealPlanTemplates200ResponseTemplatesInner> templates) {
     this.templates = templates;
     return this;
   }
 
-  public GetMealPlanTemplates200Response addTemplatesItem(GetAnalyzedRecipeInstructions200ResponseIngredientsInner templatesItem) {
+  public GetMealPlanTemplates200Response addTemplatesItem(GetMealPlanTemplates200ResponseTemplatesInner templatesItem) {
     if (this.templates == null) {
       this.templates = new LinkedHashSet<>();
     }
@@ -79,11 +79,11 @@ public class GetMealPlanTemplates200Response {
    * @return templates
    */
   @javax.annotation.Nonnull
-  public Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> getTemplates() {
+  public Set<GetMealPlanTemplates200ResponseTemplatesInner> getTemplates() {
     return templates;
   }
 
-  public void setTemplates(Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates) {
+  public void setTemplates(Set<GetMealPlanTemplates200ResponseTemplatesInner> templates) {
     this.templates = templates;
   }
 
@@ -176,7 +176,7 @@ public class GetMealPlanTemplates200Response {
       JsonArray jsonArraytemplates = jsonObj.getAsJsonArray("templates");
       // validate the required field `templates` (array)
       for (int i = 0; i < jsonArraytemplates.size(); i++) {
-        GetAnalyzedRecipeInstructions200ResponseIngredientsInner.validateJsonElement(jsonArraytemplates.get(i));
+        GetMealPlanTemplates200ResponseTemplatesInner.validateJsonElement(jsonArraytemplates.get(i));
       };
   }
 

@@ -214,7 +214,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **string**| The (natural language) search query. | [optional] |
+| **query** | **string**| The (natural language) search query. | |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
@@ -547,7 +547,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 44860; // float | The recipe id.
+$id = 44860; // int | The recipe id.
 
 try {
     $result = $apiInstance->equipmentByIDImage($id);
@@ -561,7 +561,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -583,7 +583,7 @@ try {
 ## `extractRecipeFromWebsite()`
 
 ```php
-extractRecipeFromWebsite($url, $force_extraction, $analyze, $include_nutrition, $include_taste): \OpenAPI\Client\Model\GetRecipeInformation200Response
+extractRecipeFromWebsite($url, $force_extraction, $analyze, $include_nutrition, $include_taste): \OpenAPI\Client\Model\RecipeInformation
 ```
 
 Extract Recipe from Website
@@ -635,7 +635,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetRecipeInformation200Response**](../Model/GetRecipeInformation200Response.md)
+[**\OpenAPI\Client\Model\RecipeInformation**](../Model/RecipeInformation.md)
 
 ### Authorization
 
@@ -653,7 +653,7 @@ try {
 ## `getAnalyzedRecipeInstructions()`
 
 ```php
-getAnalyzedRecipeInstructions($id, $step_breakdown): \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response
+getAnalyzedRecipeInstructions($id, $step_breakdown): \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]
 ```
 
 Get Analyzed Recipe Instructions
@@ -679,7 +679,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 324694; // int | The recipe id.
 $step_breakdown = true; // bool | Whether to break down the recipe steps even more.
 
 try {
@@ -694,12 +694,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 | **step_breakdown** | **bool**| Whether to break down the recipe steps even more. | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response**](../Model/GetAnalyzedRecipeInstructions200Response.md)
+[**\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]**](../Model/GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -811,7 +811,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1003464; // int | The recipe id.
 
 try {
     $result = $apiInstance->getRecipeEquipmentByID($id);
@@ -825,7 +825,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -847,7 +847,7 @@ try {
 ## `getRecipeInformation()`
 
 ```php
-getRecipeInformation($id, $include_nutrition): \OpenAPI\Client\Model\GetRecipeInformation200Response
+getRecipeInformation($id, $include_nutrition, $add_wine_pairing, $add_taste_data): \OpenAPI\Client\Model\RecipeInformation
 ```
 
 Get Recipe Information
@@ -873,11 +873,13 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 716429; // int | The id of the recipe.
 $include_nutrition = false; // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+$add_wine_pairing = false; // bool | Add a wine pairing to the recipe.
+$add_taste_data = false; // bool | Add taste data to the recipe.
 
 try {
-    $result = $apiInstance->getRecipeInformation($id, $include_nutrition);
+    $result = $apiInstance->getRecipeInformation($id, $include_nutrition, $add_wine_pairing, $add_taste_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecipesApi->getRecipeInformation: ', $e->getMessage(), PHP_EOL;
@@ -888,12 +890,14 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The id of the recipe. | |
 | **include_nutrition** | **bool**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| **add_wine_pairing** | **bool**| Add a wine pairing to the recipe. | [optional] |
+| **add_taste_data** | **bool**| Add taste data to the recipe. | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetRecipeInformation200Response**](../Model/GetRecipeInformation200Response.md)
+[**\OpenAPI\Client\Model\RecipeInformation**](../Model/RecipeInformation.md)
 
 ### Authorization
 
@@ -911,7 +915,7 @@ try {
 ## `getRecipeInformationBulk()`
 
 ```php
-getRecipeInformationBulk($ids, $include_nutrition): \OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]
+getRecipeInformationBulk($ids, $include_nutrition): \OpenAPI\Client\Model\RecipeInformation[]
 ```
 
 Get Recipe Information Bulk
@@ -957,7 +961,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]**](../Model/GetRecipeInformationBulk200ResponseInner.md)
+[**\OpenAPI\Client\Model\RecipeInformation[]**](../Model/RecipeInformation.md)
 
 ### Authorization
 
@@ -1001,7 +1005,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1003464; // int | The recipe id.
 
 try {
     $result = $apiInstance->getRecipeIngredientsByID($id);
@@ -1015,7 +1019,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -1063,7 +1067,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1003464; // int | The recipe id.
 
 try {
     $result = $apiInstance->getRecipeNutritionWidgetByID($id);
@@ -1077,7 +1081,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -1125,7 +1129,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1003464; // int | The recipe id.
 
 try {
     $result = $apiInstance->getRecipePriceBreakdownByID($id);
@@ -1139,7 +1143,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -1161,7 +1165,7 @@ try {
 ## `getRecipeTasteByID()`
 
 ```php
-getRecipeTasteByID($id, $normalize): \OpenAPI\Client\Model\GetRecipeTasteByID200Response
+getRecipeTasteByID($id, $normalize): \OpenAPI\Client\Model\TasteInformation
 ```
 
 Taste by ID
@@ -1187,7 +1191,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 69095; // int | The recipe id.
 $normalize = true; // bool | Normalize to the strongest taste.
 
 try {
@@ -1202,12 +1206,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 | **normalize** | **bool**| Normalize to the strongest taste. | [optional] [default to true] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetRecipeTasteByID200Response**](../Model/GetRecipeTasteByID200Response.md)
+[**\OpenAPI\Client\Model\TasteInformation**](../Model/TasteInformation.md)
 
 ### Authorization
 
@@ -1251,7 +1255,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 715538; // int | The id of the source recipe for which similar recipes should be found.
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 try {
@@ -1266,7 +1270,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The id of the source recipe for which similar recipes should be found. | |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 
 ### Return type
@@ -1351,7 +1355,7 @@ try {
 ## `parseIngredients()`
 
 ```php
-parseIngredients($ingredient_list, $servings, $language, $include_nutrition): \OpenAPI\Client\Model\ParseIngredients200ResponseInner[]
+parseIngredients($ingredient_list, $servings, $language, $include_nutrition): \OpenAPI\Client\Model\IngredientInformation[]
 ```
 
 Parse Ingredients
@@ -1380,7 +1384,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
 $ingredient_list = 'ingredient_list_example'; // string | The ingredient list of the recipe, one ingredient per line.
 $servings = 3.4; // float | The number of servings that you can make from the ingredients.
 $language = en; // string | The language of the input. Either 'en' or 'de'.
-$include_nutrition = True; // bool
+$include_nutrition = True; // bool | Whether nutrition data should be added to correctly parsed ingredients.
 
 try {
     $result = $apiInstance->parseIngredients($ingredient_list, $servings, $language, $include_nutrition);
@@ -1397,11 +1401,11 @@ try {
 | **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | |
 | **servings** | **float**| The number of servings that you can make from the ingredients. | |
 | **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] |
-| **include_nutrition** | **bool**|  | [optional] |
+| **include_nutrition** | **bool**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]**](../Model/ParseIngredients200ResponseInner.md)
+[**\OpenAPI\Client\Model\IngredientInformation[]**](../Model/IngredientInformation.md)
 
 ### Authorization
 
@@ -1445,7 +1449,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1082038; // float | The recipe id.
+$id = 1082038; // int | The recipe id.
 
 try {
     $result = $apiInstance->priceBreakdownByIDImage($id);
@@ -1459,7 +1463,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -1569,7 +1573,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1082038; // float | The recipe id.
+$id = 1082038; // int | The recipe id.
 
 try {
     $result = $apiInstance->recipeNutritionByIDImage($id);
@@ -1583,7 +1587,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -1631,7 +1635,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 641166; // float | The recipe id.
+$id = 641166; // int | The recipe id.
 $show_optional_nutrients = false; // bool | Whether to show optional nutrients.
 $show_zero_values = false; // bool | Whether to show zero values.
 $show_ingredients = false; // bool | Whether to show a list of ingredients.
@@ -1648,7 +1652,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 | **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
 | **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
@@ -1699,7 +1703,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 641166; // float | The recipe id.
+$id = 641166; // int | The recipe id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 $show_optional_nutrients = false; // bool | Whether to show optional nutrients.
 $show_zero_values = false; // bool | Whether to show zero values.
@@ -1717,7 +1721,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
@@ -1769,7 +1773,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 69095; // float | The recipe id.
+$id = 69095; // int | The recipe id.
 $normalize = false; // bool | Normalize to the strongest taste.
 $rgb = 75,192,192; // string | Red, green, blue values for the chart color.
 
@@ -1785,7 +1789,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The recipe id. | |
+| **id** | **int**| The recipe id. | |
 | **normalize** | **bool**| Normalize to the strongest taste. | [optional] |
 | **rgb** | **string**| Red, green, blue values for the chart color. | [optional] |
 
@@ -1850,7 +1854,7 @@ $add_recipe_information = false; // bool | If set to true, you get more informat
 $add_recipe_nutrition = false; // bool | If set to true, you get nutritional information about each recipes returned.
 $author = coffeebean; // string | The username of the recipe author.
 $tags = 'tags_example'; // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-$recipe_box_id = 2468; // float | The id of the recipe box to which the search should be limited to.
+$recipe_box_id = 2468; // int | The id of the recipe box to which the search should be limited to.
 $title_match = Crock Pot; // string | Enter text that must be found in the title of the recipes.
 $max_ready_time = 20; // float | The maximum time in minutes it should take to prepare and cook the recipe.
 $min_servings = 1; // float | The minimum amount of servings the recipe is for.
@@ -1945,7 +1949,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **string**| The (natural language) search query. | [optional] |
+| **query** | **string**| The (natural language) search query. | |
 | **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] |
 | **exclude_cuisine** | **string**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] |
 | **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |
@@ -1960,7 +1964,7 @@ try {
 | **add_recipe_nutrition** | **bool**| If set to true, you get nutritional information about each recipes returned. | [optional] |
 | **author** | **string**| The username of the recipe author. | [optional] |
 | **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
-| **recipe_box_id** | **float**| The id of the recipe box to which the search should be limited to. | [optional] |
+| **recipe_box_id** | **int**| The id of the recipe box to which the search should be limited to. | [optional] |
 | **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional] |
 | **max_ready_time** | **float**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] |
 | **min_servings** | **float**| The minimum amount of servings the recipe is for. | [optional] |
@@ -2091,7 +2095,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
 );
 $ingredients = carrots,tomatoes; // string | A comma-separated list of ingredients that the recipes should contain.
 $number = 10; // int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-$ranking = 1; // float | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+$ranking = 1; // int | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 $ignore_pantry = false; // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 
 try {
@@ -2106,9 +2110,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
+| **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | |
 | **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **ranking** | **float**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
+| **ranking** | **int**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
 | **ignore_pantry** | **bool**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
 
 ### Return type
@@ -2367,7 +2371,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 4632; // int | The recipe id.
 
 try {
     $result = $apiInstance->summarizeRecipe($id);
@@ -2381,7 +2385,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 
 ### Return type
 
@@ -2569,7 +2573,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 44860; // int | The recipe id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -2584,7 +2588,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
@@ -2633,7 +2637,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1082038; // int | The recipe id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 $measure = metric; // string | Whether the the measures should be 'us' or 'metric'.
 
@@ -2649,7 +2653,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
 
@@ -2769,7 +2773,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1082038; // int | The recipe id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -2784,7 +2788,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
@@ -2833,7 +2837,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1082038; // int | The recipe id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -2848,7 +2852,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type
@@ -2965,7 +2969,7 @@ $apiInstance = new OpenAPI\Client\Api\RecipesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 69095; // int | The recipe id.
 $normalize = true; // bool | Whether to normalize to the strongest taste.
 $rgb = 75,192,192; // string | Red, green, blue values for the chart color.
 
@@ -2981,7 +2985,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The recipe id. | |
 | **normalize** | **bool**| Whether to normalize to the strongest taste. | [optional] [default to true] |
 | **rgb** | **string**| Red, green, blue values for the chart color. | [optional] |
 

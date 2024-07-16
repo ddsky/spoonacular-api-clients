@@ -310,7 +310,7 @@ func (r ApiAddToShoppingListRequest) AddToShoppingListRequest(addToShoppingListR
 	return r
 }
 
-func (r ApiAddToShoppingListRequest) Execute() (*GenerateShoppingList200Response, *http.Response, error) {
+func (r ApiAddToShoppingListRequest) Execute() (*GetShoppingList200Response, *http.Response, error) {
 	return r.ApiService.AddToShoppingListExecute(r)
 }
 
@@ -332,13 +332,13 @@ func (a *MealPlanningAPIService) AddToShoppingList(ctx context.Context, username
 }
 
 // Execute executes the request
-//  @return GenerateShoppingList200Response
-func (a *MealPlanningAPIService) AddToShoppingListExecute(r ApiAddToShoppingListRequest) (*GenerateShoppingList200Response, *http.Response, error) {
+//  @return GetShoppingList200Response
+func (a *MealPlanningAPIService) AddToShoppingListExecute(r ApiAddToShoppingListRequest) (*GetShoppingList200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GenerateShoppingList200Response
+		localVarReturnValue  *GetShoppingList200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MealPlanningAPIService.AddToShoppingList")
@@ -690,7 +690,7 @@ type ApiDeleteFromMealPlanRequest struct {
 	ctx context.Context
 	ApiService *MealPlanningAPIService
 	username string
-	id float32
+	id int32
 	hash *string
 }
 
@@ -714,7 +714,7 @@ Delete an item from the user's meal plan.
  @param id The shopping list item id.
  @return ApiDeleteFromMealPlanRequest
 */
-func (a *MealPlanningAPIService) DeleteFromMealPlan(ctx context.Context, username string, id float32) ApiDeleteFromMealPlanRequest {
+func (a *MealPlanningAPIService) DeleteFromMealPlan(ctx context.Context, username string, id int32) ApiDeleteFromMealPlanRequest {
 	return ApiDeleteFromMealPlanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -843,7 +843,7 @@ Delete an item from the current shopping list of the user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param username The username.
- @param id The item's id.
+ @param id The shopping list item id.
  @return ApiDeleteFromShoppingListRequest
 */
 func (a *MealPlanningAPIService) DeleteFromShoppingList(ctx context.Context, username string, id int32) ApiDeleteFromShoppingListRequest {
@@ -975,7 +975,7 @@ Delete a meal plan template for a user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param username The username.
- @param id The item's id.
+ @param id The shopping list item id.
  @return ApiDeleteMealPlanTemplateRequest
 */
 func (a *MealPlanningAPIService) DeleteMealPlanTemplate(ctx context.Context, username string, id int32) ApiDeleteMealPlanTemplateRequest {
@@ -1250,7 +1250,7 @@ func (r ApiGenerateShoppingListRequest) Hash(hash string) ApiGenerateShoppingLis
 	return r
 }
 
-func (r ApiGenerateShoppingListRequest) Execute() (*GenerateShoppingList200Response, *http.Response, error) {
+func (r ApiGenerateShoppingListRequest) Execute() (*GetShoppingList200Response, *http.Response, error) {
 	return r.ApiService.GenerateShoppingListExecute(r)
 }
 
@@ -1276,13 +1276,13 @@ func (a *MealPlanningAPIService) GenerateShoppingList(ctx context.Context, usern
 }
 
 // Execute executes the request
-//  @return GenerateShoppingList200Response
-func (a *MealPlanningAPIService) GenerateShoppingListExecute(r ApiGenerateShoppingListRequest) (*GenerateShoppingList200Response, *http.Response, error) {
+//  @return GetShoppingList200Response
+func (a *MealPlanningAPIService) GenerateShoppingListExecute(r ApiGenerateShoppingListRequest) (*GetShoppingList200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GenerateShoppingList200Response
+		localVarReturnValue  *GetShoppingList200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MealPlanningAPIService.GenerateShoppingList")
@@ -1396,7 +1396,7 @@ Get information about a meal plan template.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param username The username.
- @param id The item's id.
+ @param id The shopping list item id.
  @return ApiGetMealPlanTemplateRequest
 */
 func (a *MealPlanningAPIService) GetMealPlanTemplate(ctx context.Context, username string, id int32) ApiGetMealPlanTemplateRequest {

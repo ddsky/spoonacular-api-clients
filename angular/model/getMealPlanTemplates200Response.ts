@@ -9,13 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from './getAnalyzedRecipeInstructions200ResponseIngredientsInner';
+import { GetMealPlanTemplates200ResponseTemplatesInner } from './getMealPlanTemplates200ResponseTemplatesInner';
 
 
 /**
  * 
  */
 export interface GetMealPlanTemplates200Response { 
-    templates: Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>;
+    templates: Set<GetMealPlanTemplates200ResponseTemplatesInner>;
 }
 

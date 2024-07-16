@@ -59,7 +59,7 @@ class GetMealPlanTemplates200Response implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'templates' => '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseIngredientsInner[]'
+        'templates' => '\OpenAPI\Client\Model\GetMealPlanTemplates200ResponseTemplatesInner[]'
     ];
 
     /**
@@ -301,7 +301,7 @@ class GetMealPlanTemplates200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Gets templates
      *
-     * @return \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseIngredientsInner[]
+     * @return \OpenAPI\Client\Model\GetMealPlanTemplates200ResponseTemplatesInner[]
      */
     public function getTemplates()
     {
@@ -311,7 +311,7 @@ class GetMealPlanTemplates200Response implements ModelInterface, ArrayAccess, \J
     /**
      * Sets templates
      *
-     * @param \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseIngredientsInner[] $templates templates
+     * @param \OpenAPI\Client\Model\GetMealPlanTemplates200ResponseTemplatesInner[] $templates templates
      *
      * @return self
      */

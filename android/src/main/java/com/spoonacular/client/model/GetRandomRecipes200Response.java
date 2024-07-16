@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.GetRandomRecipes200ResponseRecipesInner;
+import com.spoonacular.client.model.RecipeInformation;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -24,15 +24,15 @@ import com.google.gson.annotations.SerializedName;
 public class GetRandomRecipes200Response {
   
   @SerializedName("recipes")
-  private Set<GetRandomRecipes200ResponseRecipesInner> recipes = null;
+  private Set<RecipeInformation> recipes = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<GetRandomRecipes200ResponseRecipesInner> getRecipes() {
+  public Set<RecipeInformation> getRecipes() {
     return recipes;
   }
-  public void setRecipes(Set<GetRandomRecipes200ResponseRecipesInner> recipes) {
+  public void setRecipes(Set<RecipeInformation> recipes) {
     this.recipes = recipes;
   }
 

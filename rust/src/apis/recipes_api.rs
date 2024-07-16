@@ -493,7 +493,7 @@ pub async fn analyze_recipe_instructions(configuration: &configuration::Configur
 }
 
 /// Autocomplete a partial input to suggest possible recipe names.
-pub async fn autocomplete_recipe_search(configuration: &configuration::Configuration, query: Option<&str>, number: Option<i32>) -> Result<Vec<models::AutocompleteRecipeSearch200ResponseInner>, Error<AutocompleteRecipeSearchError>> {
+pub async fn autocomplete_recipe_search(configuration: &configuration::Configuration, query: &str, number: Option<i32>) -> Result<Vec<models::AutocompleteRecipeSearch200ResponseInner>, Error<AutocompleteRecipeSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -501,9 +501,7 @@ pub async fn autocomplete_recipe_search(configuration: &configuration::Configura
     let local_var_uri_str = format!("{}/recipes/autocomplete", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query {
-        local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("query", &query.to_string())]);
     if let Some(ref local_var_str) = number {
         local_var_req_builder = local_var_req_builder.query(&[("number", &local_var_str.to_string())]);
     }
@@ -719,7 +717,7 @@ pub async fn create_recipe_card(configuration: &configuration::Configuration, ti
 }
 
 /// Visualize a recipe's equipment list as an image.
-pub async fn equipment_by_id_image(configuration: &configuration::Configuration, id: f64) -> Result<std::path::PathBuf, Error<EquipmentByIdImageError>> {
+pub async fn equipment_by_id_image(configuration: &configuration::Configuration, id: i32) -> Result<std::path::PathBuf, Error<EquipmentByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -755,7 +753,7 @@ pub async fn equipment_by_id_image(configuration: &configuration::Configuration,
 }
 
 /// This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
-pub async fn extract_recipe_from_website(configuration: &configuration::Configuration, url: &str, force_extraction: Option<bool>, analyze: Option<bool>, include_nutrition: Option<bool>, include_taste: Option<bool>) -> Result<models::GetRecipeInformation200Response, Error<ExtractRecipeFromWebsiteError>> {
+pub async fn extract_recipe_from_website(configuration: &configuration::Configuration, url: &str, force_extraction: Option<bool>, analyze: Option<bool>, include_nutrition: Option<bool>, include_taste: Option<bool>) -> Result<models::RecipeInformation, Error<ExtractRecipeFromWebsiteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -804,7 +802,7 @@ pub async fn extract_recipe_from_website(configuration: &configuration::Configur
 }
 
 /// Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
-pub async fn get_analyzed_recipe_instructions(configuration: &configuration::Configuration, id: i32, step_breakdown: Option<bool>) -> Result<models::GetAnalyzedRecipeInstructions200Response, Error<GetAnalyzedRecipeInstructionsError>> {
+pub async fn get_analyzed_recipe_instructions(configuration: &configuration::Configuration, id: i32, step_breakdown: Option<bool>) -> Result<Vec<models::GetAnalyzedRecipeInstructions200ResponseInner>, Error<GetAnalyzedRecipeInstructionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -927,7 +925,7 @@ pub async fn get_recipe_equipment_by_id(configuration: &configuration::Configura
 }
 
 /// Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-pub async fn get_recipe_information(configuration: &configuration::Configuration, id: i32, include_nutrition: Option<bool>) -> Result<models::GetRecipeInformation200Response, Error<GetRecipeInformationError>> {
+pub async fn get_recipe_information(configuration: &configuration::Configuration, id: i32, include_nutrition: Option<bool>, add_wine_pairing: Option<bool>, add_taste_data: Option<bool>) -> Result<models::RecipeInformation, Error<GetRecipeInformationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -937,6 +935,12 @@ pub async fn get_recipe_information(configuration: &configuration::Configuration
 
     if let Some(ref local_var_str) = include_nutrition {
         local_var_req_builder = local_var_req_builder.query(&[("includeNutrition", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = add_wine_pairing {
+        local_var_req_builder = local_var_req_builder.query(&[("addWinePairing", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_str) = add_taste_data {
+        local_var_req_builder = local_var_req_builder.query(&[("addTasteData", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -966,7 +970,7 @@ pub async fn get_recipe_information(configuration: &configuration::Configuration
 }
 
 /// Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
-pub async fn get_recipe_information_bulk(configuration: &configuration::Configuration, ids: &str, include_nutrition: Option<bool>) -> Result<Vec<models::GetRecipeInformationBulk200ResponseInner>, Error<GetRecipeInformationBulkError>> {
+pub async fn get_recipe_information_bulk(configuration: &configuration::Configuration, ids: &str, include_nutrition: Option<bool>) -> Result<Vec<models::RecipeInformation>, Error<GetRecipeInformationBulkError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1114,7 +1118,7 @@ pub async fn get_recipe_price_breakdown_by_id(configuration: &configuration::Con
 }
 
 /// Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-pub async fn get_recipe_taste_by_id(configuration: &configuration::Configuration, id: i32, normalize: Option<bool>) -> Result<models::GetRecipeTasteById200Response, Error<GetRecipeTasteByIdError>> {
+pub async fn get_recipe_taste_by_id(configuration: &configuration::Configuration, id: i32, normalize: Option<bool>) -> Result<models::TasteInformation, Error<GetRecipeTasteByIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1229,7 +1233,7 @@ pub async fn guess_nutrition_by_dish_name(configuration: &configuration::Configu
 }
 
 /// Extract an ingredient from plain text.
-pub async fn parse_ingredients(configuration: &configuration::Configuration, ingredient_list: &str, servings: f64, language: Option<&str>, include_nutrition: Option<bool>) -> Result<Vec<models::ParseIngredients200ResponseInner>, Error<ParseIngredientsError>> {
+pub async fn parse_ingredients(configuration: &configuration::Configuration, ingredient_list: &str, servings: f64, language: Option<&str>, include_nutrition: Option<bool>) -> Result<Vec<models::IngredientInformation>, Error<ParseIngredientsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1275,7 +1279,7 @@ pub async fn parse_ingredients(configuration: &configuration::Configuration, ing
 }
 
 /// Visualize a recipe's price breakdown.
-pub async fn price_breakdown_by_id_image(configuration: &configuration::Configuration, id: f64) -> Result<std::path::PathBuf, Error<PriceBreakdownByIdImageError>> {
+pub async fn price_breakdown_by_id_image(configuration: &configuration::Configuration, id: i32) -> Result<std::path::PathBuf, Error<PriceBreakdownByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1348,7 +1352,7 @@ pub async fn quick_answer(configuration: &configuration::Configuration, q: &str)
 }
 
 /// Visualize a recipe's nutritional information as an image.
-pub async fn recipe_nutrition_by_id_image(configuration: &configuration::Configuration, id: f64) -> Result<std::path::PathBuf, Error<RecipeNutritionByIdImageError>> {
+pub async fn recipe_nutrition_by_id_image(configuration: &configuration::Configuration, id: i32) -> Result<std::path::PathBuf, Error<RecipeNutritionByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1384,7 +1388,7 @@ pub async fn recipe_nutrition_by_id_image(configuration: &configuration::Configu
 }
 
 /// Get a recipe's nutrition label as an image.
-pub async fn recipe_nutrition_label_image(configuration: &configuration::Configuration, id: f64, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<RecipeNutritionLabelImageError>> {
+pub async fn recipe_nutrition_label_image(configuration: &configuration::Configuration, id: i32, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<std::path::PathBuf, Error<RecipeNutritionLabelImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1429,7 +1433,7 @@ pub async fn recipe_nutrition_label_image(configuration: &configuration::Configu
 }
 
 /// Get a recipe's nutrition label as an HTML widget.
-pub async fn recipe_nutrition_label_widget(configuration: &configuration::Configuration, id: f64, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<RecipeNutritionLabelWidgetError>> {
+pub async fn recipe_nutrition_label_widget(configuration: &configuration::Configuration, id: i32, default_css: Option<bool>, show_optional_nutrients: Option<bool>, show_zero_values: Option<bool>, show_ingredients: Option<bool>) -> Result<String, Error<RecipeNutritionLabelWidgetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1477,7 +1481,7 @@ pub async fn recipe_nutrition_label_widget(configuration: &configuration::Config
 }
 
 /// Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-pub async fn recipe_taste_by_id_image(configuration: &configuration::Configuration, id: f64, normalize: Option<bool>, rgb: Option<&str>) -> Result<std::path::PathBuf, Error<RecipeTasteByIdImageError>> {
+pub async fn recipe_taste_by_id_image(configuration: &configuration::Configuration, id: i32, normalize: Option<bool>, rgb: Option<&str>) -> Result<std::path::PathBuf, Error<RecipeTasteByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1519,7 +1523,7 @@ pub async fn recipe_taste_by_id_image(configuration: &configuration::Configurati
 }
 
 /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-pub async fn search_recipes(configuration: &configuration::Configuration, query: Option<&str>, cuisine: Option<&str>, exclude_cuisine: Option<&str>, diet: Option<&str>, intolerances: Option<&str>, equipment: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, r#type: Option<&str>, instructions_required: Option<bool>, fill_ingredients: Option<bool>, add_recipe_information: Option<bool>, add_recipe_nutrition: Option<bool>, author: Option<&str>, tags: Option<&str>, recipe_box_id: Option<f64>, title_match: Option<&str>, max_ready_time: Option<f64>, min_servings: Option<f64>, max_servings: Option<f64>, ignore_pantry: Option<bool>, sort: Option<&str>, sort_direction: Option<&str>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_calories: Option<f64>, max_calories: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, min_alcohol: Option<f64>, max_alcohol: Option<f64>, min_caffeine: Option<f64>, max_caffeine: Option<f64>, min_copper: Option<f64>, max_copper: Option<f64>, min_calcium: Option<f64>, max_calcium: Option<f64>, min_choline: Option<f64>, max_choline: Option<f64>, min_cholesterol: Option<f64>, max_cholesterol: Option<f64>, min_fluoride: Option<f64>, max_fluoride: Option<f64>, min_saturated_fat: Option<f64>, max_saturated_fat: Option<f64>, min_vitamin_a: Option<f64>, max_vitamin_a: Option<f64>, min_vitamin_c: Option<f64>, max_vitamin_c: Option<f64>, min_vitamin_d: Option<f64>, max_vitamin_d: Option<f64>, min_vitamin_e: Option<f64>, max_vitamin_e: Option<f64>, min_vitamin_k: Option<f64>, max_vitamin_k: Option<f64>, min_vitamin_b1: Option<f64>, max_vitamin_b1: Option<f64>, min_vitamin_b2: Option<f64>, max_vitamin_b2: Option<f64>, min_vitamin_b5: Option<f64>, max_vitamin_b5: Option<f64>, min_vitamin_b3: Option<f64>, max_vitamin_b3: Option<f64>, min_vitamin_b6: Option<f64>, max_vitamin_b6: Option<f64>, min_vitamin_b12: Option<f64>, max_vitamin_b12: Option<f64>, min_fiber: Option<f64>, max_fiber: Option<f64>, min_folate: Option<f64>, max_folate: Option<f64>, min_folic_acid: Option<f64>, max_folic_acid: Option<f64>, min_iodine: Option<f64>, max_iodine: Option<f64>, min_iron: Option<f64>, max_iron: Option<f64>, min_magnesium: Option<f64>, max_magnesium: Option<f64>, min_manganese: Option<f64>, max_manganese: Option<f64>, min_phosphorus: Option<f64>, max_phosphorus: Option<f64>, min_potassium: Option<f64>, max_potassium: Option<f64>, min_selenium: Option<f64>, max_selenium: Option<f64>, min_sodium: Option<f64>, max_sodium: Option<f64>, min_sugar: Option<f64>, max_sugar: Option<f64>, min_zinc: Option<f64>, max_zinc: Option<f64>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchRecipes200Response, Error<SearchRecipesError>> {
+pub async fn search_recipes(configuration: &configuration::Configuration, query: &str, cuisine: Option<&str>, exclude_cuisine: Option<&str>, diet: Option<&str>, intolerances: Option<&str>, equipment: Option<&str>, include_ingredients: Option<&str>, exclude_ingredients: Option<&str>, r#type: Option<&str>, instructions_required: Option<bool>, fill_ingredients: Option<bool>, add_recipe_information: Option<bool>, add_recipe_nutrition: Option<bool>, author: Option<&str>, tags: Option<&str>, recipe_box_id: Option<i32>, title_match: Option<&str>, max_ready_time: Option<f64>, min_servings: Option<f64>, max_servings: Option<f64>, ignore_pantry: Option<bool>, sort: Option<&str>, sort_direction: Option<&str>, min_carbs: Option<f64>, max_carbs: Option<f64>, min_protein: Option<f64>, max_protein: Option<f64>, min_calories: Option<f64>, max_calories: Option<f64>, min_fat: Option<f64>, max_fat: Option<f64>, min_alcohol: Option<f64>, max_alcohol: Option<f64>, min_caffeine: Option<f64>, max_caffeine: Option<f64>, min_copper: Option<f64>, max_copper: Option<f64>, min_calcium: Option<f64>, max_calcium: Option<f64>, min_choline: Option<f64>, max_choline: Option<f64>, min_cholesterol: Option<f64>, max_cholesterol: Option<f64>, min_fluoride: Option<f64>, max_fluoride: Option<f64>, min_saturated_fat: Option<f64>, max_saturated_fat: Option<f64>, min_vitamin_a: Option<f64>, max_vitamin_a: Option<f64>, min_vitamin_c: Option<f64>, max_vitamin_c: Option<f64>, min_vitamin_d: Option<f64>, max_vitamin_d: Option<f64>, min_vitamin_e: Option<f64>, max_vitamin_e: Option<f64>, min_vitamin_k: Option<f64>, max_vitamin_k: Option<f64>, min_vitamin_b1: Option<f64>, max_vitamin_b1: Option<f64>, min_vitamin_b2: Option<f64>, max_vitamin_b2: Option<f64>, min_vitamin_b5: Option<f64>, max_vitamin_b5: Option<f64>, min_vitamin_b3: Option<f64>, max_vitamin_b3: Option<f64>, min_vitamin_b6: Option<f64>, max_vitamin_b6: Option<f64>, min_vitamin_b12: Option<f64>, max_vitamin_b12: Option<f64>, min_fiber: Option<f64>, max_fiber: Option<f64>, min_folate: Option<f64>, max_folate: Option<f64>, min_folic_acid: Option<f64>, max_folic_acid: Option<f64>, min_iodine: Option<f64>, max_iodine: Option<f64>, min_iron: Option<f64>, max_iron: Option<f64>, min_magnesium: Option<f64>, max_magnesium: Option<f64>, min_manganese: Option<f64>, max_manganese: Option<f64>, min_phosphorus: Option<f64>, max_phosphorus: Option<f64>, min_potassium: Option<f64>, max_potassium: Option<f64>, min_selenium: Option<f64>, max_selenium: Option<f64>, min_sodium: Option<f64>, max_sodium: Option<f64>, min_sugar: Option<f64>, max_sugar: Option<f64>, min_zinc: Option<f64>, max_zinc: Option<f64>, offset: Option<i32>, number: Option<i32>) -> Result<models::SearchRecipes200Response, Error<SearchRecipesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1527,9 +1531,7 @@ pub async fn search_recipes(configuration: &configuration::Configuration, query:
     let local_var_uri_str = format!("{}/recipes/complexSearch", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query {
-        local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("query", &query.to_string())]);
     if let Some(ref local_var_str) = cuisine {
         local_var_req_builder = local_var_req_builder.query(&[("cuisine", &local_var_str.to_string())]);
     }
@@ -1846,7 +1848,7 @@ pub async fn search_recipes(configuration: &configuration::Configuration, query:
 }
 
 ///  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
-pub async fn search_recipes_by_ingredients(configuration: &configuration::Configuration, ingredients: Option<&str>, number: Option<i32>, ranking: Option<f64>, ignore_pantry: Option<bool>) -> Result<Vec<models::SearchRecipesByIngredients200ResponseInner>, Error<SearchRecipesByIngredientsError>> {
+pub async fn search_recipes_by_ingredients(configuration: &configuration::Configuration, ingredients: &str, number: Option<i32>, ranking: Option<i32>, ignore_pantry: Option<bool>) -> Result<Vec<models::SearchRecipesByIngredients200ResponseInner>, Error<SearchRecipesByIngredientsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1854,9 +1856,7 @@ pub async fn search_recipes_by_ingredients(configuration: &configuration::Config
     let local_var_uri_str = format!("{}/recipes/findByIngredients", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = ingredients {
-        local_var_req_builder = local_var_req_builder.query(&[("ingredients", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("ingredients", &ingredients.to_string())]);
     if let Some(ref local_var_str) = number {
         local_var_req_builder = local_var_req_builder.query(&[("number", &local_var_str.to_string())]);
     }

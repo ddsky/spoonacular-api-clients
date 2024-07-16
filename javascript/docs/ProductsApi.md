@@ -203,7 +203,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
-let upc = 33698816271; // Number | The UPC of the product for which you want to find comparable products.
+let upc = "033698816271"; // String | The UPC of the product for which you want to find comparable products.
 apiInstance.getComparableProducts(upc, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -218,7 +218,7 @@ apiInstance.getComparableProducts(upc, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **Number**| The UPC of the product for which you want to find comparable products. | 
+ **upc** | **String**| The UPC of the product for which you want to find comparable products. | 
 
 ### Return type
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ## getProductInformation
 
-> GetProductInformation200Response getProductInformation(id)
+> ProductInformation getProductInformation(id)
 
 Get Product Information
 
@@ -254,7 +254,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
-let id = 1; // Number | The item's id.
+let id = 22347; // Number | The id of the packaged food.
 apiInstance.getProductInformation(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -269,11 +269,11 @@ apiInstance.getProductInformation(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The id of the packaged food. | 
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 ## searchGroceryProducts
 
-> SearchGroceryProducts200Response searchGroceryProducts(opts)
+> SearchGroceryProducts200Response searchGroceryProducts(query, opts)
 
 Search Grocery Products
 
@@ -476,8 +476,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
+let query = "burger"; // String | The (natural language) search query.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'minCalories': 50, // Number | The minimum amount of calories the product must have.
   'maxCalories': 800, // Number | The maximum amount of calories the product can have.
   'minCarbs': 10, // Number | The minimum amount of carbohydrates in grams the product must have.
@@ -490,7 +490,7 @@ let opts = {
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
-apiInstance.searchGroceryProducts(opts, (error, data, response) => {
+apiInstance.searchGroceryProducts(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -504,7 +504,7 @@ apiInstance.searchGroceryProducts(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **minCalories** | **Number**| The minimum amount of calories the product must have. | [optional] 
  **maxCalories** | **Number**| The maximum amount of calories the product can have. | [optional] 
  **minCarbs** | **Number**| The minimum amount of carbohydrates in grams the product must have. | [optional] 
@@ -551,7 +551,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
-let upc = 41631000564; // Number | The product's UPC.
+let upc = "041631000564"; // String | The product's UPC.
 apiInstance.searchGroceryProductsByUPC(upc, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -566,7 +566,7 @@ apiInstance.searchGroceryProductsByUPC(upc, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **Number**| The product&#39;s UPC. | 
+ **upc** | **String**| The product&#39;s UPC. | 
 
 ### Return type
 
@@ -602,7 +602,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.ProductsApi();
-let id = 1; // Number | The item's id.
+let id = 7657; // Number | The id of the product.
 let opts = {
   'defaultCss': false // Boolean | Whether the default CSS should be added to the response.
 };
@@ -620,7 +620,7 @@ apiInstance.visualizeProductNutritionByID(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The id of the product. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

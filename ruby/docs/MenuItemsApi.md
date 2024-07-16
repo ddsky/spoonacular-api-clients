@@ -15,7 +15,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 ## autocomplete_menu_item_search
 
-> <AutocompleteMenuItemSearch200Response> autocomplete_menu_item_search(query, opts)
+> <AutocompleteProductSearch200Response> autocomplete_menu_item_search(query, opts)
 
 Autocomplete Menu Item Search
 
@@ -37,7 +37,7 @@ end
 api_instance = OpenapiClient::MenuItemsApi.new
 query = 'chicke' # String | The (partial) search query.
 opts = {
-  number: 10 # Float | The number of results to return (between 1 and 25).
+  number: 10 # Integer | The number of results to return (between 1 and 25).
 }
 
 begin
@@ -53,7 +53,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AutocompleteMenuItemSearch200Response>, Integer, Hash)> autocomplete_menu_item_search_with_http_info(query, opts)
+> <Array(<AutocompleteProductSearch200Response>, Integer, Hash)> autocomplete_menu_item_search_with_http_info(query, opts)
 
 ```ruby
 begin
@@ -61,7 +61,7 @@ begin
   data, status_code, headers = api_instance.autocomplete_menu_item_search_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <AutocompleteMenuItemSearch200Response>
+  p data # => <AutocompleteProductSearch200Response>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MenuItemsApi->autocomplete_menu_item_search_with_http_info: #{e}"
 end
@@ -72,11 +72,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **query** | **String** | The (partial) search query. |  |
-| **number** | **Float** | The number of results to return (between 1 and 25). | [optional] |
+| **number** | **Integer** | The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ end
 
 ## get_menu_item_information
 
-> <GetMenuItemInformation200Response> get_menu_item_information(id)
+> <MenuItem> get_menu_item_information(id)
 
 Get Menu Item Information
 
@@ -110,7 +110,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MenuItemsApi.new
-id = 1 # Integer | The item's id.
+id = 424571 # Integer | The menu item id.
 
 begin
   # Get Menu Item Information
@@ -125,7 +125,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetMenuItemInformation200Response>, Integer, Hash)> get_menu_item_information_with_http_info(id)
+> <Array(<MenuItem>, Integer, Hash)> get_menu_item_information_with_http_info(id)
 
 ```ruby
 begin
@@ -133,7 +133,7 @@ begin
   data, status_code, headers = api_instance.get_menu_item_information_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetMenuItemInformation200Response>
+  p data # => <MenuItem>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MenuItemsApi->get_menu_item_information_with_http_info: #{e}"
 end
@@ -143,11 +143,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The menu item id. |  |
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MenuItemsApi.new
-id = 424571 # Float | The menu item id.
+id = 424571 # Integer | The menu item id.
 
 begin
   # Menu Item Nutrition by ID Image
@@ -214,7 +214,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The menu item id. |  |
+| **id** | **Integer** | The menu item id. |  |
 
 ### Return type
 
@@ -252,7 +252,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MenuItemsApi.new
-id = 342313 # Float | The menu item id.
+id = 342313 # Integer | The menu item id.
 opts = {
   show_optional_nutrients: false, # Boolean | Whether to show optional nutrients.
   show_zero_values: false, # Boolean | Whether to show zero values.
@@ -290,7 +290,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The menu item id. |  |
+| **id** | **Integer** | The menu item id. |  |
 | **show_optional_nutrients** | **Boolean** | Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **Boolean** | Whether to show zero values. | [optional] |
 | **show_ingredients** | **Boolean** | Whether to show a list of ingredients. | [optional] |
@@ -331,7 +331,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MenuItemsApi.new
-id = 342313 # Float | The menu item id.
+id = 342313 # Integer | The menu item id.
 opts = {
   default_css: false, # Boolean | Whether the default CSS should be added to the response.
   show_optional_nutrients: false, # Boolean | Whether to show optional nutrients.
@@ -370,7 +370,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The menu item id. |  |
+| **id** | **Integer** | The menu item id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 | **show_optional_nutrients** | **Boolean** | Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **Boolean** | Whether to show zero values. | [optional] |
@@ -392,7 +392,7 @@ end
 
 ## search_menu_items
 
-> <SearchMenuItems200Response> search_menu_items(opts)
+> <SearchMenuItems200Response> search_menu_items(query, opts)
 
 Search Menu Items
 
@@ -412,8 +412,8 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MenuItemsApi.new
+query = 'burger' # String | The (natural language) search query.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   min_calories: 50, # Float | The minimum amount of calories the menu item must have.
   max_calories: 800, # Float | The maximum amount of calories the menu item can have.
   min_carbs: 10, # Float | The minimum amount of carbohydrates in grams the menu item must have.
@@ -429,7 +429,7 @@ opts = {
 
 begin
   # Search Menu Items
-  result = api_instance.search_menu_items(opts)
+  result = api_instance.search_menu_items(query, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MenuItemsApi->search_menu_items: #{e}"
@@ -440,12 +440,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SearchMenuItems200Response>, Integer, Hash)> search_menu_items_with_http_info(opts)
+> <Array(<SearchMenuItems200Response>, Integer, Hash)> search_menu_items_with_http_info(query, opts)
 
 ```ruby
 begin
   # Search Menu Items
-  data, status_code, headers = api_instance.search_menu_items_with_http_info(opts)
+  data, status_code, headers = api_instance.search_menu_items_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SearchMenuItems200Response>
@@ -458,7 +458,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query** | **String** | The (natural language) search query. | [optional] |
+| **query** | **String** | The (natural language) search query. |  |
 | **min_calories** | **Float** | The minimum amount of calories the menu item must have. | [optional] |
 | **max_calories** | **Float** | The maximum amount of calories the menu item can have. | [optional] |
 | **min_carbs** | **Float** | The minimum amount of carbohydrates in grams the menu item must have. | [optional] |
@@ -507,7 +507,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MenuItemsApi.new
-id = 1 # Integer | The item's id.
+id = 1003464 # Integer | The menu item id.
 opts = {
   default_css: false # Boolean | Whether the default CSS should be added to the response.
 }
@@ -543,7 +543,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The menu item id. |  |
 | **default_css** | **Boolean** | Whether the default CSS should be added to the response. | [optional][default to true] |
 
 ### Return type

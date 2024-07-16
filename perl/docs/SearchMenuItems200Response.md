@@ -8,7 +8,7 @@ use WWW::OpenAPIClient::Object::SearchMenuItems200Response;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**menu_items** | [**ARRAY[SearchMenuItems200ResponseMenuItemsInner]**](SearchMenuItems200ResponseMenuItemsInner.md) |  | 
+**menu_items** | [**ARRAY[MenuItem]**](MenuItem.md) |  | 
 **total_menu_items** | **int** |  | 
 **type** | **string** |  | 
 **offset** | **int** |  | 

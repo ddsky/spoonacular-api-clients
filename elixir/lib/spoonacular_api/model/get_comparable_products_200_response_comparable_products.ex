@@ -12,25 +12,29 @@ defmodule SpoonacularAPI.Model.GetComparableProducts200ResponseComparableProduct
     :likes,
     :price,
     :protein,
-    :spoonacularScore,
+    :spoonacular_score,
     :sugar
   ]
 
   @type t :: %__MODULE__{
-    :calories => [map()],
-    :likes => [map()],
-    :price => [map()],
-    :protein => [SpoonacularAPI.Model.GetComparableProducts200ResponseComparableProductsProteinInner.t],
-    :spoonacularScore => [SpoonacularAPI.Model.GetComparableProducts200ResponseComparableProductsProteinInner.t],
-    :sugar => [map()]
+    :calories => [SpoonacularAPI.Model.ComparableProduct.t],
+    :likes => [SpoonacularAPI.Model.ComparableProduct.t],
+    :price => [SpoonacularAPI.Model.ComparableProduct.t],
+    :protein => [SpoonacularAPI.Model.ComparableProduct.t],
+    :spoonacular_score => [SpoonacularAPI.Model.ComparableProduct.t],
+    :sugar => [SpoonacularAPI.Model.ComparableProduct.t]
   }
 
   alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:protein, :list, SpoonacularAPI.Model.GetComparableProducts200ResponseComparableProductsProteinInner)
-     |> Deserializer.deserialize(:spoonacularScore, :list, SpoonacularAPI.Model.GetComparableProducts200ResponseComparableProductsProteinInner)
+     |> Deserializer.deserialize(:calories, :list, SpoonacularAPI.Model.ComparableProduct)
+     |> Deserializer.deserialize(:likes, :list, SpoonacularAPI.Model.ComparableProduct)
+     |> Deserializer.deserialize(:price, :list, SpoonacularAPI.Model.ComparableProduct)
+     |> Deserializer.deserialize(:protein, :list, SpoonacularAPI.Model.ComparableProduct)
+     |> Deserializer.deserialize(:spoonacular_score, :list, SpoonacularAPI.Model.ComparableProduct)
+     |> Deserializer.deserialize(:sugar, :list, SpoonacularAPI.Model.ComparableProduct)
   end
 end
 

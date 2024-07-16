@@ -16,7 +16,7 @@ void main() {
   // final instance = GetRandomRecipes200Response();
 
   group('test GetRandomRecipes200Response', () {
-    // Set<GetRandomRecipes200ResponseRecipesInner> recipes (default value: const {})
+    // Set<RecipeInformation> recipes (default value: const {})
     test('to test the property `recipes`', () async {
       // TODO
     });

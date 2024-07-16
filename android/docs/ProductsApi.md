@@ -177,7 +177,7 @@ Find comparable products to the given one.
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-BigDecimal upc = 33698816271; // BigDecimal | The UPC of the product for which you want to find comparable products.
+String upc = 033698816271; // String | The UPC of the product for which you want to find comparable products.
 try {
     GetComparableProducts200Response result = apiInstance.getComparableProducts(upc);
     System.out.println(result);
@@ -192,7 +192,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **BigDecimal**| The UPC of the product for which you want to find comparable products. | [default to null]
+ **upc** | **String**| The UPC of the product for which you want to find comparable products. | [default to null]
 
 ### Return type
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## getProductInformation
 
-> GetProductInformation200Response getProductInformation(id)
+> ProductInformation getProductInformation(id)
 
 Get Product Information
 
@@ -223,9 +223,9 @@ Use a product id to get full information about a product, such as ingredients, n
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 22347; // Integer | The id of the packaged food.
 try {
-    GetProductInformation200Response result = apiInstance.getProductInformation(id);
+    ProductInformation result = apiInstance.getProductInformation(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProductsApi#getProductInformation");
@@ -238,11 +238,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The id of the packaged food. | [default to null]
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ Visualize a product&#39;s nutritional information as an image.
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-BigDecimal id = 7657; // BigDecimal | The id of the product.
+Integer id = 7657; // Integer | The id of the product.
 try {
     File result = apiInstance.productNutritionByIDImage(id);
     System.out.println(result);
@@ -284,7 +284,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The id of the product. | [default to null]
+ **id** | **Integer**| The id of the product. | [default to null]
 
 ### Return type
 
@@ -315,7 +315,7 @@ Get a product&#39;s nutrition label as an image.
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-BigDecimal id = 22347; // BigDecimal | The product id.
+Integer id = 22347; // Integer | The product id.
 Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
 Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
@@ -333,7 +333,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The product id. | [default to null]
+ **id** | **Integer**| The product id. | [default to null]
  **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] [default to null]
  **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] [default to null]
  **showIngredients** | **Boolean**| Whether to show a list of ingredients. | [optional] [default to null]
@@ -367,7 +367,7 @@ Get a product&#39;s nutrition label as an HTML widget.
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-BigDecimal id = 22347; // BigDecimal | The product id.
+Integer id = 22347; // Integer | The product id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
@@ -386,7 +386,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The product id. | [default to null]
+ **id** | **Integer**| The product id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] [default to null]
  **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] [default to null]
@@ -447,7 +447,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] [default to null]
+ **query** | **String**| The (natural language) search query. | [default to null]
  **minCalories** | **BigDecimal**| The minimum amount of calories the product must have. | [optional] [default to null]
  **maxCalories** | **BigDecimal**| The maximum amount of calories the product can have. | [optional] [default to null]
  **minCarbs** | **BigDecimal**| The minimum amount of carbohydrates in grams the product must have. | [optional] [default to null]
@@ -489,7 +489,7 @@ Get information about a packaged food using its UPC.
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-BigDecimal upc = 41631000564; // BigDecimal | The product's UPC.
+String upc = 041631000564; // String | The product's UPC.
 try {
     SearchGroceryProductsByUPC200Response result = apiInstance.searchGroceryProductsByUPC(upc);
     System.out.println(result);
@@ -504,7 +504,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **BigDecimal**| The product&#39;s UPC. | [default to null]
+ **upc** | **String**| The product&#39;s UPC. | [default to null]
 
 ### Return type
 
@@ -535,7 +535,7 @@ Visualize a product&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.ProductsApi;
 
 ProductsApi apiInstance = new ProductsApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 7657; // Integer | The id of the product.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 try {
     String result = apiInstance.visualizeProductNutritionByID(id, defaultCss);
@@ -551,7 +551,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The id of the product. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

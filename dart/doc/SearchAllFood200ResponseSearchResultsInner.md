@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
 **totalResults** | **int** |  | 
-**results** | [**Set<SearchAllFood200ResponseSearchResultsInnerResultsInner>**](SearchAllFood200ResponseSearchResultsInnerResultsInner.md) |  | [optional] [default to const {}]
+**results** | [**Set<SearchResult>**](SearchResult.md) |  | [optional] [default to const {}]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

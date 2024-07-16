@@ -22,7 +22,7 @@ var _ MappedNullable = &GetMealPlanTemplates200Response{}
 
 // GetMealPlanTemplates200Response 
 type GetMealPlanTemplates200Response struct {
-	Templates []GetAnalyzedRecipeInstructions200ResponseIngredientsInner `json:"templates"`
+	Templates []GetMealPlanTemplates200ResponseTemplatesInner `json:"templates"`
 }
 
 type _GetMealPlanTemplates200Response GetMealPlanTemplates200Response
@@ -31,7 +31,7 @@ type _GetMealPlanTemplates200Response GetMealPlanTemplates200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetMealPlanTemplates200Response(templates []GetAnalyzedRecipeInstructions200ResponseIngredientsInner) *GetMealPlanTemplates200Response {
+func NewGetMealPlanTemplates200Response(templates []GetMealPlanTemplates200ResponseTemplatesInner) *GetMealPlanTemplates200Response {
 	this := GetMealPlanTemplates200Response{}
 	this.Templates = templates
 	return &this
@@ -46,9 +46,9 @@ func NewGetMealPlanTemplates200ResponseWithDefaults() *GetMealPlanTemplates200Re
 }
 
 // GetTemplates returns the Templates field value
-func (o *GetMealPlanTemplates200Response) GetTemplates() []GetAnalyzedRecipeInstructions200ResponseIngredientsInner {
+func (o *GetMealPlanTemplates200Response) GetTemplates() []GetMealPlanTemplates200ResponseTemplatesInner {
 	if o == nil {
-		var ret []GetAnalyzedRecipeInstructions200ResponseIngredientsInner
+		var ret []GetMealPlanTemplates200ResponseTemplatesInner
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *GetMealPlanTemplates200Response) GetTemplates() []GetAnalyzedRecipeInst
 
 // GetTemplatesOk returns a tuple with the Templates field value
 // and a boolean to check if the value has been set.
-func (o *GetMealPlanTemplates200Response) GetTemplatesOk() ([]GetAnalyzedRecipeInstructions200ResponseIngredientsInner, bool) {
+func (o *GetMealPlanTemplates200Response) GetTemplatesOk() ([]GetMealPlanTemplates200ResponseTemplatesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *GetMealPlanTemplates200Response) GetTemplatesOk() ([]GetAnalyzedRecipeI
 }
 
 // SetTemplates sets field value
-func (o *GetMealPlanTemplates200Response) SetTemplates(v []GetAnalyzedRecipeInstructions200ResponseIngredientsInner) {
+func (o *GetMealPlanTemplates200Response) SetTemplates(v []GetMealPlanTemplates200ResponseTemplatesInner) {
 	o.Templates = v
 }
 

@@ -69,17 +69,14 @@ import qualified Prelude as P
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 autocompleteIngredientSearch
-  :: SpoonacularRequest AutocompleteIngredientSearch MimeNoContent [AutocompleteIngredientSearch200ResponseInner] MimeJSON
-autocompleteIngredientSearch =
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> SpoonacularRequest AutocompleteIngredientSearch MimeNoContent [AutocompleteIngredientSearch200ResponseInner] MimeJSON
+autocompleteIngredientSearch (Query query) =
   _mkRequest "GET" ["/food/ingredients/autocomplete"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
 
 data AutocompleteIngredientSearch  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam AutocompleteIngredientSearch Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "number" - The maximum number of items to return (between 1 and 100). Defaults to 10.
 instance HasOptionalParam AutocompleteIngredientSearch Number where
@@ -115,11 +112,11 @@ instance Produces AutocompleteIngredientSearch MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 computeIngredientAmount
-  :: IdDouble -- ^ "id" -  The id of the ingredient you want the amount for.
+  :: Id -- ^ "id" -  The id of the ingredient you want the amount for.
   -> Nutrient -- ^ "nutrient" -  The target nutrient. See a list of supported nutrients.
   -> Target -- ^ "target" -  The target number of the given nutrient.
   -> SpoonacularRequest ComputeIngredientAmount MimeNoContent ComputeIngredientAmount200Response MimeJSON
-computeIngredientAmount (IdDouble id) (Nutrient nutrient) (Target target) =
+computeIngredientAmount (Id id) (Nutrient nutrient) (Target target) =
   _mkRequest "GET" ["/food/ingredients/",toPath id,"/amount"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
     `addQuery` toQuery ("nutrient", Just nutrient)
@@ -146,8 +143,8 @@ instance Produces ComputeIngredientAmount MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getIngredientInformation
-  :: Id -- ^ "id" -  The item's id.
-  -> SpoonacularRequest GetIngredientInformation MimeNoContent GetIngredientInformation200Response MimeJSON
+  :: Id -- ^ "id" -  The ingredient id.
+  -> SpoonacularRequest GetIngredientInformation MimeNoContent IngredientInformation MimeJSON
 getIngredientInformation (Id id) =
   _mkRequest "GET" ["/food/ingredients/",toPath id,"/information"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -201,7 +198,7 @@ instance Produces GetIngredientSubstitutes MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getIngredientSubstitutesByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The id of the ingredient you want substitutes for.
   -> SpoonacularRequest GetIngredientSubstitutesByID MimeNoContent GetIngredientSubstitutes200Response MimeJSON
 getIngredientSubstitutesByID (Id id) =
   _mkRequest "GET" ["/food/ingredients/",toPath id,"/substitutes"]
@@ -223,17 +220,14 @@ instance Produces GetIngredientSubstitutesByID MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 ingredientSearch
-  :: SpoonacularRequest IngredientSearch MimeNoContent IngredientSearch200Response MimeJSON
-ingredientSearch =
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> SpoonacularRequest IngredientSearch MimeNoContent IngredientSearch200Response MimeJSON
+ingredientSearch (Query query) =
   _mkRequest "GET" ["/food/ingredients/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
 
 data IngredientSearch  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam IngredientSearch Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "addChildren" - Whether to add children of found foods.
 instance HasOptionalParam IngredientSearch AddChildren where
@@ -319,9 +313,9 @@ instance Produces IngredientSearch MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 ingredientsByIDImage
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest IngredientsByIDImage MimeNoContent FilePath MimeImagePng
-ingredientsByIDImage (IdDouble id) =
+ingredientsByIDImage (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/ingredientWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 

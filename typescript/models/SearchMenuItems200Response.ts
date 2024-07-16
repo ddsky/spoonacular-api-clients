@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { SearchMenuItems200ResponseMenuItemsInner } from '../models/SearchMenuItems200ResponseMenuItemsInner';
+import { MenuItem } from '../models/MenuItem';
 import { HttpFile } from '../http/http';
 
 /**
 * 
 */
 export class SearchMenuItems200Response {
-    'menuItems': Set<SearchMenuItems200ResponseMenuItemsInner>;
+    'menuItems': Set<MenuItem>;
     'totalMenuItems': number;
     'type': string;
     'offset': number;
@@ -29,7 +29,7 @@ export class SearchMenuItems200Response {
         {
             "name": "menuItems",
             "baseName": "menuItems",
-            "type": "Set<SearchMenuItems200ResponseMenuItemsInner>",
+            "type": "Set<MenuItem>",
             "format": ""
         },
         {

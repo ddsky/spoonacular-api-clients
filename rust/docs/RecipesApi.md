@@ -119,7 +119,7 @@ Autocomplete a partial input to suggest possible recipe names.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**query** | Option<**String**> | The (natural language) search query. |  |
+**query** | **String** | The (natural language) search query. | [required] |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
@@ -288,7 +288,7 @@ Visualize a recipe's equipment list as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Required | Notes
 
 ## extract_recipe_from_website
 
-> models::GetRecipeInformation200Response extract_recipe_from_website(url, force_extraction, analyze, include_nutrition, include_taste)
+> models::RecipeInformation extract_recipe_from_website(url, force_extraction, analyze, include_nutrition, include_taste)
 Extract Recipe from Website
 
 This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
@@ -326,7 +326,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GetRecipeInformation200Response**](getRecipeInformation_200_response.md)
+[**models::RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_analyzed_recipe_instructions
 
-> models::GetAnalyzedRecipeInstructions200Response get_analyzed_recipe_instructions(id, step_breakdown)
+> Vec<models::GetAnalyzedRecipeInstructions200ResponseInner> get_analyzed_recipe_instructions(id, step_breakdown)
 Get Analyzed Recipe Instructions
 
 Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
@@ -352,12 +352,12 @@ Get an analyzed breakdown of a recipe's instructions. Each step is enriched with
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **step_breakdown** | Option<**bool**> | Whether to break down the recipe steps even more. |  |
 
 ### Return type
 
-[**models::GetAnalyzedRecipeInstructions200Response**](getAnalyzedRecipeInstructions_200_response.md)
+[**Vec<models::GetAnalyzedRecipeInstructions200ResponseInner>**](getAnalyzedRecipeInstructions_200_response_inner.md)
 
 ### Authorization
 
@@ -416,7 +416,7 @@ Get a recipe's equipment list.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_information
 
-> models::GetRecipeInformation200Response get_recipe_information(id, include_nutrition)
+> models::RecipeInformation get_recipe_information(id, include_nutrition, add_wine_pairing, add_taste_data)
 Get Recipe Information
 
 Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
@@ -446,12 +446,14 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The id of the recipe. | [required] |
 **include_nutrition** | Option<**bool**> | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. |  |[default to false]
+**add_wine_pairing** | Option<**bool**> | Add a wine pairing to the recipe. |  |
+**add_taste_data** | Option<**bool**> | Add taste data to the recipe. |  |
 
 ### Return type
 
-[**models::GetRecipeInformation200Response**](getRecipeInformation_200_response.md)
+[**models::RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -467,7 +469,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_information_bulk
 
-> Vec<models::GetRecipeInformationBulk200ResponseInner> get_recipe_information_bulk(ids, include_nutrition)
+> Vec<models::RecipeInformation> get_recipe_information_bulk(ids, include_nutrition)
 Get Recipe Information Bulk
 
 Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
@@ -482,7 +484,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<models::GetRecipeInformationBulk200ResponseInner>**](getRecipeInformationBulk_200_response_inner.md)
+[**Vec<models::RecipeInformation>**](RecipeInformation.md)
 
 ### Authorization
 
@@ -508,7 +510,7 @@ Get a recipe's ingredient list.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -538,7 +540,7 @@ Get a recipe's nutrition data.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -568,7 +570,7 @@ Get a recipe's price breakdown data.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -588,7 +590,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_recipe_taste_by_id
 
-> models::GetRecipeTasteById200Response get_recipe_taste_by_id(id, normalize)
+> models::TasteInformation get_recipe_taste_by_id(id, normalize)
 Taste by ID
 
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
@@ -598,12 +600,12 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **normalize** | Option<**bool**> | Normalize to the strongest taste. |  |[default to true]
 
 ### Return type
 
-[**models::GetRecipeTasteById200Response**](getRecipeTasteByID_200_response.md)
+[**models::TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -629,7 +631,7 @@ Find recipes which are similar to the given one.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The id of the source recipe for which similar recipes should be found. | [required] |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
 ### Return type
@@ -680,7 +682,7 @@ Name | Type | Description  | Required | Notes
 
 ## parse_ingredients
 
-> Vec<models::ParseIngredients200ResponseInner> parse_ingredients(ingredient_list, servings, language, include_nutrition)
+> Vec<models::IngredientInformation> parse_ingredients(ingredient_list, servings, language, include_nutrition)
 Parse Ingredients
 
 Extract an ingredient from plain text.
@@ -693,11 +695,11 @@ Name | Type | Description  | Required | Notes
 **ingredient_list** | **String** | The ingredient list of the recipe, one ingredient per line. | [required] |
 **servings** | **f64** | The number of servings that you can make from the ingredients. | [required] |
 **language** | Option<**String**> | The language of the input. Either 'en' or 'de'. |  |
-**include_nutrition** | Option<**bool**> |  |  |
+**include_nutrition** | Option<**bool**> | Whether nutrition data should be added to correctly parsed ingredients. |  |
 
 ### Return type
 
-[**Vec<models::ParseIngredients200ResponseInner>**](parseIngredients_200_response_inner.md)
+[**Vec<models::IngredientInformation>**](IngredientInformation.md)
 
 ### Authorization
 
@@ -723,7 +725,7 @@ Visualize a recipe's price breakdown.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -783,7 +785,7 @@ Visualize a recipe's nutritional information as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -813,7 +815,7 @@ Get a recipe's nutrition label as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
 **show_ingredients** | Option<**bool**> | Whether to show a list of ingredients. |  |
@@ -846,7 +848,7 @@ Get a recipe's nutrition label as an HTML widget.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
@@ -880,7 +882,7 @@ Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, b
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **normalize** | Option<**bool**> | Normalize to the strongest taste. |  |
 **rgb** | Option<**String**> | Red, green, blue values for the chart color. |  |
 
@@ -912,7 +914,7 @@ Search through hundreds of thousands of recipes using advanced filtering and ran
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**query** | Option<**String**> | The (natural language) search query. |  |
+**query** | **String** | The (natural language) search query. | [required] |
 **cuisine** | Option<**String**> | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. |  |
 **exclude_cuisine** | Option<**String**> | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. |  |
 **diet** | Option<**String**> | The diet for which the recipes must be suitable. See a full list of supported diets. |  |
@@ -927,7 +929,7 @@ Name | Type | Description  | Required | Notes
 **add_recipe_nutrition** | Option<**bool**> | If set to true, you get nutritional information about each recipes returned. |  |
 **author** | Option<**String**> | The username of the recipe author. |  |
 **tags** | Option<**String**> | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. |  |
-**recipe_box_id** | Option<**f64**> | The id of the recipe box to which the search should be limited to. |  |
+**recipe_box_id** | Option<**i32**> | The id of the recipe box to which the search should be limited to. |  |
 **title_match** | Option<**String**> | Enter text that must be found in the title of the recipes. |  |
 **max_ready_time** | Option<**f64**> | The maximum time in minutes it should take to prepare and cook the recipe. |  |
 **min_servings** | Option<**f64**> | The minimum amount of servings the recipe is for. |  |
@@ -1038,9 +1040,9 @@ Search Recipes by Ingredients
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**ingredients** | Option<**String**> | A comma-separated list of ingredients that the recipes should contain. |  |
+**ingredients** | **String** | A comma-separated list of ingredients that the recipes should contain. | [required] |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
-**ranking** | Option<**f64**> | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. |  |
+**ranking** | Option<**i32**> | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. |  |
 **ignore_pantry** | Option<**bool**> | Whether to ignore typical pantry items, such as water, salt, flour, etc. |  |[default to false]
 
 ### Return type
@@ -1175,7 +1177,7 @@ Automatically generate a short description that summarizes key information about
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 
 ### Return type
 
@@ -1273,7 +1275,7 @@ Visualize a recipe's equipment list.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 
 ### Return type
@@ -1304,7 +1306,7 @@ Visualize a recipe's ingredient list.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 **measure** | Option<**String**> | Whether the the measures should be 'us' or 'metric'. |  |
 
@@ -1370,7 +1372,7 @@ Visualize a recipe's nutritional information as HTML including CSS.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 
 ### Return type
@@ -1401,7 +1403,7 @@ Visualize a recipe's price breakdown.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 
 ### Return type
@@ -1465,7 +1467,7 @@ Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savor
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **normalize** | Option<**bool**> | Whether to normalize to the strongest taste. |  |[default to true]
 **rgb** | Option<**String**> | Red, green, blue values for the chart color. |  |
 

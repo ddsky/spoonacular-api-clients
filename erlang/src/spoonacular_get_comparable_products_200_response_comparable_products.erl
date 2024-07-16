@@ -8,8 +8,8 @@
     #{ 'calories' := list(),
        'likes' := list(),
        'price' := list(),
-       'protein' := spoonacular_set:spoonacular_set(),
-       'spoonacularScore' := spoonacular_set:spoonacular_set(),
+       'protein' := list(),
+       'spoonacular_score' := list(),
        'sugar' := list()
      }.
 
@@ -17,13 +17,13 @@ encode(#{ 'calories' := Calories,
           'likes' := Likes,
           'price' := Price,
           'protein' := Protein,
-          'spoonacularScore' := SpoonacularScore,
+          'spoonacular_score' := SpoonacularScore,
           'sugar' := Sugar
         }) ->
     #{ 'calories' => Calories,
        'likes' => Likes,
        'price' => Price,
        'protein' => Protein,
-       'spoonacularScore' => SpoonacularScore,
+       'spoonacular_score' => SpoonacularScore,
        'sugar' => Sugar
      }.

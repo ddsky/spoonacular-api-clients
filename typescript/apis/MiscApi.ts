@@ -11,7 +11,6 @@ import {SecurityAuthentication} from '../auth/auth';
 import { DetectFoodInText200Response } from '../models/DetectFoodInText200Response';
 import { GetARandomFoodJoke200Response } from '../models/GetARandomFoodJoke200Response';
 import { GetConversationSuggests200Response } from '../models/GetConversationSuggests200Response';
-import { GetRandomFoodTrivia200Response } from '../models/GetRandomFoodTrivia200Response';
 import { ImageAnalysisByURL200Response } from '../models/ImageAnalysisByURL200Response';
 import { ImageClassificationByURL200Response } from '../models/ImageClassificationByURL200Response';
 import { SearchAllFood200Response } from '../models/SearchAllFood200Response';
@@ -339,14 +338,20 @@ export class MiscApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Search custom foods in a user\'s account.
      * Search Custom Foods
+     * @param query The (natural language) search query.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param query The (natural language) search query.
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public async searchCustomFoods(username: string, hash: string, query?: string, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async searchCustomFoods(query: string, username: string, hash: string, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("MiscApi", "searchCustomFoods", "query");
+        }
+
 
         // verify required parameter 'username' is not null or undefined
         if (username === null || username === undefined) {
@@ -358,7 +363,6 @@ export class MiscApiRequestFactory extends BaseAPIRequestFactory {
         if (hash === null || hash === undefined) {
             throw new RequiredError("MiscApi", "searchCustomFoods", "hash");
         }
-
 
 
 
@@ -425,8 +429,13 @@ export class MiscApiRequestFactory extends BaseAPIRequestFactory {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public async searchFoodVideos(query?: string, type?: string, cuisine?: string, diet?: string, includeIngredients?: string, excludeIngredients?: string, minLength?: number, maxLength?: number, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async searchFoodVideos(query: string, type?: string, cuisine?: string, diet?: string, includeIngredients?: string, excludeIngredients?: string, minLength?: number, maxLength?: number, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("MiscApi", "searchFoodVideos", "query");
+        }
 
 
 
@@ -727,13 +736,13 @@ export class MiscApiResponseProcessor {
      * @params response Response returned by the server for a request to getRandomFoodTrivia
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRandomFoodTriviaWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetRandomFoodTrivia200Response >> {
+     public async getRandomFoodTriviaWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetARandomFoodJoke200Response >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetRandomFoodTrivia200Response = ObjectSerializer.deserialize(
+            const body: GetARandomFoodJoke200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRandomFoodTrivia200Response", ""
-            ) as GetRandomFoodTrivia200Response;
+                "GetARandomFoodJoke200Response", ""
+            ) as GetARandomFoodJoke200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -748,10 +757,10 @@ export class MiscApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetRandomFoodTrivia200Response = ObjectSerializer.deserialize(
+            const body: GetARandomFoodJoke200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRandomFoodTrivia200Response", ""
-            ) as GetRandomFoodTrivia200Response;
+                "GetARandomFoodJoke200Response", ""
+            ) as GetARandomFoodJoke200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

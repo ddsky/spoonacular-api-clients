@@ -37,8 +37,8 @@ describe 'MenuItemsApi' do
   # Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
   # @param query The (partial) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [Float] :number The number of results to return (between 1 and 25).
-  # @return [AutocompleteMenuItemSearch200Response]
+  # @option opts [Integer] :number The number of results to return (between 1 and 25).
+  # @return [AutocompleteProductSearch200Response]
   describe 'autocomplete_menu_item_search test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -48,9 +48,9 @@ describe 'MenuItemsApi' do
   # unit tests for get_menu_item_information
   # Get Menu Item Information
   # Use a menu item id to get all available information about a menu item, such as nutrition.
-  # @param id The item&#39;s id.
+  # @param id The menu item id.
   # @param [Hash] opts the optional parameters
-  # @return [GetMenuItemInformation200Response]
+  # @return [MenuItem]
   describe 'get_menu_item_information test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -103,8 +103,8 @@ describe 'MenuItemsApi' do
   # unit tests for search_menu_items
   # Search Menu Items
   # Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
+  # @param query The (natural language) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [Float] :min_calories The minimum amount of calories the menu item must have.
   # @option opts [Float] :max_calories The maximum amount of calories the menu item can have.
   # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the menu item must have.
@@ -126,7 +126,7 @@ describe 'MenuItemsApi' do
   # unit tests for visualize_menu_item_nutrition_by_id
   # Menu Item Nutrition by ID Widget
   # Visualize a menu item&#39;s nutritional information as HTML including CSS.
-  # @param id The item&#39;s id.
+  # @param id The menu item id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
   # @return [String]

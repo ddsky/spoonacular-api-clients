@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionWeightPerServing
+import com.spoonacular.client.model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,13 +32,13 @@ import com.squareup.moshi.JsonClass
 data class GetShoppingList200ResponseAislesInnerItemsInnerMeasures (
 
     @Json(name = "original")
-    val original: ParseIngredients200ResponseInnerNutritionWeightPerServing,
+    val original: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal,
 
     @Json(name = "metric")
-    val metric: ParseIngredients200ResponseInnerNutritionWeightPerServing,
+    val metric: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal,
 
     @Json(name = "us")
-    val us: ParseIngredients200ResponseInnerNutritionWeightPerServing
+    val us: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
 
 ) {
 

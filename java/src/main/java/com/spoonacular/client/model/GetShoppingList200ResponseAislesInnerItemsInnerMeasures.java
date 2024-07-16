@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionWeightPerServing;
+import com.spoonacular.client.model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -54,20 +54,20 @@ import com.spoonacular.client.JSON;
 public class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
   public static final String SERIALIZED_NAME_ORIGINAL = "original";
   @SerializedName(SERIALIZED_NAME_ORIGINAL)
-  private ParseIngredients200ResponseInnerNutritionWeightPerServing original;
+  private GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original;
 
   public static final String SERIALIZED_NAME_METRIC = "metric";
   @SerializedName(SERIALIZED_NAME_METRIC)
-  private ParseIngredients200ResponseInnerNutritionWeightPerServing metric;
+  private GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric;
 
   public static final String SERIALIZED_NAME_US = "us";
   @SerializedName(SERIALIZED_NAME_US)
-  private ParseIngredients200ResponseInnerNutritionWeightPerServing us;
+  private GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us;
 
   public GetShoppingList200ResponseAislesInnerItemsInnerMeasures() {
   }
 
-  public GetShoppingList200ResponseAislesInnerItemsInnerMeasures original(ParseIngredients200ResponseInnerNutritionWeightPerServing original) {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasures original(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original) {
     this.original = original;
     return this;
   }
@@ -77,16 +77,16 @@ public class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
    * @return original
    */
   @javax.annotation.Nonnull
-  public ParseIngredients200ResponseInnerNutritionWeightPerServing getOriginal() {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getOriginal() {
     return original;
   }
 
-  public void setOriginal(ParseIngredients200ResponseInnerNutritionWeightPerServing original) {
+  public void setOriginal(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original) {
     this.original = original;
   }
 
 
-  public GetShoppingList200ResponseAislesInnerItemsInnerMeasures metric(ParseIngredients200ResponseInnerNutritionWeightPerServing metric) {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasures metric(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric) {
     this.metric = metric;
     return this;
   }
@@ -96,16 +96,16 @@ public class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
    * @return metric
    */
   @javax.annotation.Nonnull
-  public ParseIngredients200ResponseInnerNutritionWeightPerServing getMetric() {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getMetric() {
     return metric;
   }
 
-  public void setMetric(ParseIngredients200ResponseInnerNutritionWeightPerServing metric) {
+  public void setMetric(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric) {
     this.metric = metric;
   }
 
 
-  public GetShoppingList200ResponseAislesInnerItemsInnerMeasures us(ParseIngredients200ResponseInnerNutritionWeightPerServing us) {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasures us(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us) {
     this.us = us;
     return this;
   }
@@ -115,11 +115,11 @@ public class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
    * @return us
    */
   @javax.annotation.Nonnull
-  public ParseIngredients200ResponseInnerNutritionWeightPerServing getUs() {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getUs() {
     return us;
   }
 
-  public void setUs(ParseIngredients200ResponseInnerNutritionWeightPerServing us) {
+  public void setUs(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us) {
     this.us = us;
   }
 
@@ -213,11 +213,11 @@ public class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `original`
-      ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJsonElement(jsonObj.get("original"));
+      GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.validateJsonElement(jsonObj.get("original"));
       // validate the required field `metric`
-      ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJsonElement(jsonObj.get("metric"));
+      GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.validateJsonElement(jsonObj.get("metric"));
       // validate the required field `us`
-      ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJsonElement(jsonObj.get("us"));
+      GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.validateJsonElement(jsonObj.get("us"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

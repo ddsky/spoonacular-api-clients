@@ -147,12 +147,12 @@ class MenuItemsApi
      * Autocomplete Menu Item Search
      *
      * @param  string $query The (partial) search query. (required)
-     * @param  float $number The number of results to return (between 1 and 25). (optional)
+     * @param  int $number The number of results to return (between 1 and 25). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteMenuItemSearch'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response
+     * @return \OpenAPI\Client\Model\AutocompleteProductSearch200Response
      */
     public function autocompleteMenuItemSearch($query, $number = null, string $contentType = self::contentTypes['autocompleteMenuItemSearch'][0])
     {
@@ -166,12 +166,12 @@ class MenuItemsApi
      * Autocomplete Menu Item Search
      *
      * @param  string $query The (partial) search query. (required)
-     * @param  float $number The number of results to return (between 1 and 25). (optional)
+     * @param  int $number The number of results to return (between 1 and 25). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteMenuItemSearch'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\AutocompleteProductSearch200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function autocompleteMenuItemSearchWithHttpInfo($query, $number = null, string $contentType = self::contentTypes['autocompleteMenuItemSearch'][0])
     {
@@ -214,11 +214,11 @@ class MenuItemsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\AutocompleteProductSearch200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\AutocompleteProductSearch200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -236,13 +236,13 @@ class MenuItemsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AutocompleteProductSearch200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response';
+            $returnType = '\OpenAPI\Client\Model\AutocompleteProductSearch200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -275,7 +275,7 @@ class MenuItemsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response',
+                        '\OpenAPI\Client\Model\AutocompleteProductSearch200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -291,7 +291,7 @@ class MenuItemsApi
      * Autocomplete Menu Item Search
      *
      * @param  string $query The (partial) search query. (required)
-     * @param  float $number The number of results to return (between 1 and 25). (optional)
+     * @param  int $number The number of results to return (between 1 and 25). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteMenuItemSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -313,7 +313,7 @@ class MenuItemsApi
      * Autocomplete Menu Item Search
      *
      * @param  string $query The (partial) search query. (required)
-     * @param  float $number The number of results to return (between 1 and 25). (optional)
+     * @param  int $number The number of results to return (between 1 and 25). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteMenuItemSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -321,7 +321,7 @@ class MenuItemsApi
      */
     public function autocompleteMenuItemSearchAsyncWithHttpInfo($query, $number = null, string $contentType = self::contentTypes['autocompleteMenuItemSearch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response';
+        $returnType = '\OpenAPI\Client\Model\AutocompleteProductSearch200Response';
         $request = $this->autocompleteMenuItemSearchRequest($query, $number, $contentType);
 
         return $this->client
@@ -364,7 +364,7 @@ class MenuItemsApi
      * Create request for operation 'autocompleteMenuItemSearch'
      *
      * @param  string $query The (partial) search query. (required)
-     * @param  float $number The number of results to return (between 1 and 25). (optional)
+     * @param  int $number The number of results to return (between 1 and 25). (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteMenuItemSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -408,7 +408,7 @@ class MenuItemsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $number,
             'number', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             false, // explode
             false // required
@@ -480,12 +480,12 @@ class MenuItemsApi
      *
      * Get Menu Item Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItemInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetMenuItemInformation200Response
+     * @return \OpenAPI\Client\Model\MenuItem
      */
     public function getMenuItemInformation($id, string $contentType = self::contentTypes['getMenuItemInformation'][0])
     {
@@ -498,12 +498,12 @@ class MenuItemsApi
      *
      * Get Menu Item Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItemInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetMenuItemInformation200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\MenuItem, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMenuItemInformationWithHttpInfo($id, string $contentType = self::contentTypes['getMenuItemInformation'][0])
     {
@@ -546,11 +546,11 @@ class MenuItemsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetMenuItemInformation200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\MenuItem' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetMenuItemInformation200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\MenuItem' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -568,13 +568,13 @@ class MenuItemsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetMenuItemInformation200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MenuItem', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetMenuItemInformation200Response';
+            $returnType = '\OpenAPI\Client\Model\MenuItem';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -607,7 +607,7 @@ class MenuItemsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetMenuItemInformation200Response',
+                        '\OpenAPI\Client\Model\MenuItem',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -622,7 +622,7 @@ class MenuItemsApi
      *
      * Get Menu Item Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItemInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -643,7 +643,7 @@ class MenuItemsApi
      *
      * Get Menu Item Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItemInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -651,7 +651,7 @@ class MenuItemsApi
      */
     public function getMenuItemInformationAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getMenuItemInformation'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetMenuItemInformation200Response';
+        $returnType = '\OpenAPI\Client\Model\MenuItem';
         $request = $this->getMenuItemInformationRequest($id, $contentType);
 
         return $this->client
@@ -693,7 +693,7 @@ class MenuItemsApi
     /**
      * Create request for operation 'getMenuItemInformation'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMenuItemInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -792,7 +792,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['menuItemNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -810,7 +810,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['menuItemNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -934,7 +934,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['menuItemNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -955,7 +955,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['menuItemNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1005,7 +1005,7 @@ class MenuItemsApi
     /**
      * Create request for operation 'menuItemNutritionByIDImage'
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['menuItemNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1104,7 +1104,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -1125,7 +1125,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -1252,7 +1252,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -1276,7 +1276,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Image
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -1329,7 +1329,7 @@ class MenuItemsApi
     /**
      * Create request for operation 'menuItemNutritionLabelImage'
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -1461,7 +1461,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Widget
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -1483,7 +1483,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Widget
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -1611,7 +1611,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Widget
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -1636,7 +1636,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition Label Widget
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -1690,7 +1690,7 @@ class MenuItemsApi
     /**
      * Create request for operation 'menuItemNutritionLabelWidget'
      *
-     * @param  float $id The menu item id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -1833,7 +1833,7 @@ class MenuItemsApi
      *
      * Search Menu Items
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the menu item must have. (optional)
      * @param  float $max_calories The maximum amount of calories the menu item can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -1851,7 +1851,7 @@ class MenuItemsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchMenuItems200Response
      */
-    public function searchMenuItems($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
+    public function searchMenuItems($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
     {
         list($response) = $this->searchMenuItemsWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number, $contentType);
         return $response;
@@ -1862,7 +1862,7 @@ class MenuItemsApi
      *
      * Search Menu Items
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the menu item must have. (optional)
      * @param  float $max_calories The maximum amount of calories the menu item can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -1880,7 +1880,7 @@ class MenuItemsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchMenuItems200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchMenuItemsWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
+    public function searchMenuItemsWithHttpInfo($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
     {
         $request = $this->searchMenuItemsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number, $contentType);
 
@@ -1997,7 +1997,7 @@ class MenuItemsApi
      *
      * Search Menu Items
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the menu item must have. (optional)
      * @param  float $max_calories The maximum amount of calories the menu item can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -2014,7 +2014,7 @@ class MenuItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMenuItemsAsync($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
+    public function searchMenuItemsAsync($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
     {
         return $this->searchMenuItemsAsyncWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number, $contentType)
             ->then(
@@ -2029,7 +2029,7 @@ class MenuItemsApi
      *
      * Search Menu Items
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the menu item must have. (optional)
      * @param  float $max_calories The maximum amount of calories the menu item can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -2046,7 +2046,7 @@ class MenuItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchMenuItemsAsyncWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
+    public function searchMenuItemsAsyncWithHttpInfo($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchMenuItems200Response';
         $request = $this->searchMenuItemsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_menu_item_information, $offset, $number, $contentType);
@@ -2090,7 +2090,7 @@ class MenuItemsApi
     /**
      * Create request for operation 'searchMenuItems'
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the menu item must have. (optional)
      * @param  float $max_calories The maximum amount of calories the menu item can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -2107,9 +2107,15 @@ class MenuItemsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchMenuItemsRequest($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
+    public function searchMenuItemsRequest($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_menu_item_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchMenuItems'][0])
     {
 
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling searchMenuItems'
+            );
+        }
 
 
 
@@ -2149,7 +2155,7 @@ class MenuItemsApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2317,7 +2323,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeMenuItemNutritionByID'] to see the possible values for this operation
      *
@@ -2336,7 +2342,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeMenuItemNutritionByID'] to see the possible values for this operation
      *
@@ -2461,7 +2467,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeMenuItemNutritionByID'] to see the possible values for this operation
      *
@@ -2483,7 +2489,7 @@ class MenuItemsApi
      *
      * Menu Item Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeMenuItemNutritionByID'] to see the possible values for this operation
      *
@@ -2534,7 +2540,7 @@ class MenuItemsApi
     /**
      * Create request for operation 'visualizeMenuItemNutritionByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The menu item id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeMenuItemNutritionByID'] to see the possible values for this operation
      *

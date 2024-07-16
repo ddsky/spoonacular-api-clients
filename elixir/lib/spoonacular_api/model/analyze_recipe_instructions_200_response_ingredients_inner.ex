@@ -13,7 +13,7 @@ defmodule SpoonacularAPI.Model.AnalyzeRecipeInstructions200ResponseIngredientsIn
   ]
 
   @type t :: %__MODULE__{
-    :id => float(),
+    :id => integer(),
     :name => String.t
   }
 

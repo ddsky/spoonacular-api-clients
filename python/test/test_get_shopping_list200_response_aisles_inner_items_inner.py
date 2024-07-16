@@ -39,10 +39,10 @@ class TestGetShoppingList200ResponseAislesInnerItemsInner(unittest.TestCase):
                 id = 56,
                 name = '0',
                 measures = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures.getShoppingList_200_response_aisles_inner_items_inner_measures(
-                    original = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                    original = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                         amount = 1.337, 
                         unit = '0', ), 
-                    metric = spoonacular.models.parse_ingredients_200_response_inner_nutrition_weight_per_serving.parseIngredients_200_response_inner_nutrition_weightPerServing(
+                    metric = spoonacular.models.get_shopping_list_200_response_aisles_inner_items_inner_measures_original.getShoppingList_200_response_aisles_inner_items_inner_measures_original(
                         amount = 1.337, 
                         unit = '0', ), 
                     us = , ),

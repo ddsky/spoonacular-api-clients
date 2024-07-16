@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from spoonacular.models.search_menu_items200_response_menu_items_inner import SearchMenuItems200ResponseMenuItemsInner
+from spoonacular.models.menu_item import MenuItem
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class SearchMenuItems200Response(BaseModel):
     """
     
     """ # noqa: E501
-    menu_items: Annotated[List[SearchMenuItems200ResponseMenuItemsInner], Field(min_length=0)] = Field(alias="menuItems")
+    menu_items: Annotated[List[MenuItem], Field(min_length=0)] = Field(alias="menuItems")
     total_menu_items: StrictInt = Field(alias="totalMenuItems")
     type: Annotated[str, Field(min_length=1, strict=True)]
     offset: StrictInt
@@ -94,7 +94,7 @@ class SearchMenuItems200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "menuItems": [SearchMenuItems200ResponseMenuItemsInner.from_dict(_item) for _item in obj["menuItems"]] if obj.get("menuItems") is not None else None,
+            "menuItems": [MenuItem.from_dict(_item) for _item in obj["menuItems"]] if obj.get("menuItems") is not None else None,
             "totalMenuItems": obj.get("totalMenuItems"),
             "type": obj.get("type"),
             "offset": obj.get("offset"),

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nutrients** | [**[ParseIngredients200ResponseInnerNutritionNutrientsInner]**](ParseIngredients200ResponseInnerNutritionNutrientsInner.md) |  | 
-**caloricBreakdown** | [**ParseIngredients200ResponseInnerNutritionCaloricBreakdown**](ParseIngredients200ResponseInnerNutritionCaloricBreakdown.md) |  | 
+**nutrients** | [**[SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner]**](SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.md) |  | 
+**caloricBreakdown** | [**SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown**](SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.md) |  | 
 
 

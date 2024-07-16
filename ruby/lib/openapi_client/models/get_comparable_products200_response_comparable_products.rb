@@ -34,7 +34,7 @@ module OpenapiClient
         :'likes' => :'likes',
         :'price' => :'price',
         :'protein' => :'protein',
-        :'spoonacular_score' => :'spoonacularScore',
+        :'spoonacular_score' => :'spoonacular_score',
         :'sugar' => :'sugar'
       }
     end
@@ -47,12 +47,12 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'calories' => :'Array<Object>',
-        :'likes' => :'Array<Object>',
-        :'price' => :'Array<Object>',
-        :'protein' => :'Array<GetComparableProducts200ResponseComparableProductsProteinInner>',
-        :'spoonacular_score' => :'Array<GetComparableProducts200ResponseComparableProductsProteinInner>',
-        :'sugar' => :'Array<Object>'
+        :'calories' => :'Array<ComparableProduct>',
+        :'likes' => :'Array<ComparableProduct>',
+        :'price' => :'Array<ComparableProduct>',
+        :'protein' => :'Array<ComparableProduct>',
+        :'spoonacular_score' => :'Array<ComparableProduct>',
+        :'sugar' => :'Array<ComparableProduct>'
       }
     end
 
@@ -147,16 +147,8 @@ module OpenapiClient
         invalid_properties.push('invalid value for "protein", protein cannot be nil.')
       end
 
-      if @protein.length < 0
-        invalid_properties.push('invalid value for "protein", number of items must be greater than or equal to 0.')
-      end
-
       if @spoonacular_score.nil?
         invalid_properties.push('invalid value for "spoonacular_score", spoonacular_score cannot be nil.')
-      end
-
-      if @spoonacular_score.length < 0
-        invalid_properties.push('invalid value for "spoonacular_score", number of items must be greater than or equal to 0.')
       end
 
       if @sugar.nil?
@@ -174,39 +166,9 @@ module OpenapiClient
       return false if @likes.nil?
       return false if @price.nil?
       return false if @protein.nil?
-      return false if @protein.length < 0
       return false if @spoonacular_score.nil?
-      return false if @spoonacular_score.length < 0
       return false if @sugar.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] protein Value to be assigned
-    def protein=(protein)
-      if protein.nil?
-        fail ArgumentError, 'protein cannot be nil'
-      end
-
-      if protein.length < 0
-        fail ArgumentError, 'invalid value for "protein", number of items must be greater than or equal to 0.'
-      end
-
-      @protein = protein
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] spoonacular_score Value to be assigned
-    def spoonacular_score=(spoonacular_score)
-      if spoonacular_score.nil?
-        fail ArgumentError, 'spoonacular_score cannot be nil'
-      end
-
-      if spoonacular_score.length < 0
-        fail ArgumentError, 'invalid value for "spoonacular_score", number of items must be greater than or equal to 0.'
-      end
-
-      @spoonacular_score = spoonacular_score
     end
 
     # Checks equality by comparing each attribute.

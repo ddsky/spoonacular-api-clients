@@ -27,8 +27,8 @@ import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner
 import java.math.BigDecimal;
 import com.spoonacular.client.model.ComputeIngredientAmount200Response;
 import java.io.File;
-import com.spoonacular.client.model.GetIngredientInformation200Response;
 import com.spoonacular.client.model.GetIngredientSubstitutes200Response;
+import com.spoonacular.client.model.IngredientInformation;
 import com.spoonacular.client.model.IngredientSearch200Response;
 import com.spoonacular.client.model.MapIngredientsToGroceryProducts200ResponseInner;
 import com.spoonacular.client.model.MapIngredientsToGroceryProductsRequest;
@@ -76,6 +76,11 @@ public class IngredientsApi {
   */
   public Set<AutocompleteIngredientSearch200ResponseInner> autocompleteIngredientSearch (String query, Integer number, Boolean metaInformation, String intolerances, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling autocompleteIngredientSearch",
+        new ApiException(400, "Missing the required parameter 'query' when calling autocompleteIngredientSearch"));
+    }
 
     // create path and map variables
     String path = "/food/ingredients/autocomplete";
@@ -138,6 +143,11 @@ public class IngredientsApi {
   public void autocompleteIngredientSearch (String query, Integer number, Boolean metaInformation, String intolerances, String language, final Response.Listener<Set<AutocompleteIngredientSearch200ResponseInner>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling autocompleteIngredientSearch",
+        new ApiException(400, "Missing the required parameter 'query' when calling autocompleteIngredientSearch"));
+    }
 
     // create path and map variables
     String path = "/food/ingredients/autocomplete".replaceAll("\\{format\\}","json");
@@ -204,7 +214,7 @@ public class IngredientsApi {
    * @param unit The target unit.
    * @return ComputeIngredientAmount200Response
   */
-  public ComputeIngredientAmount200Response computeIngredientAmount (BigDecimal id, String nutrient, BigDecimal target, String unit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ComputeIngredientAmount200Response computeIngredientAmount (Integer id, String nutrient, Integer target, String unit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -278,7 +288,7 @@ public class IngredientsApi {
    * Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
    * @param id The id of the ingredient you want the amount for.   * @param nutrient The target nutrient. See a list of supported nutrients.   * @param target The target number of the given nutrient.   * @param unit The target unit.
   */
-  public void computeIngredientAmount (BigDecimal id, String nutrient, BigDecimal target, String unit, final Response.Listener<ComputeIngredientAmount200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void computeIngredientAmount (Integer id, String nutrient, Integer target, String unit, final Response.Listener<ComputeIngredientAmount200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -354,12 +364,12 @@ public class IngredientsApi {
   /**
   * Get Ingredient Information
   * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-   * @param id The item&#39;s id.
+   * @param id The ingredient id.
    * @param amount The amount of this ingredient.
    * @param unit The unit for the given amount.
-   * @return GetIngredientInformation200Response
+   * @return IngredientInformation
   */
-  public GetIngredientInformation200Response getIngredientInformation (Integer id, BigDecimal amount, String unit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public IngredientInformation getIngredientInformation (Integer id, BigDecimal amount, String unit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -396,7 +406,7 @@ public class IngredientsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetIngredientInformation200Response) ApiInvoker.deserialize(localVarResponse, "", GetIngredientInformation200Response.class);
+         return (IngredientInformation) ApiInvoker.deserialize(localVarResponse, "", IngredientInformation.class);
       } else {
          return null;
       }
@@ -420,9 +430,9 @@ public class IngredientsApi {
       /**
    * Get Ingredient Information
    * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-   * @param id The item&#39;s id.   * @param amount The amount of this ingredient.   * @param unit The unit for the given amount.
+   * @param id The ingredient id.   * @param amount The amount of this ingredient.   * @param unit The unit for the given amount.
   */
-  public void getIngredientInformation (Integer id, BigDecimal amount, String unit, final Response.Listener<GetIngredientInformation200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getIngredientInformation (Integer id, BigDecimal amount, String unit, final Response.Listener<IngredientInformation> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -469,7 +479,7 @@ public class IngredientsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetIngredientInformation200Response) ApiInvoker.deserialize(localVarResponse,  "", GetIngredientInformation200Response.class));
+              responseListener.onResponse((IngredientInformation) ApiInvoker.deserialize(localVarResponse,  "", IngredientInformation.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -616,7 +626,7 @@ public class IngredientsApi {
   /**
   * Get Ingredient Substitutes by ID
   * Search for substitutes for a given ingredient.
-   * @param id The item&#39;s id.
+   * @param id The id of the ingredient you want substitutes for.
    * @return GetIngredientSubstitutes200Response
   */
   public GetIngredientSubstitutes200Response getIngredientSubstitutesByID (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -678,7 +688,7 @@ public class IngredientsApi {
       /**
    * Get Ingredient Substitutes by ID
    * Search for substitutes for a given ingredient.
-   * @param id The item&#39;s id.
+   * @param id The id of the ingredient you want substitutes for.
   */
   public void getIngredientSubstitutesByID (Integer id, final Response.Listener<GetIngredientSubstitutes200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -762,6 +772,11 @@ public class IngredientsApi {
   */
   public IngredientSearch200Response ingredientSearch (String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling ingredientSearch",
+        new ApiException(400, "Missing the required parameter 'query' when calling ingredientSearch"));
+    }
 
     // create path and map variables
     String path = "/food/ingredients/search";
@@ -834,6 +849,11 @@ public class IngredientsApi {
   public void ingredientSearch (String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language, final Response.Listener<IngredientSearch200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling ingredientSearch",
+        new ApiException(400, "Missing the required parameter 'query' when calling ingredientSearch"));
+    }
 
     // create path and map variables
     String path = "/food/ingredients/search".replaceAll("\\{format\\}","json");
@@ -908,7 +928,7 @@ public class IngredientsApi {
    * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
    * @return File
   */
-  public File ingredientsByIDImage (BigDecimal id, String measure) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File ingredientsByIDImage (Integer id, String measure) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -970,7 +990,7 @@ public class IngredientsApi {
    * Visualize a recipe&#39;s ingredient list.
    * @param id The recipe id.   * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
   */
-  public void ingredientsByIDImage (BigDecimal id, String measure, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void ingredientsByIDImage (Integer id, String measure, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set

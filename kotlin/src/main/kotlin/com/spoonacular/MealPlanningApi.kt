@@ -25,7 +25,6 @@ import com.spoonacular.client.model.AddToShoppingListRequest
 import com.spoonacular.client.model.ConnectUser200Response
 import com.spoonacular.client.model.ConnectUserRequest
 import com.spoonacular.client.model.GenerateMealPlan200Response
-import com.spoonacular.client.model.GenerateShoppingList200Response
 import com.spoonacular.client.model.GetMealPlanTemplate200Response
 import com.spoonacular.client.model.GetMealPlanTemplates200Response
 import com.spoonacular.client.model.GetMealPlanWeek200Response
@@ -219,7 +218,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * @param username The username.
      * @param hash The private hash for the username.
      * @param addToShoppingListRequest 
-     * @return GenerateShoppingList200Response
+     * @return GetShoppingList200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -228,11 +227,11 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun addToShoppingList(username: kotlin.String, hash: kotlin.String, addToShoppingListRequest: AddToShoppingListRequest) : GenerateShoppingList200Response {
+    fun addToShoppingList(username: kotlin.String, hash: kotlin.String, addToShoppingListRequest: AddToShoppingListRequest) : GetShoppingList200Response {
         val localVarResponse = addToShoppingListWithHttpInfo(username = username, hash = hash, addToShoppingListRequest = addToShoppingListRequest)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GenerateShoppingList200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as GetShoppingList200Response
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -252,16 +251,16 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * @param username The username.
      * @param hash The private hash for the username.
      * @param addToShoppingListRequest 
-     * @return ApiResponse<GenerateShoppingList200Response?>
+     * @return ApiResponse<GetShoppingList200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun addToShoppingListWithHttpInfo(username: kotlin.String, hash: kotlin.String, addToShoppingListRequest: AddToShoppingListRequest) : ApiResponse<GenerateShoppingList200Response?> {
+    fun addToShoppingListWithHttpInfo(username: kotlin.String, hash: kotlin.String, addToShoppingListRequest: AddToShoppingListRequest) : ApiResponse<GetShoppingList200Response?> {
         val localVariableConfig = addToShoppingListRequestConfig(username = username, hash = hash, addToShoppingListRequest = addToShoppingListRequest)
 
-        return request<AddToShoppingListRequest, GenerateShoppingList200Response>(
+        return request<AddToShoppingListRequest, GetShoppingList200Response>(
             localVariableConfig
         )
     }
@@ -461,7 +460,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun deleteFromMealPlan(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String) : kotlin.Any {
+    fun deleteFromMealPlan(username: kotlin.String, id: kotlin.Int, hash: kotlin.String) : kotlin.Any {
         val localVarResponse = deleteFromMealPlanWithHttpInfo(username = username, id = id, hash = hash)
 
         return when (localVarResponse.responseType) {
@@ -491,7 +490,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun deleteFromMealPlanWithHttpInfo(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String) : ApiResponse<kotlin.Any?> {
+    fun deleteFromMealPlanWithHttpInfo(username: kotlin.String, id: kotlin.Int, hash: kotlin.String) : ApiResponse<kotlin.Any?> {
         val localVariableConfig = deleteFromMealPlanRequestConfig(username = username, id = id, hash = hash)
 
         return request<Unit, kotlin.Any>(
@@ -507,7 +506,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * @param hash The private hash for the username.
      * @return RequestConfig
      */
-    fun deleteFromMealPlanRequestConfig(username: kotlin.String, id: java.math.BigDecimal, hash: kotlin.String) : RequestConfig<Unit> {
+    fun deleteFromMealPlanRequestConfig(username: kotlin.String, id: kotlin.Int, hash: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -530,7 +529,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * Delete from Shopping List
      * Delete an item from the current shopping list of the user.
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return kotlin.Any
      * @throws IllegalStateException If the request is not correctly configured
@@ -563,7 +562,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * Delete from Shopping List
      * Delete an item from the current shopping list of the user.
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return ApiResponse<kotlin.Any?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -583,7 +582,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * To obtain the request config of the operation deleteFromShoppingList
      *
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return RequestConfig
      */
@@ -610,7 +609,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * Delete Meal Plan Template
      * Delete a meal plan template for a user.
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return kotlin.Any
      * @throws IllegalStateException If the request is not correctly configured
@@ -643,7 +642,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * Delete Meal Plan Template
      * Delete a meal plan template for a user.
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return ApiResponse<kotlin.Any?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -663,7 +662,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * To obtain the request config of the operation deleteMealPlanTemplate
      *
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return RequestConfig
      */
@@ -787,7 +786,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * @param startDate The start date in the format yyyy-mm-dd.
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @return GenerateShoppingList200Response
+     * @return GetShoppingList200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -796,11 +795,11 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun generateShoppingList(username: kotlin.String, startDate: kotlin.String, endDate: kotlin.String, hash: kotlin.String) : GenerateShoppingList200Response {
+    fun generateShoppingList(username: kotlin.String, startDate: kotlin.String, endDate: kotlin.String, hash: kotlin.String) : GetShoppingList200Response {
         val localVarResponse = generateShoppingListWithHttpInfo(username = username, startDate = startDate, endDate = endDate, hash = hash)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GenerateShoppingList200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as GetShoppingList200Response
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -821,16 +820,16 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * @param startDate The start date in the format yyyy-mm-dd.
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
-     * @return ApiResponse<GenerateShoppingList200Response?>
+     * @return ApiResponse<GetShoppingList200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun generateShoppingListWithHttpInfo(username: kotlin.String, startDate: kotlin.String, endDate: kotlin.String, hash: kotlin.String) : ApiResponse<GenerateShoppingList200Response?> {
+    fun generateShoppingListWithHttpInfo(username: kotlin.String, startDate: kotlin.String, endDate: kotlin.String, hash: kotlin.String) : ApiResponse<GetShoppingList200Response?> {
         val localVariableConfig = generateShoppingListRequestConfig(username = username, startDate = startDate, endDate = endDate, hash = hash)
 
-        return request<Unit, GenerateShoppingList200Response>(
+        return request<Unit, GetShoppingList200Response>(
             localVariableConfig
         )
     }
@@ -867,7 +866,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * Get Meal Plan Template
      * Get information about a meal plan template.
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return GetMealPlanTemplate200Response
      * @throws IllegalStateException If the request is not correctly configured
@@ -900,7 +899,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * Get Meal Plan Template
      * Get information about a meal plan template.
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return ApiResponse<GetMealPlanTemplate200Response?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -920,7 +919,7 @@ class MealPlanningApi(basePath: kotlin.String = defaultBasePath, client: OkHttpC
      * To obtain the request config of the operation getMealPlanTemplate
      *
      * @param username The username.
-     * @param id The item&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      * @return RequestConfig
      */

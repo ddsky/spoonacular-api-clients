@@ -16,7 +16,7 @@ class GetRandomRecipes200Response {
     this.recipes = const {},
   });
 
-  Set<GetRandomRecipes200ResponseRecipesInner> recipes;
+  Set<RecipeInformation> recipes;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetRandomRecipes200Response &&
@@ -55,7 +55,7 @@ class GetRandomRecipes200Response {
       }());
 
       return GetRandomRecipes200Response(
-        recipes: GetRandomRecipes200ResponseRecipesInner.listFromJson(json[r'recipes']).toSet(),
+        recipes: RecipeInformation.listFromJson(json[r'recipes']).toSet(),
       );
     }
     return null;

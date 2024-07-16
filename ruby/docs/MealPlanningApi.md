@@ -170,7 +170,7 @@ end
 
 ## add_to_shopping_list
 
-> <GenerateShoppingList200Response> add_to_shopping_list(username, hash, add_to_shopping_list_request)
+> <GetShoppingList200Response> add_to_shopping_list(username, hash, add_to_shopping_list_request)
 
 Add to Shopping List
 
@@ -207,7 +207,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateShoppingList200Response>, Integer, Hash)> add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request)
+> <Array(<GetShoppingList200Response>, Integer, Hash)> add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request)
 
 ```ruby
 begin
@@ -215,7 +215,7 @@ begin
   data, status_code, headers = api_instance.add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateShoppingList200Response>
+  p data # => <GetShoppingList200Response>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->add_to_shopping_list_with_http_info: #{e}"
 end
@@ -231,7 +231,7 @@ end
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -412,7 +412,7 @@ end
 
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
-id = 15678 # Float | The shopping list item id.
+id = 15678 # Integer | The shopping list item id.
 hash = 'hash_example' # String | The private hash for the username.
 
 begin
@@ -447,7 +447,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **username** | **String** | The username. |  |
-| **id** | **Float** | The shopping list item id. |  |
+| **id** | **Integer** | The shopping list item id. |  |
 | **hash** | **String** | The private hash for the username. |  |
 
 ### Return type
@@ -487,7 +487,7 @@ end
 
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
-id = 1 # Integer | The item's id.
+id = 15678 # Integer | The shopping list item id.
 hash = 'hash_example' # String | The private hash for the username.
 
 begin
@@ -522,7 +522,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **username** | **String** | The username. |  |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The shopping list item id. |  |
 | **hash** | **String** | The private hash for the username. |  |
 
 ### Return type
@@ -562,7 +562,7 @@ end
 
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
-id = 1 # Integer | The item's id.
+id = 15678 # Integer | The shopping list item id.
 hash = '4b5v4398573406' # String | The private hash for the username.
 
 begin
@@ -597,7 +597,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **username** | **String** | The username. |  |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The shopping list item id. |  |
 | **hash** | **String** | The private hash for the username. |  |
 
 ### Return type
@@ -695,7 +695,7 @@ end
 
 ## generate_shopping_list
 
-> <GenerateShoppingList200Response> generate_shopping_list(username, start_date, end_date, hash)
+> <GetShoppingList200Response> generate_shopping_list(username, start_date, end_date, hash)
 
 Generate Shopping List
 
@@ -733,7 +733,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GenerateShoppingList200Response>, Integer, Hash)> generate_shopping_list_with_http_info(username, start_date, end_date, hash)
+> <Array(<GetShoppingList200Response>, Integer, Hash)> generate_shopping_list_with_http_info(username, start_date, end_date, hash)
 
 ```ruby
 begin
@@ -741,7 +741,7 @@ begin
   data, status_code, headers = api_instance.generate_shopping_list_with_http_info(username, start_date, end_date, hash)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GenerateShoppingList200Response>
+  p data # => <GetShoppingList200Response>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MealPlanningApi->generate_shopping_list_with_http_info: #{e}"
 end
@@ -758,7 +758,7 @@ end
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -793,7 +793,7 @@ end
 
 api_instance = OpenapiClient::MealPlanningApi.new
 username = 'dsky' # String | The username.
-id = 1 # Integer | The item's id.
+id = 15678 # Integer | The shopping list item id.
 hash = 'hash_example' # String | The private hash for the username.
 
 begin
@@ -828,7 +828,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **username** | **String** | The username. |  |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The shopping list item id. |  |
 | **hash** | **String** | The private hash for the username. |  |
 
 ### Return type

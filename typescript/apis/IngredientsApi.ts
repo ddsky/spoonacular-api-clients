@@ -10,8 +10,8 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AutocompleteIngredientSearch200ResponseInner } from '../models/AutocompleteIngredientSearch200ResponseInner';
 import { ComputeIngredientAmount200Response } from '../models/ComputeIngredientAmount200Response';
-import { GetIngredientInformation200Response } from '../models/GetIngredientInformation200Response';
 import { GetIngredientSubstitutes200Response } from '../models/GetIngredientSubstitutes200Response';
+import { IngredientInformation } from '../models/IngredientInformation';
 import { IngredientSearch200Response } from '../models/IngredientSearch200Response';
 import { MapIngredientsToGroceryProducts200ResponseInner } from '../models/MapIngredientsToGroceryProducts200ResponseInner';
 import { MapIngredientsToGroceryProductsRequest } from '../models/MapIngredientsToGroceryProductsRequest';
@@ -30,8 +30,13 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public async autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
+    public async autocompleteIngredientSearch(query: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("IngredientsApi", "autocompleteIngredientSearch", "query");
+        }
 
 
 
@@ -158,7 +163,7 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
      * Get Ingredient Information
-     * @param id The item\&#39;s id.
+     * @param id The ingredient id.
      * @param amount The amount of this ingredient.
      * @param unit The unit for the given amount.
      */
@@ -252,7 +257,7 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Search for substitutes for a given ingredient.
      * Get Ingredient Substitutes by ID
-     * @param id The item\&#39;s id.
+     * @param id The id of the ingredient you want substitutes for.
      */
     public async getIngredientSubstitutesByID(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -306,8 +311,13 @@ export class IngredientsApiRequestFactory extends BaseAPIRequestFactory {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public async ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
+    public async ingredientSearch(query: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("IngredientsApi", "ingredientSearch", "query");
+        }
 
 
 
@@ -706,13 +716,13 @@ export class IngredientsApiResponseProcessor {
      * @params response Response returned by the server for a request to getIngredientInformation
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getIngredientInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetIngredientInformation200Response >> {
+     public async getIngredientInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<IngredientInformation >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetIngredientInformation200Response = ObjectSerializer.deserialize(
+            const body: IngredientInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetIngredientInformation200Response", ""
-            ) as GetIngredientInformation200Response;
+                "IngredientInformation", ""
+            ) as IngredientInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -727,10 +737,10 @@ export class IngredientsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetIngredientInformation200Response = ObjectSerializer.deserialize(
+            const body: IngredientInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetIngredientInformation200Response", ""
-            ) as GetIngredientInformation200Response;
+                "IngredientInformation", ""
+            ) as IngredientInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

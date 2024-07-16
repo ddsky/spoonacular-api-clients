@@ -22,8 +22,8 @@ var _ MappedNullable = &SearchGroceryProductsByUPC200ResponseNutrition{}
 
 // SearchGroceryProductsByUPC200ResponseNutrition struct for SearchGroceryProductsByUPC200ResponseNutrition
 type SearchGroceryProductsByUPC200ResponseNutrition struct {
-	Nutrients []ParseIngredients200ResponseInnerNutritionNutrientsInner `json:"nutrients"`
-	CaloricBreakdown ParseIngredients200ResponseInnerNutritionCaloricBreakdown `json:"caloricBreakdown"`
+	Nutrients []SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner `json:"nutrients"`
+	CaloricBreakdown SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown `json:"caloricBreakdown"`
 }
 
 type _SearchGroceryProductsByUPC200ResponseNutrition SearchGroceryProductsByUPC200ResponseNutrition
@@ -32,7 +32,7 @@ type _SearchGroceryProductsByUPC200ResponseNutrition SearchGroceryProductsByUPC2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchGroceryProductsByUPC200ResponseNutrition(nutrients []ParseIngredients200ResponseInnerNutritionNutrientsInner, caloricBreakdown ParseIngredients200ResponseInnerNutritionCaloricBreakdown) *SearchGroceryProductsByUPC200ResponseNutrition {
+func NewSearchGroceryProductsByUPC200ResponseNutrition(nutrients []SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner, caloricBreakdown SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown) *SearchGroceryProductsByUPC200ResponseNutrition {
 	this := SearchGroceryProductsByUPC200ResponseNutrition{}
 	this.Nutrients = nutrients
 	this.CaloricBreakdown = caloricBreakdown
@@ -48,9 +48,9 @@ func NewSearchGroceryProductsByUPC200ResponseNutritionWithDefaults() *SearchGroc
 }
 
 // GetNutrients returns the Nutrients field value
-func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetNutrients() []ParseIngredients200ResponseInnerNutritionNutrientsInner {
+func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetNutrients() []SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner {
 	if o == nil {
-		var ret []ParseIngredients200ResponseInnerNutritionNutrientsInner
+		var ret []SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetNutrients() []ParseI
 
 // GetNutrientsOk returns a tuple with the Nutrients field value
 // and a boolean to check if the value has been set.
-func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetNutrientsOk() ([]ParseIngredients200ResponseInnerNutritionNutrientsInner, bool) {
+func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetNutrientsOk() ([]SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,14 +67,14 @@ func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetNutrientsOk() ([]Par
 }
 
 // SetNutrients sets field value
-func (o *SearchGroceryProductsByUPC200ResponseNutrition) SetNutrients(v []ParseIngredients200ResponseInnerNutritionNutrientsInner) {
+func (o *SearchGroceryProductsByUPC200ResponseNutrition) SetNutrients(v []SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner) {
 	o.Nutrients = v
 }
 
 // GetCaloricBreakdown returns the CaloricBreakdown field value
-func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetCaloricBreakdown() ParseIngredients200ResponseInnerNutritionCaloricBreakdown {
+func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetCaloricBreakdown() SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown {
 	if o == nil {
-		var ret ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+		var ret SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
 		return ret
 	}
 
@@ -83,7 +83,7 @@ func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetCaloricBreakdown() P
 
 // GetCaloricBreakdownOk returns a tuple with the CaloricBreakdown field value
 // and a boolean to check if the value has been set.
-func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetCaloricBreakdownOk() (*ParseIngredients200ResponseInnerNutritionCaloricBreakdown, bool) {
+func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetCaloricBreakdownOk() (*SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *SearchGroceryProductsByUPC200ResponseNutrition) GetCaloricBreakdownOk()
 }
 
 // SetCaloricBreakdown sets field value
-func (o *SearchGroceryProductsByUPC200ResponseNutrition) SetCaloricBreakdown(v ParseIngredients200ResponseInnerNutritionCaloricBreakdown) {
+func (o *SearchGroceryProductsByUPC200ResponseNutrition) SetCaloricBreakdown(v SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown) {
 	o.CaloricBreakdown = v
 }
 

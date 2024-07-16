@@ -112,7 +112,7 @@ namespace spoonacular.Api
         /// <param name="upc">The UPC of the product for which you want to find comparable products.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetComparableProducts200Response</returns>
-        GetComparableProducts200Response GetComparableProducts(decimal upc, int operationIndex = 0);
+        GetComparableProducts200Response GetComparableProducts(string upc, int operationIndex = 0);
 
         /// <summary>
         /// Get Comparable Products
@@ -124,7 +124,7 @@ namespace spoonacular.Api
         /// <param name="upc">The UPC of the product for which you want to find comparable products.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetComparableProducts200Response</returns>
-        ApiResponse<GetComparableProducts200Response> GetComparableProductsWithHttpInfo(decimal upc, int operationIndex = 0);
+        ApiResponse<GetComparableProducts200Response> GetComparableProductsWithHttpInfo(string upc, int operationIndex = 0);
         /// <summary>
         /// Get Product Information
         /// </summary>
@@ -132,10 +132,10 @@ namespace spoonacular.Api
         /// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetProductInformation200Response</returns>
-        GetProductInformation200Response GetProductInformation(int id, int operationIndex = 0);
+        /// <returns>ProductInformation</returns>
+        ProductInformation GetProductInformation(int id, int operationIndex = 0);
 
         /// <summary>
         /// Get Product Information
@@ -144,10 +144,10 @@ namespace spoonacular.Api
         /// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetProductInformation200Response</returns>
-        ApiResponse<GetProductInformation200Response> GetProductInformationWithHttpInfo(int id, int operationIndex = 0);
+        /// <returns>ApiResponse of ProductInformation</returns>
+        ApiResponse<ProductInformation> GetProductInformationWithHttpInfo(int id, int operationIndex = 0);
         /// <summary>
         /// Product Nutrition by ID Image
         /// </summary>
@@ -158,7 +158,7 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream ProductNutritionByIDImage(decimal id, int operationIndex = 0);
+        System.IO.Stream ProductNutritionByIDImage(int id, int operationIndex = 0);
 
         /// <summary>
         /// Product Nutrition by ID Image
@@ -170,7 +170,7 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> ProductNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        ApiResponse<System.IO.Stream> ProductNutritionByIDImageWithHttpInfo(int id, int operationIndex = 0);
         /// <summary>
         /// Product Nutrition Label Image
         /// </summary>
@@ -184,7 +184,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream ProductNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        System.IO.Stream ProductNutritionLabelImage(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Product Nutrition Label Image
@@ -199,7 +199,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> ProductNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> ProductNutritionLabelImageWithHttpInfo(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Product Nutrition Label Widget
         /// </summary>
@@ -214,7 +214,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string ProductNutritionLabelWidget(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        string ProductNutritionLabelWidget(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Product Nutrition Label Widget
@@ -230,7 +230,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> ProductNutritionLabelWidgetWithHttpInfo(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        ApiResponse<string> ProductNutritionLabelWidgetWithHttpInfo(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Search Grocery Products
         /// </summary>
@@ -238,7 +238,7 @@ namespace spoonacular.Api
         /// Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -252,7 +252,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchGroceryProducts200Response</returns>
-        SearchGroceryProducts200Response SearchGroceryProducts(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        SearchGroceryProducts200Response SearchGroceryProducts(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Search Grocery Products
@@ -261,7 +261,7 @@ namespace spoonacular.Api
         /// Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -275,7 +275,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchGroceryProducts200Response</returns>
-        ApiResponse<SearchGroceryProducts200Response> SearchGroceryProductsWithHttpInfo(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        ApiResponse<SearchGroceryProducts200Response> SearchGroceryProductsWithHttpInfo(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
         /// <summary>
         /// Search Grocery Products by UPC
         /// </summary>
@@ -286,7 +286,7 @@ namespace spoonacular.Api
         /// <param name="upc">The product&#39;s UPC.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchGroceryProductsByUPC200Response</returns>
-        SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC(decimal upc, int operationIndex = 0);
+        SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC(string upc, int operationIndex = 0);
 
         /// <summary>
         /// Search Grocery Products by UPC
@@ -298,7 +298,7 @@ namespace spoonacular.Api
         /// <param name="upc">The product&#39;s UPC.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchGroceryProductsByUPC200Response</returns>
-        ApiResponse<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCWithHttpInfo(decimal upc, int operationIndex = 0);
+        ApiResponse<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCWithHttpInfo(string upc, int operationIndex = 0);
         /// <summary>
         /// Product Nutrition by ID Widget
         /// </summary>
@@ -306,7 +306,7 @@ namespace spoonacular.Api
         /// Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -319,7 +319,7 @@ namespace spoonacular.Api
         /// Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -425,7 +425,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetComparableProducts200Response</returns>
-        System.Threading.Tasks.Task<GetComparableProducts200Response> GetComparableProductsAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetComparableProducts200Response> GetComparableProductsAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Comparable Products
@@ -438,7 +438,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetComparableProducts200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetComparableProducts200Response>> GetComparableProductsWithHttpInfoAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetComparableProducts200Response>> GetComparableProductsWithHttpInfoAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Product Information
         /// </summary>
@@ -446,11 +446,11 @@ namespace spoonacular.Api
         /// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetProductInformation200Response</returns>
-        System.Threading.Tasks.Task<GetProductInformation200Response> GetProductInformationAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ProductInformation</returns>
+        System.Threading.Tasks.Task<ProductInformation> GetProductInformationAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Product Information
@@ -459,11 +459,11 @@ namespace spoonacular.Api
         /// Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetProductInformation200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetProductInformation200Response>> GetProductInformationWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ProductInformation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductInformation>> GetProductInformationWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Product Nutrition by ID Image
         /// </summary>
@@ -475,7 +475,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Product Nutrition by ID Image
@@ -488,7 +488,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> ProductNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> ProductNutritionByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Product Nutrition Label Image
         /// </summary>
@@ -503,7 +503,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionLabelImageAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Product Nutrition Label Image
@@ -519,7 +519,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> ProductNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> ProductNutritionLabelImageWithHttpInfoAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Product Nutrition Label Widget
         /// </summary>
@@ -535,7 +535,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> ProductNutritionLabelWidgetAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> ProductNutritionLabelWidgetAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Product Nutrition Label Widget
@@ -552,7 +552,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> ProductNutritionLabelWidgetWithHttpInfoAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> ProductNutritionLabelWidgetWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Grocery Products
         /// </summary>
@@ -560,7 +560,7 @@ namespace spoonacular.Api
         /// Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -575,7 +575,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchGroceryProducts200Response</returns>
-        System.Threading.Tasks.Task<SearchGroceryProducts200Response> SearchGroceryProductsAsync(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchGroceryProducts200Response> SearchGroceryProductsAsync(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Grocery Products
@@ -584,7 +584,7 @@ namespace spoonacular.Api
         /// Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -599,7 +599,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchGroceryProducts200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchGroceryProducts200Response>> SearchGroceryProductsWithHttpInfoAsync(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SearchGroceryProducts200Response>> SearchGroceryProductsWithHttpInfoAsync(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Grocery Products by UPC
         /// </summary>
@@ -611,7 +611,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchGroceryProductsByUPC200Response</returns>
-        System.Threading.Tasks.Task<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Grocery Products by UPC
@@ -624,7 +624,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchGroceryProductsByUPC200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchGroceryProductsByUPC200Response>> SearchGroceryProductsByUPCWithHttpInfoAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SearchGroceryProductsByUPC200Response>> SearchGroceryProductsByUPCWithHttpInfoAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Product Nutrition by ID Widget
         /// </summary>
@@ -632,7 +632,7 @@ namespace spoonacular.Api
         /// Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -646,7 +646,7 @@ namespace spoonacular.Api
         /// Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1281,7 +1281,7 @@ namespace spoonacular.Api
         /// <param name="upc">The UPC of the product for which you want to find comparable products.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetComparableProducts200Response</returns>
-        public GetComparableProducts200Response GetComparableProducts(decimal upc, int operationIndex = 0)
+        public GetComparableProducts200Response GetComparableProducts(string upc, int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<GetComparableProducts200Response> localVarResponse = GetComparableProductsWithHttpInfo(upc);
             return localVarResponse.Data;
@@ -1294,8 +1294,14 @@ namespace spoonacular.Api
         /// <param name="upc">The UPC of the product for which you want to find comparable products.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetComparableProducts200Response</returns>
-        public spoonacular.Client.ApiResponse<GetComparableProducts200Response> GetComparableProductsWithHttpInfo(decimal upc, int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<GetComparableProducts200Response> GetComparableProductsWithHttpInfo(string upc, int operationIndex = 0)
         {
+            // verify the required parameter 'upc' is set
+            if (upc == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'upc' when calling ProductsApi->GetComparableProducts");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1351,7 +1357,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetComparableProducts200Response</returns>
-        public async System.Threading.Tasks.Task<GetComparableProducts200Response> GetComparableProductsAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetComparableProducts200Response> GetComparableProductsAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<GetComparableProducts200Response> localVarResponse = await GetComparableProductsWithHttpInfoAsync(upc, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1365,8 +1371,14 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetComparableProducts200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetComparableProducts200Response>> GetComparableProductsWithHttpInfoAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetComparableProducts200Response>> GetComparableProductsWithHttpInfoAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'upc' is set
+            if (upc == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'upc' when calling ProductsApi->GetComparableProducts");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1420,12 +1432,12 @@ namespace spoonacular.Api
         /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetProductInformation200Response</returns>
-        public GetProductInformation200Response GetProductInformation(int id, int operationIndex = 0)
+        /// <returns>ProductInformation</returns>
+        public ProductInformation GetProductInformation(int id, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GetProductInformation200Response> localVarResponse = GetProductInformationWithHttpInfo(id);
+            spoonacular.Client.ApiResponse<ProductInformation> localVarResponse = GetProductInformationWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -1433,10 +1445,10 @@ namespace spoonacular.Api
         /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetProductInformation200Response</returns>
-        public spoonacular.Client.ApiResponse<GetProductInformation200Response> GetProductInformationWithHttpInfo(int id, int operationIndex = 0)
+        /// <returns>ApiResponse of ProductInformation</returns>
+        public spoonacular.Client.ApiResponse<ProductInformation> GetProductInformationWithHttpInfo(int id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1472,7 +1484,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetProductInformation200Response>("/food/products/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ProductInformation>("/food/products/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetProductInformation", localVarResponse);
@@ -1489,13 +1501,13 @@ namespace spoonacular.Api
         /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetProductInformation200Response</returns>
-        public async System.Threading.Tasks.Task<GetProductInformation200Response> GetProductInformationAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ProductInformation</returns>
+        public async System.Threading.Tasks.Task<ProductInformation> GetProductInformationAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GetProductInformation200Response> localVarResponse = await GetProductInformationWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<ProductInformation> localVarResponse = await GetProductInformationWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1503,11 +1515,11 @@ namespace spoonacular.Api
         /// Get Product Information Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the packaged food.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetProductInformation200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetProductInformation200Response>> GetProductInformationWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ProductInformation)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<ProductInformation>> GetProductInformationWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -1544,7 +1556,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetProductInformation200Response>("/food/products/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ProductInformation>("/food/products/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1565,7 +1577,7 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream ProductNutritionByIDImage(decimal id, int operationIndex = 0)
+        public System.IO.Stream ProductNutritionByIDImage(int id, int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = ProductNutritionByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
@@ -1578,7 +1590,7 @@ namespace spoonacular.Api
         /// <param name="id">The id of the product.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public spoonacular.Client.ApiResponse<System.IO.Stream> ProductNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<System.IO.Stream> ProductNutritionByIDImageWithHttpInfo(int id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1635,7 +1647,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await ProductNutritionByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1649,7 +1661,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> ProductNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> ProductNutritionByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -1710,7 +1722,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream ProductNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public System.IO.Stream ProductNutritionLabelImage(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = ProductNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
             return localVarResponse.Data;
@@ -1726,7 +1738,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public spoonacular.Client.ApiResponse<System.IO.Stream> ProductNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<System.IO.Stream> ProductNutritionLabelImageWithHttpInfo(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1798,7 +1810,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> ProductNutritionLabelImageAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await ProductNutritionLabelImageWithHttpInfoAsync(id, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1815,7 +1827,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> ProductNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> ProductNutritionLabelImageWithHttpInfoAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -1889,7 +1901,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string ProductNutritionLabelWidget(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public string ProductNutritionLabelWidget(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<string> localVarResponse = ProductNutritionLabelWidgetWithHttpInfo(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients);
             return localVarResponse.Data;
@@ -1906,7 +1918,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> ProductNutritionLabelWidgetWithHttpInfo(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> ProductNutritionLabelWidgetWithHttpInfo(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1983,7 +1995,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> ProductNutritionLabelWidgetAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> ProductNutritionLabelWidgetAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<string> localVarResponse = await ProductNutritionLabelWidgetWithHttpInfoAsync(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2001,7 +2013,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> ProductNutritionLabelWidgetWithHttpInfoAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> ProductNutritionLabelWidgetWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -2072,7 +2084,7 @@ namespace spoonacular.Api
         /// Search Grocery Products Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -2086,7 +2098,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchGroceryProducts200Response</returns>
-        public SearchGroceryProducts200Response SearchGroceryProducts(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public SearchGroceryProducts200Response SearchGroceryProducts(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<SearchGroceryProducts200Response> localVarResponse = SearchGroceryProductsWithHttpInfo(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number);
             return localVarResponse.Data;
@@ -2096,7 +2108,7 @@ namespace spoonacular.Api
         /// Search Grocery Products Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -2110,8 +2122,14 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchGroceryProducts200Response</returns>
-        public spoonacular.Client.ApiResponse<SearchGroceryProducts200Response> SearchGroceryProductsWithHttpInfo(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<SearchGroceryProducts200Response> SearchGroceryProductsWithHttpInfo(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling ProductsApi->SearchGroceryProducts");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2134,10 +2152,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (minCalories != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "minCalories", minCalories));
@@ -2210,7 +2225,7 @@ namespace spoonacular.Api
         /// Search Grocery Products Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -2225,7 +2240,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchGroceryProducts200Response</returns>
-        public async System.Threading.Tasks.Task<SearchGroceryProducts200Response> SearchGroceryProductsAsync(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchGroceryProducts200Response> SearchGroceryProductsAsync(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<SearchGroceryProducts200Response> localVarResponse = await SearchGroceryProductsWithHttpInfoAsync(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2235,7 +2250,7 @@ namespace spoonacular.Api
         /// Search Grocery Products Search packaged food products, such as frozen pizza or Greek yogurt.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="minCalories">The minimum amount of calories the product must have. (optional)</param>
         /// <param name="maxCalories">The maximum amount of calories the product can have. (optional)</param>
         /// <param name="minCarbs">The minimum amount of carbohydrates in grams the product must have. (optional)</param>
@@ -2250,8 +2265,14 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchGroceryProducts200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchGroceryProducts200Response>> SearchGroceryProductsWithHttpInfoAsync(string? query = default(string?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchGroceryProducts200Response>> SearchGroceryProductsWithHttpInfoAsync(string query, decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), bool? addProductInformation = default(bool?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling ProductsApi->SearchGroceryProducts");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -2275,10 +2296,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (minCalories != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "minCalories", minCalories));
@@ -2355,7 +2373,7 @@ namespace spoonacular.Api
         /// <param name="upc">The product&#39;s UPC.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchGroceryProductsByUPC200Response</returns>
-        public SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC(decimal upc, int operationIndex = 0)
+        public SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC(string upc, int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<SearchGroceryProductsByUPC200Response> localVarResponse = SearchGroceryProductsByUPCWithHttpInfo(upc);
             return localVarResponse.Data;
@@ -2368,8 +2386,14 @@ namespace spoonacular.Api
         /// <param name="upc">The product&#39;s UPC.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchGroceryProductsByUPC200Response</returns>
-        public spoonacular.Client.ApiResponse<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCWithHttpInfo(decimal upc, int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCWithHttpInfo(string upc, int operationIndex = 0)
         {
+            // verify the required parameter 'upc' is set
+            if (upc == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'upc' when calling ProductsApi->SearchGroceryProductsByUPC");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2425,7 +2449,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchGroceryProductsByUPC200Response</returns>
-        public async System.Threading.Tasks.Task<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchGroceryProductsByUPC200Response> SearchGroceryProductsByUPCAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<SearchGroceryProductsByUPC200Response> localVarResponse = await SearchGroceryProductsByUPCWithHttpInfoAsync(upc, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2439,8 +2463,14 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchGroceryProductsByUPC200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchGroceryProductsByUPC200Response>> SearchGroceryProductsByUPCWithHttpInfoAsync(decimal upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchGroceryProductsByUPC200Response>> SearchGroceryProductsByUPCWithHttpInfoAsync(string upc, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'upc' is set
+            if (upc == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'upc' when calling ProductsApi->SearchGroceryProductsByUPC");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -2494,7 +2524,7 @@ namespace spoonacular.Api
         /// Product Nutrition by ID Widget Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -2508,7 +2538,7 @@ namespace spoonacular.Api
         /// Product Nutrition by ID Widget Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -2569,7 +2599,7 @@ namespace spoonacular.Api
         /// Product Nutrition by ID Widget Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2584,7 +2614,7 @@ namespace spoonacular.Api
         /// Product Nutrition by ID Widget Visualize a product&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the product.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -15,7 +15,7 @@ defmodule SpoonacularAPI.Model.AnalyzeRecipeInstructions200ResponseParsedInstruc
   ]
 
   @type t :: %__MODULE__{
-    :id => float(),
+    :id => integer(),
     :name => String.t,
     :localizedName => String.t,
     :image => String.t

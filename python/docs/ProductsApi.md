@@ -309,7 +309,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    upc = 33698816271 # float | The UPC of the product for which you want to find comparable products.
+    upc = '033698816271' # str | The UPC of the product for which you want to find comparable products.
 
     try:
         # Get Comparable Products
@@ -327,7 +327,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **float**| The UPC of the product for which you want to find comparable products. | 
+ **upc** | **str**| The UPC of the product for which you want to find comparable products. | 
 
 ### Return type
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_product_information**
-> GetProductInformation200Response get_product_information(id)
+> ProductInformation get_product_information(id)
 
 Get Product Information
 
@@ -366,7 +366,7 @@ Use a product id to get full information about a product, such as ingredients, n
 
 ```python
 import spoonacular
-from spoonacular.models.get_product_information200_response import GetProductInformation200Response
+from spoonacular.models.product_information import ProductInformation
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -391,7 +391,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    id = 1 # int | The item's id.
+    id = 22347 # int | The id of the packaged food.
 
     try:
         # Get Product Information
@@ -409,11 +409,11 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the packaged food. | 
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -472,7 +472,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    id = 7657 # float | The id of the product.
+    id = 7657 # int | The id of the product.
 
     try:
         # Product Nutrition by ID Image
@@ -490,7 +490,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The id of the product. | 
+ **id** | **int**| The id of the product. | 
 
 ### Return type
 
@@ -553,7 +553,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    id = 22347 # float | The product id.
+    id = 22347 # int | The product id.
     show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
     show_zero_values = false # bool | Whether to show zero values. (optional)
     show_ingredients = false # bool | Whether to show a list of ingredients. (optional)
@@ -574,7 +574,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The product id. | 
+ **id** | **int**| The product id. | 
  **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
  **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] 
@@ -640,7 +640,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    id = 22347 # float | The product id.
+    id = 22347 # int | The product id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
     show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
     show_zero_values = false # bool | Whether to show zero values. (optional)
@@ -662,7 +662,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The product id. | 
+ **id** | **int**| The product id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
  **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_grocery_products**
-> SearchGroceryProducts200Response search_grocery_products(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_product_information=add_product_information, offset=offset, number=number)
+> SearchGroceryProducts200Response search_grocery_products(query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_product_information=add_product_information, offset=offset, number=number)
 
 Search Grocery Products
 
@@ -730,7 +730,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    query = 'burger' # str | The (natural language) search query. (optional)
+    query = 'burger' # str | The (natural language) search query.
     min_calories = 50 # float | The minimum amount of calories the product must have. (optional)
     max_calories = 800 # float | The maximum amount of calories the product can have. (optional)
     min_carbs = 10 # float | The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -745,7 +745,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
     try:
         # Search Grocery Products
-        api_response = api_instance.search_grocery_products(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_product_information=add_product_information, offset=offset, number=number)
+        api_response = api_instance.search_grocery_products(query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_product_information=add_product_information, offset=offset, number=number)
         print("The response of ProductsApi->search_grocery_products:\n")
         pprint(api_response)
     except Exception as e:
@@ -759,7 +759,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
+ **query** | **str**| The (natural language) search query. | 
  **min_calories** | **float**| The minimum amount of calories the product must have. | [optional] 
  **max_calories** | **float**| The maximum amount of calories the product can have. | [optional] 
  **min_carbs** | **float**| The minimum amount of carbohydrates in grams the product must have. | [optional] 
@@ -834,7 +834,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    upc = 41631000564 # float | The product's UPC.
+    upc = '041631000564' # str | The product's UPC.
 
     try:
         # Search Grocery Products by UPC
@@ -852,7 +852,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **float**| The product&#39;s UPC. | 
+ **upc** | **str**| The product&#39;s UPC. | 
 
 ### Return type
 
@@ -915,7 +915,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.ProductsApi(api_client)
-    id = 1 # int | The item's id.
+    id = 7657 # int | The id of the product.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
 
     try:
@@ -934,7 +934,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the product. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
 
 ### Return type

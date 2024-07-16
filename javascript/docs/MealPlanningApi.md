@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ## addToShoppingList
 
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
+> GetShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -366,7 +366,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = "dsky"; // String | The username.
-let id = 1; // Number | The item's id.
+let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.deleteFromShoppingList(username, id, hash, (error, data, response) => {
   if (error) {
@@ -383,7 +383,7 @@ apiInstance.deleteFromShoppingList(username, id, hash, (error, data, response) =
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
 
 ### Return type
@@ -421,7 +421,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = "dsky"; // String | The username.
-let id = 1; // Number | The item's id.
+let id = 15678; // Number | The shopping list item id.
 let hash = "4b5v4398573406"; // String | The private hash for the username.
 apiInstance.deleteMealPlanTemplate(username, id, hash, (error, data, response) => {
   if (error) {
@@ -438,7 +438,7 @@ apiInstance.deleteMealPlanTemplate(username, id, hash, (error, data, response) =
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
 
 ### Return type
@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 
 ## generateShoppingList
 
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
+> GetShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -592,7 +592,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 
 let apiInstance = new SpoonacularApi.MealPlanningApi();
 let username = "dsky"; // String | The username.
-let id = 1; // Number | The item's id.
+let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.getMealPlanTemplate(username, id, hash, (error, data, response) => {
   if (error) {
@@ -609,7 +609,7 @@ apiInstance.getMealPlanTemplate(username, id, hash, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
 
 ### Return type

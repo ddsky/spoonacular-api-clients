@@ -16,14 +16,14 @@ defmodule SpoonacularAPI.Model.SearchAllFood200ResponseSearchResultsInner do
   @type t :: %__MODULE__{
     :name => String.t,
     :totalResults => integer(),
-    :results => [SpoonacularAPI.Model.SearchAllFood200ResponseSearchResultsInnerResultsInner.t] | nil
+    :results => [SpoonacularAPI.Model.SearchResult.t] | nil
   }
 
   alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:results, :list, SpoonacularAPI.Model.SearchAllFood200ResponseSearchResultsInnerResultsInner)
+     |> Deserializer.deserialize(:results, :list, SpoonacularAPI.Model.SearchResult)
   end
 end
 

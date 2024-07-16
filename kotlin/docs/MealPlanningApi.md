@@ -126,7 +126,7 @@ Configure apiKeyScheme:
 
 <a id="addToShoppingList"></a>
 # **addToShoppingList**
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
+> GetShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -143,7 +143,7 @@ val username : kotlin.String = dsky // kotlin.String | The username.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
 val addToShoppingListRequest : AddToShoppingListRequest = {"item":"1 package baking powder","aisle":"Baking","parse":true} // AddToShoppingListRequest | 
 try {
-    val result : GenerateShoppingList200Response = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest)
+    val result : GetShoppingList200Response = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#addToShoppingList")
@@ -163,7 +163,7 @@ try {
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -295,7 +295,7 @@ Delete an item from the user&#39;s meal plan.
 
 val apiInstance = MealPlanningApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
-val id : java.math.BigDecimal = 15678 // java.math.BigDecimal | The shopping list item id.
+val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
 try {
     val result : kotlin.Any = apiInstance.deleteFromMealPlan(username, id, hash)
@@ -311,7 +311,7 @@ try {
 
 ### Parameters
 | **username** | **kotlin.String**| The username. | |
-| **id** | **java.math.BigDecimal**| The shopping list item id. | |
+| **id** | **kotlin.Int**| The shopping list item id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hash** | **kotlin.String**| The private hash for the username. | |
@@ -348,7 +348,7 @@ Delete an item from the current shopping list of the user.
 
 val apiInstance = MealPlanningApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
 try {
     val result : kotlin.Any = apiInstance.deleteFromShoppingList(username, id, hash)
@@ -364,7 +364,7 @@ try {
 
 ### Parameters
 | **username** | **kotlin.String**| The username. | |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The shopping list item id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hash** | **kotlin.String**| The private hash for the username. | |
@@ -401,7 +401,7 @@ Delete a meal plan template for a user.
 
 val apiInstance = MealPlanningApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
 val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
 try {
     val result : kotlin.Any = apiInstance.deleteMealPlanTemplate(username, id, hash)
@@ -417,7 +417,7 @@ try {
 
 ### Parameters
 | **username** | **kotlin.String**| The username. | |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The shopping list item id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hash** | **kotlin.String**| The private hash for the username. | |
@@ -495,7 +495,7 @@ Configure apiKeyScheme:
 
 <a id="generateShoppingList"></a>
 # **generateShoppingList**
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
+> GetShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -513,7 +513,7 @@ val startDate : kotlin.String = 2020-06-01 // kotlin.String | The start date in 
 val endDate : kotlin.String = 2020-06-07 // kotlin.String | The end date in the format yyyy-mm-dd.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
 try {
-    val result : GenerateShoppingList200Response = apiInstance.generateShoppingList(username, startDate, endDate, hash)
+    val result : GetShoppingList200Response = apiInstance.generateShoppingList(username, startDate, endDate, hash)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MealPlanningApi#generateShoppingList")
@@ -534,7 +534,7 @@ try {
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -564,7 +564,7 @@ Get information about a meal plan template.
 
 val apiInstance = MealPlanningApi()
 val username : kotlin.String = dsky // kotlin.String | The username.
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
 val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
 try {
     val result : GetMealPlanTemplate200Response = apiInstance.getMealPlanTemplate(username, id, hash)
@@ -580,7 +580,7 @@ try {
 
 ### Parameters
 | **username** | **kotlin.String**| The username. | |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The shopping list item id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hash** | **kotlin.String**| The private hash for the username. | |

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**original** | [**models::ParseIngredients200ResponseInnerNutritionWeightPerServing**](parseIngredients_200_response_inner_nutrition_weightPerServing.md) |  | 
-**metric** | [**models::ParseIngredients200ResponseInnerNutritionWeightPerServing**](parseIngredients_200_response_inner_nutrition_weightPerServing.md) |  | 
-**us** | [**models::ParseIngredients200ResponseInnerNutritionWeightPerServing**](parseIngredients_200_response_inner_nutrition_weightPerServing.md) |  | 
+**original** | [**models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](getShoppingList_200_response_aisles_inner_items_inner_measures_original.md) |  | 
+**metric** | [**models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](getShoppingList_200_response_aisles_inner_items_inner_measures_original.md) |  | 
+**us** | [**models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](getShoppingList_200_response_aisles_inner_items_inner_measures_original.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

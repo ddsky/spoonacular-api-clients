@@ -22,7 +22,6 @@ import com.spoonacular.MiscApi
 import com.spoonacular.client.model.DetectFoodInText200Response
 import com.spoonacular.client.model.GetARandomFoodJoke200Response
 import com.spoonacular.client.model.GetConversationSuggests200Response
-import com.spoonacular.client.model.GetRandomFoodTrivia200Response
 import com.spoonacular.client.model.ImageAnalysisByURL200Response
 import com.spoonacular.client.model.ImageClassificationByURL200Response
 import com.spoonacular.client.model.SearchAllFood200Response
@@ -63,7 +62,7 @@ class MiscApiTest : ShouldSpec() {
         // to test getRandomFoodTrivia
         should("test getRandomFoodTrivia") {
             // uncomment below to test getRandomFoodTrivia
-            //val result : GetRandomFoodTrivia200Response = apiInstance.getRandomFoodTrivia()
+            //val result : GetARandomFoodJoke200Response = apiInstance.getRandomFoodTrivia()
             //result shouldBe ("TODO")
         }
 
@@ -96,12 +95,12 @@ class MiscApiTest : ShouldSpec() {
         // to test searchCustomFoods
         should("test searchCustomFoods") {
             // uncomment below to test searchCustomFoods
+            //val query : kotlin.String = burger // kotlin.String | The (natural language) search query.
             //val username : kotlin.String = dsky // kotlin.String | The username.
             //val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
-            //val query : kotlin.String = burger // kotlin.String | The (natural language) search query.
             //val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
             //val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-            //val result : SearchCustomFoods200Response = apiInstance.searchCustomFoods(username, hash, query, offset, number)
+            //val result : SearchCustomFoods200Response = apiInstance.searchCustomFoods(query, username, hash, offset, number)
             //result shouldBe ("TODO")
         }
 

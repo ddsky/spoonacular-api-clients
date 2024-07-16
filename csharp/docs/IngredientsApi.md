@@ -16,7 +16,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="autocompleteingredientsearch"></a>
 # **AutocompleteIngredientSearch**
-> List&lt;AutocompleteIngredientSearch200ResponseInner&gt; AutocompleteIngredientSearch (string? query = null, int? number = null, bool? metaInformation = null, string? intolerances = null, string? language = null)
+> List&lt;AutocompleteIngredientSearch200ResponseInner&gt; AutocompleteIngredientSearch (string query, int? number = null, bool? metaInformation = null, string? intolerances = null, string? language = null)
 
 Autocomplete Ingredient Search
 
@@ -44,7 +44,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi(config);
-            var query = burger;  // string? | The (natural language) search query. (optional) 
+            var query = burger;  // string | The (natural language) search query.
             var number = 10;  // int? | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)  (default to 10)
             var metaInformation = false;  // bool? | Whether to return more meta information about the ingredients. (optional) 
             var intolerances = egg;  // string? | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional) 
@@ -91,7 +91,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | The (natural language) search query. | [optional]  |
+| **query** | **string** | The (natural language) search query. |  |
 | **number** | **int?** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | **metaInformation** | **bool?** | Whether to return more meta information about the ingredients. | [optional]  |
 | **intolerances** | **string?** | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional]  |
@@ -123,7 +123,7 @@ catch (ApiException e)
 
 <a id="computeingredientamount"></a>
 # **ComputeIngredientAmount**
-> ComputeIngredientAmount200Response ComputeIngredientAmount (decimal id, string nutrient, decimal target, string? unit = null)
+> ComputeIngredientAmount200Response ComputeIngredientAmount (int id, string nutrient, int target, string? unit = null)
 
 Compute Ingredient Amount
 
@@ -151,9 +151,9 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi(config);
-            var id = 9266;  // decimal | The id of the ingredient you want the amount for.
+            var id = 9266;  // int | The id of the ingredient you want the amount for.
             var nutrient = protein;  // string | The target nutrient. See a list of supported nutrients.
-            var target = 2;  // decimal | The target number of the given nutrient.
+            var target = 2;  // int | The target number of the given nutrient.
             var unit = oz;  // string? | The target unit. (optional) 
 
             try
@@ -197,9 +197,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The id of the ingredient you want the amount for. |  |
+| **id** | **int** | The id of the ingredient you want the amount for. |  |
 | **nutrient** | **string** | The target nutrient. See a list of supported nutrients. |  |
-| **target** | **decimal** | The target number of the given nutrient. |  |
+| **target** | **int** | The target number of the given nutrient. |  |
 | **unit** | **string?** | The target unit. | [optional]  |
 
 ### Return type
@@ -228,7 +228,7 @@ catch (ApiException e)
 
 <a id="getingredientinformation"></a>
 # **GetIngredientInformation**
-> GetIngredientInformation200Response GetIngredientInformation (int id, decimal? amount = null, string? unit = null)
+> IngredientInformation GetIngredientInformation (int id, decimal? amount = null, string? unit = null)
 
 Get Ingredient Information
 
@@ -256,14 +256,14 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 9266;  // int | The ingredient id.
             var amount = 150;  // decimal? | The amount of this ingredient. (optional) 
             var unit = grams;  // string? | The unit for the given amount. (optional) 
 
             try
             {
                 // Get Ingredient Information
-                GetIngredientInformation200Response result = apiInstance.GetIngredientInformation(id, amount, unit);
+                IngredientInformation result = apiInstance.GetIngredientInformation(id, amount, unit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -284,7 +284,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Ingredient Information
-    ApiResponse<GetIngredientInformation200Response> response = apiInstance.GetIngredientInformationWithHttpInfo(id, amount, unit);
+    ApiResponse<IngredientInformation> response = apiInstance.GetIngredientInformationWithHttpInfo(id, amount, unit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -301,13 +301,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The ingredient id. |  |
 | **amount** | **decimal?** | The amount of this ingredient. | [optional]  |
 | **unit** | **string?** | The unit for the given amount. | [optional]  |
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 1001;  // int | The id of the ingredient you want substitutes for.
 
             try
             {
@@ -501,7 +501,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The id of the ingredient you want substitutes for. |  |
 
 ### Return type
 
@@ -529,7 +529,7 @@ catch (ApiException e)
 
 <a id="ingredientsearch"></a>
 # **IngredientSearch**
-> IngredientSearch200Response IngredientSearch (string? query = null, bool? addChildren = null, decimal? minProteinPercent = null, decimal? maxProteinPercent = null, decimal? minFatPercent = null, decimal? maxFatPercent = null, decimal? minCarbsPercent = null, decimal? maxCarbsPercent = null, bool? metaInformation = null, string? intolerances = null, string? sort = null, string? sortDirection = null, int? offset = null, int? number = null, string? language = null)
+> IngredientSearch200Response IngredientSearch (string query, bool? addChildren = null, decimal? minProteinPercent = null, decimal? maxProteinPercent = null, decimal? minFatPercent = null, decimal? maxFatPercent = null, decimal? minCarbsPercent = null, decimal? maxCarbsPercent = null, bool? metaInformation = null, string? intolerances = null, string? sort = null, string? sortDirection = null, int? offset = null, int? number = null, string? language = null)
 
 Ingredient Search
 
@@ -557,7 +557,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi(config);
-            var query = burger;  // string? | The (natural language) search query. (optional) 
+            var query = burger;  // string | The (natural language) search query.
             var addChildren = true;  // bool? | Whether to add children of found foods. (optional) 
             var minProteinPercent = 10;  // decimal? | The minimum percentage of protein the food must have (between 0 and 100). (optional) 
             var maxProteinPercent = 90;  // decimal? | The maximum percentage of protein the food can have (between 0 and 100). (optional) 
@@ -614,7 +614,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | The (natural language) search query. | [optional]  |
+| **query** | **string** | The (natural language) search query. |  |
 | **addChildren** | **bool?** | Whether to add children of found foods. | [optional]  |
 | **minProteinPercent** | **decimal?** | The minimum percentage of protein the food must have (between 0 and 100). | [optional]  |
 | **maxProteinPercent** | **decimal?** | The maximum percentage of protein the food can have (between 0 and 100). | [optional]  |
@@ -656,7 +656,7 @@ catch (ApiException e)
 
 <a id="ingredientsbyidimage"></a>
 # **IngredientsByIDImage**
-> System.IO.Stream IngredientsByIDImage (decimal id, string? measure = null)
+> System.IO.Stream IngredientsByIDImage (int id, string? measure = null)
 
 Ingredients by ID Image
 
@@ -684,7 +684,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new IngredientsApi(config);
-            var id = 1082038;  // decimal | The recipe id.
+            var id = 1082038;  // int | The recipe id.
             var measure = metric;  // string? | Whether the the measures should be 'us' or 'metric'. (optional) 
 
             try
@@ -728,7 +728,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 | **measure** | **string?** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional]  |
 
 ### Return type

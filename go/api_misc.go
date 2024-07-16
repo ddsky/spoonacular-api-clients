@@ -398,7 +398,7 @@ type ApiGetRandomFoodTriviaRequest struct {
 	ApiService *MiscAPIService
 }
 
-func (r ApiGetRandomFoodTriviaRequest) Execute() (*GetRandomFoodTrivia200Response, *http.Response, error) {
+func (r ApiGetRandomFoodTriviaRequest) Execute() (*GetARandomFoodJoke200Response, *http.Response, error) {
 	return r.ApiService.GetRandomFoodTriviaExecute(r)
 }
 
@@ -418,13 +418,13 @@ func (a *MiscAPIService) GetRandomFoodTrivia(ctx context.Context) ApiGetRandomFo
 }
 
 // Execute executes the request
-//  @return GetRandomFoodTrivia200Response
-func (a *MiscAPIService) GetRandomFoodTriviaExecute(r ApiGetRandomFoodTriviaRequest) (*GetRandomFoodTrivia200Response, *http.Response, error) {
+//  @return GetARandomFoodJoke200Response
+func (a *MiscAPIService) GetRandomFoodTriviaExecute(r ApiGetRandomFoodTriviaRequest) (*GetARandomFoodJoke200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetRandomFoodTrivia200Response
+		localVarReturnValue  *GetARandomFoodJoke200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscAPIService.GetRandomFoodTrivia")
@@ -904,11 +904,17 @@ func (a *MiscAPIService) SearchAllFoodExecute(r ApiSearchAllFoodRequest) (*Searc
 type ApiSearchCustomFoodsRequest struct {
 	ctx context.Context
 	ApiService *MiscAPIService
+	query *string
 	username *string
 	hash *string
-	query *string
 	offset *int32
 	number *int32
+}
+
+// The (natural language) search query.
+func (r ApiSearchCustomFoodsRequest) Query(query string) ApiSearchCustomFoodsRequest {
+	r.query = &query
+	return r
 }
 
 // The username.
@@ -920,12 +926,6 @@ func (r ApiSearchCustomFoodsRequest) Username(username string) ApiSearchCustomFo
 // The private hash for the username.
 func (r ApiSearchCustomFoodsRequest) Hash(hash string) ApiSearchCustomFoodsRequest {
 	r.hash = &hash
-	return r
-}
-
-// The (natural language) search query.
-func (r ApiSearchCustomFoodsRequest) Query(query string) ApiSearchCustomFoodsRequest {
-	r.query = &query
 	return r
 }
 
@@ -980,6 +980,9 @@ func (a *MiscAPIService) SearchCustomFoodsExecute(r ApiSearchCustomFoodsRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
+	}
 	if r.username == nil {
 		return localVarReturnValue, nil, reportError("username is required and must be specified")
 	}
@@ -987,9 +990,7 @@ func (a *MiscAPIService) SearchCustomFoodsExecute(r ApiSearchCustomFoodsRequest)
 		return localVarReturnValue, nil, reportError("hash is required and must be specified")
 	}
 
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
-	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "username", r.username, "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "hash", r.hash, "")
 	if r.offset != nil {
@@ -1183,10 +1184,11 @@ func (a *MiscAPIService) SearchFoodVideosExecute(r ApiSearchFoodVideosRequest) (
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.type_ != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "")
 	}

@@ -22,7 +22,7 @@ var _ MappedNullable = &GetRandomRecipes200Response{}
 
 // GetRandomRecipes200Response 
 type GetRandomRecipes200Response struct {
-	Recipes []GetRandomRecipes200ResponseRecipesInner `json:"recipes"`
+	Recipes []RecipeInformation `json:"recipes"`
 }
 
 type _GetRandomRecipes200Response GetRandomRecipes200Response
@@ -31,7 +31,7 @@ type _GetRandomRecipes200Response GetRandomRecipes200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetRandomRecipes200Response(recipes []GetRandomRecipes200ResponseRecipesInner) *GetRandomRecipes200Response {
+func NewGetRandomRecipes200Response(recipes []RecipeInformation) *GetRandomRecipes200Response {
 	this := GetRandomRecipes200Response{}
 	this.Recipes = recipes
 	return &this
@@ -46,9 +46,9 @@ func NewGetRandomRecipes200ResponseWithDefaults() *GetRandomRecipes200Response {
 }
 
 // GetRecipes returns the Recipes field value
-func (o *GetRandomRecipes200Response) GetRecipes() []GetRandomRecipes200ResponseRecipesInner {
+func (o *GetRandomRecipes200Response) GetRecipes() []RecipeInformation {
 	if o == nil {
-		var ret []GetRandomRecipes200ResponseRecipesInner
+		var ret []RecipeInformation
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *GetRandomRecipes200Response) GetRecipes() []GetRandomRecipes200Response
 
 // GetRecipesOk returns a tuple with the Recipes field value
 // and a boolean to check if the value has been set.
-func (o *GetRandomRecipes200Response) GetRecipesOk() ([]GetRandomRecipes200ResponseRecipesInner, bool) {
+func (o *GetRandomRecipes200Response) GetRecipesOk() ([]RecipeInformation, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *GetRandomRecipes200Response) GetRecipesOk() ([]GetRandomRecipes200Respo
 }
 
 // SetRecipes sets field value
-func (o *GetRandomRecipes200Response) SetRecipes(v []GetRandomRecipes200ResponseRecipesInner) {
+func (o *GetRandomRecipes200Response) SetRecipes(v []RecipeInformation) {
 	o.Recipes = v
 }
 

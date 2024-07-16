@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { SearchGroceryProductsByUPC200ResponseIngredientsInner } from './searchGroceryProductsByUPC200ResponseIngredientsInner';
+import { IngredientBasics } from './ingredientBasics';
 import { SearchGroceryProductsByUPC200ResponseServings } from './searchGroceryProductsByUPC200ResponseServings';
 import { SearchGroceryProductsByUPC200ResponseNutrition } from './searchGroceryProductsByUPC200ResponseNutrition';
 
@@ -23,11 +23,11 @@ export interface SearchGroceryProductsByUPC200Response {
     badges: Array<string>;
     importantBadges: Array<string>;
     breadcrumbs: Array<string>;
-    generatedText: string;
+    generatedText: string | null;
     imageType: string;
     ingredientCount?: number;
     ingredientList: string;
-    ingredients: Set<SearchGroceryProductsByUPC200ResponseIngredientsInner>;
+    ingredients: Array<IngredientBasics>;
     likes: number;
     nutrition: SearchGroceryProductsByUPC200ResponseNutrition;
     price: number;

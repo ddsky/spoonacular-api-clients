@@ -93,7 +93,7 @@ pub async fn analyze_recipe(configuration: &configuration::Configuration, analyz
 }
 
 /// Generate a recipe card for a recipe.
-pub async fn create_recipe_card_get(configuration: &configuration::Configuration, id: f64, mask: Option<&str>, background_image: Option<&str>, background_color: Option<&str>, font_color: Option<&str>) -> Result<serde_json::Value, Error<CreateRecipeCardGetError>> {
+pub async fn create_recipe_card_get(configuration: &configuration::Configuration, id: i32, mask: Option<&str>, background_image: Option<&str>, background_color: Option<&str>, font_color: Option<&str>) -> Result<serde_json::Value, Error<CreateRecipeCardGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -9,15 +9,15 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { GetComparableProducts200ResponseComparableProductsProteinInner } from './getComparableProducts200ResponseComparableProductsProteinInner';
+import { ComparableProduct } from './comparableProduct';
 
 
 export interface GetComparableProducts200ResponseComparableProducts { 
-    calories: Array<object>;
-    likes: Array<object>;
-    price: Array<object>;
-    protein: Set<GetComparableProducts200ResponseComparableProductsProteinInner>;
-    spoonacularScore: Set<GetComparableProducts200ResponseComparableProductsProteinInner>;
-    sugar: Array<object>;
+    calories: Array<ComparableProduct>;
+    likes: Array<ComparableProduct>;
+    price: Array<ComparableProduct>;
+    protein: Array<ComparableProduct>;
+    spoonacular_score: Array<ComparableProduct>;
+    sugar: Array<ComparableProduct>;
 }
 

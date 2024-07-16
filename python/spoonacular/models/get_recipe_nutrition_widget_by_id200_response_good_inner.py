@@ -31,8 +31,8 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner(BaseModel):
     amount: Annotated[str, Field(min_length=1, strict=True)]
     indented: StrictBool
     percent_of_daily_needs: Union[StrictFloat, StrictInt] = Field(alias="percentOfDailyNeeds")
-    name: Annotated[str, Field(min_length=1, strict=True)]
-    __properties: ClassVar[List[str]] = ["amount", "indented", "percentOfDailyNeeds", "name"]
+    title: Annotated[str, Field(min_length=1, strict=True)]
+    __properties: ClassVar[List[str]] = ["amount", "indented", "percentOfDailyNeeds", "title"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +88,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner(BaseModel):
             "amount": obj.get("amount"),
             "indented": obj.get("indented"),
             "percentOfDailyNeeds": obj.get("percentOfDailyNeeds"),
-            "name": obj.get("name")
+            "title": obj.get("title")
         })
         return _obj
 

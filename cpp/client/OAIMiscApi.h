@@ -21,7 +21,6 @@
 #include "OAIDetectFoodInText_200_response.h"
 #include "OAIGetARandomFoodJoke_200_response.h"
 #include "OAIGetConversationSuggests_200_response.h"
-#include "OAIGetRandomFoodTrivia_200_response.h"
 #include "OAIImageAnalysisByURL_200_response.h"
 #include "OAIImageClassificationByURL_200_response.h"
 #include "OAISearchAllFood_200_response.h"
@@ -102,16 +101,16 @@ public:
     void searchAllFood(const QString &query, const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
+    * @param[in]  query QString [required]
     * @param[in]  username QString [required]
     * @param[in]  hash QString [required]
-    * @param[in]  query QString [optional]
     * @param[in]  offset qint32 [optional]
     * @param[in]  number qint32 [optional]
     */
-    void searchCustomFoods(const QString &username, const QString &hash, const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
+    void searchCustomFoods(const QString &query, const QString &username, const QString &hash, const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
-    * @param[in]  query QString [optional]
+    * @param[in]  query QString [required]
     * @param[in]  type QString [optional]
     * @param[in]  cuisine QString [optional]
     * @param[in]  diet QString [optional]
@@ -122,7 +121,7 @@ public:
     * @param[in]  offset qint32 [optional]
     * @param[in]  number qint32 [optional]
     */
-    void searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &cuisine = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &diet = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &include_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &exclude_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &min_length = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_length = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
+    void searchFoodVideos(const QString &query, const ::OpenAPI::OptionalParam<QString> &type = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &cuisine = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &diet = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &include_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &exclude_ingredients = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &min_length = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_length = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  query QString [required]
@@ -175,7 +174,7 @@ Q_SIGNALS:
     void detectFoodInTextSignal(OAIDetectFoodInText_200_response summary);
     void getARandomFoodJokeSignal(OAIGetARandomFoodJoke_200_response summary);
     void getConversationSuggestsSignal(OAIGetConversationSuggests_200_response summary);
-    void getRandomFoodTriviaSignal(OAIGetRandomFoodTrivia_200_response summary);
+    void getRandomFoodTriviaSignal(OAIGetARandomFoodJoke_200_response summary);
     void imageAnalysisByURLSignal(OAIImageAnalysisByURL_200_response summary);
     void imageClassificationByURLSignal(OAIImageClassificationByURL_200_response summary);
     void searchAllFoodSignal(OAISearchAllFood_200_response summary);
@@ -187,7 +186,7 @@ Q_SIGNALS:
     void detectFoodInTextSignalFull(OAIHttpRequestWorker *worker, OAIDetectFoodInText_200_response summary);
     void getARandomFoodJokeSignalFull(OAIHttpRequestWorker *worker, OAIGetARandomFoodJoke_200_response summary);
     void getConversationSuggestsSignalFull(OAIHttpRequestWorker *worker, OAIGetConversationSuggests_200_response summary);
-    void getRandomFoodTriviaSignalFull(OAIHttpRequestWorker *worker, OAIGetRandomFoodTrivia_200_response summary);
+    void getRandomFoodTriviaSignalFull(OAIHttpRequestWorker *worker, OAIGetARandomFoodJoke_200_response summary);
     void imageAnalysisByURLSignalFull(OAIHttpRequestWorker *worker, OAIImageAnalysisByURL_200_response summary);
     void imageClassificationByURLSignalFull(OAIHttpRequestWorker *worker, OAIImageClassificationByURL_200_response summary);
     void searchAllFoodSignalFull(OAIHttpRequestWorker *worker, OAISearchAllFood_200_response summary);
@@ -206,8 +205,8 @@ Q_SIGNALS:
     void getConversationSuggestsSignalE(OAIGetConversationSuggests_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getConversationSuggestsSignalError(OAIGetConversationSuggests_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getRandomFoodTriviaSignalError() instead")
-    void getRandomFoodTriviaSignalE(OAIGetRandomFoodTrivia_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getRandomFoodTriviaSignalError(OAIGetRandomFoodTrivia_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getRandomFoodTriviaSignalE(OAIGetARandomFoodJoke_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getRandomFoodTriviaSignalError(OAIGetARandomFoodJoke_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use imageAnalysisByURLSignalError() instead")
     void imageAnalysisByURLSignalE(OAIImageAnalysisByURL_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void imageAnalysisByURLSignalError(OAIImageAnalysisByURL_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

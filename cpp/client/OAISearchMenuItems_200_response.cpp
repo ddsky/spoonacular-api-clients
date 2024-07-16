@@ -102,10 +102,10 @@ QJsonObject OAISearchMenuItems_200_response::asJsonObject() const {
     return obj;
 }
 
-QSet<OAISearchMenuItems_200_response_menuItems_inner> OAISearchMenuItems_200_response::getMenuItems() const {
+QSet<OAIMenuItem> OAISearchMenuItems_200_response::getMenuItems() const {
     return m_menu_items;
 }
-void OAISearchMenuItems_200_response::setMenuItems(const QSet<OAISearchMenuItems_200_response_menuItems_inner> &menu_items) {
+void OAISearchMenuItems_200_response::setMenuItems(const QSet<OAIMenuItem> &menu_items) {
     m_menu_items = menu_items;
     m_menu_items_isSet = true;
 }

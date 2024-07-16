@@ -58,7 +58,7 @@ class AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'float',
+        'id' => 'int',
         'name' => 'string',
         'localized_name' => 'string',
         'image' => 'string'
@@ -338,7 +338,7 @@ class AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
     /**
      * Gets id
      *
-     * @return float
+     * @return int
      */
     public function getId()
     {
@@ -348,7 +348,7 @@ class AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
     /**
      * Sets id
      *
-     * @param float $id id
+     * @param int $id id
      *
      * @return self
      */

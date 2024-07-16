@@ -70,7 +70,7 @@ import qualified Prelude as P
 -- 
 autocompleteMenuItemSearch
   :: Query -- ^ "query" -  The (partial) search query.
-  -> SpoonacularRequest AutocompleteMenuItemSearch MimeNoContent AutocompleteMenuItemSearch200Response MimeJSON
+  -> SpoonacularRequest AutocompleteMenuItemSearch MimeNoContent AutocompleteProductSearch200Response MimeJSON
 autocompleteMenuItemSearch (Query query) =
   _mkRequest "GET" ["/food/menuItems/suggest"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -79,8 +79,8 @@ autocompleteMenuItemSearch (Query query) =
 data AutocompleteMenuItemSearch  
 
 -- | /Optional Param/ "number" - The number of results to return (between 1 and 25).
-instance HasOptionalParam AutocompleteMenuItemSearch NumberDouble where
-  applyOptionalParam req (NumberDouble xs) =
+instance HasOptionalParam AutocompleteMenuItemSearch Number where
+  applyOptionalParam req (Number xs) =
     req `addQuery` toQuery ("number", Just xs)
 -- | @application/json@
 instance Produces AutocompleteMenuItemSearch MimeJSON
@@ -97,8 +97,8 @@ instance Produces AutocompleteMenuItemSearch MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getMenuItemInformation
-  :: Id -- ^ "id" -  The item's id.
-  -> SpoonacularRequest GetMenuItemInformation MimeNoContent GetMenuItemInformation200Response MimeJSON
+  :: Id -- ^ "id" -  The menu item id.
+  -> SpoonacularRequest GetMenuItemInformation MimeNoContent MenuItem MimeJSON
 getMenuItemInformation (Id id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -119,9 +119,9 @@ instance Produces GetMenuItemInformation MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 menuItemNutritionByIDImage
-  :: IdDouble -- ^ "id" -  The menu item id.
+  :: Id -- ^ "id" -  The menu item id.
   -> SpoonacularRequest MenuItemNutritionByIDImage MimeNoContent FilePath MimeImagePng
-menuItemNutritionByIDImage (IdDouble id) =
+menuItemNutritionByIDImage (Id id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id,"/nutritionWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -141,9 +141,9 @@ instance Produces MenuItemNutritionByIDImage MimeImagePng
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 menuItemNutritionLabelImage
-  :: IdDouble -- ^ "id" -  The menu item id.
+  :: Id -- ^ "id" -  The menu item id.
   -> SpoonacularRequest MenuItemNutritionLabelImage MimeNoContent FilePath MimeImagePng
-menuItemNutritionLabelImage (IdDouble id) =
+menuItemNutritionLabelImage (Id id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id,"/nutritionLabel.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -178,9 +178,9 @@ instance Produces MenuItemNutritionLabelImage MimeImagePng
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 menuItemNutritionLabelWidget
-  :: IdDouble -- ^ "id" -  The menu item id.
+  :: Id -- ^ "id" -  The menu item id.
   -> SpoonacularRequest MenuItemNutritionLabelWidget MimeNoContent Text MimeTextHtml
-menuItemNutritionLabelWidget (IdDouble id) =
+menuItemNutritionLabelWidget (Id id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id,"/nutritionLabel"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -220,17 +220,14 @@ instance Produces MenuItemNutritionLabelWidget MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 searchMenuItems
-  :: SpoonacularRequest SearchMenuItems MimeNoContent SearchMenuItems200Response MimeJSON
-searchMenuItems =
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> SpoonacularRequest SearchMenuItems MimeNoContent SearchMenuItems200Response MimeJSON
+searchMenuItems (Query query) =
   _mkRequest "GET" ["/food/menuItems/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
 
 data SearchMenuItems  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam SearchMenuItems Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "minCalories" - The minimum amount of calories the menu item must have.
 instance HasOptionalParam SearchMenuItems MinCalories where
@@ -301,7 +298,7 @@ instance Produces SearchMenuItems MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeMenuItemNutritionByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The menu item id.
   -> SpoonacularRequest VisualizeMenuItemNutritionByID MimeNoContent Text MimeTextHtml
 visualizeMenuItemNutritionByID (Id id) =
   _mkRequest "GET" ["/food/menuItems/",toPath id,"/nutritionWidget"]

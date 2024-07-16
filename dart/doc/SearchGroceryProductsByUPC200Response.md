@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **imageType** | **String** |  | 
 **ingredientCount** | **int** |  | [optional] 
 **ingredientList** | **String** |  | 
-**ingredients** | [**Set<SearchGroceryProductsByUPC200ResponseIngredientsInner>**](SearchGroceryProductsByUPC200ResponseIngredientsInner.md) |  | [default to const {}]
+**ingredients** | [**List<IngredientBasics>**](IngredientBasics.md) |  | [default to const []]
 **likes** | **num** |  | 
 **nutrition** | [**SearchGroceryProductsByUPC200ResponseNutrition**](SearchGroceryProductsByUPC200ResponseNutrition.md) |  | 
 **price** | **num** |  | 

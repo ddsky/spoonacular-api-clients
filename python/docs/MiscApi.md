@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_random_food_trivia**
-> GetRandomFoodTrivia200Response get_random_food_trivia()
+> GetARandomFoodJoke200Response get_random_food_trivia()
 
 Random Food Trivia
 
@@ -274,7 +274,7 @@ Returns random food trivia.
 
 ```python
 import spoonacular
-from spoonacular.models.get_random_food_trivia200_response import GetRandomFoodTrivia200Response
+from spoonacular.models.get_a_random_food_joke200_response import GetARandomFoodJoke200Response
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -317,7 +317,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -590,7 +590,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_custom_foods**
-> SearchCustomFoods200Response search_custom_foods(username, hash, query=query, offset=offset, number=number)
+> SearchCustomFoods200Response search_custom_foods(query, username, hash, offset=offset, number=number)
 
 Search Custom Foods
 
@@ -627,15 +627,15 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MiscApi(api_client)
+    query = 'burger' # str | The (natural language) search query.
     username = 'dsky' # str | The username.
     hash = '4b5v4398573406' # str | The private hash for the username.
-    query = 'burger' # str | The (natural language) search query. (optional)
     offset = 56 # int | The number of results to skip (between 0 and 900). (optional)
     number = 10 # int | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
     try:
         # Search Custom Foods
-        api_response = api_instance.search_custom_foods(username, hash, query=query, offset=offset, number=number)
+        api_response = api_instance.search_custom_foods(query, username, hash, offset=offset, number=number)
         print("The response of MiscApi->search_custom_foods:\n")
         pprint(api_response)
     except Exception as e:
@@ -649,9 +649,9 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | **str**| The (natural language) search query. | 
  **username** | **str**| The username. | 
  **hash** | **str**| The private hash for the username. | 
- **query** | **str**| The (natural language) search query. | [optional] 
  **offset** | **int**| The number of results to skip (between 0 and 900). | [optional] 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_food_videos**
-> SearchFoodVideos200Response search_food_videos(query=query, type=type, cuisine=cuisine, diet=diet, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, min_length=min_length, max_length=max_length, offset=offset, number=number)
+> SearchFoodVideos200Response search_food_videos(query, type=type, cuisine=cuisine, diet=diet, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, min_length=min_length, max_length=max_length, offset=offset, number=number)
 
 Search Food Videos
 
@@ -717,7 +717,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MiscApi(api_client)
-    query = 'burger' # str | The (natural language) search query. (optional)
+    query = 'burger' # str | The (natural language) search query.
     type = 'main course' # str | The type of the recipes. See a full list of supported meal types. (optional)
     cuisine = 'italian' # str | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
     diet = 'vegetarian' # str | The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -730,7 +730,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
     try:
         # Search Food Videos
-        api_response = api_instance.search_food_videos(query=query, type=type, cuisine=cuisine, diet=diet, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, min_length=min_length, max_length=max_length, offset=offset, number=number)
+        api_response = api_instance.search_food_videos(query, type=type, cuisine=cuisine, diet=diet, include_ingredients=include_ingredients, exclude_ingredients=exclude_ingredients, min_length=min_length, max_length=max_length, offset=offset, number=number)
         print("The response of MiscApi->search_food_videos:\n")
         pprint(api_response)
     except Exception as e:
@@ -744,7 +744,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
+ **query** | **str**| The (natural language) search query. | 
  **type** | **str**| The type of the recipes. See a full list of supported meal types. | [optional] 
  **cuisine** | **str**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] 
  **diet** | **str**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 

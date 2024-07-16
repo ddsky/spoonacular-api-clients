@@ -16,22 +16,22 @@ void main() {
   // final instance = SearchSiteContent200Response();
 
   group('test SearchSiteContent200Response', () {
-    // Set<SearchSiteContent200ResponseArticlesInner> articles (default value: const {})
+    // List<SearchResult> articles (default value: const [])
     test('to test the property `articles`', () async {
       // TODO
     });
 
-    // Set<SearchSiteContent200ResponseArticlesInner> groceryProducts (default value: const {})
+    // List<SearchResult> groceryProducts (default value: const [])
     test('to test the property `groceryProducts`', () async {
       // TODO
     });
 
-    // Set<SearchSiteContent200ResponseArticlesInner> menuItems (default value: const {})
+    // List<SearchResult> menuItems (default value: const [])
     test('to test the property `menuItems`', () async {
       // TODO
     });
 
-    // Set<SearchSiteContent200ResponseArticlesInner> recipes (default value: const {})
+    // List<SearchResult> recipes (default value: const [])
     test('to test the property `recipes`', () async {
       // TODO
     });

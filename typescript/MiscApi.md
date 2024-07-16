@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRandomFoodTrivia**
-> GetRandomFoodTrivia200Response getRandomFoodTrivia()
+> GetARandomFoodJoke200Response getRandomFoodTrivia()
 
 Returns random food trivia.
 
@@ -214,7 +214,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**GetRandomFoodTrivia200Response**
+**GetARandomFoodJoke200Response**
 
 ### Authorization
 
@@ -429,12 +429,12 @@ const configuration = .createConfiguration();
 const apiInstance = new .MiscApi(configuration);
 
 let body:.MiscApiSearchCustomFoodsRequest = {
+  // string | The (natural language) search query.
+  query: "burger",
   // string | The username.
   username: "dsky",
   // string | The private hash for the username.
   hash: "4b5v4398573406",
-  // string | The (natural language) search query. (optional)
-  query: "burger",
   // number | The number of results to skip (between 0 and 900). (optional)
   offset: 0,
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
@@ -451,9 +451,9 @@ apiInstance.searchCustomFoods(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **username** | [**string**] | The username. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
  **offset** | [**number**] | The number of results to skip (between 0 and 900). | (optional) defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
 
@@ -498,7 +498,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .MiscApi(configuration);
 
 let body:.MiscApiSearchFoodVideosRequest = {
-  // string | The (natural language) search query. (optional)
+  // string | The (natural language) search query.
   query: "burger",
   // string | The type of the recipes. See a full list of supported meal types. (optional)
   type: "main course",
@@ -530,7 +530,7 @@ apiInstance.searchFoodVideos(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **type** | [**string**] | The type of the recipes. See a full list of supported meal types. | (optional) defaults to undefined
  **cuisine** | [**string**] | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | (optional) defaults to undefined
  **diet** | [**string**] | The diet for which the recipes must be suitable. See a full list of supported diets. | (optional) defaults to undefined

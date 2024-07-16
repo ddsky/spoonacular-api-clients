@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.SearchMenuItems200Response
-import com.spoonacular.client.model.SearchMenuItems200ResponseMenuItemsInner
+import com.spoonacular.client.model.MenuItem
 
 class SearchMenuItems200ResponseTest : ShouldSpec() {
     init {

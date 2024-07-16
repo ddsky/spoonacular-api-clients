@@ -1147,7 +1147,7 @@ class ProductsApi
      *
      * Get Comparable Products
      *
-     * @param  float $upc The UPC of the product for which you want to find comparable products. (required)
+     * @param  string $upc The UPC of the product for which you want to find comparable products. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getComparableProducts'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1165,7 +1165,7 @@ class ProductsApi
      *
      * Get Comparable Products
      *
-     * @param  float $upc The UPC of the product for which you want to find comparable products. (required)
+     * @param  string $upc The UPC of the product for which you want to find comparable products. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getComparableProducts'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1289,7 +1289,7 @@ class ProductsApi
      *
      * Get Comparable Products
      *
-     * @param  float $upc The UPC of the product for which you want to find comparable products. (required)
+     * @param  string $upc The UPC of the product for which you want to find comparable products. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getComparableProducts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1310,7 +1310,7 @@ class ProductsApi
      *
      * Get Comparable Products
      *
-     * @param  float $upc The UPC of the product for which you want to find comparable products. (required)
+     * @param  string $upc The UPC of the product for which you want to find comparable products. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getComparableProducts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1360,7 +1360,7 @@ class ProductsApi
     /**
      * Create request for operation 'getComparableProducts'
      *
-     * @param  float $upc The UPC of the product for which you want to find comparable products. (required)
+     * @param  string $upc The UPC of the product for which you want to find comparable products. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getComparableProducts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1459,12 +1459,12 @@ class ProductsApi
      *
      * Get Product Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the packaged food. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetProductInformation200Response
+     * @return \OpenAPI\Client\Model\ProductInformation
      */
     public function getProductInformation($id, string $contentType = self::contentTypes['getProductInformation'][0])
     {
@@ -1477,12 +1477,12 @@ class ProductsApi
      *
      * Get Product Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the packaged food. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetProductInformation200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ProductInformation, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductInformationWithHttpInfo($id, string $contentType = self::contentTypes['getProductInformation'][0])
     {
@@ -1525,11 +1525,11 @@ class ProductsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetProductInformation200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ProductInformation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetProductInformation200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\ProductInformation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1547,13 +1547,13 @@ class ProductsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetProductInformation200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ProductInformation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetProductInformation200Response';
+            $returnType = '\OpenAPI\Client\Model\ProductInformation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1586,7 +1586,7 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetProductInformation200Response',
+                        '\OpenAPI\Client\Model\ProductInformation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1601,7 +1601,7 @@ class ProductsApi
      *
      * Get Product Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the packaged food. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1622,7 +1622,7 @@ class ProductsApi
      *
      * Get Product Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the packaged food. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1630,7 +1630,7 @@ class ProductsApi
      */
     public function getProductInformationAsyncWithHttpInfo($id, string $contentType = self::contentTypes['getProductInformation'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetProductInformation200Response';
+        $returnType = '\OpenAPI\Client\Model\ProductInformation';
         $request = $this->getProductInformationRequest($id, $contentType);
 
         return $this->client
@@ -1672,7 +1672,7 @@ class ProductsApi
     /**
      * Create request for operation 'getProductInformation'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the packaged food. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProductInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1771,7 +1771,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Image
      *
-     * @param  float $id The id of the product. (required)
+     * @param  int $id The id of the product. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['productNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1789,7 +1789,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Image
      *
-     * @param  float $id The id of the product. (required)
+     * @param  int $id The id of the product. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['productNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1913,7 +1913,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Image
      *
-     * @param  float $id The id of the product. (required)
+     * @param  int $id The id of the product. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['productNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1934,7 +1934,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Image
      *
-     * @param  float $id The id of the product. (required)
+     * @param  int $id The id of the product. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['productNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1984,7 +1984,7 @@ class ProductsApi
     /**
      * Create request for operation 'productNutritionByIDImage'
      *
-     * @param  float $id The id of the product. (required)
+     * @param  int $id The id of the product. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['productNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2083,7 +2083,7 @@ class ProductsApi
      *
      * Product Nutrition Label Image
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -2104,7 +2104,7 @@ class ProductsApi
      *
      * Product Nutrition Label Image
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -2231,7 +2231,7 @@ class ProductsApi
      *
      * Product Nutrition Label Image
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -2255,7 +2255,7 @@ class ProductsApi
      *
      * Product Nutrition Label Image
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -2308,7 +2308,7 @@ class ProductsApi
     /**
      * Create request for operation 'productNutritionLabelImage'
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -2440,7 +2440,7 @@ class ProductsApi
      *
      * Product Nutrition Label Widget
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -2462,7 +2462,7 @@ class ProductsApi
      *
      * Product Nutrition Label Widget
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -2590,7 +2590,7 @@ class ProductsApi
      *
      * Product Nutrition Label Widget
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -2615,7 +2615,7 @@ class ProductsApi
      *
      * Product Nutrition Label Widget
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -2669,7 +2669,7 @@ class ProductsApi
     /**
      * Create request for operation 'productNutritionLabelWidget'
      *
-     * @param  float $id The product id. (required)
+     * @param  int $id The product id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -2812,7 +2812,7 @@ class ProductsApi
      *
      * Search Grocery Products
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the product must have. (optional)
      * @param  float $max_calories The maximum amount of calories the product can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -2830,7 +2830,7 @@ class ProductsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchGroceryProducts200Response
      */
-    public function searchGroceryProducts($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
+    public function searchGroceryProducts($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
     {
         list($response) = $this->searchGroceryProductsWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number, $contentType);
         return $response;
@@ -2841,7 +2841,7 @@ class ProductsApi
      *
      * Search Grocery Products
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the product must have. (optional)
      * @param  float $max_calories The maximum amount of calories the product can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -2859,7 +2859,7 @@ class ProductsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchGroceryProducts200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchGroceryProductsWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
+    public function searchGroceryProductsWithHttpInfo($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
     {
         $request = $this->searchGroceryProductsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number, $contentType);
 
@@ -2976,7 +2976,7 @@ class ProductsApi
      *
      * Search Grocery Products
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the product must have. (optional)
      * @param  float $max_calories The maximum amount of calories the product can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -2993,7 +2993,7 @@ class ProductsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchGroceryProductsAsync($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
+    public function searchGroceryProductsAsync($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
     {
         return $this->searchGroceryProductsAsyncWithHttpInfo($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number, $contentType)
             ->then(
@@ -3008,7 +3008,7 @@ class ProductsApi
      *
      * Search Grocery Products
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the product must have. (optional)
      * @param  float $max_calories The maximum amount of calories the product can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -3025,7 +3025,7 @@ class ProductsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchGroceryProductsAsyncWithHttpInfo($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
+    public function searchGroceryProductsAsyncWithHttpInfo($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchGroceryProducts200Response';
         $request = $this->searchGroceryProductsRequest($query, $min_calories, $max_calories, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_fat, $max_fat, $add_product_information, $offset, $number, $contentType);
@@ -3069,7 +3069,7 @@ class ProductsApi
     /**
      * Create request for operation 'searchGroceryProducts'
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  float $min_calories The minimum amount of calories the product must have. (optional)
      * @param  float $max_calories The maximum amount of calories the product can have. (optional)
      * @param  float $min_carbs The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -3086,9 +3086,15 @@ class ProductsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchGroceryProductsRequest($query = null, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
+    public function searchGroceryProductsRequest($query, $min_calories = null, $max_calories = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_fat = null, $max_fat = null, $add_product_information = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchGroceryProducts'][0])
     {
 
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling searchGroceryProducts'
+            );
+        }
 
 
 
@@ -3128,7 +3134,7 @@ class ProductsApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -3296,7 +3302,7 @@ class ProductsApi
      *
      * Search Grocery Products by UPC
      *
-     * @param  float $upc The product&#39;s UPC. (required)
+     * @param  string $upc The product&#39;s UPC. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchGroceryProductsByUPC'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3314,7 +3320,7 @@ class ProductsApi
      *
      * Search Grocery Products by UPC
      *
-     * @param  float $upc The product&#39;s UPC. (required)
+     * @param  string $upc The product&#39;s UPC. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchGroceryProductsByUPC'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3438,7 +3444,7 @@ class ProductsApi
      *
      * Search Grocery Products by UPC
      *
-     * @param  float $upc The product&#39;s UPC. (required)
+     * @param  string $upc The product&#39;s UPC. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchGroceryProductsByUPC'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3459,7 +3465,7 @@ class ProductsApi
      *
      * Search Grocery Products by UPC
      *
-     * @param  float $upc The product&#39;s UPC. (required)
+     * @param  string $upc The product&#39;s UPC. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchGroceryProductsByUPC'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3509,7 +3515,7 @@ class ProductsApi
     /**
      * Create request for operation 'searchGroceryProductsByUPC'
      *
-     * @param  float $upc The product&#39;s UPC. (required)
+     * @param  string $upc The product&#39;s UPC. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchGroceryProductsByUPC'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3608,7 +3614,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the product. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
@@ -3627,7 +3633,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the product. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
@@ -3752,7 +3758,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the product. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
@@ -3774,7 +3780,7 @@ class ProductsApi
      *
      * Product Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the product. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *
@@ -3825,7 +3831,7 @@ class ProductsApi
     /**
      * Create request for operation 'visualizeProductNutritionByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the product. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeProductNutritionByID'] to see the possible values for this operation
      *

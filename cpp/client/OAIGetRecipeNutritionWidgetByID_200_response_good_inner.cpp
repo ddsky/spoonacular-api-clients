@@ -43,8 +43,8 @@ void OAIGetRecipeNutritionWidgetByID_200_response_good_inner::initializeModel() 
     m_percent_of_daily_needs_isSet = false;
     m_percent_of_daily_needs_isValid = false;
 
-    m_name_isSet = false;
-    m_name_isValid = false;
+    m_title_isSet = false;
+    m_title_isValid = false;
 }
 
 void OAIGetRecipeNutritionWidgetByID_200_response_good_inner::fromJson(QString jsonString) {
@@ -65,8 +65,8 @@ void OAIGetRecipeNutritionWidgetByID_200_response_good_inner::fromJsonObject(QJs
     m_percent_of_daily_needs_isValid = ::OpenAPI::fromJsonValue(m_percent_of_daily_needs, json[QString("percentOfDailyNeeds")]);
     m_percent_of_daily_needs_isSet = !json[QString("percentOfDailyNeeds")].isNull() && m_percent_of_daily_needs_isValid;
 
-    m_name_isValid = ::OpenAPI::fromJsonValue(m_name, json[QString("name")]);
-    m_name_isSet = !json[QString("name")].isNull() && m_name_isValid;
+    m_title_isValid = ::OpenAPI::fromJsonValue(m_title, json[QString("title")]);
+    m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
 }
 
 QString OAIGetRecipeNutritionWidgetByID_200_response_good_inner::asJson() const {
@@ -87,8 +87,8 @@ QJsonObject OAIGetRecipeNutritionWidgetByID_200_response_good_inner::asJsonObjec
     if (m_percent_of_daily_needs_isSet) {
         obj.insert(QString("percentOfDailyNeeds"), ::OpenAPI::toJsonValue(m_percent_of_daily_needs));
     }
-    if (m_name_isSet) {
-        obj.insert(QString("name"), ::OpenAPI::toJsonValue(m_name));
+    if (m_title_isSet) {
+        obj.insert(QString("title"), ::OpenAPI::toJsonValue(m_title));
     }
     return obj;
 }
@@ -141,20 +141,20 @@ bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::is_percent_of_dail
     return m_percent_of_daily_needs_isValid;
 }
 
-QString OAIGetRecipeNutritionWidgetByID_200_response_good_inner::getName() const {
-    return m_name;
+QString OAIGetRecipeNutritionWidgetByID_200_response_good_inner::getTitle() const {
+    return m_title;
 }
-void OAIGetRecipeNutritionWidgetByID_200_response_good_inner::setName(const QString &name) {
-    m_name = name;
-    m_name_isSet = true;
-}
-
-bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::is_name_Set() const{
-    return m_name_isSet;
+void OAIGetRecipeNutritionWidgetByID_200_response_good_inner::setTitle(const QString &title) {
+    m_title = title;
+    m_title_isSet = true;
 }
 
-bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::is_name_Valid() const{
-    return m_name_isValid;
+bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::is_title_Set() const{
+    return m_title_isSet;
+}
+
+bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::is_title_Valid() const{
+    return m_title_isValid;
 }
 
 bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::isSet() const {
@@ -175,7 +175,7 @@ bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::isSet() const {
             break;
         }
 
-        if (m_name_isSet) {
+        if (m_title_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -185,7 +185,7 @@ bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::isSet() const {
 
 bool OAIGetRecipeNutritionWidgetByID_200_response_good_inner::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_amount_isValid && m_indented_isValid && m_percent_of_daily_needs_isValid && m_name_isValid && true;
+    return m_amount_isValid && m_indented_isValid && m_percent_of_daily_needs_isValid && m_title_isValid && true;
 }
 
 } // namespace OpenAPI

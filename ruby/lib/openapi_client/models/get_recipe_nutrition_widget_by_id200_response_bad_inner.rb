@@ -15,7 +15,7 @@ require 'time'
 
 module OpenapiClient
   class GetRecipeNutritionWidgetByID200ResponseBadInner
-    attr_accessor :name
+    attr_accessor :title
 
     attr_accessor :amount
 
@@ -26,7 +26,7 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
+        :'title' => :'title',
         :'amount' => :'amount',
         :'indented' => :'indented',
         :'percent_of_daily_needs' => :'percentOfDailyNeeds'
@@ -41,7 +41,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
+        :'title' => :'String',
         :'amount' => :'String',
         :'indented' => :'Boolean',
         :'percent_of_daily_needs' => :'Float'
@@ -69,10 +69,10 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       else
-        self.name = nil
+        self.title = nil
       end
 
       if attributes.key?(:'amount')
@@ -99,12 +99,12 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+      if @title.to_s.length < 1
+        invalid_properties.push('invalid value for "title", the character length must be great than or equal to 1.')
       end
 
       if @amount.nil?
@@ -130,8 +130,8 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
+      return false if @title.nil?
+      return false if @title.to_s.length < 1
       return false if @amount.nil?
       return false if @amount.to_s.length < 1
       return false if @indented.nil?
@@ -140,17 +140,17 @@ module OpenapiClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
+    # @param [Object] title Value to be assigned
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'title cannot be nil'
       end
 
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      if title.to_s.length < 1
+        fail ArgumentError, 'invalid value for "title", the character length must be great than or equal to 1.'
       end
 
-      @name = name
+      @title = title
     end
 
     # Custom attribute writer method with validation
@@ -172,7 +172,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
+          title == o.title &&
           amount == o.amount &&
           indented == o.indented &&
           percent_of_daily_needs == o.percent_of_daily_needs
@@ -187,7 +187,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, amount, indented, percent_of_daily_needs].hash
+      [title, amount, indented, percent_of_daily_needs].hash
     end
 
     # Builds the object from hash

@@ -104,10 +104,11 @@ func (a *IngredientsAPIService) AutocompleteIngredientSearchExecute(r ApiAutocom
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.number != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "number", r.number, "")
 	} else {
@@ -194,9 +195,9 @@ func (a *IngredientsAPIService) AutocompleteIngredientSearchExecute(r ApiAutocom
 type ApiComputeIngredientAmountRequest struct {
 	ctx context.Context
 	ApiService *IngredientsAPIService
-	id float32
+	id int32
 	nutrient *string
-	target *float32
+	target *int32
 	unit *string
 }
 
@@ -207,7 +208,7 @@ func (r ApiComputeIngredientAmountRequest) Nutrient(nutrient string) ApiComputeI
 }
 
 // The target number of the given nutrient.
-func (r ApiComputeIngredientAmountRequest) Target(target float32) ApiComputeIngredientAmountRequest {
+func (r ApiComputeIngredientAmountRequest) Target(target int32) ApiComputeIngredientAmountRequest {
 	r.target = &target
 	return r
 }
@@ -231,7 +232,7 @@ Compute the amount you need of a certain ingredient for a certain nutritional go
  @param id The id of the ingredient you want the amount for.
  @return ApiComputeIngredientAmountRequest
 */
-func (a *IngredientsAPIService) ComputeIngredientAmount(ctx context.Context, id float32) ApiComputeIngredientAmountRequest {
+func (a *IngredientsAPIService) ComputeIngredientAmount(ctx context.Context, id int32) ApiComputeIngredientAmountRequest {
 	return ApiComputeIngredientAmountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -360,7 +361,7 @@ func (r ApiGetIngredientInformationRequest) Unit(unit string) ApiGetIngredientIn
 	return r
 }
 
-func (r ApiGetIngredientInformationRequest) Execute() (*GetIngredientInformation200Response, *http.Response, error) {
+func (r ApiGetIngredientInformationRequest) Execute() (*IngredientInformation, *http.Response, error) {
 	return r.ApiService.GetIngredientInformationExecute(r)
 }
 
@@ -370,7 +371,7 @@ GetIngredientInformation Get Ingredient Information
 Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The ingredient id.
  @return ApiGetIngredientInformationRequest
 */
 func (a *IngredientsAPIService) GetIngredientInformation(ctx context.Context, id int32) ApiGetIngredientInformationRequest {
@@ -382,13 +383,13 @@ func (a *IngredientsAPIService) GetIngredientInformation(ctx context.Context, id
 }
 
 // Execute executes the request
-//  @return GetIngredientInformation200Response
-func (a *IngredientsAPIService) GetIngredientInformationExecute(r ApiGetIngredientInformationRequest) (*GetIngredientInformation200Response, *http.Response, error) {
+//  @return IngredientInformation
+func (a *IngredientsAPIService) GetIngredientInformationExecute(r ApiGetIngredientInformationRequest) (*IngredientInformation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetIngredientInformation200Response
+		localVarReturnValue  *IngredientInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IngredientsAPIService.GetIngredientInformation")
@@ -617,7 +618,7 @@ GetIngredientSubstitutesByID Get Ingredient Substitutes by ID
 Search for substitutes for a given ingredient.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The id of the ingredient you want substitutes for.
  @return ApiGetIngredientSubstitutesByIDRequest
 */
 func (a *IngredientsAPIService) GetIngredientSubstitutesByID(ctx context.Context, id int32) ApiGetIngredientSubstitutesByIDRequest {
@@ -867,10 +868,11 @@ func (a *IngredientsAPIService) IngredientSearchExecute(r ApiIngredientSearchReq
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.addChildren != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "addChildren", r.addChildren, "")
 	}
@@ -987,7 +989,7 @@ func (a *IngredientsAPIService) IngredientSearchExecute(r ApiIngredientSearchReq
 type ApiIngredientsByIDImageRequest struct {
 	ctx context.Context
 	ApiService *IngredientsAPIService
-	id float32
+	id int32
 	measure *string
 }
 
@@ -1010,7 +1012,7 @@ Visualize a recipe's ingredient list.
  @param id The recipe id.
  @return ApiIngredientsByIDImageRequest
 */
-func (a *IngredientsAPIService) IngredientsByIDImage(ctx context.Context, id float32) ApiIngredientsByIDImageRequest {
+func (a *IngredientsAPIService) IngredientsByIDImage(ctx context.Context, id int32) ApiIngredientsByIDImageRequest {
 	return ApiIngredientsByIDImageRequest{
 		ApiService: a,
 		ctx: ctx,

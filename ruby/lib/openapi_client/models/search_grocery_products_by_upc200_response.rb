@@ -84,7 +84,7 @@ module OpenapiClient
         :'image_type' => :'String',
         :'ingredient_count' => :'Integer',
         :'ingredient_list' => :'String',
-        :'ingredients' => :'Array<SearchGroceryProductsByUPC200ResponseIngredientsInner>',
+        :'ingredients' => :'Array<IngredientBasics>',
         :'likes' => :'Float',
         :'nutrition' => :'SearchGroceryProductsByUPC200ResponseNutrition',
         :'price' => :'Float',
@@ -96,6 +96,7 @@ module OpenapiClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'generated_text',
       ])
     end
 
@@ -224,10 +225,6 @@ module OpenapiClient
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
-      if @title.to_s.length < 1
-        invalid_properties.push('invalid value for "title", the character length must be great than or equal to 1.')
-      end
-
       if @badges.nil?
         invalid_properties.push('invalid value for "badges", badges cannot be nil.')
       end
@@ -240,36 +237,16 @@ module OpenapiClient
         invalid_properties.push('invalid value for "breadcrumbs", breadcrumbs cannot be nil.')
       end
 
-      if @generated_text.nil?
-        invalid_properties.push('invalid value for "generated_text", generated_text cannot be nil.')
-      end
-
-      if @generated_text.to_s.length < 1
-        invalid_properties.push('invalid value for "generated_text", the character length must be great than or equal to 1.')
-      end
-
       if @image_type.nil?
         invalid_properties.push('invalid value for "image_type", image_type cannot be nil.')
-      end
-
-      if @image_type.to_s.length < 1
-        invalid_properties.push('invalid value for "image_type", the character length must be great than or equal to 1.')
       end
 
       if @ingredient_list.nil?
         invalid_properties.push('invalid value for "ingredient_list", ingredient_list cannot be nil.')
       end
 
-      if @ingredient_list.to_s.length < 1
-        invalid_properties.push('invalid value for "ingredient_list", the character length must be great than or equal to 1.')
-      end
-
       if @ingredients.nil?
         invalid_properties.push('invalid value for "ingredients", ingredients cannot be nil.')
-      end
-
-      if @ingredients.length < 0
-        invalid_properties.push('invalid value for "ingredients", number of items must be greater than or equal to 0.')
       end
 
       if @likes.nil?
@@ -301,94 +278,18 @@ module OpenapiClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
       return false if @title.nil?
-      return false if @title.to_s.length < 1
       return false if @badges.nil?
       return false if @important_badges.nil?
       return false if @breadcrumbs.nil?
-      return false if @generated_text.nil?
-      return false if @generated_text.to_s.length < 1
       return false if @image_type.nil?
-      return false if @image_type.to_s.length < 1
       return false if @ingredient_list.nil?
-      return false if @ingredient_list.to_s.length < 1
       return false if @ingredients.nil?
-      return false if @ingredients.length < 0
       return false if @likes.nil?
       return false if @nutrition.nil?
       return false if @price.nil?
       return false if @servings.nil?
       return false if @spoonacular_score.nil?
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] title Value to be assigned
-    def title=(title)
-      if title.nil?
-        fail ArgumentError, 'title cannot be nil'
-      end
-
-      if title.to_s.length < 1
-        fail ArgumentError, 'invalid value for "title", the character length must be great than or equal to 1.'
-      end
-
-      @title = title
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] generated_text Value to be assigned
-    def generated_text=(generated_text)
-      if generated_text.nil?
-        fail ArgumentError, 'generated_text cannot be nil'
-      end
-
-      if generated_text.to_s.length < 1
-        fail ArgumentError, 'invalid value for "generated_text", the character length must be great than or equal to 1.'
-      end
-
-      @generated_text = generated_text
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] image_type Value to be assigned
-    def image_type=(image_type)
-      if image_type.nil?
-        fail ArgumentError, 'image_type cannot be nil'
-      end
-
-      if image_type.to_s.length < 1
-        fail ArgumentError, 'invalid value for "image_type", the character length must be great than or equal to 1.'
-      end
-
-      @image_type = image_type
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] ingredient_list Value to be assigned
-    def ingredient_list=(ingredient_list)
-      if ingredient_list.nil?
-        fail ArgumentError, 'ingredient_list cannot be nil'
-      end
-
-      if ingredient_list.to_s.length < 1
-        fail ArgumentError, 'invalid value for "ingredient_list", the character length must be great than or equal to 1.'
-      end
-
-      @ingredient_list = ingredient_list
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] ingredients Value to be assigned
-    def ingredients=(ingredients)
-      if ingredients.nil?
-        fail ArgumentError, 'ingredients cannot be nil'
-      end
-
-      if ingredients.length < 0
-        fail ArgumentError, 'invalid value for "ingredients", number of items must be greater than or equal to 0.'
-      end
-
-      @ingredients = ingredients
     end
 
     # Checks equality by comparing each attribute.

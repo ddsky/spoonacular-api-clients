@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **image_type** | **str** |  | 
 **ingredient_count** | **int** |  | [optional] 
 **ingredient_list** | **str** |  | 
-**ingredients** | [**List[SearchGroceryProductsByUPC200ResponseIngredientsInner]**](SearchGroceryProductsByUPC200ResponseIngredientsInner.md) |  | 
+**ingredients** | [**List[IngredientBasics]**](IngredientBasics.md) |  | 
 **likes** | **float** |  | 
 **nutrition** | [**SearchGroceryProductsByUPC200ResponseNutrition**](SearchGroceryProductsByUPC200ResponseNutrition.md) |  | 
 **price** | **float** |  | 

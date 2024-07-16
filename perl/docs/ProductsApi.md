@@ -200,7 +200,7 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $upc = 33698816271; # double | The UPC of the product for which you want to find comparable products.
+my $upc = 033698816271; # string | The UPC of the product for which you want to find comparable products.
 
 eval {
     my $result = $api_instance->get_comparable_products(upc => $upc);
@@ -215,7 +215,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **double**| The UPC of the product for which you want to find comparable products. | 
+ **upc** | **string**| The UPC of the product for which you want to find comparable products. | 
 
 ### Return type
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_product_information**
-> GetProductInformation200Response get_product_information(id => $id)
+> ProductInformation get_product_information(id => $id)
 
 Get Product Information
 
@@ -251,7 +251,7 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 22347; # int | The id of the packaged food.
 
 eval {
     my $result = $api_instance->get_product_information(id => $id);
@@ -266,11 +266,11 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the packaged food. | 
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 7657; # double | The id of the product.
+my $id = 7657; # int | The id of the product.
 
 eval {
     my $result = $api_instance->product_nutrition_by_id_image(id => $id);
@@ -317,7 +317,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The id of the product. | 
+ **id** | **int**| The id of the product. | 
 
 ### Return type
 
@@ -353,7 +353,7 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 22347; # double | The product id.
+my $id = 22347; # int | The product id.
 my $show_optional_nutrients = false; # boolean | Whether to show optional nutrients.
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
@@ -371,7 +371,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The product id. | 
+ **id** | **int**| The product id. | 
  **show_optional_nutrients** | **boolean**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **boolean**| Whether to show zero values. | [optional] 
  **show_ingredients** | **boolean**| Whether to show a list of ingredients. | [optional] 
@@ -410,7 +410,7 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 22347; # double | The product id.
+my $id = 22347; # int | The product id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $show_optional_nutrients = false; # boolean | Whether to show optional nutrients.
 my $show_zero_values = false; # boolean | Whether to show zero values.
@@ -429,7 +429,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The product id. | 
+ **id** | **int**| The product id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **show_optional_nutrients** | **boolean**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **boolean**| Whether to show zero values. | [optional] 
@@ -495,7 +495,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional] 
+ **query** | **string**| The (natural language) search query. | 
  **min_calories** | **double**| The minimum amount of calories the product must have. | [optional] 
  **max_calories** | **double**| The maximum amount of calories the product can have. | [optional] 
  **min_carbs** | **double**| The minimum amount of carbohydrates in grams the product must have. | [optional] 
@@ -542,7 +542,7 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $upc = 41631000564; # double | The product's UPC.
+my $upc = 041631000564; # string | The product's UPC.
 
 eval {
     my $result = $api_instance->search_grocery_products_by_upc(upc => $upc);
@@ -557,7 +557,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **double**| The product&#39;s UPC. | 
+ **upc** | **string**| The product&#39;s UPC. | 
 
 ### Return type
 
@@ -593,7 +593,7 @@ my $api_instance = WWW::OpenAPIClient::ProductsApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 7657; # int | The id of the product.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 
 eval {
@@ -609,7 +609,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the product. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

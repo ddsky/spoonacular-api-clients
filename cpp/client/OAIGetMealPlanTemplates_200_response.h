@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAIGetAnalyzedRecipeInstructions_200_response_ingredients_inner.h"
+#include "OAIGetMealPlanTemplates_200_response_templates_inner.h"
 #include <QSet>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIGetAnalyzedRecipeInstructions_200_response_ingredients_inner;
+class OAIGetMealPlanTemplates_200_response_templates_inner;
 
 class OAIGetMealPlanTemplates_200_response : public OAIObject {
 public:
@@ -41,8 +41,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QSet<OAIGetAnalyzedRecipeInstructions_200_response_ingredients_inner> getTemplates() const;
-    void setTemplates(const QSet<OAIGetAnalyzedRecipeInstructions_200_response_ingredients_inner> &templates);
+    QSet<OAIGetMealPlanTemplates_200_response_templates_inner> getTemplates() const;
+    void setTemplates(const QSet<OAIGetMealPlanTemplates_200_response_templates_inner> &templates);
     bool is_templates_Set() const;
     bool is_templates_Valid() const;
 
@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QSet<OAIGetAnalyzedRecipeInstructions_200_response_ingredients_inner> m_templates;
+    QSet<OAIGetMealPlanTemplates_200_response_templates_inner> m_templates;
     bool m_templates_isSet;
     bool m_templates_isValid;
 };

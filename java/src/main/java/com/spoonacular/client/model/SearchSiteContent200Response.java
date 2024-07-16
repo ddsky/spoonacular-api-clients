@@ -19,11 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner;
+import com.spoonacular.client.model.SearchResult;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,31 +56,31 @@ import com.spoonacular.client.JSON;
 public class SearchSiteContent200Response {
   public static final String SERIALIZED_NAME_ARTICLES = "Articles";
   @SerializedName(SERIALIZED_NAME_ARTICLES)
-  private Set<SearchSiteContent200ResponseArticlesInner> articles = new LinkedHashSet<>();
+  private List<SearchResult> articles = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GROCERY_PRODUCTS = "Grocery Products";
   @SerializedName(SERIALIZED_NAME_GROCERY_PRODUCTS)
-  private Set<SearchSiteContent200ResponseArticlesInner> groceryProducts = new LinkedHashSet<>();
+  private List<SearchResult> groceryProducts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MENU_ITEMS = "Menu Items";
   @SerializedName(SERIALIZED_NAME_MENU_ITEMS)
-  private Set<SearchSiteContent200ResponseArticlesInner> menuItems = new LinkedHashSet<>();
+  private List<SearchResult> menuItems = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RECIPES = "Recipes";
   @SerializedName(SERIALIZED_NAME_RECIPES)
-  private Set<SearchSiteContent200ResponseArticlesInner> recipes = new LinkedHashSet<>();
+  private List<SearchResult> recipes = new ArrayList<>();
 
   public SearchSiteContent200Response() {
   }
 
-  public SearchSiteContent200Response articles(Set<SearchSiteContent200ResponseArticlesInner> articles) {
+  public SearchSiteContent200Response articles(List<SearchResult> articles) {
     this.articles = articles;
     return this;
   }
 
-  public SearchSiteContent200Response addArticlesItem(SearchSiteContent200ResponseArticlesInner articlesItem) {
+  public SearchSiteContent200Response addArticlesItem(SearchResult articlesItem) {
     if (this.articles == null) {
-      this.articles = new LinkedHashSet<>();
+      this.articles = new ArrayList<>();
     }
     this.articles.add(articlesItem);
     return this;
@@ -91,23 +91,23 @@ public class SearchSiteContent200Response {
    * @return articles
    */
   @javax.annotation.Nonnull
-  public Set<SearchSiteContent200ResponseArticlesInner> getArticles() {
+  public List<SearchResult> getArticles() {
     return articles;
   }
 
-  public void setArticles(Set<SearchSiteContent200ResponseArticlesInner> articles) {
+  public void setArticles(List<SearchResult> articles) {
     this.articles = articles;
   }
 
 
-  public SearchSiteContent200Response groceryProducts(Set<SearchSiteContent200ResponseArticlesInner> groceryProducts) {
+  public SearchSiteContent200Response groceryProducts(List<SearchResult> groceryProducts) {
     this.groceryProducts = groceryProducts;
     return this;
   }
 
-  public SearchSiteContent200Response addGroceryProductsItem(SearchSiteContent200ResponseArticlesInner groceryProductsItem) {
+  public SearchSiteContent200Response addGroceryProductsItem(SearchResult groceryProductsItem) {
     if (this.groceryProducts == null) {
-      this.groceryProducts = new LinkedHashSet<>();
+      this.groceryProducts = new ArrayList<>();
     }
     this.groceryProducts.add(groceryProductsItem);
     return this;
@@ -118,23 +118,23 @@ public class SearchSiteContent200Response {
    * @return groceryProducts
    */
   @javax.annotation.Nonnull
-  public Set<SearchSiteContent200ResponseArticlesInner> getGroceryProducts() {
+  public List<SearchResult> getGroceryProducts() {
     return groceryProducts;
   }
 
-  public void setGroceryProducts(Set<SearchSiteContent200ResponseArticlesInner> groceryProducts) {
+  public void setGroceryProducts(List<SearchResult> groceryProducts) {
     this.groceryProducts = groceryProducts;
   }
 
 
-  public SearchSiteContent200Response menuItems(Set<SearchSiteContent200ResponseArticlesInner> menuItems) {
+  public SearchSiteContent200Response menuItems(List<SearchResult> menuItems) {
     this.menuItems = menuItems;
     return this;
   }
 
-  public SearchSiteContent200Response addMenuItemsItem(SearchSiteContent200ResponseArticlesInner menuItemsItem) {
+  public SearchSiteContent200Response addMenuItemsItem(SearchResult menuItemsItem) {
     if (this.menuItems == null) {
-      this.menuItems = new LinkedHashSet<>();
+      this.menuItems = new ArrayList<>();
     }
     this.menuItems.add(menuItemsItem);
     return this;
@@ -145,23 +145,23 @@ public class SearchSiteContent200Response {
    * @return menuItems
    */
   @javax.annotation.Nonnull
-  public Set<SearchSiteContent200ResponseArticlesInner> getMenuItems() {
+  public List<SearchResult> getMenuItems() {
     return menuItems;
   }
 
-  public void setMenuItems(Set<SearchSiteContent200ResponseArticlesInner> menuItems) {
+  public void setMenuItems(List<SearchResult> menuItems) {
     this.menuItems = menuItems;
   }
 
 
-  public SearchSiteContent200Response recipes(Set<SearchSiteContent200ResponseArticlesInner> recipes) {
+  public SearchSiteContent200Response recipes(List<SearchResult> recipes) {
     this.recipes = recipes;
     return this;
   }
 
-  public SearchSiteContent200Response addRecipesItem(SearchSiteContent200ResponseArticlesInner recipesItem) {
+  public SearchSiteContent200Response addRecipesItem(SearchResult recipesItem) {
     if (this.recipes == null) {
-      this.recipes = new LinkedHashSet<>();
+      this.recipes = new ArrayList<>();
     }
     this.recipes.add(recipesItem);
     return this;
@@ -172,11 +172,11 @@ public class SearchSiteContent200Response {
    * @return recipes
    */
   @javax.annotation.Nonnull
-  public Set<SearchSiteContent200ResponseArticlesInner> getRecipes() {
+  public List<SearchResult> getRecipes() {
     return recipes;
   }
 
-  public void setRecipes(Set<SearchSiteContent200ResponseArticlesInner> recipes) {
+  public void setRecipes(List<SearchResult> recipes) {
     this.recipes = recipes;
   }
 
@@ -281,7 +281,7 @@ public class SearchSiteContent200Response {
       JsonArray jsonArrayarticles = jsonObj.getAsJsonArray("Articles");
       // validate the required field `Articles` (array)
       for (int i = 0; i < jsonArrayarticles.size(); i++) {
-        SearchSiteContent200ResponseArticlesInner.validateJsonElement(jsonArrayarticles.get(i));
+        SearchResult.validateJsonElement(jsonArrayarticles.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("Grocery Products").isJsonArray()) {
@@ -291,7 +291,7 @@ public class SearchSiteContent200Response {
       JsonArray jsonArraygroceryProducts = jsonObj.getAsJsonArray("Grocery Products");
       // validate the required field `Grocery Products` (array)
       for (int i = 0; i < jsonArraygroceryProducts.size(); i++) {
-        SearchSiteContent200ResponseArticlesInner.validateJsonElement(jsonArraygroceryProducts.get(i));
+        SearchResult.validateJsonElement(jsonArraygroceryProducts.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("Menu Items").isJsonArray()) {
@@ -301,7 +301,7 @@ public class SearchSiteContent200Response {
       JsonArray jsonArraymenuItems = jsonObj.getAsJsonArray("Menu Items");
       // validate the required field `Menu Items` (array)
       for (int i = 0; i < jsonArraymenuItems.size(); i++) {
-        SearchSiteContent200ResponseArticlesInner.validateJsonElement(jsonArraymenuItems.get(i));
+        SearchResult.validateJsonElement(jsonArraymenuItems.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("Recipes").isJsonArray()) {
@@ -311,7 +311,7 @@ public class SearchSiteContent200Response {
       JsonArray jsonArrayrecipes = jsonObj.getAsJsonArray("Recipes");
       // validate the required field `Recipes` (array)
       for (int i = 0; i < jsonArrayrecipes.size(); i++) {
-        SearchSiteContent200ResponseArticlesInner.validateJsonElement(jsonArrayrecipes.get(i));
+        SearchResult.validateJsonElement(jsonArrayrecipes.get(i));
       };
   }
 

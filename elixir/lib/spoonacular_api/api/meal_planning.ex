@@ -96,10 +96,10 @@ defmodule SpoonacularAPI.Api.MealPlanning do
 
   ### Returns
 
-  - `{:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t}` on success
+  - `{:ok, SpoonacularAPI.Model.GetShoppingList200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, SpoonacularAPI.Model.AddToShoppingListRequest.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t} | {:error, Tesla.Env.t}
+  @spec add_to_shopping_list(Tesla.Env.client, String.t, String.t, SpoonacularAPI.Model.AddToShoppingListRequest.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetShoppingList200Response.t} | {:error, Tesla.Env.t}
   def add_to_shopping_list(connection, username, hash, add_to_shopping_list_request, _opts \\ []) do
     request =
       %{}
@@ -112,7 +112,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, SpoonacularAPI.Model.GenerateShoppingList200Response},
+      {200, SpoonacularAPI.Model.GetShoppingList200Response},
       {401, false},
       {403, false},
       {404, false}
@@ -197,7 +197,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
   - `username` (String.t): The username.
-  - `id` (float()): The shopping list item id.
+  - `id` (integer()): The shopping list item id.
   - `hash` (String.t): The private hash for the username.
   - `opts` (keyword): Optional parameters
 
@@ -206,7 +206,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec delete_from_meal_plan(Tesla.Env.client, String.t, float(), String.t, keyword()) :: {:ok, map()} | {:ok, nil} | {:error, Tesla.Env.t}
+  @spec delete_from_meal_plan(Tesla.Env.client, String.t, integer(), String.t, keyword()) :: {:ok, map()} | {:ok, nil} | {:error, Tesla.Env.t}
   def delete_from_meal_plan(connection, username, id, hash, _opts \\ []) do
     request =
       %{}
@@ -233,7 +233,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
   - `username` (String.t): The username.
-  - `id` (integer()): The item's id.
+  - `id` (integer()): The shopping list item id.
   - `hash` (String.t): The private hash for the username.
   - `opts` (keyword): Optional parameters
 
@@ -269,7 +269,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
   - `username` (String.t): The username.
-  - `id` (integer()): The item's id.
+  - `id` (integer()): The shopping list item id.
   - `hash` (String.t): The private hash for the username.
   - `opts` (keyword): Optional parameters
 
@@ -356,10 +356,10 @@ defmodule SpoonacularAPI.Api.MealPlanning do
 
   ### Returns
 
-  - `{:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t}` on success
+  - `{:ok, SpoonacularAPI.Model.GetShoppingList200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GenerateShoppingList200Response.t} | {:error, Tesla.Env.t}
+  @spec generate_shopping_list(Tesla.Env.client, String.t, String.t, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetShoppingList200Response.t} | {:error, Tesla.Env.t}
   def generate_shopping_list(connection, username, start_date, end_date, hash, _opts \\ []) do
     request =
       %{}
@@ -372,7 +372,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, SpoonacularAPI.Model.GenerateShoppingList200Response},
+      {200, SpoonacularAPI.Model.GetShoppingList200Response},
       {401, false},
       {403, false},
       {404, false}
@@ -387,7 +387,7 @@ defmodule SpoonacularAPI.Api.MealPlanning do
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
   - `username` (String.t): The username.
-  - `id` (integer()): The item's id.
+  - `id` (integer()): The shopping list item id.
   - `hash` (String.t): The private hash for the username.
   - `opts` (keyword): Optional parameters
 

@@ -80,11 +80,11 @@ namespace spoonacular.Api
         /// Autocomplete a partial input to suggest possible recipe names.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;AutocompleteRecipeSearch200ResponseInner&gt;</returns>
-        List<AutocompleteRecipeSearch200ResponseInner> AutocompleteRecipeSearch(string? query = default(string?), int? number = default(int?), int operationIndex = 0);
+        List<AutocompleteRecipeSearch200ResponseInner> AutocompleteRecipeSearch(string query, int? number = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Autocomplete Recipe Search
@@ -93,11 +93,11 @@ namespace spoonacular.Api
         /// Autocomplete a partial input to suggest possible recipe names.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;AutocompleteRecipeSearch200ResponseInner&gt;</returns>
-        ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchWithHttpInfo(string? query = default(string?), int? number = default(int?), int operationIndex = 0);
+        ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchWithHttpInfo(string query, int? number = default(int?), int operationIndex = 0);
         /// <summary>
         /// Classify Cuisine
         /// </summary>
@@ -236,7 +236,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream EquipmentByIDImage(decimal id, int operationIndex = 0);
+        System.IO.Stream EquipmentByIDImage(int id, int operationIndex = 0);
 
         /// <summary>
         /// Equipment by ID Image
@@ -248,7 +248,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> EquipmentByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        ApiResponse<System.IO.Stream> EquipmentByIDImageWithHttpInfo(int id, int operationIndex = 0);
         /// <summary>
         /// Extract Recipe from Website
         /// </summary>
@@ -262,8 +262,8 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRecipeInformation200Response</returns>
-        GetRecipeInformation200Response ExtractRecipeFromWebsite(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0);
+        /// <returns>RecipeInformation</returns>
+        RecipeInformation ExtractRecipeFromWebsite(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Extract Recipe from Website
@@ -278,8 +278,8 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRecipeInformation200Response</returns>
-        ApiResponse<GetRecipeInformation200Response> ExtractRecipeFromWebsiteWithHttpInfo(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of RecipeInformation</returns>
+        ApiResponse<RecipeInformation> ExtractRecipeFromWebsiteWithHttpInfo(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Get Analyzed Recipe Instructions
         /// </summary>
@@ -287,11 +287,11 @@ namespace spoonacular.Api
         /// Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetAnalyzedRecipeInstructions200Response</returns>
-        GetAnalyzedRecipeInstructions200Response GetAnalyzedRecipeInstructions(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0);
+        /// <returns>List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;</returns>
+        List<GetAnalyzedRecipeInstructions200ResponseInner> GetAnalyzedRecipeInstructions(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Get Analyzed Recipe Instructions
@@ -300,11 +300,11 @@ namespace spoonacular.Api
         /// Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetAnalyzedRecipeInstructions200Response</returns>
-        ApiResponse<GetAnalyzedRecipeInstructions200Response> GetAnalyzedRecipeInstructionsWithHttpInfo(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;</returns>
+        ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>> GetAnalyzedRecipeInstructionsWithHttpInfo(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Get Random Recipes
         /// </summary>
@@ -341,7 +341,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipeEquipmentByID200Response</returns>
         GetRecipeEquipmentByID200Response GetRecipeEquipmentByID(int id, int operationIndex = 0);
@@ -353,7 +353,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipeEquipmentByID200Response</returns>
         ApiResponse<GetRecipeEquipmentByID200Response> GetRecipeEquipmentByIDWithHttpInfo(int id, int operationIndex = 0);
@@ -364,11 +364,13 @@ namespace spoonacular.Api
         /// Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRecipeInformation200Response</returns>
-        GetRecipeInformation200Response GetRecipeInformation(int id, bool? includeNutrition = default(bool?), int operationIndex = 0);
+        /// <returns>RecipeInformation</returns>
+        RecipeInformation GetRecipeInformation(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Get Recipe Information
@@ -377,11 +379,13 @@ namespace spoonacular.Api
         /// Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRecipeInformation200Response</returns>
-        ApiResponse<GetRecipeInformation200Response> GetRecipeInformationWithHttpInfo(int id, bool? includeNutrition = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of RecipeInformation</returns>
+        ApiResponse<RecipeInformation> GetRecipeInformationWithHttpInfo(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Get Recipe Information Bulk
         /// </summary>
@@ -392,8 +396,8 @@ namespace spoonacular.Api
         /// <param name="ids">A comma-separated list of recipe ids.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;GetRecipeInformationBulk200ResponseInner&gt;</returns>
-        List<GetRecipeInformationBulk200ResponseInner> GetRecipeInformationBulk(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0);
+        /// <returns>List&lt;RecipeInformation&gt;</returns>
+        List<RecipeInformation> GetRecipeInformationBulk(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Get Recipe Information Bulk
@@ -405,8 +409,8 @@ namespace spoonacular.Api
         /// <param name="ids">A comma-separated list of recipe ids.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;GetRecipeInformationBulk200ResponseInner&gt;</returns>
-        ApiResponse<List<GetRecipeInformationBulk200ResponseInner>> GetRecipeInformationBulkWithHttpInfo(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;RecipeInformation&gt;</returns>
+        ApiResponse<List<RecipeInformation>> GetRecipeInformationBulkWithHttpInfo(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Ingredients by ID
         /// </summary>
@@ -414,7 +418,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipeIngredientsByID200Response</returns>
         GetRecipeIngredientsByID200Response GetRecipeIngredientsByID(int id, int operationIndex = 0);
@@ -426,7 +430,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipeIngredientsByID200Response</returns>
         ApiResponse<GetRecipeIngredientsByID200Response> GetRecipeIngredientsByIDWithHttpInfo(int id, int operationIndex = 0);
@@ -437,7 +441,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s nutrition data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipeNutritionWidgetByID200Response</returns>
         GetRecipeNutritionWidgetByID200Response GetRecipeNutritionWidgetByID(int id, int operationIndex = 0);
@@ -449,7 +453,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s nutrition data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipeNutritionWidgetByID200Response</returns>
         ApiResponse<GetRecipeNutritionWidgetByID200Response> GetRecipeNutritionWidgetByIDWithHttpInfo(int id, int operationIndex = 0);
@@ -460,7 +464,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s price breakdown data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipePriceBreakdownByID200Response</returns>
         GetRecipePriceBreakdownByID200Response GetRecipePriceBreakdownByID(int id, int operationIndex = 0);
@@ -472,7 +476,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s price breakdown data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipePriceBreakdownByID200Response</returns>
         ApiResponse<GetRecipePriceBreakdownByID200Response> GetRecipePriceBreakdownByIDWithHttpInfo(int id, int operationIndex = 0);
@@ -483,11 +487,11 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRecipeTasteByID200Response</returns>
-        GetRecipeTasteByID200Response GetRecipeTasteByID(int id, bool? normalize = default(bool?), int operationIndex = 0);
+        /// <returns>TasteInformation</returns>
+        TasteInformation GetRecipeTasteByID(int id, bool? normalize = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Taste by ID
@@ -496,11 +500,11 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRecipeTasteByID200Response</returns>
-        ApiResponse<GetRecipeTasteByID200Response> GetRecipeTasteByIDWithHttpInfo(int id, bool? normalize = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of TasteInformation</returns>
+        ApiResponse<TasteInformation> GetRecipeTasteByIDWithHttpInfo(int id, bool? normalize = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Get Similar Recipes
         /// </summary>
@@ -508,7 +512,7 @@ namespace spoonacular.Api
         /// Find recipes which are similar to the given one.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GetSimilarRecipes200ResponseInner&gt;</returns>
@@ -521,7 +525,7 @@ namespace spoonacular.Api
         /// Find recipes which are similar to the given one.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GetSimilarRecipes200ResponseInner&gt;</returns>
@@ -559,10 +563,10 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        List<ParseIngredients200ResponseInner> ParseIngredients(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0);
+        /// <returns>List&lt;IngredientInformation&gt;</returns>
+        List<IngredientInformation> ParseIngredients(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Parse Ingredients
@@ -574,10 +578,10 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        ApiResponse<List<ParseIngredients200ResponseInner>> ParseIngredientsWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;IngredientInformation&gt;</returns>
+        ApiResponse<List<IngredientInformation>> ParseIngredientsWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Price Breakdown by ID Image
         /// </summary>
@@ -588,7 +592,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream PriceBreakdownByIDImage(decimal id, int operationIndex = 0);
+        System.IO.Stream PriceBreakdownByIDImage(int id, int operationIndex = 0);
 
         /// <summary>
         /// Price Breakdown by ID Image
@@ -600,7 +604,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> PriceBreakdownByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        ApiResponse<System.IO.Stream> PriceBreakdownByIDImageWithHttpInfo(int id, int operationIndex = 0);
         /// <summary>
         /// Quick Answer
         /// </summary>
@@ -634,7 +638,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream RecipeNutritionByIDImage(decimal id, int operationIndex = 0);
+        System.IO.Stream RecipeNutritionByIDImage(int id, int operationIndex = 0);
 
         /// <summary>
         /// Recipe Nutrition by ID Image
@@ -646,7 +650,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> RecipeNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0);
+        ApiResponse<System.IO.Stream> RecipeNutritionByIDImageWithHttpInfo(int id, int operationIndex = 0);
         /// <summary>
         /// Recipe Nutrition Label Image
         /// </summary>
@@ -660,7 +664,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream RecipeNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        System.IO.Stream RecipeNutritionLabelImage(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Nutrition Label Image
@@ -675,7 +679,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> RecipeNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> RecipeNutritionLabelImageWithHttpInfo(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Recipe Nutrition Label Widget
         /// </summary>
@@ -690,7 +694,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        string RecipeNutritionLabelWidget(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        string RecipeNutritionLabelWidget(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Nutrition Label Widget
@@ -706,7 +710,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> RecipeNutritionLabelWidgetWithHttpInfo(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
+        ApiResponse<string> RecipeNutritionLabelWidgetWithHttpInfo(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Recipe Taste by ID Image
         /// </summary>
@@ -719,7 +723,7 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        System.IO.Stream RecipeTasteByIDImage(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
+        System.IO.Stream RecipeTasteByIDImage(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Recipe Taste by ID Image
@@ -733,7 +737,7 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        ApiResponse<System.IO.Stream> RecipeTasteByIDImageWithHttpInfo(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
+        ApiResponse<System.IO.Stream> RecipeTasteByIDImageWithHttpInfo(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0);
         /// <summary>
         /// Search Recipes
         /// </summary>
@@ -741,7 +745,7 @@ namespace spoonacular.Api
         /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -840,7 +844,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchRecipes200Response</returns>
-        SearchRecipes200Response SearchRecipes(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        SearchRecipes200Response SearchRecipes(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Search Recipes
@@ -849,7 +853,7 @@ namespace spoonacular.Api
         /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -948,7 +952,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchRecipes200Response</returns>
-        ApiResponse<SearchRecipes200Response> SearchRecipesWithHttpInfo(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        ApiResponse<SearchRecipes200Response> SearchRecipesWithHttpInfo(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
         /// <summary>
         /// Search Recipes by Ingredients
         /// </summary>
@@ -956,13 +960,13 @@ namespace spoonacular.Api
         ///  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SearchRecipesByIngredients200ResponseInner&gt;</returns>
-        List<SearchRecipesByIngredients200ResponseInner> SearchRecipesByIngredients(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0);
+        List<SearchRecipesByIngredients200ResponseInner> SearchRecipesByIngredients(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Search Recipes by Ingredients
@@ -971,13 +975,13 @@ namespace spoonacular.Api
         ///  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SearchRecipesByIngredients200ResponseInner&gt;</returns>
-        ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsWithHttpInfo(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0);
+        ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsWithHttpInfo(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Search Recipes by Nutrients
         /// </summary>
@@ -1156,7 +1160,7 @@ namespace spoonacular.Api
         /// Automatically generate a short description that summarizes key information about the recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SummarizeRecipe200Response</returns>
         SummarizeRecipe200Response SummarizeRecipe(int id, int operationIndex = 0);
@@ -1168,7 +1172,7 @@ namespace spoonacular.Api
         /// Automatically generate a short description that summarizes key information about the recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SummarizeRecipe200Response</returns>
         ApiResponse<SummarizeRecipe200Response> SummarizeRecipeWithHttpInfo(int id, int operationIndex = 0);
@@ -1241,7 +1245,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -1254,7 +1258,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -1266,7 +1270,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1280,7 +1284,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1324,7 +1328,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -1337,7 +1341,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -1349,7 +1353,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s price breakdown.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -1362,7 +1366,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s price breakdown.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -1403,7 +1407,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1417,7 +1421,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1489,12 +1493,12 @@ namespace spoonacular.Api
         /// Autocomplete a partial input to suggest possible recipe names.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AutocompleteRecipeSearch200ResponseInner&gt;</returns>
-        System.Threading.Tasks.Task<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchAsync(string? query = default(string?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchAsync(string query, int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Autocomplete Recipe Search
@@ -1503,12 +1507,12 @@ namespace spoonacular.Api
         /// Autocomplete a partial input to suggest possible recipe names.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AutocompleteRecipeSearch200ResponseInner&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>>> AutocompleteRecipeSearchWithHttpInfoAsync(string? query = default(string?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>>> AutocompleteRecipeSearchWithHttpInfoAsync(string query, int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Classify Cuisine
         /// </summary>
@@ -1656,7 +1660,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> EquipmentByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> EquipmentByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Equipment by ID Image
@@ -1669,7 +1673,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> EquipmentByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> EquipmentByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Extract Recipe from Website
         /// </summary>
@@ -1684,8 +1688,8 @@ namespace spoonacular.Api
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRecipeInformation200Response</returns>
-        System.Threading.Tasks.Task<GetRecipeInformation200Response> ExtractRecipeFromWebsiteAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of RecipeInformation</returns>
+        System.Threading.Tasks.Task<RecipeInformation> ExtractRecipeFromWebsiteAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Extract Recipe from Website
@@ -1701,8 +1705,8 @@ namespace spoonacular.Api
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRecipeInformation200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRecipeInformation200Response>> ExtractRecipeFromWebsiteWithHttpInfoAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (RecipeInformation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RecipeInformation>> ExtractRecipeFromWebsiteWithHttpInfoAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Analyzed Recipe Instructions
         /// </summary>
@@ -1710,12 +1714,12 @@ namespace spoonacular.Api
         /// Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetAnalyzedRecipeInstructions200Response</returns>
-        System.Threading.Tasks.Task<GetAnalyzedRecipeInstructions200Response> GetAnalyzedRecipeInstructionsAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;</returns>
+        System.Threading.Tasks.Task<List<GetAnalyzedRecipeInstructions200ResponseInner>> GetAnalyzedRecipeInstructionsAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Analyzed Recipe Instructions
@@ -1724,12 +1728,12 @@ namespace spoonacular.Api
         /// Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetAnalyzedRecipeInstructions200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetAnalyzedRecipeInstructions200Response>> GetAnalyzedRecipeInstructionsWithHttpInfoAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>>> GetAnalyzedRecipeInstructionsWithHttpInfoAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Random Recipes
         /// </summary>
@@ -1768,7 +1772,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipeEquipmentByID200Response</returns>
@@ -1781,7 +1785,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipeEquipmentByID200Response)</returns>
@@ -1793,12 +1797,14 @@ namespace spoonacular.Api
         /// Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRecipeInformation200Response</returns>
-        System.Threading.Tasks.Task<GetRecipeInformation200Response> GetRecipeInformationAsync(int id, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of RecipeInformation</returns>
+        System.Threading.Tasks.Task<RecipeInformation> GetRecipeInformationAsync(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Recipe Information
@@ -1807,12 +1813,14 @@ namespace spoonacular.Api
         /// Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRecipeInformation200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRecipeInformation200Response>> GetRecipeInformationWithHttpInfoAsync(int id, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (RecipeInformation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RecipeInformation>> GetRecipeInformationWithHttpInfoAsync(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Recipe Information Bulk
         /// </summary>
@@ -1824,8 +1832,8 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;GetRecipeInformationBulk200ResponseInner&gt;</returns>
-        System.Threading.Tasks.Task<List<GetRecipeInformationBulk200ResponseInner>> GetRecipeInformationBulkAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;RecipeInformation&gt;</returns>
+        System.Threading.Tasks.Task<List<RecipeInformation>> GetRecipeInformationBulkAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Recipe Information Bulk
@@ -1838,8 +1846,8 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;GetRecipeInformationBulk200ResponseInner&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GetRecipeInformationBulk200ResponseInner>>> GetRecipeInformationBulkWithHttpInfoAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;RecipeInformation&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<RecipeInformation>>> GetRecipeInformationBulkWithHttpInfoAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Ingredients by ID
         /// </summary>
@@ -1847,7 +1855,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipeIngredientsByID200Response</returns>
@@ -1860,7 +1868,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipeIngredientsByID200Response)</returns>
@@ -1872,7 +1880,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s nutrition data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipeNutritionWidgetByID200Response</returns>
@@ -1885,7 +1893,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s nutrition data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipeNutritionWidgetByID200Response)</returns>
@@ -1897,7 +1905,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s price breakdown data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipePriceBreakdownByID200Response</returns>
@@ -1910,7 +1918,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s price breakdown data.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipePriceBreakdownByID200Response)</returns>
@@ -1922,12 +1930,12 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRecipeTasteByID200Response</returns>
-        System.Threading.Tasks.Task<GetRecipeTasteByID200Response> GetRecipeTasteByIDAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TasteInformation</returns>
+        System.Threading.Tasks.Task<TasteInformation> GetRecipeTasteByIDAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Taste by ID
@@ -1936,12 +1944,12 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRecipeTasteByID200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRecipeTasteByID200Response>> GetRecipeTasteByIDWithHttpInfoAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (TasteInformation)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TasteInformation>> GetRecipeTasteByIDWithHttpInfoAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Similar Recipes
         /// </summary>
@@ -1949,7 +1957,7 @@ namespace spoonacular.Api
         /// Find recipes which are similar to the given one.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1963,7 +1971,7 @@ namespace spoonacular.Api
         /// Find recipes which are similar to the given one.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2004,11 +2012,11 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        System.Threading.Tasks.Task<List<ParseIngredients200ResponseInner>> ParseIngredientsAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;IngredientInformation&gt;</returns>
+        System.Threading.Tasks.Task<List<IngredientInformation>> ParseIngredientsAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Parse Ingredients
@@ -2020,11 +2028,11 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;ParseIngredients200ResponseInner&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ParseIngredients200ResponseInner>>> ParseIngredientsWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;IngredientInformation&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<IngredientInformation>>> ParseIngredientsWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Price Breakdown by ID Image
         /// </summary>
@@ -2036,7 +2044,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> PriceBreakdownByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> PriceBreakdownByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Price Breakdown by ID Image
@@ -2049,7 +2057,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PriceBreakdownByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> PriceBreakdownByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Quick Answer
         /// </summary>
@@ -2086,7 +2094,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Nutrition by ID Image
@@ -2099,7 +2107,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeNutritionByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Recipe Nutrition Label Image
         /// </summary>
@@ -2114,7 +2122,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionLabelImageAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Nutrition Label Image
@@ -2130,7 +2138,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeNutritionLabelImageWithHttpInfoAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Recipe Nutrition Label Widget
         /// </summary>
@@ -2146,7 +2154,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> RecipeNutritionLabelWidgetAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<string> RecipeNutritionLabelWidgetAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Nutrition Label Widget
@@ -2163,7 +2171,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> RecipeNutritionLabelWidgetWithHttpInfoAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<string>> RecipeNutritionLabelWidgetWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Recipe Taste by ID Image
         /// </summary>
@@ -2177,7 +2185,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        System.Threading.Tasks.Task<System.IO.Stream> RecipeTasteByIDImageAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.IO.Stream> RecipeTasteByIDImageAsync(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Recipe Taste by ID Image
@@ -2192,7 +2200,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeTasteByIDImageWithHttpInfoAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> RecipeTasteByIDImageWithHttpInfoAsync(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Recipes
         /// </summary>
@@ -2200,7 +2208,7 @@ namespace spoonacular.Api
         /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -2300,7 +2308,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchRecipes200Response</returns>
-        System.Threading.Tasks.Task<SearchRecipes200Response> SearchRecipesAsync(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchRecipes200Response> SearchRecipesAsync(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Recipes
@@ -2309,7 +2317,7 @@ namespace spoonacular.Api
         /// Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -2409,7 +2417,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchRecipes200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchRecipes200Response>> SearchRecipesWithHttpInfoAsync(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SearchRecipes200Response>> SearchRecipesWithHttpInfoAsync(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Recipes by Ingredients
         /// </summary>
@@ -2417,14 +2425,14 @@ namespace spoonacular.Api
         ///  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SearchRecipesByIngredients200ResponseInner&gt;</returns>
-        System.Threading.Tasks.Task<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsAsync(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsAsync(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Recipes by Ingredients
@@ -2433,14 +2441,14 @@ namespace spoonacular.Api
         ///  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SearchRecipesByIngredients200ResponseInner&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<SearchRecipesByIngredients200ResponseInner>>> SearchRecipesByIngredientsWithHttpInfoAsync(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<SearchRecipesByIngredients200ResponseInner>>> SearchRecipesByIngredientsWithHttpInfoAsync(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Recipes by Nutrients
         /// </summary>
@@ -2621,7 +2629,7 @@ namespace spoonacular.Api
         /// Automatically generate a short description that summarizes key information about the recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SummarizeRecipe200Response</returns>
@@ -2634,7 +2642,7 @@ namespace spoonacular.Api
         /// Automatically generate a short description that summarizes key information about the recipe.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummarizeRecipe200Response)</returns>
@@ -2712,7 +2720,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2726,7 +2734,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s equipment list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2739,7 +2747,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2754,7 +2762,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s ingredient list.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2801,7 +2809,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2815,7 +2823,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2828,7 +2836,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s price breakdown.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2842,7 +2850,7 @@ namespace spoonacular.Api
         /// Visualize a recipe&#39;s price breakdown.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2886,7 +2894,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2901,7 +2909,7 @@ namespace spoonacular.Api
         /// Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3342,11 +3350,11 @@ namespace spoonacular.Api
         /// Autocomplete Recipe Search Autocomplete a partial input to suggest possible recipe names.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;AutocompleteRecipeSearch200ResponseInner&gt;</returns>
-        public List<AutocompleteRecipeSearch200ResponseInner> AutocompleteRecipeSearch(string? query = default(string?), int? number = default(int?), int operationIndex = 0)
+        public List<AutocompleteRecipeSearch200ResponseInner> AutocompleteRecipeSearch(string query, int? number = default(int?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>> localVarResponse = AutocompleteRecipeSearchWithHttpInfo(query, number);
             return localVarResponse.Data;
@@ -3356,12 +3364,18 @@ namespace spoonacular.Api
         /// Autocomplete Recipe Search Autocomplete a partial input to suggest possible recipe names.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;AutocompleteRecipeSearch200ResponseInner&gt;</returns>
-        public spoonacular.Client.ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchWithHttpInfo(string? query = default(string?), int? number = default(int?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchWithHttpInfo(string query, int? number = default(int?), int operationIndex = 0)
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling RecipesApi->AutocompleteRecipeSearch");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3384,10 +3398,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (number != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "number", number));
@@ -3420,12 +3431,12 @@ namespace spoonacular.Api
         /// Autocomplete Recipe Search Autocomplete a partial input to suggest possible recipe names.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;AutocompleteRecipeSearch200ResponseInner&gt;</returns>
-        public async System.Threading.Tasks.Task<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchAsync(string? query = default(string?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<AutocompleteRecipeSearch200ResponseInner>> AutocompleteRecipeSearchAsync(string query, int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>> localVarResponse = await AutocompleteRecipeSearchWithHttpInfoAsync(query, number, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3435,13 +3446,19 @@ namespace spoonacular.Api
         /// Autocomplete Recipe Search Autocomplete a partial input to suggest possible recipe names.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AutocompleteRecipeSearch200ResponseInner&gt;)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>>> AutocompleteRecipeSearchWithHttpInfoAsync(string? query = default(string?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<AutocompleteRecipeSearch200ResponseInner>>> AutocompleteRecipeSearchWithHttpInfoAsync(string query, int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling RecipesApi->AutocompleteRecipeSearch");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -3465,10 +3482,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (number != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "number", number));
@@ -4367,7 +4381,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream EquipmentByIDImage(decimal id, int operationIndex = 0)
+        public System.IO.Stream EquipmentByIDImage(int id, int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = EquipmentByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
@@ -4380,7 +4394,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public spoonacular.Client.ApiResponse<System.IO.Stream> EquipmentByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<System.IO.Stream> EquipmentByIDImageWithHttpInfo(int id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -4437,7 +4451,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> EquipmentByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> EquipmentByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await EquipmentByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4451,7 +4465,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> EquipmentByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> EquipmentByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -4512,10 +4526,10 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRecipeInformation200Response</returns>
-        public GetRecipeInformation200Response ExtractRecipeFromWebsite(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0)
+        /// <returns>RecipeInformation</returns>
+        public RecipeInformation ExtractRecipeFromWebsite(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GetRecipeInformation200Response> localVarResponse = ExtractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste);
+            spoonacular.Client.ApiResponse<RecipeInformation> localVarResponse = ExtractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste);
             return localVarResponse.Data;
         }
 
@@ -4529,8 +4543,8 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRecipeInformation200Response</returns>
-        public spoonacular.Client.ApiResponse<GetRecipeInformation200Response> ExtractRecipeFromWebsiteWithHttpInfo(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of RecipeInformation</returns>
+        public spoonacular.Client.ApiResponse<RecipeInformation> ExtractRecipeFromWebsiteWithHttpInfo(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'url' is set
             if (url == null)
@@ -4588,7 +4602,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetRecipeInformation200Response>("/recipes/extract", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<RecipeInformation>("/recipes/extract", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ExtractRecipeFromWebsite", localVarResponse);
@@ -4612,10 +4626,10 @@ namespace spoonacular.Api
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRecipeInformation200Response</returns>
-        public async System.Threading.Tasks.Task<GetRecipeInformation200Response> ExtractRecipeFromWebsiteAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of RecipeInformation</returns>
+        public async System.Threading.Tasks.Task<RecipeInformation> ExtractRecipeFromWebsiteAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GetRecipeInformation200Response> localVarResponse = await ExtractRecipeFromWebsiteWithHttpInfoAsync(url, forceExtraction, analyze, includeNutrition, includeTaste, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<RecipeInformation> localVarResponse = await ExtractRecipeFromWebsiteWithHttpInfoAsync(url, forceExtraction, analyze, includeNutrition, includeTaste, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4630,8 +4644,8 @@ namespace spoonacular.Api
         /// <param name="includeTaste">Whether taste data should be added to correctly parsed ingredients. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRecipeInformation200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetRecipeInformation200Response>> ExtractRecipeFromWebsiteWithHttpInfoAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (RecipeInformation)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<RecipeInformation>> ExtractRecipeFromWebsiteWithHttpInfoAsync(string url, bool? forceExtraction = default(bool?), bool? analyze = default(bool?), bool? includeNutrition = default(bool?), bool? includeTaste = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'url' is set
             if (url == null)
@@ -4690,7 +4704,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetRecipeInformation200Response>("/recipes/extract", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<RecipeInformation>("/recipes/extract", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4708,13 +4722,13 @@ namespace spoonacular.Api
         /// Get Analyzed Recipe Instructions Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetAnalyzedRecipeInstructions200Response</returns>
-        public GetAnalyzedRecipeInstructions200Response GetAnalyzedRecipeInstructions(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0)
+        /// <returns>List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;</returns>
+        public List<GetAnalyzedRecipeInstructions200ResponseInner> GetAnalyzedRecipeInstructions(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GetAnalyzedRecipeInstructions200Response> localVarResponse = GetAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown);
+            spoonacular.Client.ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>> localVarResponse = GetAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown);
             return localVarResponse.Data;
         }
 
@@ -4722,11 +4736,11 @@ namespace spoonacular.Api
         /// Get Analyzed Recipe Instructions Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetAnalyzedRecipeInstructions200Response</returns>
-        public spoonacular.Client.ApiResponse<GetAnalyzedRecipeInstructions200Response> GetAnalyzedRecipeInstructionsWithHttpInfo(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;</returns>
+        public spoonacular.Client.ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>> GetAnalyzedRecipeInstructionsWithHttpInfo(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -4766,7 +4780,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetAnalyzedRecipeInstructions200Response>("/recipes/{id}/analyzedInstructions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<GetAnalyzedRecipeInstructions200ResponseInner>>("/recipes/{id}/analyzedInstructions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAnalyzedRecipeInstructions", localVarResponse);
@@ -4783,14 +4797,14 @@ namespace spoonacular.Api
         /// Get Analyzed Recipe Instructions Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetAnalyzedRecipeInstructions200Response</returns>
-        public async System.Threading.Tasks.Task<GetAnalyzedRecipeInstructions200Response> GetAnalyzedRecipeInstructionsAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;</returns>
+        public async System.Threading.Tasks.Task<List<GetAnalyzedRecipeInstructions200ResponseInner>> GetAnalyzedRecipeInstructionsAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GetAnalyzedRecipeInstructions200Response> localVarResponse = await GetAnalyzedRecipeInstructionsWithHttpInfoAsync(id, stepBreakdown, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>> localVarResponse = await GetAnalyzedRecipeInstructionsWithHttpInfoAsync(id, stepBreakdown, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4798,12 +4812,12 @@ namespace spoonacular.Api
         /// Get Analyzed Recipe Instructions Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="stepBreakdown">Whether to break down the recipe steps even more. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetAnalyzedRecipeInstructions200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetAnalyzedRecipeInstructions200Response>> GetAnalyzedRecipeInstructionsWithHttpInfoAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>>> GetAnalyzedRecipeInstructionsWithHttpInfoAsync(int id, bool? stepBreakdown = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -4844,7 +4858,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetAnalyzedRecipeInstructions200Response>("/recipes/{id}/analyzedInstructions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GetAnalyzedRecipeInstructions200ResponseInner>>("/recipes/{id}/analyzedInstructions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5046,7 +5060,7 @@ namespace spoonacular.Api
         /// Equipment by ID Get a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipeEquipmentByID200Response</returns>
         public GetRecipeEquipmentByID200Response GetRecipeEquipmentByID(int id, int operationIndex = 0)
@@ -5059,7 +5073,7 @@ namespace spoonacular.Api
         /// Equipment by ID Get a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipeEquipmentByID200Response</returns>
         public spoonacular.Client.ApiResponse<GetRecipeEquipmentByID200Response> GetRecipeEquipmentByIDWithHttpInfo(int id, int operationIndex = 0)
@@ -5115,7 +5129,7 @@ namespace spoonacular.Api
         /// Equipment by ID Get a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipeEquipmentByID200Response</returns>
@@ -5129,7 +5143,7 @@ namespace spoonacular.Api
         /// Equipment by ID Get a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipeEquipmentByID200Response)</returns>
@@ -5188,13 +5202,15 @@ namespace spoonacular.Api
         /// Get Recipe Information Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRecipeInformation200Response</returns>
-        public GetRecipeInformation200Response GetRecipeInformation(int id, bool? includeNutrition = default(bool?), int operationIndex = 0)
+        /// <returns>RecipeInformation</returns>
+        public RecipeInformation GetRecipeInformation(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GetRecipeInformation200Response> localVarResponse = GetRecipeInformationWithHttpInfo(id, includeNutrition);
+            spoonacular.Client.ApiResponse<RecipeInformation> localVarResponse = GetRecipeInformationWithHttpInfo(id, includeNutrition, addWinePairing, addTasteData);
             return localVarResponse.Data;
         }
 
@@ -5202,11 +5218,13 @@ namespace spoonacular.Api
         /// Get Recipe Information Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRecipeInformation200Response</returns>
-        public spoonacular.Client.ApiResponse<GetRecipeInformation200Response> GetRecipeInformationWithHttpInfo(int id, bool? includeNutrition = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of RecipeInformation</returns>
+        public spoonacular.Client.ApiResponse<RecipeInformation> GetRecipeInformationWithHttpInfo(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -5235,6 +5253,14 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "includeNutrition", includeNutrition));
             }
+            if (addWinePairing != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "addWinePairing", addWinePairing));
+            }
+            if (addTasteData != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "addTasteData", addTasteData));
+            }
 
             localVarRequestOptions.Operation = "RecipesApi.GetRecipeInformation";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5246,7 +5272,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetRecipeInformation200Response>("/recipes/{id}/information", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<RecipeInformation>("/recipes/{id}/information", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecipeInformation", localVarResponse);
@@ -5263,14 +5289,16 @@ namespace spoonacular.Api
         /// Get Recipe Information Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRecipeInformation200Response</returns>
-        public async System.Threading.Tasks.Task<GetRecipeInformation200Response> GetRecipeInformationAsync(int id, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of RecipeInformation</returns>
+        public async System.Threading.Tasks.Task<RecipeInformation> GetRecipeInformationAsync(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GetRecipeInformation200Response> localVarResponse = await GetRecipeInformationWithHttpInfoAsync(id, includeNutrition, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<RecipeInformation> localVarResponse = await GetRecipeInformationWithHttpInfoAsync(id, includeNutrition, addWinePairing, addTasteData, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5278,12 +5306,14 @@ namespace spoonacular.Api
         /// Get Recipe Information Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the recipe.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
+        /// <param name="addWinePairing">Add a wine pairing to the recipe. (optional)</param>
+        /// <param name="addTasteData">Add taste data to the recipe. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRecipeInformation200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetRecipeInformation200Response>> GetRecipeInformationWithHttpInfoAsync(int id, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (RecipeInformation)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<RecipeInformation>> GetRecipeInformationWithHttpInfoAsync(int id, bool? includeNutrition = default(bool?), bool? addWinePairing = default(bool?), bool? addTasteData = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -5313,6 +5343,14 @@ namespace spoonacular.Api
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "includeNutrition", includeNutrition));
             }
+            if (addWinePairing != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "addWinePairing", addWinePairing));
+            }
+            if (addTasteData != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "addTasteData", addTasteData));
+            }
 
             localVarRequestOptions.Operation = "RecipesApi.GetRecipeInformation";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5324,7 +5362,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetRecipeInformation200Response>("/recipes/{id}/information", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<RecipeInformation>("/recipes/{id}/information", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5345,10 +5383,10 @@ namespace spoonacular.Api
         /// <param name="ids">A comma-separated list of recipe ids.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;GetRecipeInformationBulk200ResponseInner&gt;</returns>
-        public List<GetRecipeInformationBulk200ResponseInner> GetRecipeInformationBulk(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0)
+        /// <returns>List&lt;RecipeInformation&gt;</returns>
+        public List<RecipeInformation> GetRecipeInformationBulk(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<List<GetRecipeInformationBulk200ResponseInner>> localVarResponse = GetRecipeInformationBulkWithHttpInfo(ids, includeNutrition);
+            spoonacular.Client.ApiResponse<List<RecipeInformation>> localVarResponse = GetRecipeInformationBulkWithHttpInfo(ids, includeNutrition);
             return localVarResponse.Data;
         }
 
@@ -5359,8 +5397,8 @@ namespace spoonacular.Api
         /// <param name="ids">A comma-separated list of recipe ids.</param>
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;GetRecipeInformationBulk200ResponseInner&gt;</returns>
-        public spoonacular.Client.ApiResponse<List<GetRecipeInformationBulk200ResponseInner>> GetRecipeInformationBulkWithHttpInfo(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;RecipeInformation&gt;</returns>
+        public spoonacular.Client.ApiResponse<List<RecipeInformation>> GetRecipeInformationBulkWithHttpInfo(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -5406,7 +5444,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GetRecipeInformationBulk200ResponseInner>>("/recipes/informationBulk", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<RecipeInformation>>("/recipes/informationBulk", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecipeInformationBulk", localVarResponse);
@@ -5427,10 +5465,10 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;GetRecipeInformationBulk200ResponseInner&gt;</returns>
-        public async System.Threading.Tasks.Task<List<GetRecipeInformationBulk200ResponseInner>> GetRecipeInformationBulkAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;RecipeInformation&gt;</returns>
+        public async System.Threading.Tasks.Task<List<RecipeInformation>> GetRecipeInformationBulkAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<List<GetRecipeInformationBulk200ResponseInner>> localVarResponse = await GetRecipeInformationBulkWithHttpInfoAsync(ids, includeNutrition, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<List<RecipeInformation>> localVarResponse = await GetRecipeInformationBulkWithHttpInfoAsync(ids, includeNutrition, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5442,8 +5480,8 @@ namespace spoonacular.Api
         /// <param name="includeNutrition">Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;GetRecipeInformationBulk200ResponseInner&gt;)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<GetRecipeInformationBulk200ResponseInner>>> GetRecipeInformationBulkWithHttpInfoAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;RecipeInformation&gt;)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<RecipeInformation>>> GetRecipeInformationBulkWithHttpInfoAsync(string ids, bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ids' is set
             if (ids == null)
@@ -5490,7 +5528,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GetRecipeInformationBulk200ResponseInner>>("/recipes/informationBulk", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<RecipeInformation>>("/recipes/informationBulk", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5508,7 +5546,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Get a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipeIngredientsByID200Response</returns>
         public GetRecipeIngredientsByID200Response GetRecipeIngredientsByID(int id, int operationIndex = 0)
@@ -5521,7 +5559,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Get a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipeIngredientsByID200Response</returns>
         public spoonacular.Client.ApiResponse<GetRecipeIngredientsByID200Response> GetRecipeIngredientsByIDWithHttpInfo(int id, int operationIndex = 0)
@@ -5577,7 +5615,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Get a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipeIngredientsByID200Response</returns>
@@ -5591,7 +5629,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Get a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipeIngredientsByID200Response)</returns>
@@ -5650,7 +5688,7 @@ namespace spoonacular.Api
         /// Nutrition by ID Get a recipe&#39;s nutrition data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipeNutritionWidgetByID200Response</returns>
         public GetRecipeNutritionWidgetByID200Response GetRecipeNutritionWidgetByID(int id, int operationIndex = 0)
@@ -5663,7 +5701,7 @@ namespace spoonacular.Api
         /// Nutrition by ID Get a recipe&#39;s nutrition data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipeNutritionWidgetByID200Response</returns>
         public spoonacular.Client.ApiResponse<GetRecipeNutritionWidgetByID200Response> GetRecipeNutritionWidgetByIDWithHttpInfo(int id, int operationIndex = 0)
@@ -5719,7 +5757,7 @@ namespace spoonacular.Api
         /// Nutrition by ID Get a recipe&#39;s nutrition data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipeNutritionWidgetByID200Response</returns>
@@ -5733,7 +5771,7 @@ namespace spoonacular.Api
         /// Nutrition by ID Get a recipe&#39;s nutrition data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipeNutritionWidgetByID200Response)</returns>
@@ -5792,7 +5830,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Get a recipe&#39;s price breakdown data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetRecipePriceBreakdownByID200Response</returns>
         public GetRecipePriceBreakdownByID200Response GetRecipePriceBreakdownByID(int id, int operationIndex = 0)
@@ -5805,7 +5843,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Get a recipe&#39;s price breakdown data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetRecipePriceBreakdownByID200Response</returns>
         public spoonacular.Client.ApiResponse<GetRecipePriceBreakdownByID200Response> GetRecipePriceBreakdownByIDWithHttpInfo(int id, int operationIndex = 0)
@@ -5861,7 +5899,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Get a recipe&#39;s price breakdown data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetRecipePriceBreakdownByID200Response</returns>
@@ -5875,7 +5913,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Get a recipe&#39;s price breakdown data.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetRecipePriceBreakdownByID200Response)</returns>
@@ -5934,13 +5972,13 @@ namespace spoonacular.Api
         /// Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRecipeTasteByID200Response</returns>
-        public GetRecipeTasteByID200Response GetRecipeTasteByID(int id, bool? normalize = default(bool?), int operationIndex = 0)
+        /// <returns>TasteInformation</returns>
+        public TasteInformation GetRecipeTasteByID(int id, bool? normalize = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GetRecipeTasteByID200Response> localVarResponse = GetRecipeTasteByIDWithHttpInfo(id, normalize);
+            spoonacular.Client.ApiResponse<TasteInformation> localVarResponse = GetRecipeTasteByIDWithHttpInfo(id, normalize);
             return localVarResponse.Data;
         }
 
@@ -5948,11 +5986,11 @@ namespace spoonacular.Api
         /// Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRecipeTasteByID200Response</returns>
-        public spoonacular.Client.ApiResponse<GetRecipeTasteByID200Response> GetRecipeTasteByIDWithHttpInfo(int id, bool? normalize = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of TasteInformation</returns>
+        public spoonacular.Client.ApiResponse<TasteInformation> GetRecipeTasteByIDWithHttpInfo(int id, bool? normalize = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -5992,7 +6030,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetRecipeTasteByID200Response>("/recipes/{id}/tasteWidget.json", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<TasteInformation>("/recipes/{id}/tasteWidget.json", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecipeTasteByID", localVarResponse);
@@ -6009,14 +6047,14 @@ namespace spoonacular.Api
         /// Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRecipeTasteByID200Response</returns>
-        public async System.Threading.Tasks.Task<GetRecipeTasteByID200Response> GetRecipeTasteByIDAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TasteInformation</returns>
+        public async System.Threading.Tasks.Task<TasteInformation> GetRecipeTasteByIDAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GetRecipeTasteByID200Response> localVarResponse = await GetRecipeTasteByIDWithHttpInfoAsync(id, normalize, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<TasteInformation> localVarResponse = await GetRecipeTasteByIDWithHttpInfoAsync(id, normalize, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6024,12 +6062,12 @@ namespace spoonacular.Api
         /// Taste by ID Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRecipeTasteByID200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetRecipeTasteByID200Response>> GetRecipeTasteByIDWithHttpInfoAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (TasteInformation)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<TasteInformation>> GetRecipeTasteByIDWithHttpInfoAsync(int id, bool? normalize = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -6070,7 +6108,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetRecipeTasteByID200Response>("/recipes/{id}/tasteWidget.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<TasteInformation>("/recipes/{id}/tasteWidget.json", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6088,7 +6126,7 @@ namespace spoonacular.Api
         /// Get Similar Recipes Find recipes which are similar to the given one.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;GetSimilarRecipes200ResponseInner&gt;</returns>
@@ -6102,7 +6140,7 @@ namespace spoonacular.Api
         /// Get Similar Recipes Find recipes which are similar to the given one.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;GetSimilarRecipes200ResponseInner&gt;</returns>
@@ -6163,7 +6201,7 @@ namespace spoonacular.Api
         /// Get Similar Recipes Find recipes which are similar to the given one.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6178,7 +6216,7 @@ namespace spoonacular.Api
         /// Get Similar Recipes Find recipes which are similar to the given one.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The id of the source recipe for which similar recipes should be found.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6399,12 +6437,12 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        public List<ParseIngredients200ResponseInner> ParseIngredients(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0)
+        /// <returns>List&lt;IngredientInformation&gt;</returns>
+        public List<IngredientInformation> ParseIngredients(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> localVarResponse = ParseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
+            spoonacular.Client.ApiResponse<List<IngredientInformation>> localVarResponse = ParseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
             return localVarResponse.Data;
         }
 
@@ -6415,10 +6453,10 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        public spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> ParseIngredientsWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;IngredientInformation&gt;</returns>
+        public spoonacular.Client.ApiResponse<List<IngredientInformation>> ParseIngredientsWithHttpInfo(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'ingredientList' is set
             if (ingredientList == null)
@@ -6470,7 +6508,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<List<ParseIngredients200ResponseInner>>("/recipes/parseIngredients", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<List<IngredientInformation>>("/recipes/parseIngredients", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ParseIngredients", localVarResponse);
@@ -6490,13 +6528,13 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;ParseIngredients200ResponseInner&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ParseIngredients200ResponseInner>> ParseIngredientsAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;IngredientInformation&gt;</returns>
+        public async System.Threading.Tasks.Task<List<IngredientInformation>> ParseIngredientsAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>> localVarResponse = await ParseIngredientsWithHttpInfoAsync(ingredientList, servings, language, includeNutrition, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<List<IngredientInformation>> localVarResponse = await ParseIngredientsWithHttpInfoAsync(ingredientList, servings, language, includeNutrition, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6507,11 +6545,11 @@ namespace spoonacular.Api
         /// <param name="ingredientList">The ingredient list of the recipe, one ingredient per line.</param>
         /// <param name="servings">The number of servings that you can make from the ingredients.</param>
         /// <param name="language">The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)</param>
-        /// <param name="includeNutrition"> (optional)</param>
+        /// <param name="includeNutrition">Whether nutrition data should be added to correctly parsed ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;ParseIngredients200ResponseInner&gt;)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<ParseIngredients200ResponseInner>>> ParseIngredientsWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;IngredientInformation&gt;)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<IngredientInformation>>> ParseIngredientsWithHttpInfoAsync(string ingredientList, decimal servings, string? language = default(string?), bool? includeNutrition = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'ingredientList' is set
             if (ingredientList == null)
@@ -6564,7 +6602,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<List<ParseIngredients200ResponseInner>>("/recipes/parseIngredients", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<IngredientInformation>>("/recipes/parseIngredients", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6585,7 +6623,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream PriceBreakdownByIDImage(decimal id, int operationIndex = 0)
+        public System.IO.Stream PriceBreakdownByIDImage(int id, int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = PriceBreakdownByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
@@ -6598,7 +6636,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public spoonacular.Client.ApiResponse<System.IO.Stream> PriceBreakdownByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<System.IO.Stream> PriceBreakdownByIDImageWithHttpInfo(int id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -6655,7 +6693,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> PriceBreakdownByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> PriceBreakdownByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await PriceBreakdownByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6669,7 +6707,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> PriceBreakdownByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> PriceBreakdownByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -6881,7 +6919,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream RecipeNutritionByIDImage(decimal id, int operationIndex = 0)
+        public System.IO.Stream RecipeNutritionByIDImage(int id, int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = RecipeNutritionByIDImageWithHttpInfo(id);
             return localVarResponse.Data;
@@ -6894,7 +6932,7 @@ namespace spoonacular.Api
         /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeNutritionByIDImageWithHttpInfo(decimal id, int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeNutritionByIDImageWithHttpInfo(int id, int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -6951,7 +6989,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionByIDImageAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionByIDImageAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await RecipeNutritionByIDImageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6965,7 +7003,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeNutritionByIDImageWithHttpInfoAsync(decimal id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeNutritionByIDImageWithHttpInfoAsync(int id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -7026,7 +7064,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream RecipeNutritionLabelImage(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public System.IO.Stream RecipeNutritionLabelImage(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = RecipeNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
             return localVarResponse.Data;
@@ -7042,7 +7080,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeNutritionLabelImageWithHttpInfo(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeNutritionLabelImageWithHttpInfo(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -7114,7 +7152,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionLabelImageAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeNutritionLabelImageAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await RecipeNutritionLabelImageWithHttpInfoAsync(id, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7131,7 +7169,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeNutritionLabelImageWithHttpInfoAsync(decimal id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeNutritionLabelImageWithHttpInfoAsync(int id, bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -7205,7 +7243,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
-        public string RecipeNutritionLabelWidget(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public string RecipeNutritionLabelWidget(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<string> localVarResponse = RecipeNutritionLabelWidgetWithHttpInfo(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients);
             return localVarResponse.Data;
@@ -7222,7 +7260,7 @@ namespace spoonacular.Api
         /// <param name="showIngredients">Whether to show a list of ingredients. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
-        public spoonacular.Client.ApiResponse<string> RecipeNutritionLabelWidgetWithHttpInfo(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<string> RecipeNutritionLabelWidgetWithHttpInfo(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -7299,7 +7337,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> RecipeNutritionLabelWidgetAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<string> RecipeNutritionLabelWidgetAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<string> localVarResponse = await RecipeNutritionLabelWidgetWithHttpInfoAsync(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7317,7 +7355,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> RecipeNutritionLabelWidgetWithHttpInfoAsync(decimal id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<string>> RecipeNutritionLabelWidgetWithHttpInfoAsync(int id, bool? defaultCss = default(bool?), bool? showOptionalNutrients = default(bool?), bool? showZeroValues = default(bool?), bool? showIngredients = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -7393,7 +7431,7 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>System.IO.Stream</returns>
-        public System.IO.Stream RecipeTasteByIDImage(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
+        public System.IO.Stream RecipeTasteByIDImage(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = RecipeTasteByIDImageWithHttpInfo(id, normalize, rgb);
             return localVarResponse.Data;
@@ -7408,7 +7446,7 @@ namespace spoonacular.Api
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of System.IO.Stream</returns>
-        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeTasteByIDImageWithHttpInfo(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<System.IO.Stream> RecipeTasteByIDImageWithHttpInfo(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -7475,7 +7513,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of System.IO.Stream</returns>
-        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeTasteByIDImageAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.IO.Stream> RecipeTasteByIDImageAsync(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<System.IO.Stream> localVarResponse = await RecipeTasteByIDImageWithHttpInfoAsync(id, normalize, rgb, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7491,7 +7529,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeTasteByIDImageWithHttpInfoAsync(decimal id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<System.IO.Stream>> RecipeTasteByIDImageWithHttpInfoAsync(int id, bool? normalize = default(bool?), string? rgb = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -7554,7 +7592,7 @@ namespace spoonacular.Api
         /// Search Recipes Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -7653,7 +7691,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchRecipes200Response</returns>
-        public SearchRecipes200Response SearchRecipes(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public SearchRecipes200Response SearchRecipes(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<SearchRecipes200Response> localVarResponse = SearchRecipesWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number);
             return localVarResponse.Data;
@@ -7663,7 +7701,7 @@ namespace spoonacular.Api
         /// Search Recipes Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -7762,8 +7800,14 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchRecipes200Response</returns>
-        public spoonacular.Client.ApiResponse<SearchRecipes200Response> SearchRecipesWithHttpInfo(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<SearchRecipes200Response> SearchRecipesWithHttpInfo(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling RecipesApi->SearchRecipes");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -7786,10 +7830,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (cuisine != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "cuisine", cuisine));
@@ -8202,7 +8243,7 @@ namespace spoonacular.Api
         /// Search Recipes Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -8302,7 +8343,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchRecipes200Response</returns>
-        public async System.Threading.Tasks.Task<SearchRecipes200Response> SearchRecipesAsync(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchRecipes200Response> SearchRecipesAsync(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<SearchRecipes200Response> localVarResponse = await SearchRecipesWithHttpInfoAsync(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8312,7 +8353,7 @@ namespace spoonacular.Api
         /// Search Recipes Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="excludeCuisine">The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -8412,8 +8453,14 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchRecipes200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchRecipes200Response>> SearchRecipesWithHttpInfoAsync(string? query = default(string?), string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), decimal? recipeBoxId = default(decimal?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchRecipes200Response>> SearchRecipesWithHttpInfoAsync(string query, string? cuisine = default(string?), string? excludeCuisine = default(string?), string? diet = default(string?), string? intolerances = default(string?), string? equipment = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), string? type = default(string?), bool? instructionsRequired = default(bool?), bool? fillIngredients = default(bool?), bool? addRecipeInformation = default(bool?), bool? addRecipeNutrition = default(bool?), string? author = default(string?), string? tags = default(string?), int? recipeBoxId = default(int?), string? titleMatch = default(string?), decimal? maxReadyTime = default(decimal?), decimal? minServings = default(decimal?), decimal? maxServings = default(decimal?), bool? ignorePantry = default(bool?), string? sort = default(string?), string? sortDirection = default(string?), decimal? minCarbs = default(decimal?), decimal? maxCarbs = default(decimal?), decimal? minProtein = default(decimal?), decimal? maxProtein = default(decimal?), decimal? minCalories = default(decimal?), decimal? maxCalories = default(decimal?), decimal? minFat = default(decimal?), decimal? maxFat = default(decimal?), decimal? minAlcohol = default(decimal?), decimal? maxAlcohol = default(decimal?), decimal? minCaffeine = default(decimal?), decimal? maxCaffeine = default(decimal?), decimal? minCopper = default(decimal?), decimal? maxCopper = default(decimal?), decimal? minCalcium = default(decimal?), decimal? maxCalcium = default(decimal?), decimal? minCholine = default(decimal?), decimal? maxCholine = default(decimal?), decimal? minCholesterol = default(decimal?), decimal? maxCholesterol = default(decimal?), decimal? minFluoride = default(decimal?), decimal? maxFluoride = default(decimal?), decimal? minSaturatedFat = default(decimal?), decimal? maxSaturatedFat = default(decimal?), decimal? minVitaminA = default(decimal?), decimal? maxVitaminA = default(decimal?), decimal? minVitaminC = default(decimal?), decimal? maxVitaminC = default(decimal?), decimal? minVitaminD = default(decimal?), decimal? maxVitaminD = default(decimal?), decimal? minVitaminE = default(decimal?), decimal? maxVitaminE = default(decimal?), decimal? minVitaminK = default(decimal?), decimal? maxVitaminK = default(decimal?), decimal? minVitaminB1 = default(decimal?), decimal? maxVitaminB1 = default(decimal?), decimal? minVitaminB2 = default(decimal?), decimal? maxVitaminB2 = default(decimal?), decimal? minVitaminB5 = default(decimal?), decimal? maxVitaminB5 = default(decimal?), decimal? minVitaminB3 = default(decimal?), decimal? maxVitaminB3 = default(decimal?), decimal? minVitaminB6 = default(decimal?), decimal? maxVitaminB6 = default(decimal?), decimal? minVitaminB12 = default(decimal?), decimal? maxVitaminB12 = default(decimal?), decimal? minFiber = default(decimal?), decimal? maxFiber = default(decimal?), decimal? minFolate = default(decimal?), decimal? maxFolate = default(decimal?), decimal? minFolicAcid = default(decimal?), decimal? maxFolicAcid = default(decimal?), decimal? minIodine = default(decimal?), decimal? maxIodine = default(decimal?), decimal? minIron = default(decimal?), decimal? maxIron = default(decimal?), decimal? minMagnesium = default(decimal?), decimal? maxMagnesium = default(decimal?), decimal? minManganese = default(decimal?), decimal? maxManganese = default(decimal?), decimal? minPhosphorus = default(decimal?), decimal? maxPhosphorus = default(decimal?), decimal? minPotassium = default(decimal?), decimal? maxPotassium = default(decimal?), decimal? minSelenium = default(decimal?), decimal? maxSelenium = default(decimal?), decimal? minSodium = default(decimal?), decimal? maxSodium = default(decimal?), decimal? minSugar = default(decimal?), decimal? maxSugar = default(decimal?), decimal? minZinc = default(decimal?), decimal? maxZinc = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling RecipesApi->SearchRecipes");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -8437,10 +8484,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (cuisine != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "cuisine", cuisine));
@@ -8854,13 +8898,13 @@ namespace spoonacular.Api
         /// Search Recipes by Ingredients  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;SearchRecipesByIngredients200ResponseInner&gt;</returns>
-        public List<SearchRecipesByIngredients200ResponseInner> SearchRecipesByIngredients(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0)
+        public List<SearchRecipesByIngredients200ResponseInner> SearchRecipesByIngredients(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> localVarResponse = SearchRecipesByIngredientsWithHttpInfo(ingredients, number, ranking, ignorePantry);
             return localVarResponse.Data;
@@ -8870,14 +8914,20 @@ namespace spoonacular.Api
         /// Search Recipes by Ingredients  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;SearchRecipesByIngredients200ResponseInner&gt;</returns>
-        public spoonacular.Client.ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsWithHttpInfo(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsWithHttpInfo(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0)
         {
+            // verify the required parameter 'ingredients' is set
+            if (ingredients == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredients' when calling RecipesApi->SearchRecipesByIngredients");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -8900,10 +8950,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (ingredients != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "ingredients", ingredients));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "ingredients", ingredients));
             if (number != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "number", number));
@@ -8944,14 +8991,14 @@ namespace spoonacular.Api
         /// Search Recipes by Ingredients  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SearchRecipesByIngredients200ResponseInner&gt;</returns>
-        public async System.Threading.Tasks.Task<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsAsync(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<SearchRecipesByIngredients200ResponseInner>> SearchRecipesByIngredientsAsync(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<List<SearchRecipesByIngredients200ResponseInner>> localVarResponse = await SearchRecipesByIngredientsWithHttpInfoAsync(ingredients, number, ranking, ignorePantry, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8961,15 +9008,21 @@ namespace spoonacular.Api
         /// Search Recipes by Ingredients  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain. (optional)</param>
+        /// <param name="ingredients">A comma-separated list of ingredients that the recipes should contain.</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="ranking">Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)</param>
         /// <param name="ignorePantry">Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SearchRecipesByIngredients200ResponseInner&gt;)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<SearchRecipesByIngredients200ResponseInner>>> SearchRecipesByIngredientsWithHttpInfoAsync(string? ingredients = default(string?), int? number = default(int?), decimal? ranking = default(decimal?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<List<SearchRecipesByIngredients200ResponseInner>>> SearchRecipesByIngredientsWithHttpInfoAsync(string ingredients, int? number = default(int?), int? ranking = default(int?), bool? ignorePantry = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ingredients' is set
+            if (ingredients == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'ingredients' when calling RecipesApi->SearchRecipesByIngredients");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -8993,10 +9046,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (ingredients != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "ingredients", ingredients));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "ingredients", ingredients));
             if (number != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "number", number));
@@ -10074,7 +10124,7 @@ namespace spoonacular.Api
         /// Summarize Recipe Automatically generate a short description that summarizes key information about the recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SummarizeRecipe200Response</returns>
         public SummarizeRecipe200Response SummarizeRecipe(int id, int operationIndex = 0)
@@ -10087,7 +10137,7 @@ namespace spoonacular.Api
         /// Summarize Recipe Automatically generate a short description that summarizes key information about the recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SummarizeRecipe200Response</returns>
         public spoonacular.Client.ApiResponse<SummarizeRecipe200Response> SummarizeRecipeWithHttpInfo(int id, int operationIndex = 0)
@@ -10143,7 +10193,7 @@ namespace spoonacular.Api
         /// Summarize Recipe Automatically generate a short description that summarizes key information about the recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SummarizeRecipe200Response</returns>
@@ -10157,7 +10207,7 @@ namespace spoonacular.Api
         /// Summarize Recipe Automatically generate a short description that summarizes key information about the recipe.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SummarizeRecipe200Response)</returns>
@@ -10618,7 +10668,7 @@ namespace spoonacular.Api
         /// Equipment by ID Widget Visualize a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -10632,7 +10682,7 @@ namespace spoonacular.Api
         /// Equipment by ID Widget Visualize a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -10693,7 +10743,7 @@ namespace spoonacular.Api
         /// Equipment by ID Widget Visualize a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10708,7 +10758,7 @@ namespace spoonacular.Api
         /// Equipment by ID Widget Visualize a recipe&#39;s equipment list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10772,7 +10822,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Widget Visualize a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -10787,7 +10837,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Widget Visualize a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -10853,7 +10903,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Widget Visualize a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -10869,7 +10919,7 @@ namespace spoonacular.Api
         /// Ingredients by ID Widget Visualize a recipe&#39;s ingredient list.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="measure">Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -11136,7 +11186,7 @@ namespace spoonacular.Api
         /// Recipe Nutrition by ID Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -11150,7 +11200,7 @@ namespace spoonacular.Api
         /// Recipe Nutrition by ID Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -11211,7 +11261,7 @@ namespace spoonacular.Api
         /// Recipe Nutrition by ID Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -11226,7 +11276,7 @@ namespace spoonacular.Api
         /// Recipe Nutrition by ID Widget Visualize a recipe&#39;s nutritional information as HTML including CSS.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -11290,7 +11340,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Widget Visualize a recipe&#39;s price breakdown.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>string</returns>
@@ -11304,7 +11354,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Widget Visualize a recipe&#39;s price breakdown.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of string</returns>
@@ -11365,7 +11415,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Widget Visualize a recipe&#39;s price breakdown.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -11380,7 +11430,7 @@ namespace spoonacular.Api
         /// Price Breakdown by ID Widget Visualize a recipe&#39;s price breakdown.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="defaultCss">Whether the default CSS should be added to the response. (optional, default to true)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -11636,7 +11686,7 @@ namespace spoonacular.Api
         /// Recipe Taste by ID Widget Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -11651,7 +11701,7 @@ namespace spoonacular.Api
         /// Recipe Taste by ID Widget Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -11717,7 +11767,7 @@ namespace spoonacular.Api
         /// Recipe Taste by ID Widget Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -11733,7 +11783,7 @@ namespace spoonacular.Api
         /// Recipe Taste by ID Widget Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The recipe id.</param>
         /// <param name="normalize">Whether to normalize to the strongest taste. (optional, default to true)</param>
         /// <param name="rgb">Red, green, blue values for the chart color. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

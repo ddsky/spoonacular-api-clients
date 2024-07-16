@@ -52,9 +52,9 @@ import com.spoonacular.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class GetRecipeNutritionWidgetByID200ResponseBadInner {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -71,22 +71,22 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
   public GetRecipeNutritionWidgetByID200ResponseBadInner() {
   }
 
-  public GetRecipeNutritionWidgetByID200ResponseBadInner name(String name) {
-    this.name = name;
+  public GetRecipeNutritionWidgetByID200ResponseBadInner title(String title) {
+    this.title = title;
     return this;
   }
 
   /**
-   * Get name
-   * @return name
+   * Get title
+   * @return title
    */
   @javax.annotation.Nonnull
-  public String getName() {
-    return name;
+  public String getTitle() {
+    return title;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -157,7 +157,7 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
       return false;
     }
     GetRecipeNutritionWidgetByID200ResponseBadInner getRecipeNutritionWidgetByID200ResponseBadInner = (GetRecipeNutritionWidgetByID200ResponseBadInner) o;
-    return Objects.equals(this.name, getRecipeNutritionWidgetByID200ResponseBadInner.name) &&
+    return Objects.equals(this.title, getRecipeNutritionWidgetByID200ResponseBadInner.title) &&
         Objects.equals(this.amount, getRecipeNutritionWidgetByID200ResponseBadInner.amount) &&
         Objects.equals(this.indented, getRecipeNutritionWidgetByID200ResponseBadInner.indented) &&
         Objects.equals(this.percentOfDailyNeeds, getRecipeNutritionWidgetByID200ResponseBadInner.percentOfDailyNeeds);
@@ -165,14 +165,14 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, amount, indented, percentOfDailyNeeds);
+    return Objects.hash(title, amount, indented, percentOfDailyNeeds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRecipeNutritionWidgetByID200ResponseBadInner {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    indented: ").append(toIndentedString(indented)).append("\n");
     sb.append("    percentOfDailyNeeds: ").append(toIndentedString(percentOfDailyNeeds)).append("\n");
@@ -198,14 +198,14 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("name");
+    openapiFields.add("title");
     openapiFields.add("amount");
     openapiFields.add("indented");
     openapiFields.add("percentOfDailyNeeds");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("title");
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("indented");
     openapiRequiredFields.add("percentOfDailyNeeds");
@@ -239,8 +239,8 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if (!jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));

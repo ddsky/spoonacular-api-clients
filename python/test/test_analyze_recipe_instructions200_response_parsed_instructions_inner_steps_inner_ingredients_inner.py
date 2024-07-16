@@ -36,14 +36,14 @@ class TestAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerI
         model = AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner()
         if include_optional:
             return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(
-                id = 1.337,
+                id = 56,
                 name = '0',
                 localized_name = '0',
                 image = '0'
             )
         else:
             return AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(
-                id = 1.337,
+                id = 56,
                 name = '0',
                 localized_name = '0',
                 image = '0',

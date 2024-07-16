@@ -74,8 +74,8 @@ void OAIGetComparableProducts_200_response_comparableProducts::fromJsonObject(QJ
     m_protein_isValid = ::OpenAPI::fromJsonValue(m_protein, json[QString("protein")]);
     m_protein_isSet = !json[QString("protein")].isNull() && m_protein_isValid;
 
-    m_spoonacular_score_isValid = ::OpenAPI::fromJsonValue(m_spoonacular_score, json[QString("spoonacularScore")]);
-    m_spoonacular_score_isSet = !json[QString("spoonacularScore")].isNull() && m_spoonacular_score_isValid;
+    m_spoonacular_score_isValid = ::OpenAPI::fromJsonValue(m_spoonacular_score, json[QString("spoonacular_score")]);
+    m_spoonacular_score_isSet = !json[QString("spoonacular_score")].isNull() && m_spoonacular_score_isValid;
 
     m_sugar_isValid = ::OpenAPI::fromJsonValue(m_sugar, json[QString("sugar")]);
     m_sugar_isSet = !json[QString("sugar")].isNull() && m_sugar_isValid;
@@ -103,7 +103,7 @@ QJsonObject OAIGetComparableProducts_200_response_comparableProducts::asJsonObje
         obj.insert(QString("protein"), ::OpenAPI::toJsonValue(m_protein));
     }
     if (m_spoonacular_score.size() > 0) {
-        obj.insert(QString("spoonacularScore"), ::OpenAPI::toJsonValue(m_spoonacular_score));
+        obj.insert(QString("spoonacular_score"), ::OpenAPI::toJsonValue(m_spoonacular_score));
     }
     if (m_sugar.size() > 0) {
         obj.insert(QString("sugar"), ::OpenAPI::toJsonValue(m_sugar));
@@ -111,10 +111,10 @@ QJsonObject OAIGetComparableProducts_200_response_comparableProducts::asJsonObje
     return obj;
 }
 
-QList<OAIObject> OAIGetComparableProducts_200_response_comparableProducts::getCalories() const {
+QList<OAIComparableProduct> OAIGetComparableProducts_200_response_comparableProducts::getCalories() const {
     return m_calories;
 }
-void OAIGetComparableProducts_200_response_comparableProducts::setCalories(const QList<OAIObject> &calories) {
+void OAIGetComparableProducts_200_response_comparableProducts::setCalories(const QList<OAIComparableProduct> &calories) {
     m_calories = calories;
     m_calories_isSet = true;
 }
@@ -127,10 +127,10 @@ bool OAIGetComparableProducts_200_response_comparableProducts::is_calories_Valid
     return m_calories_isValid;
 }
 
-QList<OAIObject> OAIGetComparableProducts_200_response_comparableProducts::getLikes() const {
+QList<OAIComparableProduct> OAIGetComparableProducts_200_response_comparableProducts::getLikes() const {
     return m_likes;
 }
-void OAIGetComparableProducts_200_response_comparableProducts::setLikes(const QList<OAIObject> &likes) {
+void OAIGetComparableProducts_200_response_comparableProducts::setLikes(const QList<OAIComparableProduct> &likes) {
     m_likes = likes;
     m_likes_isSet = true;
 }
@@ -143,10 +143,10 @@ bool OAIGetComparableProducts_200_response_comparableProducts::is_likes_Valid() 
     return m_likes_isValid;
 }
 
-QList<OAIObject> OAIGetComparableProducts_200_response_comparableProducts::getPrice() const {
+QList<OAIComparableProduct> OAIGetComparableProducts_200_response_comparableProducts::getPrice() const {
     return m_price;
 }
-void OAIGetComparableProducts_200_response_comparableProducts::setPrice(const QList<OAIObject> &price) {
+void OAIGetComparableProducts_200_response_comparableProducts::setPrice(const QList<OAIComparableProduct> &price) {
     m_price = price;
     m_price_isSet = true;
 }
@@ -159,10 +159,10 @@ bool OAIGetComparableProducts_200_response_comparableProducts::is_price_Valid() 
     return m_price_isValid;
 }
 
-QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> OAIGetComparableProducts_200_response_comparableProducts::getProtein() const {
+QList<OAIComparableProduct> OAIGetComparableProducts_200_response_comparableProducts::getProtein() const {
     return m_protein;
 }
-void OAIGetComparableProducts_200_response_comparableProducts::setProtein(const QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> &protein) {
+void OAIGetComparableProducts_200_response_comparableProducts::setProtein(const QList<OAIComparableProduct> &protein) {
     m_protein = protein;
     m_protein_isSet = true;
 }
@@ -175,10 +175,10 @@ bool OAIGetComparableProducts_200_response_comparableProducts::is_protein_Valid(
     return m_protein_isValid;
 }
 
-QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> OAIGetComparableProducts_200_response_comparableProducts::getSpoonacularScore() const {
+QList<OAIComparableProduct> OAIGetComparableProducts_200_response_comparableProducts::getSpoonacularScore() const {
     return m_spoonacular_score;
 }
-void OAIGetComparableProducts_200_response_comparableProducts::setSpoonacularScore(const QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> &spoonacular_score) {
+void OAIGetComparableProducts_200_response_comparableProducts::setSpoonacularScore(const QList<OAIComparableProduct> &spoonacular_score) {
     m_spoonacular_score = spoonacular_score;
     m_spoonacular_score_isSet = true;
 }
@@ -191,10 +191,10 @@ bool OAIGetComparableProducts_200_response_comparableProducts::is_spoonacular_sc
     return m_spoonacular_score_isValid;
 }
 
-QList<OAIObject> OAIGetComparableProducts_200_response_comparableProducts::getSugar() const {
+QList<OAIComparableProduct> OAIGetComparableProducts_200_response_comparableProducts::getSugar() const {
     return m_sugar;
 }
-void OAIGetComparableProducts_200_response_comparableProducts::setSugar(const QList<OAIObject> &sugar) {
+void OAIGetComparableProducts_200_response_comparableProducts::setSugar(const QList<OAIComparableProduct> &sugar) {
     m_sugar = sugar;
     m_sugar_isSet = true;
 }

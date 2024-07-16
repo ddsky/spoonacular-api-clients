@@ -546,7 +546,7 @@ void OAIMiscApi::getRandomFoodTriviaCallback(OAIHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIGetRandomFoodTrivia_200_response output(QString(worker->response));
+    OAIGetARandomFoodJoke_200_response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -899,7 +899,7 @@ void OAIMiscApi::searchAllFoodCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash, const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
+void OAIMiscApi::searchCustomFoods(const QString &query, const QString &username, const QString &hash, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
     QString fullPath = QString(_serverConfigs["searchCustomFoods"][_serverIndices.value("searchCustomFoods")].URL()+"/food/customFoods/search");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -907,7 +907,7 @@ void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash,
     }
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (query.hasValue())
+    
     {
         queryStyle = "form";
         if (queryStyle == "")
@@ -920,7 +920,7 @@ void OAIMiscApi::searchCustomFoods(const QString &username, const QString &hash,
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     
     {
@@ -1054,7 +1054,7 @@ void OAIMiscApi::searchCustomFoodsCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<QString> &type, const ::OpenAPI::OptionalParam<QString> &cuisine, const ::OpenAPI::OptionalParam<QString> &diet, const ::OpenAPI::OptionalParam<QString> &include_ingredients, const ::OpenAPI::OptionalParam<QString> &exclude_ingredients, const ::OpenAPI::OptionalParam<double> &min_length, const ::OpenAPI::OptionalParam<double> &max_length, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
+void OAIMiscApi::searchFoodVideos(const QString &query, const ::OpenAPI::OptionalParam<QString> &type, const ::OpenAPI::OptionalParam<QString> &cuisine, const ::OpenAPI::OptionalParam<QString> &diet, const ::OpenAPI::OptionalParam<QString> &include_ingredients, const ::OpenAPI::OptionalParam<QString> &exclude_ingredients, const ::OpenAPI::OptionalParam<double> &min_length, const ::OpenAPI::OptionalParam<double> &max_length, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
     QString fullPath = QString(_serverConfigs["searchFoodVideos"][_serverIndices.value("searchFoodVideos")].URL()+"/food/videos/search");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -1062,7 +1062,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
     }
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (query.hasValue())
+    
     {
         queryStyle = "form";
         if (queryStyle == "")
@@ -1075,7 +1075,7 @@ void OAIMiscApi::searchFoodVideos(const ::OpenAPI::OptionalParam<QString> &query
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (type.hasValue())
     {

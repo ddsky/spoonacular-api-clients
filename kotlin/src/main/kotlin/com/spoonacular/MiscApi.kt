@@ -22,7 +22,6 @@ import okhttp3.HttpUrl
 import com.spoonacular.client.model.DetectFoodInText200Response
 import com.spoonacular.client.model.GetARandomFoodJoke200Response
 import com.spoonacular.client.model.GetConversationSuggests200Response
-import com.spoonacular.client.model.GetRandomFoodTrivia200Response
 import com.spoonacular.client.model.ImageAnalysisByURL200Response
 import com.spoonacular.client.model.ImageClassificationByURL200Response
 import com.spoonacular.client.model.SearchAllFood200Response
@@ -278,7 +277,7 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * Random Food Trivia
      * Returns random food trivia.
-     * @return GetRandomFoodTrivia200Response
+     * @return GetARandomFoodJoke200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -287,11 +286,11 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRandomFoodTrivia() : GetRandomFoodTrivia200Response {
+    fun getRandomFoodTrivia() : GetARandomFoodJoke200Response {
         val localVarResponse = getRandomFoodTriviaWithHttpInfo()
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetRandomFoodTrivia200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as GetARandomFoodJoke200Response
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -308,16 +307,16 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * Random Food Trivia
      * Returns random food trivia.
-     * @return ApiResponse<GetRandomFoodTrivia200Response?>
+     * @return ApiResponse<GetARandomFoodJoke200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRandomFoodTriviaWithHttpInfo() : ApiResponse<GetRandomFoodTrivia200Response?> {
+    fun getRandomFoodTriviaWithHttpInfo() : ApiResponse<GetARandomFoodJoke200Response?> {
         val localVariableConfig = getRandomFoodTriviaRequestConfig()
 
-        return request<Unit, GetRandomFoodTrivia200Response>(
+        return request<Unit, GetARandomFoodJoke200Response>(
             localVariableConfig
         )
     }
@@ -580,9 +579,9 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * Search Custom Foods
      * Search custom foods in a user&#39;s account.
+     * @param query The (natural language) search query.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param query The (natural language) search query. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return SearchCustomFoods200Response
@@ -594,8 +593,8 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchCustomFoods(username: kotlin.String, hash: kotlin.String, query: kotlin.String? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchCustomFoods200Response {
-        val localVarResponse = searchCustomFoodsWithHttpInfo(username = username, hash = hash, query = query, offset = offset, number = number)
+    fun searchCustomFoods(query: kotlin.String, username: kotlin.String, hash: kotlin.String, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchCustomFoods200Response {
+        val localVarResponse = searchCustomFoodsWithHttpInfo(query = query, username = username, hash = hash, offset = offset, number = number)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as SearchCustomFoods200Response
@@ -615,9 +614,9 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * Search Custom Foods
      * Search custom foods in a user&#39;s account.
+     * @param query The (natural language) search query.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param query The (natural language) search query. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse<SearchCustomFoods200Response?>
@@ -626,8 +625,8 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchCustomFoodsWithHttpInfo(username: kotlin.String, hash: kotlin.String, query: kotlin.String?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchCustomFoods200Response?> {
-        val localVariableConfig = searchCustomFoodsRequestConfig(username = username, hash = hash, query = query, offset = offset, number = number)
+    fun searchCustomFoodsWithHttpInfo(query: kotlin.String, username: kotlin.String, hash: kotlin.String, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchCustomFoods200Response?> {
+        val localVariableConfig = searchCustomFoodsRequestConfig(query = query, username = username, hash = hash, offset = offset, number = number)
 
         return request<Unit, SearchCustomFoods200Response>(
             localVariableConfig
@@ -637,20 +636,18 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation searchCustomFoods
      *
+     * @param query The (natural language) search query.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param query The (natural language) search query. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
-    fun searchCustomFoodsRequestConfig(username: kotlin.String, hash: kotlin.String, query: kotlin.String?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchCustomFoodsRequestConfig(query: kotlin.String, username: kotlin.String, hash: kotlin.String, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 put("username", listOf(username.toString()))
                 put("hash", listOf(hash.toString()))
                 if (offset != null) {
@@ -676,7 +673,7 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * Search Food Videos
      * Find recipe and other food related videos.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -695,7 +692,7 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchFoodVideos(query: kotlin.String? = null, type: kotlin.String? = null, cuisine: kotlin.String? = null, diet: kotlin.String? = null, includeIngredients: kotlin.String? = null, excludeIngredients: kotlin.String? = null, minLength: java.math.BigDecimal? = null, maxLength: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchFoodVideos200Response {
+    fun searchFoodVideos(query: kotlin.String, type: kotlin.String? = null, cuisine: kotlin.String? = null, diet: kotlin.String? = null, includeIngredients: kotlin.String? = null, excludeIngredients: kotlin.String? = null, minLength: java.math.BigDecimal? = null, maxLength: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchFoodVideos200Response {
         val localVarResponse = searchFoodVideosWithHttpInfo(query = query, type = type, cuisine = cuisine, diet = diet, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, minLength = minLength, maxLength = maxLength, offset = offset, number = number)
 
         return when (localVarResponse.responseType) {
@@ -716,7 +713,7 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * Search Food Videos
      * Find recipe and other food related videos.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -732,7 +729,7 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchFoodVideosWithHttpInfo(query: kotlin.String?, type: kotlin.String?, cuisine: kotlin.String?, diet: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, minLength: java.math.BigDecimal?, maxLength: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchFoodVideos200Response?> {
+    fun searchFoodVideosWithHttpInfo(query: kotlin.String, type: kotlin.String?, cuisine: kotlin.String?, diet: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, minLength: java.math.BigDecimal?, maxLength: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchFoodVideos200Response?> {
         val localVariableConfig = searchFoodVideosRequestConfig(query = query, type = type, cuisine = cuisine, diet = diet, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, minLength = minLength, maxLength = maxLength, offset = offset, number = number)
 
         return request<Unit, SearchFoodVideos200Response>(
@@ -743,7 +740,7 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation searchFoodVideos
      *
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -755,13 +752,11 @@ class MiscApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
-    fun searchFoodVideosRequestConfig(query: kotlin.String?, type: kotlin.String?, cuisine: kotlin.String?, diet: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, minLength: java.math.BigDecimal?, maxLength: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchFoodVideosRequestConfig(query: kotlin.String, type: kotlin.String?, cuisine: kotlin.String?, diet: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, minLength: java.math.BigDecimal?, maxLength: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 if (type != null) {
                     put("type", listOf(type.toString()))
                 }

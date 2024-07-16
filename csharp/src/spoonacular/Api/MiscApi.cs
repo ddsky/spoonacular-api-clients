@@ -104,8 +104,8 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRandomFoodTrivia200Response</returns>
-        GetRandomFoodTrivia200Response GetRandomFoodTrivia(int operationIndex = 0);
+        /// <returns>GetARandomFoodJoke200Response</returns>
+        GetARandomFoodJoke200Response GetRandomFoodTrivia(int operationIndex = 0);
 
         /// <summary>
         /// Random Food Trivia
@@ -115,8 +115,8 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRandomFoodTrivia200Response</returns>
-        ApiResponse<GetRandomFoodTrivia200Response> GetRandomFoodTriviaWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of GetARandomFoodJoke200Response</returns>
+        ApiResponse<GetARandomFoodJoke200Response> GetRandomFoodTriviaWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Image Analysis by URL
         /// </summary>
@@ -197,14 +197,14 @@ namespace spoonacular.Api
         /// Search custom foods in a user&#39;s account.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchCustomFoods200Response</returns>
-        SearchCustomFoods200Response SearchCustomFoods(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        SearchCustomFoods200Response SearchCustomFoods(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Search Custom Foods
@@ -213,14 +213,14 @@ namespace spoonacular.Api
         /// Search custom foods in a user&#39;s account.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchCustomFoods200Response</returns>
-        ApiResponse<SearchCustomFoods200Response> SearchCustomFoodsWithHttpInfo(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        ApiResponse<SearchCustomFoods200Response> SearchCustomFoodsWithHttpInfo(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
         /// <summary>
         /// Search Food Videos
         /// </summary>
@@ -228,7 +228,7 @@ namespace spoonacular.Api
         /// Find recipe and other food related videos.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -240,7 +240,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchFoodVideos200Response</returns>
-        SearchFoodVideos200Response SearchFoodVideos(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        SearchFoodVideos200Response SearchFoodVideos(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Search Food Videos
@@ -249,7 +249,7 @@ namespace spoonacular.Api
         /// Find recipe and other food related videos.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -261,7 +261,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchFoodVideos200Response</returns>
-        ApiResponse<SearchFoodVideos200Response> SearchFoodVideosWithHttpInfo(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
+        ApiResponse<SearchFoodVideos200Response> SearchFoodVideosWithHttpInfo(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0);
         /// <summary>
         /// Search Site Content
         /// </summary>
@@ -403,8 +403,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRandomFoodTrivia200Response</returns>
-        System.Threading.Tasks.Task<GetRandomFoodTrivia200Response> GetRandomFoodTriviaAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetARandomFoodJoke200Response</returns>
+        System.Threading.Tasks.Task<GetARandomFoodJoke200Response> GetRandomFoodTriviaAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Random Food Trivia
@@ -415,8 +415,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRandomFoodTrivia200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetRandomFoodTrivia200Response>> GetRandomFoodTriviaWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetARandomFoodJoke200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetARandomFoodJoke200Response>> GetRandomFoodTriviaWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Image Analysis by URL
         /// </summary>
@@ -503,15 +503,15 @@ namespace spoonacular.Api
         /// Search custom foods in a user&#39;s account.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchCustomFoods200Response</returns>
-        System.Threading.Tasks.Task<SearchCustomFoods200Response> SearchCustomFoodsAsync(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchCustomFoods200Response> SearchCustomFoodsAsync(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Custom Foods
@@ -520,15 +520,15 @@ namespace spoonacular.Api
         /// Search custom foods in a user&#39;s account.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchCustomFoods200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchCustomFoods200Response>> SearchCustomFoodsWithHttpInfoAsync(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SearchCustomFoods200Response>> SearchCustomFoodsWithHttpInfoAsync(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Food Videos
         /// </summary>
@@ -536,7 +536,7 @@ namespace spoonacular.Api
         /// Find recipe and other food related videos.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -549,7 +549,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchFoodVideos200Response</returns>
-        System.Threading.Tasks.Task<SearchFoodVideos200Response> SearchFoodVideosAsync(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SearchFoodVideos200Response> SearchFoodVideosAsync(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Food Videos
@@ -558,7 +558,7 @@ namespace spoonacular.Api
         /// Find recipe and other food related videos.
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -571,7 +571,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchFoodVideos200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SearchFoodVideos200Response>> SearchFoodVideosWithHttpInfoAsync(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SearchFoodVideos200Response>> SearchFoodVideosWithHttpInfoAsync(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Site Content
         /// </summary>
@@ -1207,10 +1207,10 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetRandomFoodTrivia200Response</returns>
-        public GetRandomFoodTrivia200Response GetRandomFoodTrivia(int operationIndex = 0)
+        /// <returns>GetARandomFoodJoke200Response</returns>
+        public GetARandomFoodJoke200Response GetRandomFoodTrivia(int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GetRandomFoodTrivia200Response> localVarResponse = GetRandomFoodTriviaWithHttpInfo();
+            spoonacular.Client.ApiResponse<GetARandomFoodJoke200Response> localVarResponse = GetRandomFoodTriviaWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1219,8 +1219,8 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetRandomFoodTrivia200Response</returns>
-        public spoonacular.Client.ApiResponse<GetRandomFoodTrivia200Response> GetRandomFoodTriviaWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of GetARandomFoodJoke200Response</returns>
+        public spoonacular.Client.ApiResponse<GetARandomFoodJoke200Response> GetRandomFoodTriviaWithHttpInfo(int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -1255,7 +1255,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetRandomFoodTrivia200Response>("/food/trivia/random", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetARandomFoodJoke200Response>("/food/trivia/random", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRandomFoodTrivia", localVarResponse);
@@ -1274,10 +1274,10 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetRandomFoodTrivia200Response</returns>
-        public async System.Threading.Tasks.Task<GetRandomFoodTrivia200Response> GetRandomFoodTriviaAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetARandomFoodJoke200Response</returns>
+        public async System.Threading.Tasks.Task<GetARandomFoodJoke200Response> GetRandomFoodTriviaAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GetRandomFoodTrivia200Response> localVarResponse = await GetRandomFoodTriviaWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<GetARandomFoodJoke200Response> localVarResponse = await GetRandomFoodTriviaWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1287,8 +1287,8 @@ namespace spoonacular.Api
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetRandomFoodTrivia200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetRandomFoodTrivia200Response>> GetRandomFoodTriviaWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetARandomFoodJoke200Response)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetARandomFoodJoke200Response>> GetRandomFoodTriviaWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
@@ -1324,7 +1324,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetRandomFoodTrivia200Response>("/food/trivia/random", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetARandomFoodJoke200Response>("/food/trivia/random", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1828,16 +1828,16 @@ namespace spoonacular.Api
         /// Search Custom Foods Search custom foods in a user&#39;s account.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchCustomFoods200Response</returns>
-        public SearchCustomFoods200Response SearchCustomFoods(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public SearchCustomFoods200Response SearchCustomFoods(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<SearchCustomFoods200Response> localVarResponse = SearchCustomFoodsWithHttpInfo(username, hash, query, offset, number);
+            spoonacular.Client.ApiResponse<SearchCustomFoods200Response> localVarResponse = SearchCustomFoodsWithHttpInfo(query, username, hash, offset, number);
             return localVarResponse.Data;
         }
 
@@ -1845,15 +1845,21 @@ namespace spoonacular.Api
         /// Search Custom Foods Search custom foods in a user&#39;s account.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchCustomFoods200Response</returns>
-        public spoonacular.Client.ApiResponse<SearchCustomFoods200Response> SearchCustomFoodsWithHttpInfo(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<SearchCustomFoods200Response> SearchCustomFoodsWithHttpInfo(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling MiscApi->SearchCustomFoods");
+            }
+
             // verify the required parameter 'username' is set
             if (username == null)
             {
@@ -1888,10 +1894,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "username", username));
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "hash", hash));
             if (offset != null)
@@ -1930,17 +1933,17 @@ namespace spoonacular.Api
         /// Search Custom Foods Search custom foods in a user&#39;s account.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchCustomFoods200Response</returns>
-        public async System.Threading.Tasks.Task<SearchCustomFoods200Response> SearchCustomFoodsAsync(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchCustomFoods200Response> SearchCustomFoodsAsync(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<SearchCustomFoods200Response> localVarResponse = await SearchCustomFoodsWithHttpInfoAsync(username, hash, query, offset, number, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<SearchCustomFoods200Response> localVarResponse = await SearchCustomFoodsWithHttpInfoAsync(query, username, hash, offset, number, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1948,16 +1951,22 @@ namespace spoonacular.Api
         /// Search Custom Foods Search custom foods in a user&#39;s account.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="username">The username.</param>
         /// <param name="hash">The private hash for the username.</param>
-        /// <param name="query">The (natural language) search query. (optional)</param>
         /// <param name="offset">The number of results to skip (between 0 and 900). (optional)</param>
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchCustomFoods200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchCustomFoods200Response>> SearchCustomFoodsWithHttpInfoAsync(string username, string hash, string? query = default(string?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchCustomFoods200Response>> SearchCustomFoodsWithHttpInfoAsync(string query, string username, string hash, int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling MiscApi->SearchCustomFoods");
+            }
+
             // verify the required parameter 'username' is set
             if (username == null)
             {
@@ -1993,10 +2002,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "username", username));
             localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "hash", hash));
             if (offset != null)
@@ -2036,7 +2042,7 @@ namespace spoonacular.Api
         /// Search Food Videos Find recipe and other food related videos.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -2048,7 +2054,7 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SearchFoodVideos200Response</returns>
-        public SearchFoodVideos200Response SearchFoodVideos(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public SearchFoodVideos200Response SearchFoodVideos(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<SearchFoodVideos200Response> localVarResponse = SearchFoodVideosWithHttpInfo(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number);
             return localVarResponse.Data;
@@ -2058,7 +2064,7 @@ namespace spoonacular.Api
         /// Search Food Videos Find recipe and other food related videos.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -2070,8 +2076,14 @@ namespace spoonacular.Api
         /// <param name="number">The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SearchFoodVideos200Response</returns>
-        public spoonacular.Client.ApiResponse<SearchFoodVideos200Response> SearchFoodVideosWithHttpInfo(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<SearchFoodVideos200Response> SearchFoodVideosWithHttpInfo(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0)
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling MiscApi->SearchFoodVideos");
+            }
+
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2094,10 +2106,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "type", type));
@@ -2162,7 +2171,7 @@ namespace spoonacular.Api
         /// Search Food Videos Find recipe and other food related videos.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -2175,7 +2184,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SearchFoodVideos200Response</returns>
-        public async System.Threading.Tasks.Task<SearchFoodVideos200Response> SearchFoodVideosAsync(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SearchFoodVideos200Response> SearchFoodVideosAsync(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<SearchFoodVideos200Response> localVarResponse = await SearchFoodVideosWithHttpInfoAsync(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2185,7 +2194,7 @@ namespace spoonacular.Api
         /// Search Food Videos Find recipe and other food related videos.
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">The (natural language) search query. (optional)</param>
+        /// <param name="query">The (natural language) search query.</param>
         /// <param name="type">The type of the recipes. See a full list of supported meal types. (optional)</param>
         /// <param name="cuisine">The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)</param>
         /// <param name="diet">The diet for which the recipes must be suitable. See a full list of supported diets. (optional)</param>
@@ -2198,8 +2207,14 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SearchFoodVideos200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchFoodVideos200Response>> SearchFoodVideosWithHttpInfoAsync(string? query = default(string?), string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<SearchFoodVideos200Response>> SearchFoodVideosWithHttpInfoAsync(string query, string? type = default(string?), string? cuisine = default(string?), string? diet = default(string?), string? includeIngredients = default(string?), string? excludeIngredients = default(string?), decimal? minLength = default(decimal?), decimal? maxLength = default(decimal?), int? offset = default(int?), int? number = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            // verify the required parameter 'query' is set
+            if (query == null)
+            {
+                throw new spoonacular.Client.ApiException(400, "Missing required parameter 'query' when calling MiscApi->SearchFoodVideos");
+            }
+
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -2223,10 +2238,7 @@ namespace spoonacular.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (query != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
-            }
+            localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(spoonacular.Client.ClientUtils.ParameterToMultiMap("", "type", type));

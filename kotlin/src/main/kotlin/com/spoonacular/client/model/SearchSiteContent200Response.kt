@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.SearchSiteContent200ResponseArticlesInner
+import com.spoonacular.client.model.SearchResult
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -33,16 +33,16 @@ import com.squareup.moshi.JsonClass
 data class SearchSiteContent200Response (
 
     @Json(name = "Articles")
-    val articles: kotlin.collections.Set<SearchSiteContent200ResponseArticlesInner>,
+    val articles: kotlin.collections.List<SearchResult>,
 
     @Json(name = "Grocery Products")
-    val groceryProducts: kotlin.collections.Set<SearchSiteContent200ResponseArticlesInner>,
+    val groceryProducts: kotlin.collections.List<SearchResult>,
 
     @Json(name = "Menu Items")
-    val menuItems: kotlin.collections.Set<SearchSiteContent200ResponseArticlesInner>,
+    val menuItems: kotlin.collections.List<SearchResult>,
 
     @Json(name = "Recipes")
-    val recipes: kotlin.collections.Set<SearchSiteContent200ResponseArticlesInner>
+    val recipes: kotlin.collections.List<SearchResult>
 
 ) {
 

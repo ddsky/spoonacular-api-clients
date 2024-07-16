@@ -79,7 +79,7 @@ Generate a recipe card for a recipe.
 //import com.spoonacular.client.model.*
 
 val apiInstance = DefaultApi()
-val id : java.math.BigDecimal = 4632 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 4632 // kotlin.Int | The recipe id.
 val mask : kotlin.String = ellipseMask // kotlin.String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
 val backgroundImage : kotlin.String = background1 // kotlin.String | The background image (\"none\",\"background1\", or \"background2\").
 val backgroundColor : kotlin.String = ffffff // kotlin.String | The background color for the recipe card as a hex-string.
@@ -97,7 +97,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | **mask** | **kotlin.String**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] |
 | **backgroundImage** | **kotlin.String**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] |
 | **backgroundColor** | **kotlin.String**| The background color for the recipe card as a hex-string. | [optional] |

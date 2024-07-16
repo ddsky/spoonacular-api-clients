@@ -154,24 +154,28 @@ module OpenapiClient
 
     # Autocomplete Recipe Search
     # Autocomplete a partial input to suggest possible recipe names.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<AutocompleteRecipeSearch200ResponseInner>]
-    def autocomplete_recipe_search(opts = {})
-      data, _status_code, _headers = autocomplete_recipe_search_with_http_info(opts)
+    def autocomplete_recipe_search(query, opts = {})
+      data, _status_code, _headers = autocomplete_recipe_search_with_http_info(query, opts)
       data
     end
 
     # Autocomplete Recipe Search
     # Autocomplete a partial input to suggest possible recipe names.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<(Array<AutocompleteRecipeSearch200ResponseInner>, Integer, Hash)>] Array<AutocompleteRecipeSearch200ResponseInner> data, response status code and response headers
-    def autocomplete_recipe_search_with_http_info(opts = {})
+    def autocomplete_recipe_search_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.autocomplete_recipe_search ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling RecipesApi.autocomplete_recipe_search"
       end
       if @api_client.config.client_side_validation && !opts[:'number'].nil? && opts[:'number'] > 100
         fail ArgumentError, 'invalid value for "opts[:"number"]" when calling RecipesApi.autocomplete_recipe_search, must be smaller than or equal to 100.'
@@ -186,7 +190,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'query'] = query
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
 
       # header parameters
@@ -607,7 +611,7 @@ module OpenapiClient
 
     # Equipment by ID Image
     # Visualize a recipe's equipment list as an image.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [File]
     def equipment_by_id_image(id, opts = {})
@@ -617,7 +621,7 @@ module OpenapiClient
 
     # Equipment by ID Image
     # Visualize a recipe&#39;s equipment list as an image.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def equipment_by_id_image_with_http_info(id, opts = {})
@@ -676,7 +680,7 @@ module OpenapiClient
     # @option opts [Boolean] :analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
     # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (default to false)
     # @option opts [Boolean] :include_taste Whether taste data should be added to correctly parsed ingredients. (default to false)
-    # @return [GetRecipeInformation200Response]
+    # @return [RecipeInformation]
     def extract_recipe_from_website(url, opts = {})
       data, _status_code, _headers = extract_recipe_from_website_with_http_info(url, opts)
       data
@@ -690,7 +694,7 @@ module OpenapiClient
     # @option opts [Boolean] :analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
     # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (default to false)
     # @option opts [Boolean] :include_taste Whether taste data should be added to correctly parsed ingredients. (default to false)
-    # @return [Array<(GetRecipeInformation200Response, Integer, Hash)>] GetRecipeInformation200Response data, response status code and response headers
+    # @return [Array<(RecipeInformation, Integer, Hash)>] RecipeInformation data, response status code and response headers
     def extract_recipe_from_website_with_http_info(url, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.extract_recipe_from_website ...'
@@ -722,7 +726,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetRecipeInformation200Response'
+      return_type = opts[:debug_return_type] || 'RecipeInformation'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -746,10 +750,10 @@ module OpenapiClient
 
     # Get Analyzed Recipe Instructions
     # Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :step_breakdown Whether to break down the recipe steps even more.
-    # @return [GetAnalyzedRecipeInstructions200Response]
+    # @return [Array<GetAnalyzedRecipeInstructions200ResponseInner>]
     def get_analyzed_recipe_instructions(id, opts = {})
       data, _status_code, _headers = get_analyzed_recipe_instructions_with_http_info(id, opts)
       data
@@ -757,10 +761,10 @@ module OpenapiClient
 
     # Get Analyzed Recipe Instructions
     # Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :step_breakdown Whether to break down the recipe steps even more.
-    # @return [Array<(GetAnalyzedRecipeInstructions200Response, Integer, Hash)>] GetAnalyzedRecipeInstructions200Response data, response status code and response headers
+    # @return [Array<(Array<GetAnalyzedRecipeInstructions200ResponseInner>, Integer, Hash)>] Array<GetAnalyzedRecipeInstructions200ResponseInner> data, response status code and response headers
     def get_analyzed_recipe_instructions_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.get_analyzed_recipe_instructions ...'
@@ -788,7 +792,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetAnalyzedRecipeInstructions200Response'
+      return_type = opts[:debug_return_type] || 'Array<GetAnalyzedRecipeInstructions200ResponseInner>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -889,7 +893,7 @@ module OpenapiClient
 
     # Equipment by ID
     # Get a recipe's equipment list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [GetRecipeEquipmentByID200Response]
     def get_recipe_equipment_by_id(id, opts = {})
@@ -899,7 +903,7 @@ module OpenapiClient
 
     # Equipment by ID
     # Get a recipe&#39;s equipment list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetRecipeEquipmentByID200Response, Integer, Hash)>] GetRecipeEquipmentByID200Response data, response status code and response headers
     def get_recipe_equipment_by_id_with_http_info(id, opts = {})
@@ -952,10 +956,12 @@ module OpenapiClient
 
     # Get Recipe Information
     # Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the recipe.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (default to false)
-    # @return [GetRecipeInformation200Response]
+    # @option opts [Boolean] :add_wine_pairing Add a wine pairing to the recipe.
+    # @option opts [Boolean] :add_taste_data Add taste data to the recipe.
+    # @return [RecipeInformation]
     def get_recipe_information(id, opts = {})
       data, _status_code, _headers = get_recipe_information_with_http_info(id, opts)
       data
@@ -963,10 +969,12 @@ module OpenapiClient
 
     # Get Recipe Information
     # Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the recipe.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (default to false)
-    # @return [Array<(GetRecipeInformation200Response, Integer, Hash)>] GetRecipeInformation200Response data, response status code and response headers
+    # @option opts [Boolean] :add_wine_pairing Add a wine pairing to the recipe.
+    # @option opts [Boolean] :add_taste_data Add taste data to the recipe.
+    # @return [Array<(RecipeInformation, Integer, Hash)>] RecipeInformation data, response status code and response headers
     def get_recipe_information_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.get_recipe_information ...'
@@ -981,6 +989,8 @@ module OpenapiClient
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'includeNutrition'] = opts[:'include_nutrition'] if !opts[:'include_nutrition'].nil?
+      query_params[:'addWinePairing'] = opts[:'add_wine_pairing'] if !opts[:'add_wine_pairing'].nil?
+      query_params[:'addTasteData'] = opts[:'add_taste_data'] if !opts[:'add_taste_data'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -994,7 +1004,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetRecipeInformation200Response'
+      return_type = opts[:debug_return_type] || 'RecipeInformation'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1021,7 +1031,7 @@ module OpenapiClient
     # @param ids [String] A comma-separated list of recipe ids.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (default to false)
-    # @return [Array<GetRecipeInformationBulk200ResponseInner>]
+    # @return [Array<RecipeInformation>]
     def get_recipe_information_bulk(ids, opts = {})
       data, _status_code, _headers = get_recipe_information_bulk_with_http_info(ids, opts)
       data
@@ -1032,7 +1042,7 @@ module OpenapiClient
     # @param ids [String] A comma-separated list of recipe ids.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (default to false)
-    # @return [Array<(Array<GetRecipeInformationBulk200ResponseInner>, Integer, Hash)>] Array<GetRecipeInformationBulk200ResponseInner> data, response status code and response headers
+    # @return [Array<(Array<RecipeInformation>, Integer, Hash)>] Array<RecipeInformation> data, response status code and response headers
     def get_recipe_information_bulk_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.get_recipe_information_bulk ...'
@@ -1061,7 +1071,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<GetRecipeInformationBulk200ResponseInner>'
+      return_type = opts[:debug_return_type] || 'Array<RecipeInformation>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1085,7 +1095,7 @@ module OpenapiClient
 
     # Ingredients by ID
     # Get a recipe's ingredient list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [GetRecipeIngredientsByID200Response]
     def get_recipe_ingredients_by_id(id, opts = {})
@@ -1095,7 +1105,7 @@ module OpenapiClient
 
     # Ingredients by ID
     # Get a recipe&#39;s ingredient list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetRecipeIngredientsByID200Response, Integer, Hash)>] GetRecipeIngredientsByID200Response data, response status code and response headers
     def get_recipe_ingredients_by_id_with_http_info(id, opts = {})
@@ -1148,7 +1158,7 @@ module OpenapiClient
 
     # Nutrition by ID
     # Get a recipe's nutrition data.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [GetRecipeNutritionWidgetByID200Response]
     def get_recipe_nutrition_widget_by_id(id, opts = {})
@@ -1158,7 +1168,7 @@ module OpenapiClient
 
     # Nutrition by ID
     # Get a recipe&#39;s nutrition data.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetRecipeNutritionWidgetByID200Response, Integer, Hash)>] GetRecipeNutritionWidgetByID200Response data, response status code and response headers
     def get_recipe_nutrition_widget_by_id_with_http_info(id, opts = {})
@@ -1211,7 +1221,7 @@ module OpenapiClient
 
     # Price Breakdown by ID
     # Get a recipe's price breakdown data.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [GetRecipePriceBreakdownByID200Response]
     def get_recipe_price_breakdown_by_id(id, opts = {})
@@ -1221,7 +1231,7 @@ module OpenapiClient
 
     # Price Breakdown by ID
     # Get a recipe&#39;s price breakdown data.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetRecipePriceBreakdownByID200Response, Integer, Hash)>] GetRecipePriceBreakdownByID200Response data, response status code and response headers
     def get_recipe_price_breakdown_by_id_with_http_info(id, opts = {})
@@ -1274,10 +1284,10 @@ module OpenapiClient
 
     # Taste by ID
     # Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Normalize to the strongest taste. (default to true)
-    # @return [GetRecipeTasteByID200Response]
+    # @return [TasteInformation]
     def get_recipe_taste_by_id(id, opts = {})
       data, _status_code, _headers = get_recipe_taste_by_id_with_http_info(id, opts)
       data
@@ -1285,10 +1295,10 @@ module OpenapiClient
 
     # Taste by ID
     # Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Normalize to the strongest taste. (default to true)
-    # @return [Array<(GetRecipeTasteByID200Response, Integer, Hash)>] GetRecipeTasteByID200Response data, response status code and response headers
+    # @return [Array<(TasteInformation, Integer, Hash)>] TasteInformation data, response status code and response headers
     def get_recipe_taste_by_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.get_recipe_taste_by_id ...'
@@ -1316,7 +1326,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetRecipeTasteByID200Response'
+      return_type = opts[:debug_return_type] || 'TasteInformation'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1340,7 +1350,7 @@ module OpenapiClient
 
     # Get Similar Recipes
     # Find recipes which are similar to the given one.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the source recipe for which similar recipes should be found.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<GetSimilarRecipes200ResponseInner>]
@@ -1351,7 +1361,7 @@ module OpenapiClient
 
     # Get Similar Recipes
     # Find recipes which are similar to the given one.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the source recipe for which similar recipes should be found.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<(Array<GetSimilarRecipes200ResponseInner>, Integer, Hash)>] Array<GetSimilarRecipes200ResponseInner> data, response status code and response headers
@@ -1482,8 +1492,8 @@ module OpenapiClient
     # @param servings [Float] The number of servings that you can make from the ingredients.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-    # @option opts [Boolean] :include_nutrition 
-    # @return [Array<ParseIngredients200ResponseInner>]
+    # @option opts [Boolean] :include_nutrition Whether nutrition data should be added to correctly parsed ingredients.
+    # @return [Array<IngredientInformation>]
     def parse_ingredients(ingredient_list, servings, opts = {})
       data, _status_code, _headers = parse_ingredients_with_http_info(ingredient_list, servings, opts)
       data
@@ -1495,8 +1505,8 @@ module OpenapiClient
     # @param servings [Float] The number of servings that you can make from the ingredients.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-    # @option opts [Boolean] :include_nutrition 
-    # @return [Array<(Array<ParseIngredients200ResponseInner>, Integer, Hash)>] Array<ParseIngredients200ResponseInner> data, response status code and response headers
+    # @option opts [Boolean] :include_nutrition Whether nutrition data should be added to correctly parsed ingredients.
+    # @return [Array<(Array<IngredientInformation>, Integer, Hash)>] Array<IngredientInformation> data, response status code and response headers
     def parse_ingredients_with_http_info(ingredient_list, servings, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.parse_ingredients ...'
@@ -1540,7 +1550,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<ParseIngredients200ResponseInner>'
+      return_type = opts[:debug_return_type] || 'Array<IngredientInformation>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -1564,7 +1574,7 @@ module OpenapiClient
 
     # Price Breakdown by ID Image
     # Visualize a recipe's price breakdown.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [File]
     def price_breakdown_by_id_image(id, opts = {})
@@ -1574,7 +1584,7 @@ module OpenapiClient
 
     # Price Breakdown by ID Image
     # Visualize a recipe&#39;s price breakdown.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def price_breakdown_by_id_image_with_http_info(id, opts = {})
@@ -1691,7 +1701,7 @@ module OpenapiClient
 
     # Recipe Nutrition by ID Image
     # Visualize a recipe's nutritional information as an image.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [File]
     def recipe_nutrition_by_id_image(id, opts = {})
@@ -1701,7 +1711,7 @@ module OpenapiClient
 
     # Recipe Nutrition by ID Image
     # Visualize a recipe&#39;s nutritional information as an image.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def recipe_nutrition_by_id_image_with_http_info(id, opts = {})
@@ -1754,7 +1764,7 @@ module OpenapiClient
 
     # Recipe Nutrition Label Image
     # Get a recipe's nutrition label as an image.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
@@ -1767,7 +1777,7 @@ module OpenapiClient
 
     # Recipe Nutrition Label Image
     # Get a recipe&#39;s nutrition label as an image.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
@@ -1826,7 +1836,7 @@ module OpenapiClient
 
     # Recipe Nutrition Label Widget
     # Get a recipe's nutrition label as an HTML widget.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
@@ -1840,7 +1850,7 @@ module OpenapiClient
 
     # Recipe Nutrition Label Widget
     # Get a recipe&#39;s nutrition label as an HTML widget.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
@@ -1901,7 +1911,7 @@ module OpenapiClient
 
     # Recipe Taste by ID Image
     # Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Normalize to the strongest taste.
     # @option opts [String] :rgb Red, green, blue values for the chart color.
@@ -1913,7 +1923,7 @@ module OpenapiClient
 
     # Recipe Taste by ID Image
     # Get a recipe&#39;s taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Normalize to the strongest taste.
     # @option opts [String] :rgb Red, green, blue values for the chart color.
@@ -1970,8 +1980,8 @@ module OpenapiClient
 
     # Search Recipes
     # Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
     # @option opts [String] :exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
     # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -1986,7 +1996,7 @@ module OpenapiClient
     # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
     # @option opts [String] :author The username of the recipe author.
     # @option opts [String] :tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
+    # @option opts [Integer] :recipe_box_id The id of the recipe box to which the search should be limited to.
     # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
     # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
     # @option opts [Float] :min_servings The minimum amount of servings the recipe is for.
@@ -2069,15 +2079,15 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [SearchRecipes200Response]
-    def search_recipes(opts = {})
-      data, _status_code, _headers = search_recipes_with_http_info(opts)
+    def search_recipes(query, opts = {})
+      data, _status_code, _headers = search_recipes_with_http_info(query, opts)
       data
     end
 
     # Search Recipes
     # Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
     # @option opts [String] :exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
     # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -2092,7 +2102,7 @@ module OpenapiClient
     # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
     # @option opts [String] :author The username of the recipe author.
     # @option opts [String] :tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-    # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
+    # @option opts [Integer] :recipe_box_id The id of the recipe box to which the search should be limited to.
     # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
     # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
     # @option opts [Float] :min_servings The minimum amount of servings the recipe is for.
@@ -2175,9 +2185,13 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<(SearchRecipes200Response, Integer, Hash)>] SearchRecipes200Response data, response status code and response headers
-    def search_recipes_with_http_info(opts = {})
+    def search_recipes_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.search_recipes ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling RecipesApi.search_recipes"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 900
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling RecipesApi.search_recipes, must be smaller than or equal to 900.'
@@ -2200,7 +2214,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'query'] = query
       query_params[:'cuisine'] = opts[:'cuisine'] if !opts[:'cuisine'].nil?
       query_params[:'excludeCuisine'] = opts[:'exclude_cuisine'] if !opts[:'exclude_cuisine'].nil?
       query_params[:'diet'] = opts[:'diet'] if !opts[:'diet'].nil?
@@ -2334,28 +2348,32 @@ module OpenapiClient
 
     # Search Recipes by Ingredients
     #  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
+    # @param ingredients [String] A comma-separated list of ingredients that the recipes should contain.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ingredients A comma-separated list of ingredients that the recipes should contain.
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
-    # @option opts [Float] :ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+    # @option opts [Integer] :ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
     # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (default to false)
     # @return [Array<SearchRecipesByIngredients200ResponseInner>]
-    def search_recipes_by_ingredients(opts = {})
-      data, _status_code, _headers = search_recipes_by_ingredients_with_http_info(opts)
+    def search_recipes_by_ingredients(ingredients, opts = {})
+      data, _status_code, _headers = search_recipes_by_ingredients_with_http_info(ingredients, opts)
       data
     end
 
     # Search Recipes by Ingredients
     #  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
+    # @param ingredients [String] A comma-separated list of ingredients that the recipes should contain.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :ingredients A comma-separated list of ingredients that the recipes should contain.
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
-    # @option opts [Float] :ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+    # @option opts [Integer] :ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
     # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (default to false)
     # @return [Array<(Array<SearchRecipesByIngredients200ResponseInner>, Integer, Hash)>] Array<SearchRecipesByIngredients200ResponseInner> data, response status code and response headers
-    def search_recipes_by_ingredients_with_http_info(opts = {})
+    def search_recipes_by_ingredients_with_http_info(ingredients, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RecipesApi.search_recipes_by_ingredients ...'
+      end
+      # verify the required parameter 'ingredients' is set
+      if @api_client.config.client_side_validation && ingredients.nil?
+        fail ArgumentError, "Missing the required parameter 'ingredients' when calling RecipesApi.search_recipes_by_ingredients"
       end
       if @api_client.config.client_side_validation && !opts[:'number'].nil? && opts[:'number'] > 100
         fail ArgumentError, 'invalid value for "opts[:"number"]" when calling RecipesApi.search_recipes_by_ingredients, must be smaller than or equal to 100.'
@@ -2370,7 +2388,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'ingredients'] = opts[:'ingredients'] if !opts[:'ingredients'].nil?
+      query_params[:'ingredients'] = ingredients
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
       query_params[:'ranking'] = opts[:'ranking'] if !opts[:'ranking'].nil?
       query_params[:'ignorePantry'] = opts[:'ignore_pantry'] if !opts[:'ignore_pantry'].nil?
@@ -2709,7 +2727,7 @@ module OpenapiClient
 
     # Summarize Recipe
     # Automatically generate a short description that summarizes key information about the recipe.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [SummarizeRecipe200Response]
     def summarize_recipe(id, opts = {})
@@ -2719,7 +2737,7 @@ module OpenapiClient
 
     # Summarize Recipe
     # Automatically generate a short description that summarizes key information about the recipe.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SummarizeRecipe200Response, Integer, Hash)>] SummarizeRecipe200Response data, response status code and response headers
     def summarize_recipe_with_http_info(id, opts = {})
@@ -2946,7 +2964,7 @@ module OpenapiClient
 
     # Equipment by ID Widget
     # Visualize a recipe's equipment list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [String]
@@ -2957,7 +2975,7 @@ module OpenapiClient
 
     # Equipment by ID Widget
     # Visualize a recipe&#39;s equipment list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
@@ -3012,7 +3030,7 @@ module OpenapiClient
 
     # Ingredients by ID Widget
     # Visualize a recipe's ingredient list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
@@ -3024,7 +3042,7 @@ module OpenapiClient
 
     # Ingredients by ID Widget
     # Visualize a recipe&#39;s ingredient list.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
@@ -3174,7 +3192,7 @@ module OpenapiClient
 
     # Recipe Nutrition by ID Widget
     # Visualize a recipe's nutritional information as HTML including CSS.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [String]
@@ -3185,7 +3203,7 @@ module OpenapiClient
 
     # Recipe Nutrition by ID Widget
     # Visualize a recipe&#39;s nutritional information as HTML including CSS.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
@@ -3240,7 +3258,7 @@ module OpenapiClient
 
     # Price Breakdown by ID Widget
     # Visualize a recipe's price breakdown.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [String]
@@ -3251,7 +3269,7 @@ module OpenapiClient
 
     # Price Breakdown by ID Widget
     # Visualize a recipe&#39;s price breakdown.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
@@ -3388,7 +3406,7 @@ module OpenapiClient
 
     # Recipe Taste by ID Widget
     # Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Whether to normalize to the strongest taste. (default to true)
     # @option opts [String] :rgb Red, green, blue values for the chart color.
@@ -3400,7 +3418,7 @@ module OpenapiClient
 
     # Recipe Taste by ID Widget
     # Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :normalize Whether to normalize to the strongest taste. (default to true)
     # @option opts [String] :rgb Red, green, blue values for the chart color.

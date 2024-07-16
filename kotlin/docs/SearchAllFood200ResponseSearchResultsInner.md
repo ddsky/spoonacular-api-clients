@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String** |  |  |
 | **totalResults** | **kotlin.Int** |  |  |
-| **results** | [**kotlin.collections.Set&lt;SearchAllFood200ResponseSearchResultsInnerResultsInner&gt;**](SearchAllFood200ResponseSearchResultsInnerResultsInner.md) |  |  [optional] |
+| **results** | [**kotlin.collections.Set&lt;SearchResult&gt;**](SearchResult.md) |  |  [optional] |
 
 
 

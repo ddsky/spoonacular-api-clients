@@ -39,7 +39,7 @@ void main() {
     //
     // Autocomplete a partial input to suggest possible recipe names.
     //
-    //Future<Set<AutocompleteRecipeSearch200ResponseInner>> autocompleteRecipeSearch({ String query, int number }) async
+    //Future<Set<AutocompleteRecipeSearch200ResponseInner>> autocompleteRecipeSearch(String query, { int number }) async
     test('test autocompleteRecipeSearch', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Visualize a recipe's equipment list as an image.
     //
-    //Future<MultipartFile> equipmentByIDImage(num id) async
+    //Future<MultipartFile> equipmentByIDImage(int id) async
     test('test equipmentByIDImage', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
     //
-    //Future<GetRecipeInformation200Response> extractRecipeFromWebsite(String url, { bool forceExtraction, bool analyze, bool includeNutrition, bool includeTaste }) async
+    //Future<RecipeInformation> extractRecipeFromWebsite(String url, { bool forceExtraction, bool analyze, bool includeNutrition, bool includeTaste }) async
     test('test extractRecipeFromWebsite', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
     //
-    //Future<GetAnalyzedRecipeInstructions200Response> getAnalyzedRecipeInstructions(int id, { bool stepBreakdown }) async
+    //Future<List<GetAnalyzedRecipeInstructions200ResponseInner>> getAnalyzedRecipeInstructions(int id, { bool stepBreakdown }) async
     test('test getAnalyzedRecipeInstructions', () async {
       // TODO
     });
@@ -129,7 +129,7 @@ void main() {
     //
     // Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
     //
-    //Future<GetRecipeInformation200Response> getRecipeInformation(int id, { bool includeNutrition }) async
+    //Future<RecipeInformation> getRecipeInformation(int id, { bool includeNutrition, bool addWinePairing, bool addTasteData }) async
     test('test getRecipeInformation', () async {
       // TODO
     });
@@ -138,7 +138,7 @@ void main() {
     //
     // Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
     //
-    //Future<Set<GetRecipeInformationBulk200ResponseInner>> getRecipeInformationBulk(String ids, { bool includeNutrition }) async
+    //Future<Set<RecipeInformation>> getRecipeInformationBulk(String ids, { bool includeNutrition }) async
     test('test getRecipeInformationBulk', () async {
       // TODO
     });
@@ -174,7 +174,7 @@ void main() {
     //
     // Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
     //
-    //Future<GetRecipeTasteByID200Response> getRecipeTasteByID(int id, { bool normalize }) async
+    //Future<TasteInformation> getRecipeTasteByID(int id, { bool normalize }) async
     test('test getRecipeTasteByID', () async {
       // TODO
     });
@@ -201,7 +201,7 @@ void main() {
     //
     // Extract an ingredient from plain text.
     //
-    //Future<Set<ParseIngredients200ResponseInner>> parseIngredients(String ingredientList, num servings, { String language, bool includeNutrition }) async
+    //Future<Set<IngredientInformation>> parseIngredients(String ingredientList, num servings, { String language, bool includeNutrition }) async
     test('test parseIngredients', () async {
       // TODO
     });
@@ -210,7 +210,7 @@ void main() {
     //
     // Visualize a recipe's price breakdown.
     //
-    //Future<MultipartFile> priceBreakdownByIDImage(num id) async
+    //Future<MultipartFile> priceBreakdownByIDImage(int id) async
     test('test priceBreakdownByIDImage', () async {
       // TODO
     });
@@ -228,7 +228,7 @@ void main() {
     //
     // Visualize a recipe's nutritional information as an image.
     //
-    //Future<MultipartFile> recipeNutritionByIDImage(num id) async
+    //Future<MultipartFile> recipeNutritionByIDImage(int id) async
     test('test recipeNutritionByIDImage', () async {
       // TODO
     });
@@ -237,7 +237,7 @@ void main() {
     //
     // Get a recipe's nutrition label as an image.
     //
-    //Future<MultipartFile> recipeNutritionLabelImage(num id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<MultipartFile> recipeNutritionLabelImage(int id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test recipeNutritionLabelImage', () async {
       // TODO
     });
@@ -246,7 +246,7 @@ void main() {
     //
     // Get a recipe's nutrition label as an HTML widget.
     //
-    //Future<String> recipeNutritionLabelWidget(num id, { bool defaultCss, bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<String> recipeNutritionLabelWidget(int id, { bool defaultCss, bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test recipeNutritionLabelWidget', () async {
       // TODO
     });
@@ -255,7 +255,7 @@ void main() {
     //
     // Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
     //
-    //Future<MultipartFile> recipeTasteByIDImage(num id, { bool normalize, String rgb }) async
+    //Future<MultipartFile> recipeTasteByIDImage(int id, { bool normalize, String rgb }) async
     test('test recipeTasteByIDImage', () async {
       // TODO
     });
@@ -264,7 +264,7 @@ void main() {
     //
     // Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
     //
-    //Future<SearchRecipes200Response> searchRecipes({ String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, bool addRecipeNutrition, String author, String tags, num recipeBoxId, String titleMatch, num maxReadyTime, num minServings, num maxServings, bool ignorePantry, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, int offset, int number }) async
+    //Future<SearchRecipes200Response> searchRecipes(String query, { String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, bool instructionsRequired, bool fillIngredients, bool addRecipeInformation, bool addRecipeNutrition, String author, String tags, int recipeBoxId, String titleMatch, num maxReadyTime, num minServings, num maxServings, bool ignorePantry, String sort, String sortDirection, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minCalories, num maxCalories, num minFat, num maxFat, num minAlcohol, num maxAlcohol, num minCaffeine, num maxCaffeine, num minCopper, num maxCopper, num minCalcium, num maxCalcium, num minCholine, num maxCholine, num minCholesterol, num maxCholesterol, num minFluoride, num maxFluoride, num minSaturatedFat, num maxSaturatedFat, num minVitaminA, num maxVitaminA, num minVitaminC, num maxVitaminC, num minVitaminD, num maxVitaminD, num minVitaminE, num maxVitaminE, num minVitaminK, num maxVitaminK, num minVitaminB1, num maxVitaminB1, num minVitaminB2, num maxVitaminB2, num minVitaminB5, num maxVitaminB5, num minVitaminB3, num maxVitaminB3, num minVitaminB6, num maxVitaminB6, num minVitaminB12, num maxVitaminB12, num minFiber, num maxFiber, num minFolate, num maxFolate, num minFolicAcid, num maxFolicAcid, num minIodine, num maxIodine, num minIron, num maxIron, num minMagnesium, num maxMagnesium, num minManganese, num maxManganese, num minPhosphorus, num maxPhosphorus, num minPotassium, num maxPotassium, num minSelenium, num maxSelenium, num minSodium, num maxSodium, num minSugar, num maxSugar, num minZinc, num maxZinc, int offset, int number }) async
     test('test searchRecipes', () async {
       // TODO
     });
@@ -273,7 +273,7 @@ void main() {
     //
     //  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
     //
-    //Future<Set<SearchRecipesByIngredients200ResponseInner>> searchRecipesByIngredients({ String ingredients, int number, num ranking, bool ignorePantry }) async
+    //Future<Set<SearchRecipesByIngredients200ResponseInner>> searchRecipesByIngredients(String ingredients, { int number, int ranking, bool ignorePantry }) async
     test('test searchRecipesByIngredients', () async {
       // TODO
     });

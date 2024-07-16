@@ -28,23 +28,22 @@ from spoonacular.models.compute_glycemic_load200_response import ComputeGlycemic
 from spoonacular.models.compute_glycemic_load_request import ComputeGlycemicLoadRequest
 from spoonacular.models.convert_amounts200_response import ConvertAmounts200Response
 from spoonacular.models.create_recipe_card200_response import CreateRecipeCard200Response
-from spoonacular.models.get_analyzed_recipe_instructions200_response import GetAnalyzedRecipeInstructions200Response
+from spoonacular.models.get_analyzed_recipe_instructions200_response_inner import GetAnalyzedRecipeInstructions200ResponseInner
 from spoonacular.models.get_random_recipes200_response import GetRandomRecipes200Response
 from spoonacular.models.get_recipe_equipment_by_id200_response import GetRecipeEquipmentByID200Response
-from spoonacular.models.get_recipe_information200_response import GetRecipeInformation200Response
-from spoonacular.models.get_recipe_information_bulk200_response_inner import GetRecipeInformationBulk200ResponseInner
 from spoonacular.models.get_recipe_ingredients_by_id200_response import GetRecipeIngredientsByID200Response
 from spoonacular.models.get_recipe_nutrition_widget_by_id200_response import GetRecipeNutritionWidgetByID200Response
 from spoonacular.models.get_recipe_price_breakdown_by_id200_response import GetRecipePriceBreakdownByID200Response
-from spoonacular.models.get_recipe_taste_by_id200_response import GetRecipeTasteByID200Response
 from spoonacular.models.get_similar_recipes200_response_inner import GetSimilarRecipes200ResponseInner
 from spoonacular.models.guess_nutrition_by_dish_name200_response import GuessNutritionByDishName200Response
-from spoonacular.models.parse_ingredients200_response_inner import ParseIngredients200ResponseInner
+from spoonacular.models.ingredient_information import IngredientInformation
 from spoonacular.models.quick_answer200_response import QuickAnswer200Response
+from spoonacular.models.recipe_information import RecipeInformation
 from spoonacular.models.search_recipes200_response import SearchRecipes200Response
 from spoonacular.models.search_recipes_by_ingredients200_response_inner import SearchRecipesByIngredients200ResponseInner
 from spoonacular.models.search_recipes_by_nutrients200_response_inner import SearchRecipesByNutrients200ResponseInner
 from spoonacular.models.summarize_recipe200_response import SummarizeRecipe200Response
+from spoonacular.models.taste_information import TasteInformation
 
 from spoonacular.api_client import ApiClient, RequestSerialized
 from spoonacular.api_response import ApiResponse
@@ -618,7 +617,7 @@ class RecipesApi:
     @validate_call
     def autocomplete_recipe_search(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -637,7 +636,7 @@ class RecipesApi:
 
         Autocomplete a partial input to suggest possible recipe names.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -692,7 +691,7 @@ class RecipesApi:
     @validate_call
     def autocomplete_recipe_search_with_http_info(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -711,7 +710,7 @@ class RecipesApi:
 
         Autocomplete a partial input to suggest possible recipe names.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -766,7 +765,7 @@ class RecipesApi:
     @validate_call
     def autocomplete_recipe_search_without_preload_content(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -785,7 +784,7 @@ class RecipesApi:
 
         Autocomplete a partial input to suggest possible recipe names.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -2298,7 +2297,7 @@ class RecipesApi:
     @validate_call
     def equipment_by_id_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2317,7 +2316,7 @@ class RecipesApi:
         Visualize a recipe's equipment list as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2368,7 +2367,7 @@ class RecipesApi:
     @validate_call
     def equipment_by_id_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2387,7 +2386,7 @@ class RecipesApi:
         Visualize a recipe's equipment list as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2438,7 +2437,7 @@ class RecipesApi:
     @validate_call
     def equipment_by_id_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2457,7 +2456,7 @@ class RecipesApi:
         Visualize a recipe's equipment list as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2583,7 +2582,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetRecipeInformation200Response:
+    ) -> RecipeInformation:
         """Extract Recipe from Website
 
         This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
@@ -2633,7 +2632,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeInformation200Response",
+            '200': "RecipeInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -2669,7 +2668,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetRecipeInformation200Response]:
+    ) -> ApiResponse[RecipeInformation]:
         """Extract Recipe from Website
 
         This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
@@ -2719,7 +2718,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeInformation200Response",
+            '200': "RecipeInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -2805,7 +2804,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeInformation200Response",
+            '200': "RecipeInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -2904,7 +2903,7 @@ class RecipesApi:
     @validate_call
     def get_analyzed_recipe_instructions(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         step_breakdown: Annotated[Optional[StrictBool], Field(description="Whether to break down the recipe steps even more.")] = None,
         _request_timeout: Union[
             None,
@@ -2918,12 +2917,12 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetAnalyzedRecipeInstructions200Response:
+    ) -> List[GetAnalyzedRecipeInstructions200ResponseInner]:
         """Get Analyzed Recipe Instructions
 
         Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param step_breakdown: Whether to break down the recipe steps even more.
         :type step_breakdown: bool
@@ -2959,7 +2958,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAnalyzedRecipeInstructions200Response",
+            '200': "List[GetAnalyzedRecipeInstructions200ResponseInner]",
             '401': None,
             '403': None,
             '404': None,
@@ -2978,7 +2977,7 @@ class RecipesApi:
     @validate_call
     def get_analyzed_recipe_instructions_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         step_breakdown: Annotated[Optional[StrictBool], Field(description="Whether to break down the recipe steps even more.")] = None,
         _request_timeout: Union[
             None,
@@ -2992,12 +2991,12 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetAnalyzedRecipeInstructions200Response]:
+    ) -> ApiResponse[List[GetAnalyzedRecipeInstructions200ResponseInner]]:
         """Get Analyzed Recipe Instructions
 
         Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param step_breakdown: Whether to break down the recipe steps even more.
         :type step_breakdown: bool
@@ -3033,7 +3032,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAnalyzedRecipeInstructions200Response",
+            '200': "List[GetAnalyzedRecipeInstructions200ResponseInner]",
             '401': None,
             '403': None,
             '404': None,
@@ -3052,7 +3051,7 @@ class RecipesApi:
     @validate_call
     def get_analyzed_recipe_instructions_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         step_breakdown: Annotated[Optional[StrictBool], Field(description="Whether to break down the recipe steps even more.")] = None,
         _request_timeout: Union[
             None,
@@ -3071,7 +3070,7 @@ class RecipesApi:
 
         Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param step_breakdown: Whether to break down the recipe steps even more.
         :type step_breakdown: bool
@@ -3107,7 +3106,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAnalyzedRecipeInstructions200Response",
+            '200': "List[GetAnalyzedRecipeInstructions200ResponseInner]",
             '401': None,
             '403': None,
             '404': None,
@@ -3510,7 +3509,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_equipment_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3528,7 +3527,7 @@ class RecipesApi:
 
         Get a recipe's equipment list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3580,7 +3579,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_equipment_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3598,7 +3597,7 @@ class RecipesApi:
 
         Get a recipe's equipment list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3650,7 +3649,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_equipment_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3668,7 +3667,7 @@ class RecipesApi:
 
         Get a recipe's equipment list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3778,8 +3777,10 @@ class RecipesApi:
     @validate_call
     def get_recipe_information(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the recipe.")],
         include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
+        add_wine_pairing: Annotated[Optional[StrictBool], Field(description="Add a wine pairing to the recipe.")] = None,
+        add_taste_data: Annotated[Optional[StrictBool], Field(description="Add taste data to the recipe.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3792,15 +3793,19 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetRecipeInformation200Response:
+    ) -> RecipeInformation:
         """Get Recipe Information
 
         Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 
-        :param id: The item's id. (required)
+        :param id: The id of the recipe. (required)
         :type id: int
         :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
         :type include_nutrition: bool
+        :param add_wine_pairing: Add a wine pairing to the recipe.
+        :type add_wine_pairing: bool
+        :param add_taste_data: Add taste data to the recipe.
+        :type add_taste_data: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3826,6 +3831,8 @@ class RecipesApi:
         _param = self._get_recipe_information_serialize(
             id=id,
             include_nutrition=include_nutrition,
+            add_wine_pairing=add_wine_pairing,
+            add_taste_data=add_taste_data,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3833,7 +3840,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeInformation200Response",
+            '200': "RecipeInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -3852,8 +3859,10 @@ class RecipesApi:
     @validate_call
     def get_recipe_information_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the recipe.")],
         include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
+        add_wine_pairing: Annotated[Optional[StrictBool], Field(description="Add a wine pairing to the recipe.")] = None,
+        add_taste_data: Annotated[Optional[StrictBool], Field(description="Add taste data to the recipe.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3866,15 +3875,19 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetRecipeInformation200Response]:
+    ) -> ApiResponse[RecipeInformation]:
         """Get Recipe Information
 
         Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 
-        :param id: The item's id. (required)
+        :param id: The id of the recipe. (required)
         :type id: int
         :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
         :type include_nutrition: bool
+        :param add_wine_pairing: Add a wine pairing to the recipe.
+        :type add_wine_pairing: bool
+        :param add_taste_data: Add taste data to the recipe.
+        :type add_taste_data: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3900,6 +3913,8 @@ class RecipesApi:
         _param = self._get_recipe_information_serialize(
             id=id,
             include_nutrition=include_nutrition,
+            add_wine_pairing=add_wine_pairing,
+            add_taste_data=add_taste_data,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3907,7 +3922,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeInformation200Response",
+            '200': "RecipeInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -3926,8 +3941,10 @@ class RecipesApi:
     @validate_call
     def get_recipe_information_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the recipe.")],
         include_nutrition: Annotated[Optional[StrictBool], Field(description="Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.")] = None,
+        add_wine_pairing: Annotated[Optional[StrictBool], Field(description="Add a wine pairing to the recipe.")] = None,
+        add_taste_data: Annotated[Optional[StrictBool], Field(description="Add taste data to the recipe.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3945,10 +3962,14 @@ class RecipesApi:
 
         Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 
-        :param id: The item's id. (required)
+        :param id: The id of the recipe. (required)
         :type id: int
         :param include_nutrition: Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
         :type include_nutrition: bool
+        :param add_wine_pairing: Add a wine pairing to the recipe.
+        :type add_wine_pairing: bool
+        :param add_taste_data: Add taste data to the recipe.
+        :type add_taste_data: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3974,6 +3995,8 @@ class RecipesApi:
         _param = self._get_recipe_information_serialize(
             id=id,
             include_nutrition=include_nutrition,
+            add_wine_pairing=add_wine_pairing,
+            add_taste_data=add_taste_data,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3981,7 +4004,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeInformation200Response",
+            '200': "RecipeInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -3997,6 +4020,8 @@ class RecipesApi:
         self,
         id,
         include_nutrition,
+        add_wine_pairing,
+        add_taste_data,
         _request_auth,
         _content_type,
         _headers,
@@ -4022,6 +4047,14 @@ class RecipesApi:
         if include_nutrition is not None:
             
             _query_params.append(('includeNutrition', include_nutrition))
+            
+        if add_wine_pairing is not None:
+            
+            _query_params.append(('addWinePairing', add_wine_pairing))
+            
+        if add_taste_data is not None:
+            
+            _query_params.append(('addTasteData', add_taste_data))
             
         # process the header parameters
         # process the form parameters
@@ -4077,7 +4110,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[GetRecipeInformationBulk200ResponseInner]:
+    ) -> List[RecipeInformation]:
         """Get Recipe Information Bulk
 
         Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
@@ -4118,7 +4151,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetRecipeInformationBulk200ResponseInner]",
+            '200': "List[RecipeInformation]",
             '401': None,
             '403': None,
             '404': None,
@@ -4151,7 +4184,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[GetRecipeInformationBulk200ResponseInner]]:
+    ) -> ApiResponse[List[RecipeInformation]]:
         """Get Recipe Information Bulk
 
         Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
@@ -4192,7 +4225,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetRecipeInformationBulk200ResponseInner]",
+            '200': "List[RecipeInformation]",
             '401': None,
             '403': None,
             '404': None,
@@ -4266,7 +4299,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[GetRecipeInformationBulk200ResponseInner]",
+            '200': "List[RecipeInformation]",
             '401': None,
             '403': None,
             '404': None,
@@ -4350,7 +4383,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_ingredients_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4368,7 +4401,7 @@ class RecipesApi:
 
         Get a recipe's ingredient list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4420,7 +4453,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_ingredients_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4438,7 +4471,7 @@ class RecipesApi:
 
         Get a recipe's ingredient list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4490,7 +4523,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_ingredients_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4508,7 +4541,7 @@ class RecipesApi:
 
         Get a recipe's ingredient list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4618,7 +4651,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_nutrition_widget_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4636,7 +4669,7 @@ class RecipesApi:
 
         Get a recipe's nutrition data.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4688,7 +4721,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_nutrition_widget_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4706,7 +4739,7 @@ class RecipesApi:
 
         Get a recipe's nutrition data.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4758,7 +4791,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_nutrition_widget_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4776,7 +4809,7 @@ class RecipesApi:
 
         Get a recipe's nutrition data.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4886,7 +4919,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_price_breakdown_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4904,7 +4937,7 @@ class RecipesApi:
 
         Get a recipe's price breakdown data.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4956,7 +4989,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_price_breakdown_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4974,7 +5007,7 @@ class RecipesApi:
 
         Get a recipe's price breakdown data.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5026,7 +5059,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_price_breakdown_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5044,7 +5077,7 @@ class RecipesApi:
 
         Get a recipe's price breakdown data.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5154,7 +5187,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_taste_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         _request_timeout: Union[
             None,
@@ -5168,12 +5201,12 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetRecipeTasteByID200Response:
+    ) -> TasteInformation:
         """Taste by ID
 
         Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param normalize: Normalize to the strongest taste.
         :type normalize: bool
@@ -5209,7 +5242,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeTasteByID200Response",
+            '200': "TasteInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -5228,7 +5261,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_taste_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         _request_timeout: Union[
             None,
@@ -5242,12 +5275,12 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetRecipeTasteByID200Response]:
+    ) -> ApiResponse[TasteInformation]:
         """Taste by ID
 
         Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param normalize: Normalize to the strongest taste.
         :type normalize: bool
@@ -5283,7 +5316,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeTasteByID200Response",
+            '200': "TasteInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -5302,7 +5335,7 @@ class RecipesApi:
     @validate_call
     def get_recipe_taste_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         _request_timeout: Union[
             None,
@@ -5321,7 +5354,7 @@ class RecipesApi:
 
         Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param normalize: Normalize to the strongest taste.
         :type normalize: bool
@@ -5357,7 +5390,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRecipeTasteByID200Response",
+            '200': "TasteInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -5439,7 +5472,7 @@ class RecipesApi:
     @validate_call
     def get_similar_recipes(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the source recipe for which similar recipes should be found.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -5458,7 +5491,7 @@ class RecipesApi:
 
         Find recipes which are similar to the given one.
 
-        :param id: The item's id. (required)
+        :param id: The id of the source recipe for which similar recipes should be found. (required)
         :type id: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -5513,7 +5546,7 @@ class RecipesApi:
     @validate_call
     def get_similar_recipes_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the source recipe for which similar recipes should be found.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -5532,7 +5565,7 @@ class RecipesApi:
 
         Find recipes which are similar to the given one.
 
-        :param id: The item's id. (required)
+        :param id: The id of the source recipe for which similar recipes should be found. (required)
         :type id: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -5587,7 +5620,7 @@ class RecipesApi:
     @validate_call
     def get_similar_recipes_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the source recipe for which similar recipes should be found.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
             None,
@@ -5606,7 +5639,7 @@ class RecipesApi:
 
         Find recipes which are similar to the given one.
 
-        :param id: The item's id. (required)
+        :param id: The id of the source recipe for which similar recipes should be found. (required)
         :type id: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
@@ -5997,7 +6030,7 @@ class RecipesApi:
         ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
         servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings that you can make from the ingredients.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        include_nutrition: Optional[StrictBool] = None,
+        include_nutrition: Annotated[Optional[StrictBool], Field(description="Whether nutrition data should be added to correctly parsed ingredients.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6010,7 +6043,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[ParseIngredients200ResponseInner]:
+    ) -> List[IngredientInformation]:
         """Parse Ingredients
 
         Extract an ingredient from plain text.
@@ -6021,7 +6054,7 @@ class RecipesApi:
         :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param include_nutrition:
+        :param include_nutrition: Whether nutrition data should be added to correctly parsed ingredients.
         :type include_nutrition: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6057,7 +6090,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParseIngredients200ResponseInner]",
+            '200': "List[IngredientInformation]",
             '401': None,
             '403': None,
             '404': None,
@@ -6079,7 +6112,7 @@ class RecipesApi:
         ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
         servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings that you can make from the ingredients.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        include_nutrition: Optional[StrictBool] = None,
+        include_nutrition: Annotated[Optional[StrictBool], Field(description="Whether nutrition data should be added to correctly parsed ingredients.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6092,7 +6125,7 @@ class RecipesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[ParseIngredients200ResponseInner]]:
+    ) -> ApiResponse[List[IngredientInformation]]:
         """Parse Ingredients
 
         Extract an ingredient from plain text.
@@ -6103,7 +6136,7 @@ class RecipesApi:
         :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param include_nutrition:
+        :param include_nutrition: Whether nutrition data should be added to correctly parsed ingredients.
         :type include_nutrition: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6139,7 +6172,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParseIngredients200ResponseInner]",
+            '200': "List[IngredientInformation]",
             '401': None,
             '403': None,
             '404': None,
@@ -6161,7 +6194,7 @@ class RecipesApi:
         ingredient_list: Annotated[StrictStr, Field(description="The ingredient list of the recipe, one ingredient per line.")],
         servings: Annotated[Union[StrictFloat, StrictInt], Field(description="The number of servings that you can make from the ingredients.")],
         language: Annotated[Optional[StrictStr], Field(description="The language of the input. Either 'en' or 'de'.")] = None,
-        include_nutrition: Optional[StrictBool] = None,
+        include_nutrition: Annotated[Optional[StrictBool], Field(description="Whether nutrition data should be added to correctly parsed ingredients.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6185,7 +6218,7 @@ class RecipesApi:
         :type servings: float
         :param language: The language of the input. Either 'en' or 'de'.
         :type language: str
-        :param include_nutrition:
+        :param include_nutrition: Whether nutrition data should be added to correctly parsed ingredients.
         :type include_nutrition: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6221,7 +6254,7 @@ class RecipesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[ParseIngredients200ResponseInner]",
+            '200': "List[IngredientInformation]",
             '401': None,
             '403': None,
             '404': None,
@@ -6322,7 +6355,7 @@ class RecipesApi:
     @validate_call
     def price_breakdown_by_id_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6341,7 +6374,7 @@ class RecipesApi:
         Visualize a recipe's price breakdown.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6392,7 +6425,7 @@ class RecipesApi:
     @validate_call
     def price_breakdown_by_id_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6411,7 +6444,7 @@ class RecipesApi:
         Visualize a recipe's price breakdown.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6462,7 +6495,7 @@ class RecipesApi:
     @validate_call
     def price_breakdown_by_id_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6481,7 +6514,7 @@ class RecipesApi:
         Visualize a recipe's price breakdown.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6860,7 +6893,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_by_id_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6879,7 +6912,7 @@ class RecipesApi:
         Visualize a recipe's nutritional information as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6930,7 +6963,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_by_id_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6949,7 +6982,7 @@ class RecipesApi:
         Visualize a recipe's nutritional information as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7000,7 +7033,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_by_id_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7019,7 +7052,7 @@ class RecipesApi:
         Visualize a recipe's nutritional information as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7128,7 +7161,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_label_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -7150,7 +7183,7 @@ class RecipesApi:
         Get a recipe's nutrition label as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -7210,7 +7243,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_label_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -7232,7 +7265,7 @@ class RecipesApi:
         Get a recipe's nutrition label as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -7292,7 +7325,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_label_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -7314,7 +7347,7 @@ class RecipesApi:
         Get a recipe's nutrition label as an image.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -7447,7 +7480,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_label_widget(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -7470,7 +7503,7 @@ class RecipesApi:
         Get a recipe's nutrition label as an HTML widget.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -7533,7 +7566,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_label_widget_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -7556,7 +7589,7 @@ class RecipesApi:
         Get a recipe's nutrition label as an HTML widget.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -7619,7 +7652,7 @@ class RecipesApi:
     @validate_call
     def recipe_nutrition_label_widget_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -7642,7 +7675,7 @@ class RecipesApi:
         Get a recipe's nutrition label as an HTML widget.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -7783,7 +7816,7 @@ class RecipesApi:
     @validate_call
     def recipe_taste_by_id_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
@@ -7804,7 +7837,7 @@ class RecipesApi:
         Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param normalize: Normalize to the strongest taste.
         :type normalize: bool
         :param rgb: Red, green, blue values for the chart color.
@@ -7861,7 +7894,7 @@ class RecipesApi:
     @validate_call
     def recipe_taste_by_id_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
@@ -7882,7 +7915,7 @@ class RecipesApi:
         Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param normalize: Normalize to the strongest taste.
         :type normalize: bool
         :param rgb: Red, green, blue values for the chart color.
@@ -7939,7 +7972,7 @@ class RecipesApi:
     @validate_call
     def recipe_taste_by_id_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
@@ -7960,7 +7993,7 @@ class RecipesApi:
         Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param normalize: Normalize to the strongest taste.
         :type normalize: bool
         :param rgb: Red, green, blue values for the chart color.
@@ -8085,7 +8118,7 @@ class RecipesApi:
     @validate_call
     def search_recipes(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.")] = None,
         exclude_cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.")] = None,
         diet: Annotated[Optional[StrictStr], Field(description="The diet for which the recipes must be suitable. See a full list of supported diets.")] = None,
@@ -8100,7 +8133,7 @@ class RecipesApi:
         add_recipe_nutrition: Annotated[Optional[StrictBool], Field(description="If set to true, you get nutritional information about each recipes returned.")] = None,
         author: Annotated[Optional[StrictStr], Field(description="The username of the recipe author.")] = None,
         tags: Annotated[Optional[StrictStr], Field(description="The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.")] = None,
-        recipe_box_id: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
+        recipe_box_id: Annotated[Optional[StrictInt], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
         title_match: Annotated[Optional[StrictStr], Field(description="Enter text that must be found in the title of the recipes.")] = None,
         max_ready_time: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum time in minutes it should take to prepare and cook the recipe.")] = None,
         min_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of servings the recipe is for.")] = None,
@@ -8199,7 +8232,7 @@ class RecipesApi:
 
         Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param cuisine: The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
         :type cuisine: str
@@ -8230,7 +8263,7 @@ class RecipesApi:
         :param tags: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
         :type tags: str
         :param recipe_box_id: The id of the recipe box to which the search should be limited to.
-        :type recipe_box_id: float
+        :type recipe_box_id: int
         :param title_match: Enter text that must be found in the title of the recipes.
         :type title_match: str
         :param max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
@@ -8539,7 +8572,7 @@ class RecipesApi:
     @validate_call
     def search_recipes_with_http_info(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.")] = None,
         exclude_cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.")] = None,
         diet: Annotated[Optional[StrictStr], Field(description="The diet for which the recipes must be suitable. See a full list of supported diets.")] = None,
@@ -8554,7 +8587,7 @@ class RecipesApi:
         add_recipe_nutrition: Annotated[Optional[StrictBool], Field(description="If set to true, you get nutritional information about each recipes returned.")] = None,
         author: Annotated[Optional[StrictStr], Field(description="The username of the recipe author.")] = None,
         tags: Annotated[Optional[StrictStr], Field(description="The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.")] = None,
-        recipe_box_id: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
+        recipe_box_id: Annotated[Optional[StrictInt], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
         title_match: Annotated[Optional[StrictStr], Field(description="Enter text that must be found in the title of the recipes.")] = None,
         max_ready_time: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum time in minutes it should take to prepare and cook the recipe.")] = None,
         min_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of servings the recipe is for.")] = None,
@@ -8653,7 +8686,7 @@ class RecipesApi:
 
         Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param cuisine: The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
         :type cuisine: str
@@ -8684,7 +8717,7 @@ class RecipesApi:
         :param tags: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
         :type tags: str
         :param recipe_box_id: The id of the recipe box to which the search should be limited to.
-        :type recipe_box_id: float
+        :type recipe_box_id: int
         :param title_match: Enter text that must be found in the title of the recipes.
         :type title_match: str
         :param max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
@@ -8993,7 +9026,7 @@ class RecipesApi:
     @validate_call
     def search_recipes_without_preload_content(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.")] = None,
         exclude_cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.")] = None,
         diet: Annotated[Optional[StrictStr], Field(description="The diet for which the recipes must be suitable. See a full list of supported diets.")] = None,
@@ -9008,7 +9041,7 @@ class RecipesApi:
         add_recipe_nutrition: Annotated[Optional[StrictBool], Field(description="If set to true, you get nutritional information about each recipes returned.")] = None,
         author: Annotated[Optional[StrictStr], Field(description="The username of the recipe author.")] = None,
         tags: Annotated[Optional[StrictStr], Field(description="The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.")] = None,
-        recipe_box_id: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
+        recipe_box_id: Annotated[Optional[StrictInt], Field(description="The id of the recipe box to which the search should be limited to.")] = None,
         title_match: Annotated[Optional[StrictStr], Field(description="Enter text that must be found in the title of the recipes.")] = None,
         max_ready_time: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum time in minutes it should take to prepare and cook the recipe.")] = None,
         min_servings: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of servings the recipe is for.")] = None,
@@ -9107,7 +9140,7 @@ class RecipesApi:
 
         Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param cuisine: The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
         :type cuisine: str
@@ -9138,7 +9171,7 @@ class RecipesApi:
         :param tags: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
         :type tags: str
         :param recipe_box_id: The id of the recipe box to which the search should be limited to.
-        :type recipe_box_id: float
+        :type recipe_box_id: int
         :param title_match: Enter text that must be found in the title of the recipes.
         :type title_match: str
         :param max_ready_time: The maximum time in minutes it should take to prepare and cook the recipe.
@@ -9987,9 +10020,9 @@ class RecipesApi:
     @validate_call
     def search_recipes_by_ingredients(
         self,
-        ingredients: Annotated[Optional[StrictStr], Field(description="A comma-separated list of ingredients that the recipes should contain.")] = None,
+        ingredients: Annotated[StrictStr, Field(description="A comma-separated list of ingredients that the recipes should contain.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        ranking: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
+        ranking: Annotated[Optional[StrictInt], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         _request_timeout: Union[
             None,
@@ -10008,12 +10041,12 @@ class RecipesApi:
 
          Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
-        :param ingredients: A comma-separated list of ingredients that the recipes should contain.
+        :param ingredients: A comma-separated list of ingredients that the recipes should contain. (required)
         :type ingredients: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
         :param ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-        :type ranking: float
+        :type ranking: int
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
         :type ignore_pantry: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -10069,9 +10102,9 @@ class RecipesApi:
     @validate_call
     def search_recipes_by_ingredients_with_http_info(
         self,
-        ingredients: Annotated[Optional[StrictStr], Field(description="A comma-separated list of ingredients that the recipes should contain.")] = None,
+        ingredients: Annotated[StrictStr, Field(description="A comma-separated list of ingredients that the recipes should contain.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        ranking: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
+        ranking: Annotated[Optional[StrictInt], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         _request_timeout: Union[
             None,
@@ -10090,12 +10123,12 @@ class RecipesApi:
 
          Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
-        :param ingredients: A comma-separated list of ingredients that the recipes should contain.
+        :param ingredients: A comma-separated list of ingredients that the recipes should contain. (required)
         :type ingredients: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
         :param ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-        :type ranking: float
+        :type ranking: int
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
         :type ignore_pantry: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -10151,9 +10184,9 @@ class RecipesApi:
     @validate_call
     def search_recipes_by_ingredients_without_preload_content(
         self,
-        ingredients: Annotated[Optional[StrictStr], Field(description="A comma-separated list of ingredients that the recipes should contain.")] = None,
+        ingredients: Annotated[StrictStr, Field(description="A comma-separated list of ingredients that the recipes should contain.")],
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
-        ranking: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
+        ranking: Annotated[Optional[StrictInt], Field(description="Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.")] = None,
         ignore_pantry: Annotated[Optional[StrictBool], Field(description="Whether to ignore typical pantry items, such as water, salt, flour, etc.")] = None,
         _request_timeout: Union[
             None,
@@ -10172,12 +10205,12 @@ class RecipesApi:
 
          Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).         
 
-        :param ingredients: A comma-separated list of ingredients that the recipes should contain.
+        :param ingredients: A comma-separated list of ingredients that the recipes should contain. (required)
         :type ingredients: str
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
         :type number: int
         :param ranking: Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-        :type ranking: float
+        :type ranking: int
         :param ignore_pantry: Whether to ignore typical pantry items, such as water, salt, flour, etc.
         :type ignore_pantry: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -11836,7 +11869,7 @@ class RecipesApi:
     @validate_call
     def summarize_recipe(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11854,7 +11887,7 @@ class RecipesApi:
 
         Automatically generate a short description that summarizes key information about the recipe.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11906,7 +11939,7 @@ class RecipesApi:
     @validate_call
     def summarize_recipe_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11924,7 +11957,7 @@ class RecipesApi:
 
         Automatically generate a short description that summarizes key information about the recipe.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11976,7 +12009,7 @@ class RecipesApi:
     @validate_call
     def summarize_recipe_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11994,7 +12027,7 @@ class RecipesApi:
 
         Automatically generate a short description that summarizes key information about the recipe.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12788,7 +12821,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_equipment_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -12807,7 +12840,7 @@ class RecipesApi:
 
         Visualize a recipe's equipment list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -12862,7 +12895,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_equipment_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -12881,7 +12914,7 @@ class RecipesApi:
 
         Visualize a recipe's equipment list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -12936,7 +12969,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_equipment_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -12955,7 +12988,7 @@ class RecipesApi:
 
         Visualize a recipe's equipment list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -13073,7 +13106,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_ingredients_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         measure: Annotated[Optional[StrictStr], Field(description="Whether the the measures should be 'us' or 'metric'.")] = None,
         _request_timeout: Union[
@@ -13093,7 +13126,7 @@ class RecipesApi:
 
         Visualize a recipe's ingredient list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -13151,7 +13184,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_ingredients_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         measure: Annotated[Optional[StrictStr], Field(description="Whether the the measures should be 'us' or 'metric'.")] = None,
         _request_timeout: Union[
@@ -13171,7 +13204,7 @@ class RecipesApi:
 
         Visualize a recipe's ingredient list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -13229,7 +13262,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_ingredients_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         measure: Annotated[Optional[StrictStr], Field(description="Whether the the measures should be 'us' or 'metric'.")] = None,
         _request_timeout: Union[
@@ -13249,7 +13282,7 @@ class RecipesApi:
 
         Visualize a recipe's ingredient list.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -13718,7 +13751,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_nutrition_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -13737,7 +13770,7 @@ class RecipesApi:
 
         Visualize a recipe's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -13792,7 +13825,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_nutrition_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -13811,7 +13844,7 @@ class RecipesApi:
 
         Visualize a recipe's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -13866,7 +13899,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_nutrition_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -13885,7 +13918,7 @@ class RecipesApi:
 
         Visualize a recipe's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -14003,7 +14036,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_price_breakdown_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -14022,7 +14055,7 @@ class RecipesApi:
 
         Visualize a recipe's price breakdown.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -14077,7 +14110,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_price_breakdown_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -14096,7 +14129,7 @@ class RecipesApi:
 
         Visualize a recipe's price breakdown.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -14151,7 +14184,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_price_breakdown_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -14170,7 +14203,7 @@ class RecipesApi:
 
         Visualize a recipe's price breakdown.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -14616,7 +14649,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_taste_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Whether to normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
@@ -14636,7 +14669,7 @@ class RecipesApi:
 
         Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param normalize: Whether to normalize to the strongest taste.
         :type normalize: bool
@@ -14694,7 +14727,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_taste_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Whether to normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
@@ -14714,7 +14747,7 @@ class RecipesApi:
 
         Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param normalize: Whether to normalize to the strongest taste.
         :type normalize: bool
@@ -14772,7 +14805,7 @@ class RecipesApi:
     @validate_call
     def visualize_recipe_taste_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         normalize: Annotated[Optional[StrictBool], Field(description="Whether to normalize to the strongest taste.")] = None,
         rgb: Annotated[Optional[StrictStr], Field(description="Red, green, blue values for the chart color.")] = None,
         _request_timeout: Union[
@@ -14792,7 +14825,7 @@ class RecipesApi:
 
         Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
-        :param id: The item's id. (required)
+        :param id: The recipe id. (required)
         :type id: int
         :param normalize: Whether to normalize to the strongest taste.
         :type normalize: bool

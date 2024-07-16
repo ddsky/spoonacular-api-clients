@@ -104,12 +104,12 @@ classifyGroceryProductBulk locale_query classifyGroceryProductBulkRequestInner_b
 
 {-| Find comparable products to the given one.
 -}
-getComparableProducts : Float -> Api.Request Api.Data.GetComparableProducts200Response
+getComparableProducts : String -> Api.Request Api.Data.GetComparableProducts200Response
 getComparableProducts upc_path =
     Api.request
         "GET"
         "/food/products/upc/{upc}/comparable"
-        [ ( "upc", String.fromFloat upc_path ) ]
+        [ ( "upc", identity upc_path ) ]
         []
         []
         Nothing
@@ -118,7 +118,7 @@ getComparableProducts upc_path =
 
 {-| Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 -}
-getProductInformation : Int -> Api.Request Api.Data.GetProductInformation200Response
+getProductInformation : Int -> Api.Request Api.Data.ProductInformation
 getProductInformation id_path =
     Api.request
         "GET"
@@ -127,17 +127,17 @@ getProductInformation id_path =
         []
         []
         Nothing
-        Api.Data.getProductInformation200ResponseDecoder
+        Api.Data.productInformationDecoder
 
 
 {-| Visualize a product's nutritional information as an image.
 -}
-productNutritionByIDImage : Float -> Api.Request File
+productNutritionByIDImage : Int -> Api.Request File
 productNutritionByIDImage id_path =
     Api.request
         "GET"
         "/food/products/{id}/nutritionWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         []
         []
         Nothing
@@ -146,12 +146,12 @@ productNutritionByIDImage id_path =
 
 {-| Get a product's nutrition label as an image.
 -}
-productNutritionLabelImage : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
+productNutritionLabelImage : Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
 productNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
         "/food/products/{id}/nutritionLabel.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
@@ -160,12 +160,12 @@ productNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_qu
 
 {-| Get a product's nutrition label as an HTML widget.
 -}
-productNutritionLabelWidget : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request String
+productNutritionLabelWidget : Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request String
 productNutritionLabelWidget id_path defaultCss_query showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
         "/food/products/{id}/nutritionLabel"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "defaultCss", Maybe.map (\val -> if val then "true" else "false") defaultCss_query ), ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
@@ -174,13 +174,13 @@ productNutritionLabelWidget id_path defaultCss_query showOptionalNutrients_query
 
 {-| Search packaged food products, such as frozen pizza or Greek yogurt.
 -}
-searchGroceryProducts : Maybe String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchGroceryProducts200Response
+searchGroceryProducts : String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchGroceryProducts200Response
 searchGroceryProducts query_query minCalories_query maxCalories_query minCarbs_query maxCarbs_query minProtein_query maxProtein_query minFat_query maxFat_query addProductInformation_query offset_query number_query =
     Api.request
         "GET"
         "/food/products/search"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "minCalories", Maybe.map String.fromFloat minCalories_query ), ( "maxCalories", Maybe.map String.fromFloat maxCalories_query ), ( "minCarbs", Maybe.map String.fromFloat minCarbs_query ), ( "maxCarbs", Maybe.map String.fromFloat maxCarbs_query ), ( "minProtein", Maybe.map String.fromFloat minProtein_query ), ( "maxProtein", Maybe.map String.fromFloat maxProtein_query ), ( "minFat", Maybe.map String.fromFloat minFat_query ), ( "maxFat", Maybe.map String.fromFloat maxFat_query ), ( "addProductInformation", Maybe.map (\val -> if val then "true" else "false") addProductInformation_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "minCalories", Maybe.map String.fromFloat minCalories_query ), ( "maxCalories", Maybe.map String.fromFloat maxCalories_query ), ( "minCarbs", Maybe.map String.fromFloat minCarbs_query ), ( "maxCarbs", Maybe.map String.fromFloat maxCarbs_query ), ( "minProtein", Maybe.map String.fromFloat minProtein_query ), ( "maxProtein", Maybe.map String.fromFloat maxProtein_query ), ( "minFat", Maybe.map String.fromFloat minFat_query ), ( "maxFat", Maybe.map String.fromFloat maxFat_query ), ( "addProductInformation", Maybe.map (\val -> if val then "true" else "false") addProductInformation_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
         []
         Nothing
         Api.Data.searchGroceryProducts200ResponseDecoder
@@ -188,12 +188,12 @@ searchGroceryProducts query_query minCalories_query maxCalories_query minCarbs_q
 
 {-| Get information about a packaged food using its UPC.
 -}
-searchGroceryProductsByUPC : Float -> Api.Request Api.Data.SearchGroceryProductsByUPC200Response
+searchGroceryProductsByUPC : String -> Api.Request Api.Data.SearchGroceryProductsByUPC200Response
 searchGroceryProductsByUPC upc_path =
     Api.request
         "GET"
         "/food/products/upc/{upc}"
-        [ ( "upc", String.fromFloat upc_path ) ]
+        [ ( "upc", identity upc_path ) ]
         []
         []
         Nothing

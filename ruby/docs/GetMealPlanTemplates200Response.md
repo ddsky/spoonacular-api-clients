@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **templates** | [**Array&lt;GetAnalyzedRecipeInstructions200ResponseIngredientsInner&gt;**](GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md) |  |  |
+| **templates** | [**Array&lt;GetMealPlanTemplates200ResponseTemplatesInner&gt;**](GetMealPlanTemplates200ResponseTemplatesInner.md) |  |  |
 
 ## Example
 

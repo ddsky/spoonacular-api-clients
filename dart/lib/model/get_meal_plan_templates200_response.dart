@@ -16,7 +16,7 @@ class GetMealPlanTemplates200Response {
     this.templates = const {},
   });
 
-  Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates;
+  Set<GetMealPlanTemplates200ResponseTemplatesInner> templates;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetMealPlanTemplates200Response &&
@@ -55,7 +55,7 @@ class GetMealPlanTemplates200Response {
       }());
 
       return GetMealPlanTemplates200Response(
-        templates: GetAnalyzedRecipeInstructions200ResponseIngredientsInner.listFromJson(json[r'templates']).toSet(),
+        templates: GetMealPlanTemplates200ResponseTemplatesInner.listFromJson(json[r'templates']).toSet(),
       );
     }
     return null;

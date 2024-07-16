@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**recipes** | [**Set&lt;GetRandomRecipes200ResponseRecipesInner&gt;**](GetRandomRecipes200ResponseRecipesInner.md) |  |  |
+|**recipes** | [**Set&lt;RecipeInformation&gt;**](RecipeInformation.md) |  |  |
 
 
 

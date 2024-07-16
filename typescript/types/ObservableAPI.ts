@@ -19,7 +19,6 @@ import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner }
 import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
 import { AnalyzeRecipeRequest } from '../models/AnalyzeRecipeRequest';
 import { AutocompleteIngredientSearch200ResponseInner } from '../models/AutocompleteIngredientSearch200ResponseInner';
-import { AutocompleteMenuItemSearch200Response } from '../models/AutocompleteMenuItemSearch200Response';
 import { AutocompleteProductSearch200Response } from '../models/AutocompleteProductSearch200Response';
 import { AutocompleteProductSearch200ResponseResultsInner } from '../models/AutocompleteProductSearch200ResponseResultsInner';
 import { AutocompleteRecipeSearch200ResponseInner } from '../models/AutocompleteRecipeSearch200ResponseInner';
@@ -28,6 +27,7 @@ import { ClassifyGroceryProduct200Response } from '../models/ClassifyGroceryProd
 import { ClassifyGroceryProductBulk200ResponseInner } from '../models/ClassifyGroceryProductBulk200ResponseInner';
 import { ClassifyGroceryProductBulkRequestInner } from '../models/ClassifyGroceryProductBulkRequestInner';
 import { ClassifyGroceryProductRequest } from '../models/ClassifyGroceryProductRequest';
+import { ComparableProduct } from '../models/ComparableProduct';
 import { ComputeGlycemicLoad200Response } from '../models/ComputeGlycemicLoad200Response';
 import { ComputeGlycemicLoad200ResponseIngredientsInner } from '../models/ComputeGlycemicLoad200ResponseIngredientsInner';
 import { ComputeGlycemicLoadRequest } from '../models/ComputeGlycemicLoadRequest';
@@ -40,49 +40,32 @@ import { DetectFoodInText200Response } from '../models/DetectFoodInText200Respon
 import { DetectFoodInText200ResponseAnnotationsInner } from '../models/DetectFoodInText200ResponseAnnotationsInner';
 import { GenerateMealPlan200Response } from '../models/GenerateMealPlan200Response';
 import { GenerateMealPlan200ResponseNutrients } from '../models/GenerateMealPlan200ResponseNutrients';
-import { GenerateShoppingList200Response } from '../models/GenerateShoppingList200Response';
 import { GetARandomFoodJoke200Response } from '../models/GetARandomFoodJoke200Response';
-import { GetAnalyzedRecipeInstructions200Response } from '../models/GetAnalyzedRecipeInstructions200Response';
-import { GetAnalyzedRecipeInstructions200ResponseIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner';
-import { GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner';
+import { GetAnalyzedRecipeInstructions200ResponseInner } from '../models/GetAnalyzedRecipeInstructions200ResponseInner';
+import { GetAnalyzedRecipeInstructions200ResponseInnerStepsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseInnerStepsInner';
+import { GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner } from '../models/GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner';
 import { GetComparableProducts200Response } from '../models/GetComparableProducts200Response';
 import { GetComparableProducts200ResponseComparableProducts } from '../models/GetComparableProducts200ResponseComparableProducts';
-import { GetComparableProducts200ResponseComparableProductsProteinInner } from '../models/GetComparableProducts200ResponseComparableProductsProteinInner';
 import { GetConversationSuggests200Response } from '../models/GetConversationSuggests200Response';
 import { GetConversationSuggests200ResponseSuggests } from '../models/GetConversationSuggests200ResponseSuggests';
 import { GetConversationSuggests200ResponseSuggestsInner } from '../models/GetConversationSuggests200ResponseSuggestsInner';
 import { GetDishPairingForWine200Response } from '../models/GetDishPairingForWine200Response';
-import { GetIngredientInformation200Response } from '../models/GetIngredientInformation200Response';
-import { GetIngredientInformation200ResponseNutrition } from '../models/GetIngredientInformation200ResponseNutrition';
 import { GetIngredientSubstitutes200Response } from '../models/GetIngredientSubstitutes200Response';
 import { GetMealPlanTemplate200Response } from '../models/GetMealPlanTemplate200Response';
 import { GetMealPlanTemplate200ResponseDaysInner } from '../models/GetMealPlanTemplate200ResponseDaysInner';
 import { GetMealPlanTemplate200ResponseDaysInnerItemsInner } from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInner';
 import { GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue } from '../models/GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue';
 import { GetMealPlanTemplates200Response } from '../models/GetMealPlanTemplates200Response';
+import { GetMealPlanTemplates200ResponseTemplatesInner } from '../models/GetMealPlanTemplates200ResponseTemplatesInner';
 import { GetMealPlanWeek200Response } from '../models/GetMealPlanWeek200Response';
 import { GetMealPlanWeek200ResponseDaysInner } from '../models/GetMealPlanWeek200ResponseDaysInner';
 import { GetMealPlanWeek200ResponseDaysInnerItemsInner } from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInner';
 import { GetMealPlanWeek200ResponseDaysInnerItemsInnerValue } from '../models/GetMealPlanWeek200ResponseDaysInnerItemsInnerValue';
 import { GetMealPlanWeek200ResponseDaysInnerNutritionSummary } from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummary';
 import { GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner } from '../models/GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner';
-import { GetMenuItemInformation200Response } from '../models/GetMenuItemInformation200Response';
-import { GetProductInformation200Response } from '../models/GetProductInformation200Response';
-import { GetProductInformation200ResponseIngredientsInner } from '../models/GetProductInformation200ResponseIngredientsInner';
-import { GetRandomFoodTrivia200Response } from '../models/GetRandomFoodTrivia200Response';
 import { GetRandomRecipes200Response } from '../models/GetRandomRecipes200Response';
-import { GetRandomRecipes200ResponseRecipesInner } from '../models/GetRandomRecipes200ResponseRecipesInner';
 import { GetRecipeEquipmentByID200Response } from '../models/GetRecipeEquipmentByID200Response';
 import { GetRecipeEquipmentByID200ResponseEquipmentInner } from '../models/GetRecipeEquipmentByID200ResponseEquipmentInner';
-import { GetRecipeInformation200Response } from '../models/GetRecipeInformation200Response';
-import { GetRecipeInformation200ResponseExtendedIngredientsInner } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInner';
-import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures';
-import { GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric } from '../models/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric';
-import { GetRecipeInformation200ResponseWinePairing } from '../models/GetRecipeInformation200ResponseWinePairing';
-import { GetRecipeInformation200ResponseWinePairingProductMatchesInner } from '../models/GetRecipeInformation200ResponseWinePairingProductMatchesInner';
-import { GetRecipeInformationBulk200ResponseInner } from '../models/GetRecipeInformationBulk200ResponseInner';
 import { GetRecipeIngredientsByID200Response } from '../models/GetRecipeIngredientsByID200Response';
 import { GetRecipeIngredientsByID200ResponseIngredientsInner } from '../models/GetRecipeIngredientsByID200ResponseIngredientsInner';
 import { GetRecipeNutritionWidgetByID200Response } from '../models/GetRecipeNutritionWidgetByID200Response';
@@ -92,11 +75,11 @@ import { GetRecipePriceBreakdownByID200Response } from '../models/GetRecipePrice
 import { GetRecipePriceBreakdownByID200ResponseIngredientsInner } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInner';
 import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount';
 import { GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric } from '../models/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric';
-import { GetRecipeTasteByID200Response } from '../models/GetRecipeTasteByID200Response';
 import { GetShoppingList200Response } from '../models/GetShoppingList200Response';
 import { GetShoppingList200ResponseAislesInner } from '../models/GetShoppingList200ResponseAislesInner';
 import { GetShoppingList200ResponseAislesInnerItemsInner } from '../models/GetShoppingList200ResponseAislesInnerItemsInner';
 import { GetShoppingList200ResponseAislesInnerItemsInnerMeasures } from '../models/GetShoppingList200ResponseAislesInnerItemsInnerMeasures';
+import { GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal } from '../models/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal';
 import { GetSimilarRecipes200ResponseInner } from '../models/GetSimilarRecipes200ResponseInner';
 import { GetWineDescription200Response } from '../models/GetWineDescription200Response';
 import { GetWinePairing200Response } from '../models/GetWinePairing200Response';
@@ -113,33 +96,40 @@ import { ImageAnalysisByURL200ResponseNutritionCalories } from '../models/ImageA
 import { ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent } from '../models/ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent';
 import { ImageAnalysisByURL200ResponseRecipesInner } from '../models/ImageAnalysisByURL200ResponseRecipesInner';
 import { ImageClassificationByURL200Response } from '../models/ImageClassificationByURL200Response';
+import { IngredientBasics } from '../models/IngredientBasics';
+import { IngredientInformation } from '../models/IngredientInformation';
+import { IngredientInformationEstimatedCost } from '../models/IngredientInformationEstimatedCost';
+import { IngredientInformationNutrition } from '../models/IngredientInformationNutrition';
+import { IngredientInformationNutritionPropertiesInner } from '../models/IngredientInformationNutritionPropertiesInner';
 import { IngredientSearch200Response } from '../models/IngredientSearch200Response';
 import { IngredientSearch200ResponseResultsInner } from '../models/IngredientSearch200ResponseResultsInner';
 import { MapIngredientsToGroceryProducts200ResponseInner } from '../models/MapIngredientsToGroceryProducts200ResponseInner';
 import { MapIngredientsToGroceryProducts200ResponseInnerProductsInner } from '../models/MapIngredientsToGroceryProducts200ResponseInnerProductsInner';
 import { MapIngredientsToGroceryProductsRequest } from '../models/MapIngredientsToGroceryProductsRequest';
-import { ParseIngredients200ResponseInner } from '../models/ParseIngredients200ResponseInner';
-import { ParseIngredients200ResponseInnerEstimatedCost } from '../models/ParseIngredients200ResponseInnerEstimatedCost';
-import { ParseIngredients200ResponseInnerNutrition } from '../models/ParseIngredients200ResponseInnerNutrition';
-import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from '../models/ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
-import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from '../models/ParseIngredients200ResponseInnerNutritionNutrientsInner';
-import { ParseIngredients200ResponseInnerNutritionPropertiesInner } from '../models/ParseIngredients200ResponseInnerNutritionPropertiesInner';
-import { ParseIngredients200ResponseInnerNutritionWeightPerServing } from '../models/ParseIngredients200ResponseInnerNutritionWeightPerServing';
+import { MenuItem } from '../models/MenuItem';
+import { MenuItemServings } from '../models/MenuItemServings';
+import { ProductInformation } from '../models/ProductInformation';
+import { ProductInformationCredits } from '../models/ProductInformationCredits';
 import { QuickAnswer200Response } from '../models/QuickAnswer200Response';
+import { RecipeInformation } from '../models/RecipeInformation';
+import { RecipeInformationExtendedIngredientsInner } from '../models/RecipeInformationExtendedIngredientsInner';
+import { RecipeInformationExtendedIngredientsInnerMeasures } from '../models/RecipeInformationExtendedIngredientsInnerMeasures';
+import { RecipeInformationExtendedIngredientsInnerMeasuresMetric } from '../models/RecipeInformationExtendedIngredientsInnerMeasuresMetric';
+import { RecipeInformationWinePairing } from '../models/RecipeInformationWinePairing';
+import { RecipeInformationWinePairingProductMatchesInner } from '../models/RecipeInformationWinePairingProductMatchesInner';
 import { SearchAllFood200Response } from '../models/SearchAllFood200Response';
 import { SearchAllFood200ResponseSearchResultsInner } from '../models/SearchAllFood200ResponseSearchResultsInner';
-import { SearchAllFood200ResponseSearchResultsInnerResultsInner } from '../models/SearchAllFood200ResponseSearchResultsInnerResultsInner';
 import { SearchCustomFoods200Response } from '../models/SearchCustomFoods200Response';
 import { SearchCustomFoods200ResponseCustomFoodsInner } from '../models/SearchCustomFoods200ResponseCustomFoodsInner';
 import { SearchFoodVideos200Response } from '../models/SearchFoodVideos200Response';
 import { SearchFoodVideos200ResponseVideosInner } from '../models/SearchFoodVideos200ResponseVideosInner';
 import { SearchGroceryProducts200Response } from '../models/SearchGroceryProducts200Response';
 import { SearchGroceryProductsByUPC200Response } from '../models/SearchGroceryProductsByUPC200Response';
-import { SearchGroceryProductsByUPC200ResponseIngredientsInner } from '../models/SearchGroceryProductsByUPC200ResponseIngredientsInner';
 import { SearchGroceryProductsByUPC200ResponseNutrition } from '../models/SearchGroceryProductsByUPC200ResponseNutrition';
+import { SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown } from '../models/SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown';
+import { SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner } from '../models/SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner';
 import { SearchGroceryProductsByUPC200ResponseServings } from '../models/SearchGroceryProductsByUPC200ResponseServings';
 import { SearchMenuItems200Response } from '../models/SearchMenuItems200Response';
-import { SearchMenuItems200ResponseMenuItemsInner } from '../models/SearchMenuItems200ResponseMenuItemsInner';
 import { SearchRecipes200Response } from '../models/SearchRecipes200Response';
 import { SearchRecipes200ResponseResultsInner } from '../models/SearchRecipes200ResponseResultsInner';
 import { SearchRecipesByIngredients200ResponseInner } from '../models/SearchRecipesByIngredients200ResponseInner';
@@ -150,12 +140,13 @@ import { SearchRestaurants200ResponseRestaurantsInner } from '../models/SearchRe
 import { SearchRestaurants200ResponseRestaurantsInnerAddress } from '../models/SearchRestaurants200ResponseRestaurantsInnerAddress';
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
+import { SearchResult } from '../models/SearchResult';
+import { SearchResultDataPointsInner } from '../models/SearchResultDataPointsInner';
 import { SearchSiteContent200Response } from '../models/SearchSiteContent200Response';
-import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
-import { SearchSiteContent200ResponseArticlesInnerDataPointsInner } from '../models/SearchSiteContent200ResponseArticlesInnerDataPointsInner';
 import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
 import { TalkToChatbot200Response } from '../models/TalkToChatbot200Response';
 import { TalkToChatbot200ResponseMediaInner } from '../models/TalkToChatbot200ResponseMediaInner';
+import { TasteInformation } from '../models/TasteInformation';
 
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
 export class ObservableDefaultApi {
@@ -331,7 +322,7 @@ export class ObservableIngredientsApi {
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public autocompleteIngredientSearchWithHttpInfo(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Observable<HttpInfo<Set<AutocompleteIngredientSearch200ResponseInner>>> {
+    public autocompleteIngredientSearchWithHttpInfo(query: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Observable<HttpInfo<Set<AutocompleteIngredientSearch200ResponseInner>>> {
         const requestContextPromise = this.requestFactory.autocompleteIngredientSearch(query, number, metaInformation, intolerances, language, _options);
 
         // build promise chain
@@ -359,7 +350,7 @@ export class ObservableIngredientsApi {
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Observable<Set<AutocompleteIngredientSearch200ResponseInner>> {
+    public autocompleteIngredientSearch(query: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', _options?: Configuration): Observable<Set<AutocompleteIngredientSearch200ResponseInner>> {
         return this.autocompleteIngredientSearchWithHttpInfo(query, number, metaInformation, intolerances, language, _options).pipe(map((apiResponse: HttpInfo<Set<AutocompleteIngredientSearch200ResponseInner>>) => apiResponse.data));
     }
 
@@ -405,11 +396,11 @@ export class ObservableIngredientsApi {
     /**
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
      * Get Ingredient Information
-     * @param id The item\&#39;s id.
+     * @param id The ingredient id.
      * @param amount The amount of this ingredient.
      * @param unit The unit for the given amount.
      */
-    public getIngredientInformationWithHttpInfo(id: number, amount?: number, unit?: string, _options?: Configuration): Observable<HttpInfo<GetIngredientInformation200Response>> {
+    public getIngredientInformationWithHttpInfo(id: number, amount?: number, unit?: string, _options?: Configuration): Observable<HttpInfo<IngredientInformation>> {
         const requestContextPromise = this.requestFactory.getIngredientInformation(id, amount, unit, _options);
 
         // build promise chain
@@ -431,12 +422,12 @@ export class ObservableIngredientsApi {
     /**
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
      * Get Ingredient Information
-     * @param id The item\&#39;s id.
+     * @param id The ingredient id.
      * @param amount The amount of this ingredient.
      * @param unit The unit for the given amount.
      */
-    public getIngredientInformation(id: number, amount?: number, unit?: string, _options?: Configuration): Observable<GetIngredientInformation200Response> {
-        return this.getIngredientInformationWithHttpInfo(id, amount, unit, _options).pipe(map((apiResponse: HttpInfo<GetIngredientInformation200Response>) => apiResponse.data));
+    public getIngredientInformation(id: number, amount?: number, unit?: string, _options?: Configuration): Observable<IngredientInformation> {
+        return this.getIngredientInformationWithHttpInfo(id, amount, unit, _options).pipe(map((apiResponse: HttpInfo<IngredientInformation>) => apiResponse.data));
     }
 
     /**
@@ -475,7 +466,7 @@ export class ObservableIngredientsApi {
     /**
      * Search for substitutes for a given ingredient.
      * Get Ingredient Substitutes by ID
-     * @param id The item\&#39;s id.
+     * @param id The id of the ingredient you want substitutes for.
      */
     public getIngredientSubstitutesByIDWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<GetIngredientSubstitutes200Response>> {
         const requestContextPromise = this.requestFactory.getIngredientSubstitutesByID(id, _options);
@@ -499,7 +490,7 @@ export class ObservableIngredientsApi {
     /**
      * Search for substitutes for a given ingredient.
      * Get Ingredient Substitutes by ID
-     * @param id The item\&#39;s id.
+     * @param id The id of the ingredient you want substitutes for.
      */
     public getIngredientSubstitutesByID(id: number, _options?: Configuration): Observable<GetIngredientSubstitutes200Response> {
         return this.getIngredientSubstitutesByIDWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<GetIngredientSubstitutes200Response>) => apiResponse.data));
@@ -524,7 +515,7 @@ export class ObservableIngredientsApi {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public ingredientSearchWithHttpInfo(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Observable<HttpInfo<IngredientSearch200Response>> {
+    public ingredientSearchWithHttpInfo(query: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Observable<HttpInfo<IngredientSearch200Response>> {
         const requestContextPromise = this.requestFactory.ingredientSearch(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language, _options);
 
         // build promise chain
@@ -562,7 +553,7 @@ export class ObservableIngredientsApi {
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
      */
-    public ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Observable<IngredientSearch200Response> {
+    public ingredientSearch(query: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', _options?: Configuration): Observable<IngredientSearch200Response> {
         return this.ingredientSearchWithHttpInfo(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language, _options).pipe(map((apiResponse: HttpInfo<IngredientSearch200Response>) => apiResponse.data));
     }
 
@@ -776,7 +767,7 @@ export class ObservableMealPlanningApi {
      * @param hash The private hash for the username.
      * @param addToShoppingListRequest 
      */
-    public addToShoppingListWithHttpInfo(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, _options?: Configuration): Observable<HttpInfo<GenerateShoppingList200Response>> {
+    public addToShoppingListWithHttpInfo(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, _options?: Configuration): Observable<HttpInfo<GetShoppingList200Response>> {
         const requestContextPromise = this.requestFactory.addToShoppingList(username, hash, addToShoppingListRequest, _options);
 
         // build promise chain
@@ -802,8 +793,8 @@ export class ObservableMealPlanningApi {
      * @param hash The private hash for the username.
      * @param addToShoppingListRequest 
      */
-    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, _options?: Configuration): Observable<GenerateShoppingList200Response> {
-        return this.addToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest, _options).pipe(map((apiResponse: HttpInfo<GenerateShoppingList200Response>) => apiResponse.data));
+    public addToShoppingList(username: string, hash: string, addToShoppingListRequest: AddToShoppingListRequest, _options?: Configuration): Observable<GetShoppingList200Response> {
+        return this.addToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest, _options).pipe(map((apiResponse: HttpInfo<GetShoppingList200Response>) => apiResponse.data));
     }
 
     /**
@@ -917,7 +908,7 @@ export class ObservableMealPlanningApi {
      * Delete an item from the current shopping list of the user.
      * Delete from Shopping List
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public deleteFromShoppingListWithHttpInfo(username: string, id: number, hash: string, _options?: Configuration): Observable<HttpInfo<any>> {
@@ -943,7 +934,7 @@ export class ObservableMealPlanningApi {
      * Delete an item from the current shopping list of the user.
      * Delete from Shopping List
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public deleteFromShoppingList(username: string, id: number, hash: string, _options?: Configuration): Observable<any> {
@@ -954,7 +945,7 @@ export class ObservableMealPlanningApi {
      * Delete a meal plan template for a user.
      * Delete Meal Plan Template
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public deleteMealPlanTemplateWithHttpInfo(username: string, id: number, hash: string, _options?: Configuration): Observable<HttpInfo<any>> {
@@ -980,7 +971,7 @@ export class ObservableMealPlanningApi {
      * Delete a meal plan template for a user.
      * Delete Meal Plan Template
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public deleteMealPlanTemplate(username: string, id: number, hash: string, _options?: Configuration): Observable<any> {
@@ -1034,7 +1025,7 @@ export class ObservableMealPlanningApi {
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
      */
-    public generateShoppingListWithHttpInfo(username: string, startDate: string, endDate: string, hash: string, _options?: Configuration): Observable<HttpInfo<GenerateShoppingList200Response>> {
+    public generateShoppingListWithHttpInfo(username: string, startDate: string, endDate: string, hash: string, _options?: Configuration): Observable<HttpInfo<GetShoppingList200Response>> {
         const requestContextPromise = this.requestFactory.generateShoppingList(username, startDate, endDate, hash, _options);
 
         // build promise chain
@@ -1061,15 +1052,15 @@ export class ObservableMealPlanningApi {
      * @param endDate The end date in the format yyyy-mm-dd.
      * @param hash The private hash for the username.
      */
-    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, _options?: Configuration): Observable<GenerateShoppingList200Response> {
-        return this.generateShoppingListWithHttpInfo(username, startDate, endDate, hash, _options).pipe(map((apiResponse: HttpInfo<GenerateShoppingList200Response>) => apiResponse.data));
+    public generateShoppingList(username: string, startDate: string, endDate: string, hash: string, _options?: Configuration): Observable<GetShoppingList200Response> {
+        return this.generateShoppingListWithHttpInfo(username, startDate, endDate, hash, _options).pipe(map((apiResponse: HttpInfo<GetShoppingList200Response>) => apiResponse.data));
     }
 
     /**
      * Get information about a meal plan template.
      * Get Meal Plan Template
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public getMealPlanTemplateWithHttpInfo(username: string, id: number, hash: string, _options?: Configuration): Observable<HttpInfo<GetMealPlanTemplate200Response>> {
@@ -1095,7 +1086,7 @@ export class ObservableMealPlanningApi {
      * Get information about a meal plan template.
      * Get Meal Plan Template
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public getMealPlanTemplate(username: string, id: number, hash: string, _options?: Configuration): Observable<GetMealPlanTemplate200Response> {
@@ -1233,7 +1224,7 @@ export class ObservableMenuItemsApi {
      * @param query The (partial) search query.
      * @param number The number of results to return (between 1 and 25).
      */
-    public autocompleteMenuItemSearchWithHttpInfo(query: string, number?: number, _options?: Configuration): Observable<HttpInfo<AutocompleteMenuItemSearch200Response>> {
+    public autocompleteMenuItemSearchWithHttpInfo(query: string, number?: number, _options?: Configuration): Observable<HttpInfo<AutocompleteProductSearch200Response>> {
         const requestContextPromise = this.requestFactory.autocompleteMenuItemSearch(query, number, _options);
 
         // build promise chain
@@ -1258,16 +1249,16 @@ export class ObservableMenuItemsApi {
      * @param query The (partial) search query.
      * @param number The number of results to return (between 1 and 25).
      */
-    public autocompleteMenuItemSearch(query: string, number?: number, _options?: Configuration): Observable<AutocompleteMenuItemSearch200Response> {
-        return this.autocompleteMenuItemSearchWithHttpInfo(query, number, _options).pipe(map((apiResponse: HttpInfo<AutocompleteMenuItemSearch200Response>) => apiResponse.data));
+    public autocompleteMenuItemSearch(query: string, number?: number, _options?: Configuration): Observable<AutocompleteProductSearch200Response> {
+        return this.autocompleteMenuItemSearchWithHttpInfo(query, number, _options).pipe(map((apiResponse: HttpInfo<AutocompleteProductSearch200Response>) => apiResponse.data));
     }
 
     /**
      * Use a menu item id to get all available information about a menu item, such as nutrition.
      * Get Menu Item Information
-     * @param id The item\&#39;s id.
+     * @param id The menu item id.
      */
-    public getMenuItemInformationWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<GetMenuItemInformation200Response>> {
+    public getMenuItemInformationWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<MenuItem>> {
         const requestContextPromise = this.requestFactory.getMenuItemInformation(id, _options);
 
         // build promise chain
@@ -1289,10 +1280,10 @@ export class ObservableMenuItemsApi {
     /**
      * Use a menu item id to get all available information about a menu item, such as nutrition.
      * Get Menu Item Information
-     * @param id The item\&#39;s id.
+     * @param id The menu item id.
      */
-    public getMenuItemInformation(id: number, _options?: Configuration): Observable<GetMenuItemInformation200Response> {
-        return this.getMenuItemInformationWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<GetMenuItemInformation200Response>) => apiResponse.data));
+    public getMenuItemInformation(id: number, _options?: Configuration): Observable<MenuItem> {
+        return this.getMenuItemInformationWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<MenuItem>) => apiResponse.data));
     }
 
     /**
@@ -1424,7 +1415,7 @@ export class ObservableMenuItemsApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchMenuItemsWithHttpInfo(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addMenuItemInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchMenuItems200Response>> {
+    public searchMenuItemsWithHttpInfo(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addMenuItemInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchMenuItems200Response>> {
         const requestContextPromise = this.requestFactory.searchMenuItems(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number, _options);
 
         // build promise chain
@@ -1459,14 +1450,14 @@ export class ObservableMenuItemsApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchMenuItems(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addMenuItemInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<SearchMenuItems200Response> {
+    public searchMenuItems(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addMenuItemInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<SearchMenuItems200Response> {
         return this.searchMenuItemsWithHttpInfo(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addMenuItemInformation, offset, number, _options).pipe(map((apiResponse: HttpInfo<SearchMenuItems200Response>) => apiResponse.data));
     }
 
     /**
      * Visualize a menu item\'s nutritional information as HTML including CSS.
      * Menu Item Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The menu item id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeMenuItemNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Observable<HttpInfo<string>> {
@@ -1491,7 +1482,7 @@ export class ObservableMenuItemsApi {
     /**
      * Visualize a menu item\'s nutritional information as HTML including CSS.
      * Menu Item Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The menu item id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeMenuItemNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Observable<string> {
@@ -1619,7 +1610,7 @@ export class ObservableMiscApi {
      * Returns random food trivia.
      * Random Food Trivia
      */
-    public getRandomFoodTriviaWithHttpInfo(_options?: Configuration): Observable<HttpInfo<GetRandomFoodTrivia200Response>> {
+    public getRandomFoodTriviaWithHttpInfo(_options?: Configuration): Observable<HttpInfo<GetARandomFoodJoke200Response>> {
         const requestContextPromise = this.requestFactory.getRandomFoodTrivia(_options);
 
         // build promise chain
@@ -1642,8 +1633,8 @@ export class ObservableMiscApi {
      * Returns random food trivia.
      * Random Food Trivia
      */
-    public getRandomFoodTrivia(_options?: Configuration): Observable<GetRandomFoodTrivia200Response> {
-        return this.getRandomFoodTriviaWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<GetRandomFoodTrivia200Response>) => apiResponse.data));
+    public getRandomFoodTrivia(_options?: Configuration): Observable<GetARandomFoodJoke200Response> {
+        return this.getRandomFoodTriviaWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<GetARandomFoodJoke200Response>) => apiResponse.data));
     }
 
     /**
@@ -1752,14 +1743,14 @@ export class ObservableMiscApi {
     /**
      * Search custom foods in a user\'s account.
      * Search Custom Foods
+     * @param query The (natural language) search query.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param query The (natural language) search query.
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchCustomFoodsWithHttpInfo(username: string, hash: string, query?: string, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchCustomFoods200Response>> {
-        const requestContextPromise = this.requestFactory.searchCustomFoods(username, hash, query, offset, number, _options);
+    public searchCustomFoodsWithHttpInfo(query: string, username: string, hash: string, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchCustomFoods200Response>> {
+        const requestContextPromise = this.requestFactory.searchCustomFoods(query, username, hash, offset, number, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1780,14 +1771,14 @@ export class ObservableMiscApi {
     /**
      * Search custom foods in a user\'s account.
      * Search Custom Foods
+     * @param query The (natural language) search query.
      * @param username The username.
      * @param hash The private hash for the username.
-     * @param query The (natural language) search query.
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchCustomFoods(username: string, hash: string, query?: string, offset?: number, number?: number, _options?: Configuration): Observable<SearchCustomFoods200Response> {
-        return this.searchCustomFoodsWithHttpInfo(username, hash, query, offset, number, _options).pipe(map((apiResponse: HttpInfo<SearchCustomFoods200Response>) => apiResponse.data));
+    public searchCustomFoods(query: string, username: string, hash: string, offset?: number, number?: number, _options?: Configuration): Observable<SearchCustomFoods200Response> {
+        return this.searchCustomFoodsWithHttpInfo(query, username, hash, offset, number, _options).pipe(map((apiResponse: HttpInfo<SearchCustomFoods200Response>) => apiResponse.data));
     }
 
     /**
@@ -1804,7 +1795,7 @@ export class ObservableMiscApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchFoodVideosWithHttpInfo(query?: string, type?: string, cuisine?: string, diet?: string, includeIngredients?: string, excludeIngredients?: string, minLength?: number, maxLength?: number, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchFoodVideos200Response>> {
+    public searchFoodVideosWithHttpInfo(query: string, type?: string, cuisine?: string, diet?: string, includeIngredients?: string, excludeIngredients?: string, minLength?: number, maxLength?: number, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchFoodVideos200Response>> {
         const requestContextPromise = this.requestFactory.searchFoodVideos(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, _options);
 
         // build promise chain
@@ -1837,7 +1828,7 @@ export class ObservableMiscApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchFoodVideos(query?: string, type?: string, cuisine?: string, diet?: string, includeIngredients?: string, excludeIngredients?: string, minLength?: number, maxLength?: number, offset?: number, number?: number, _options?: Configuration): Observable<SearchFoodVideos200Response> {
+    public searchFoodVideos(query: string, type?: string, cuisine?: string, diet?: string, includeIngredients?: string, excludeIngredients?: string, minLength?: number, maxLength?: number, offset?: number, number?: number, _options?: Configuration): Observable<SearchFoodVideos200Response> {
         return this.searchFoodVideosWithHttpInfo(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, _options).pipe(map((apiResponse: HttpInfo<SearchFoodVideos200Response>) => apiResponse.data));
     }
 
@@ -2037,7 +2028,7 @@ export class ObservableProductsApi {
      * Get Comparable Products
      * @param upc The UPC of the product for which you want to find comparable products.
      */
-    public getComparableProductsWithHttpInfo(upc: number, _options?: Configuration): Observable<HttpInfo<GetComparableProducts200Response>> {
+    public getComparableProductsWithHttpInfo(upc: string, _options?: Configuration): Observable<HttpInfo<GetComparableProducts200Response>> {
         const requestContextPromise = this.requestFactory.getComparableProducts(upc, _options);
 
         // build promise chain
@@ -2061,16 +2052,16 @@ export class ObservableProductsApi {
      * Get Comparable Products
      * @param upc The UPC of the product for which you want to find comparable products.
      */
-    public getComparableProducts(upc: number, _options?: Configuration): Observable<GetComparableProducts200Response> {
+    public getComparableProducts(upc: string, _options?: Configuration): Observable<GetComparableProducts200Response> {
         return this.getComparableProductsWithHttpInfo(upc, _options).pipe(map((apiResponse: HttpInfo<GetComparableProducts200Response>) => apiResponse.data));
     }
 
     /**
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
      * Get Product Information
-     * @param id The item\&#39;s id.
+     * @param id The id of the packaged food.
      */
-    public getProductInformationWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<GetProductInformation200Response>> {
+    public getProductInformationWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<ProductInformation>> {
         const requestContextPromise = this.requestFactory.getProductInformation(id, _options);
 
         // build promise chain
@@ -2092,10 +2083,10 @@ export class ObservableProductsApi {
     /**
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
      * Get Product Information
-     * @param id The item\&#39;s id.
+     * @param id The id of the packaged food.
      */
-    public getProductInformation(id: number, _options?: Configuration): Observable<GetProductInformation200Response> {
-        return this.getProductInformationWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<GetProductInformation200Response>) => apiResponse.data));
+    public getProductInformation(id: number, _options?: Configuration): Observable<ProductInformation> {
+        return this.getProductInformationWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<ProductInformation>) => apiResponse.data));
     }
 
     /**
@@ -2227,7 +2218,7 @@ export class ObservableProductsApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchGroceryProductsWithHttpInfo(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchGroceryProducts200Response>> {
+    public searchGroceryProductsWithHttpInfo(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchGroceryProducts200Response>> {
         const requestContextPromise = this.requestFactory.searchGroceryProducts(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, _options);
 
         // build promise chain
@@ -2262,7 +2253,7 @@ export class ObservableProductsApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchGroceryProducts(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<SearchGroceryProducts200Response> {
+    public searchGroceryProducts(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Observable<SearchGroceryProducts200Response> {
         return this.searchGroceryProductsWithHttpInfo(query, minCalories, maxCalories, minCarbs, maxCarbs, minProtein, maxProtein, minFat, maxFat, addProductInformation, offset, number, _options).pipe(map((apiResponse: HttpInfo<SearchGroceryProducts200Response>) => apiResponse.data));
     }
 
@@ -2271,7 +2262,7 @@ export class ObservableProductsApi {
      * Search Grocery Products by UPC
      * @param upc The product\&#39;s UPC.
      */
-    public searchGroceryProductsByUPCWithHttpInfo(upc: number, _options?: Configuration): Observable<HttpInfo<SearchGroceryProductsByUPC200Response>> {
+    public searchGroceryProductsByUPCWithHttpInfo(upc: string, _options?: Configuration): Observable<HttpInfo<SearchGroceryProductsByUPC200Response>> {
         const requestContextPromise = this.requestFactory.searchGroceryProductsByUPC(upc, _options);
 
         // build promise chain
@@ -2295,14 +2286,14 @@ export class ObservableProductsApi {
      * Search Grocery Products by UPC
      * @param upc The product\&#39;s UPC.
      */
-    public searchGroceryProductsByUPC(upc: number, _options?: Configuration): Observable<SearchGroceryProductsByUPC200Response> {
+    public searchGroceryProductsByUPC(upc: string, _options?: Configuration): Observable<SearchGroceryProductsByUPC200Response> {
         return this.searchGroceryProductsByUPCWithHttpInfo(upc, _options).pipe(map((apiResponse: HttpInfo<SearchGroceryProductsByUPC200Response>) => apiResponse.data));
     }
 
     /**
      * Visualize a product\'s nutritional information as HTML including CSS.
      * Product Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The id of the product.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeProductNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Observable<HttpInfo<string>> {
@@ -2327,7 +2318,7 @@ export class ObservableProductsApi {
     /**
      * Visualize a product\'s nutritional information as HTML including CSS.
      * Product Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The id of the product.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeProductNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Observable<string> {
@@ -2424,7 +2415,7 @@ export class ObservableRecipesApi {
      * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public autocompleteRecipeSearchWithHttpInfo(query?: string, number?: number, _options?: Configuration): Observable<HttpInfo<Set<AutocompleteRecipeSearch200ResponseInner>>> {
+    public autocompleteRecipeSearchWithHttpInfo(query: string, number?: number, _options?: Configuration): Observable<HttpInfo<Set<AutocompleteRecipeSearch200ResponseInner>>> {
         const requestContextPromise = this.requestFactory.autocompleteRecipeSearch(query, number, _options);
 
         // build promise chain
@@ -2449,7 +2440,7 @@ export class ObservableRecipesApi {
      * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public autocompleteRecipeSearch(query?: string, number?: number, _options?: Configuration): Observable<Set<AutocompleteRecipeSearch200ResponseInner>> {
+    public autocompleteRecipeSearch(query: string, number?: number, _options?: Configuration): Observable<Set<AutocompleteRecipeSearch200ResponseInner>> {
         return this.autocompleteRecipeSearchWithHttpInfo(query, number, _options).pipe(map((apiResponse: HttpInfo<Set<AutocompleteRecipeSearch200ResponseInner>>) => apiResponse.data));
     }
 
@@ -2663,7 +2654,7 @@ export class ObservableRecipesApi {
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      * @param includeTaste Whether taste data should be added to correctly parsed ingredients.
      */
-    public extractRecipeFromWebsiteWithHttpInfo(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, _options?: Configuration): Observable<HttpInfo<GetRecipeInformation200Response>> {
+    public extractRecipeFromWebsiteWithHttpInfo(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, _options?: Configuration): Observable<HttpInfo<RecipeInformation>> {
         const requestContextPromise = this.requestFactory.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste, _options);
 
         // build promise chain
@@ -2691,17 +2682,17 @@ export class ObservableRecipesApi {
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      * @param includeTaste Whether taste data should be added to correctly parsed ingredients.
      */
-    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, _options?: Configuration): Observable<GetRecipeInformation200Response> {
-        return this.extractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste, _options).pipe(map((apiResponse: HttpInfo<GetRecipeInformation200Response>) => apiResponse.data));
+    public extractRecipeFromWebsite(url: string, forceExtraction?: boolean, analyze?: boolean, includeNutrition?: boolean, includeTaste?: boolean, _options?: Configuration): Observable<RecipeInformation> {
+        return this.extractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste, _options).pipe(map((apiResponse: HttpInfo<RecipeInformation>) => apiResponse.data));
     }
 
     /**
      * Get an analyzed breakdown of a recipe\'s instructions. Each step is enriched with the ingredients and equipment required.
      * Get Analyzed Recipe Instructions
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param stepBreakdown Whether to break down the recipe steps even more.
      */
-    public getAnalyzedRecipeInstructionsWithHttpInfo(id: number, stepBreakdown?: boolean, _options?: Configuration): Observable<HttpInfo<GetAnalyzedRecipeInstructions200Response>> {
+    public getAnalyzedRecipeInstructionsWithHttpInfo(id: number, stepBreakdown?: boolean, _options?: Configuration): Observable<HttpInfo<Array<GetAnalyzedRecipeInstructions200ResponseInner>>> {
         const requestContextPromise = this.requestFactory.getAnalyzedRecipeInstructions(id, stepBreakdown, _options);
 
         // build promise chain
@@ -2723,11 +2714,11 @@ export class ObservableRecipesApi {
     /**
      * Get an analyzed breakdown of a recipe\'s instructions. Each step is enriched with the ingredients and equipment required.
      * Get Analyzed Recipe Instructions
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param stepBreakdown Whether to break down the recipe steps even more.
      */
-    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, _options?: Configuration): Observable<GetAnalyzedRecipeInstructions200Response> {
-        return this.getAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown, _options).pipe(map((apiResponse: HttpInfo<GetAnalyzedRecipeInstructions200Response>) => apiResponse.data));
+    public getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, _options?: Configuration): Observable<Array<GetAnalyzedRecipeInstructions200ResponseInner>> {
+        return this.getAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown, _options).pipe(map((apiResponse: HttpInfo<Array<GetAnalyzedRecipeInstructions200ResponseInner>>) => apiResponse.data));
     }
 
     /**
@@ -2772,7 +2763,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s equipment list.
      * Equipment by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipeEquipmentByIDWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<GetRecipeEquipmentByID200Response>> {
         const requestContextPromise = this.requestFactory.getRecipeEquipmentByID(id, _options);
@@ -2796,7 +2787,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s equipment list.
      * Equipment by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipeEquipmentByID(id: number, _options?: Configuration): Observable<GetRecipeEquipmentByID200Response> {
         return this.getRecipeEquipmentByIDWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<GetRecipeEquipmentByID200Response>) => apiResponse.data));
@@ -2805,11 +2796,13 @@ export class ObservableRecipesApi {
     /**
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
      * Get Recipe Information
-     * @param id The item\&#39;s id.
+     * @param id The id of the recipe.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+     * @param addWinePairing Add a wine pairing to the recipe.
+     * @param addTasteData Add taste data to the recipe.
      */
-    public getRecipeInformationWithHttpInfo(id: number, includeNutrition?: boolean, _options?: Configuration): Observable<HttpInfo<GetRecipeInformation200Response>> {
-        const requestContextPromise = this.requestFactory.getRecipeInformation(id, includeNutrition, _options);
+    public getRecipeInformationWithHttpInfo(id: number, includeNutrition?: boolean, addWinePairing?: boolean, addTasteData?: boolean, _options?: Configuration): Observable<HttpInfo<RecipeInformation>> {
+        const requestContextPromise = this.requestFactory.getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2830,11 +2823,13 @@ export class ObservableRecipesApi {
     /**
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
      * Get Recipe Information
-     * @param id The item\&#39;s id.
+     * @param id The id of the recipe.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+     * @param addWinePairing Add a wine pairing to the recipe.
+     * @param addTasteData Add taste data to the recipe.
      */
-    public getRecipeInformation(id: number, includeNutrition?: boolean, _options?: Configuration): Observable<GetRecipeInformation200Response> {
-        return this.getRecipeInformationWithHttpInfo(id, includeNutrition, _options).pipe(map((apiResponse: HttpInfo<GetRecipeInformation200Response>) => apiResponse.data));
+    public getRecipeInformation(id: number, includeNutrition?: boolean, addWinePairing?: boolean, addTasteData?: boolean, _options?: Configuration): Observable<RecipeInformation> {
+        return this.getRecipeInformationWithHttpInfo(id, includeNutrition, addWinePairing, addTasteData, _options).pipe(map((apiResponse: HttpInfo<RecipeInformation>) => apiResponse.data));
     }
 
     /**
@@ -2843,7 +2838,7 @@ export class ObservableRecipesApi {
      * @param ids A comma-separated list of recipe ids.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      */
-    public getRecipeInformationBulkWithHttpInfo(ids: string, includeNutrition?: boolean, _options?: Configuration): Observable<HttpInfo<Set<GetRecipeInformationBulk200ResponseInner>>> {
+    public getRecipeInformationBulkWithHttpInfo(ids: string, includeNutrition?: boolean, _options?: Configuration): Observable<HttpInfo<Set<RecipeInformation>>> {
         const requestContextPromise = this.requestFactory.getRecipeInformationBulk(ids, includeNutrition, _options);
 
         // build promise chain
@@ -2868,14 +2863,14 @@ export class ObservableRecipesApi {
      * @param ids A comma-separated list of recipe ids.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
      */
-    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, _options?: Configuration): Observable<Set<GetRecipeInformationBulk200ResponseInner>> {
-        return this.getRecipeInformationBulkWithHttpInfo(ids, includeNutrition, _options).pipe(map((apiResponse: HttpInfo<Set<GetRecipeInformationBulk200ResponseInner>>) => apiResponse.data));
+    public getRecipeInformationBulk(ids: string, includeNutrition?: boolean, _options?: Configuration): Observable<Set<RecipeInformation>> {
+        return this.getRecipeInformationBulkWithHttpInfo(ids, includeNutrition, _options).pipe(map((apiResponse: HttpInfo<Set<RecipeInformation>>) => apiResponse.data));
     }
 
     /**
      * Get a recipe\'s ingredient list.
      * Ingredients by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipeIngredientsByIDWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<GetRecipeIngredientsByID200Response>> {
         const requestContextPromise = this.requestFactory.getRecipeIngredientsByID(id, _options);
@@ -2899,7 +2894,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s ingredient list.
      * Ingredients by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipeIngredientsByID(id: number, _options?: Configuration): Observable<GetRecipeIngredientsByID200Response> {
         return this.getRecipeIngredientsByIDWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<GetRecipeIngredientsByID200Response>) => apiResponse.data));
@@ -2908,7 +2903,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s nutrition data.
      * Nutrition by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipeNutritionWidgetByIDWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<GetRecipeNutritionWidgetByID200Response>> {
         const requestContextPromise = this.requestFactory.getRecipeNutritionWidgetByID(id, _options);
@@ -2932,7 +2927,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s nutrition data.
      * Nutrition by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipeNutritionWidgetByID(id: number, _options?: Configuration): Observable<GetRecipeNutritionWidgetByID200Response> {
         return this.getRecipeNutritionWidgetByIDWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<GetRecipeNutritionWidgetByID200Response>) => apiResponse.data));
@@ -2941,7 +2936,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s price breakdown data.
      * Price Breakdown by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipePriceBreakdownByIDWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<GetRecipePriceBreakdownByID200Response>> {
         const requestContextPromise = this.requestFactory.getRecipePriceBreakdownByID(id, _options);
@@ -2965,7 +2960,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s price breakdown data.
      * Price Breakdown by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public getRecipePriceBreakdownByID(id: number, _options?: Configuration): Observable<GetRecipePriceBreakdownByID200Response> {
         return this.getRecipePriceBreakdownByIDWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<GetRecipePriceBreakdownByID200Response>) => apiResponse.data));
@@ -2974,10 +2969,10 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Taste by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Normalize to the strongest taste.
      */
-    public getRecipeTasteByIDWithHttpInfo(id: number, normalize?: boolean, _options?: Configuration): Observable<HttpInfo<GetRecipeTasteByID200Response>> {
+    public getRecipeTasteByIDWithHttpInfo(id: number, normalize?: boolean, _options?: Configuration): Observable<HttpInfo<TasteInformation>> {
         const requestContextPromise = this.requestFactory.getRecipeTasteByID(id, normalize, _options);
 
         // build promise chain
@@ -2999,17 +2994,17 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Taste by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Normalize to the strongest taste.
      */
-    public getRecipeTasteByID(id: number, normalize?: boolean, _options?: Configuration): Observable<GetRecipeTasteByID200Response> {
-        return this.getRecipeTasteByIDWithHttpInfo(id, normalize, _options).pipe(map((apiResponse: HttpInfo<GetRecipeTasteByID200Response>) => apiResponse.data));
+    public getRecipeTasteByID(id: number, normalize?: boolean, _options?: Configuration): Observable<TasteInformation> {
+        return this.getRecipeTasteByIDWithHttpInfo(id, normalize, _options).pipe(map((apiResponse: HttpInfo<TasteInformation>) => apiResponse.data));
     }
 
     /**
      * Find recipes which are similar to the given one.
      * Get Similar Recipes
-     * @param id The item\&#39;s id.
+     * @param id The id of the source recipe for which similar recipes should be found.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
     public getSimilarRecipesWithHttpInfo(id: number, number?: number, _options?: Configuration): Observable<HttpInfo<Set<GetSimilarRecipes200ResponseInner>>> {
@@ -3034,7 +3029,7 @@ export class ObservableRecipesApi {
     /**
      * Find recipes which are similar to the given one.
      * Get Similar Recipes
-     * @param id The item\&#39;s id.
+     * @param id The id of the source recipe for which similar recipes should be found.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
     public getSimilarRecipes(id: number, number?: number, _options?: Configuration): Observable<Set<GetSimilarRecipes200ResponseInner>> {
@@ -3080,9 +3075,9 @@ export class ObservableRecipesApi {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param includeNutrition 
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
      */
-    public parseIngredientsWithHttpInfo(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Observable<HttpInfo<Set<ParseIngredients200ResponseInner>>> {
+    public parseIngredientsWithHttpInfo(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Observable<HttpInfo<Set<IngredientInformation>>> {
         const requestContextPromise = this.requestFactory.parseIngredients(ingredientList, servings, language, includeNutrition, _options);
 
         // build promise chain
@@ -3107,10 +3102,10 @@ export class ObservableRecipesApi {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param includeNutrition 
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
      */
-    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Observable<Set<ParseIngredients200ResponseInner>> {
-        return this.parseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition, _options).pipe(map((apiResponse: HttpInfo<Set<ParseIngredients200ResponseInner>>) => apiResponse.data));
+    public parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Observable<Set<IngredientInformation>> {
+        return this.parseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition, _options).pipe(map((apiResponse: HttpInfo<Set<IngredientInformation>>) => apiResponse.data));
     }
 
     /**
@@ -3430,7 +3425,7 @@ export class ObservableRecipesApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchRecipesWithHttpInfo(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchRecipes200Response>> {
+    public searchRecipesWithHttpInfo(query: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, _options?: Configuration): Observable<HttpInfo<SearchRecipes200Response>> {
         const requestContextPromise = this.requestFactory.searchRecipes(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, _options);
 
         // build promise chain
@@ -3550,7 +3545,7 @@ export class ObservableRecipesApi {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, _options?: Configuration): Observable<SearchRecipes200Response> {
+    public searchRecipes(query: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, _options?: Configuration): Observable<SearchRecipes200Response> {
         return this.searchRecipesWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, _options).pipe(map((apiResponse: HttpInfo<SearchRecipes200Response>) => apiResponse.data));
     }
 
@@ -3562,7 +3557,7 @@ export class ObservableRecipesApi {
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
      */
-    public searchRecipesByIngredientsWithHttpInfo(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Observable<HttpInfo<Set<SearchRecipesByIngredients200ResponseInner>>> {
+    public searchRecipesByIngredientsWithHttpInfo(ingredients: string, number?: number, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Observable<HttpInfo<Set<SearchRecipesByIngredients200ResponseInner>>> {
         const requestContextPromise = this.requestFactory.searchRecipesByIngredients(ingredients, number, ranking, ignorePantry, _options);
 
         // build promise chain
@@ -3589,7 +3584,7 @@ export class ObservableRecipesApi {
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
      */
-    public searchRecipesByIngredients(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Observable<Set<SearchRecipesByIngredients200ResponseInner>> {
+    public searchRecipesByIngredients(ingredients: string, number?: number, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Observable<Set<SearchRecipesByIngredients200ResponseInner>> {
         return this.searchRecipesByIngredientsWithHttpInfo(ingredients, number, ranking, ignorePantry, _options).pipe(map((apiResponse: HttpInfo<Set<SearchRecipesByIngredients200ResponseInner>>) => apiResponse.data));
     }
 
@@ -3777,7 +3772,7 @@ export class ObservableRecipesApi {
     /**
      * Automatically generate a short description that summarizes key information about the recipe.
      * Summarize Recipe
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public summarizeRecipeWithHttpInfo(id: number, _options?: Configuration): Observable<HttpInfo<SummarizeRecipe200Response>> {
         const requestContextPromise = this.requestFactory.summarizeRecipe(id, _options);
@@ -3801,7 +3796,7 @@ export class ObservableRecipesApi {
     /**
      * Automatically generate a short description that summarizes key information about the recipe.
      * Summarize Recipe
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public summarizeRecipe(id: number, _options?: Configuration): Observable<SummarizeRecipe200Response> {
         return this.summarizeRecipeWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<SummarizeRecipe200Response>) => apiResponse.data));
@@ -3892,7 +3887,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s equipment list.
      * Equipment by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeRecipeEquipmentByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Observable<HttpInfo<string>> {
@@ -3917,7 +3912,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s equipment list.
      * Equipment by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeRecipeEquipmentByID(id: number, defaultCss?: boolean, _options?: Configuration): Observable<string> {
@@ -3927,7 +3922,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s ingredient list.
      * Ingredients by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      */
@@ -3953,7 +3948,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s ingredient list.
      * Ingredients by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      */
@@ -4005,7 +4000,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeRecipeNutritionByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Observable<HttpInfo<string>> {
@@ -4030,7 +4025,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Observable<string> {
@@ -4040,7 +4035,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s price breakdown.
      * Price Breakdown by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeRecipePriceBreakdownByIDWithHttpInfo(id: number, defaultCss?: boolean, _options?: Configuration): Observable<HttpInfo<string>> {
@@ -4065,7 +4060,7 @@ export class ObservableRecipesApi {
     /**
      * Visualize a recipe\'s price breakdown.
      * Price Breakdown by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public visualizeRecipePriceBreakdownByID(id: number, defaultCss?: boolean, _options?: Configuration): Observable<string> {
@@ -4114,7 +4109,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Recipe Taste by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Whether to normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */
@@ -4140,7 +4135,7 @@ export class ObservableRecipesApi {
     /**
      * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Recipe Taste by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Whether to normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */

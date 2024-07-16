@@ -26,7 +26,7 @@ void main() {
       // TODO
     });
 
-    // Set<SearchAllFood200ResponseSearchResultsInnerResultsInner> results (default value: const {})
+    // Set<SearchResult> results (default value: const {})
     test('to test the property `results`', () async {
       // TODO
     });

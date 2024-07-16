@@ -19,8 +19,8 @@ import java.io.IOException
 import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 
-import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response
-import com.spoonacular.client.model.GetMenuItemInformation200Response
+import com.spoonacular.client.model.AutocompleteProductSearch200Response
+import com.spoonacular.client.model.MenuItem
 import com.spoonacular.client.model.SearchMenuItems200Response
 
 import com.squareup.moshi.Json
@@ -52,7 +52,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
      * @param query The (partial) search query.
      * @param number The number of results to return (between 1 and 25). (optional)
-     * @return AutocompleteMenuItemSearch200Response
+     * @return AutocompleteProductSearch200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -61,11 +61,11 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun autocompleteMenuItemSearch(query: kotlin.String, number: java.math.BigDecimal? = null) : AutocompleteMenuItemSearch200Response {
+    fun autocompleteMenuItemSearch(query: kotlin.String, number: kotlin.Int? = null) : AutocompleteProductSearch200Response {
         val localVarResponse = autocompleteMenuItemSearchWithHttpInfo(query = query, number = number)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as AutocompleteMenuItemSearch200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as AutocompleteProductSearch200Response
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -84,16 +84,16 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
      * @param query The (partial) search query.
      * @param number The number of results to return (between 1 and 25). (optional)
-     * @return ApiResponse<AutocompleteMenuItemSearch200Response?>
+     * @return ApiResponse<AutocompleteProductSearch200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun autocompleteMenuItemSearchWithHttpInfo(query: kotlin.String, number: java.math.BigDecimal?) : ApiResponse<AutocompleteMenuItemSearch200Response?> {
+    fun autocompleteMenuItemSearchWithHttpInfo(query: kotlin.String, number: kotlin.Int?) : ApiResponse<AutocompleteProductSearch200Response?> {
         val localVariableConfig = autocompleteMenuItemSearchRequestConfig(query = query, number = number)
 
-        return request<Unit, AutocompleteMenuItemSearch200Response>(
+        return request<Unit, AutocompleteProductSearch200Response>(
             localVariableConfig
         )
     }
@@ -105,7 +105,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param number The number of results to return (between 1 and 25). (optional)
      * @return RequestConfig
      */
-    fun autocompleteMenuItemSearchRequestConfig(query: kotlin.String, number: java.math.BigDecimal?) : RequestConfig<Unit> {
+    fun autocompleteMenuItemSearchRequestConfig(query: kotlin.String, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -130,8 +130,8 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * Get Menu Item Information
      * Use a menu item id to get all available information about a menu item, such as nutrition.
-     * @param id The item&#39;s id.
-     * @return GetMenuItemInformation200Response
+     * @param id The menu item id.
+     * @return MenuItem
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -140,11 +140,11 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMenuItemInformation(id: kotlin.Int) : GetMenuItemInformation200Response {
+    fun getMenuItemInformation(id: kotlin.Int) : MenuItem {
         val localVarResponse = getMenuItemInformationWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetMenuItemInformation200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as MenuItem
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -161,17 +161,17 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * Get Menu Item Information
      * Use a menu item id to get all available information about a menu item, such as nutrition.
-     * @param id The item&#39;s id.
-     * @return ApiResponse<GetMenuItemInformation200Response?>
+     * @param id The menu item id.
+     * @return ApiResponse<MenuItem?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMenuItemInformationWithHttpInfo(id: kotlin.Int) : ApiResponse<GetMenuItemInformation200Response?> {
+    fun getMenuItemInformationWithHttpInfo(id: kotlin.Int) : ApiResponse<MenuItem?> {
         val localVariableConfig = getMenuItemInformationRequestConfig(id = id)
 
-        return request<Unit, GetMenuItemInformation200Response>(
+        return request<Unit, MenuItem>(
             localVariableConfig
         )
     }
@@ -179,7 +179,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * To obtain the request config of the operation getMenuItemInformation
      *
-     * @param id The item&#39;s id.
+     * @param id The menu item id.
      * @return RequestConfig
      */
     fun getMenuItemInformationRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -211,7 +211,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun menuItemNutritionByIDImage(id: java.math.BigDecimal) : java.io.File {
+    fun menuItemNutritionByIDImage(id: kotlin.Int) : java.io.File {
         val localVarResponse = menuItemNutritionByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
@@ -239,7 +239,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun menuItemNutritionByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
+    fun menuItemNutritionByIDImageWithHttpInfo(id: kotlin.Int) : ApiResponse<java.io.File?> {
         val localVariableConfig = menuItemNutritionByIDImageRequestConfig(id = id)
 
         return request<Unit, java.io.File>(
@@ -253,7 +253,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param id The menu item id.
      * @return RequestConfig
      */
-    fun menuItemNutritionByIDImageRequestConfig(id: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun menuItemNutritionByIDImageRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -284,7 +284,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun menuItemNutritionLabelImage(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
+    fun menuItemNutritionLabelImage(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
         val localVarResponse = menuItemNutritionLabelImageWithHttpInfo(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
@@ -315,7 +315,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun menuItemNutritionLabelImageWithHttpInfo(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
+    fun menuItemNutritionLabelImageWithHttpInfo(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
         val localVariableConfig = menuItemNutritionLabelImageRequestConfig(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return request<Unit, java.io.File>(
@@ -332,7 +332,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param showIngredients Whether to show a list of ingredients. (optional)
      * @return RequestConfig
      */
-    fun menuItemNutritionLabelImageRequestConfig(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun menuItemNutritionLabelImageRequestConfig(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -375,7 +375,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun menuItemNutritionLabelWidget(id: java.math.BigDecimal, defaultCss: kotlin.Boolean? = true, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.String {
+    fun menuItemNutritionLabelWidget(id: kotlin.Int, defaultCss: kotlin.Boolean? = true, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.String {
         val localVarResponse = menuItemNutritionLabelWidgetWithHttpInfo(id = id, defaultCss = defaultCss, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
@@ -407,7 +407,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun menuItemNutritionLabelWidgetWithHttpInfo(id: java.math.BigDecimal, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+    fun menuItemNutritionLabelWidgetWithHttpInfo(id: kotlin.Int, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
         val localVariableConfig = menuItemNutritionLabelWidgetRequestConfig(id = id, defaultCss = defaultCss, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return request<Unit, kotlin.String>(
@@ -425,7 +425,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param showIngredients Whether to show a list of ingredients. (optional)
      * @return RequestConfig
      */
-    fun menuItemNutritionLabelWidgetRequestConfig(id: java.math.BigDecimal, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun menuItemNutritionLabelWidgetRequestConfig(id: kotlin.Int, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -457,7 +457,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * Search Menu Items
      * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param minCalories The minimum amount of calories the menu item must have. (optional)
      * @param maxCalories The maximum amount of calories the menu item can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -478,7 +478,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchMenuItems(query: kotlin.String? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, addMenuItemInformation: kotlin.Boolean? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchMenuItems200Response {
+    fun searchMenuItems(query: kotlin.String, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, addMenuItemInformation: kotlin.Boolean? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchMenuItems200Response {
         val localVarResponse = searchMenuItemsWithHttpInfo(query = query, minCalories = minCalories, maxCalories = maxCalories, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minFat = minFat, maxFat = maxFat, addMenuItemInformation = addMenuItemInformation, offset = offset, number = number)
 
         return when (localVarResponse.responseType) {
@@ -499,7 +499,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * Search Menu Items
      * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param minCalories The minimum amount of calories the menu item must have. (optional)
      * @param maxCalories The maximum amount of calories the menu item can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -517,7 +517,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchMenuItemsWithHttpInfo(query: kotlin.String?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addMenuItemInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchMenuItems200Response?> {
+    fun searchMenuItemsWithHttpInfo(query: kotlin.String, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addMenuItemInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchMenuItems200Response?> {
         val localVariableConfig = searchMenuItemsRequestConfig(query = query, minCalories = minCalories, maxCalories = maxCalories, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minFat = minFat, maxFat = maxFat, addMenuItemInformation = addMenuItemInformation, offset = offset, number = number)
 
         return request<Unit, SearchMenuItems200Response>(
@@ -528,7 +528,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * To obtain the request config of the operation searchMenuItems
      *
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param minCalories The minimum amount of calories the menu item must have. (optional)
      * @param maxCalories The maximum amount of calories the menu item can have. (optional)
      * @param minCarbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -542,13 +542,11 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
-    fun searchMenuItemsRequestConfig(query: kotlin.String?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addMenuItemInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchMenuItemsRequestConfig(query: kotlin.String, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, addMenuItemInformation: kotlin.Boolean?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 if (minCalories != null) {
                     put("minCalories", listOf(minCalories.toString()))
                 }
@@ -599,7 +597,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * Menu Item Nutrition by ID Widget
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id.
+     * @param id The menu item id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -631,7 +629,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * Menu Item Nutrition by ID Widget
      * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id.
+     * @param id The menu item id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -650,7 +648,7 @@ class MenuItemsApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClie
     /**
      * To obtain the request config of the operation visualizeMenuItemNutritionByID
      *
-     * @param id The item&#39;s id.
+     * @param id The menu item id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return RequestConfig
      */

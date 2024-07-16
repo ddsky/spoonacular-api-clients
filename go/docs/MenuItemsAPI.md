@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## AutocompleteMenuItemSearch
 
-> AutocompleteMenuItemSearch200Response AutocompleteMenuItemSearch(ctx).Query(query).Number(number).Execute()
+> AutocompleteProductSearch200Response AutocompleteMenuItemSearch(ctx).Query(query).Number(number).Execute()
 
 Autocomplete Menu Item Search
 
@@ -36,7 +36,7 @@ import (
 
 func main() {
 	query := "chicke" // string | The (partial) search query.
-	number := float32(10) // float32 | The number of results to return (between 1 and 25). (optional)
+	number := int32(10) // int32 | The number of results to return (between 1 and 25). (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -45,7 +45,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.AutocompleteMenuItemSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `AutocompleteMenuItemSearch`: AutocompleteMenuItemSearch200Response
+	// response from `AutocompleteMenuItemSearch`: AutocompleteProductSearch200Response
 	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.AutocompleteMenuItemSearch`: %v\n", resp)
 }
 ```
@@ -62,11 +62,11 @@ Other parameters are passed through a pointer to a apiAutocompleteMenuItemSearch
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string** | The (partial) search query. | 
- **number** | **float32** | The number of results to return (between 1 and 25). | 
+ **number** | **int32** | The number of results to return (between 1 and 25). | 
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## GetMenuItemInformation
 
-> GetMenuItemInformation200Response GetMenuItemInformation(ctx, id).Execute()
+> MenuItem GetMenuItemInformation(ctx, id).Execute()
 
 Get Menu Item Information
 
@@ -103,7 +103,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(424571) // int32 | The menu item id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -112,7 +112,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MenuItemsAPI.GetMenuItemInformation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetMenuItemInformation`: GetMenuItemInformation200Response
+	// response from `GetMenuItemInformation`: MenuItem
 	fmt.Fprintf(os.Stdout, "Response from `MenuItemsAPI.GetMenuItemInformation`: %v\n", resp)
 }
 ```
@@ -123,7 +123,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The menu item id. | 
 
 ### Other Parameters
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ import (
 )
 
 func main() {
-	id := float32(424571) // float32 | The menu item id.
+	id := int32(424571) // int32 | The menu item id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -193,7 +193,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The menu item id. | 
+**id** | **int32** | The menu item id. | 
 
 ### Other Parameters
 
@@ -243,7 +243,7 @@ import (
 )
 
 func main() {
-	id := float32(342313) // float32 | The menu item id.
+	id := int32(342313) // int32 | The menu item id.
 	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
 	showZeroValues := false // bool | Whether to show zero values. (optional)
 	showIngredients := false // bool | Whether to show a list of ingredients. (optional)
@@ -266,7 +266,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The menu item id. | 
+**id** | **int32** | The menu item id. | 
 
 ### Other Parameters
 
@@ -319,7 +319,7 @@ import (
 )
 
 func main() {
-	id := float32(342313) // float32 | The menu item id.
+	id := int32(342313) // int32 | The menu item id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
 	showZeroValues := false // bool | Whether to show zero values. (optional)
@@ -343,7 +343,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The menu item id. | 
+**id** | **int32** | The menu item id. | 
 
 ### Other Parameters
 
@@ -397,7 +397,7 @@ import (
 )
 
 func main() {
-	query := "burger" // string | The (natural language) search query. (optional)
+	query := "burger" // string | The (natural language) search query.
 	minCalories := float32(50) // float32 | The minimum amount of calories the menu item must have. (optional)
 	maxCalories := float32(800) // float32 | The maximum amount of calories the menu item can have. (optional)
 	minCarbs := float32(10) // float32 | The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -485,7 +485,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1003464) // int32 | The menu item id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -506,7 +506,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The menu item id. | 
 
 ### Other Parameters
 

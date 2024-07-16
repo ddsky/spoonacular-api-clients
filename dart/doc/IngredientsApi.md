@@ -54,7 +54,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **metaInformation** | **bool**| Whether to return more meta information about the ingredients. | [optional] 
  **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] 
@@ -91,9 +91,9 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = IngredientsApi();
-final id = 9266; // num | The id of the ingredient you want the amount for.
+final id = 9266; // int | The id of the ingredient you want the amount for.
 final nutrient = protein; // String | The target nutrient. See a list of supported nutrients.
-final target = 2; // num | The target number of the given nutrient.
+final target = 2; // int | The target number of the given nutrient.
 final unit = oz; // String | The target unit.
 
 try {
@@ -108,9 +108,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The id of the ingredient you want the amount for. | 
+ **id** | **int**| The id of the ingredient you want the amount for. | 
  **nutrient** | **String**| The target nutrient. See a list of supported nutrients. | 
- **target** | **num**| The target number of the given nutrient. | 
+ **target** | **int**| The target number of the given nutrient. | 
  **unit** | **String**| The target unit. | [optional] 
 
 ### Return type
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getIngredientInformation**
-> GetIngredientInformation200Response getIngredientInformation(id, amount, unit)
+> IngredientInformation getIngredientInformation(id, amount, unit)
 
 Get Ingredient Information
 
@@ -144,7 +144,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = IngredientsApi();
-final id = 1; // int | The item's id.
+final id = 9266; // int | The ingredient id.
 final amount = 150; // num | The amount of this ingredient.
 final unit = grams; // String | The unit for the given amount.
 
@@ -160,13 +160,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The ingredient id. | 
  **amount** | **num**| The amount of this ingredient. | [optional] 
  **unit** | **String**| The unit for the given amount. | [optional] 
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -242,7 +242,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = IngredientsApi();
-final id = 1; // int | The item's id.
+final id = 1001; // int | The id of the ingredient you want substitutes for.
 
 try {
     final result = api_instance.getIngredientSubstitutesByID(id);
@@ -256,7 +256,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The id of the ingredient you want substitutes for. | 
 
 ### Return type
 
@@ -317,7 +317,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **addChildren** | **bool**| Whether to add children of found foods. | [optional] 
  **minProteinPercent** | **num**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] 
  **maxProteinPercent** | **num**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] 
@@ -364,7 +364,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = IngredientsApi();
-final id = 1082038; // num | The recipe id.
+final id = 1082038; // int | The recipe id.
 final measure = metric; // String | Whether the the measures should be 'us' or 'metric'.
 
 try {
@@ -379,7 +379,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **measure** | **String**| Whether the the measures should be 'us' or 'metric'. | [optional] 
 
 ### Return type

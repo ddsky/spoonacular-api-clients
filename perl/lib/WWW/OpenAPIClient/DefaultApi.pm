@@ -151,7 +151,7 @@ sub analyze_recipe {
 #
 # Create Recipe Card
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 # @param string $mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). (optional)
 # @param string $background_image The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). (optional)
 # @param string $background_color The background color for the recipe card as a hex-string. (optional)
@@ -159,7 +159,7 @@ sub analyze_recipe {
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },

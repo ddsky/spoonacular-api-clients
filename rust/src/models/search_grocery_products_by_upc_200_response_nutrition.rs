@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchGroceryProductsByUpc200ResponseNutrition {
     #[serde(rename = "nutrients")]
-    pub nutrients: Vec<models::ParseIngredients200ResponseInnerNutritionNutrientsInner>,
+    pub nutrients: Vec<models::SearchGroceryProductsByUpc200ResponseNutritionNutrientsInner>,
     #[serde(rename = "caloricBreakdown")]
-    pub caloric_breakdown: Box<models::ParseIngredients200ResponseInnerNutritionCaloricBreakdown>,
+    pub caloric_breakdown: Box<models::SearchGroceryProductsByUpc200ResponseNutritionCaloricBreakdown>,
 }
 
 impl SearchGroceryProductsByUpc200ResponseNutrition {
-    pub fn new(nutrients: Vec<models::ParseIngredients200ResponseInnerNutritionNutrientsInner>, caloric_breakdown: models::ParseIngredients200ResponseInnerNutritionCaloricBreakdown) -> SearchGroceryProductsByUpc200ResponseNutrition {
+    pub fn new(nutrients: Vec<models::SearchGroceryProductsByUpc200ResponseNutritionNutrientsInner>, caloric_breakdown: models::SearchGroceryProductsByUpc200ResponseNutritionCaloricBreakdown) -> SearchGroceryProductsByUpc200ResponseNutrition {
         SearchGroceryProductsByUpc200ResponseNutrition {
             nutrients,
             caloric_breakdown: Box::new(caloric_breakdown),

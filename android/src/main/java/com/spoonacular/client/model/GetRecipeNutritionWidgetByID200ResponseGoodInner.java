@@ -25,8 +25,8 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
   private Boolean indented = null;
   @SerializedName("percentOfDailyNeeds")
   private BigDecimal percentOfDailyNeeds = null;
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("title")
+  private String title = null;
 
   /**
    **/
@@ -61,11 +61,11 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getName() {
-    return name;
+  public String getTitle() {
+    return title;
   }
-  public void setName(String name) {
-    this.name = name;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -81,7 +81,7 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     return (this.amount == null ? getRecipeNutritionWidgetByID200ResponseGoodInner.amount == null : this.amount.equals(getRecipeNutritionWidgetByID200ResponseGoodInner.amount)) &&
         (this.indented == null ? getRecipeNutritionWidgetByID200ResponseGoodInner.indented == null : this.indented.equals(getRecipeNutritionWidgetByID200ResponseGoodInner.indented)) &&
         (this.percentOfDailyNeeds == null ? getRecipeNutritionWidgetByID200ResponseGoodInner.percentOfDailyNeeds == null : this.percentOfDailyNeeds.equals(getRecipeNutritionWidgetByID200ResponseGoodInner.percentOfDailyNeeds)) &&
-        (this.name == null ? getRecipeNutritionWidgetByID200ResponseGoodInner.name == null : this.name.equals(getRecipeNutritionWidgetByID200ResponseGoodInner.name));
+        (this.title == null ? getRecipeNutritionWidgetByID200ResponseGoodInner.title == null : this.title.equals(getRecipeNutritionWidgetByID200ResponseGoodInner.title));
   }
 
   @Override
@@ -90,7 +90,7 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     result = 31 * result + (this.amount == null ? 0: this.amount.hashCode());
     result = 31 * result + (this.indented == null ? 0: this.indented.hashCode());
     result = 31 * result + (this.percentOfDailyNeeds == null ? 0: this.percentOfDailyNeeds.hashCode());
-    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
+    result = 31 * result + (this.title == null ? 0: this.title.hashCode());
     return result;
   }
 
@@ -102,7 +102,7 @@ public class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     sb.append("  amount: ").append(amount).append("\n");
     sb.append("  indented: ").append(indented).append("\n");
     sb.append("  percentOfDailyNeeds: ").append(percentOfDailyNeeds).append("\n");
-    sb.append("  name: ").append(name).append("\n");
+    sb.append("  title: ").append(title).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

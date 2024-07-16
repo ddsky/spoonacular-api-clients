@@ -42,7 +42,7 @@ namespace spoonacular.Model
         /// </summary>
         /// <param name="nutrients">nutrients (required).</param>
         /// <param name="caloricBreakdown">caloricBreakdown (required).</param>
-        public SearchGroceryProductsByUPC200ResponseNutrition(List<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients = default(List<ParseIngredients200ResponseInnerNutritionNutrientsInner>), ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown = default(ParseIngredients200ResponseInnerNutritionCaloricBreakdown))
+        public SearchGroceryProductsByUPC200ResponseNutrition(List<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients = default(List<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>), SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown = default(SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown))
         {
             // to ensure "nutrients" is required (not null)
             if (nutrients == null)
@@ -62,13 +62,13 @@ namespace spoonacular.Model
         /// Gets or Sets Nutrients
         /// </summary>
         [DataMember(Name = "nutrients", IsRequired = true, EmitDefaultValue = true)]
-        public List<ParseIngredients200ResponseInnerNutritionNutrientsInner> Nutrients { get; set; }
+        public List<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> Nutrients { get; set; }
 
         /// <summary>
         /// Gets or Sets CaloricBreakdown
         /// </summary>
         [DataMember(Name = "caloricBreakdown", IsRequired = true, EmitDefaultValue = true)]
-        public ParseIngredients200ResponseInnerNutritionCaloricBreakdown CaloricBreakdown { get; set; }
+        public SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown CaloricBreakdown { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

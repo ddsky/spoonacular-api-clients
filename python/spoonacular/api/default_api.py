@@ -376,7 +376,7 @@ class DefaultApi:
     @validate_call
     def create_recipe_card_get(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         mask: Annotated[Optional[StrictStr], Field(description="The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")] = None,
         background_image: Annotated[Optional[StrictStr], Field(description="The background image (\"none\",\"background1\", or \"background2\").")] = None,
         background_color: Annotated[Optional[StrictStr], Field(description="The background color for the recipe card as a hex-string.")] = None,
@@ -399,7 +399,7 @@ class DefaultApi:
         Generate a recipe card for a recipe.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param mask: The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
         :type mask: str
         :param background_image: The background image (\"none\",\"background1\", or \"background2\").
@@ -462,7 +462,7 @@ class DefaultApi:
     @validate_call
     def create_recipe_card_get_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         mask: Annotated[Optional[StrictStr], Field(description="The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")] = None,
         background_image: Annotated[Optional[StrictStr], Field(description="The background image (\"none\",\"background1\", or \"background2\").")] = None,
         background_color: Annotated[Optional[StrictStr], Field(description="The background color for the recipe card as a hex-string.")] = None,
@@ -485,7 +485,7 @@ class DefaultApi:
         Generate a recipe card for a recipe.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param mask: The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
         :type mask: str
         :param background_image: The background image (\"none\",\"background1\", or \"background2\").
@@ -548,7 +548,7 @@ class DefaultApi:
     @validate_call
     def create_recipe_card_get_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The recipe id.")],
+        id: Annotated[StrictInt, Field(description="The recipe id.")],
         mask: Annotated[Optional[StrictStr], Field(description="The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").")] = None,
         background_image: Annotated[Optional[StrictStr], Field(description="The background image (\"none\",\"background1\", or \"background2\").")] = None,
         background_color: Annotated[Optional[StrictStr], Field(description="The background color for the recipe card as a hex-string.")] = None,
@@ -571,7 +571,7 @@ class DefaultApi:
         Generate a recipe card for a recipe.
 
         :param id: The recipe id. (required)
-        :type id: float
+        :type id: int
         :param mask: The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
         :type mask: str
         :param background_image: The background image (\"none\",\"background1\", or \"background2\").

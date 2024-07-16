@@ -20,7 +20,7 @@ class SearchMenuItems200Response {
     required this.number,
   });
 
-  Set<SearchMenuItems200ResponseMenuItemsInner> menuItems;
+  Set<MenuItem> menuItems;
 
   int totalMenuItems;
 
@@ -79,7 +79,7 @@ class SearchMenuItems200Response {
       }());
 
       return SearchMenuItems200Response(
-        menuItems: SearchMenuItems200ResponseMenuItemsInner.listFromJson(json[r'menuItems']).toSet(),
+        menuItems: MenuItem.listFromJson(json[r'menuItems']).toSet(),
         totalMenuItems: mapValueOfType<int>(json, r'totalMenuItems')!,
         type: mapValueOfType<String>(json, r'type')!,
         offset: mapValueOfType<int>(json, r'offset')!,

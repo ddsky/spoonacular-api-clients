@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**menuItems** | [**Set&lt;SearchMenuItems200ResponseMenuItemsInner&gt;**](SearchMenuItems200ResponseMenuItemsInner.md) |  | 
+**menuItems** | [**Set&lt;MenuItem&gt;**](MenuItem.md) |  | 
 **totalMenuItems** | **Integer** |  | 
 **type** | **String** |  | 
 **offset** | **Integer** |  | 

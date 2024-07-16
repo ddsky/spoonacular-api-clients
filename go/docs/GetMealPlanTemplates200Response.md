@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Templates** | [**[]GetAnalyzedRecipeInstructions200ResponseIngredientsInner**](GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md) |  | 
+**Templates** | [**[]GetMealPlanTemplates200ResponseTemplatesInner**](GetMealPlanTemplates200ResponseTemplatesInner.md) |  | 
 
 ## Methods
 
 ### NewGetMealPlanTemplates200Response
 
-`func NewGetMealPlanTemplates200Response(templates []GetAnalyzedRecipeInstructions200ResponseIngredientsInner, ) *GetMealPlanTemplates200Response`
+`func NewGetMealPlanTemplates200Response(templates []GetMealPlanTemplates200ResponseTemplatesInner, ) *GetMealPlanTemplates200Response`
 
 NewGetMealPlanTemplates200Response instantiates a new GetMealPlanTemplates200Response object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTemplates
 
-`func (o *GetMealPlanTemplates200Response) GetTemplates() []GetAnalyzedRecipeInstructions200ResponseIngredientsInner`
+`func (o *GetMealPlanTemplates200Response) GetTemplates() []GetMealPlanTemplates200ResponseTemplatesInner`
 
 GetTemplates returns the Templates field if non-nil, zero value otherwise.
 
 ### GetTemplatesOk
 
-`func (o *GetMealPlanTemplates200Response) GetTemplatesOk() (*[]GetAnalyzedRecipeInstructions200ResponseIngredientsInner, bool)`
+`func (o *GetMealPlanTemplates200Response) GetTemplatesOk() (*[]GetMealPlanTemplates200ResponseTemplatesInner, bool)`
 
 GetTemplatesOk returns a tuple with the Templates field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTemplates
 
-`func (o *GetMealPlanTemplates200Response) SetTemplates(v []GetAnalyzedRecipeInstructions200ResponseIngredientsInner)`
+`func (o *GetMealPlanTemplates200Response) SetTemplates(v []GetMealPlanTemplates200ResponseTemplatesInner)`
 
 SetTemplates sets Templates field to given value.
 

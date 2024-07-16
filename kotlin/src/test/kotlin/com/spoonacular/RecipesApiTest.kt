@@ -27,23 +27,22 @@ import com.spoonacular.client.model.ComputeGlycemicLoad200Response
 import com.spoonacular.client.model.ComputeGlycemicLoadRequest
 import com.spoonacular.client.model.ConvertAmounts200Response
 import com.spoonacular.client.model.CreateRecipeCard200Response
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response
+import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseInner
 import com.spoonacular.client.model.GetRandomRecipes200Response
 import com.spoonacular.client.model.GetRecipeEquipmentByID200Response
-import com.spoonacular.client.model.GetRecipeInformation200Response
-import com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInner
 import com.spoonacular.client.model.GetRecipeIngredientsByID200Response
 import com.spoonacular.client.model.GetRecipeNutritionWidgetByID200Response
 import com.spoonacular.client.model.GetRecipePriceBreakdownByID200Response
-import com.spoonacular.client.model.GetRecipeTasteByID200Response
 import com.spoonacular.client.model.GetSimilarRecipes200ResponseInner
 import com.spoonacular.client.model.GuessNutritionByDishName200Response
-import com.spoonacular.client.model.ParseIngredients200ResponseInner
+import com.spoonacular.client.model.IngredientInformation
 import com.spoonacular.client.model.QuickAnswer200Response
+import com.spoonacular.client.model.RecipeInformation
 import com.spoonacular.client.model.SearchRecipes200Response
 import com.spoonacular.client.model.SearchRecipesByIngredients200ResponseInner
 import com.spoonacular.client.model.SearchRecipesByNutrients200ResponseInner
 import com.spoonacular.client.model.SummarizeRecipe200Response
+import com.spoonacular.client.model.TasteInformation
 
 class RecipesApiTest : ShouldSpec() {
     init {
@@ -128,7 +127,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test equipmentByIDImage
         should("test equipmentByIDImage") {
             // uncomment below to test equipmentByIDImage
-            //val id : java.math.BigDecimal = 44860 // java.math.BigDecimal | The recipe id.
+            //val id : kotlin.Int = 44860 // kotlin.Int | The recipe id.
             //val result : java.io.File = apiInstance.equipmentByIDImage(id)
             //result shouldBe ("TODO")
         }
@@ -141,16 +140,16 @@ class RecipesApiTest : ShouldSpec() {
             //val analyze : kotlin.Boolean = false // kotlin.Boolean | If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
             //val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
             //val includeTaste : kotlin.Boolean = false // kotlin.Boolean | Whether taste data should be added to correctly parsed ingredients.
-            //val result : GetRecipeInformation200Response = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
+            //val result : RecipeInformation = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
             //result shouldBe ("TODO")
         }
 
         // to test getAnalyzedRecipeInstructions
         should("test getAnalyzedRecipeInstructions") {
             // uncomment below to test getAnalyzedRecipeInstructions
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 324694 // kotlin.Int | The recipe id.
             //val stepBreakdown : kotlin.Boolean = true // kotlin.Boolean | Whether to break down the recipe steps even more.
-            //val result : GetAnalyzedRecipeInstructions200Response = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown)
+            //val result : kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner> = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown)
             //result shouldBe ("TODO")
         }
 
@@ -168,7 +167,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test getRecipeEquipmentByID
         should("test getRecipeEquipmentByID") {
             // uncomment below to test getRecipeEquipmentByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
             //val result : GetRecipeEquipmentByID200Response = apiInstance.getRecipeEquipmentByID(id)
             //result shouldBe ("TODO")
         }
@@ -176,9 +175,11 @@ class RecipesApiTest : ShouldSpec() {
         // to test getRecipeInformation
         should("test getRecipeInformation") {
             // uncomment below to test getRecipeInformation
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 716429 // kotlin.Int | The id of the recipe.
             //val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-            //val result : GetRecipeInformation200Response = apiInstance.getRecipeInformation(id, includeNutrition)
+            //val addWinePairing : kotlin.Boolean = false // kotlin.Boolean | Add a wine pairing to the recipe.
+            //val addTasteData : kotlin.Boolean = false // kotlin.Boolean | Add taste data to the recipe.
+            //val result : RecipeInformation = apiInstance.getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData)
             //result shouldBe ("TODO")
         }
 
@@ -187,14 +188,14 @@ class RecipesApiTest : ShouldSpec() {
             // uncomment below to test getRecipeInformationBulk
             //val ids : kotlin.String = 715538,716429 // kotlin.String | A comma-separated list of recipe ids.
             //val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-            //val result : kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner> = apiInstance.getRecipeInformationBulk(ids, includeNutrition)
+            //val result : kotlin.collections.Set<RecipeInformation> = apiInstance.getRecipeInformationBulk(ids, includeNutrition)
             //result shouldBe ("TODO")
         }
 
         // to test getRecipeIngredientsByID
         should("test getRecipeIngredientsByID") {
             // uncomment below to test getRecipeIngredientsByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
             //val result : GetRecipeIngredientsByID200Response = apiInstance.getRecipeIngredientsByID(id)
             //result shouldBe ("TODO")
         }
@@ -202,7 +203,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test getRecipeNutritionWidgetByID
         should("test getRecipeNutritionWidgetByID") {
             // uncomment below to test getRecipeNutritionWidgetByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
             //val result : GetRecipeNutritionWidgetByID200Response = apiInstance.getRecipeNutritionWidgetByID(id)
             //result shouldBe ("TODO")
         }
@@ -210,7 +211,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test getRecipePriceBreakdownByID
         should("test getRecipePriceBreakdownByID") {
             // uncomment below to test getRecipePriceBreakdownByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
             //val result : GetRecipePriceBreakdownByID200Response = apiInstance.getRecipePriceBreakdownByID(id)
             //result shouldBe ("TODO")
         }
@@ -218,16 +219,16 @@ class RecipesApiTest : ShouldSpec() {
         // to test getRecipeTasteByID
         should("test getRecipeTasteByID") {
             // uncomment below to test getRecipeTasteByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 69095 // kotlin.Int | The recipe id.
             //val normalize : kotlin.Boolean = true // kotlin.Boolean | Normalize to the strongest taste.
-            //val result : GetRecipeTasteByID200Response = apiInstance.getRecipeTasteByID(id, normalize)
+            //val result : TasteInformation = apiInstance.getRecipeTasteByID(id, normalize)
             //result shouldBe ("TODO")
         }
 
         // to test getSimilarRecipes
         should("test getSimilarRecipes") {
             // uncomment below to test getSimilarRecipes
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 715538 // kotlin.Int | The id of the source recipe for which similar recipes should be found.
             //val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
             //val result : kotlin.collections.Set<GetSimilarRecipes200ResponseInner> = apiInstance.getSimilarRecipes(id, number)
             //result shouldBe ("TODO")
@@ -247,15 +248,15 @@ class RecipesApiTest : ShouldSpec() {
             //val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
             //val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings that you can make from the ingredients.
             //val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
-            //val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | 
-            //val result : kotlin.collections.Set<ParseIngredients200ResponseInner> = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition)
+            //val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Whether nutrition data should be added to correctly parsed ingredients.
+            //val result : kotlin.collections.Set<IngredientInformation> = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition)
             //result shouldBe ("TODO")
         }
 
         // to test priceBreakdownByIDImage
         should("test priceBreakdownByIDImage") {
             // uncomment below to test priceBreakdownByIDImage
-            //val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
+            //val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
             //val result : java.io.File = apiInstance.priceBreakdownByIDImage(id)
             //result shouldBe ("TODO")
         }
@@ -271,7 +272,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test recipeNutritionByIDImage
         should("test recipeNutritionByIDImage") {
             // uncomment below to test recipeNutritionByIDImage
-            //val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
+            //val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
             //val result : java.io.File = apiInstance.recipeNutritionByIDImage(id)
             //result shouldBe ("TODO")
         }
@@ -279,7 +280,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test recipeNutritionLabelImage
         should("test recipeNutritionLabelImage") {
             // uncomment below to test recipeNutritionLabelImage
-            //val id : java.math.BigDecimal = 641166 // java.math.BigDecimal | The recipe id.
+            //val id : kotlin.Int = 641166 // kotlin.Int | The recipe id.
             //val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
             //val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
             //val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
@@ -290,7 +291,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test recipeNutritionLabelWidget
         should("test recipeNutritionLabelWidget") {
             // uncomment below to test recipeNutritionLabelWidget
-            //val id : java.math.BigDecimal = 641166 // java.math.BigDecimal | The recipe id.
+            //val id : kotlin.Int = 641166 // kotlin.Int | The recipe id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
             //val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
@@ -302,7 +303,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test recipeTasteByIDImage
         should("test recipeTasteByIDImage") {
             // uncomment below to test recipeTasteByIDImage
-            //val id : java.math.BigDecimal = 69095 // java.math.BigDecimal | The recipe id.
+            //val id : kotlin.Int = 69095 // kotlin.Int | The recipe id.
             //val normalize : kotlin.Boolean = false // kotlin.Boolean | Normalize to the strongest taste.
             //val rgb : kotlin.String = 75,192,192 // kotlin.String | Red, green, blue values for the chart color.
             //val result : java.io.File = apiInstance.recipeTasteByIDImage(id, normalize, rgb)
@@ -327,7 +328,7 @@ class RecipesApiTest : ShouldSpec() {
             //val addRecipeNutrition : kotlin.Boolean = false // kotlin.Boolean | If set to true, you get nutritional information about each recipes returned.
             //val author : kotlin.String = coffeebean // kotlin.String | The username of the recipe author.
             //val tags : kotlin.String = tags_example // kotlin.String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-            //val recipeBoxId : java.math.BigDecimal = 2468 // java.math.BigDecimal | The id of the recipe box to which the search should be limited to.
+            //val recipeBoxId : kotlin.Int = 2468 // kotlin.Int | The id of the recipe box to which the search should be limited to.
             //val titleMatch : kotlin.String = Crock Pot // kotlin.String | Enter text that must be found in the title of the recipes.
             //val maxReadyTime : java.math.BigDecimal = 20 // java.math.BigDecimal | The maximum time in minutes it should take to prepare and cook the recipe.
             //val minServings : java.math.BigDecimal = 1 // java.math.BigDecimal | The minimum amount of servings the recipe is for.
@@ -418,7 +419,7 @@ class RecipesApiTest : ShouldSpec() {
             // uncomment below to test searchRecipesByIngredients
             //val ingredients : kotlin.String = carrots,tomatoes // kotlin.String | A comma-separated list of ingredients that the recipes should contain.
             //val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-            //val ranking : java.math.BigDecimal = 1 // java.math.BigDecimal | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+            //val ranking : kotlin.Int = 1 // kotlin.Int | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
             //val ignorePantry : kotlin.Boolean = false // kotlin.Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
             //val result : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> = apiInstance.searchRecipesByIngredients(ingredients, number, ranking, ignorePantry)
             //result shouldBe ("TODO")
@@ -509,7 +510,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test summarizeRecipe
         should("test summarizeRecipe") {
             // uncomment below to test summarizeRecipe
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 4632 // kotlin.Int | The recipe id.
             //val result : SummarizeRecipe200Response = apiInstance.summarizeRecipe(id)
             //result shouldBe ("TODO")
         }
@@ -541,7 +542,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test visualizeRecipeEquipmentByID
         should("test visualizeRecipeEquipmentByID") {
             // uncomment below to test visualizeRecipeEquipmentByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 44860 // kotlin.Int | The recipe id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val result : kotlin.String = apiInstance.visualizeRecipeEquipmentByID(id, defaultCss)
             //result shouldBe ("TODO")
@@ -550,7 +551,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test visualizeRecipeIngredientsByID
         should("test visualizeRecipeIngredientsByID") {
             // uncomment below to test visualizeRecipeIngredientsByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val measure : kotlin.String = metric // kotlin.String | Whether the the measures should be 'us' or 'metric'.
             //val result : kotlin.String = apiInstance.visualizeRecipeIngredientsByID(id, defaultCss, measure)
@@ -572,7 +573,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test visualizeRecipeNutritionByID
         should("test visualizeRecipeNutritionByID") {
             // uncomment below to test visualizeRecipeNutritionByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val result : kotlin.String = apiInstance.visualizeRecipeNutritionByID(id, defaultCss)
             //result shouldBe ("TODO")
@@ -581,7 +582,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test visualizeRecipePriceBreakdownByID
         should("test visualizeRecipePriceBreakdownByID") {
             // uncomment below to test visualizeRecipePriceBreakdownByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val result : kotlin.String = apiInstance.visualizeRecipePriceBreakdownByID(id, defaultCss)
             //result shouldBe ("TODO")
@@ -601,7 +602,7 @@ class RecipesApiTest : ShouldSpec() {
         // to test visualizeRecipeTasteByID
         should("test visualizeRecipeTasteByID") {
             // uncomment below to test visualizeRecipeTasteByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 69095 // kotlin.Int | The recipe id.
             //val normalize : kotlin.Boolean = true // kotlin.Boolean | Whether to normalize to the strongest taste.
             //val rgb : kotlin.String = 75,192,192 // kotlin.String | Red, green, blue values for the chart color.
             //val result : kotlin.String = apiInstance.visualizeRecipeTasteByID(id, normalize, rgb)

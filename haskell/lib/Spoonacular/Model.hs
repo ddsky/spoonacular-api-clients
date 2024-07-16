@@ -83,6 +83,12 @@ newtype AddRecipeInformation = AddRecipeInformation { unAddRecipeInformation :: 
 -- ** AddRecipeNutrition
 newtype AddRecipeNutrition = AddRecipeNutrition { unAddRecipeNutrition :: Bool } deriving (P.Eq, P.Show)
 
+-- ** AddTasteData
+newtype AddTasteData = AddTasteData { unAddTasteData :: Bool } deriving (P.Eq, P.Show)
+
+-- ** AddWinePairing
+newtype AddWinePairing = AddWinePairing { unAddWinePairing :: Bool } deriving (P.Eq, P.Show)
+
 -- ** Amount
 newtype Amount = Amount { unAmount :: Double } deriving (P.Eq, P.Show)
 
@@ -157,9 +163,6 @@ newtype Hash = Hash { unHash :: Text } deriving (P.Eq, P.Show)
 
 -- ** Id
 newtype Id = Id { unId :: Int } deriving (P.Eq, P.Show)
-
--- ** IdDouble
-newtype IdDouble = IdDouble { unIdDouble :: Double } deriving (P.Eq, P.Show)
 
 -- ** Ids
 newtype Ids = Ids { unIds :: Text } deriving (P.Eq, P.Show)
@@ -531,13 +534,13 @@ newtype Query = Query { unQuery :: Text } deriving (P.Eq, P.Show)
 newtype Random = Random { unRandom :: Bool } deriving (P.Eq, P.Show)
 
 -- ** Ranking
-newtype Ranking = Ranking { unRanking :: Double } deriving (P.Eq, P.Show)
+newtype Ranking = Ranking { unRanking :: Int } deriving (P.Eq, P.Show)
 
 -- ** ReadyInMinutes
 newtype ReadyInMinutes = ReadyInMinutes { unReadyInMinutes :: Double } deriving (P.Eq, P.Show)
 
 -- ** RecipeBoxId
-newtype RecipeBoxId = RecipeBoxId { unRecipeBoxId :: Double } deriving (P.Eq, P.Show)
+newtype RecipeBoxId = RecipeBoxId { unRecipeBoxId :: Int } deriving (P.Eq, P.Show)
 
 -- ** Rgb
 newtype Rgb = Rgb { unRgb :: Text } deriving (P.Eq, P.Show)
@@ -582,7 +585,7 @@ newtype StepBreakdown = StepBreakdown { unStepBreakdown :: Bool } deriving (P.Eq
 newtype Tags = Tags { unTags :: Text } deriving (P.Eq, P.Show)
 
 -- ** Target
-newtype Target = Target { unTarget :: Double } deriving (P.Eq, P.Show)
+newtype Target = Target { unTarget :: Int } deriving (P.Eq, P.Show)
 
 -- ** TargetCalories
 newtype TargetCalories = TargetCalories { unTargetCalories :: Double } deriving (P.Eq, P.Show)
@@ -603,7 +606,7 @@ newtype TitleMatch = TitleMatch { unTitleMatch :: Text } deriving (P.Eq, P.Show)
 newtype Unit = Unit { unUnit :: Text } deriving (P.Eq, P.Show)
 
 -- ** Upc
-newtype Upc = Upc { unUpc :: Double } deriving (P.Eq, P.Show)
+newtype Upc = Upc { unUpc :: Text } deriving (P.Eq, P.Show)
 
 -- ** Url
 newtype Url = Url { unUrl :: Text } deriving (P.Eq, P.Show)
@@ -1057,7 +1060,7 @@ mkAnalyzeRecipeInstructions200Response analyzeRecipeInstructions200ResponseParse
 -- ** AnalyzeRecipeInstructions200ResponseIngredientsInner
 -- | AnalyzeRecipeInstructions200ResponseIngredientsInner
 data AnalyzeRecipeInstructions200ResponseIngredientsInner = AnalyzeRecipeInstructions200ResponseIngredientsInner
-  { analyzeRecipeInstructions200ResponseIngredientsInnerId :: !(Double) -- ^ /Required/ "id"
+  { analyzeRecipeInstructions200ResponseIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
   , analyzeRecipeInstructions200ResponseIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -1079,7 +1082,7 @@ instance A.ToJSON AnalyzeRecipeInstructions200ResponseIngredientsInner where
 
 -- | Construct a value of type 'AnalyzeRecipeInstructions200ResponseIngredientsInner' (by applying it's required fields, if any)
 mkAnalyzeRecipeInstructions200ResponseIngredientsInner
-  :: Double -- ^ 'analyzeRecipeInstructions200ResponseIngredientsInnerId' 
+  :: Int -- ^ 'analyzeRecipeInstructions200ResponseIngredientsInnerId' 
   -> Text -- ^ 'analyzeRecipeInstructions200ResponseIngredientsInnerName' 
   -> AnalyzeRecipeInstructions200ResponseIngredientsInner
 mkAnalyzeRecipeInstructions200ResponseIngredientsInner analyzeRecipeInstructions200ResponseIngredientsInnerId analyzeRecipeInstructions200ResponseIngredientsInnerName =
@@ -1166,7 +1169,7 @@ mkAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner analyzeR
 -- ** AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
 -- | AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
 data AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner = AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-  { analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId :: !(Double) -- ^ /Required/ "id"
+  { analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
   , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
   , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName :: !(Text) -- ^ /Required/ "localizedName"
   , analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage :: !(Text) -- ^ /Required/ "image"
@@ -1194,7 +1197,7 @@ instance A.ToJSON AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerSte
 
 -- | Construct a value of type 'AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner' (by applying it's required fields, if any)
 mkAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-  :: Double -- ^ 'analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId' 
+  :: Int -- ^ 'analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId' 
   -> Text -- ^ 'analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName' 
   -> Text -- ^ 'analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName' 
   -> Text -- ^ 'analyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage' 
@@ -1291,36 +1294,6 @@ mkAutocompleteIngredientSearch200ResponseInner autocompleteIngredientSearch200Re
   , autocompleteIngredientSearch200ResponseInnerId = Nothing
   , autocompleteIngredientSearch200ResponseInnerAisle = Nothing
   , autocompleteIngredientSearch200ResponseInnerPossibleUnits = Nothing
-  }
-
--- ** AutocompleteMenuItemSearch200Response
--- | AutocompleteMenuItemSearch200Response
--- 
-data AutocompleteMenuItemSearch200Response = AutocompleteMenuItemSearch200Response
-  { autocompleteMenuItemSearch200ResponseResults :: !([AutocompleteProductSearch200ResponseResultsInner]) -- ^ /Required/ "results"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON AutocompleteMenuItemSearch200Response
-instance A.FromJSON AutocompleteMenuItemSearch200Response where
-  parseJSON = A.withObject "AutocompleteMenuItemSearch200Response" $ \o ->
-    AutocompleteMenuItemSearch200Response
-      <$> (o .:  "results")
-
--- | ToJSON AutocompleteMenuItemSearch200Response
-instance A.ToJSON AutocompleteMenuItemSearch200Response where
-  toJSON AutocompleteMenuItemSearch200Response {..} =
-   _omitNulls
-      [ "results" .= autocompleteMenuItemSearch200ResponseResults
-      ]
-
-
--- | Construct a value of type 'AutocompleteMenuItemSearch200Response' (by applying it's required fields, if any)
-mkAutocompleteMenuItemSearch200Response
-  :: [AutocompleteProductSearch200ResponseResultsInner] -- ^ 'autocompleteMenuItemSearch200ResponseResults' 
-  -> AutocompleteMenuItemSearch200Response
-mkAutocompleteMenuItemSearch200Response autocompleteMenuItemSearch200ResponseResults =
-  AutocompleteMenuItemSearch200Response
-  { autocompleteMenuItemSearch200ResponseResults
   }
 
 -- ** AutocompleteProductSearch200Response
@@ -1642,6 +1615,50 @@ mkClassifyGroceryProductRequest classifyGroceryProductRequestTitle classifyGroce
   { classifyGroceryProductRequestTitle
   , classifyGroceryProductRequestUpc
   , classifyGroceryProductRequestPluCode
+  }
+
+-- ** ComparableProduct
+-- | ComparableProduct
+data ComparableProduct = ComparableProduct
+  { comparableProductDifference :: !(Double) -- ^ /Required/ "difference"
+  , comparableProductId :: !(Int) -- ^ /Required/ "id"
+  , comparableProductImage :: !(Text) -- ^ /Required/ "image"
+  , comparableProductTitle :: !(Text) -- ^ /Required/ "title"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON ComparableProduct
+instance A.FromJSON ComparableProduct where
+  parseJSON = A.withObject "ComparableProduct" $ \o ->
+    ComparableProduct
+      <$> (o .:  "difference")
+      <*> (o .:  "id")
+      <*> (o .:  "image")
+      <*> (o .:  "title")
+
+-- | ToJSON ComparableProduct
+instance A.ToJSON ComparableProduct where
+  toJSON ComparableProduct {..} =
+   _omitNulls
+      [ "difference" .= comparableProductDifference
+      , "id" .= comparableProductId
+      , "image" .= comparableProductImage
+      , "title" .= comparableProductTitle
+      ]
+
+
+-- | Construct a value of type 'ComparableProduct' (by applying it's required fields, if any)
+mkComparableProduct
+  :: Double -- ^ 'comparableProductDifference' 
+  -> Int -- ^ 'comparableProductId' 
+  -> Text -- ^ 'comparableProductImage' 
+  -> Text -- ^ 'comparableProductTitle' 
+  -> ComparableProduct
+mkComparableProduct comparableProductDifference comparableProductId comparableProductImage comparableProductTitle =
+  ComparableProduct
+  { comparableProductDifference
+  , comparableProductId
+  , comparableProductImage
+  , comparableProductTitle
   }
 
 -- ** ComputeGlycemicLoad200Response
@@ -2096,51 +2113,6 @@ mkGenerateMealPlan200ResponseNutrients generateMealPlan200ResponseNutrientsCalor
   , generateMealPlan200ResponseNutrientsProtein
   }
 
--- ** GenerateShoppingList200Response
--- | GenerateShoppingList200Response
--- 
-data GenerateShoppingList200Response = GenerateShoppingList200Response
-  { generateShoppingList200ResponseAisles :: !([GetShoppingList200ResponseAislesInner]) -- ^ /Required/ "aisles"
-  , generateShoppingList200ResponseCost :: !(Double) -- ^ /Required/ "cost"
-  , generateShoppingList200ResponseStartDate :: !(Double) -- ^ /Required/ "startDate"
-  , generateShoppingList200ResponseEndDate :: !(Double) -- ^ /Required/ "endDate"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GenerateShoppingList200Response
-instance A.FromJSON GenerateShoppingList200Response where
-  parseJSON = A.withObject "GenerateShoppingList200Response" $ \o ->
-    GenerateShoppingList200Response
-      <$> (o .:  "aisles")
-      <*> (o .:  "cost")
-      <*> (o .:  "startDate")
-      <*> (o .:  "endDate")
-
--- | ToJSON GenerateShoppingList200Response
-instance A.ToJSON GenerateShoppingList200Response where
-  toJSON GenerateShoppingList200Response {..} =
-   _omitNulls
-      [ "aisles" .= generateShoppingList200ResponseAisles
-      , "cost" .= generateShoppingList200ResponseCost
-      , "startDate" .= generateShoppingList200ResponseStartDate
-      , "endDate" .= generateShoppingList200ResponseEndDate
-      ]
-
-
--- | Construct a value of type 'GenerateShoppingList200Response' (by applying it's required fields, if any)
-mkGenerateShoppingList200Response
-  :: [GetShoppingList200ResponseAislesInner] -- ^ 'generateShoppingList200ResponseAisles' 
-  -> Double -- ^ 'generateShoppingList200ResponseCost' 
-  -> Double -- ^ 'generateShoppingList200ResponseStartDate' 
-  -> Double -- ^ 'generateShoppingList200ResponseEndDate' 
-  -> GenerateShoppingList200Response
-mkGenerateShoppingList200Response generateShoppingList200ResponseAisles generateShoppingList200ResponseCost generateShoppingList200ResponseStartDate generateShoppingList200ResponseEndDate =
-  GenerateShoppingList200Response
-  { generateShoppingList200ResponseAisles
-  , generateShoppingList200ResponseCost
-  , generateShoppingList200ResponseStartDate
-  , generateShoppingList200ResponseEndDate
-  }
-
 -- ** GetARandomFoodJoke200Response
 -- | GetARandomFoodJoke200Response
 -- 
@@ -2171,197 +2143,123 @@ mkGetARandomFoodJoke200Response getARandomFoodJoke200ResponseText =
   { getARandomFoodJoke200ResponseText
   }
 
--- ** GetAnalyzedRecipeInstructions200Response
--- | GetAnalyzedRecipeInstructions200Response
--- 
-data GetAnalyzedRecipeInstructions200Response = GetAnalyzedRecipeInstructions200Response
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructions :: !([GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner]) -- ^ /Required/ "parsedInstructions"
-  , getAnalyzedRecipeInstructions200ResponseIngredients :: !([GetAnalyzedRecipeInstructions200ResponseIngredientsInner]) -- ^ /Required/ "ingredients"
-  , getAnalyzedRecipeInstructions200ResponseEquipment :: !([GetAnalyzedRecipeInstructions200ResponseIngredientsInner]) -- ^ /Required/ "equipment"
+-- ** GetAnalyzedRecipeInstructions200ResponseInner
+-- | GetAnalyzedRecipeInstructions200ResponseInner
+data GetAnalyzedRecipeInstructions200ResponseInner = GetAnalyzedRecipeInstructions200ResponseInner
+  { getAnalyzedRecipeInstructions200ResponseInnerName :: !(Text) -- ^ /Required/ "name"
+  , getAnalyzedRecipeInstructions200ResponseInnerSteps :: !(Maybe [GetAnalyzedRecipeInstructions200ResponseInnerStepsInner]) -- ^ "steps"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON GetAnalyzedRecipeInstructions200Response
-instance A.FromJSON GetAnalyzedRecipeInstructions200Response where
-  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200Response" $ \o ->
-    GetAnalyzedRecipeInstructions200Response
-      <$> (o .:  "parsedInstructions")
-      <*> (o .:  "ingredients")
-      <*> (o .:  "equipment")
-
--- | ToJSON GetAnalyzedRecipeInstructions200Response
-instance A.ToJSON GetAnalyzedRecipeInstructions200Response where
-  toJSON GetAnalyzedRecipeInstructions200Response {..} =
-   _omitNulls
-      [ "parsedInstructions" .= getAnalyzedRecipeInstructions200ResponseParsedInstructions
-      , "ingredients" .= getAnalyzedRecipeInstructions200ResponseIngredients
-      , "equipment" .= getAnalyzedRecipeInstructions200ResponseEquipment
-      ]
-
-
--- | Construct a value of type 'GetAnalyzedRecipeInstructions200Response' (by applying it's required fields, if any)
-mkGetAnalyzedRecipeInstructions200Response
-  :: [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner] -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructions' 
-  -> [GetAnalyzedRecipeInstructions200ResponseIngredientsInner] -- ^ 'getAnalyzedRecipeInstructions200ResponseIngredients' 
-  -> [GetAnalyzedRecipeInstructions200ResponseIngredientsInner] -- ^ 'getAnalyzedRecipeInstructions200ResponseEquipment' 
-  -> GetAnalyzedRecipeInstructions200Response
-mkGetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions200ResponseParsedInstructions getAnalyzedRecipeInstructions200ResponseIngredients getAnalyzedRecipeInstructions200ResponseEquipment =
-  GetAnalyzedRecipeInstructions200Response
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructions
-  , getAnalyzedRecipeInstructions200ResponseIngredients
-  , getAnalyzedRecipeInstructions200ResponseEquipment
-  }
-
--- ** GetAnalyzedRecipeInstructions200ResponseIngredientsInner
--- | GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-data GetAnalyzedRecipeInstructions200ResponseIngredientsInner = GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-  { getAnalyzedRecipeInstructions200ResponseIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
-  , getAnalyzedRecipeInstructions200ResponseIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-instance A.FromJSON GetAnalyzedRecipeInstructions200ResponseIngredientsInner where
-  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200ResponseIngredientsInner" $ \o ->
-    GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-      <$> (o .:  "id")
-      <*> (o .:  "name")
-
--- | ToJSON GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-instance A.ToJSON GetAnalyzedRecipeInstructions200ResponseIngredientsInner where
-  toJSON GetAnalyzedRecipeInstructions200ResponseIngredientsInner {..} =
-   _omitNulls
-      [ "id" .= getAnalyzedRecipeInstructions200ResponseIngredientsInnerId
-      , "name" .= getAnalyzedRecipeInstructions200ResponseIngredientsInnerName
-      ]
-
-
--- | Construct a value of type 'GetAnalyzedRecipeInstructions200ResponseIngredientsInner' (by applying it's required fields, if any)
-mkGetAnalyzedRecipeInstructions200ResponseIngredientsInner
-  :: Int -- ^ 'getAnalyzedRecipeInstructions200ResponseIngredientsInnerId' 
-  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseIngredientsInnerName' 
-  -> GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-mkGetAnalyzedRecipeInstructions200ResponseIngredientsInner getAnalyzedRecipeInstructions200ResponseIngredientsInnerId getAnalyzedRecipeInstructions200ResponseIngredientsInnerName =
-  GetAnalyzedRecipeInstructions200ResponseIngredientsInner
-  { getAnalyzedRecipeInstructions200ResponseIngredientsInnerId
-  , getAnalyzedRecipeInstructions200ResponseIngredientsInnerName
-  }
-
--- ** GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
--- | GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-data GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner = GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerName :: !(Text) -- ^ /Required/ "name"
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerSteps :: !(Maybe [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner]) -- ^ "steps"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-instance A.FromJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner where
-  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner" $ \o ->
-    GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
+-- | FromJSON GetAnalyzedRecipeInstructions200ResponseInner
+instance A.FromJSON GetAnalyzedRecipeInstructions200ResponseInner where
+  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200ResponseInner" $ \o ->
+    GetAnalyzedRecipeInstructions200ResponseInner
       <$> (o .:  "name")
       <*> (o .:? "steps")
 
--- | ToJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-instance A.ToJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner where
-  toJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner {..} =
+-- | ToJSON GetAnalyzedRecipeInstructions200ResponseInner
+instance A.ToJSON GetAnalyzedRecipeInstructions200ResponseInner where
+  toJSON GetAnalyzedRecipeInstructions200ResponseInner {..} =
    _omitNulls
-      [ "name" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerName
-      , "steps" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerSteps
+      [ "name" .= getAnalyzedRecipeInstructions200ResponseInnerName
+      , "steps" .= getAnalyzedRecipeInstructions200ResponseInnerSteps
       ]
 
 
--- | Construct a value of type 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner' (by applying it's required fields, if any)
-mkGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-  :: Text -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerName' 
-  -> GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-mkGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerName =
-  GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerName
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerSteps = Nothing
+-- | Construct a value of type 'GetAnalyzedRecipeInstructions200ResponseInner' (by applying it's required fields, if any)
+mkGetAnalyzedRecipeInstructions200ResponseInner
+  :: Text -- ^ 'getAnalyzedRecipeInstructions200ResponseInnerName' 
+  -> GetAnalyzedRecipeInstructions200ResponseInner
+mkGetAnalyzedRecipeInstructions200ResponseInner getAnalyzedRecipeInstructions200ResponseInnerName =
+  GetAnalyzedRecipeInstructions200ResponseInner
+  { getAnalyzedRecipeInstructions200ResponseInnerName
+  , getAnalyzedRecipeInstructions200ResponseInnerSteps = Nothing
   }
 
--- ** GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
--- | GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-data GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner = GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerNumber :: !(Double) -- ^ /Required/ "number"
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerStep :: !(Text) -- ^ /Required/ "step"
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients :: !(Maybe [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner]) -- ^ "ingredients"
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerEquipment :: !(Maybe [GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner]) -- ^ "equipment"
+-- ** GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+-- | GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+data GetAnalyzedRecipeInstructions200ResponseInnerStepsInner = GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+  { getAnalyzedRecipeInstructions200ResponseInnerStepsInnerNumber :: !(Double) -- ^ /Required/ "number"
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerStep :: !(Text) -- ^ /Required/ "step"
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredients :: !(Maybe [GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner]) -- ^ "ingredients"
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerEquipment :: !(Maybe [GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner]) -- ^ "equipment"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-instance A.FromJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner where
-  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner" $ \o ->
-    GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
+-- | FromJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+instance A.FromJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInner where
+  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200ResponseInnerStepsInner" $ \o ->
+    GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
       <$> (o .:  "number")
       <*> (o .:  "step")
       <*> (o .:? "ingredients")
       <*> (o .:? "equipment")
 
--- | ToJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-instance A.ToJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner where
-  toJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner {..} =
+-- | ToJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+instance A.ToJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInner where
+  toJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInner {..} =
    _omitNulls
-      [ "number" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerNumber
-      , "step" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerStep
-      , "ingredients" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients
-      , "equipment" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerEquipment
+      [ "number" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerNumber
+      , "step" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerStep
+      , "ingredients" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredients
+      , "equipment" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerEquipment
       ]
 
 
--- | Construct a value of type 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner' (by applying it's required fields, if any)
-mkGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-  :: Double -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerNumber' 
-  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerStep' 
-  -> GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-mkGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerNumber getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerStep =
-  GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerNumber
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerStep
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredients = Nothing
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerEquipment = Nothing
+-- | Construct a value of type 'GetAnalyzedRecipeInstructions200ResponseInnerStepsInner' (by applying it's required fields, if any)
+mkGetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+  :: Double -- ^ 'getAnalyzedRecipeInstructions200ResponseInnerStepsInnerNumber' 
+  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseInnerStepsInnerStep' 
+  -> GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+mkGetAnalyzedRecipeInstructions200ResponseInnerStepsInner getAnalyzedRecipeInstructions200ResponseInnerStepsInnerNumber getAnalyzedRecipeInstructions200ResponseInnerStepsInnerStep =
+  GetAnalyzedRecipeInstructions200ResponseInnerStepsInner
+  { getAnalyzedRecipeInstructions200ResponseInnerStepsInnerNumber
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerStep
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredients = Nothing
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerEquipment = Nothing
   }
 
--- ** GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
--- | GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-data GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner = GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName :: !(Text) -- ^ /Required/ "localizedName"
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage :: !(Text) -- ^ /Required/ "image"
+-- ** GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+-- | GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+data GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner = GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+  { getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerLocalizedName :: !(Text) -- ^ /Required/ "localizedName"
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerImage :: !(Text) -- ^ /Required/ "image"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-instance A.FromJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner where
-  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner" $ \o ->
-    GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+-- | FromJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+instance A.FromJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner where
+  parseJSON = A.withObject "GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner" $ \o ->
+    GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
       <$> (o .:  "id")
       <*> (o .:  "name")
       <*> (o .:  "localizedName")
       <*> (o .:  "image")
 
--- | ToJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-instance A.ToJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner where
-  toJSON GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {..} =
+-- | ToJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+instance A.ToJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner where
+  toJSON GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner {..} =
    _omitNulls
-      [ "id" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId
-      , "name" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName
-      , "localizedName" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName
-      , "image" .= getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage
+      [ "id" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerId
+      , "name" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerName
+      , "localizedName" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerLocalizedName
+      , "image" .= getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerImage
       ]
 
 
--- | Construct a value of type 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner' (by applying it's required fields, if any)
-mkGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-  :: Int -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId' 
-  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName' 
-  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName' 
-  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage' 
-  -> GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-mkGetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage =
-  GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-  { getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerId
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerName
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerLocalizedName
-  , getAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInnerImage
+-- | Construct a value of type 'GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner' (by applying it's required fields, if any)
+mkGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+  :: Int -- ^ 'getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerId' 
+  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerName' 
+  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerLocalizedName' 
+  -> Text -- ^ 'getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerImage' 
+  -> GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+mkGetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerId getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerName getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerLocalizedName getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerImage =
+  GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner
+  { getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerId
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerName
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerLocalizedName
+  , getAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInnerImage
   }
 
 -- ** GetComparableProducts200Response
@@ -2397,12 +2295,12 @@ mkGetComparableProducts200Response getComparableProducts200ResponseComparablePro
 -- ** GetComparableProducts200ResponseComparableProducts
 -- | GetComparableProducts200ResponseComparableProducts
 data GetComparableProducts200ResponseComparableProducts = GetComparableProducts200ResponseComparableProducts
-  { getComparableProducts200ResponseComparableProductsCalories :: !([A.Value]) -- ^ /Required/ "calories"
-  , getComparableProducts200ResponseComparableProductsLikes :: !([A.Value]) -- ^ /Required/ "likes"
-  , getComparableProducts200ResponseComparableProductsPrice :: !([A.Value]) -- ^ /Required/ "price"
-  , getComparableProducts200ResponseComparableProductsProtein :: !([GetComparableProducts200ResponseComparableProductsProteinInner]) -- ^ /Required/ "protein"
-  , getComparableProducts200ResponseComparableProductsSpoonacularScore :: !([GetComparableProducts200ResponseComparableProductsProteinInner]) -- ^ /Required/ "spoonacularScore"
-  , getComparableProducts200ResponseComparableProductsSugar :: !([A.Value]) -- ^ /Required/ "sugar"
+  { getComparableProducts200ResponseComparableProductsCalories :: !([ComparableProduct]) -- ^ /Required/ "calories"
+  , getComparableProducts200ResponseComparableProductsLikes :: !([ComparableProduct]) -- ^ /Required/ "likes"
+  , getComparableProducts200ResponseComparableProductsPrice :: !([ComparableProduct]) -- ^ /Required/ "price"
+  , getComparableProducts200ResponseComparableProductsProtein :: !([ComparableProduct]) -- ^ /Required/ "protein"
+  , getComparableProducts200ResponseComparableProductsSpoonacularScore :: !([ComparableProduct]) -- ^ /Required/ "spoonacular_score"
+  , getComparableProducts200ResponseComparableProductsSugar :: !([ComparableProduct]) -- ^ /Required/ "sugar"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetComparableProducts200ResponseComparableProducts
@@ -2413,7 +2311,7 @@ instance A.FromJSON GetComparableProducts200ResponseComparableProducts where
       <*> (o .:  "likes")
       <*> (o .:  "price")
       <*> (o .:  "protein")
-      <*> (o .:  "spoonacularScore")
+      <*> (o .:  "spoonacular_score")
       <*> (o .:  "sugar")
 
 -- | ToJSON GetComparableProducts200ResponseComparableProducts
@@ -2424,19 +2322,19 @@ instance A.ToJSON GetComparableProducts200ResponseComparableProducts where
       , "likes" .= getComparableProducts200ResponseComparableProductsLikes
       , "price" .= getComparableProducts200ResponseComparableProductsPrice
       , "protein" .= getComparableProducts200ResponseComparableProductsProtein
-      , "spoonacularScore" .= getComparableProducts200ResponseComparableProductsSpoonacularScore
+      , "spoonacular_score" .= getComparableProducts200ResponseComparableProductsSpoonacularScore
       , "sugar" .= getComparableProducts200ResponseComparableProductsSugar
       ]
 
 
 -- | Construct a value of type 'GetComparableProducts200ResponseComparableProducts' (by applying it's required fields, if any)
 mkGetComparableProducts200ResponseComparableProducts
-  :: [A.Value] -- ^ 'getComparableProducts200ResponseComparableProductsCalories' 
-  -> [A.Value] -- ^ 'getComparableProducts200ResponseComparableProductsLikes' 
-  -> [A.Value] -- ^ 'getComparableProducts200ResponseComparableProductsPrice' 
-  -> [GetComparableProducts200ResponseComparableProductsProteinInner] -- ^ 'getComparableProducts200ResponseComparableProductsProtein' 
-  -> [GetComparableProducts200ResponseComparableProductsProteinInner] -- ^ 'getComparableProducts200ResponseComparableProductsSpoonacularScore' 
-  -> [A.Value] -- ^ 'getComparableProducts200ResponseComparableProductsSugar' 
+  :: [ComparableProduct] -- ^ 'getComparableProducts200ResponseComparableProductsCalories' 
+  -> [ComparableProduct] -- ^ 'getComparableProducts200ResponseComparableProductsLikes' 
+  -> [ComparableProduct] -- ^ 'getComparableProducts200ResponseComparableProductsPrice' 
+  -> [ComparableProduct] -- ^ 'getComparableProducts200ResponseComparableProductsProtein' 
+  -> [ComparableProduct] -- ^ 'getComparableProducts200ResponseComparableProductsSpoonacularScore' 
+  -> [ComparableProduct] -- ^ 'getComparableProducts200ResponseComparableProductsSugar' 
   -> GetComparableProducts200ResponseComparableProducts
 mkGetComparableProducts200ResponseComparableProducts getComparableProducts200ResponseComparableProductsCalories getComparableProducts200ResponseComparableProductsLikes getComparableProducts200ResponseComparableProductsPrice getComparableProducts200ResponseComparableProductsProtein getComparableProducts200ResponseComparableProductsSpoonacularScore getComparableProducts200ResponseComparableProductsSugar =
   GetComparableProducts200ResponseComparableProducts
@@ -2446,50 +2344,6 @@ mkGetComparableProducts200ResponseComparableProducts getComparableProducts200Res
   , getComparableProducts200ResponseComparableProductsProtein
   , getComparableProducts200ResponseComparableProductsSpoonacularScore
   , getComparableProducts200ResponseComparableProductsSugar
-  }
-
--- ** GetComparableProducts200ResponseComparableProductsProteinInner
--- | GetComparableProducts200ResponseComparableProductsProteinInner
-data GetComparableProducts200ResponseComparableProductsProteinInner = GetComparableProducts200ResponseComparableProductsProteinInner
-  { getComparableProducts200ResponseComparableProductsProteinInnerDifference :: !(Double) -- ^ /Required/ "difference"
-  , getComparableProducts200ResponseComparableProductsProteinInnerId :: !(Int) -- ^ /Required/ "id"
-  , getComparableProducts200ResponseComparableProductsProteinInnerImage :: !(Text) -- ^ /Required/ "image"
-  , getComparableProducts200ResponseComparableProductsProteinInnerTitle :: !(Text) -- ^ /Required/ "title"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetComparableProducts200ResponseComparableProductsProteinInner
-instance A.FromJSON GetComparableProducts200ResponseComparableProductsProteinInner where
-  parseJSON = A.withObject "GetComparableProducts200ResponseComparableProductsProteinInner" $ \o ->
-    GetComparableProducts200ResponseComparableProductsProteinInner
-      <$> (o .:  "difference")
-      <*> (o .:  "id")
-      <*> (o .:  "image")
-      <*> (o .:  "title")
-
--- | ToJSON GetComparableProducts200ResponseComparableProductsProteinInner
-instance A.ToJSON GetComparableProducts200ResponseComparableProductsProteinInner where
-  toJSON GetComparableProducts200ResponseComparableProductsProteinInner {..} =
-   _omitNulls
-      [ "difference" .= getComparableProducts200ResponseComparableProductsProteinInnerDifference
-      , "id" .= getComparableProducts200ResponseComparableProductsProteinInnerId
-      , "image" .= getComparableProducts200ResponseComparableProductsProteinInnerImage
-      , "title" .= getComparableProducts200ResponseComparableProductsProteinInnerTitle
-      ]
-
-
--- | Construct a value of type 'GetComparableProducts200ResponseComparableProductsProteinInner' (by applying it's required fields, if any)
-mkGetComparableProducts200ResponseComparableProductsProteinInner
-  :: Double -- ^ 'getComparableProducts200ResponseComparableProductsProteinInnerDifference' 
-  -> Int -- ^ 'getComparableProducts200ResponseComparableProductsProteinInnerId' 
-  -> Text -- ^ 'getComparableProducts200ResponseComparableProductsProteinInnerImage' 
-  -> Text -- ^ 'getComparableProducts200ResponseComparableProductsProteinInnerTitle' 
-  -> GetComparableProducts200ResponseComparableProductsProteinInner
-mkGetComparableProducts200ResponseComparableProductsProteinInner getComparableProducts200ResponseComparableProductsProteinInnerDifference getComparableProducts200ResponseComparableProductsProteinInnerId getComparableProducts200ResponseComparableProductsProteinInnerImage getComparableProducts200ResponseComparableProductsProteinInnerTitle =
-  GetComparableProducts200ResponseComparableProductsProteinInner
-  { getComparableProducts200ResponseComparableProductsProteinInnerDifference
-  , getComparableProducts200ResponseComparableProductsProteinInnerId
-  , getComparableProducts200ResponseComparableProductsProteinInnerImage
-  , getComparableProducts200ResponseComparableProductsProteinInnerTitle
   }
 
 -- ** GetConversationSuggests200Response
@@ -2618,165 +2472,6 @@ mkGetDishPairingForWine200Response getDishPairingForWine200ResponsePairings getD
   GetDishPairingForWine200Response
   { getDishPairingForWine200ResponsePairings
   , getDishPairingForWine200ResponseText
-  }
-
--- ** GetIngredientInformation200Response
--- | GetIngredientInformation200Response
--- 
-data GetIngredientInformation200Response = GetIngredientInformation200Response
-  { getIngredientInformation200ResponseId :: !(Int) -- ^ /Required/ "id"
-  , getIngredientInformation200ResponseOriginal :: !(Text) -- ^ /Required/ "original"
-  , getIngredientInformation200ResponseOriginalName :: !(Text) -- ^ /Required/ "originalName"
-  , getIngredientInformation200ResponseName :: !(Text) -- ^ /Required/ "name"
-  , getIngredientInformation200ResponseNameClean :: !(Text) -- ^ /Required/ "nameClean"
-  , getIngredientInformation200ResponseAmount :: !(Double) -- ^ /Required/ "amount"
-  , getIngredientInformation200ResponseUnit :: !(Text) -- ^ /Required/ "unit"
-  , getIngredientInformation200ResponseUnitShort :: !(Text) -- ^ /Required/ "unitShort"
-  , getIngredientInformation200ResponseUnitLong :: !(Text) -- ^ /Required/ "unitLong"
-  , getIngredientInformation200ResponsePossibleUnits :: !([Text]) -- ^ /Required/ "possibleUnits"
-  , getIngredientInformation200ResponseEstimatedCost :: !(ParseIngredients200ResponseInnerEstimatedCost) -- ^ /Required/ "estimatedCost"
-  , getIngredientInformation200ResponseConsistency :: !(Text) -- ^ /Required/ "consistency"
-  , getIngredientInformation200ResponseShoppingListUnits :: !([Text]) -- ^ /Required/ "shoppingListUnits"
-  , getIngredientInformation200ResponseAisle :: !(Text) -- ^ /Required/ "aisle"
-  , getIngredientInformation200ResponseImage :: !(Text) -- ^ /Required/ "image"
-  , getIngredientInformation200ResponseMeta :: !([A.Value]) -- ^ /Required/ "meta"
-  , getIngredientInformation200ResponseNutrition :: !(GetIngredientInformation200ResponseNutrition) -- ^ /Required/ "nutrition"
-  , getIngredientInformation200ResponseCategoryPath :: !([Text]) -- ^ /Required/ "categoryPath"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetIngredientInformation200Response
-instance A.FromJSON GetIngredientInformation200Response where
-  parseJSON = A.withObject "GetIngredientInformation200Response" $ \o ->
-    GetIngredientInformation200Response
-      <$> (o .:  "id")
-      <*> (o .:  "original")
-      <*> (o .:  "originalName")
-      <*> (o .:  "name")
-      <*> (o .:  "nameClean")
-      <*> (o .:  "amount")
-      <*> (o .:  "unit")
-      <*> (o .:  "unitShort")
-      <*> (o .:  "unitLong")
-      <*> (o .:  "possibleUnits")
-      <*> (o .:  "estimatedCost")
-      <*> (o .:  "consistency")
-      <*> (o .:  "shoppingListUnits")
-      <*> (o .:  "aisle")
-      <*> (o .:  "image")
-      <*> (o .:  "meta")
-      <*> (o .:  "nutrition")
-      <*> (o .:  "categoryPath")
-
--- | ToJSON GetIngredientInformation200Response
-instance A.ToJSON GetIngredientInformation200Response where
-  toJSON GetIngredientInformation200Response {..} =
-   _omitNulls
-      [ "id" .= getIngredientInformation200ResponseId
-      , "original" .= getIngredientInformation200ResponseOriginal
-      , "originalName" .= getIngredientInformation200ResponseOriginalName
-      , "name" .= getIngredientInformation200ResponseName
-      , "nameClean" .= getIngredientInformation200ResponseNameClean
-      , "amount" .= getIngredientInformation200ResponseAmount
-      , "unit" .= getIngredientInformation200ResponseUnit
-      , "unitShort" .= getIngredientInformation200ResponseUnitShort
-      , "unitLong" .= getIngredientInformation200ResponseUnitLong
-      , "possibleUnits" .= getIngredientInformation200ResponsePossibleUnits
-      , "estimatedCost" .= getIngredientInformation200ResponseEstimatedCost
-      , "consistency" .= getIngredientInformation200ResponseConsistency
-      , "shoppingListUnits" .= getIngredientInformation200ResponseShoppingListUnits
-      , "aisle" .= getIngredientInformation200ResponseAisle
-      , "image" .= getIngredientInformation200ResponseImage
-      , "meta" .= getIngredientInformation200ResponseMeta
-      , "nutrition" .= getIngredientInformation200ResponseNutrition
-      , "categoryPath" .= getIngredientInformation200ResponseCategoryPath
-      ]
-
-
--- | Construct a value of type 'GetIngredientInformation200Response' (by applying it's required fields, if any)
-mkGetIngredientInformation200Response
-  :: Int -- ^ 'getIngredientInformation200ResponseId' 
-  -> Text -- ^ 'getIngredientInformation200ResponseOriginal' 
-  -> Text -- ^ 'getIngredientInformation200ResponseOriginalName' 
-  -> Text -- ^ 'getIngredientInformation200ResponseName' 
-  -> Text -- ^ 'getIngredientInformation200ResponseNameClean' 
-  -> Double -- ^ 'getIngredientInformation200ResponseAmount' 
-  -> Text -- ^ 'getIngredientInformation200ResponseUnit' 
-  -> Text -- ^ 'getIngredientInformation200ResponseUnitShort' 
-  -> Text -- ^ 'getIngredientInformation200ResponseUnitLong' 
-  -> [Text] -- ^ 'getIngredientInformation200ResponsePossibleUnits' 
-  -> ParseIngredients200ResponseInnerEstimatedCost -- ^ 'getIngredientInformation200ResponseEstimatedCost' 
-  -> Text -- ^ 'getIngredientInformation200ResponseConsistency' 
-  -> [Text] -- ^ 'getIngredientInformation200ResponseShoppingListUnits' 
-  -> Text -- ^ 'getIngredientInformation200ResponseAisle' 
-  -> Text -- ^ 'getIngredientInformation200ResponseImage' 
-  -> [A.Value] -- ^ 'getIngredientInformation200ResponseMeta' 
-  -> GetIngredientInformation200ResponseNutrition -- ^ 'getIngredientInformation200ResponseNutrition' 
-  -> [Text] -- ^ 'getIngredientInformation200ResponseCategoryPath' 
-  -> GetIngredientInformation200Response
-mkGetIngredientInformation200Response getIngredientInformation200ResponseId getIngredientInformation200ResponseOriginal getIngredientInformation200ResponseOriginalName getIngredientInformation200ResponseName getIngredientInformation200ResponseNameClean getIngredientInformation200ResponseAmount getIngredientInformation200ResponseUnit getIngredientInformation200ResponseUnitShort getIngredientInformation200ResponseUnitLong getIngredientInformation200ResponsePossibleUnits getIngredientInformation200ResponseEstimatedCost getIngredientInformation200ResponseConsistency getIngredientInformation200ResponseShoppingListUnits getIngredientInformation200ResponseAisle getIngredientInformation200ResponseImage getIngredientInformation200ResponseMeta getIngredientInformation200ResponseNutrition getIngredientInformation200ResponseCategoryPath =
-  GetIngredientInformation200Response
-  { getIngredientInformation200ResponseId
-  , getIngredientInformation200ResponseOriginal
-  , getIngredientInformation200ResponseOriginalName
-  , getIngredientInformation200ResponseName
-  , getIngredientInformation200ResponseNameClean
-  , getIngredientInformation200ResponseAmount
-  , getIngredientInformation200ResponseUnit
-  , getIngredientInformation200ResponseUnitShort
-  , getIngredientInformation200ResponseUnitLong
-  , getIngredientInformation200ResponsePossibleUnits
-  , getIngredientInformation200ResponseEstimatedCost
-  , getIngredientInformation200ResponseConsistency
-  , getIngredientInformation200ResponseShoppingListUnits
-  , getIngredientInformation200ResponseAisle
-  , getIngredientInformation200ResponseImage
-  , getIngredientInformation200ResponseMeta
-  , getIngredientInformation200ResponseNutrition
-  , getIngredientInformation200ResponseCategoryPath
-  }
-
--- ** GetIngredientInformation200ResponseNutrition
--- | GetIngredientInformation200ResponseNutrition
-data GetIngredientInformation200ResponseNutrition = GetIngredientInformation200ResponseNutrition
-  { getIngredientInformation200ResponseNutritionNutrients :: !([ParseIngredients200ResponseInnerNutritionNutrientsInner]) -- ^ /Required/ "nutrients"
-  , getIngredientInformation200ResponseNutritionProperties :: !([ParseIngredients200ResponseInnerNutritionPropertiesInner]) -- ^ /Required/ "properties"
-  , getIngredientInformation200ResponseNutritionCaloricBreakdown :: !(ParseIngredients200ResponseInnerNutritionCaloricBreakdown) -- ^ /Required/ "caloricBreakdown"
-  , getIngredientInformation200ResponseNutritionWeightPerServing :: !(ParseIngredients200ResponseInnerNutritionWeightPerServing) -- ^ /Required/ "weightPerServing"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetIngredientInformation200ResponseNutrition
-instance A.FromJSON GetIngredientInformation200ResponseNutrition where
-  parseJSON = A.withObject "GetIngredientInformation200ResponseNutrition" $ \o ->
-    GetIngredientInformation200ResponseNutrition
-      <$> (o .:  "nutrients")
-      <*> (o .:  "properties")
-      <*> (o .:  "caloricBreakdown")
-      <*> (o .:  "weightPerServing")
-
--- | ToJSON GetIngredientInformation200ResponseNutrition
-instance A.ToJSON GetIngredientInformation200ResponseNutrition where
-  toJSON GetIngredientInformation200ResponseNutrition {..} =
-   _omitNulls
-      [ "nutrients" .= getIngredientInformation200ResponseNutritionNutrients
-      , "properties" .= getIngredientInformation200ResponseNutritionProperties
-      , "caloricBreakdown" .= getIngredientInformation200ResponseNutritionCaloricBreakdown
-      , "weightPerServing" .= getIngredientInformation200ResponseNutritionWeightPerServing
-      ]
-
-
--- | Construct a value of type 'GetIngredientInformation200ResponseNutrition' (by applying it's required fields, if any)
-mkGetIngredientInformation200ResponseNutrition
-  :: [ParseIngredients200ResponseInnerNutritionNutrientsInner] -- ^ 'getIngredientInformation200ResponseNutritionNutrients' 
-  -> [ParseIngredients200ResponseInnerNutritionPropertiesInner] -- ^ 'getIngredientInformation200ResponseNutritionProperties' 
-  -> ParseIngredients200ResponseInnerNutritionCaloricBreakdown -- ^ 'getIngredientInformation200ResponseNutritionCaloricBreakdown' 
-  -> ParseIngredients200ResponseInnerNutritionWeightPerServing -- ^ 'getIngredientInformation200ResponseNutritionWeightPerServing' 
-  -> GetIngredientInformation200ResponseNutrition
-mkGetIngredientInformation200ResponseNutrition getIngredientInformation200ResponseNutritionNutrients getIngredientInformation200ResponseNutritionProperties getIngredientInformation200ResponseNutritionCaloricBreakdown getIngredientInformation200ResponseNutritionWeightPerServing =
-  GetIngredientInformation200ResponseNutrition
-  { getIngredientInformation200ResponseNutritionNutrients
-  , getIngredientInformation200ResponseNutritionProperties
-  , getIngredientInformation200ResponseNutritionCaloricBreakdown
-  , getIngredientInformation200ResponseNutritionWeightPerServing
   }
 
 -- ** GetIngredientSubstitutes200Response
@@ -2999,7 +2694,7 @@ mkGetMealPlanTemplate200ResponseDaysInnerItemsInnerValue getMealPlanTemplate200R
 -- | GetMealPlanTemplates200Response
 -- 
 data GetMealPlanTemplates200Response = GetMealPlanTemplates200Response
-  { getMealPlanTemplates200ResponseTemplates :: !([GetAnalyzedRecipeInstructions200ResponseIngredientsInner]) -- ^ /Required/ "templates"
+  { getMealPlanTemplates200ResponseTemplates :: !([GetMealPlanTemplates200ResponseTemplatesInner]) -- ^ /Required/ "templates"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetMealPlanTemplates200Response
@@ -3018,11 +2713,45 @@ instance A.ToJSON GetMealPlanTemplates200Response where
 
 -- | Construct a value of type 'GetMealPlanTemplates200Response' (by applying it's required fields, if any)
 mkGetMealPlanTemplates200Response
-  :: [GetAnalyzedRecipeInstructions200ResponseIngredientsInner] -- ^ 'getMealPlanTemplates200ResponseTemplates' 
+  :: [GetMealPlanTemplates200ResponseTemplatesInner] -- ^ 'getMealPlanTemplates200ResponseTemplates' 
   -> GetMealPlanTemplates200Response
 mkGetMealPlanTemplates200Response getMealPlanTemplates200ResponseTemplates =
   GetMealPlanTemplates200Response
   { getMealPlanTemplates200ResponseTemplates
+  }
+
+-- ** GetMealPlanTemplates200ResponseTemplatesInner
+-- | GetMealPlanTemplates200ResponseTemplatesInner
+data GetMealPlanTemplates200ResponseTemplatesInner = GetMealPlanTemplates200ResponseTemplatesInner
+  { getMealPlanTemplates200ResponseTemplatesInnerId :: !(Int) -- ^ /Required/ "id"
+  , getMealPlanTemplates200ResponseTemplatesInnerName :: !(Text) -- ^ /Required/ "name"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON GetMealPlanTemplates200ResponseTemplatesInner
+instance A.FromJSON GetMealPlanTemplates200ResponseTemplatesInner where
+  parseJSON = A.withObject "GetMealPlanTemplates200ResponseTemplatesInner" $ \o ->
+    GetMealPlanTemplates200ResponseTemplatesInner
+      <$> (o .:  "id")
+      <*> (o .:  "name")
+
+-- | ToJSON GetMealPlanTemplates200ResponseTemplatesInner
+instance A.ToJSON GetMealPlanTemplates200ResponseTemplatesInner where
+  toJSON GetMealPlanTemplates200ResponseTemplatesInner {..} =
+   _omitNulls
+      [ "id" .= getMealPlanTemplates200ResponseTemplatesInnerId
+      , "name" .= getMealPlanTemplates200ResponseTemplatesInnerName
+      ]
+
+
+-- | Construct a value of type 'GetMealPlanTemplates200ResponseTemplatesInner' (by applying it's required fields, if any)
+mkGetMealPlanTemplates200ResponseTemplatesInner
+  :: Int -- ^ 'getMealPlanTemplates200ResponseTemplatesInnerId' 
+  -> Text -- ^ 'getMealPlanTemplates200ResponseTemplatesInnerName' 
+  -> GetMealPlanTemplates200ResponseTemplatesInner
+mkGetMealPlanTemplates200ResponseTemplatesInner getMealPlanTemplates200ResponseTemplatesInnerId getMealPlanTemplates200ResponseTemplatesInnerName =
+  GetMealPlanTemplates200ResponseTemplatesInner
+  { getMealPlanTemplates200ResponseTemplatesInnerId
+  , getMealPlanTemplates200ResponseTemplatesInnerName
   }
 
 -- ** GetMealPlanWeek200Response
@@ -3274,264 +3003,11 @@ mkGetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner getMealPlanW
   , getMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInnerPercentDailyNeeds
   }
 
--- ** GetMenuItemInformation200Response
--- | GetMenuItemInformation200Response
--- 
-data GetMenuItemInformation200Response = GetMenuItemInformation200Response
-  { getMenuItemInformation200ResponseId :: !(Int) -- ^ /Required/ "id"
-  , getMenuItemInformation200ResponseTitle :: !(Text) -- ^ /Required/ "title"
-  , getMenuItemInformation200ResponseRestaurantChain :: !(Text) -- ^ /Required/ "restaurantChain"
-  , getMenuItemInformation200ResponseNutrition :: !(SearchGroceryProductsByUPC200ResponseNutrition) -- ^ /Required/ "nutrition"
-  , getMenuItemInformation200ResponseBadges :: !([Text]) -- ^ /Required/ "badges"
-  , getMenuItemInformation200ResponseBreadcrumbs :: !([Text]) -- ^ /Required/ "breadcrumbs"
-  , getMenuItemInformation200ResponseGeneratedText :: !(Maybe Text) -- ^ "generatedText"
-  , getMenuItemInformation200ResponseImageType :: !(Text) -- ^ /Required/ "imageType"
-  , getMenuItemInformation200ResponseLikes :: !(Double) -- ^ /Required/ "likes"
-  , getMenuItemInformation200ResponseServings :: !(SearchGroceryProductsByUPC200ResponseServings) -- ^ /Required/ "servings"
-  , getMenuItemInformation200ResponsePrice :: !(Maybe Double) -- ^ "price"
-  , getMenuItemInformation200ResponseSpoonacularScore :: !(Maybe Double) -- ^ "spoonacularScore"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetMenuItemInformation200Response
-instance A.FromJSON GetMenuItemInformation200Response where
-  parseJSON = A.withObject "GetMenuItemInformation200Response" $ \o ->
-    GetMenuItemInformation200Response
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "restaurantChain")
-      <*> (o .:  "nutrition")
-      <*> (o .:  "badges")
-      <*> (o .:  "breadcrumbs")
-      <*> (o .:? "generatedText")
-      <*> (o .:  "imageType")
-      <*> (o .:  "likes")
-      <*> (o .:  "servings")
-      <*> (o .:? "price")
-      <*> (o .:? "spoonacularScore")
-
--- | ToJSON GetMenuItemInformation200Response
-instance A.ToJSON GetMenuItemInformation200Response where
-  toJSON GetMenuItemInformation200Response {..} =
-   _omitNulls
-      [ "id" .= getMenuItemInformation200ResponseId
-      , "title" .= getMenuItemInformation200ResponseTitle
-      , "restaurantChain" .= getMenuItemInformation200ResponseRestaurantChain
-      , "nutrition" .= getMenuItemInformation200ResponseNutrition
-      , "badges" .= getMenuItemInformation200ResponseBadges
-      , "breadcrumbs" .= getMenuItemInformation200ResponseBreadcrumbs
-      , "generatedText" .= getMenuItemInformation200ResponseGeneratedText
-      , "imageType" .= getMenuItemInformation200ResponseImageType
-      , "likes" .= getMenuItemInformation200ResponseLikes
-      , "servings" .= getMenuItemInformation200ResponseServings
-      , "price" .= getMenuItemInformation200ResponsePrice
-      , "spoonacularScore" .= getMenuItemInformation200ResponseSpoonacularScore
-      ]
-
-
--- | Construct a value of type 'GetMenuItemInformation200Response' (by applying it's required fields, if any)
-mkGetMenuItemInformation200Response
-  :: Int -- ^ 'getMenuItemInformation200ResponseId' 
-  -> Text -- ^ 'getMenuItemInformation200ResponseTitle' 
-  -> Text -- ^ 'getMenuItemInformation200ResponseRestaurantChain' 
-  -> SearchGroceryProductsByUPC200ResponseNutrition -- ^ 'getMenuItemInformation200ResponseNutrition' 
-  -> [Text] -- ^ 'getMenuItemInformation200ResponseBadges' 
-  -> [Text] -- ^ 'getMenuItemInformation200ResponseBreadcrumbs' 
-  -> Text -- ^ 'getMenuItemInformation200ResponseImageType' 
-  -> Double -- ^ 'getMenuItemInformation200ResponseLikes' 
-  -> SearchGroceryProductsByUPC200ResponseServings -- ^ 'getMenuItemInformation200ResponseServings' 
-  -> GetMenuItemInformation200Response
-mkGetMenuItemInformation200Response getMenuItemInformation200ResponseId getMenuItemInformation200ResponseTitle getMenuItemInformation200ResponseRestaurantChain getMenuItemInformation200ResponseNutrition getMenuItemInformation200ResponseBadges getMenuItemInformation200ResponseBreadcrumbs getMenuItemInformation200ResponseImageType getMenuItemInformation200ResponseLikes getMenuItemInformation200ResponseServings =
-  GetMenuItemInformation200Response
-  { getMenuItemInformation200ResponseId
-  , getMenuItemInformation200ResponseTitle
-  , getMenuItemInformation200ResponseRestaurantChain
-  , getMenuItemInformation200ResponseNutrition
-  , getMenuItemInformation200ResponseBadges
-  , getMenuItemInformation200ResponseBreadcrumbs
-  , getMenuItemInformation200ResponseGeneratedText = Nothing
-  , getMenuItemInformation200ResponseImageType
-  , getMenuItemInformation200ResponseLikes
-  , getMenuItemInformation200ResponseServings
-  , getMenuItemInformation200ResponsePrice = Nothing
-  , getMenuItemInformation200ResponseSpoonacularScore = Nothing
-  }
-
--- ** GetProductInformation200Response
--- | GetProductInformation200Response
--- 
-data GetProductInformation200Response = GetProductInformation200Response
-  { getProductInformation200ResponseId :: !(Int) -- ^ /Required/ "id"
-  , getProductInformation200ResponseTitle :: !(Text) -- ^ /Required/ "title"
-  , getProductInformation200ResponseBreadcrumbs :: !([Text]) -- ^ /Required/ "breadcrumbs"
-  , getProductInformation200ResponseImageType :: !(Text) -- ^ /Required/ "imageType"
-  , getProductInformation200ResponseBadges :: !([Text]) -- ^ /Required/ "badges"
-  , getProductInformation200ResponseImportantBadges :: !([Text]) -- ^ /Required/ "importantBadges"
-  , getProductInformation200ResponseIngredientCount :: !(Int) -- ^ /Required/ "ingredientCount"
-  , getProductInformation200ResponseGeneratedText :: !(Maybe Text) -- ^ "generatedText"
-  , getProductInformation200ResponseIngredientList :: !(Text) -- ^ /Required/ "ingredientList"
-  , getProductInformation200ResponseIngredients :: !([GetProductInformation200ResponseIngredientsInner]) -- ^ /Required/ "ingredients"
-  , getProductInformation200ResponseLikes :: !(Double) -- ^ /Required/ "likes"
-  , getProductInformation200ResponseAisle :: !(Text) -- ^ /Required/ "aisle"
-  , getProductInformation200ResponseNutrition :: !(SearchGroceryProductsByUPC200ResponseNutrition) -- ^ /Required/ "nutrition"
-  , getProductInformation200ResponsePrice :: !(Double) -- ^ /Required/ "price"
-  , getProductInformation200ResponseServings :: !(SearchGroceryProductsByUPC200ResponseServings) -- ^ /Required/ "servings"
-  , getProductInformation200ResponseSpoonacularScore :: !(Double) -- ^ /Required/ "spoonacularScore"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetProductInformation200Response
-instance A.FromJSON GetProductInformation200Response where
-  parseJSON = A.withObject "GetProductInformation200Response" $ \o ->
-    GetProductInformation200Response
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "breadcrumbs")
-      <*> (o .:  "imageType")
-      <*> (o .:  "badges")
-      <*> (o .:  "importantBadges")
-      <*> (o .:  "ingredientCount")
-      <*> (o .:? "generatedText")
-      <*> (o .:  "ingredientList")
-      <*> (o .:  "ingredients")
-      <*> (o .:  "likes")
-      <*> (o .:  "aisle")
-      <*> (o .:  "nutrition")
-      <*> (o .:  "price")
-      <*> (o .:  "servings")
-      <*> (o .:  "spoonacularScore")
-
--- | ToJSON GetProductInformation200Response
-instance A.ToJSON GetProductInformation200Response where
-  toJSON GetProductInformation200Response {..} =
-   _omitNulls
-      [ "id" .= getProductInformation200ResponseId
-      , "title" .= getProductInformation200ResponseTitle
-      , "breadcrumbs" .= getProductInformation200ResponseBreadcrumbs
-      , "imageType" .= getProductInformation200ResponseImageType
-      , "badges" .= getProductInformation200ResponseBadges
-      , "importantBadges" .= getProductInformation200ResponseImportantBadges
-      , "ingredientCount" .= getProductInformation200ResponseIngredientCount
-      , "generatedText" .= getProductInformation200ResponseGeneratedText
-      , "ingredientList" .= getProductInformation200ResponseIngredientList
-      , "ingredients" .= getProductInformation200ResponseIngredients
-      , "likes" .= getProductInformation200ResponseLikes
-      , "aisle" .= getProductInformation200ResponseAisle
-      , "nutrition" .= getProductInformation200ResponseNutrition
-      , "price" .= getProductInformation200ResponsePrice
-      , "servings" .= getProductInformation200ResponseServings
-      , "spoonacularScore" .= getProductInformation200ResponseSpoonacularScore
-      ]
-
-
--- | Construct a value of type 'GetProductInformation200Response' (by applying it's required fields, if any)
-mkGetProductInformation200Response
-  :: Int -- ^ 'getProductInformation200ResponseId' 
-  -> Text -- ^ 'getProductInformation200ResponseTitle' 
-  -> [Text] -- ^ 'getProductInformation200ResponseBreadcrumbs' 
-  -> Text -- ^ 'getProductInformation200ResponseImageType' 
-  -> [Text] -- ^ 'getProductInformation200ResponseBadges' 
-  -> [Text] -- ^ 'getProductInformation200ResponseImportantBadges' 
-  -> Int -- ^ 'getProductInformation200ResponseIngredientCount' 
-  -> Text -- ^ 'getProductInformation200ResponseIngredientList' 
-  -> [GetProductInformation200ResponseIngredientsInner] -- ^ 'getProductInformation200ResponseIngredients' 
-  -> Double -- ^ 'getProductInformation200ResponseLikes' 
-  -> Text -- ^ 'getProductInformation200ResponseAisle' 
-  -> SearchGroceryProductsByUPC200ResponseNutrition -- ^ 'getProductInformation200ResponseNutrition' 
-  -> Double -- ^ 'getProductInformation200ResponsePrice' 
-  -> SearchGroceryProductsByUPC200ResponseServings -- ^ 'getProductInformation200ResponseServings' 
-  -> Double -- ^ 'getProductInformation200ResponseSpoonacularScore' 
-  -> GetProductInformation200Response
-mkGetProductInformation200Response getProductInformation200ResponseId getProductInformation200ResponseTitle getProductInformation200ResponseBreadcrumbs getProductInformation200ResponseImageType getProductInformation200ResponseBadges getProductInformation200ResponseImportantBadges getProductInformation200ResponseIngredientCount getProductInformation200ResponseIngredientList getProductInformation200ResponseIngredients getProductInformation200ResponseLikes getProductInformation200ResponseAisle getProductInformation200ResponseNutrition getProductInformation200ResponsePrice getProductInformation200ResponseServings getProductInformation200ResponseSpoonacularScore =
-  GetProductInformation200Response
-  { getProductInformation200ResponseId
-  , getProductInformation200ResponseTitle
-  , getProductInformation200ResponseBreadcrumbs
-  , getProductInformation200ResponseImageType
-  , getProductInformation200ResponseBadges
-  , getProductInformation200ResponseImportantBadges
-  , getProductInformation200ResponseIngredientCount
-  , getProductInformation200ResponseGeneratedText = Nothing
-  , getProductInformation200ResponseIngredientList
-  , getProductInformation200ResponseIngredients
-  , getProductInformation200ResponseLikes
-  , getProductInformation200ResponseAisle
-  , getProductInformation200ResponseNutrition
-  , getProductInformation200ResponsePrice
-  , getProductInformation200ResponseServings
-  , getProductInformation200ResponseSpoonacularScore
-  }
-
--- ** GetProductInformation200ResponseIngredientsInner
--- | GetProductInformation200ResponseIngredientsInner
-data GetProductInformation200ResponseIngredientsInner = GetProductInformation200ResponseIngredientsInner
-  { getProductInformation200ResponseIngredientsInnerDescription :: !(Maybe Text) -- ^ "description"
-  , getProductInformation200ResponseIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
-  , getProductInformation200ResponseIngredientsInnerSafetyLevel :: !(Maybe Text) -- ^ "safety_level"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetProductInformation200ResponseIngredientsInner
-instance A.FromJSON GetProductInformation200ResponseIngredientsInner where
-  parseJSON = A.withObject "GetProductInformation200ResponseIngredientsInner" $ \o ->
-    GetProductInformation200ResponseIngredientsInner
-      <$> (o .:? "description")
-      <*> (o .:  "name")
-      <*> (o .:? "safety_level")
-
--- | ToJSON GetProductInformation200ResponseIngredientsInner
-instance A.ToJSON GetProductInformation200ResponseIngredientsInner where
-  toJSON GetProductInformation200ResponseIngredientsInner {..} =
-   _omitNulls
-      [ "description" .= getProductInformation200ResponseIngredientsInnerDescription
-      , "name" .= getProductInformation200ResponseIngredientsInnerName
-      , "safety_level" .= getProductInformation200ResponseIngredientsInnerSafetyLevel
-      ]
-
-
--- | Construct a value of type 'GetProductInformation200ResponseIngredientsInner' (by applying it's required fields, if any)
-mkGetProductInformation200ResponseIngredientsInner
-  :: Text -- ^ 'getProductInformation200ResponseIngredientsInnerName' 
-  -> GetProductInformation200ResponseIngredientsInner
-mkGetProductInformation200ResponseIngredientsInner getProductInformation200ResponseIngredientsInnerName =
-  GetProductInformation200ResponseIngredientsInner
-  { getProductInformation200ResponseIngredientsInnerDescription = Nothing
-  , getProductInformation200ResponseIngredientsInnerName
-  , getProductInformation200ResponseIngredientsInnerSafetyLevel = Nothing
-  }
-
--- ** GetRandomFoodTrivia200Response
--- | GetRandomFoodTrivia200Response
--- 
-data GetRandomFoodTrivia200Response = GetRandomFoodTrivia200Response
-  { getRandomFoodTrivia200ResponseText :: !(Text) -- ^ /Required/ "text"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRandomFoodTrivia200Response
-instance A.FromJSON GetRandomFoodTrivia200Response where
-  parseJSON = A.withObject "GetRandomFoodTrivia200Response" $ \o ->
-    GetRandomFoodTrivia200Response
-      <$> (o .:  "text")
-
--- | ToJSON GetRandomFoodTrivia200Response
-instance A.ToJSON GetRandomFoodTrivia200Response where
-  toJSON GetRandomFoodTrivia200Response {..} =
-   _omitNulls
-      [ "text" .= getRandomFoodTrivia200ResponseText
-      ]
-
-
--- | Construct a value of type 'GetRandomFoodTrivia200Response' (by applying it's required fields, if any)
-mkGetRandomFoodTrivia200Response
-  :: Text -- ^ 'getRandomFoodTrivia200ResponseText' 
-  -> GetRandomFoodTrivia200Response
-mkGetRandomFoodTrivia200Response getRandomFoodTrivia200ResponseText =
-  GetRandomFoodTrivia200Response
-  { getRandomFoodTrivia200ResponseText
-  }
-
 -- ** GetRandomRecipes200Response
 -- | GetRandomRecipes200Response
 -- 
 data GetRandomRecipes200Response = GetRandomRecipes200Response
-  { getRandomRecipes200ResponseRecipes :: !([GetRandomRecipes200ResponseRecipesInner]) -- ^ /Required/ "recipes"
+  { getRandomRecipes200ResponseRecipes :: !([RecipeInformation]) -- ^ /Required/ "recipes"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetRandomRecipes200Response
@@ -3550,213 +3026,11 @@ instance A.ToJSON GetRandomRecipes200Response where
 
 -- | Construct a value of type 'GetRandomRecipes200Response' (by applying it's required fields, if any)
 mkGetRandomRecipes200Response
-  :: [GetRandomRecipes200ResponseRecipesInner] -- ^ 'getRandomRecipes200ResponseRecipes' 
+  :: [RecipeInformation] -- ^ 'getRandomRecipes200ResponseRecipes' 
   -> GetRandomRecipes200Response
 mkGetRandomRecipes200Response getRandomRecipes200ResponseRecipes =
   GetRandomRecipes200Response
   { getRandomRecipes200ResponseRecipes
-  }
-
--- ** GetRandomRecipes200ResponseRecipesInner
--- | GetRandomRecipes200ResponseRecipesInner
-data GetRandomRecipes200ResponseRecipesInner = GetRandomRecipes200ResponseRecipesInner
-  { getRandomRecipes200ResponseRecipesInnerId :: !(Int) -- ^ /Required/ "id"
-  , getRandomRecipes200ResponseRecipesInnerTitle :: !(Text) -- ^ /Required/ "title"
-  , getRandomRecipes200ResponseRecipesInnerImage :: !(Text) -- ^ /Required/ "image"
-  , getRandomRecipes200ResponseRecipesInnerImageType :: !(Text) -- ^ /Required/ "imageType"
-  , getRandomRecipes200ResponseRecipesInnerServings :: !(Double) -- ^ /Required/ "servings"
-  , getRandomRecipes200ResponseRecipesInnerReadyInMinutes :: !(Int) -- ^ /Required/ "readyInMinutes"
-  , getRandomRecipes200ResponseRecipesInnerLicense :: !(Text) -- ^ /Required/ "license"
-  , getRandomRecipes200ResponseRecipesInnerSourceName :: !(Text) -- ^ /Required/ "sourceName"
-  , getRandomRecipes200ResponseRecipesInnerSourceUrl :: !(Text) -- ^ /Required/ "sourceUrl"
-  , getRandomRecipes200ResponseRecipesInnerSpoonacularSourceUrl :: !(Text) -- ^ /Required/ "spoonacularSourceUrl"
-  , getRandomRecipes200ResponseRecipesInnerAggregateLikes :: !(Double) -- ^ /Required/ "aggregateLikes"
-  , getRandomRecipes200ResponseRecipesInnerHealthScore :: !(Double) -- ^ /Required/ "healthScore"
-  , getRandomRecipes200ResponseRecipesInnerSpoonacularScore :: !(Double) -- ^ /Required/ "spoonacularScore"
-  , getRandomRecipes200ResponseRecipesInnerPricePerServing :: !(Double) -- ^ /Required/ "pricePerServing"
-  , getRandomRecipes200ResponseRecipesInnerAnalyzedInstructions :: !(Maybe [A.Value]) -- ^ "analyzedInstructions"
-  , getRandomRecipes200ResponseRecipesInnerCheap :: !(Bool) -- ^ /Required/ "cheap"
-  , getRandomRecipes200ResponseRecipesInnerCreditsText :: !(Text) -- ^ /Required/ "creditsText"
-  , getRandomRecipes200ResponseRecipesInnerCuisines :: !(Maybe [Text]) -- ^ "cuisines"
-  , getRandomRecipes200ResponseRecipesInnerDairyFree :: !(Bool) -- ^ /Required/ "dairyFree"
-  , getRandomRecipes200ResponseRecipesInnerDiets :: !(Maybe [Text]) -- ^ "diets"
-  , getRandomRecipes200ResponseRecipesInnerGaps :: !(Text) -- ^ /Required/ "gaps"
-  , getRandomRecipes200ResponseRecipesInnerGlutenFree :: !(Bool) -- ^ /Required/ "glutenFree"
-  , getRandomRecipes200ResponseRecipesInnerInstructions :: !(Text) -- ^ /Required/ "instructions"
-  , getRandomRecipes200ResponseRecipesInnerKetogenic :: !(Bool) -- ^ /Required/ "ketogenic"
-  , getRandomRecipes200ResponseRecipesInnerLowFodmap :: !(Bool) -- ^ /Required/ "lowFodmap"
-  , getRandomRecipes200ResponseRecipesInnerOccasions :: !(Maybe [Text]) -- ^ "occasions"
-  , getRandomRecipes200ResponseRecipesInnerSustainable :: !(Bool) -- ^ /Required/ "sustainable"
-  , getRandomRecipes200ResponseRecipesInnerVegan :: !(Bool) -- ^ /Required/ "vegan"
-  , getRandomRecipes200ResponseRecipesInnerVegetarian :: !(Bool) -- ^ /Required/ "vegetarian"
-  , getRandomRecipes200ResponseRecipesInnerVeryHealthy :: !(Bool) -- ^ /Required/ "veryHealthy"
-  , getRandomRecipes200ResponseRecipesInnerVeryPopular :: !(Bool) -- ^ /Required/ "veryPopular"
-  , getRandomRecipes200ResponseRecipesInnerWhole30 :: !(Bool) -- ^ /Required/ "whole30"
-  , getRandomRecipes200ResponseRecipesInnerWeightWatcherSmartPoints :: !(Double) -- ^ /Required/ "weightWatcherSmartPoints"
-  , getRandomRecipes200ResponseRecipesInnerDishTypes :: !(Maybe [Text]) -- ^ "dishTypes"
-  , getRandomRecipes200ResponseRecipesInnerExtendedIngredients :: !(Maybe [GetRecipeInformation200ResponseExtendedIngredientsInner]) -- ^ "extendedIngredients"
-  , getRandomRecipes200ResponseRecipesInnerSummary :: !(Text) -- ^ /Required/ "summary"
-  , getRandomRecipes200ResponseRecipesInnerWinePairing :: !(Maybe GetRecipeInformation200ResponseWinePairing) -- ^ "winePairing"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRandomRecipes200ResponseRecipesInner
-instance A.FromJSON GetRandomRecipes200ResponseRecipesInner where
-  parseJSON = A.withObject "GetRandomRecipes200ResponseRecipesInner" $ \o ->
-    GetRandomRecipes200ResponseRecipesInner
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "image")
-      <*> (o .:  "imageType")
-      <*> (o .:  "servings")
-      <*> (o .:  "readyInMinutes")
-      <*> (o .:  "license")
-      <*> (o .:  "sourceName")
-      <*> (o .:  "sourceUrl")
-      <*> (o .:  "spoonacularSourceUrl")
-      <*> (o .:  "aggregateLikes")
-      <*> (o .:  "healthScore")
-      <*> (o .:  "spoonacularScore")
-      <*> (o .:  "pricePerServing")
-      <*> (o .:? "analyzedInstructions")
-      <*> (o .:  "cheap")
-      <*> (o .:  "creditsText")
-      <*> (o .:? "cuisines")
-      <*> (o .:  "dairyFree")
-      <*> (o .:? "diets")
-      <*> (o .:  "gaps")
-      <*> (o .:  "glutenFree")
-      <*> (o .:  "instructions")
-      <*> (o .:  "ketogenic")
-      <*> (o .:  "lowFodmap")
-      <*> (o .:? "occasions")
-      <*> (o .:  "sustainable")
-      <*> (o .:  "vegan")
-      <*> (o .:  "vegetarian")
-      <*> (o .:  "veryHealthy")
-      <*> (o .:  "veryPopular")
-      <*> (o .:  "whole30")
-      <*> (o .:  "weightWatcherSmartPoints")
-      <*> (o .:? "dishTypes")
-      <*> (o .:? "extendedIngredients")
-      <*> (o .:  "summary")
-      <*> (o .:? "winePairing")
-
--- | ToJSON GetRandomRecipes200ResponseRecipesInner
-instance A.ToJSON GetRandomRecipes200ResponseRecipesInner where
-  toJSON GetRandomRecipes200ResponseRecipesInner {..} =
-   _omitNulls
-      [ "id" .= getRandomRecipes200ResponseRecipesInnerId
-      , "title" .= getRandomRecipes200ResponseRecipesInnerTitle
-      , "image" .= getRandomRecipes200ResponseRecipesInnerImage
-      , "imageType" .= getRandomRecipes200ResponseRecipesInnerImageType
-      , "servings" .= getRandomRecipes200ResponseRecipesInnerServings
-      , "readyInMinutes" .= getRandomRecipes200ResponseRecipesInnerReadyInMinutes
-      , "license" .= getRandomRecipes200ResponseRecipesInnerLicense
-      , "sourceName" .= getRandomRecipes200ResponseRecipesInnerSourceName
-      , "sourceUrl" .= getRandomRecipes200ResponseRecipesInnerSourceUrl
-      , "spoonacularSourceUrl" .= getRandomRecipes200ResponseRecipesInnerSpoonacularSourceUrl
-      , "aggregateLikes" .= getRandomRecipes200ResponseRecipesInnerAggregateLikes
-      , "healthScore" .= getRandomRecipes200ResponseRecipesInnerHealthScore
-      , "spoonacularScore" .= getRandomRecipes200ResponseRecipesInnerSpoonacularScore
-      , "pricePerServing" .= getRandomRecipes200ResponseRecipesInnerPricePerServing
-      , "analyzedInstructions" .= getRandomRecipes200ResponseRecipesInnerAnalyzedInstructions
-      , "cheap" .= getRandomRecipes200ResponseRecipesInnerCheap
-      , "creditsText" .= getRandomRecipes200ResponseRecipesInnerCreditsText
-      , "cuisines" .= getRandomRecipes200ResponseRecipesInnerCuisines
-      , "dairyFree" .= getRandomRecipes200ResponseRecipesInnerDairyFree
-      , "diets" .= getRandomRecipes200ResponseRecipesInnerDiets
-      , "gaps" .= getRandomRecipes200ResponseRecipesInnerGaps
-      , "glutenFree" .= getRandomRecipes200ResponseRecipesInnerGlutenFree
-      , "instructions" .= getRandomRecipes200ResponseRecipesInnerInstructions
-      , "ketogenic" .= getRandomRecipes200ResponseRecipesInnerKetogenic
-      , "lowFodmap" .= getRandomRecipes200ResponseRecipesInnerLowFodmap
-      , "occasions" .= getRandomRecipes200ResponseRecipesInnerOccasions
-      , "sustainable" .= getRandomRecipes200ResponseRecipesInnerSustainable
-      , "vegan" .= getRandomRecipes200ResponseRecipesInnerVegan
-      , "vegetarian" .= getRandomRecipes200ResponseRecipesInnerVegetarian
-      , "veryHealthy" .= getRandomRecipes200ResponseRecipesInnerVeryHealthy
-      , "veryPopular" .= getRandomRecipes200ResponseRecipesInnerVeryPopular
-      , "whole30" .= getRandomRecipes200ResponseRecipesInnerWhole30
-      , "weightWatcherSmartPoints" .= getRandomRecipes200ResponseRecipesInnerWeightWatcherSmartPoints
-      , "dishTypes" .= getRandomRecipes200ResponseRecipesInnerDishTypes
-      , "extendedIngredients" .= getRandomRecipes200ResponseRecipesInnerExtendedIngredients
-      , "summary" .= getRandomRecipes200ResponseRecipesInnerSummary
-      , "winePairing" .= getRandomRecipes200ResponseRecipesInnerWinePairing
-      ]
-
-
--- | Construct a value of type 'GetRandomRecipes200ResponseRecipesInner' (by applying it's required fields, if any)
-mkGetRandomRecipes200ResponseRecipesInner
-  :: Int -- ^ 'getRandomRecipes200ResponseRecipesInnerId' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerTitle' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerImage' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerImageType' 
-  -> Double -- ^ 'getRandomRecipes200ResponseRecipesInnerServings' 
-  -> Int -- ^ 'getRandomRecipes200ResponseRecipesInnerReadyInMinutes' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerLicense' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerSourceName' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerSourceUrl' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerSpoonacularSourceUrl' 
-  -> Double -- ^ 'getRandomRecipes200ResponseRecipesInnerAggregateLikes' 
-  -> Double -- ^ 'getRandomRecipes200ResponseRecipesInnerHealthScore' 
-  -> Double -- ^ 'getRandomRecipes200ResponseRecipesInnerSpoonacularScore' 
-  -> Double -- ^ 'getRandomRecipes200ResponseRecipesInnerPricePerServing' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerCheap' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerCreditsText' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerDairyFree' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerGaps' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerGlutenFree' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerInstructions' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerKetogenic' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerLowFodmap' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerSustainable' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerVegan' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerVegetarian' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerVeryHealthy' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerVeryPopular' 
-  -> Bool -- ^ 'getRandomRecipes200ResponseRecipesInnerWhole30' 
-  -> Double -- ^ 'getRandomRecipes200ResponseRecipesInnerWeightWatcherSmartPoints' 
-  -> Text -- ^ 'getRandomRecipes200ResponseRecipesInnerSummary' 
-  -> GetRandomRecipes200ResponseRecipesInner
-mkGetRandomRecipes200ResponseRecipesInner getRandomRecipes200ResponseRecipesInnerId getRandomRecipes200ResponseRecipesInnerTitle getRandomRecipes200ResponseRecipesInnerImage getRandomRecipes200ResponseRecipesInnerImageType getRandomRecipes200ResponseRecipesInnerServings getRandomRecipes200ResponseRecipesInnerReadyInMinutes getRandomRecipes200ResponseRecipesInnerLicense getRandomRecipes200ResponseRecipesInnerSourceName getRandomRecipes200ResponseRecipesInnerSourceUrl getRandomRecipes200ResponseRecipesInnerSpoonacularSourceUrl getRandomRecipes200ResponseRecipesInnerAggregateLikes getRandomRecipes200ResponseRecipesInnerHealthScore getRandomRecipes200ResponseRecipesInnerSpoonacularScore getRandomRecipes200ResponseRecipesInnerPricePerServing getRandomRecipes200ResponseRecipesInnerCheap getRandomRecipes200ResponseRecipesInnerCreditsText getRandomRecipes200ResponseRecipesInnerDairyFree getRandomRecipes200ResponseRecipesInnerGaps getRandomRecipes200ResponseRecipesInnerGlutenFree getRandomRecipes200ResponseRecipesInnerInstructions getRandomRecipes200ResponseRecipesInnerKetogenic getRandomRecipes200ResponseRecipesInnerLowFodmap getRandomRecipes200ResponseRecipesInnerSustainable getRandomRecipes200ResponseRecipesInnerVegan getRandomRecipes200ResponseRecipesInnerVegetarian getRandomRecipes200ResponseRecipesInnerVeryHealthy getRandomRecipes200ResponseRecipesInnerVeryPopular getRandomRecipes200ResponseRecipesInnerWhole30 getRandomRecipes200ResponseRecipesInnerWeightWatcherSmartPoints getRandomRecipes200ResponseRecipesInnerSummary =
-  GetRandomRecipes200ResponseRecipesInner
-  { getRandomRecipes200ResponseRecipesInnerId
-  , getRandomRecipes200ResponseRecipesInnerTitle
-  , getRandomRecipes200ResponseRecipesInnerImage
-  , getRandomRecipes200ResponseRecipesInnerImageType
-  , getRandomRecipes200ResponseRecipesInnerServings
-  , getRandomRecipes200ResponseRecipesInnerReadyInMinutes
-  , getRandomRecipes200ResponseRecipesInnerLicense
-  , getRandomRecipes200ResponseRecipesInnerSourceName
-  , getRandomRecipes200ResponseRecipesInnerSourceUrl
-  , getRandomRecipes200ResponseRecipesInnerSpoonacularSourceUrl
-  , getRandomRecipes200ResponseRecipesInnerAggregateLikes
-  , getRandomRecipes200ResponseRecipesInnerHealthScore
-  , getRandomRecipes200ResponseRecipesInnerSpoonacularScore
-  , getRandomRecipes200ResponseRecipesInnerPricePerServing
-  , getRandomRecipes200ResponseRecipesInnerAnalyzedInstructions = Nothing
-  , getRandomRecipes200ResponseRecipesInnerCheap
-  , getRandomRecipes200ResponseRecipesInnerCreditsText
-  , getRandomRecipes200ResponseRecipesInnerCuisines = Nothing
-  , getRandomRecipes200ResponseRecipesInnerDairyFree
-  , getRandomRecipes200ResponseRecipesInnerDiets = Nothing
-  , getRandomRecipes200ResponseRecipesInnerGaps
-  , getRandomRecipes200ResponseRecipesInnerGlutenFree
-  , getRandomRecipes200ResponseRecipesInnerInstructions
-  , getRandomRecipes200ResponseRecipesInnerKetogenic
-  , getRandomRecipes200ResponseRecipesInnerLowFodmap
-  , getRandomRecipes200ResponseRecipesInnerOccasions = Nothing
-  , getRandomRecipes200ResponseRecipesInnerSustainable
-  , getRandomRecipes200ResponseRecipesInnerVegan
-  , getRandomRecipes200ResponseRecipesInnerVegetarian
-  , getRandomRecipes200ResponseRecipesInnerVeryHealthy
-  , getRandomRecipes200ResponseRecipesInnerVeryPopular
-  , getRandomRecipes200ResponseRecipesInnerWhole30
-  , getRandomRecipes200ResponseRecipesInnerWeightWatcherSmartPoints
-  , getRandomRecipes200ResponseRecipesInnerDishTypes = Nothing
-  , getRandomRecipes200ResponseRecipesInnerExtendedIngredients = Nothing
-  , getRandomRecipes200ResponseRecipesInnerSummary
-  , getRandomRecipes200ResponseRecipesInnerWinePairing = Nothing
   }
 
 -- ** GetRecipeEquipmentByID200Response
@@ -3821,683 +3095,6 @@ mkGetRecipeEquipmentByID200ResponseEquipmentInner getRecipeEquipmentByID200Respo
   GetRecipeEquipmentByID200ResponseEquipmentInner
   { getRecipeEquipmentByID200ResponseEquipmentInnerImage
   , getRecipeEquipmentByID200ResponseEquipmentInnerName
-  }
-
--- ** GetRecipeInformation200Response
--- | GetRecipeInformation200Response
--- 
-data GetRecipeInformation200Response = GetRecipeInformation200Response
-  { getRecipeInformation200ResponseId :: !(Int) -- ^ /Required/ "id"
-  , getRecipeInformation200ResponseTitle :: !(Text) -- ^ /Required/ "title"
-  , getRecipeInformation200ResponseImage :: !(Text) -- ^ /Required/ "image"
-  , getRecipeInformation200ResponseImageType :: !(Text) -- ^ /Required/ "imageType"
-  , getRecipeInformation200ResponseServings :: !(Double) -- ^ /Required/ "servings"
-  , getRecipeInformation200ResponseReadyInMinutes :: !(Int) -- ^ /Required/ "readyInMinutes"
-  , getRecipeInformation200ResponseLicense :: !(Text) -- ^ /Required/ "license"
-  , getRecipeInformation200ResponseSourceName :: !(Text) -- ^ /Required/ "sourceName"
-  , getRecipeInformation200ResponseSourceUrl :: !(Text) -- ^ /Required/ "sourceUrl"
-  , getRecipeInformation200ResponseSpoonacularSourceUrl :: !(Text) -- ^ /Required/ "spoonacularSourceUrl"
-  , getRecipeInformation200ResponseAggregateLikes :: !(Int) -- ^ /Required/ "aggregateLikes"
-  , getRecipeInformation200ResponseHealthScore :: !(Double) -- ^ /Required/ "healthScore"
-  , getRecipeInformation200ResponseSpoonacularScore :: !(Double) -- ^ /Required/ "spoonacularScore"
-  , getRecipeInformation200ResponsePricePerServing :: !(Double) -- ^ /Required/ "pricePerServing"
-  , getRecipeInformation200ResponseAnalyzedInstructions :: !([A.Value]) -- ^ /Required/ "analyzedInstructions"
-  , getRecipeInformation200ResponseCheap :: !(Bool) -- ^ /Required/ "cheap"
-  , getRecipeInformation200ResponseCreditsText :: !(Text) -- ^ /Required/ "creditsText"
-  , getRecipeInformation200ResponseCuisines :: !([Text]) -- ^ /Required/ "cuisines"
-  , getRecipeInformation200ResponseDairyFree :: !(Bool) -- ^ /Required/ "dairyFree"
-  , getRecipeInformation200ResponseDiets :: !([Text]) -- ^ /Required/ "diets"
-  , getRecipeInformation200ResponseGaps :: !(Text) -- ^ /Required/ "gaps"
-  , getRecipeInformation200ResponseGlutenFree :: !(Bool) -- ^ /Required/ "glutenFree"
-  , getRecipeInformation200ResponseInstructions :: !(Text) -- ^ /Required/ "instructions"
-  , getRecipeInformation200ResponseKetogenic :: !(Bool) -- ^ /Required/ "ketogenic"
-  , getRecipeInformation200ResponseLowFodmap :: !(Bool) -- ^ /Required/ "lowFodmap"
-  , getRecipeInformation200ResponseOccasions :: !([Text]) -- ^ /Required/ "occasions"
-  , getRecipeInformation200ResponseSustainable :: !(Bool) -- ^ /Required/ "sustainable"
-  , getRecipeInformation200ResponseVegan :: !(Bool) -- ^ /Required/ "vegan"
-  , getRecipeInformation200ResponseVegetarian :: !(Bool) -- ^ /Required/ "vegetarian"
-  , getRecipeInformation200ResponseVeryHealthy :: !(Bool) -- ^ /Required/ "veryHealthy"
-  , getRecipeInformation200ResponseVeryPopular :: !(Bool) -- ^ /Required/ "veryPopular"
-  , getRecipeInformation200ResponseWhole30 :: !(Bool) -- ^ /Required/ "whole30"
-  , getRecipeInformation200ResponseWeightWatcherSmartPoints :: !(Double) -- ^ /Required/ "weightWatcherSmartPoints"
-  , getRecipeInformation200ResponseDishTypes :: !([Text]) -- ^ /Required/ "dishTypes"
-  , getRecipeInformation200ResponseExtendedIngredients :: !([GetRecipeInformation200ResponseExtendedIngredientsInner]) -- ^ /Required/ "extendedIngredients"
-  , getRecipeInformation200ResponseSummary :: !(Text) -- ^ /Required/ "summary"
-  , getRecipeInformation200ResponseWinePairing :: !(GetRecipeInformation200ResponseWinePairing) -- ^ /Required/ "winePairing"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeInformation200Response
-instance A.FromJSON GetRecipeInformation200Response where
-  parseJSON = A.withObject "GetRecipeInformation200Response" $ \o ->
-    GetRecipeInformation200Response
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "image")
-      <*> (o .:  "imageType")
-      <*> (o .:  "servings")
-      <*> (o .:  "readyInMinutes")
-      <*> (o .:  "license")
-      <*> (o .:  "sourceName")
-      <*> (o .:  "sourceUrl")
-      <*> (o .:  "spoonacularSourceUrl")
-      <*> (o .:  "aggregateLikes")
-      <*> (o .:  "healthScore")
-      <*> (o .:  "spoonacularScore")
-      <*> (o .:  "pricePerServing")
-      <*> (o .:  "analyzedInstructions")
-      <*> (o .:  "cheap")
-      <*> (o .:  "creditsText")
-      <*> (o .:  "cuisines")
-      <*> (o .:  "dairyFree")
-      <*> (o .:  "diets")
-      <*> (o .:  "gaps")
-      <*> (o .:  "glutenFree")
-      <*> (o .:  "instructions")
-      <*> (o .:  "ketogenic")
-      <*> (o .:  "lowFodmap")
-      <*> (o .:  "occasions")
-      <*> (o .:  "sustainable")
-      <*> (o .:  "vegan")
-      <*> (o .:  "vegetarian")
-      <*> (o .:  "veryHealthy")
-      <*> (o .:  "veryPopular")
-      <*> (o .:  "whole30")
-      <*> (o .:  "weightWatcherSmartPoints")
-      <*> (o .:  "dishTypes")
-      <*> (o .:  "extendedIngredients")
-      <*> (o .:  "summary")
-      <*> (o .:  "winePairing")
-
--- | ToJSON GetRecipeInformation200Response
-instance A.ToJSON GetRecipeInformation200Response where
-  toJSON GetRecipeInformation200Response {..} =
-   _omitNulls
-      [ "id" .= getRecipeInformation200ResponseId
-      , "title" .= getRecipeInformation200ResponseTitle
-      , "image" .= getRecipeInformation200ResponseImage
-      , "imageType" .= getRecipeInformation200ResponseImageType
-      , "servings" .= getRecipeInformation200ResponseServings
-      , "readyInMinutes" .= getRecipeInformation200ResponseReadyInMinutes
-      , "license" .= getRecipeInformation200ResponseLicense
-      , "sourceName" .= getRecipeInformation200ResponseSourceName
-      , "sourceUrl" .= getRecipeInformation200ResponseSourceUrl
-      , "spoonacularSourceUrl" .= getRecipeInformation200ResponseSpoonacularSourceUrl
-      , "aggregateLikes" .= getRecipeInformation200ResponseAggregateLikes
-      , "healthScore" .= getRecipeInformation200ResponseHealthScore
-      , "spoonacularScore" .= getRecipeInformation200ResponseSpoonacularScore
-      , "pricePerServing" .= getRecipeInformation200ResponsePricePerServing
-      , "analyzedInstructions" .= getRecipeInformation200ResponseAnalyzedInstructions
-      , "cheap" .= getRecipeInformation200ResponseCheap
-      , "creditsText" .= getRecipeInformation200ResponseCreditsText
-      , "cuisines" .= getRecipeInformation200ResponseCuisines
-      , "dairyFree" .= getRecipeInformation200ResponseDairyFree
-      , "diets" .= getRecipeInformation200ResponseDiets
-      , "gaps" .= getRecipeInformation200ResponseGaps
-      , "glutenFree" .= getRecipeInformation200ResponseGlutenFree
-      , "instructions" .= getRecipeInformation200ResponseInstructions
-      , "ketogenic" .= getRecipeInformation200ResponseKetogenic
-      , "lowFodmap" .= getRecipeInformation200ResponseLowFodmap
-      , "occasions" .= getRecipeInformation200ResponseOccasions
-      , "sustainable" .= getRecipeInformation200ResponseSustainable
-      , "vegan" .= getRecipeInformation200ResponseVegan
-      , "vegetarian" .= getRecipeInformation200ResponseVegetarian
-      , "veryHealthy" .= getRecipeInformation200ResponseVeryHealthy
-      , "veryPopular" .= getRecipeInformation200ResponseVeryPopular
-      , "whole30" .= getRecipeInformation200ResponseWhole30
-      , "weightWatcherSmartPoints" .= getRecipeInformation200ResponseWeightWatcherSmartPoints
-      , "dishTypes" .= getRecipeInformation200ResponseDishTypes
-      , "extendedIngredients" .= getRecipeInformation200ResponseExtendedIngredients
-      , "summary" .= getRecipeInformation200ResponseSummary
-      , "winePairing" .= getRecipeInformation200ResponseWinePairing
-      ]
-
-
--- | Construct a value of type 'GetRecipeInformation200Response' (by applying it's required fields, if any)
-mkGetRecipeInformation200Response
-  :: Int -- ^ 'getRecipeInformation200ResponseId' 
-  -> Text -- ^ 'getRecipeInformation200ResponseTitle' 
-  -> Text -- ^ 'getRecipeInformation200ResponseImage' 
-  -> Text -- ^ 'getRecipeInformation200ResponseImageType' 
-  -> Double -- ^ 'getRecipeInformation200ResponseServings' 
-  -> Int -- ^ 'getRecipeInformation200ResponseReadyInMinutes' 
-  -> Text -- ^ 'getRecipeInformation200ResponseLicense' 
-  -> Text -- ^ 'getRecipeInformation200ResponseSourceName' 
-  -> Text -- ^ 'getRecipeInformation200ResponseSourceUrl' 
-  -> Text -- ^ 'getRecipeInformation200ResponseSpoonacularSourceUrl' 
-  -> Int -- ^ 'getRecipeInformation200ResponseAggregateLikes' 
-  -> Double -- ^ 'getRecipeInformation200ResponseHealthScore' 
-  -> Double -- ^ 'getRecipeInformation200ResponseSpoonacularScore' 
-  -> Double -- ^ 'getRecipeInformation200ResponsePricePerServing' 
-  -> [A.Value] -- ^ 'getRecipeInformation200ResponseAnalyzedInstructions' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseCheap' 
-  -> Text -- ^ 'getRecipeInformation200ResponseCreditsText' 
-  -> [Text] -- ^ 'getRecipeInformation200ResponseCuisines' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseDairyFree' 
-  -> [Text] -- ^ 'getRecipeInformation200ResponseDiets' 
-  -> Text -- ^ 'getRecipeInformation200ResponseGaps' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseGlutenFree' 
-  -> Text -- ^ 'getRecipeInformation200ResponseInstructions' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseKetogenic' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseLowFodmap' 
-  -> [Text] -- ^ 'getRecipeInformation200ResponseOccasions' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseSustainable' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseVegan' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseVegetarian' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseVeryHealthy' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseVeryPopular' 
-  -> Bool -- ^ 'getRecipeInformation200ResponseWhole30' 
-  -> Double -- ^ 'getRecipeInformation200ResponseWeightWatcherSmartPoints' 
-  -> [Text] -- ^ 'getRecipeInformation200ResponseDishTypes' 
-  -> [GetRecipeInformation200ResponseExtendedIngredientsInner] -- ^ 'getRecipeInformation200ResponseExtendedIngredients' 
-  -> Text -- ^ 'getRecipeInformation200ResponseSummary' 
-  -> GetRecipeInformation200ResponseWinePairing -- ^ 'getRecipeInformation200ResponseWinePairing' 
-  -> GetRecipeInformation200Response
-mkGetRecipeInformation200Response getRecipeInformation200ResponseId getRecipeInformation200ResponseTitle getRecipeInformation200ResponseImage getRecipeInformation200ResponseImageType getRecipeInformation200ResponseServings getRecipeInformation200ResponseReadyInMinutes getRecipeInformation200ResponseLicense getRecipeInformation200ResponseSourceName getRecipeInformation200ResponseSourceUrl getRecipeInformation200ResponseSpoonacularSourceUrl getRecipeInformation200ResponseAggregateLikes getRecipeInformation200ResponseHealthScore getRecipeInformation200ResponseSpoonacularScore getRecipeInformation200ResponsePricePerServing getRecipeInformation200ResponseAnalyzedInstructions getRecipeInformation200ResponseCheap getRecipeInformation200ResponseCreditsText getRecipeInformation200ResponseCuisines getRecipeInformation200ResponseDairyFree getRecipeInformation200ResponseDiets getRecipeInformation200ResponseGaps getRecipeInformation200ResponseGlutenFree getRecipeInformation200ResponseInstructions getRecipeInformation200ResponseKetogenic getRecipeInformation200ResponseLowFodmap getRecipeInformation200ResponseOccasions getRecipeInformation200ResponseSustainable getRecipeInformation200ResponseVegan getRecipeInformation200ResponseVegetarian getRecipeInformation200ResponseVeryHealthy getRecipeInformation200ResponseVeryPopular getRecipeInformation200ResponseWhole30 getRecipeInformation200ResponseWeightWatcherSmartPoints getRecipeInformation200ResponseDishTypes getRecipeInformation200ResponseExtendedIngredients getRecipeInformation200ResponseSummary getRecipeInformation200ResponseWinePairing =
-  GetRecipeInformation200Response
-  { getRecipeInformation200ResponseId
-  , getRecipeInformation200ResponseTitle
-  , getRecipeInformation200ResponseImage
-  , getRecipeInformation200ResponseImageType
-  , getRecipeInformation200ResponseServings
-  , getRecipeInformation200ResponseReadyInMinutes
-  , getRecipeInformation200ResponseLicense
-  , getRecipeInformation200ResponseSourceName
-  , getRecipeInformation200ResponseSourceUrl
-  , getRecipeInformation200ResponseSpoonacularSourceUrl
-  , getRecipeInformation200ResponseAggregateLikes
-  , getRecipeInformation200ResponseHealthScore
-  , getRecipeInformation200ResponseSpoonacularScore
-  , getRecipeInformation200ResponsePricePerServing
-  , getRecipeInformation200ResponseAnalyzedInstructions
-  , getRecipeInformation200ResponseCheap
-  , getRecipeInformation200ResponseCreditsText
-  , getRecipeInformation200ResponseCuisines
-  , getRecipeInformation200ResponseDairyFree
-  , getRecipeInformation200ResponseDiets
-  , getRecipeInformation200ResponseGaps
-  , getRecipeInformation200ResponseGlutenFree
-  , getRecipeInformation200ResponseInstructions
-  , getRecipeInformation200ResponseKetogenic
-  , getRecipeInformation200ResponseLowFodmap
-  , getRecipeInformation200ResponseOccasions
-  , getRecipeInformation200ResponseSustainable
-  , getRecipeInformation200ResponseVegan
-  , getRecipeInformation200ResponseVegetarian
-  , getRecipeInformation200ResponseVeryHealthy
-  , getRecipeInformation200ResponseVeryPopular
-  , getRecipeInformation200ResponseWhole30
-  , getRecipeInformation200ResponseWeightWatcherSmartPoints
-  , getRecipeInformation200ResponseDishTypes
-  , getRecipeInformation200ResponseExtendedIngredients
-  , getRecipeInformation200ResponseSummary
-  , getRecipeInformation200ResponseWinePairing
-  }
-
--- ** GetRecipeInformation200ResponseExtendedIngredientsInner
--- | GetRecipeInformation200ResponseExtendedIngredientsInner
-data GetRecipeInformation200ResponseExtendedIngredientsInner = GetRecipeInformation200ResponseExtendedIngredientsInner
-  { getRecipeInformation200ResponseExtendedIngredientsInnerAisle :: !(Text) -- ^ /Required/ "aisle"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerAmount :: !(Double) -- ^ /Required/ "amount"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerConsistency :: !(Text) -- ^ /Required/ "consistency"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerImage :: !(Text) -- ^ /Required/ "image"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasures :: !(Maybe GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures) -- ^ "measures"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeta :: !(Maybe [Text]) -- ^ "meta"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerOriginal :: !(Text) -- ^ /Required/ "original"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName :: !(Text) -- ^ /Required/ "originalName"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerUnit :: !(Text) -- ^ /Required/ "unit"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeInformation200ResponseExtendedIngredientsInner
-instance A.FromJSON GetRecipeInformation200ResponseExtendedIngredientsInner where
-  parseJSON = A.withObject "GetRecipeInformation200ResponseExtendedIngredientsInner" $ \o ->
-    GetRecipeInformation200ResponseExtendedIngredientsInner
-      <$> (o .:  "aisle")
-      <*> (o .:  "amount")
-      <*> (o .:  "consistency")
-      <*> (o .:  "id")
-      <*> (o .:  "image")
-      <*> (o .:? "measures")
-      <*> (o .:? "meta")
-      <*> (o .:  "name")
-      <*> (o .:  "original")
-      <*> (o .:  "originalName")
-      <*> (o .:  "unit")
-
--- | ToJSON GetRecipeInformation200ResponseExtendedIngredientsInner
-instance A.ToJSON GetRecipeInformation200ResponseExtendedIngredientsInner where
-  toJSON GetRecipeInformation200ResponseExtendedIngredientsInner {..} =
-   _omitNulls
-      [ "aisle" .= getRecipeInformation200ResponseExtendedIngredientsInnerAisle
-      , "amount" .= getRecipeInformation200ResponseExtendedIngredientsInnerAmount
-      , "consistency" .= getRecipeInformation200ResponseExtendedIngredientsInnerConsistency
-      , "id" .= getRecipeInformation200ResponseExtendedIngredientsInnerId
-      , "image" .= getRecipeInformation200ResponseExtendedIngredientsInnerImage
-      , "measures" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-      , "meta" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeta
-      , "name" .= getRecipeInformation200ResponseExtendedIngredientsInnerName
-      , "original" .= getRecipeInformation200ResponseExtendedIngredientsInnerOriginal
-      , "originalName" .= getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName
-      , "unit" .= getRecipeInformation200ResponseExtendedIngredientsInnerUnit
-      ]
-
-
--- | Construct a value of type 'GetRecipeInformation200ResponseExtendedIngredientsInner' (by applying it's required fields, if any)
-mkGetRecipeInformation200ResponseExtendedIngredientsInner
-  :: Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerAisle' 
-  -> Double -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerAmount' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerConsistency' 
-  -> Int -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerId' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerImage' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerName' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerOriginal' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerUnit' 
-  -> GetRecipeInformation200ResponseExtendedIngredientsInner
-mkGetRecipeInformation200ResponseExtendedIngredientsInner getRecipeInformation200ResponseExtendedIngredientsInnerAisle getRecipeInformation200ResponseExtendedIngredientsInnerAmount getRecipeInformation200ResponseExtendedIngredientsInnerConsistency getRecipeInformation200ResponseExtendedIngredientsInnerId getRecipeInformation200ResponseExtendedIngredientsInnerImage getRecipeInformation200ResponseExtendedIngredientsInnerName getRecipeInformation200ResponseExtendedIngredientsInnerOriginal getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName getRecipeInformation200ResponseExtendedIngredientsInnerUnit =
-  GetRecipeInformation200ResponseExtendedIngredientsInner
-  { getRecipeInformation200ResponseExtendedIngredientsInnerAisle
-  , getRecipeInformation200ResponseExtendedIngredientsInnerAmount
-  , getRecipeInformation200ResponseExtendedIngredientsInnerConsistency
-  , getRecipeInformation200ResponseExtendedIngredientsInnerId
-  , getRecipeInformation200ResponseExtendedIngredientsInnerImage
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasures = Nothing
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeta = Nothing
-  , getRecipeInformation200ResponseExtendedIngredientsInnerName
-  , getRecipeInformation200ResponseExtendedIngredientsInnerOriginal
-  , getRecipeInformation200ResponseExtendedIngredientsInnerOriginalName
-  , getRecipeInformation200ResponseExtendedIngredientsInnerUnit
-  }
-
--- ** GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
--- | GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-data GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures = GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-  { getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric :: !(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric) -- ^ /Required/ "metric"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresUs :: !(GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric) -- ^ /Required/ "us"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-instance A.FromJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures where
-  parseJSON = A.withObject "GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures" $ \o ->
-    GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-      <$> (o .:  "metric")
-      <*> (o .:  "us")
-
--- | ToJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-instance A.ToJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures where
-  toJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures {..} =
-   _omitNulls
-      [ "metric" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-      , "us" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresUs
-      ]
-
-
--- | Construct a value of type 'GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures' (by applying it's required fields, if any)
-mkGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-  :: GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric' 
-  -> GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresUs' 
-  -> GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-mkGetRecipeInformation200ResponseExtendedIngredientsInnerMeasures getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresUs =
-  GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures
-  { getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresUs
-  }
-
--- ** GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
--- | GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-data GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric = GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-  { getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricAmount :: !(Double) -- ^ /Required/ "amount"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitLong :: !(Text) -- ^ /Required/ "unitLong"
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitShort :: !(Text) -- ^ /Required/ "unitShort"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-instance A.FromJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric where
-  parseJSON = A.withObject "GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric" $ \o ->
-    GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-      <$> (o .:  "amount")
-      <*> (o .:  "unitLong")
-      <*> (o .:  "unitShort")
-
--- | ToJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-instance A.ToJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric where
-  toJSON GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric {..} =
-   _omitNulls
-      [ "amount" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricAmount
-      , "unitLong" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitLong
-      , "unitShort" .= getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitShort
-      ]
-
-
--- | Construct a value of type 'GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric' (by applying it's required fields, if any)
-mkGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-  :: Double -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricAmount' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitLong' 
-  -> Text -- ^ 'getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitShort' 
-  -> GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-mkGetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricAmount getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitLong getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitShort =
-  GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric
-  { getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricAmount
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitLong
-  , getRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetricUnitShort
-  }
-
--- ** GetRecipeInformation200ResponseWinePairing
--- | GetRecipeInformation200ResponseWinePairing
-data GetRecipeInformation200ResponseWinePairing = GetRecipeInformation200ResponseWinePairing
-  { getRecipeInformation200ResponseWinePairingPairedWines :: !([Text]) -- ^ /Required/ "pairedWines"
-  , getRecipeInformation200ResponseWinePairingPairingText :: !(Text) -- ^ /Required/ "pairingText"
-  , getRecipeInformation200ResponseWinePairingProductMatches :: !([GetRecipeInformation200ResponseWinePairingProductMatchesInner]) -- ^ /Required/ "productMatches"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeInformation200ResponseWinePairing
-instance A.FromJSON GetRecipeInformation200ResponseWinePairing where
-  parseJSON = A.withObject "GetRecipeInformation200ResponseWinePairing" $ \o ->
-    GetRecipeInformation200ResponseWinePairing
-      <$> (o .:  "pairedWines")
-      <*> (o .:  "pairingText")
-      <*> (o .:  "productMatches")
-
--- | ToJSON GetRecipeInformation200ResponseWinePairing
-instance A.ToJSON GetRecipeInformation200ResponseWinePairing where
-  toJSON GetRecipeInformation200ResponseWinePairing {..} =
-   _omitNulls
-      [ "pairedWines" .= getRecipeInformation200ResponseWinePairingPairedWines
-      , "pairingText" .= getRecipeInformation200ResponseWinePairingPairingText
-      , "productMatches" .= getRecipeInformation200ResponseWinePairingProductMatches
-      ]
-
-
--- | Construct a value of type 'GetRecipeInformation200ResponseWinePairing' (by applying it's required fields, if any)
-mkGetRecipeInformation200ResponseWinePairing
-  :: [Text] -- ^ 'getRecipeInformation200ResponseWinePairingPairedWines' 
-  -> Text -- ^ 'getRecipeInformation200ResponseWinePairingPairingText' 
-  -> [GetRecipeInformation200ResponseWinePairingProductMatchesInner] -- ^ 'getRecipeInformation200ResponseWinePairingProductMatches' 
-  -> GetRecipeInformation200ResponseWinePairing
-mkGetRecipeInformation200ResponseWinePairing getRecipeInformation200ResponseWinePairingPairedWines getRecipeInformation200ResponseWinePairingPairingText getRecipeInformation200ResponseWinePairingProductMatches =
-  GetRecipeInformation200ResponseWinePairing
-  { getRecipeInformation200ResponseWinePairingPairedWines
-  , getRecipeInformation200ResponseWinePairingPairingText
-  , getRecipeInformation200ResponseWinePairingProductMatches
-  }
-
--- ** GetRecipeInformation200ResponseWinePairingProductMatchesInner
--- | GetRecipeInformation200ResponseWinePairingProductMatchesInner
-data GetRecipeInformation200ResponseWinePairingProductMatchesInner = GetRecipeInformation200ResponseWinePairingProductMatchesInner
-  { getRecipeInformation200ResponseWinePairingProductMatchesInnerId :: !(Int) -- ^ /Required/ "id"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerTitle :: !(Text) -- ^ /Required/ "title"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerDescription :: !(Text) -- ^ /Required/ "description"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerPrice :: !(Text) -- ^ /Required/ "price"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerImageUrl :: !(Text) -- ^ /Required/ "imageUrl"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerAverageRating :: !(Double) -- ^ /Required/ "averageRating"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerRatingCount :: !(Int) -- ^ /Required/ "ratingCount"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerScore :: !(Double) -- ^ /Required/ "score"
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerLink :: !(Text) -- ^ /Required/ "link"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeInformation200ResponseWinePairingProductMatchesInner
-instance A.FromJSON GetRecipeInformation200ResponseWinePairingProductMatchesInner where
-  parseJSON = A.withObject "GetRecipeInformation200ResponseWinePairingProductMatchesInner" $ \o ->
-    GetRecipeInformation200ResponseWinePairingProductMatchesInner
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "description")
-      <*> (o .:  "price")
-      <*> (o .:  "imageUrl")
-      <*> (o .:  "averageRating")
-      <*> (o .:  "ratingCount")
-      <*> (o .:  "score")
-      <*> (o .:  "link")
-
--- | ToJSON GetRecipeInformation200ResponseWinePairingProductMatchesInner
-instance A.ToJSON GetRecipeInformation200ResponseWinePairingProductMatchesInner where
-  toJSON GetRecipeInformation200ResponseWinePairingProductMatchesInner {..} =
-   _omitNulls
-      [ "id" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerId
-      , "title" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerTitle
-      , "description" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerDescription
-      , "price" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerPrice
-      , "imageUrl" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerImageUrl
-      , "averageRating" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerAverageRating
-      , "ratingCount" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerRatingCount
-      , "score" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerScore
-      , "link" .= getRecipeInformation200ResponseWinePairingProductMatchesInnerLink
-      ]
-
-
--- | Construct a value of type 'GetRecipeInformation200ResponseWinePairingProductMatchesInner' (by applying it's required fields, if any)
-mkGetRecipeInformation200ResponseWinePairingProductMatchesInner
-  :: Int -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerId' 
-  -> Text -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerTitle' 
-  -> Text -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerDescription' 
-  -> Text -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerPrice' 
-  -> Text -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerImageUrl' 
-  -> Double -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerAverageRating' 
-  -> Int -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerRatingCount' 
-  -> Double -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerScore' 
-  -> Text -- ^ 'getRecipeInformation200ResponseWinePairingProductMatchesInnerLink' 
-  -> GetRecipeInformation200ResponseWinePairingProductMatchesInner
-mkGetRecipeInformation200ResponseWinePairingProductMatchesInner getRecipeInformation200ResponseWinePairingProductMatchesInnerId getRecipeInformation200ResponseWinePairingProductMatchesInnerTitle getRecipeInformation200ResponseWinePairingProductMatchesInnerDescription getRecipeInformation200ResponseWinePairingProductMatchesInnerPrice getRecipeInformation200ResponseWinePairingProductMatchesInnerImageUrl getRecipeInformation200ResponseWinePairingProductMatchesInnerAverageRating getRecipeInformation200ResponseWinePairingProductMatchesInnerRatingCount getRecipeInformation200ResponseWinePairingProductMatchesInnerScore getRecipeInformation200ResponseWinePairingProductMatchesInnerLink =
-  GetRecipeInformation200ResponseWinePairingProductMatchesInner
-  { getRecipeInformation200ResponseWinePairingProductMatchesInnerId
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerTitle
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerDescription
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerPrice
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerImageUrl
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerAverageRating
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerRatingCount
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerScore
-  , getRecipeInformation200ResponseWinePairingProductMatchesInnerLink
-  }
-
--- ** GetRecipeInformationBulk200ResponseInner
--- | GetRecipeInformationBulk200ResponseInner
-data GetRecipeInformationBulk200ResponseInner = GetRecipeInformationBulk200ResponseInner
-  { getRecipeInformationBulk200ResponseInnerId :: !(Int) -- ^ /Required/ "id"
-  , getRecipeInformationBulk200ResponseInnerTitle :: !(Text) -- ^ /Required/ "title"
-  , getRecipeInformationBulk200ResponseInnerImage :: !(Text) -- ^ /Required/ "image"
-  , getRecipeInformationBulk200ResponseInnerImageType :: !(Text) -- ^ /Required/ "imageType"
-  , getRecipeInformationBulk200ResponseInnerServings :: !(Double) -- ^ /Required/ "servings"
-  , getRecipeInformationBulk200ResponseInnerReadyInMinutes :: !(Int) -- ^ /Required/ "readyInMinutes"
-  , getRecipeInformationBulk200ResponseInnerLicense :: !(Text) -- ^ /Required/ "license"
-  , getRecipeInformationBulk200ResponseInnerSourceName :: !(Text) -- ^ /Required/ "sourceName"
-  , getRecipeInformationBulk200ResponseInnerSourceUrl :: !(Text) -- ^ /Required/ "sourceUrl"
-  , getRecipeInformationBulk200ResponseInnerSpoonacularSourceUrl :: !(Text) -- ^ /Required/ "spoonacularSourceUrl"
-  , getRecipeInformationBulk200ResponseInnerAggregateLikes :: !(Int) -- ^ /Required/ "aggregateLikes"
-  , getRecipeInformationBulk200ResponseInnerHealthScore :: !(Double) -- ^ /Required/ "healthScore"
-  , getRecipeInformationBulk200ResponseInnerSpoonacularScore :: !(Double) -- ^ /Required/ "spoonacularScore"
-  , getRecipeInformationBulk200ResponseInnerPricePerServing :: !(Double) -- ^ /Required/ "pricePerServing"
-  , getRecipeInformationBulk200ResponseInnerAnalyzedInstructions :: !([Text]) -- ^ /Required/ "analyzedInstructions"
-  , getRecipeInformationBulk200ResponseInnerCheap :: !(Bool) -- ^ /Required/ "cheap"
-  , getRecipeInformationBulk200ResponseInnerCreditsText :: !(Text) -- ^ /Required/ "creditsText"
-  , getRecipeInformationBulk200ResponseInnerCuisines :: !([Text]) -- ^ /Required/ "cuisines"
-  , getRecipeInformationBulk200ResponseInnerDairyFree :: !(Bool) -- ^ /Required/ "dairyFree"
-  , getRecipeInformationBulk200ResponseInnerDiets :: !([Text]) -- ^ /Required/ "diets"
-  , getRecipeInformationBulk200ResponseInnerGaps :: !(Text) -- ^ /Required/ "gaps"
-  , getRecipeInformationBulk200ResponseInnerGlutenFree :: !(Bool) -- ^ /Required/ "glutenFree"
-  , getRecipeInformationBulk200ResponseInnerInstructions :: !(Text) -- ^ /Required/ "instructions"
-  , getRecipeInformationBulk200ResponseInnerKetogenic :: !(Bool) -- ^ /Required/ "ketogenic"
-  , getRecipeInformationBulk200ResponseInnerLowFodmap :: !(Bool) -- ^ /Required/ "lowFodmap"
-  , getRecipeInformationBulk200ResponseInnerOccasions :: !([Text]) -- ^ /Required/ "occasions"
-  , getRecipeInformationBulk200ResponseInnerSustainable :: !(Bool) -- ^ /Required/ "sustainable"
-  , getRecipeInformationBulk200ResponseInnerVegan :: !(Bool) -- ^ /Required/ "vegan"
-  , getRecipeInformationBulk200ResponseInnerVegetarian :: !(Bool) -- ^ /Required/ "vegetarian"
-  , getRecipeInformationBulk200ResponseInnerVeryHealthy :: !(Bool) -- ^ /Required/ "veryHealthy"
-  , getRecipeInformationBulk200ResponseInnerVeryPopular :: !(Bool) -- ^ /Required/ "veryPopular"
-  , getRecipeInformationBulk200ResponseInnerWhole30 :: !(Bool) -- ^ /Required/ "whole30"
-  , getRecipeInformationBulk200ResponseInnerWeightWatcherSmartPoints :: !(Double) -- ^ /Required/ "weightWatcherSmartPoints"
-  , getRecipeInformationBulk200ResponseInnerDishTypes :: !([Text]) -- ^ /Required/ "dishTypes"
-  , getRecipeInformationBulk200ResponseInnerExtendedIngredients :: !([GetRecipeInformation200ResponseExtendedIngredientsInner]) -- ^ /Required/ "extendedIngredients"
-  , getRecipeInformationBulk200ResponseInnerSummary :: !(Text) -- ^ /Required/ "summary"
-  , getRecipeInformationBulk200ResponseInnerWinePairing :: !(GetRecipeInformation200ResponseWinePairing) -- ^ /Required/ "winePairing"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeInformationBulk200ResponseInner
-instance A.FromJSON GetRecipeInformationBulk200ResponseInner where
-  parseJSON = A.withObject "GetRecipeInformationBulk200ResponseInner" $ \o ->
-    GetRecipeInformationBulk200ResponseInner
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "image")
-      <*> (o .:  "imageType")
-      <*> (o .:  "servings")
-      <*> (o .:  "readyInMinutes")
-      <*> (o .:  "license")
-      <*> (o .:  "sourceName")
-      <*> (o .:  "sourceUrl")
-      <*> (o .:  "spoonacularSourceUrl")
-      <*> (o .:  "aggregateLikes")
-      <*> (o .:  "healthScore")
-      <*> (o .:  "spoonacularScore")
-      <*> (o .:  "pricePerServing")
-      <*> (o .:  "analyzedInstructions")
-      <*> (o .:  "cheap")
-      <*> (o .:  "creditsText")
-      <*> (o .:  "cuisines")
-      <*> (o .:  "dairyFree")
-      <*> (o .:  "diets")
-      <*> (o .:  "gaps")
-      <*> (o .:  "glutenFree")
-      <*> (o .:  "instructions")
-      <*> (o .:  "ketogenic")
-      <*> (o .:  "lowFodmap")
-      <*> (o .:  "occasions")
-      <*> (o .:  "sustainable")
-      <*> (o .:  "vegan")
-      <*> (o .:  "vegetarian")
-      <*> (o .:  "veryHealthy")
-      <*> (o .:  "veryPopular")
-      <*> (o .:  "whole30")
-      <*> (o .:  "weightWatcherSmartPoints")
-      <*> (o .:  "dishTypes")
-      <*> (o .:  "extendedIngredients")
-      <*> (o .:  "summary")
-      <*> (o .:  "winePairing")
-
--- | ToJSON GetRecipeInformationBulk200ResponseInner
-instance A.ToJSON GetRecipeInformationBulk200ResponseInner where
-  toJSON GetRecipeInformationBulk200ResponseInner {..} =
-   _omitNulls
-      [ "id" .= getRecipeInformationBulk200ResponseInnerId
-      , "title" .= getRecipeInformationBulk200ResponseInnerTitle
-      , "image" .= getRecipeInformationBulk200ResponseInnerImage
-      , "imageType" .= getRecipeInformationBulk200ResponseInnerImageType
-      , "servings" .= getRecipeInformationBulk200ResponseInnerServings
-      , "readyInMinutes" .= getRecipeInformationBulk200ResponseInnerReadyInMinutes
-      , "license" .= getRecipeInformationBulk200ResponseInnerLicense
-      , "sourceName" .= getRecipeInformationBulk200ResponseInnerSourceName
-      , "sourceUrl" .= getRecipeInformationBulk200ResponseInnerSourceUrl
-      , "spoonacularSourceUrl" .= getRecipeInformationBulk200ResponseInnerSpoonacularSourceUrl
-      , "aggregateLikes" .= getRecipeInformationBulk200ResponseInnerAggregateLikes
-      , "healthScore" .= getRecipeInformationBulk200ResponseInnerHealthScore
-      , "spoonacularScore" .= getRecipeInformationBulk200ResponseInnerSpoonacularScore
-      , "pricePerServing" .= getRecipeInformationBulk200ResponseInnerPricePerServing
-      , "analyzedInstructions" .= getRecipeInformationBulk200ResponseInnerAnalyzedInstructions
-      , "cheap" .= getRecipeInformationBulk200ResponseInnerCheap
-      , "creditsText" .= getRecipeInformationBulk200ResponseInnerCreditsText
-      , "cuisines" .= getRecipeInformationBulk200ResponseInnerCuisines
-      , "dairyFree" .= getRecipeInformationBulk200ResponseInnerDairyFree
-      , "diets" .= getRecipeInformationBulk200ResponseInnerDiets
-      , "gaps" .= getRecipeInformationBulk200ResponseInnerGaps
-      , "glutenFree" .= getRecipeInformationBulk200ResponseInnerGlutenFree
-      , "instructions" .= getRecipeInformationBulk200ResponseInnerInstructions
-      , "ketogenic" .= getRecipeInformationBulk200ResponseInnerKetogenic
-      , "lowFodmap" .= getRecipeInformationBulk200ResponseInnerLowFodmap
-      , "occasions" .= getRecipeInformationBulk200ResponseInnerOccasions
-      , "sustainable" .= getRecipeInformationBulk200ResponseInnerSustainable
-      , "vegan" .= getRecipeInformationBulk200ResponseInnerVegan
-      , "vegetarian" .= getRecipeInformationBulk200ResponseInnerVegetarian
-      , "veryHealthy" .= getRecipeInformationBulk200ResponseInnerVeryHealthy
-      , "veryPopular" .= getRecipeInformationBulk200ResponseInnerVeryPopular
-      , "whole30" .= getRecipeInformationBulk200ResponseInnerWhole30
-      , "weightWatcherSmartPoints" .= getRecipeInformationBulk200ResponseInnerWeightWatcherSmartPoints
-      , "dishTypes" .= getRecipeInformationBulk200ResponseInnerDishTypes
-      , "extendedIngredients" .= getRecipeInformationBulk200ResponseInnerExtendedIngredients
-      , "summary" .= getRecipeInformationBulk200ResponseInnerSummary
-      , "winePairing" .= getRecipeInformationBulk200ResponseInnerWinePairing
-      ]
-
-
--- | Construct a value of type 'GetRecipeInformationBulk200ResponseInner' (by applying it's required fields, if any)
-mkGetRecipeInformationBulk200ResponseInner
-  :: Int -- ^ 'getRecipeInformationBulk200ResponseInnerId' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerTitle' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerImage' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerImageType' 
-  -> Double -- ^ 'getRecipeInformationBulk200ResponseInnerServings' 
-  -> Int -- ^ 'getRecipeInformationBulk200ResponseInnerReadyInMinutes' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerLicense' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerSourceName' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerSourceUrl' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerSpoonacularSourceUrl' 
-  -> Int -- ^ 'getRecipeInformationBulk200ResponseInnerAggregateLikes' 
-  -> Double -- ^ 'getRecipeInformationBulk200ResponseInnerHealthScore' 
-  -> Double -- ^ 'getRecipeInformationBulk200ResponseInnerSpoonacularScore' 
-  -> Double -- ^ 'getRecipeInformationBulk200ResponseInnerPricePerServing' 
-  -> [Text] -- ^ 'getRecipeInformationBulk200ResponseInnerAnalyzedInstructions' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerCheap' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerCreditsText' 
-  -> [Text] -- ^ 'getRecipeInformationBulk200ResponseInnerCuisines' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerDairyFree' 
-  -> [Text] -- ^ 'getRecipeInformationBulk200ResponseInnerDiets' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerGaps' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerGlutenFree' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerInstructions' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerKetogenic' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerLowFodmap' 
-  -> [Text] -- ^ 'getRecipeInformationBulk200ResponseInnerOccasions' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerSustainable' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerVegan' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerVegetarian' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerVeryHealthy' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerVeryPopular' 
-  -> Bool -- ^ 'getRecipeInformationBulk200ResponseInnerWhole30' 
-  -> Double -- ^ 'getRecipeInformationBulk200ResponseInnerWeightWatcherSmartPoints' 
-  -> [Text] -- ^ 'getRecipeInformationBulk200ResponseInnerDishTypes' 
-  -> [GetRecipeInformation200ResponseExtendedIngredientsInner] -- ^ 'getRecipeInformationBulk200ResponseInnerExtendedIngredients' 
-  -> Text -- ^ 'getRecipeInformationBulk200ResponseInnerSummary' 
-  -> GetRecipeInformation200ResponseWinePairing -- ^ 'getRecipeInformationBulk200ResponseInnerWinePairing' 
-  -> GetRecipeInformationBulk200ResponseInner
-mkGetRecipeInformationBulk200ResponseInner getRecipeInformationBulk200ResponseInnerId getRecipeInformationBulk200ResponseInnerTitle getRecipeInformationBulk200ResponseInnerImage getRecipeInformationBulk200ResponseInnerImageType getRecipeInformationBulk200ResponseInnerServings getRecipeInformationBulk200ResponseInnerReadyInMinutes getRecipeInformationBulk200ResponseInnerLicense getRecipeInformationBulk200ResponseInnerSourceName getRecipeInformationBulk200ResponseInnerSourceUrl getRecipeInformationBulk200ResponseInnerSpoonacularSourceUrl getRecipeInformationBulk200ResponseInnerAggregateLikes getRecipeInformationBulk200ResponseInnerHealthScore getRecipeInformationBulk200ResponseInnerSpoonacularScore getRecipeInformationBulk200ResponseInnerPricePerServing getRecipeInformationBulk200ResponseInnerAnalyzedInstructions getRecipeInformationBulk200ResponseInnerCheap getRecipeInformationBulk200ResponseInnerCreditsText getRecipeInformationBulk200ResponseInnerCuisines getRecipeInformationBulk200ResponseInnerDairyFree getRecipeInformationBulk200ResponseInnerDiets getRecipeInformationBulk200ResponseInnerGaps getRecipeInformationBulk200ResponseInnerGlutenFree getRecipeInformationBulk200ResponseInnerInstructions getRecipeInformationBulk200ResponseInnerKetogenic getRecipeInformationBulk200ResponseInnerLowFodmap getRecipeInformationBulk200ResponseInnerOccasions getRecipeInformationBulk200ResponseInnerSustainable getRecipeInformationBulk200ResponseInnerVegan getRecipeInformationBulk200ResponseInnerVegetarian getRecipeInformationBulk200ResponseInnerVeryHealthy getRecipeInformationBulk200ResponseInnerVeryPopular getRecipeInformationBulk200ResponseInnerWhole30 getRecipeInformationBulk200ResponseInnerWeightWatcherSmartPoints getRecipeInformationBulk200ResponseInnerDishTypes getRecipeInformationBulk200ResponseInnerExtendedIngredients getRecipeInformationBulk200ResponseInnerSummary getRecipeInformationBulk200ResponseInnerWinePairing =
-  GetRecipeInformationBulk200ResponseInner
-  { getRecipeInformationBulk200ResponseInnerId
-  , getRecipeInformationBulk200ResponseInnerTitle
-  , getRecipeInformationBulk200ResponseInnerImage
-  , getRecipeInformationBulk200ResponseInnerImageType
-  , getRecipeInformationBulk200ResponseInnerServings
-  , getRecipeInformationBulk200ResponseInnerReadyInMinutes
-  , getRecipeInformationBulk200ResponseInnerLicense
-  , getRecipeInformationBulk200ResponseInnerSourceName
-  , getRecipeInformationBulk200ResponseInnerSourceUrl
-  , getRecipeInformationBulk200ResponseInnerSpoonacularSourceUrl
-  , getRecipeInformationBulk200ResponseInnerAggregateLikes
-  , getRecipeInformationBulk200ResponseInnerHealthScore
-  , getRecipeInformationBulk200ResponseInnerSpoonacularScore
-  , getRecipeInformationBulk200ResponseInnerPricePerServing
-  , getRecipeInformationBulk200ResponseInnerAnalyzedInstructions
-  , getRecipeInformationBulk200ResponseInnerCheap
-  , getRecipeInformationBulk200ResponseInnerCreditsText
-  , getRecipeInformationBulk200ResponseInnerCuisines
-  , getRecipeInformationBulk200ResponseInnerDairyFree
-  , getRecipeInformationBulk200ResponseInnerDiets
-  , getRecipeInformationBulk200ResponseInnerGaps
-  , getRecipeInformationBulk200ResponseInnerGlutenFree
-  , getRecipeInformationBulk200ResponseInnerInstructions
-  , getRecipeInformationBulk200ResponseInnerKetogenic
-  , getRecipeInformationBulk200ResponseInnerLowFodmap
-  , getRecipeInformationBulk200ResponseInnerOccasions
-  , getRecipeInformationBulk200ResponseInnerSustainable
-  , getRecipeInformationBulk200ResponseInnerVegan
-  , getRecipeInformationBulk200ResponseInnerVegetarian
-  , getRecipeInformationBulk200ResponseInnerVeryHealthy
-  , getRecipeInformationBulk200ResponseInnerVeryPopular
-  , getRecipeInformationBulk200ResponseInnerWhole30
-  , getRecipeInformationBulk200ResponseInnerWeightWatcherSmartPoints
-  , getRecipeInformationBulk200ResponseInnerDishTypes
-  , getRecipeInformationBulk200ResponseInnerExtendedIngredients
-  , getRecipeInformationBulk200ResponseInnerSummary
-  , getRecipeInformationBulk200ResponseInnerWinePairing
   }
 
 -- ** GetRecipeIngredientsByID200Response
@@ -4626,7 +3223,7 @@ mkGetRecipeNutritionWidgetByID200Response getRecipeNutritionWidgetByID200Respons
 -- ** GetRecipeNutritionWidgetByID200ResponseBadInner
 -- | GetRecipeNutritionWidgetByID200ResponseBadInner
 data GetRecipeNutritionWidgetByID200ResponseBadInner = GetRecipeNutritionWidgetByID200ResponseBadInner
-  { getRecipeNutritionWidgetByID200ResponseBadInnerName :: !(Text) -- ^ /Required/ "name"
+  { getRecipeNutritionWidgetByID200ResponseBadInnerTitle :: !(Text) -- ^ /Required/ "title"
   , getRecipeNutritionWidgetByID200ResponseBadInnerAmount :: !(Text) -- ^ /Required/ "amount"
   , getRecipeNutritionWidgetByID200ResponseBadInnerIndented :: !(Bool) -- ^ /Required/ "indented"
   , getRecipeNutritionWidgetByID200ResponseBadInnerPercentOfDailyNeeds :: !(Double) -- ^ /Required/ "percentOfDailyNeeds"
@@ -4636,7 +3233,7 @@ data GetRecipeNutritionWidgetByID200ResponseBadInner = GetRecipeNutritionWidgetB
 instance A.FromJSON GetRecipeNutritionWidgetByID200ResponseBadInner where
   parseJSON = A.withObject "GetRecipeNutritionWidgetByID200ResponseBadInner" $ \o ->
     GetRecipeNutritionWidgetByID200ResponseBadInner
-      <$> (o .:  "name")
+      <$> (o .:  "title")
       <*> (o .:  "amount")
       <*> (o .:  "indented")
       <*> (o .:  "percentOfDailyNeeds")
@@ -4645,7 +3242,7 @@ instance A.FromJSON GetRecipeNutritionWidgetByID200ResponseBadInner where
 instance A.ToJSON GetRecipeNutritionWidgetByID200ResponseBadInner where
   toJSON GetRecipeNutritionWidgetByID200ResponseBadInner {..} =
    _omitNulls
-      [ "name" .= getRecipeNutritionWidgetByID200ResponseBadInnerName
+      [ "title" .= getRecipeNutritionWidgetByID200ResponseBadInnerTitle
       , "amount" .= getRecipeNutritionWidgetByID200ResponseBadInnerAmount
       , "indented" .= getRecipeNutritionWidgetByID200ResponseBadInnerIndented
       , "percentOfDailyNeeds" .= getRecipeNutritionWidgetByID200ResponseBadInnerPercentOfDailyNeeds
@@ -4654,14 +3251,14 @@ instance A.ToJSON GetRecipeNutritionWidgetByID200ResponseBadInner where
 
 -- | Construct a value of type 'GetRecipeNutritionWidgetByID200ResponseBadInner' (by applying it's required fields, if any)
 mkGetRecipeNutritionWidgetByID200ResponseBadInner
-  :: Text -- ^ 'getRecipeNutritionWidgetByID200ResponseBadInnerName' 
+  :: Text -- ^ 'getRecipeNutritionWidgetByID200ResponseBadInnerTitle' 
   -> Text -- ^ 'getRecipeNutritionWidgetByID200ResponseBadInnerAmount' 
   -> Bool -- ^ 'getRecipeNutritionWidgetByID200ResponseBadInnerIndented' 
   -> Double -- ^ 'getRecipeNutritionWidgetByID200ResponseBadInnerPercentOfDailyNeeds' 
   -> GetRecipeNutritionWidgetByID200ResponseBadInner
-mkGetRecipeNutritionWidgetByID200ResponseBadInner getRecipeNutritionWidgetByID200ResponseBadInnerName getRecipeNutritionWidgetByID200ResponseBadInnerAmount getRecipeNutritionWidgetByID200ResponseBadInnerIndented getRecipeNutritionWidgetByID200ResponseBadInnerPercentOfDailyNeeds =
+mkGetRecipeNutritionWidgetByID200ResponseBadInner getRecipeNutritionWidgetByID200ResponseBadInnerTitle getRecipeNutritionWidgetByID200ResponseBadInnerAmount getRecipeNutritionWidgetByID200ResponseBadInnerIndented getRecipeNutritionWidgetByID200ResponseBadInnerPercentOfDailyNeeds =
   GetRecipeNutritionWidgetByID200ResponseBadInner
-  { getRecipeNutritionWidgetByID200ResponseBadInnerName
+  { getRecipeNutritionWidgetByID200ResponseBadInnerTitle
   , getRecipeNutritionWidgetByID200ResponseBadInnerAmount
   , getRecipeNutritionWidgetByID200ResponseBadInnerIndented
   , getRecipeNutritionWidgetByID200ResponseBadInnerPercentOfDailyNeeds
@@ -4673,7 +3270,7 @@ data GetRecipeNutritionWidgetByID200ResponseGoodInner = GetRecipeNutritionWidget
   { getRecipeNutritionWidgetByID200ResponseGoodInnerAmount :: !(Text) -- ^ /Required/ "amount"
   , getRecipeNutritionWidgetByID200ResponseGoodInnerIndented :: !(Bool) -- ^ /Required/ "indented"
   , getRecipeNutritionWidgetByID200ResponseGoodInnerPercentOfDailyNeeds :: !(Double) -- ^ /Required/ "percentOfDailyNeeds"
-  , getRecipeNutritionWidgetByID200ResponseGoodInnerName :: !(Text) -- ^ /Required/ "name"
+  , getRecipeNutritionWidgetByID200ResponseGoodInnerTitle :: !(Text) -- ^ /Required/ "title"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetRecipeNutritionWidgetByID200ResponseGoodInner
@@ -4683,7 +3280,7 @@ instance A.FromJSON GetRecipeNutritionWidgetByID200ResponseGoodInner where
       <$> (o .:  "amount")
       <*> (o .:  "indented")
       <*> (o .:  "percentOfDailyNeeds")
-      <*> (o .:  "name")
+      <*> (o .:  "title")
 
 -- | ToJSON GetRecipeNutritionWidgetByID200ResponseGoodInner
 instance A.ToJSON GetRecipeNutritionWidgetByID200ResponseGoodInner where
@@ -4692,7 +3289,7 @@ instance A.ToJSON GetRecipeNutritionWidgetByID200ResponseGoodInner where
       [ "amount" .= getRecipeNutritionWidgetByID200ResponseGoodInnerAmount
       , "indented" .= getRecipeNutritionWidgetByID200ResponseGoodInnerIndented
       , "percentOfDailyNeeds" .= getRecipeNutritionWidgetByID200ResponseGoodInnerPercentOfDailyNeeds
-      , "name" .= getRecipeNutritionWidgetByID200ResponseGoodInnerName
+      , "title" .= getRecipeNutritionWidgetByID200ResponseGoodInnerTitle
       ]
 
 
@@ -4701,14 +3298,14 @@ mkGetRecipeNutritionWidgetByID200ResponseGoodInner
   :: Text -- ^ 'getRecipeNutritionWidgetByID200ResponseGoodInnerAmount' 
   -> Bool -- ^ 'getRecipeNutritionWidgetByID200ResponseGoodInnerIndented' 
   -> Double -- ^ 'getRecipeNutritionWidgetByID200ResponseGoodInnerPercentOfDailyNeeds' 
-  -> Text -- ^ 'getRecipeNutritionWidgetByID200ResponseGoodInnerName' 
+  -> Text -- ^ 'getRecipeNutritionWidgetByID200ResponseGoodInnerTitle' 
   -> GetRecipeNutritionWidgetByID200ResponseGoodInner
-mkGetRecipeNutritionWidgetByID200ResponseGoodInner getRecipeNutritionWidgetByID200ResponseGoodInnerAmount getRecipeNutritionWidgetByID200ResponseGoodInnerIndented getRecipeNutritionWidgetByID200ResponseGoodInnerPercentOfDailyNeeds getRecipeNutritionWidgetByID200ResponseGoodInnerName =
+mkGetRecipeNutritionWidgetByID200ResponseGoodInner getRecipeNutritionWidgetByID200ResponseGoodInnerAmount getRecipeNutritionWidgetByID200ResponseGoodInnerIndented getRecipeNutritionWidgetByID200ResponseGoodInnerPercentOfDailyNeeds getRecipeNutritionWidgetByID200ResponseGoodInnerTitle =
   GetRecipeNutritionWidgetByID200ResponseGoodInner
   { getRecipeNutritionWidgetByID200ResponseGoodInnerAmount
   , getRecipeNutritionWidgetByID200ResponseGoodInnerIndented
   , getRecipeNutritionWidgetByID200ResponseGoodInnerPercentOfDailyNeeds
-  , getRecipeNutritionWidgetByID200ResponseGoodInnerName
+  , getRecipeNutritionWidgetByID200ResponseGoodInnerTitle
   }
 
 -- ** GetRecipePriceBreakdownByID200Response
@@ -4862,66 +3459,6 @@ mkGetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric getRecipePr
   , getRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetricValue
   }
 
--- ** GetRecipeTasteByID200Response
--- | GetRecipeTasteByID200Response
--- 
-data GetRecipeTasteByID200Response = GetRecipeTasteByID200Response
-  { getRecipeTasteByID200ResponseSweetness :: !(Double) -- ^ /Required/ "sweetness"
-  , getRecipeTasteByID200ResponseSaltiness :: !(Double) -- ^ /Required/ "saltiness"
-  , getRecipeTasteByID200ResponseSourness :: !(Double) -- ^ /Required/ "sourness"
-  , getRecipeTasteByID200ResponseBitterness :: !(Double) -- ^ /Required/ "bitterness"
-  , getRecipeTasteByID200ResponseSavoriness :: !(Double) -- ^ /Required/ "savoriness"
-  , getRecipeTasteByID200ResponseFattiness :: !(Double) -- ^ /Required/ "fattiness"
-  , getRecipeTasteByID200ResponseSpiciness :: !(Double) -- ^ /Required/ "spiciness"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON GetRecipeTasteByID200Response
-instance A.FromJSON GetRecipeTasteByID200Response where
-  parseJSON = A.withObject "GetRecipeTasteByID200Response" $ \o ->
-    GetRecipeTasteByID200Response
-      <$> (o .:  "sweetness")
-      <*> (o .:  "saltiness")
-      <*> (o .:  "sourness")
-      <*> (o .:  "bitterness")
-      <*> (o .:  "savoriness")
-      <*> (o .:  "fattiness")
-      <*> (o .:  "spiciness")
-
--- | ToJSON GetRecipeTasteByID200Response
-instance A.ToJSON GetRecipeTasteByID200Response where
-  toJSON GetRecipeTasteByID200Response {..} =
-   _omitNulls
-      [ "sweetness" .= getRecipeTasteByID200ResponseSweetness
-      , "saltiness" .= getRecipeTasteByID200ResponseSaltiness
-      , "sourness" .= getRecipeTasteByID200ResponseSourness
-      , "bitterness" .= getRecipeTasteByID200ResponseBitterness
-      , "savoriness" .= getRecipeTasteByID200ResponseSavoriness
-      , "fattiness" .= getRecipeTasteByID200ResponseFattiness
-      , "spiciness" .= getRecipeTasteByID200ResponseSpiciness
-      ]
-
-
--- | Construct a value of type 'GetRecipeTasteByID200Response' (by applying it's required fields, if any)
-mkGetRecipeTasteByID200Response
-  :: Double -- ^ 'getRecipeTasteByID200ResponseSweetness' 
-  -> Double -- ^ 'getRecipeTasteByID200ResponseSaltiness' 
-  -> Double -- ^ 'getRecipeTasteByID200ResponseSourness' 
-  -> Double -- ^ 'getRecipeTasteByID200ResponseBitterness' 
-  -> Double -- ^ 'getRecipeTasteByID200ResponseSavoriness' 
-  -> Double -- ^ 'getRecipeTasteByID200ResponseFattiness' 
-  -> Double -- ^ 'getRecipeTasteByID200ResponseSpiciness' 
-  -> GetRecipeTasteByID200Response
-mkGetRecipeTasteByID200Response getRecipeTasteByID200ResponseSweetness getRecipeTasteByID200ResponseSaltiness getRecipeTasteByID200ResponseSourness getRecipeTasteByID200ResponseBitterness getRecipeTasteByID200ResponseSavoriness getRecipeTasteByID200ResponseFattiness getRecipeTasteByID200ResponseSpiciness =
-  GetRecipeTasteByID200Response
-  { getRecipeTasteByID200ResponseSweetness
-  , getRecipeTasteByID200ResponseSaltiness
-  , getRecipeTasteByID200ResponseSourness
-  , getRecipeTasteByID200ResponseBitterness
-  , getRecipeTasteByID200ResponseSavoriness
-  , getRecipeTasteByID200ResponseFattiness
-  , getRecipeTasteByID200ResponseSpiciness
-  }
-
 -- ** GetShoppingList200Response
 -- | GetShoppingList200Response
 -- 
@@ -5061,9 +3598,9 @@ mkGetShoppingList200ResponseAislesInnerItemsInner getShoppingList200ResponseAisl
 -- ** GetShoppingList200ResponseAislesInnerItemsInnerMeasures
 -- | GetShoppingList200ResponseAislesInnerItemsInnerMeasures
 data GetShoppingList200ResponseAislesInnerItemsInnerMeasures = GetShoppingList200ResponseAislesInnerItemsInnerMeasures
-  { getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal :: !(ParseIngredients200ResponseInnerNutritionWeightPerServing) -- ^ /Required/ "original"
-  , getShoppingList200ResponseAislesInnerItemsInnerMeasuresMetric :: !(ParseIngredients200ResponseInnerNutritionWeightPerServing) -- ^ /Required/ "metric"
-  , getShoppingList200ResponseAislesInnerItemsInnerMeasuresUs :: !(ParseIngredients200ResponseInnerNutritionWeightPerServing) -- ^ /Required/ "us"
+  { getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal :: !(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) -- ^ /Required/ "original"
+  , getShoppingList200ResponseAislesInnerItemsInnerMeasuresMetric :: !(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) -- ^ /Required/ "metric"
+  , getShoppingList200ResponseAislesInnerItemsInnerMeasuresUs :: !(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) -- ^ /Required/ "us"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON GetShoppingList200ResponseAislesInnerItemsInnerMeasures
@@ -5086,15 +3623,49 @@ instance A.ToJSON GetShoppingList200ResponseAislesInnerItemsInnerMeasures where
 
 -- | Construct a value of type 'GetShoppingList200ResponseAislesInnerItemsInnerMeasures' (by applying it's required fields, if any)
 mkGetShoppingList200ResponseAislesInnerItemsInnerMeasures
-  :: ParseIngredients200ResponseInnerNutritionWeightPerServing -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal' 
-  -> ParseIngredients200ResponseInnerNutritionWeightPerServing -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresMetric' 
-  -> ParseIngredients200ResponseInnerNutritionWeightPerServing -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresUs' 
+  :: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal' 
+  -> GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresMetric' 
+  -> GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresUs' 
   -> GetShoppingList200ResponseAislesInnerItemsInnerMeasures
 mkGetShoppingList200ResponseAislesInnerItemsInnerMeasures getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getShoppingList200ResponseAislesInnerItemsInnerMeasuresMetric getShoppingList200ResponseAislesInnerItemsInnerMeasuresUs =
   GetShoppingList200ResponseAislesInnerItemsInnerMeasures
   { getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
   , getShoppingList200ResponseAislesInnerItemsInnerMeasuresMetric
   , getShoppingList200ResponseAislesInnerItemsInnerMeasuresUs
+  }
+
+-- ** GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+-- | GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+data GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal = GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+  { getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalAmount :: !(Double) -- ^ /Required/ "amount"
+  , getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalUnit :: !(Text) -- ^ /Required/ "unit"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+instance A.FromJSON GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal where
+  parseJSON = A.withObject "GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal" $ \o ->
+    GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+      <$> (o .:  "amount")
+      <*> (o .:  "unit")
+
+-- | ToJSON GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+instance A.ToJSON GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal where
+  toJSON GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal {..} =
+   _omitNulls
+      [ "amount" .= getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalAmount
+      , "unit" .= getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalUnit
+      ]
+
+
+-- | Construct a value of type 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal' (by applying it's required fields, if any)
+mkGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+  :: Double -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalAmount' 
+  -> Text -- ^ 'getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalUnit' 
+  -> GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+mkGetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalAmount getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalUnit =
+  GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
+  { getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalAmount
+  , getShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginalUnit
   }
 
 -- ** GetSimilarRecipes200ResponseInner
@@ -5801,6 +4372,269 @@ mkImageClassificationByURL200Response imageClassificationByURL200ResponseCategor
   , imageClassificationByURL200ResponseProbability
   }
 
+-- ** IngredientBasics
+-- | IngredientBasics
+data IngredientBasics = IngredientBasics
+  { ingredientBasicsDescription :: !(Text) -- ^ /Required/ "description"
+  , ingredientBasicsName :: !(Text) -- ^ /Required/ "name"
+  , ingredientBasicsSafetyLevel :: !(Text) -- ^ /Required/ "safety_level"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON IngredientBasics
+instance A.FromJSON IngredientBasics where
+  parseJSON = A.withObject "IngredientBasics" $ \o ->
+    IngredientBasics
+      <$> (o .:  "description")
+      <*> (o .:  "name")
+      <*> (o .:  "safety_level")
+
+-- | ToJSON IngredientBasics
+instance A.ToJSON IngredientBasics where
+  toJSON IngredientBasics {..} =
+   _omitNulls
+      [ "description" .= ingredientBasicsDescription
+      , "name" .= ingredientBasicsName
+      , "safety_level" .= ingredientBasicsSafetyLevel
+      ]
+
+
+-- | Construct a value of type 'IngredientBasics' (by applying it's required fields, if any)
+mkIngredientBasics
+  :: Text -- ^ 'ingredientBasicsDescription' 
+  -> Text -- ^ 'ingredientBasicsName' 
+  -> Text -- ^ 'ingredientBasicsSafetyLevel' 
+  -> IngredientBasics
+mkIngredientBasics ingredientBasicsDescription ingredientBasicsName ingredientBasicsSafetyLevel =
+  IngredientBasics
+  { ingredientBasicsDescription
+  , ingredientBasicsName
+  , ingredientBasicsSafetyLevel
+  }
+
+-- ** IngredientInformation
+-- | IngredientInformation
+-- 
+data IngredientInformation = IngredientInformation
+  { ingredientInformationId :: !(Int) -- ^ /Required/ "id"
+  , ingredientInformationOriginal :: !(Text) -- ^ /Required/ "original"
+  , ingredientInformationOriginalName :: !(Text) -- ^ /Required/ "originalName"
+  , ingredientInformationName :: !(Text) -- ^ /Required/ "name"
+  , ingredientInformationAmount :: !(Double) -- ^ /Required/ "amount"
+  , ingredientInformationUnit :: !(Text) -- ^ /Required/ "unit"
+  , ingredientInformationUnitShort :: !(Text) -- ^ /Required/ "unitShort"
+  , ingredientInformationUnitLong :: !(Text) -- ^ /Required/ "unitLong"
+  , ingredientInformationPossibleUnits :: !([Text]) -- ^ /Required/ "possibleUnits"
+  , ingredientInformationEstimatedCost :: !(IngredientInformationEstimatedCost) -- ^ /Required/ "estimatedCost"
+  , ingredientInformationConsistency :: !(Text) -- ^ /Required/ "consistency"
+  , ingredientInformationShoppingListUnits :: !(Maybe [Text]) -- ^ "shoppingListUnits"
+  , ingredientInformationAisle :: !(Text) -- ^ /Required/ "aisle"
+  , ingredientInformationImage :: !(Text) -- ^ /Required/ "image"
+  , ingredientInformationMeta :: !([Text]) -- ^ /Required/ "meta"
+  , ingredientInformationNutrition :: !(Maybe IngredientInformationNutrition) -- ^ "nutrition"
+  , ingredientInformationCategoryPath :: !(Maybe [Text]) -- ^ "categoryPath"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON IngredientInformation
+instance A.FromJSON IngredientInformation where
+  parseJSON = A.withObject "IngredientInformation" $ \o ->
+    IngredientInformation
+      <$> (o .:  "id")
+      <*> (o .:  "original")
+      <*> (o .:  "originalName")
+      <*> (o .:  "name")
+      <*> (o .:  "amount")
+      <*> (o .:  "unit")
+      <*> (o .:  "unitShort")
+      <*> (o .:  "unitLong")
+      <*> (o .:  "possibleUnits")
+      <*> (o .:  "estimatedCost")
+      <*> (o .:  "consistency")
+      <*> (o .:? "shoppingListUnits")
+      <*> (o .:  "aisle")
+      <*> (o .:  "image")
+      <*> (o .:  "meta")
+      <*> (o .:? "nutrition")
+      <*> (o .:? "categoryPath")
+
+-- | ToJSON IngredientInformation
+instance A.ToJSON IngredientInformation where
+  toJSON IngredientInformation {..} =
+   _omitNulls
+      [ "id" .= ingredientInformationId
+      , "original" .= ingredientInformationOriginal
+      , "originalName" .= ingredientInformationOriginalName
+      , "name" .= ingredientInformationName
+      , "amount" .= ingredientInformationAmount
+      , "unit" .= ingredientInformationUnit
+      , "unitShort" .= ingredientInformationUnitShort
+      , "unitLong" .= ingredientInformationUnitLong
+      , "possibleUnits" .= ingredientInformationPossibleUnits
+      , "estimatedCost" .= ingredientInformationEstimatedCost
+      , "consistency" .= ingredientInformationConsistency
+      , "shoppingListUnits" .= ingredientInformationShoppingListUnits
+      , "aisle" .= ingredientInformationAisle
+      , "image" .= ingredientInformationImage
+      , "meta" .= ingredientInformationMeta
+      , "nutrition" .= ingredientInformationNutrition
+      , "categoryPath" .= ingredientInformationCategoryPath
+      ]
+
+
+-- | Construct a value of type 'IngredientInformation' (by applying it's required fields, if any)
+mkIngredientInformation
+  :: Int -- ^ 'ingredientInformationId' 
+  -> Text -- ^ 'ingredientInformationOriginal' 
+  -> Text -- ^ 'ingredientInformationOriginalName' 
+  -> Text -- ^ 'ingredientInformationName' 
+  -> Double -- ^ 'ingredientInformationAmount' 
+  -> Text -- ^ 'ingredientInformationUnit' 
+  -> Text -- ^ 'ingredientInformationUnitShort' 
+  -> Text -- ^ 'ingredientInformationUnitLong' 
+  -> [Text] -- ^ 'ingredientInformationPossibleUnits' 
+  -> IngredientInformationEstimatedCost -- ^ 'ingredientInformationEstimatedCost' 
+  -> Text -- ^ 'ingredientInformationConsistency' 
+  -> Text -- ^ 'ingredientInformationAisle' 
+  -> Text -- ^ 'ingredientInformationImage' 
+  -> [Text] -- ^ 'ingredientInformationMeta' 
+  -> IngredientInformation
+mkIngredientInformation ingredientInformationId ingredientInformationOriginal ingredientInformationOriginalName ingredientInformationName ingredientInformationAmount ingredientInformationUnit ingredientInformationUnitShort ingredientInformationUnitLong ingredientInformationPossibleUnits ingredientInformationEstimatedCost ingredientInformationConsistency ingredientInformationAisle ingredientInformationImage ingredientInformationMeta =
+  IngredientInformation
+  { ingredientInformationId
+  , ingredientInformationOriginal
+  , ingredientInformationOriginalName
+  , ingredientInformationName
+  , ingredientInformationAmount
+  , ingredientInformationUnit
+  , ingredientInformationUnitShort
+  , ingredientInformationUnitLong
+  , ingredientInformationPossibleUnits
+  , ingredientInformationEstimatedCost
+  , ingredientInformationConsistency
+  , ingredientInformationShoppingListUnits = Nothing
+  , ingredientInformationAisle
+  , ingredientInformationImage
+  , ingredientInformationMeta
+  , ingredientInformationNutrition = Nothing
+  , ingredientInformationCategoryPath = Nothing
+  }
+
+-- ** IngredientInformationEstimatedCost
+-- | IngredientInformationEstimatedCost
+data IngredientInformationEstimatedCost = IngredientInformationEstimatedCost
+  { ingredientInformationEstimatedCostValue :: !(Double) -- ^ /Required/ "value"
+  , ingredientInformationEstimatedCostUnit :: !(Text) -- ^ /Required/ "unit"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON IngredientInformationEstimatedCost
+instance A.FromJSON IngredientInformationEstimatedCost where
+  parseJSON = A.withObject "IngredientInformationEstimatedCost" $ \o ->
+    IngredientInformationEstimatedCost
+      <$> (o .:  "value")
+      <*> (o .:  "unit")
+
+-- | ToJSON IngredientInformationEstimatedCost
+instance A.ToJSON IngredientInformationEstimatedCost where
+  toJSON IngredientInformationEstimatedCost {..} =
+   _omitNulls
+      [ "value" .= ingredientInformationEstimatedCostValue
+      , "unit" .= ingredientInformationEstimatedCostUnit
+      ]
+
+
+-- | Construct a value of type 'IngredientInformationEstimatedCost' (by applying it's required fields, if any)
+mkIngredientInformationEstimatedCost
+  :: Double -- ^ 'ingredientInformationEstimatedCostValue' 
+  -> Text -- ^ 'ingredientInformationEstimatedCostUnit' 
+  -> IngredientInformationEstimatedCost
+mkIngredientInformationEstimatedCost ingredientInformationEstimatedCostValue ingredientInformationEstimatedCostUnit =
+  IngredientInformationEstimatedCost
+  { ingredientInformationEstimatedCostValue
+  , ingredientInformationEstimatedCostUnit
+  }
+
+-- ** IngredientInformationNutrition
+-- | IngredientInformationNutrition
+data IngredientInformationNutrition = IngredientInformationNutrition
+  { ingredientInformationNutritionNutrients :: !([SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner]) -- ^ /Required/ "nutrients"
+  , ingredientInformationNutritionProperties :: !([IngredientInformationNutritionPropertiesInner]) -- ^ /Required/ "properties"
+  , ingredientInformationNutritionCaloricBreakdown :: !(SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown) -- ^ /Required/ "caloricBreakdown"
+  , ingredientInformationNutritionWeightPerServing :: !(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) -- ^ /Required/ "weightPerServing"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON IngredientInformationNutrition
+instance A.FromJSON IngredientInformationNutrition where
+  parseJSON = A.withObject "IngredientInformationNutrition" $ \o ->
+    IngredientInformationNutrition
+      <$> (o .:  "nutrients")
+      <*> (o .:  "properties")
+      <*> (o .:  "caloricBreakdown")
+      <*> (o .:  "weightPerServing")
+
+-- | ToJSON IngredientInformationNutrition
+instance A.ToJSON IngredientInformationNutrition where
+  toJSON IngredientInformationNutrition {..} =
+   _omitNulls
+      [ "nutrients" .= ingredientInformationNutritionNutrients
+      , "properties" .= ingredientInformationNutritionProperties
+      , "caloricBreakdown" .= ingredientInformationNutritionCaloricBreakdown
+      , "weightPerServing" .= ingredientInformationNutritionWeightPerServing
+      ]
+
+
+-- | Construct a value of type 'IngredientInformationNutrition' (by applying it's required fields, if any)
+mkIngredientInformationNutrition
+  :: [SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner] -- ^ 'ingredientInformationNutritionNutrients' 
+  -> [IngredientInformationNutritionPropertiesInner] -- ^ 'ingredientInformationNutritionProperties' 
+  -> SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown -- ^ 'ingredientInformationNutritionCaloricBreakdown' 
+  -> GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal -- ^ 'ingredientInformationNutritionWeightPerServing' 
+  -> IngredientInformationNutrition
+mkIngredientInformationNutrition ingredientInformationNutritionNutrients ingredientInformationNutritionProperties ingredientInformationNutritionCaloricBreakdown ingredientInformationNutritionWeightPerServing =
+  IngredientInformationNutrition
+  { ingredientInformationNutritionNutrients
+  , ingredientInformationNutritionProperties
+  , ingredientInformationNutritionCaloricBreakdown
+  , ingredientInformationNutritionWeightPerServing
+  }
+
+-- ** IngredientInformationNutritionPropertiesInner
+-- | IngredientInformationNutritionPropertiesInner
+data IngredientInformationNutritionPropertiesInner = IngredientInformationNutritionPropertiesInner
+  { ingredientInformationNutritionPropertiesInnerName :: !(Text) -- ^ /Required/ "name"
+  , ingredientInformationNutritionPropertiesInnerAmount :: !(Double) -- ^ /Required/ "amount"
+  , ingredientInformationNutritionPropertiesInnerUnit :: !(Text) -- ^ /Required/ "unit"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON IngredientInformationNutritionPropertiesInner
+instance A.FromJSON IngredientInformationNutritionPropertiesInner where
+  parseJSON = A.withObject "IngredientInformationNutritionPropertiesInner" $ \o ->
+    IngredientInformationNutritionPropertiesInner
+      <$> (o .:  "name")
+      <*> (o .:  "amount")
+      <*> (o .:  "unit")
+
+-- | ToJSON IngredientInformationNutritionPropertiesInner
+instance A.ToJSON IngredientInformationNutritionPropertiesInner where
+  toJSON IngredientInformationNutritionPropertiesInner {..} =
+   _omitNulls
+      [ "name" .= ingredientInformationNutritionPropertiesInnerName
+      , "amount" .= ingredientInformationNutritionPropertiesInnerAmount
+      , "unit" .= ingredientInformationNutritionPropertiesInnerUnit
+      ]
+
+
+-- | Construct a value of type 'IngredientInformationNutritionPropertiesInner' (by applying it's required fields, if any)
+mkIngredientInformationNutritionPropertiesInner
+  :: Text -- ^ 'ingredientInformationNutritionPropertiesInnerName' 
+  -> Double -- ^ 'ingredientInformationNutritionPropertiesInnerAmount' 
+  -> Text -- ^ 'ingredientInformationNutritionPropertiesInnerUnit' 
+  -> IngredientInformationNutritionPropertiesInner
+mkIngredientInformationNutritionPropertiesInner ingredientInformationNutritionPropertiesInnerName ingredientInformationNutritionPropertiesInnerAmount ingredientInformationNutritionPropertiesInnerUnit =
+  IngredientInformationNutritionPropertiesInner
+  { ingredientInformationNutritionPropertiesInnerName
+  , ingredientInformationNutritionPropertiesInnerAmount
+  , ingredientInformationNutritionPropertiesInnerUnit
+  }
+
 -- ** IngredientSearch200Response
 -- | IngredientSearch200Response
 -- 
@@ -6008,347 +4842,277 @@ mkMapIngredientsToGroceryProductsRequest mapIngredientsToGroceryProductsRequestI
   , mapIngredientsToGroceryProductsRequestServings
   }
 
--- ** ParseIngredients200ResponseInner
--- | ParseIngredients200ResponseInner
-data ParseIngredients200ResponseInner = ParseIngredients200ResponseInner
-  { parseIngredients200ResponseInnerId :: !(Int) -- ^ /Required/ "id"
-  , parseIngredients200ResponseInnerOriginal :: !(Text) -- ^ /Required/ "original"
-  , parseIngredients200ResponseInnerOriginalName :: !(Text) -- ^ /Required/ "originalName"
-  , parseIngredients200ResponseInnerName :: !(Text) -- ^ /Required/ "name"
-  , parseIngredients200ResponseInnerNameClean :: !(Text) -- ^ /Required/ "nameClean"
-  , parseIngredients200ResponseInnerAmount :: !(Double) -- ^ /Required/ "amount"
-  , parseIngredients200ResponseInnerUnit :: !(Text) -- ^ /Required/ "unit"
-  , parseIngredients200ResponseInnerUnitShort :: !(Text) -- ^ /Required/ "unitShort"
-  , parseIngredients200ResponseInnerUnitLong :: !(Text) -- ^ /Required/ "unitLong"
-  , parseIngredients200ResponseInnerPossibleUnits :: !([Text]) -- ^ /Required/ "possibleUnits"
-  , parseIngredients200ResponseInnerEstimatedCost :: !(ParseIngredients200ResponseInnerEstimatedCost) -- ^ /Required/ "estimatedCost"
-  , parseIngredients200ResponseInnerConsistency :: !(Text) -- ^ /Required/ "consistency"
-  , parseIngredients200ResponseInnerAisle :: !(Text) -- ^ /Required/ "aisle"
-  , parseIngredients200ResponseInnerImage :: !(Text) -- ^ /Required/ "image"
-  , parseIngredients200ResponseInnerMeta :: !([Text]) -- ^ /Required/ "meta"
-  , parseIngredients200ResponseInnerNutrition :: !(ParseIngredients200ResponseInnerNutrition) -- ^ /Required/ "nutrition"
+-- ** MenuItem
+-- | MenuItem
+-- 
+data MenuItem = MenuItem
+  { menuItemId :: !(Int) -- ^ /Required/ "id"
+  , menuItemTitle :: !(Text) -- ^ /Required/ "title"
+  , menuItemRestaurantChain :: !(Text) -- ^ /Required/ "restaurantChain"
+  , menuItemNutrition :: !(Maybe SearchGroceryProductsByUPC200ResponseNutrition) -- ^ "nutrition"
+  , menuItemBadges :: !(Maybe [Text]) -- ^ "badges"
+  , menuItemBreadcrumbs :: !(Maybe [Text]) -- ^ "breadcrumbs"
+  , menuItemGeneratedText :: !(Maybe Text) -- ^ "generatedText"
+  , menuItemImageType :: !(Maybe Text) -- ^ "imageType"
+  , menuItemLikes :: !(Maybe Int) -- ^ "likes"
+  , menuItemServings :: !(Maybe MenuItemServings) -- ^ "servings"
+  , menuItemPrice :: !(Double) -- ^ /Required/ "price"
+  , menuItemSpoonacularScore :: !(Double) -- ^ /Required/ "spoonacularScore"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON ParseIngredients200ResponseInner
-instance A.FromJSON ParseIngredients200ResponseInner where
-  parseJSON = A.withObject "ParseIngredients200ResponseInner" $ \o ->
-    ParseIngredients200ResponseInner
+-- | FromJSON MenuItem
+instance A.FromJSON MenuItem where
+  parseJSON = A.withObject "MenuItem" $ \o ->
+    MenuItem
       <$> (o .:  "id")
-      <*> (o .:  "original")
-      <*> (o .:  "originalName")
-      <*> (o .:  "name")
-      <*> (o .:  "nameClean")
-      <*> (o .:  "amount")
+      <*> (o .:  "title")
+      <*> (o .:  "restaurantChain")
+      <*> (o .:? "nutrition")
+      <*> (o .:? "badges")
+      <*> (o .:? "breadcrumbs")
+      <*> (o .:? "generatedText")
+      <*> (o .:? "imageType")
+      <*> (o .:? "likes")
+      <*> (o .:? "servings")
+      <*> (o .:  "price")
+      <*> (o .:  "spoonacularScore")
+
+-- | ToJSON MenuItem
+instance A.ToJSON MenuItem where
+  toJSON MenuItem {..} =
+   _omitNulls
+      [ "id" .= menuItemId
+      , "title" .= menuItemTitle
+      , "restaurantChain" .= menuItemRestaurantChain
+      , "nutrition" .= menuItemNutrition
+      , "badges" .= menuItemBadges
+      , "breadcrumbs" .= menuItemBreadcrumbs
+      , "generatedText" .= menuItemGeneratedText
+      , "imageType" .= menuItemImageType
+      , "likes" .= menuItemLikes
+      , "servings" .= menuItemServings
+      , "price" .= menuItemPrice
+      , "spoonacularScore" .= menuItemSpoonacularScore
+      ]
+
+
+-- | Construct a value of type 'MenuItem' (by applying it's required fields, if any)
+mkMenuItem
+  :: Int -- ^ 'menuItemId' 
+  -> Text -- ^ 'menuItemTitle' 
+  -> Text -- ^ 'menuItemRestaurantChain' 
+  -> Double -- ^ 'menuItemPrice' 
+  -> Double -- ^ 'menuItemSpoonacularScore' 
+  -> MenuItem
+mkMenuItem menuItemId menuItemTitle menuItemRestaurantChain menuItemPrice menuItemSpoonacularScore =
+  MenuItem
+  { menuItemId
+  , menuItemTitle
+  , menuItemRestaurantChain
+  , menuItemNutrition = Nothing
+  , menuItemBadges = Nothing
+  , menuItemBreadcrumbs = Nothing
+  , menuItemGeneratedText = Nothing
+  , menuItemImageType = Nothing
+  , menuItemLikes = Nothing
+  , menuItemServings = Nothing
+  , menuItemPrice
+  , menuItemSpoonacularScore
+  }
+
+-- ** MenuItemServings
+-- | MenuItemServings
+data MenuItemServings = MenuItemServings
+  { menuItemServingsNumber :: !(Double) -- ^ /Required/ "number"
+  , menuItemServingsSize :: !(Double) -- ^ /Required/ "size"
+  , menuItemServingsUnit :: !(Text) -- ^ /Required/ "unit"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON MenuItemServings
+instance A.FromJSON MenuItemServings where
+  parseJSON = A.withObject "MenuItemServings" $ \o ->
+    MenuItemServings
+      <$> (o .:  "number")
+      <*> (o .:  "size")
       <*> (o .:  "unit")
-      <*> (o .:  "unitShort")
-      <*> (o .:  "unitLong")
-      <*> (o .:  "possibleUnits")
-      <*> (o .:  "estimatedCost")
-      <*> (o .:  "consistency")
+
+-- | ToJSON MenuItemServings
+instance A.ToJSON MenuItemServings where
+  toJSON MenuItemServings {..} =
+   _omitNulls
+      [ "number" .= menuItemServingsNumber
+      , "size" .= menuItemServingsSize
+      , "unit" .= menuItemServingsUnit
+      ]
+
+
+-- | Construct a value of type 'MenuItemServings' (by applying it's required fields, if any)
+mkMenuItemServings
+  :: Double -- ^ 'menuItemServingsNumber' 
+  -> Double -- ^ 'menuItemServingsSize' 
+  -> Text -- ^ 'menuItemServingsUnit' 
+  -> MenuItemServings
+mkMenuItemServings menuItemServingsNumber menuItemServingsSize menuItemServingsUnit =
+  MenuItemServings
+  { menuItemServingsNumber
+  , menuItemServingsSize
+  , menuItemServingsUnit
+  }
+
+-- ** ProductInformation
+-- | ProductInformation
+-- 
+data ProductInformation = ProductInformation
+  { productInformationId :: !(Int) -- ^ /Required/ "id"
+  , productInformationTitle :: !(Text) -- ^ /Required/ "title"
+  , productInformationUpc :: !(Maybe Text) -- ^ "upc"
+  , productInformationUsdaCode :: !(Maybe Text) -- ^ "usdaCode"
+  , productInformationBreadcrumbs :: !([Text]) -- ^ /Required/ "breadcrumbs"
+  , productInformationImageType :: !(Text) -- ^ /Required/ "imageType"
+  , productInformationBadges :: !([Text]) -- ^ /Required/ "badges"
+  , productInformationImportantBadges :: !([Text]) -- ^ /Required/ "importantBadges"
+  , productInformationIngredientCount :: !(Int) -- ^ /Required/ "ingredientCount"
+  , productInformationGeneratedText :: !(Maybe Text) -- ^ "generatedText"
+  , productInformationIngredientList :: !(Text) -- ^ /Required/ "ingredientList"
+  , productInformationIngredients :: !([IngredientBasics]) -- ^ /Required/ "ingredients"
+  , productInformationLikes :: !(Double) -- ^ /Required/ "likes"
+  , productInformationAisle :: !(Text) -- ^ /Required/ "aisle"
+  , productInformationCredits :: !(Maybe ProductInformationCredits) -- ^ "credits"
+  , productInformationNutrition :: !(SearchGroceryProductsByUPC200ResponseNutrition) -- ^ /Required/ "nutrition"
+  , productInformationPrice :: !(Double) -- ^ /Required/ "price"
+  , productInformationServings :: !(SearchGroceryProductsByUPC200ResponseServings) -- ^ /Required/ "servings"
+  , productInformationSpoonacularScore :: !(Double) -- ^ /Required/ "spoonacularScore"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON ProductInformation
+instance A.FromJSON ProductInformation where
+  parseJSON = A.withObject "ProductInformation" $ \o ->
+    ProductInformation
+      <$> (o .:  "id")
+      <*> (o .:  "title")
+      <*> (o .:? "upc")
+      <*> (o .:? "usdaCode")
+      <*> (o .:  "breadcrumbs")
+      <*> (o .:  "imageType")
+      <*> (o .:  "badges")
+      <*> (o .:  "importantBadges")
+      <*> (o .:  "ingredientCount")
+      <*> (o .:? "generatedText")
+      <*> (o .:  "ingredientList")
+      <*> (o .:  "ingredients")
+      <*> (o .:  "likes")
       <*> (o .:  "aisle")
-      <*> (o .:  "image")
-      <*> (o .:  "meta")
+      <*> (o .:? "credits")
       <*> (o .:  "nutrition")
+      <*> (o .:  "price")
+      <*> (o .:  "servings")
+      <*> (o .:  "spoonacularScore")
 
--- | ToJSON ParseIngredients200ResponseInner
-instance A.ToJSON ParseIngredients200ResponseInner where
-  toJSON ParseIngredients200ResponseInner {..} =
+-- | ToJSON ProductInformation
+instance A.ToJSON ProductInformation where
+  toJSON ProductInformation {..} =
    _omitNulls
-      [ "id" .= parseIngredients200ResponseInnerId
-      , "original" .= parseIngredients200ResponseInnerOriginal
-      , "originalName" .= parseIngredients200ResponseInnerOriginalName
-      , "name" .= parseIngredients200ResponseInnerName
-      , "nameClean" .= parseIngredients200ResponseInnerNameClean
-      , "amount" .= parseIngredients200ResponseInnerAmount
-      , "unit" .= parseIngredients200ResponseInnerUnit
-      , "unitShort" .= parseIngredients200ResponseInnerUnitShort
-      , "unitLong" .= parseIngredients200ResponseInnerUnitLong
-      , "possibleUnits" .= parseIngredients200ResponseInnerPossibleUnits
-      , "estimatedCost" .= parseIngredients200ResponseInnerEstimatedCost
-      , "consistency" .= parseIngredients200ResponseInnerConsistency
-      , "aisle" .= parseIngredients200ResponseInnerAisle
-      , "image" .= parseIngredients200ResponseInnerImage
-      , "meta" .= parseIngredients200ResponseInnerMeta
-      , "nutrition" .= parseIngredients200ResponseInnerNutrition
+      [ "id" .= productInformationId
+      , "title" .= productInformationTitle
+      , "upc" .= productInformationUpc
+      , "usdaCode" .= productInformationUsdaCode
+      , "breadcrumbs" .= productInformationBreadcrumbs
+      , "imageType" .= productInformationImageType
+      , "badges" .= productInformationBadges
+      , "importantBadges" .= productInformationImportantBadges
+      , "ingredientCount" .= productInformationIngredientCount
+      , "generatedText" .= productInformationGeneratedText
+      , "ingredientList" .= productInformationIngredientList
+      , "ingredients" .= productInformationIngredients
+      , "likes" .= productInformationLikes
+      , "aisle" .= productInformationAisle
+      , "credits" .= productInformationCredits
+      , "nutrition" .= productInformationNutrition
+      , "price" .= productInformationPrice
+      , "servings" .= productInformationServings
+      , "spoonacularScore" .= productInformationSpoonacularScore
       ]
 
 
--- | Construct a value of type 'ParseIngredients200ResponseInner' (by applying it's required fields, if any)
-mkParseIngredients200ResponseInner
-  :: Int -- ^ 'parseIngredients200ResponseInnerId' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerOriginal' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerOriginalName' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerName' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerNameClean' 
-  -> Double -- ^ 'parseIngredients200ResponseInnerAmount' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerUnit' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerUnitShort' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerUnitLong' 
-  -> [Text] -- ^ 'parseIngredients200ResponseInnerPossibleUnits' 
-  -> ParseIngredients200ResponseInnerEstimatedCost -- ^ 'parseIngredients200ResponseInnerEstimatedCost' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerConsistency' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerAisle' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerImage' 
-  -> [Text] -- ^ 'parseIngredients200ResponseInnerMeta' 
-  -> ParseIngredients200ResponseInnerNutrition -- ^ 'parseIngredients200ResponseInnerNutrition' 
-  -> ParseIngredients200ResponseInner
-mkParseIngredients200ResponseInner parseIngredients200ResponseInnerId parseIngredients200ResponseInnerOriginal parseIngredients200ResponseInnerOriginalName parseIngredients200ResponseInnerName parseIngredients200ResponseInnerNameClean parseIngredients200ResponseInnerAmount parseIngredients200ResponseInnerUnit parseIngredients200ResponseInnerUnitShort parseIngredients200ResponseInnerUnitLong parseIngredients200ResponseInnerPossibleUnits parseIngredients200ResponseInnerEstimatedCost parseIngredients200ResponseInnerConsistency parseIngredients200ResponseInnerAisle parseIngredients200ResponseInnerImage parseIngredients200ResponseInnerMeta parseIngredients200ResponseInnerNutrition =
-  ParseIngredients200ResponseInner
-  { parseIngredients200ResponseInnerId
-  , parseIngredients200ResponseInnerOriginal
-  , parseIngredients200ResponseInnerOriginalName
-  , parseIngredients200ResponseInnerName
-  , parseIngredients200ResponseInnerNameClean
-  , parseIngredients200ResponseInnerAmount
-  , parseIngredients200ResponseInnerUnit
-  , parseIngredients200ResponseInnerUnitShort
-  , parseIngredients200ResponseInnerUnitLong
-  , parseIngredients200ResponseInnerPossibleUnits
-  , parseIngredients200ResponseInnerEstimatedCost
-  , parseIngredients200ResponseInnerConsistency
-  , parseIngredients200ResponseInnerAisle
-  , parseIngredients200ResponseInnerImage
-  , parseIngredients200ResponseInnerMeta
-  , parseIngredients200ResponseInnerNutrition
+-- | Construct a value of type 'ProductInformation' (by applying it's required fields, if any)
+mkProductInformation
+  :: Int -- ^ 'productInformationId' 
+  -> Text -- ^ 'productInformationTitle' 
+  -> [Text] -- ^ 'productInformationBreadcrumbs' 
+  -> Text -- ^ 'productInformationImageType' 
+  -> [Text] -- ^ 'productInformationBadges' 
+  -> [Text] -- ^ 'productInformationImportantBadges' 
+  -> Int -- ^ 'productInformationIngredientCount' 
+  -> Text -- ^ 'productInformationIngredientList' 
+  -> [IngredientBasics] -- ^ 'productInformationIngredients' 
+  -> Double -- ^ 'productInformationLikes' 
+  -> Text -- ^ 'productInformationAisle' 
+  -> SearchGroceryProductsByUPC200ResponseNutrition -- ^ 'productInformationNutrition' 
+  -> Double -- ^ 'productInformationPrice' 
+  -> SearchGroceryProductsByUPC200ResponseServings -- ^ 'productInformationServings' 
+  -> Double -- ^ 'productInformationSpoonacularScore' 
+  -> ProductInformation
+mkProductInformation productInformationId productInformationTitle productInformationBreadcrumbs productInformationImageType productInformationBadges productInformationImportantBadges productInformationIngredientCount productInformationIngredientList productInformationIngredients productInformationLikes productInformationAisle productInformationNutrition productInformationPrice productInformationServings productInformationSpoonacularScore =
+  ProductInformation
+  { productInformationId
+  , productInformationTitle
+  , productInformationUpc = Nothing
+  , productInformationUsdaCode = Nothing
+  , productInformationBreadcrumbs
+  , productInformationImageType
+  , productInformationBadges
+  , productInformationImportantBadges
+  , productInformationIngredientCount
+  , productInformationGeneratedText = Nothing
+  , productInformationIngredientList
+  , productInformationIngredients
+  , productInformationLikes
+  , productInformationAisle
+  , productInformationCredits = Nothing
+  , productInformationNutrition
+  , productInformationPrice
+  , productInformationServings
+  , productInformationSpoonacularScore
   }
 
--- ** ParseIngredients200ResponseInnerEstimatedCost
--- | ParseIngredients200ResponseInnerEstimatedCost
-data ParseIngredients200ResponseInnerEstimatedCost = ParseIngredients200ResponseInnerEstimatedCost
-  { parseIngredients200ResponseInnerEstimatedCostValue :: !(Double) -- ^ /Required/ "value"
-  , parseIngredients200ResponseInnerEstimatedCostUnit :: !(Text) -- ^ /Required/ "unit"
+-- ** ProductInformationCredits
+-- | ProductInformationCredits
+data ProductInformationCredits = ProductInformationCredits
+  { productInformationCreditsText :: !(Maybe Text) -- ^ "text"
+  , productInformationCreditsLink :: !(Maybe Text) -- ^ "link"
+  , productInformationCreditsImage :: !(Maybe Text) -- ^ "image"
+  , productInformationCreditsImageLink :: !(Maybe Text) -- ^ "imageLink"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON ParseIngredients200ResponseInnerEstimatedCost
-instance A.FromJSON ParseIngredients200ResponseInnerEstimatedCost where
-  parseJSON = A.withObject "ParseIngredients200ResponseInnerEstimatedCost" $ \o ->
-    ParseIngredients200ResponseInnerEstimatedCost
-      <$> (o .:  "value")
-      <*> (o .:  "unit")
+-- | FromJSON ProductInformationCredits
+instance A.FromJSON ProductInformationCredits where
+  parseJSON = A.withObject "ProductInformationCredits" $ \o ->
+    ProductInformationCredits
+      <$> (o .:? "text")
+      <*> (o .:? "link")
+      <*> (o .:? "image")
+      <*> (o .:? "imageLink")
 
--- | ToJSON ParseIngredients200ResponseInnerEstimatedCost
-instance A.ToJSON ParseIngredients200ResponseInnerEstimatedCost where
-  toJSON ParseIngredients200ResponseInnerEstimatedCost {..} =
+-- | ToJSON ProductInformationCredits
+instance A.ToJSON ProductInformationCredits where
+  toJSON ProductInformationCredits {..} =
    _omitNulls
-      [ "value" .= parseIngredients200ResponseInnerEstimatedCostValue
-      , "unit" .= parseIngredients200ResponseInnerEstimatedCostUnit
+      [ "text" .= productInformationCreditsText
+      , "link" .= productInformationCreditsLink
+      , "image" .= productInformationCreditsImage
+      , "imageLink" .= productInformationCreditsImageLink
       ]
 
 
--- | Construct a value of type 'ParseIngredients200ResponseInnerEstimatedCost' (by applying it's required fields, if any)
-mkParseIngredients200ResponseInnerEstimatedCost
-  :: Double -- ^ 'parseIngredients200ResponseInnerEstimatedCostValue' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerEstimatedCostUnit' 
-  -> ParseIngredients200ResponseInnerEstimatedCost
-mkParseIngredients200ResponseInnerEstimatedCost parseIngredients200ResponseInnerEstimatedCostValue parseIngredients200ResponseInnerEstimatedCostUnit =
-  ParseIngredients200ResponseInnerEstimatedCost
-  { parseIngredients200ResponseInnerEstimatedCostValue
-  , parseIngredients200ResponseInnerEstimatedCostUnit
-  }
-
--- ** ParseIngredients200ResponseInnerNutrition
--- | ParseIngredients200ResponseInnerNutrition
-data ParseIngredients200ResponseInnerNutrition = ParseIngredients200ResponseInnerNutrition
-  { parseIngredients200ResponseInnerNutritionNutrients :: !([ParseIngredients200ResponseInnerNutritionNutrientsInner]) -- ^ /Required/ "nutrients"
-  , parseIngredients200ResponseInnerNutritionProperties :: !([ParseIngredients200ResponseInnerNutritionPropertiesInner]) -- ^ /Required/ "properties"
-  , parseIngredients200ResponseInnerNutritionFlavonoids :: !([ParseIngredients200ResponseInnerNutritionPropertiesInner]) -- ^ /Required/ "flavonoids"
-  , parseIngredients200ResponseInnerNutritionCaloricBreakdown :: !(ParseIngredients200ResponseInnerNutritionCaloricBreakdown) -- ^ /Required/ "caloricBreakdown"
-  , parseIngredients200ResponseInnerNutritionWeightPerServing :: !(ParseIngredients200ResponseInnerNutritionWeightPerServing) -- ^ /Required/ "weightPerServing"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ParseIngredients200ResponseInnerNutrition
-instance A.FromJSON ParseIngredients200ResponseInnerNutrition where
-  parseJSON = A.withObject "ParseIngredients200ResponseInnerNutrition" $ \o ->
-    ParseIngredients200ResponseInnerNutrition
-      <$> (o .:  "nutrients")
-      <*> (o .:  "properties")
-      <*> (o .:  "flavonoids")
-      <*> (o .:  "caloricBreakdown")
-      <*> (o .:  "weightPerServing")
-
--- | ToJSON ParseIngredients200ResponseInnerNutrition
-instance A.ToJSON ParseIngredients200ResponseInnerNutrition where
-  toJSON ParseIngredients200ResponseInnerNutrition {..} =
-   _omitNulls
-      [ "nutrients" .= parseIngredients200ResponseInnerNutritionNutrients
-      , "properties" .= parseIngredients200ResponseInnerNutritionProperties
-      , "flavonoids" .= parseIngredients200ResponseInnerNutritionFlavonoids
-      , "caloricBreakdown" .= parseIngredients200ResponseInnerNutritionCaloricBreakdown
-      , "weightPerServing" .= parseIngredients200ResponseInnerNutritionWeightPerServing
-      ]
-
-
--- | Construct a value of type 'ParseIngredients200ResponseInnerNutrition' (by applying it's required fields, if any)
-mkParseIngredients200ResponseInnerNutrition
-  :: [ParseIngredients200ResponseInnerNutritionNutrientsInner] -- ^ 'parseIngredients200ResponseInnerNutritionNutrients' 
-  -> [ParseIngredients200ResponseInnerNutritionPropertiesInner] -- ^ 'parseIngredients200ResponseInnerNutritionProperties' 
-  -> [ParseIngredients200ResponseInnerNutritionPropertiesInner] -- ^ 'parseIngredients200ResponseInnerNutritionFlavonoids' 
-  -> ParseIngredients200ResponseInnerNutritionCaloricBreakdown -- ^ 'parseIngredients200ResponseInnerNutritionCaloricBreakdown' 
-  -> ParseIngredients200ResponseInnerNutritionWeightPerServing -- ^ 'parseIngredients200ResponseInnerNutritionWeightPerServing' 
-  -> ParseIngredients200ResponseInnerNutrition
-mkParseIngredients200ResponseInnerNutrition parseIngredients200ResponseInnerNutritionNutrients parseIngredients200ResponseInnerNutritionProperties parseIngredients200ResponseInnerNutritionFlavonoids parseIngredients200ResponseInnerNutritionCaloricBreakdown parseIngredients200ResponseInnerNutritionWeightPerServing =
-  ParseIngredients200ResponseInnerNutrition
-  { parseIngredients200ResponseInnerNutritionNutrients
-  , parseIngredients200ResponseInnerNutritionProperties
-  , parseIngredients200ResponseInnerNutritionFlavonoids
-  , parseIngredients200ResponseInnerNutritionCaloricBreakdown
-  , parseIngredients200ResponseInnerNutritionWeightPerServing
-  }
-
--- ** ParseIngredients200ResponseInnerNutritionCaloricBreakdown
--- | ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-data ParseIngredients200ResponseInnerNutritionCaloricBreakdown = ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-  { parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentProtein :: !(Double) -- ^ /Required/ "percentProtein"
-  , parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentFat :: !(Double) -- ^ /Required/ "percentFat"
-  , parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentCarbs :: !(Double) -- ^ /Required/ "percentCarbs"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-instance A.FromJSON ParseIngredients200ResponseInnerNutritionCaloricBreakdown where
-  parseJSON = A.withObject "ParseIngredients200ResponseInnerNutritionCaloricBreakdown" $ \o ->
-    ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-      <$> (o .:  "percentProtein")
-      <*> (o .:  "percentFat")
-      <*> (o .:  "percentCarbs")
-
--- | ToJSON ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-instance A.ToJSON ParseIngredients200ResponseInnerNutritionCaloricBreakdown where
-  toJSON ParseIngredients200ResponseInnerNutritionCaloricBreakdown {..} =
-   _omitNulls
-      [ "percentProtein" .= parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentProtein
-      , "percentFat" .= parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentFat
-      , "percentCarbs" .= parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentCarbs
-      ]
-
-
--- | Construct a value of type 'ParseIngredients200ResponseInnerNutritionCaloricBreakdown' (by applying it's required fields, if any)
-mkParseIngredients200ResponseInnerNutritionCaloricBreakdown
-  :: Double -- ^ 'parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentProtein' 
-  -> Double -- ^ 'parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentFat' 
-  -> Double -- ^ 'parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentCarbs' 
-  -> ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-mkParseIngredients200ResponseInnerNutritionCaloricBreakdown parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentProtein parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentFat parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentCarbs =
-  ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-  { parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentProtein
-  , parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentFat
-  , parseIngredients200ResponseInnerNutritionCaloricBreakdownPercentCarbs
-  }
-
--- ** ParseIngredients200ResponseInnerNutritionNutrientsInner
--- | ParseIngredients200ResponseInnerNutritionNutrientsInner
-data ParseIngredients200ResponseInnerNutritionNutrientsInner = ParseIngredients200ResponseInnerNutritionNutrientsInner
-  { parseIngredients200ResponseInnerNutritionNutrientsInnerName :: !(Text) -- ^ /Required/ "name"
-  , parseIngredients200ResponseInnerNutritionNutrientsInnerAmount :: !(Double) -- ^ /Required/ "amount"
-  , parseIngredients200ResponseInnerNutritionNutrientsInnerUnit :: !(Text) -- ^ /Required/ "unit"
-  , parseIngredients200ResponseInnerNutritionNutrientsInnerPercentOfDailyNeeds :: !(Double) -- ^ /Required/ "percentOfDailyNeeds"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ParseIngredients200ResponseInnerNutritionNutrientsInner
-instance A.FromJSON ParseIngredients200ResponseInnerNutritionNutrientsInner where
-  parseJSON = A.withObject "ParseIngredients200ResponseInnerNutritionNutrientsInner" $ \o ->
-    ParseIngredients200ResponseInnerNutritionNutrientsInner
-      <$> (o .:  "name")
-      <*> (o .:  "amount")
-      <*> (o .:  "unit")
-      <*> (o .:  "percentOfDailyNeeds")
-
--- | ToJSON ParseIngredients200ResponseInnerNutritionNutrientsInner
-instance A.ToJSON ParseIngredients200ResponseInnerNutritionNutrientsInner where
-  toJSON ParseIngredients200ResponseInnerNutritionNutrientsInner {..} =
-   _omitNulls
-      [ "name" .= parseIngredients200ResponseInnerNutritionNutrientsInnerName
-      , "amount" .= parseIngredients200ResponseInnerNutritionNutrientsInnerAmount
-      , "unit" .= parseIngredients200ResponseInnerNutritionNutrientsInnerUnit
-      , "percentOfDailyNeeds" .= parseIngredients200ResponseInnerNutritionNutrientsInnerPercentOfDailyNeeds
-      ]
-
-
--- | Construct a value of type 'ParseIngredients200ResponseInnerNutritionNutrientsInner' (by applying it's required fields, if any)
-mkParseIngredients200ResponseInnerNutritionNutrientsInner
-  :: Text -- ^ 'parseIngredients200ResponseInnerNutritionNutrientsInnerName' 
-  -> Double -- ^ 'parseIngredients200ResponseInnerNutritionNutrientsInnerAmount' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerNutritionNutrientsInnerUnit' 
-  -> Double -- ^ 'parseIngredients200ResponseInnerNutritionNutrientsInnerPercentOfDailyNeeds' 
-  -> ParseIngredients200ResponseInnerNutritionNutrientsInner
-mkParseIngredients200ResponseInnerNutritionNutrientsInner parseIngredients200ResponseInnerNutritionNutrientsInnerName parseIngredients200ResponseInnerNutritionNutrientsInnerAmount parseIngredients200ResponseInnerNutritionNutrientsInnerUnit parseIngredients200ResponseInnerNutritionNutrientsInnerPercentOfDailyNeeds =
-  ParseIngredients200ResponseInnerNutritionNutrientsInner
-  { parseIngredients200ResponseInnerNutritionNutrientsInnerName
-  , parseIngredients200ResponseInnerNutritionNutrientsInnerAmount
-  , parseIngredients200ResponseInnerNutritionNutrientsInnerUnit
-  , parseIngredients200ResponseInnerNutritionNutrientsInnerPercentOfDailyNeeds
-  }
-
--- ** ParseIngredients200ResponseInnerNutritionPropertiesInner
--- | ParseIngredients200ResponseInnerNutritionPropertiesInner
-data ParseIngredients200ResponseInnerNutritionPropertiesInner = ParseIngredients200ResponseInnerNutritionPropertiesInner
-  { parseIngredients200ResponseInnerNutritionPropertiesInnerName :: !(Text) -- ^ /Required/ "name"
-  , parseIngredients200ResponseInnerNutritionPropertiesInnerAmount :: !(Double) -- ^ /Required/ "amount"
-  , parseIngredients200ResponseInnerNutritionPropertiesInnerUnit :: !(Text) -- ^ /Required/ "unit"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ParseIngredients200ResponseInnerNutritionPropertiesInner
-instance A.FromJSON ParseIngredients200ResponseInnerNutritionPropertiesInner where
-  parseJSON = A.withObject "ParseIngredients200ResponseInnerNutritionPropertiesInner" $ \o ->
-    ParseIngredients200ResponseInnerNutritionPropertiesInner
-      <$> (o .:  "name")
-      <*> (o .:  "amount")
-      <*> (o .:  "unit")
-
--- | ToJSON ParseIngredients200ResponseInnerNutritionPropertiesInner
-instance A.ToJSON ParseIngredients200ResponseInnerNutritionPropertiesInner where
-  toJSON ParseIngredients200ResponseInnerNutritionPropertiesInner {..} =
-   _omitNulls
-      [ "name" .= parseIngredients200ResponseInnerNutritionPropertiesInnerName
-      , "amount" .= parseIngredients200ResponseInnerNutritionPropertiesInnerAmount
-      , "unit" .= parseIngredients200ResponseInnerNutritionPropertiesInnerUnit
-      ]
-
-
--- | Construct a value of type 'ParseIngredients200ResponseInnerNutritionPropertiesInner' (by applying it's required fields, if any)
-mkParseIngredients200ResponseInnerNutritionPropertiesInner
-  :: Text -- ^ 'parseIngredients200ResponseInnerNutritionPropertiesInnerName' 
-  -> Double -- ^ 'parseIngredients200ResponseInnerNutritionPropertiesInnerAmount' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerNutritionPropertiesInnerUnit' 
-  -> ParseIngredients200ResponseInnerNutritionPropertiesInner
-mkParseIngredients200ResponseInnerNutritionPropertiesInner parseIngredients200ResponseInnerNutritionPropertiesInnerName parseIngredients200ResponseInnerNutritionPropertiesInnerAmount parseIngredients200ResponseInnerNutritionPropertiesInnerUnit =
-  ParseIngredients200ResponseInnerNutritionPropertiesInner
-  { parseIngredients200ResponseInnerNutritionPropertiesInnerName
-  , parseIngredients200ResponseInnerNutritionPropertiesInnerAmount
-  , parseIngredients200ResponseInnerNutritionPropertiesInnerUnit
-  }
-
--- ** ParseIngredients200ResponseInnerNutritionWeightPerServing
--- | ParseIngredients200ResponseInnerNutritionWeightPerServing
-data ParseIngredients200ResponseInnerNutritionWeightPerServing = ParseIngredients200ResponseInnerNutritionWeightPerServing
-  { parseIngredients200ResponseInnerNutritionWeightPerServingAmount :: !(Double) -- ^ /Required/ "amount"
-  , parseIngredients200ResponseInnerNutritionWeightPerServingUnit :: !(Text) -- ^ /Required/ "unit"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ParseIngredients200ResponseInnerNutritionWeightPerServing
-instance A.FromJSON ParseIngredients200ResponseInnerNutritionWeightPerServing where
-  parseJSON = A.withObject "ParseIngredients200ResponseInnerNutritionWeightPerServing" $ \o ->
-    ParseIngredients200ResponseInnerNutritionWeightPerServing
-      <$> (o .:  "amount")
-      <*> (o .:  "unit")
-
--- | ToJSON ParseIngredients200ResponseInnerNutritionWeightPerServing
-instance A.ToJSON ParseIngredients200ResponseInnerNutritionWeightPerServing where
-  toJSON ParseIngredients200ResponseInnerNutritionWeightPerServing {..} =
-   _omitNulls
-      [ "amount" .= parseIngredients200ResponseInnerNutritionWeightPerServingAmount
-      , "unit" .= parseIngredients200ResponseInnerNutritionWeightPerServingUnit
-      ]
-
-
--- | Construct a value of type 'ParseIngredients200ResponseInnerNutritionWeightPerServing' (by applying it's required fields, if any)
-mkParseIngredients200ResponseInnerNutritionWeightPerServing
-  :: Double -- ^ 'parseIngredients200ResponseInnerNutritionWeightPerServingAmount' 
-  -> Text -- ^ 'parseIngredients200ResponseInnerNutritionWeightPerServingUnit' 
-  -> ParseIngredients200ResponseInnerNutritionWeightPerServing
-mkParseIngredients200ResponseInnerNutritionWeightPerServing parseIngredients200ResponseInnerNutritionWeightPerServingAmount parseIngredients200ResponseInnerNutritionWeightPerServingUnit =
-  ParseIngredients200ResponseInnerNutritionWeightPerServing
-  { parseIngredients200ResponseInnerNutritionWeightPerServingAmount
-  , parseIngredients200ResponseInnerNutritionWeightPerServingUnit
+-- | Construct a value of type 'ProductInformationCredits' (by applying it's required fields, if any)
+mkProductInformationCredits
+  :: ProductInformationCredits
+mkProductInformationCredits =
+  ProductInformationCredits
+  { productInformationCreditsText = Nothing
+  , productInformationCreditsLink = Nothing
+  , productInformationCreditsImage = Nothing
+  , productInformationCreditsImageLink = Nothing
   }
 
 -- ** QuickAnswer200Response
@@ -6384,6 +5148,470 @@ mkQuickAnswer200Response quickAnswer200ResponseAnswer quickAnswer200ResponseImag
   QuickAnswer200Response
   { quickAnswer200ResponseAnswer
   , quickAnswer200ResponseImage
+  }
+
+-- ** RecipeInformation
+-- | RecipeInformation
+-- 
+data RecipeInformation = RecipeInformation
+  { recipeInformationId :: !(Int) -- ^ /Required/ "id"
+  , recipeInformationTitle :: !(Text) -- ^ /Required/ "title"
+  , recipeInformationImage :: !(Text) -- ^ /Required/ "image"
+  , recipeInformationImageType :: !(Maybe Text) -- ^ "imageType"
+  , recipeInformationServings :: !(Double) -- ^ /Required/ "servings"
+  , recipeInformationReadyInMinutes :: !(Int) -- ^ /Required/ "readyInMinutes"
+  , recipeInformationPreparationMinutes :: !(Maybe Int) -- ^ "preparationMinutes"
+  , recipeInformationCookingMinutes :: !(Maybe Int) -- ^ "cookingMinutes"
+  , recipeInformationLicense :: !(Maybe Text) -- ^ "license"
+  , recipeInformationSourceName :: !(Text) -- ^ /Required/ "sourceName"
+  , recipeInformationSourceUrl :: !(Text) -- ^ /Required/ "sourceUrl"
+  , recipeInformationSpoonacularSourceUrl :: !(Text) -- ^ /Required/ "spoonacularSourceUrl"
+  , recipeInformationAggregateLikes :: !(Int) -- ^ /Required/ "aggregateLikes"
+  , recipeInformationHealthScore :: !(Double) -- ^ /Required/ "healthScore"
+  , recipeInformationSpoonacularScore :: !(Double) -- ^ /Required/ "spoonacularScore"
+  , recipeInformationPricePerServing :: !(Double) -- ^ /Required/ "pricePerServing"
+  , recipeInformationAnalyzedInstructions :: !([A.Value]) -- ^ /Required/ "analyzedInstructions"
+  , recipeInformationCheap :: !(Bool) -- ^ /Required/ "cheap"
+  , recipeInformationCreditsText :: !(Text) -- ^ /Required/ "creditsText"
+  , recipeInformationCuisines :: !([Text]) -- ^ /Required/ "cuisines"
+  , recipeInformationDairyFree :: !(Bool) -- ^ /Required/ "dairyFree"
+  , recipeInformationDiets :: !([Text]) -- ^ /Required/ "diets"
+  , recipeInformationGaps :: !(Text) -- ^ /Required/ "gaps"
+  , recipeInformationGlutenFree :: !(Bool) -- ^ /Required/ "glutenFree"
+  , recipeInformationInstructions :: !(Text) -- ^ /Required/ "instructions"
+  , recipeInformationLowFodmap :: !(Bool) -- ^ /Required/ "lowFodmap"
+  , recipeInformationOccasions :: !([Text]) -- ^ /Required/ "occasions"
+  , recipeInformationSustainable :: !(Bool) -- ^ /Required/ "sustainable"
+  , recipeInformationVegan :: !(Bool) -- ^ /Required/ "vegan"
+  , recipeInformationVegetarian :: !(Bool) -- ^ /Required/ "vegetarian"
+  , recipeInformationVeryHealthy :: !(Bool) -- ^ /Required/ "veryHealthy"
+  , recipeInformationVeryPopular :: !(Bool) -- ^ /Required/ "veryPopular"
+  , recipeInformationWeightWatcherSmartPoints :: !(Double) -- ^ /Required/ "weightWatcherSmartPoints"
+  , recipeInformationDishTypes :: !([Text]) -- ^ /Required/ "dishTypes"
+  , recipeInformationExtendedIngredients :: !([RecipeInformationExtendedIngredientsInner]) -- ^ /Required/ "extendedIngredients"
+  , recipeInformationSummary :: !(Text) -- ^ /Required/ "summary"
+  , recipeInformationWinePairing :: !(Maybe RecipeInformationWinePairing) -- ^ "winePairing"
+  , recipeInformationTaste :: !(Maybe TasteInformation) -- ^ "taste"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON RecipeInformation
+instance A.FromJSON RecipeInformation where
+  parseJSON = A.withObject "RecipeInformation" $ \o ->
+    RecipeInformation
+      <$> (o .:  "id")
+      <*> (o .:  "title")
+      <*> (o .:  "image")
+      <*> (o .:? "imageType")
+      <*> (o .:  "servings")
+      <*> (o .:  "readyInMinutes")
+      <*> (o .:? "preparationMinutes")
+      <*> (o .:? "cookingMinutes")
+      <*> (o .:? "license")
+      <*> (o .:  "sourceName")
+      <*> (o .:  "sourceUrl")
+      <*> (o .:  "spoonacularSourceUrl")
+      <*> (o .:  "aggregateLikes")
+      <*> (o .:  "healthScore")
+      <*> (o .:  "spoonacularScore")
+      <*> (o .:  "pricePerServing")
+      <*> (o .:  "analyzedInstructions")
+      <*> (o .:  "cheap")
+      <*> (o .:  "creditsText")
+      <*> (o .:  "cuisines")
+      <*> (o .:  "dairyFree")
+      <*> (o .:  "diets")
+      <*> (o .:  "gaps")
+      <*> (o .:  "glutenFree")
+      <*> (o .:  "instructions")
+      <*> (o .:  "lowFodmap")
+      <*> (o .:  "occasions")
+      <*> (o .:  "sustainable")
+      <*> (o .:  "vegan")
+      <*> (o .:  "vegetarian")
+      <*> (o .:  "veryHealthy")
+      <*> (o .:  "veryPopular")
+      <*> (o .:  "weightWatcherSmartPoints")
+      <*> (o .:  "dishTypes")
+      <*> (o .:  "extendedIngredients")
+      <*> (o .:  "summary")
+      <*> (o .:? "winePairing")
+      <*> (o .:? "taste")
+
+-- | ToJSON RecipeInformation
+instance A.ToJSON RecipeInformation where
+  toJSON RecipeInformation {..} =
+   _omitNulls
+      [ "id" .= recipeInformationId
+      , "title" .= recipeInformationTitle
+      , "image" .= recipeInformationImage
+      , "imageType" .= recipeInformationImageType
+      , "servings" .= recipeInformationServings
+      , "readyInMinutes" .= recipeInformationReadyInMinutes
+      , "preparationMinutes" .= recipeInformationPreparationMinutes
+      , "cookingMinutes" .= recipeInformationCookingMinutes
+      , "license" .= recipeInformationLicense
+      , "sourceName" .= recipeInformationSourceName
+      , "sourceUrl" .= recipeInformationSourceUrl
+      , "spoonacularSourceUrl" .= recipeInformationSpoonacularSourceUrl
+      , "aggregateLikes" .= recipeInformationAggregateLikes
+      , "healthScore" .= recipeInformationHealthScore
+      , "spoonacularScore" .= recipeInformationSpoonacularScore
+      , "pricePerServing" .= recipeInformationPricePerServing
+      , "analyzedInstructions" .= recipeInformationAnalyzedInstructions
+      , "cheap" .= recipeInformationCheap
+      , "creditsText" .= recipeInformationCreditsText
+      , "cuisines" .= recipeInformationCuisines
+      , "dairyFree" .= recipeInformationDairyFree
+      , "diets" .= recipeInformationDiets
+      , "gaps" .= recipeInformationGaps
+      , "glutenFree" .= recipeInformationGlutenFree
+      , "instructions" .= recipeInformationInstructions
+      , "lowFodmap" .= recipeInformationLowFodmap
+      , "occasions" .= recipeInformationOccasions
+      , "sustainable" .= recipeInformationSustainable
+      , "vegan" .= recipeInformationVegan
+      , "vegetarian" .= recipeInformationVegetarian
+      , "veryHealthy" .= recipeInformationVeryHealthy
+      , "veryPopular" .= recipeInformationVeryPopular
+      , "weightWatcherSmartPoints" .= recipeInformationWeightWatcherSmartPoints
+      , "dishTypes" .= recipeInformationDishTypes
+      , "extendedIngredients" .= recipeInformationExtendedIngredients
+      , "summary" .= recipeInformationSummary
+      , "winePairing" .= recipeInformationWinePairing
+      , "taste" .= recipeInformationTaste
+      ]
+
+
+-- | Construct a value of type 'RecipeInformation' (by applying it's required fields, if any)
+mkRecipeInformation
+  :: Int -- ^ 'recipeInformationId' 
+  -> Text -- ^ 'recipeInformationTitle' 
+  -> Text -- ^ 'recipeInformationImage' 
+  -> Double -- ^ 'recipeInformationServings' 
+  -> Int -- ^ 'recipeInformationReadyInMinutes' 
+  -> Text -- ^ 'recipeInformationSourceName' 
+  -> Text -- ^ 'recipeInformationSourceUrl' 
+  -> Text -- ^ 'recipeInformationSpoonacularSourceUrl' 
+  -> Int -- ^ 'recipeInformationAggregateLikes' 
+  -> Double -- ^ 'recipeInformationHealthScore' 
+  -> Double -- ^ 'recipeInformationSpoonacularScore' 
+  -> Double -- ^ 'recipeInformationPricePerServing' 
+  -> [A.Value] -- ^ 'recipeInformationAnalyzedInstructions' 
+  -> Bool -- ^ 'recipeInformationCheap' 
+  -> Text -- ^ 'recipeInformationCreditsText' 
+  -> [Text] -- ^ 'recipeInformationCuisines' 
+  -> Bool -- ^ 'recipeInformationDairyFree' 
+  -> [Text] -- ^ 'recipeInformationDiets' 
+  -> Text -- ^ 'recipeInformationGaps' 
+  -> Bool -- ^ 'recipeInformationGlutenFree' 
+  -> Text -- ^ 'recipeInformationInstructions' 
+  -> Bool -- ^ 'recipeInformationLowFodmap' 
+  -> [Text] -- ^ 'recipeInformationOccasions' 
+  -> Bool -- ^ 'recipeInformationSustainable' 
+  -> Bool -- ^ 'recipeInformationVegan' 
+  -> Bool -- ^ 'recipeInformationVegetarian' 
+  -> Bool -- ^ 'recipeInformationVeryHealthy' 
+  -> Bool -- ^ 'recipeInformationVeryPopular' 
+  -> Double -- ^ 'recipeInformationWeightWatcherSmartPoints' 
+  -> [Text] -- ^ 'recipeInformationDishTypes' 
+  -> [RecipeInformationExtendedIngredientsInner] -- ^ 'recipeInformationExtendedIngredients' 
+  -> Text -- ^ 'recipeInformationSummary' 
+  -> RecipeInformation
+mkRecipeInformation recipeInformationId recipeInformationTitle recipeInformationImage recipeInformationServings recipeInformationReadyInMinutes recipeInformationSourceName recipeInformationSourceUrl recipeInformationSpoonacularSourceUrl recipeInformationAggregateLikes recipeInformationHealthScore recipeInformationSpoonacularScore recipeInformationPricePerServing recipeInformationAnalyzedInstructions recipeInformationCheap recipeInformationCreditsText recipeInformationCuisines recipeInformationDairyFree recipeInformationDiets recipeInformationGaps recipeInformationGlutenFree recipeInformationInstructions recipeInformationLowFodmap recipeInformationOccasions recipeInformationSustainable recipeInformationVegan recipeInformationVegetarian recipeInformationVeryHealthy recipeInformationVeryPopular recipeInformationWeightWatcherSmartPoints recipeInformationDishTypes recipeInformationExtendedIngredients recipeInformationSummary =
+  RecipeInformation
+  { recipeInformationId
+  , recipeInformationTitle
+  , recipeInformationImage
+  , recipeInformationImageType = Nothing
+  , recipeInformationServings
+  , recipeInformationReadyInMinutes
+  , recipeInformationPreparationMinutes = Nothing
+  , recipeInformationCookingMinutes = Nothing
+  , recipeInformationLicense = Nothing
+  , recipeInformationSourceName
+  , recipeInformationSourceUrl
+  , recipeInformationSpoonacularSourceUrl
+  , recipeInformationAggregateLikes
+  , recipeInformationHealthScore
+  , recipeInformationSpoonacularScore
+  , recipeInformationPricePerServing
+  , recipeInformationAnalyzedInstructions
+  , recipeInformationCheap
+  , recipeInformationCreditsText
+  , recipeInformationCuisines
+  , recipeInformationDairyFree
+  , recipeInformationDiets
+  , recipeInformationGaps
+  , recipeInformationGlutenFree
+  , recipeInformationInstructions
+  , recipeInformationLowFodmap
+  , recipeInformationOccasions
+  , recipeInformationSustainable
+  , recipeInformationVegan
+  , recipeInformationVegetarian
+  , recipeInformationVeryHealthy
+  , recipeInformationVeryPopular
+  , recipeInformationWeightWatcherSmartPoints
+  , recipeInformationDishTypes
+  , recipeInformationExtendedIngredients
+  , recipeInformationSummary
+  , recipeInformationWinePairing = Nothing
+  , recipeInformationTaste = Nothing
+  }
+
+-- ** RecipeInformationExtendedIngredientsInner
+-- | RecipeInformationExtendedIngredientsInner
+data RecipeInformationExtendedIngredientsInner = RecipeInformationExtendedIngredientsInner
+  { recipeInformationExtendedIngredientsInnerAisle :: !(Text) -- ^ /Required/ "aisle"
+  , recipeInformationExtendedIngredientsInnerAmount :: !(Double) -- ^ /Required/ "amount"
+  , recipeInformationExtendedIngredientsInnerConsistency :: !(Text) -- ^ /Required/ "consistency"
+  , recipeInformationExtendedIngredientsInnerId :: !(Int) -- ^ /Required/ "id"
+  , recipeInformationExtendedIngredientsInnerImage :: !(Text) -- ^ /Required/ "image"
+  , recipeInformationExtendedIngredientsInnerMeasures :: !(Maybe RecipeInformationExtendedIngredientsInnerMeasures) -- ^ "measures"
+  , recipeInformationExtendedIngredientsInnerMeta :: !(Maybe [Text]) -- ^ "meta"
+  , recipeInformationExtendedIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
+  , recipeInformationExtendedIngredientsInnerOriginal :: !(Text) -- ^ /Required/ "original"
+  , recipeInformationExtendedIngredientsInnerOriginalName :: !(Text) -- ^ /Required/ "originalName"
+  , recipeInformationExtendedIngredientsInnerUnit :: !(Text) -- ^ /Required/ "unit"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON RecipeInformationExtendedIngredientsInner
+instance A.FromJSON RecipeInformationExtendedIngredientsInner where
+  parseJSON = A.withObject "RecipeInformationExtendedIngredientsInner" $ \o ->
+    RecipeInformationExtendedIngredientsInner
+      <$> (o .:  "aisle")
+      <*> (o .:  "amount")
+      <*> (o .:  "consistency")
+      <*> (o .:  "id")
+      <*> (o .:  "image")
+      <*> (o .:? "measures")
+      <*> (o .:? "meta")
+      <*> (o .:  "name")
+      <*> (o .:  "original")
+      <*> (o .:  "originalName")
+      <*> (o .:  "unit")
+
+-- | ToJSON RecipeInformationExtendedIngredientsInner
+instance A.ToJSON RecipeInformationExtendedIngredientsInner where
+  toJSON RecipeInformationExtendedIngredientsInner {..} =
+   _omitNulls
+      [ "aisle" .= recipeInformationExtendedIngredientsInnerAisle
+      , "amount" .= recipeInformationExtendedIngredientsInnerAmount
+      , "consistency" .= recipeInformationExtendedIngredientsInnerConsistency
+      , "id" .= recipeInformationExtendedIngredientsInnerId
+      , "image" .= recipeInformationExtendedIngredientsInnerImage
+      , "measures" .= recipeInformationExtendedIngredientsInnerMeasures
+      , "meta" .= recipeInformationExtendedIngredientsInnerMeta
+      , "name" .= recipeInformationExtendedIngredientsInnerName
+      , "original" .= recipeInformationExtendedIngredientsInnerOriginal
+      , "originalName" .= recipeInformationExtendedIngredientsInnerOriginalName
+      , "unit" .= recipeInformationExtendedIngredientsInnerUnit
+      ]
+
+
+-- | Construct a value of type 'RecipeInformationExtendedIngredientsInner' (by applying it's required fields, if any)
+mkRecipeInformationExtendedIngredientsInner
+  :: Text -- ^ 'recipeInformationExtendedIngredientsInnerAisle' 
+  -> Double -- ^ 'recipeInformationExtendedIngredientsInnerAmount' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerConsistency' 
+  -> Int -- ^ 'recipeInformationExtendedIngredientsInnerId' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerImage' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerName' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerOriginal' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerOriginalName' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerUnit' 
+  -> RecipeInformationExtendedIngredientsInner
+mkRecipeInformationExtendedIngredientsInner recipeInformationExtendedIngredientsInnerAisle recipeInformationExtendedIngredientsInnerAmount recipeInformationExtendedIngredientsInnerConsistency recipeInformationExtendedIngredientsInnerId recipeInformationExtendedIngredientsInnerImage recipeInformationExtendedIngredientsInnerName recipeInformationExtendedIngredientsInnerOriginal recipeInformationExtendedIngredientsInnerOriginalName recipeInformationExtendedIngredientsInnerUnit =
+  RecipeInformationExtendedIngredientsInner
+  { recipeInformationExtendedIngredientsInnerAisle
+  , recipeInformationExtendedIngredientsInnerAmount
+  , recipeInformationExtendedIngredientsInnerConsistency
+  , recipeInformationExtendedIngredientsInnerId
+  , recipeInformationExtendedIngredientsInnerImage
+  , recipeInformationExtendedIngredientsInnerMeasures = Nothing
+  , recipeInformationExtendedIngredientsInnerMeta = Nothing
+  , recipeInformationExtendedIngredientsInnerName
+  , recipeInformationExtendedIngredientsInnerOriginal
+  , recipeInformationExtendedIngredientsInnerOriginalName
+  , recipeInformationExtendedIngredientsInnerUnit
+  }
+
+-- ** RecipeInformationExtendedIngredientsInnerMeasures
+-- | RecipeInformationExtendedIngredientsInnerMeasures
+data RecipeInformationExtendedIngredientsInnerMeasures = RecipeInformationExtendedIngredientsInnerMeasures
+  { recipeInformationExtendedIngredientsInnerMeasuresMetric :: !(RecipeInformationExtendedIngredientsInnerMeasuresMetric) -- ^ /Required/ "metric"
+  , recipeInformationExtendedIngredientsInnerMeasuresUs :: !(RecipeInformationExtendedIngredientsInnerMeasuresMetric) -- ^ /Required/ "us"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON RecipeInformationExtendedIngredientsInnerMeasures
+instance A.FromJSON RecipeInformationExtendedIngredientsInnerMeasures where
+  parseJSON = A.withObject "RecipeInformationExtendedIngredientsInnerMeasures" $ \o ->
+    RecipeInformationExtendedIngredientsInnerMeasures
+      <$> (o .:  "metric")
+      <*> (o .:  "us")
+
+-- | ToJSON RecipeInformationExtendedIngredientsInnerMeasures
+instance A.ToJSON RecipeInformationExtendedIngredientsInnerMeasures where
+  toJSON RecipeInformationExtendedIngredientsInnerMeasures {..} =
+   _omitNulls
+      [ "metric" .= recipeInformationExtendedIngredientsInnerMeasuresMetric
+      , "us" .= recipeInformationExtendedIngredientsInnerMeasuresUs
+      ]
+
+
+-- | Construct a value of type 'RecipeInformationExtendedIngredientsInnerMeasures' (by applying it's required fields, if any)
+mkRecipeInformationExtendedIngredientsInnerMeasures
+  :: RecipeInformationExtendedIngredientsInnerMeasuresMetric -- ^ 'recipeInformationExtendedIngredientsInnerMeasuresMetric' 
+  -> RecipeInformationExtendedIngredientsInnerMeasuresMetric -- ^ 'recipeInformationExtendedIngredientsInnerMeasuresUs' 
+  -> RecipeInformationExtendedIngredientsInnerMeasures
+mkRecipeInformationExtendedIngredientsInnerMeasures recipeInformationExtendedIngredientsInnerMeasuresMetric recipeInformationExtendedIngredientsInnerMeasuresUs =
+  RecipeInformationExtendedIngredientsInnerMeasures
+  { recipeInformationExtendedIngredientsInnerMeasuresMetric
+  , recipeInformationExtendedIngredientsInnerMeasuresUs
+  }
+
+-- ** RecipeInformationExtendedIngredientsInnerMeasuresMetric
+-- | RecipeInformationExtendedIngredientsInnerMeasuresMetric
+data RecipeInformationExtendedIngredientsInnerMeasuresMetric = RecipeInformationExtendedIngredientsInnerMeasuresMetric
+  { recipeInformationExtendedIngredientsInnerMeasuresMetricAmount :: !(Double) -- ^ /Required/ "amount"
+  , recipeInformationExtendedIngredientsInnerMeasuresMetricUnitLong :: !(Text) -- ^ /Required/ "unitLong"
+  , recipeInformationExtendedIngredientsInnerMeasuresMetricUnitShort :: !(Text) -- ^ /Required/ "unitShort"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON RecipeInformationExtendedIngredientsInnerMeasuresMetric
+instance A.FromJSON RecipeInformationExtendedIngredientsInnerMeasuresMetric where
+  parseJSON = A.withObject "RecipeInformationExtendedIngredientsInnerMeasuresMetric" $ \o ->
+    RecipeInformationExtendedIngredientsInnerMeasuresMetric
+      <$> (o .:  "amount")
+      <*> (o .:  "unitLong")
+      <*> (o .:  "unitShort")
+
+-- | ToJSON RecipeInformationExtendedIngredientsInnerMeasuresMetric
+instance A.ToJSON RecipeInformationExtendedIngredientsInnerMeasuresMetric where
+  toJSON RecipeInformationExtendedIngredientsInnerMeasuresMetric {..} =
+   _omitNulls
+      [ "amount" .= recipeInformationExtendedIngredientsInnerMeasuresMetricAmount
+      , "unitLong" .= recipeInformationExtendedIngredientsInnerMeasuresMetricUnitLong
+      , "unitShort" .= recipeInformationExtendedIngredientsInnerMeasuresMetricUnitShort
+      ]
+
+
+-- | Construct a value of type 'RecipeInformationExtendedIngredientsInnerMeasuresMetric' (by applying it's required fields, if any)
+mkRecipeInformationExtendedIngredientsInnerMeasuresMetric
+  :: Double -- ^ 'recipeInformationExtendedIngredientsInnerMeasuresMetricAmount' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerMeasuresMetricUnitLong' 
+  -> Text -- ^ 'recipeInformationExtendedIngredientsInnerMeasuresMetricUnitShort' 
+  -> RecipeInformationExtendedIngredientsInnerMeasuresMetric
+mkRecipeInformationExtendedIngredientsInnerMeasuresMetric recipeInformationExtendedIngredientsInnerMeasuresMetricAmount recipeInformationExtendedIngredientsInnerMeasuresMetricUnitLong recipeInformationExtendedIngredientsInnerMeasuresMetricUnitShort =
+  RecipeInformationExtendedIngredientsInnerMeasuresMetric
+  { recipeInformationExtendedIngredientsInnerMeasuresMetricAmount
+  , recipeInformationExtendedIngredientsInnerMeasuresMetricUnitLong
+  , recipeInformationExtendedIngredientsInnerMeasuresMetricUnitShort
+  }
+
+-- ** RecipeInformationWinePairing
+-- | RecipeInformationWinePairing
+data RecipeInformationWinePairing = RecipeInformationWinePairing
+  { recipeInformationWinePairingPairedWines :: !(Maybe [Text]) -- ^ "pairedWines"
+  , recipeInformationWinePairingPairingText :: !(Maybe Text) -- ^ "pairingText"
+  , recipeInformationWinePairingProductMatches :: !(Maybe [RecipeInformationWinePairingProductMatchesInner]) -- ^ "productMatches"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON RecipeInformationWinePairing
+instance A.FromJSON RecipeInformationWinePairing where
+  parseJSON = A.withObject "RecipeInformationWinePairing" $ \o ->
+    RecipeInformationWinePairing
+      <$> (o .:? "pairedWines")
+      <*> (o .:? "pairingText")
+      <*> (o .:? "productMatches")
+
+-- | ToJSON RecipeInformationWinePairing
+instance A.ToJSON RecipeInformationWinePairing where
+  toJSON RecipeInformationWinePairing {..} =
+   _omitNulls
+      [ "pairedWines" .= recipeInformationWinePairingPairedWines
+      , "pairingText" .= recipeInformationWinePairingPairingText
+      , "productMatches" .= recipeInformationWinePairingProductMatches
+      ]
+
+
+-- | Construct a value of type 'RecipeInformationWinePairing' (by applying it's required fields, if any)
+mkRecipeInformationWinePairing
+  :: RecipeInformationWinePairing
+mkRecipeInformationWinePairing =
+  RecipeInformationWinePairing
+  { recipeInformationWinePairingPairedWines = Nothing
+  , recipeInformationWinePairingPairingText = Nothing
+  , recipeInformationWinePairingProductMatches = Nothing
+  }
+
+-- ** RecipeInformationWinePairingProductMatchesInner
+-- | RecipeInformationWinePairingProductMatchesInner
+data RecipeInformationWinePairingProductMatchesInner = RecipeInformationWinePairingProductMatchesInner
+  { recipeInformationWinePairingProductMatchesInnerId :: !(Int) -- ^ /Required/ "id"
+  , recipeInformationWinePairingProductMatchesInnerTitle :: !(Text) -- ^ /Required/ "title"
+  , recipeInformationWinePairingProductMatchesInnerDescription :: !(Text) -- ^ /Required/ "description"
+  , recipeInformationWinePairingProductMatchesInnerPrice :: !(Text) -- ^ /Required/ "price"
+  , recipeInformationWinePairingProductMatchesInnerImageUrl :: !(Text) -- ^ /Required/ "imageUrl"
+  , recipeInformationWinePairingProductMatchesInnerAverageRating :: !(Double) -- ^ /Required/ "averageRating"
+  , recipeInformationWinePairingProductMatchesInnerRatingCount :: !(Int) -- ^ /Required/ "ratingCount"
+  , recipeInformationWinePairingProductMatchesInnerScore :: !(Double) -- ^ /Required/ "score"
+  , recipeInformationWinePairingProductMatchesInnerLink :: !(Text) -- ^ /Required/ "link"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON RecipeInformationWinePairingProductMatchesInner
+instance A.FromJSON RecipeInformationWinePairingProductMatchesInner where
+  parseJSON = A.withObject "RecipeInformationWinePairingProductMatchesInner" $ \o ->
+    RecipeInformationWinePairingProductMatchesInner
+      <$> (o .:  "id")
+      <*> (o .:  "title")
+      <*> (o .:  "description")
+      <*> (o .:  "price")
+      <*> (o .:  "imageUrl")
+      <*> (o .:  "averageRating")
+      <*> (o .:  "ratingCount")
+      <*> (o .:  "score")
+      <*> (o .:  "link")
+
+-- | ToJSON RecipeInformationWinePairingProductMatchesInner
+instance A.ToJSON RecipeInformationWinePairingProductMatchesInner where
+  toJSON RecipeInformationWinePairingProductMatchesInner {..} =
+   _omitNulls
+      [ "id" .= recipeInformationWinePairingProductMatchesInnerId
+      , "title" .= recipeInformationWinePairingProductMatchesInnerTitle
+      , "description" .= recipeInformationWinePairingProductMatchesInnerDescription
+      , "price" .= recipeInformationWinePairingProductMatchesInnerPrice
+      , "imageUrl" .= recipeInformationWinePairingProductMatchesInnerImageUrl
+      , "averageRating" .= recipeInformationWinePairingProductMatchesInnerAverageRating
+      , "ratingCount" .= recipeInformationWinePairingProductMatchesInnerRatingCount
+      , "score" .= recipeInformationWinePairingProductMatchesInnerScore
+      , "link" .= recipeInformationWinePairingProductMatchesInnerLink
+      ]
+
+
+-- | Construct a value of type 'RecipeInformationWinePairingProductMatchesInner' (by applying it's required fields, if any)
+mkRecipeInformationWinePairingProductMatchesInner
+  :: Int -- ^ 'recipeInformationWinePairingProductMatchesInnerId' 
+  -> Text -- ^ 'recipeInformationWinePairingProductMatchesInnerTitle' 
+  -> Text -- ^ 'recipeInformationWinePairingProductMatchesInnerDescription' 
+  -> Text -- ^ 'recipeInformationWinePairingProductMatchesInnerPrice' 
+  -> Text -- ^ 'recipeInformationWinePairingProductMatchesInnerImageUrl' 
+  -> Double -- ^ 'recipeInformationWinePairingProductMatchesInnerAverageRating' 
+  -> Int -- ^ 'recipeInformationWinePairingProductMatchesInnerRatingCount' 
+  -> Double -- ^ 'recipeInformationWinePairingProductMatchesInnerScore' 
+  -> Text -- ^ 'recipeInformationWinePairingProductMatchesInnerLink' 
+  -> RecipeInformationWinePairingProductMatchesInner
+mkRecipeInformationWinePairingProductMatchesInner recipeInformationWinePairingProductMatchesInnerId recipeInformationWinePairingProductMatchesInnerTitle recipeInformationWinePairingProductMatchesInnerDescription recipeInformationWinePairingProductMatchesInnerPrice recipeInformationWinePairingProductMatchesInnerImageUrl recipeInformationWinePairingProductMatchesInnerAverageRating recipeInformationWinePairingProductMatchesInnerRatingCount recipeInformationWinePairingProductMatchesInnerScore recipeInformationWinePairingProductMatchesInnerLink =
+  RecipeInformationWinePairingProductMatchesInner
+  { recipeInformationWinePairingProductMatchesInnerId
+  , recipeInformationWinePairingProductMatchesInnerTitle
+  , recipeInformationWinePairingProductMatchesInnerDescription
+  , recipeInformationWinePairingProductMatchesInnerPrice
+  , recipeInformationWinePairingProductMatchesInnerImageUrl
+  , recipeInformationWinePairingProductMatchesInnerAverageRating
+  , recipeInformationWinePairingProductMatchesInnerRatingCount
+  , recipeInformationWinePairingProductMatchesInnerScore
+  , recipeInformationWinePairingProductMatchesInnerLink
   }
 
 -- ** SearchAllFood200Response
@@ -6441,7 +5669,7 @@ mkSearchAllFood200Response searchAllFood200ResponseQuery searchAllFood200Respons
 data SearchAllFood200ResponseSearchResultsInner = SearchAllFood200ResponseSearchResultsInner
   { searchAllFood200ResponseSearchResultsInnerName :: !(Text) -- ^ /Required/ "name"
   , searchAllFood200ResponseSearchResultsInnerTotalResults :: !(Int) -- ^ /Required/ "totalResults"
-  , searchAllFood200ResponseSearchResultsInnerResults :: !(Maybe [SearchAllFood200ResponseSearchResultsInnerResultsInner]) -- ^ "results"
+  , searchAllFood200ResponseSearchResultsInnerResults :: !(Maybe [SearchResult]) -- ^ "results"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON SearchAllFood200ResponseSearchResultsInner
@@ -6472,65 +5700,6 @@ mkSearchAllFood200ResponseSearchResultsInner searchAllFood200ResponseSearchResul
   { searchAllFood200ResponseSearchResultsInnerName
   , searchAllFood200ResponseSearchResultsInnerTotalResults
   , searchAllFood200ResponseSearchResultsInnerResults = Nothing
-  }
-
--- ** SearchAllFood200ResponseSearchResultsInnerResultsInner
--- | SearchAllFood200ResponseSearchResultsInnerResultsInner
-data SearchAllFood200ResponseSearchResultsInnerResultsInner = SearchAllFood200ResponseSearchResultsInnerResultsInner
-  { searchAllFood200ResponseSearchResultsInnerResultsInnerId :: !(Text) -- ^ /Required/ "id"
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerName :: !(Text) -- ^ /Required/ "name"
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerImage :: !(Text) -- ^ /Required/ "image"
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerLink :: !(Text) -- ^ /Required/ "link"
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerType :: !(Text) -- ^ /Required/ "type"
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerRelevance :: !(Double) -- ^ /Required/ "relevance"
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerContent :: !(Text) -- ^ /Required/ "content"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON SearchAllFood200ResponseSearchResultsInnerResultsInner
-instance A.FromJSON SearchAllFood200ResponseSearchResultsInnerResultsInner where
-  parseJSON = A.withObject "SearchAllFood200ResponseSearchResultsInnerResultsInner" $ \o ->
-    SearchAllFood200ResponseSearchResultsInnerResultsInner
-      <$> (o .:  "id")
-      <*> (o .:  "name")
-      <*> (o .:  "image")
-      <*> (o .:  "link")
-      <*> (o .:  "type")
-      <*> (o .:  "relevance")
-      <*> (o .:  "content")
-
--- | ToJSON SearchAllFood200ResponseSearchResultsInnerResultsInner
-instance A.ToJSON SearchAllFood200ResponseSearchResultsInnerResultsInner where
-  toJSON SearchAllFood200ResponseSearchResultsInnerResultsInner {..} =
-   _omitNulls
-      [ "id" .= searchAllFood200ResponseSearchResultsInnerResultsInnerId
-      , "name" .= searchAllFood200ResponseSearchResultsInnerResultsInnerName
-      , "image" .= searchAllFood200ResponseSearchResultsInnerResultsInnerImage
-      , "link" .= searchAllFood200ResponseSearchResultsInnerResultsInnerLink
-      , "type" .= searchAllFood200ResponseSearchResultsInnerResultsInnerType
-      , "relevance" .= searchAllFood200ResponseSearchResultsInnerResultsInnerRelevance
-      , "content" .= searchAllFood200ResponseSearchResultsInnerResultsInnerContent
-      ]
-
-
--- | Construct a value of type 'SearchAllFood200ResponseSearchResultsInnerResultsInner' (by applying it's required fields, if any)
-mkSearchAllFood200ResponseSearchResultsInnerResultsInner
-  :: Text -- ^ 'searchAllFood200ResponseSearchResultsInnerResultsInnerId' 
-  -> Text -- ^ 'searchAllFood200ResponseSearchResultsInnerResultsInnerName' 
-  -> Text -- ^ 'searchAllFood200ResponseSearchResultsInnerResultsInnerImage' 
-  -> Text -- ^ 'searchAllFood200ResponseSearchResultsInnerResultsInnerLink' 
-  -> Text -- ^ 'searchAllFood200ResponseSearchResultsInnerResultsInnerType' 
-  -> Double -- ^ 'searchAllFood200ResponseSearchResultsInnerResultsInnerRelevance' 
-  -> Text -- ^ 'searchAllFood200ResponseSearchResultsInnerResultsInnerContent' 
-  -> SearchAllFood200ResponseSearchResultsInnerResultsInner
-mkSearchAllFood200ResponseSearchResultsInnerResultsInner searchAllFood200ResponseSearchResultsInnerResultsInnerId searchAllFood200ResponseSearchResultsInnerResultsInnerName searchAllFood200ResponseSearchResultsInnerResultsInnerImage searchAllFood200ResponseSearchResultsInnerResultsInnerLink searchAllFood200ResponseSearchResultsInnerResultsInnerType searchAllFood200ResponseSearchResultsInnerResultsInnerRelevance searchAllFood200ResponseSearchResultsInnerResultsInnerContent =
-  SearchAllFood200ResponseSearchResultsInnerResultsInner
-  { searchAllFood200ResponseSearchResultsInnerResultsInnerId
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerName
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerImage
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerLink
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerType
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerRelevance
-  , searchAllFood200ResponseSearchResultsInnerResultsInnerContent
   }
 
 -- ** SearchCustomFoods200Response
@@ -6784,7 +5953,7 @@ data SearchGroceryProductsByUPC200Response = SearchGroceryProductsByUPC200Respon
   , searchGroceryProductsByUPC200ResponseImageType :: !(Text) -- ^ /Required/ "imageType"
   , searchGroceryProductsByUPC200ResponseIngredientCount :: !(Maybe Int) -- ^ "ingredientCount"
   , searchGroceryProductsByUPC200ResponseIngredientList :: !(Text) -- ^ /Required/ "ingredientList"
-  , searchGroceryProductsByUPC200ResponseIngredients :: !([SearchGroceryProductsByUPC200ResponseIngredientsInner]) -- ^ /Required/ "ingredients"
+  , searchGroceryProductsByUPC200ResponseIngredients :: !([IngredientBasics]) -- ^ /Required/ "ingredients"
   , searchGroceryProductsByUPC200ResponseLikes :: !(Double) -- ^ /Required/ "likes"
   , searchGroceryProductsByUPC200ResponseNutrition :: !(SearchGroceryProductsByUPC200ResponseNutrition) -- ^ /Required/ "nutrition"
   , searchGroceryProductsByUPC200ResponsePrice :: !(Double) -- ^ /Required/ "price"
@@ -6844,7 +6013,7 @@ mkSearchGroceryProductsByUPC200Response
   -> Text -- ^ 'searchGroceryProductsByUPC200ResponseGeneratedText' 
   -> Text -- ^ 'searchGroceryProductsByUPC200ResponseImageType' 
   -> Text -- ^ 'searchGroceryProductsByUPC200ResponseIngredientList' 
-  -> [SearchGroceryProductsByUPC200ResponseIngredientsInner] -- ^ 'searchGroceryProductsByUPC200ResponseIngredients' 
+  -> [IngredientBasics] -- ^ 'searchGroceryProductsByUPC200ResponseIngredients' 
   -> Double -- ^ 'searchGroceryProductsByUPC200ResponseLikes' 
   -> SearchGroceryProductsByUPC200ResponseNutrition -- ^ 'searchGroceryProductsByUPC200ResponseNutrition' 
   -> Double -- ^ 'searchGroceryProductsByUPC200ResponsePrice' 
@@ -6870,48 +6039,11 @@ mkSearchGroceryProductsByUPC200Response searchGroceryProductsByUPC200ResponseId 
   , searchGroceryProductsByUPC200ResponseSpoonacularScore
   }
 
--- ** SearchGroceryProductsByUPC200ResponseIngredientsInner
--- | SearchGroceryProductsByUPC200ResponseIngredientsInner
-data SearchGroceryProductsByUPC200ResponseIngredientsInner = SearchGroceryProductsByUPC200ResponseIngredientsInner
-  { searchGroceryProductsByUPC200ResponseIngredientsInnerDescription :: !(Maybe Text) -- ^ "description"
-  , searchGroceryProductsByUPC200ResponseIngredientsInnerName :: !(Text) -- ^ /Required/ "name"
-  , searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel :: !(Maybe Text) -- ^ "safety_level"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON SearchGroceryProductsByUPC200ResponseIngredientsInner
-instance A.FromJSON SearchGroceryProductsByUPC200ResponseIngredientsInner where
-  parseJSON = A.withObject "SearchGroceryProductsByUPC200ResponseIngredientsInner" $ \o ->
-    SearchGroceryProductsByUPC200ResponseIngredientsInner
-      <$> (o .:? "description")
-      <*> (o .:  "name")
-      <*> (o .:? "safety_level")
-
--- | ToJSON SearchGroceryProductsByUPC200ResponseIngredientsInner
-instance A.ToJSON SearchGroceryProductsByUPC200ResponseIngredientsInner where
-  toJSON SearchGroceryProductsByUPC200ResponseIngredientsInner {..} =
-   _omitNulls
-      [ "description" .= searchGroceryProductsByUPC200ResponseIngredientsInnerDescription
-      , "name" .= searchGroceryProductsByUPC200ResponseIngredientsInnerName
-      , "safety_level" .= searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel
-      ]
-
-
--- | Construct a value of type 'SearchGroceryProductsByUPC200ResponseIngredientsInner' (by applying it's required fields, if any)
-mkSearchGroceryProductsByUPC200ResponseIngredientsInner
-  :: Text -- ^ 'searchGroceryProductsByUPC200ResponseIngredientsInnerName' 
-  -> SearchGroceryProductsByUPC200ResponseIngredientsInner
-mkSearchGroceryProductsByUPC200ResponseIngredientsInner searchGroceryProductsByUPC200ResponseIngredientsInnerName =
-  SearchGroceryProductsByUPC200ResponseIngredientsInner
-  { searchGroceryProductsByUPC200ResponseIngredientsInnerDescription = Nothing
-  , searchGroceryProductsByUPC200ResponseIngredientsInnerName
-  , searchGroceryProductsByUPC200ResponseIngredientsInnerSafetyLevel = Nothing
-  }
-
 -- ** SearchGroceryProductsByUPC200ResponseNutrition
 -- | SearchGroceryProductsByUPC200ResponseNutrition
 data SearchGroceryProductsByUPC200ResponseNutrition = SearchGroceryProductsByUPC200ResponseNutrition
-  { searchGroceryProductsByUPC200ResponseNutritionNutrients :: !([ParseIngredients200ResponseInnerNutritionNutrientsInner]) -- ^ /Required/ "nutrients"
-  , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown :: !(ParseIngredients200ResponseInnerNutritionCaloricBreakdown) -- ^ /Required/ "caloricBreakdown"
+  { searchGroceryProductsByUPC200ResponseNutritionNutrients :: !([SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner]) -- ^ /Required/ "nutrients"
+  , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown :: !(SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown) -- ^ /Required/ "caloricBreakdown"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON SearchGroceryProductsByUPC200ResponseNutrition
@@ -6932,13 +6064,96 @@ instance A.ToJSON SearchGroceryProductsByUPC200ResponseNutrition where
 
 -- | Construct a value of type 'SearchGroceryProductsByUPC200ResponseNutrition' (by applying it's required fields, if any)
 mkSearchGroceryProductsByUPC200ResponseNutrition
-  :: [ParseIngredients200ResponseInnerNutritionNutrientsInner] -- ^ 'searchGroceryProductsByUPC200ResponseNutritionNutrients' 
-  -> ParseIngredients200ResponseInnerNutritionCaloricBreakdown -- ^ 'searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown' 
+  :: [SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner] -- ^ 'searchGroceryProductsByUPC200ResponseNutritionNutrients' 
+  -> SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown -- ^ 'searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown' 
   -> SearchGroceryProductsByUPC200ResponseNutrition
 mkSearchGroceryProductsByUPC200ResponseNutrition searchGroceryProductsByUPC200ResponseNutritionNutrients searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown =
   SearchGroceryProductsByUPC200ResponseNutrition
   { searchGroceryProductsByUPC200ResponseNutritionNutrients
   , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+  }
+
+-- ** SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+-- | SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+data SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown = SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+  { searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentProtein :: !(Double) -- ^ /Required/ "percentProtein"
+  , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentFat :: !(Double) -- ^ /Required/ "percentFat"
+  , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentCarbs :: !(Double) -- ^ /Required/ "percentCarbs"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+instance A.FromJSON SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown where
+  parseJSON = A.withObject "SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown" $ \o ->
+    SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+      <$> (o .:  "percentProtein")
+      <*> (o .:  "percentFat")
+      <*> (o .:  "percentCarbs")
+
+-- | ToJSON SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+instance A.ToJSON SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown where
+  toJSON SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown {..} =
+   _omitNulls
+      [ "percentProtein" .= searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentProtein
+      , "percentFat" .= searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentFat
+      , "percentCarbs" .= searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentCarbs
+      ]
+
+
+-- | Construct a value of type 'SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown' (by applying it's required fields, if any)
+mkSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+  :: Double -- ^ 'searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentProtein' 
+  -> Double -- ^ 'searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentFat' 
+  -> Double -- ^ 'searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentCarbs' 
+  -> SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+mkSearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentProtein searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentFat searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentCarbs =
+  SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+  { searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentProtein
+  , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentFat
+  , searchGroceryProductsByUPC200ResponseNutritionCaloricBreakdownPercentCarbs
+  }
+
+-- ** SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+-- | SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+data SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner = SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+  { searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerName :: !(Text) -- ^ /Required/ "name"
+  , searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerAmount :: !(Double) -- ^ /Required/ "amount"
+  , searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerUnit :: !(Text) -- ^ /Required/ "unit"
+  , searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPercentOfDailyNeeds :: !(Double) -- ^ /Required/ "percentOfDailyNeeds"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+instance A.FromJSON SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner where
+  parseJSON = A.withObject "SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner" $ \o ->
+    SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+      <$> (o .:  "name")
+      <*> (o .:  "amount")
+      <*> (o .:  "unit")
+      <*> (o .:  "percentOfDailyNeeds")
+
+-- | ToJSON SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+instance A.ToJSON SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner where
+  toJSON SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner {..} =
+   _omitNulls
+      [ "name" .= searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerName
+      , "amount" .= searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerAmount
+      , "unit" .= searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerUnit
+      , "percentOfDailyNeeds" .= searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPercentOfDailyNeeds
+      ]
+
+
+-- | Construct a value of type 'SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner' (by applying it's required fields, if any)
+mkSearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+  :: Text -- ^ 'searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerName' 
+  -> Double -- ^ 'searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerAmount' 
+  -> Text -- ^ 'searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerUnit' 
+  -> Double -- ^ 'searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPercentOfDailyNeeds' 
+  -> SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+mkSearchGroceryProductsByUPC200ResponseNutritionNutrientsInner searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerName searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerAmount searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerUnit searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPercentOfDailyNeeds =
+  SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+  { searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerName
+  , searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerAmount
+  , searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerUnit
+  , searchGroceryProductsByUPC200ResponseNutritionNutrientsInnerPercentOfDailyNeeds
   }
 
 -- ** SearchGroceryProductsByUPC200ResponseServings
@@ -6984,7 +6199,7 @@ mkSearchGroceryProductsByUPC200ResponseServings searchGroceryProductsByUPC200Res
 -- | SearchMenuItems200Response
 -- 
 data SearchMenuItems200Response = SearchMenuItems200Response
-  { searchMenuItems200ResponseMenuItems :: !([SearchMenuItems200ResponseMenuItemsInner]) -- ^ /Required/ "menuItems"
+  { searchMenuItems200ResponseMenuItems :: !([MenuItem]) -- ^ /Required/ "menuItems"
   , searchMenuItems200ResponseTotalMenuItems :: !(Int) -- ^ /Required/ "totalMenuItems"
   , searchMenuItems200ResponseType :: !(Text) -- ^ /Required/ "type"
   , searchMenuItems200ResponseOffset :: !(Int) -- ^ /Required/ "offset"
@@ -7015,7 +6230,7 @@ instance A.ToJSON SearchMenuItems200Response where
 
 -- | Construct a value of type 'SearchMenuItems200Response' (by applying it's required fields, if any)
 mkSearchMenuItems200Response
-  :: [SearchMenuItems200ResponseMenuItemsInner] -- ^ 'searchMenuItems200ResponseMenuItems' 
+  :: [MenuItem] -- ^ 'searchMenuItems200ResponseMenuItems' 
   -> Int -- ^ 'searchMenuItems200ResponseTotalMenuItems' 
   -> Text -- ^ 'searchMenuItems200ResponseType' 
   -> Int -- ^ 'searchMenuItems200ResponseOffset' 
@@ -7028,59 +6243,6 @@ mkSearchMenuItems200Response searchMenuItems200ResponseMenuItems searchMenuItems
   , searchMenuItems200ResponseType
   , searchMenuItems200ResponseOffset
   , searchMenuItems200ResponseNumber
-  }
-
--- ** SearchMenuItems200ResponseMenuItemsInner
--- | SearchMenuItems200ResponseMenuItemsInner
-data SearchMenuItems200ResponseMenuItemsInner = SearchMenuItems200ResponseMenuItemsInner
-  { searchMenuItems200ResponseMenuItemsInnerId :: !(Int) -- ^ /Required/ "id"
-  , searchMenuItems200ResponseMenuItemsInnerTitle :: !(Text) -- ^ /Required/ "title"
-  , searchMenuItems200ResponseMenuItemsInnerRestaurantChain :: !(Text) -- ^ /Required/ "restaurantChain"
-  , searchMenuItems200ResponseMenuItemsInnerImage :: !(Text) -- ^ /Required/ "image"
-  , searchMenuItems200ResponseMenuItemsInnerImageType :: !(Text) -- ^ /Required/ "imageType"
-  , searchMenuItems200ResponseMenuItemsInnerServings :: !(Maybe SearchGroceryProductsByUPC200ResponseServings) -- ^ "servings"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON SearchMenuItems200ResponseMenuItemsInner
-instance A.FromJSON SearchMenuItems200ResponseMenuItemsInner where
-  parseJSON = A.withObject "SearchMenuItems200ResponseMenuItemsInner" $ \o ->
-    SearchMenuItems200ResponseMenuItemsInner
-      <$> (o .:  "id")
-      <*> (o .:  "title")
-      <*> (o .:  "restaurantChain")
-      <*> (o .:  "image")
-      <*> (o .:  "imageType")
-      <*> (o .:? "servings")
-
--- | ToJSON SearchMenuItems200ResponseMenuItemsInner
-instance A.ToJSON SearchMenuItems200ResponseMenuItemsInner where
-  toJSON SearchMenuItems200ResponseMenuItemsInner {..} =
-   _omitNulls
-      [ "id" .= searchMenuItems200ResponseMenuItemsInnerId
-      , "title" .= searchMenuItems200ResponseMenuItemsInnerTitle
-      , "restaurantChain" .= searchMenuItems200ResponseMenuItemsInnerRestaurantChain
-      , "image" .= searchMenuItems200ResponseMenuItemsInnerImage
-      , "imageType" .= searchMenuItems200ResponseMenuItemsInnerImageType
-      , "servings" .= searchMenuItems200ResponseMenuItemsInnerServings
-      ]
-
-
--- | Construct a value of type 'SearchMenuItems200ResponseMenuItemsInner' (by applying it's required fields, if any)
-mkSearchMenuItems200ResponseMenuItemsInner
-  :: Int -- ^ 'searchMenuItems200ResponseMenuItemsInnerId' 
-  -> Text -- ^ 'searchMenuItems200ResponseMenuItemsInnerTitle' 
-  -> Text -- ^ 'searchMenuItems200ResponseMenuItemsInnerRestaurantChain' 
-  -> Text -- ^ 'searchMenuItems200ResponseMenuItemsInnerImage' 
-  -> Text -- ^ 'searchMenuItems200ResponseMenuItemsInnerImageType' 
-  -> SearchMenuItems200ResponseMenuItemsInner
-mkSearchMenuItems200ResponseMenuItemsInner searchMenuItems200ResponseMenuItemsInnerId searchMenuItems200ResponseMenuItemsInnerTitle searchMenuItems200ResponseMenuItemsInnerRestaurantChain searchMenuItems200ResponseMenuItemsInnerImage searchMenuItems200ResponseMenuItemsInnerImageType =
-  SearchMenuItems200ResponseMenuItemsInner
-  { searchMenuItems200ResponseMenuItemsInnerId
-  , searchMenuItems200ResponseMenuItemsInnerTitle
-  , searchMenuItems200ResponseMenuItemsInnerRestaurantChain
-  , searchMenuItems200ResponseMenuItemsInnerImage
-  , searchMenuItems200ResponseMenuItemsInnerImageType
-  , searchMenuItems200ResponseMenuItemsInnerServings = Nothing
   }
 
 -- ** SearchRecipes200Response
@@ -7680,14 +6842,114 @@ mkSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
   , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSunday = Nothing
   }
 
+-- ** SearchResult
+-- | SearchResult
+-- 
+data SearchResult = SearchResult
+  { searchResultDataPoints :: !(Maybe [SearchResultDataPointsInner]) -- ^ "dataPoints"
+  , searchResultImage :: !(Maybe Text) -- ^ "image"
+  , searchResultLink :: !(Maybe Text) -- ^ "link"
+  , searchResultName :: !(Text) -- ^ /Required/ "name"
+  , searchResultType :: !(Maybe Text) -- ^ "type"
+  , searchResultKvtable :: !(Maybe Text) -- ^ "kvtable"
+  , searchResultContent :: !(Maybe Text) -- ^ "content"
+  , searchResultId :: !(Maybe Int) -- ^ "id"
+  , searchResultRelevance :: !(Maybe Double) -- ^ "relevance"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchResult
+instance A.FromJSON SearchResult where
+  parseJSON = A.withObject "SearchResult" $ \o ->
+    SearchResult
+      <$> (o .:? "dataPoints")
+      <*> (o .:? "image")
+      <*> (o .:? "link")
+      <*> (o .:  "name")
+      <*> (o .:? "type")
+      <*> (o .:? "kvtable")
+      <*> (o .:? "content")
+      <*> (o .:? "id")
+      <*> (o .:? "relevance")
+
+-- | ToJSON SearchResult
+instance A.ToJSON SearchResult where
+  toJSON SearchResult {..} =
+   _omitNulls
+      [ "dataPoints" .= searchResultDataPoints
+      , "image" .= searchResultImage
+      , "link" .= searchResultLink
+      , "name" .= searchResultName
+      , "type" .= searchResultType
+      , "kvtable" .= searchResultKvtable
+      , "content" .= searchResultContent
+      , "id" .= searchResultId
+      , "relevance" .= searchResultRelevance
+      ]
+
+
+-- | Construct a value of type 'SearchResult' (by applying it's required fields, if any)
+mkSearchResult
+  :: Text -- ^ 'searchResultName' 
+  -> SearchResult
+mkSearchResult searchResultName =
+  SearchResult
+  { searchResultDataPoints = Nothing
+  , searchResultImage = Nothing
+  , searchResultLink = Nothing
+  , searchResultName
+  , searchResultType = Nothing
+  , searchResultKvtable = Nothing
+  , searchResultContent = Nothing
+  , searchResultId = Nothing
+  , searchResultRelevance = Nothing
+  }
+
+-- ** SearchResultDataPointsInner
+-- | SearchResultDataPointsInner
+data SearchResultDataPointsInner = SearchResultDataPointsInner
+  { searchResultDataPointsInnerKey :: !(Text) -- ^ /Required/ "key"
+  , searchResultDataPointsInnerValue :: !(AnyType) -- ^ /Required/ "value"
+  , searchResultDataPointsInnerShow :: !(Maybe Bool) -- ^ "show"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON SearchResultDataPointsInner
+instance A.FromJSON SearchResultDataPointsInner where
+  parseJSON = A.withObject "SearchResultDataPointsInner" $ \o ->
+    SearchResultDataPointsInner
+      <$> (o .:  "key")
+      <*> (o .:  "value")
+      <*> (o .:? "show")
+
+-- | ToJSON SearchResultDataPointsInner
+instance A.ToJSON SearchResultDataPointsInner where
+  toJSON SearchResultDataPointsInner {..} =
+   _omitNulls
+      [ "key" .= searchResultDataPointsInnerKey
+      , "value" .= searchResultDataPointsInnerValue
+      , "show" .= searchResultDataPointsInnerShow
+      ]
+
+
+-- | Construct a value of type 'SearchResultDataPointsInner' (by applying it's required fields, if any)
+mkSearchResultDataPointsInner
+  :: Text -- ^ 'searchResultDataPointsInnerKey' 
+  -> AnyType -- ^ 'searchResultDataPointsInnerValue' 
+  -> SearchResultDataPointsInner
+mkSearchResultDataPointsInner searchResultDataPointsInnerKey searchResultDataPointsInnerValue =
+  SearchResultDataPointsInner
+  { searchResultDataPointsInnerKey
+  , searchResultDataPointsInnerValue
+  , searchResultDataPointsInnerShow = Nothing
+  }
+
 -- ** SearchSiteContent200Response
 -- | SearchSiteContent200Response
 -- 
 data SearchSiteContent200Response = SearchSiteContent200Response
-  { searchSiteContent200ResponseArticles :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Articles"
-  , searchSiteContent200ResponseGroceryProducts :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Grocery Products"
-  , searchSiteContent200ResponseMenuItems :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Menu Items"
-  , searchSiteContent200ResponseRecipes :: !([SearchSiteContent200ResponseArticlesInner]) -- ^ /Required/ "Recipes"
+  { searchSiteContent200ResponseArticles :: !([SearchResult]) -- ^ /Required/ "Articles"
+  , searchSiteContent200ResponseGroceryProducts :: !([SearchResult]) -- ^ /Required/ "Grocery Products"
+  , searchSiteContent200ResponseMenuItems :: !([SearchResult]) -- ^ /Required/ "Menu Items"
+  , searchSiteContent200ResponseRecipes :: !([SearchResult]) -- ^ /Required/ "Recipes"
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON SearchSiteContent200Response
@@ -7712,10 +6974,10 @@ instance A.ToJSON SearchSiteContent200Response where
 
 -- | Construct a value of type 'SearchSiteContent200Response' (by applying it's required fields, if any)
 mkSearchSiteContent200Response
-  :: [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseArticles' 
-  -> [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseGroceryProducts' 
-  -> [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseMenuItems' 
-  -> [SearchSiteContent200ResponseArticlesInner] -- ^ 'searchSiteContent200ResponseRecipes' 
+  :: [SearchResult] -- ^ 'searchSiteContent200ResponseArticles' 
+  -> [SearchResult] -- ^ 'searchSiteContent200ResponseGroceryProducts' 
+  -> [SearchResult] -- ^ 'searchSiteContent200ResponseMenuItems' 
+  -> [SearchResult] -- ^ 'searchSiteContent200ResponseRecipes' 
   -> SearchSiteContent200Response
 mkSearchSiteContent200Response searchSiteContent200ResponseArticles searchSiteContent200ResponseGroceryProducts searchSiteContent200ResponseMenuItems searchSiteContent200ResponseRecipes =
   SearchSiteContent200Response
@@ -7723,83 +6985,6 @@ mkSearchSiteContent200Response searchSiteContent200ResponseArticles searchSiteCo
   , searchSiteContent200ResponseGroceryProducts
   , searchSiteContent200ResponseMenuItems
   , searchSiteContent200ResponseRecipes
-  }
-
--- ** SearchSiteContent200ResponseArticlesInner
--- | SearchSiteContent200ResponseArticlesInner
-data SearchSiteContent200ResponseArticlesInner = SearchSiteContent200ResponseArticlesInner
-  { searchSiteContent200ResponseArticlesInnerDataPoints :: !(Maybe [SearchSiteContent200ResponseArticlesInnerDataPointsInner]) -- ^ "dataPoints"
-  , searchSiteContent200ResponseArticlesInnerImage :: !(Text) -- ^ /Required/ "image"
-  , searchSiteContent200ResponseArticlesInnerLink :: !(Text) -- ^ /Required/ "link"
-  , searchSiteContent200ResponseArticlesInnerName :: !(Text) -- ^ /Required/ "name"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON SearchSiteContent200ResponseArticlesInner
-instance A.FromJSON SearchSiteContent200ResponseArticlesInner where
-  parseJSON = A.withObject "SearchSiteContent200ResponseArticlesInner" $ \o ->
-    SearchSiteContent200ResponseArticlesInner
-      <$> (o .:? "dataPoints")
-      <*> (o .:  "image")
-      <*> (o .:  "link")
-      <*> (o .:  "name")
-
--- | ToJSON SearchSiteContent200ResponseArticlesInner
-instance A.ToJSON SearchSiteContent200ResponseArticlesInner where
-  toJSON SearchSiteContent200ResponseArticlesInner {..} =
-   _omitNulls
-      [ "dataPoints" .= searchSiteContent200ResponseArticlesInnerDataPoints
-      , "image" .= searchSiteContent200ResponseArticlesInnerImage
-      , "link" .= searchSiteContent200ResponseArticlesInnerLink
-      , "name" .= searchSiteContent200ResponseArticlesInnerName
-      ]
-
-
--- | Construct a value of type 'SearchSiteContent200ResponseArticlesInner' (by applying it's required fields, if any)
-mkSearchSiteContent200ResponseArticlesInner
-  :: Text -- ^ 'searchSiteContent200ResponseArticlesInnerImage' 
-  -> Text -- ^ 'searchSiteContent200ResponseArticlesInnerLink' 
-  -> Text -- ^ 'searchSiteContent200ResponseArticlesInnerName' 
-  -> SearchSiteContent200ResponseArticlesInner
-mkSearchSiteContent200ResponseArticlesInner searchSiteContent200ResponseArticlesInnerImage searchSiteContent200ResponseArticlesInnerLink searchSiteContent200ResponseArticlesInnerName =
-  SearchSiteContent200ResponseArticlesInner
-  { searchSiteContent200ResponseArticlesInnerDataPoints = Nothing
-  , searchSiteContent200ResponseArticlesInnerImage
-  , searchSiteContent200ResponseArticlesInnerLink
-  , searchSiteContent200ResponseArticlesInnerName
-  }
-
--- ** SearchSiteContent200ResponseArticlesInnerDataPointsInner
--- | SearchSiteContent200ResponseArticlesInnerDataPointsInner
-data SearchSiteContent200ResponseArticlesInnerDataPointsInner = SearchSiteContent200ResponseArticlesInnerDataPointsInner
-  { searchSiteContent200ResponseArticlesInnerDataPointsInnerKey :: !(Text) -- ^ /Required/ "key"
-  , searchSiteContent200ResponseArticlesInnerDataPointsInnerValue :: !(Text) -- ^ /Required/ "value"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner
-instance A.FromJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner where
-  parseJSON = A.withObject "SearchSiteContent200ResponseArticlesInnerDataPointsInner" $ \o ->
-    SearchSiteContent200ResponseArticlesInnerDataPointsInner
-      <$> (o .:  "key")
-      <*> (o .:  "value")
-
--- | ToJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner
-instance A.ToJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner where
-  toJSON SearchSiteContent200ResponseArticlesInnerDataPointsInner {..} =
-   _omitNulls
-      [ "key" .= searchSiteContent200ResponseArticlesInnerDataPointsInnerKey
-      , "value" .= searchSiteContent200ResponseArticlesInnerDataPointsInnerValue
-      ]
-
-
--- | Construct a value of type 'SearchSiteContent200ResponseArticlesInnerDataPointsInner' (by applying it's required fields, if any)
-mkSearchSiteContent200ResponseArticlesInnerDataPointsInner
-  :: Text -- ^ 'searchSiteContent200ResponseArticlesInnerDataPointsInnerKey' 
-  -> Text -- ^ 'searchSiteContent200ResponseArticlesInnerDataPointsInnerValue' 
-  -> SearchSiteContent200ResponseArticlesInnerDataPointsInner
-mkSearchSiteContent200ResponseArticlesInnerDataPointsInner searchSiteContent200ResponseArticlesInnerDataPointsInnerKey searchSiteContent200ResponseArticlesInnerDataPointsInnerValue =
-  SearchSiteContent200ResponseArticlesInnerDataPointsInner
-  { searchSiteContent200ResponseArticlesInnerDataPointsInnerKey
-  , searchSiteContent200ResponseArticlesInnerDataPointsInnerValue
   }
 
 -- ** SummarizeRecipe200Response
@@ -7911,6 +7096,66 @@ mkTalkToChatbot200ResponseMediaInner =
   { talkToChatbot200ResponseMediaInnerTitle = Nothing
   , talkToChatbot200ResponseMediaInnerImage = Nothing
   , talkToChatbot200ResponseMediaInnerLink = Nothing
+  }
+
+-- ** TasteInformation
+-- | TasteInformation
+-- 
+data TasteInformation = TasteInformation
+  { tasteInformationSweetness :: !(Double) -- ^ /Required/ "sweetness"
+  , tasteInformationSaltiness :: !(Double) -- ^ /Required/ "saltiness"
+  , tasteInformationSourness :: !(Double) -- ^ /Required/ "sourness"
+  , tasteInformationBitterness :: !(Double) -- ^ /Required/ "bitterness"
+  , tasteInformationSavoriness :: !(Double) -- ^ /Required/ "savoriness"
+  , tasteInformationFattiness :: !(Double) -- ^ /Required/ "fattiness"
+  , tasteInformationSpiciness :: !(Double) -- ^ /Required/ "spiciness"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON TasteInformation
+instance A.FromJSON TasteInformation where
+  parseJSON = A.withObject "TasteInformation" $ \o ->
+    TasteInformation
+      <$> (o .:  "sweetness")
+      <*> (o .:  "saltiness")
+      <*> (o .:  "sourness")
+      <*> (o .:  "bitterness")
+      <*> (o .:  "savoriness")
+      <*> (o .:  "fattiness")
+      <*> (o .:  "spiciness")
+
+-- | ToJSON TasteInformation
+instance A.ToJSON TasteInformation where
+  toJSON TasteInformation {..} =
+   _omitNulls
+      [ "sweetness" .= tasteInformationSweetness
+      , "saltiness" .= tasteInformationSaltiness
+      , "sourness" .= tasteInformationSourness
+      , "bitterness" .= tasteInformationBitterness
+      , "savoriness" .= tasteInformationSavoriness
+      , "fattiness" .= tasteInformationFattiness
+      , "spiciness" .= tasteInformationSpiciness
+      ]
+
+
+-- | Construct a value of type 'TasteInformation' (by applying it's required fields, if any)
+mkTasteInformation
+  :: Double -- ^ 'tasteInformationSweetness' 
+  -> Double -- ^ 'tasteInformationSaltiness' 
+  -> Double -- ^ 'tasteInformationSourness' 
+  -> Double -- ^ 'tasteInformationBitterness' 
+  -> Double -- ^ 'tasteInformationSavoriness' 
+  -> Double -- ^ 'tasteInformationFattiness' 
+  -> Double -- ^ 'tasteInformationSpiciness' 
+  -> TasteInformation
+mkTasteInformation tasteInformationSweetness tasteInformationSaltiness tasteInformationSourness tasteInformationBitterness tasteInformationSavoriness tasteInformationFattiness tasteInformationSpiciness =
+  TasteInformation
+  { tasteInformationSweetness
+  , tasteInformationSaltiness
+  , tasteInformationSourness
+  , tasteInformationBitterness
+  , tasteInformationSavoriness
+  , tasteInformationFattiness
+  , tasteInformationSpiciness
   }
 
 

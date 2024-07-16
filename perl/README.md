@@ -264,7 +264,6 @@ use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstru
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest;
 use WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner;
-use WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::AutocompleteRecipeSearch200ResponseInner;
@@ -273,6 +272,7 @@ use WWW::OpenAPIClient::Object::ClassifyGroceryProduct200Response;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulk200ResponseInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulkRequestInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductRequest;
+use WWW::OpenAPIClient::Object::ComparableProduct;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200Response;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoadRequest;
@@ -285,49 +285,32 @@ use WWW::OpenAPIClient::Object::DetectFoodInText200Response;
 use WWW::OpenAPIClient::Object::DetectFoodInText200ResponseAnnotationsInner;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200Response;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200ResponseNutrients;
-use WWW::OpenAPIClient::Object::GenerateShoppingList200Response;
 use WWW::OpenAPIClient::Object::GetARandomFoodJoke200Response;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200Response;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseIngredientsInner;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
+use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInner;
+use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInnerStepsInner;
+use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner;
 use WWW::OpenAPIClient::Object::GetComparableProducts200Response;
 use WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProducts;
-use WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProductsProteinInner;
 use WWW::OpenAPIClient::Object::GetConversationSuggests200Response;
 use WWW::OpenAPIClient::Object::GetConversationSuggests200ResponseSuggests;
 use WWW::OpenAPIClient::Object::GetConversationSuggests200ResponseSuggestsInner;
 use WWW::OpenAPIClient::Object::GetDishPairingForWine200Response;
-use WWW::OpenAPIClient::Object::GetIngredientInformation200Response;
-use WWW::OpenAPIClient::Object::GetIngredientInformation200ResponseNutrition;
 use WWW::OpenAPIClient::Object::GetIngredientSubstitutes200Response;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200Response;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInner;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInnerItemsInner;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplates200Response;
+use WWW::OpenAPIClient::Object::GetMealPlanTemplates200ResponseTemplatesInner;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200Response;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInner;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerItemsInner;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerItemsInnerValue;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerNutritionSummary;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner;
-use WWW::OpenAPIClient::Object::GetMenuItemInformation200Response;
-use WWW::OpenAPIClient::Object::GetProductInformation200Response;
-use WWW::OpenAPIClient::Object::GetProductInformation200ResponseIngredientsInner;
-use WWW::OpenAPIClient::Object::GetRandomFoodTrivia200Response;
 use WWW::OpenAPIClient::Object::GetRandomRecipes200Response;
-use WWW::OpenAPIClient::Object::GetRandomRecipes200ResponseRecipesInner;
 use WWW::OpenAPIClient::Object::GetRecipeEquipmentByID200Response;
 use WWW::OpenAPIClient::Object::GetRecipeEquipmentByID200ResponseEquipmentInner;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200Response;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInner;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseWinePairing;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseWinePairingProductMatchesInner;
-use WWW::OpenAPIClient::Object::GetRecipeInformationBulk200ResponseInner;
 use WWW::OpenAPIClient::Object::GetRecipeIngredientsByID200Response;
 use WWW::OpenAPIClient::Object::GetRecipeIngredientsByID200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::GetRecipeNutritionWidgetByID200Response;
@@ -337,11 +320,11 @@ use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200Response;
 use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount;
 use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric;
-use WWW::OpenAPIClient::Object::GetRecipeTasteByID200Response;
 use WWW::OpenAPIClient::Object::GetShoppingList200Response;
 use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInner;
 use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInner;
 use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerMeasures;
+use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
 use WWW::OpenAPIClient::Object::GetSimilarRecipes200ResponseInner;
 use WWW::OpenAPIClient::Object::GetWineDescription200Response;
 use WWW::OpenAPIClient::Object::GetWinePairing200Response;
@@ -358,33 +341,40 @@ use WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseNutritionCalories;
 use WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent;
 use WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseRecipesInner;
 use WWW::OpenAPIClient::Object::ImageClassificationByURL200Response;
+use WWW::OpenAPIClient::Object::IngredientBasics;
+use WWW::OpenAPIClient::Object::IngredientInformation;
+use WWW::OpenAPIClient::Object::IngredientInformationEstimatedCost;
+use WWW::OpenAPIClient::Object::IngredientInformationNutrition;
+use WWW::OpenAPIClient::Object::IngredientInformationNutritionPropertiesInner;
 use WWW::OpenAPIClient::Object::IngredientSearch200Response;
 use WWW::OpenAPIClient::Object::IngredientSearch200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::MapIngredientsToGroceryProducts200ResponseInner;
 use WWW::OpenAPIClient::Object::MapIngredientsToGroceryProducts200ResponseInnerProductsInner;
 use WWW::OpenAPIClient::Object::MapIngredientsToGroceryProductsRequest;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInner;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerEstimatedCost;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutrition;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionCaloricBreakdown;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionNutrientsInner;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionPropertiesInner;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionWeightPerServing;
+use WWW::OpenAPIClient::Object::MenuItem;
+use WWW::OpenAPIClient::Object::MenuItemServings;
+use WWW::OpenAPIClient::Object::ProductInformation;
+use WWW::OpenAPIClient::Object::ProductInformationCredits;
 use WWW::OpenAPIClient::Object::QuickAnswer200Response;
+use WWW::OpenAPIClient::Object::RecipeInformation;
+use WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInner;
+use WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInnerMeasures;
+use WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInnerMeasuresMetric;
+use WWW::OpenAPIClient::Object::RecipeInformationWinePairing;
+use WWW::OpenAPIClient::Object::RecipeInformationWinePairingProductMatchesInner;
 use WWW::OpenAPIClient::Object::SearchAllFood200Response;
 use WWW::OpenAPIClient::Object::SearchAllFood200ResponseSearchResultsInner;
-use WWW::OpenAPIClient::Object::SearchAllFood200ResponseSearchResultsInnerResultsInner;
 use WWW::OpenAPIClient::Object::SearchCustomFoods200Response;
 use WWW::OpenAPIClient::Object::SearchCustomFoods200ResponseCustomFoodsInner;
 use WWW::OpenAPIClient::Object::SearchFoodVideos200Response;
 use WWW::OpenAPIClient::Object::SearchFoodVideos200ResponseVideosInner;
 use WWW::OpenAPIClient::Object::SearchGroceryProducts200Response;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200Response;
-use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutrition;
+use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown;
+use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseServings;
 use WWW::OpenAPIClient::Object::SearchMenuItems200Response;
-use WWW::OpenAPIClient::Object::SearchMenuItems200ResponseMenuItemsInner;
 use WWW::OpenAPIClient::Object::SearchRecipes200Response;
 use WWW::OpenAPIClient::Object::SearchRecipes200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInner;
@@ -395,12 +385,13 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInner;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddress;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
+use WWW::OpenAPIClient::Object::SearchResult;
+use WWW::OpenAPIClient::Object::SearchResultDataPointsInner;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner;
+use WWW::OpenAPIClient::Object::TasteInformation;
 
 ````
 
@@ -439,7 +430,6 @@ use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstru
 use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
 use WWW::OpenAPIClient::Object::AnalyzeRecipeRequest;
 use WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner;
-use WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response;
 use WWW::OpenAPIClient::Object::AutocompleteProductSearch200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::AutocompleteRecipeSearch200ResponseInner;
@@ -448,6 +438,7 @@ use WWW::OpenAPIClient::Object::ClassifyGroceryProduct200Response;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulk200ResponseInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductBulkRequestInner;
 use WWW::OpenAPIClient::Object::ClassifyGroceryProductRequest;
+use WWW::OpenAPIClient::Object::ComparableProduct;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200Response;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoad200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::ComputeGlycemicLoadRequest;
@@ -460,49 +451,32 @@ use WWW::OpenAPIClient::Object::DetectFoodInText200Response;
 use WWW::OpenAPIClient::Object::DetectFoodInText200ResponseAnnotationsInner;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200Response;
 use WWW::OpenAPIClient::Object::GenerateMealPlan200ResponseNutrients;
-use WWW::OpenAPIClient::Object::GenerateShoppingList200Response;
 use WWW::OpenAPIClient::Object::GetARandomFoodJoke200Response;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200Response;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseIngredientsInner;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner;
-use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner;
+use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInner;
+use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInnerStepsInner;
+use WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner;
 use WWW::OpenAPIClient::Object::GetComparableProducts200Response;
 use WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProducts;
-use WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProductsProteinInner;
 use WWW::OpenAPIClient::Object::GetConversationSuggests200Response;
 use WWW::OpenAPIClient::Object::GetConversationSuggests200ResponseSuggests;
 use WWW::OpenAPIClient::Object::GetConversationSuggests200ResponseSuggestsInner;
 use WWW::OpenAPIClient::Object::GetDishPairingForWine200Response;
-use WWW::OpenAPIClient::Object::GetIngredientInformation200Response;
-use WWW::OpenAPIClient::Object::GetIngredientInformation200ResponseNutrition;
 use WWW::OpenAPIClient::Object::GetIngredientSubstitutes200Response;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200Response;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInner;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInnerItemsInner;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue;
 use WWW::OpenAPIClient::Object::GetMealPlanTemplates200Response;
+use WWW::OpenAPIClient::Object::GetMealPlanTemplates200ResponseTemplatesInner;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200Response;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInner;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerItemsInner;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerItemsInnerValue;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerNutritionSummary;
 use WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner;
-use WWW::OpenAPIClient::Object::GetMenuItemInformation200Response;
-use WWW::OpenAPIClient::Object::GetProductInformation200Response;
-use WWW::OpenAPIClient::Object::GetProductInformation200ResponseIngredientsInner;
-use WWW::OpenAPIClient::Object::GetRandomFoodTrivia200Response;
 use WWW::OpenAPIClient::Object::GetRandomRecipes200Response;
-use WWW::OpenAPIClient::Object::GetRandomRecipes200ResponseRecipesInner;
 use WWW::OpenAPIClient::Object::GetRecipeEquipmentByID200Response;
 use WWW::OpenAPIClient::Object::GetRecipeEquipmentByID200ResponseEquipmentInner;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200Response;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInner;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseWinePairing;
-use WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseWinePairingProductMatchesInner;
-use WWW::OpenAPIClient::Object::GetRecipeInformationBulk200ResponseInner;
 use WWW::OpenAPIClient::Object::GetRecipeIngredientsByID200Response;
 use WWW::OpenAPIClient::Object::GetRecipeIngredientsByID200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::GetRecipeNutritionWidgetByID200Response;
@@ -512,11 +486,11 @@ use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200Response;
 use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount;
 use WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric;
-use WWW::OpenAPIClient::Object::GetRecipeTasteByID200Response;
 use WWW::OpenAPIClient::Object::GetShoppingList200Response;
 use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInner;
 use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInner;
 use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerMeasures;
+use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
 use WWW::OpenAPIClient::Object::GetSimilarRecipes200ResponseInner;
 use WWW::OpenAPIClient::Object::GetWineDescription200Response;
 use WWW::OpenAPIClient::Object::GetWinePairing200Response;
@@ -533,33 +507,40 @@ use WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseNutritionCalories;
 use WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent;
 use WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseRecipesInner;
 use WWW::OpenAPIClient::Object::ImageClassificationByURL200Response;
+use WWW::OpenAPIClient::Object::IngredientBasics;
+use WWW::OpenAPIClient::Object::IngredientInformation;
+use WWW::OpenAPIClient::Object::IngredientInformationEstimatedCost;
+use WWW::OpenAPIClient::Object::IngredientInformationNutrition;
+use WWW::OpenAPIClient::Object::IngredientInformationNutritionPropertiesInner;
 use WWW::OpenAPIClient::Object::IngredientSearch200Response;
 use WWW::OpenAPIClient::Object::IngredientSearch200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::MapIngredientsToGroceryProducts200ResponseInner;
 use WWW::OpenAPIClient::Object::MapIngredientsToGroceryProducts200ResponseInnerProductsInner;
 use WWW::OpenAPIClient::Object::MapIngredientsToGroceryProductsRequest;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInner;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerEstimatedCost;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutrition;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionCaloricBreakdown;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionNutrientsInner;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionPropertiesInner;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionWeightPerServing;
+use WWW::OpenAPIClient::Object::MenuItem;
+use WWW::OpenAPIClient::Object::MenuItemServings;
+use WWW::OpenAPIClient::Object::ProductInformation;
+use WWW::OpenAPIClient::Object::ProductInformationCredits;
 use WWW::OpenAPIClient::Object::QuickAnswer200Response;
+use WWW::OpenAPIClient::Object::RecipeInformation;
+use WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInner;
+use WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInnerMeasures;
+use WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInnerMeasuresMetric;
+use WWW::OpenAPIClient::Object::RecipeInformationWinePairing;
+use WWW::OpenAPIClient::Object::RecipeInformationWinePairingProductMatchesInner;
 use WWW::OpenAPIClient::Object::SearchAllFood200Response;
 use WWW::OpenAPIClient::Object::SearchAllFood200ResponseSearchResultsInner;
-use WWW::OpenAPIClient::Object::SearchAllFood200ResponseSearchResultsInnerResultsInner;
 use WWW::OpenAPIClient::Object::SearchCustomFoods200Response;
 use WWW::OpenAPIClient::Object::SearchCustomFoods200ResponseCustomFoodsInner;
 use WWW::OpenAPIClient::Object::SearchFoodVideos200Response;
 use WWW::OpenAPIClient::Object::SearchFoodVideos200ResponseVideosInner;
 use WWW::OpenAPIClient::Object::SearchGroceryProducts200Response;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200Response;
-use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseIngredientsInner;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutrition;
+use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown;
+use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseServings;
 use WWW::OpenAPIClient::Object::SearchMenuItems200Response;
-use WWW::OpenAPIClient::Object::SearchMenuItems200ResponseMenuItemsInner;
 use WWW::OpenAPIClient::Object::SearchRecipes200Response;
 use WWW::OpenAPIClient::Object::SearchRecipes200ResponseResultsInner;
 use WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInner;
@@ -570,12 +551,13 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInner;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddress;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
+use WWW::OpenAPIClient::Object::SearchResult;
+use WWW::OpenAPIClient::Object::SearchResultDataPointsInner;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner;
-use WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner;
+use WWW::OpenAPIClient::Object::TasteInformation;
 
 # for displaying the API response data
 use Data::Dumper;
@@ -728,7 +710,6 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::AnalyzeRecipeRequest](docs/AnalyzeRecipeRequest.md)
  - [WWW::OpenAPIClient::Object::AutocompleteIngredientSearch200ResponseInner](docs/AutocompleteIngredientSearch200ResponseInner.md)
- - [WWW::OpenAPIClient::Object::AutocompleteMenuItemSearch200Response](docs/AutocompleteMenuItemSearch200Response.md)
  - [WWW::OpenAPIClient::Object::AutocompleteProductSearch200Response](docs/AutocompleteProductSearch200Response.md)
  - [WWW::OpenAPIClient::Object::AutocompleteProductSearch200ResponseResultsInner](docs/AutocompleteProductSearch200ResponseResultsInner.md)
  - [WWW::OpenAPIClient::Object::AutocompleteRecipeSearch200ResponseInner](docs/AutocompleteRecipeSearch200ResponseInner.md)
@@ -737,6 +718,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ClassifyGroceryProductBulk200ResponseInner](docs/ClassifyGroceryProductBulk200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::ClassifyGroceryProductBulkRequestInner](docs/ClassifyGroceryProductBulkRequestInner.md)
  - [WWW::OpenAPIClient::Object::ClassifyGroceryProductRequest](docs/ClassifyGroceryProductRequest.md)
+ - [WWW::OpenAPIClient::Object::ComparableProduct](docs/ComparableProduct.md)
  - [WWW::OpenAPIClient::Object::ComputeGlycemicLoad200Response](docs/ComputeGlycemicLoad200Response.md)
  - [WWW::OpenAPIClient::Object::ComputeGlycemicLoad200ResponseIngredientsInner](docs/ComputeGlycemicLoad200ResponseIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::ComputeGlycemicLoadRequest](docs/ComputeGlycemicLoadRequest.md)
@@ -749,49 +731,32 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::DetectFoodInText200ResponseAnnotationsInner](docs/DetectFoodInText200ResponseAnnotationsInner.md)
  - [WWW::OpenAPIClient::Object::GenerateMealPlan200Response](docs/GenerateMealPlan200Response.md)
  - [WWW::OpenAPIClient::Object::GenerateMealPlan200ResponseNutrients](docs/GenerateMealPlan200ResponseNutrients.md)
- - [WWW::OpenAPIClient::Object::GenerateShoppingList200Response](docs/GenerateShoppingList200Response.md)
  - [WWW::OpenAPIClient::Object::GetARandomFoodJoke200Response](docs/GetARandomFoodJoke200Response.md)
- - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200Response](docs/GetAnalyzedRecipeInstructions200Response.md)
- - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseIngredientsInner](docs/GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md)
- - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner](docs/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner.md)
- - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner](docs/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.md)
- - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner](docs/GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.md)
+ - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInner](docs/GetAnalyzedRecipeInstructions200ResponseInner.md)
+ - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInnerStepsInner](docs/GetAnalyzedRecipeInstructions200ResponseInnerStepsInner.md)
+ - [WWW::OpenAPIClient::Object::GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner](docs/GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::GetComparableProducts200Response](docs/GetComparableProducts200Response.md)
  - [WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProducts](docs/GetComparableProducts200ResponseComparableProducts.md)
- - [WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProductsProteinInner](docs/GetComparableProducts200ResponseComparableProductsProteinInner.md)
  - [WWW::OpenAPIClient::Object::GetConversationSuggests200Response](docs/GetConversationSuggests200Response.md)
  - [WWW::OpenAPIClient::Object::GetConversationSuggests200ResponseSuggests](docs/GetConversationSuggests200ResponseSuggests.md)
  - [WWW::OpenAPIClient::Object::GetConversationSuggests200ResponseSuggestsInner](docs/GetConversationSuggests200ResponseSuggestsInner.md)
  - [WWW::OpenAPIClient::Object::GetDishPairingForWine200Response](docs/GetDishPairingForWine200Response.md)
- - [WWW::OpenAPIClient::Object::GetIngredientInformation200Response](docs/GetIngredientInformation200Response.md)
- - [WWW::OpenAPIClient::Object::GetIngredientInformation200ResponseNutrition](docs/GetIngredientInformation200ResponseNutrition.md)
  - [WWW::OpenAPIClient::Object::GetIngredientSubstitutes200Response](docs/GetIngredientSubstitutes200Response.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanTemplate200Response](docs/GetMealPlanTemplate200Response.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInner](docs/GetMealPlanTemplate200ResponseDaysInner.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInnerItemsInner](docs/GetMealPlanTemplate200ResponseDaysInnerItemsInner.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue](docs/GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanTemplates200Response](docs/GetMealPlanTemplates200Response.md)
+ - [WWW::OpenAPIClient::Object::GetMealPlanTemplates200ResponseTemplatesInner](docs/GetMealPlanTemplates200ResponseTemplatesInner.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanWeek200Response](docs/GetMealPlanWeek200Response.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInner](docs/GetMealPlanWeek200ResponseDaysInner.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerItemsInner](docs/GetMealPlanWeek200ResponseDaysInnerItemsInner.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerItemsInnerValue](docs/GetMealPlanWeek200ResponseDaysInnerItemsInnerValue.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerNutritionSummary](docs/GetMealPlanWeek200ResponseDaysInnerNutritionSummary.md)
  - [WWW::OpenAPIClient::Object::GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner](docs/GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner.md)
- - [WWW::OpenAPIClient::Object::GetMenuItemInformation200Response](docs/GetMenuItemInformation200Response.md)
- - [WWW::OpenAPIClient::Object::GetProductInformation200Response](docs/GetProductInformation200Response.md)
- - [WWW::OpenAPIClient::Object::GetProductInformation200ResponseIngredientsInner](docs/GetProductInformation200ResponseIngredientsInner.md)
- - [WWW::OpenAPIClient::Object::GetRandomFoodTrivia200Response](docs/GetRandomFoodTrivia200Response.md)
  - [WWW::OpenAPIClient::Object::GetRandomRecipes200Response](docs/GetRandomRecipes200Response.md)
- - [WWW::OpenAPIClient::Object::GetRandomRecipes200ResponseRecipesInner](docs/GetRandomRecipes200ResponseRecipesInner.md)
  - [WWW::OpenAPIClient::Object::GetRecipeEquipmentByID200Response](docs/GetRecipeEquipmentByID200Response.md)
  - [WWW::OpenAPIClient::Object::GetRecipeEquipmentByID200ResponseEquipmentInner](docs/GetRecipeEquipmentByID200ResponseEquipmentInner.md)
- - [WWW::OpenAPIClient::Object::GetRecipeInformation200Response](docs/GetRecipeInformation200Response.md)
- - [WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInner](docs/GetRecipeInformation200ResponseExtendedIngredientsInner.md)
- - [WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures](docs/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.md)
- - [WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric](docs/GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.md)
- - [WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseWinePairing](docs/GetRecipeInformation200ResponseWinePairing.md)
- - [WWW::OpenAPIClient::Object::GetRecipeInformation200ResponseWinePairingProductMatchesInner](docs/GetRecipeInformation200ResponseWinePairingProductMatchesInner.md)
- - [WWW::OpenAPIClient::Object::GetRecipeInformationBulk200ResponseInner](docs/GetRecipeInformationBulk200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::GetRecipeIngredientsByID200Response](docs/GetRecipeIngredientsByID200Response.md)
  - [WWW::OpenAPIClient::Object::GetRecipeIngredientsByID200ResponseIngredientsInner](docs/GetRecipeIngredientsByID200ResponseIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::GetRecipeNutritionWidgetByID200Response](docs/GetRecipeNutritionWidgetByID200Response.md)
@@ -801,11 +766,11 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInner](docs/GetRecipePriceBreakdownByID200ResponseIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount](docs/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount.md)
  - [WWW::OpenAPIClient::Object::GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric](docs/GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric.md)
- - [WWW::OpenAPIClient::Object::GetRecipeTasteByID200Response](docs/GetRecipeTasteByID200Response.md)
  - [WWW::OpenAPIClient::Object::GetShoppingList200Response](docs/GetShoppingList200Response.md)
  - [WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInner](docs/GetShoppingList200ResponseAislesInner.md)
  - [WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInner](docs/GetShoppingList200ResponseAislesInnerItemsInner.md)
  - [WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerMeasures](docs/GetShoppingList200ResponseAislesInnerItemsInnerMeasures.md)
+ - [WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal](docs/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.md)
  - [WWW::OpenAPIClient::Object::GetSimilarRecipes200ResponseInner](docs/GetSimilarRecipes200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::GetWineDescription200Response](docs/GetWineDescription200Response.md)
  - [WWW::OpenAPIClient::Object::GetWinePairing200Response](docs/GetWinePairing200Response.md)
@@ -822,33 +787,40 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent](docs/ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent.md)
  - [WWW::OpenAPIClient::Object::ImageAnalysisByURL200ResponseRecipesInner](docs/ImageAnalysisByURL200ResponseRecipesInner.md)
  - [WWW::OpenAPIClient::Object::ImageClassificationByURL200Response](docs/ImageClassificationByURL200Response.md)
+ - [WWW::OpenAPIClient::Object::IngredientBasics](docs/IngredientBasics.md)
+ - [WWW::OpenAPIClient::Object::IngredientInformation](docs/IngredientInformation.md)
+ - [WWW::OpenAPIClient::Object::IngredientInformationEstimatedCost](docs/IngredientInformationEstimatedCost.md)
+ - [WWW::OpenAPIClient::Object::IngredientInformationNutrition](docs/IngredientInformationNutrition.md)
+ - [WWW::OpenAPIClient::Object::IngredientInformationNutritionPropertiesInner](docs/IngredientInformationNutritionPropertiesInner.md)
  - [WWW::OpenAPIClient::Object::IngredientSearch200Response](docs/IngredientSearch200Response.md)
  - [WWW::OpenAPIClient::Object::IngredientSearch200ResponseResultsInner](docs/IngredientSearch200ResponseResultsInner.md)
  - [WWW::OpenAPIClient::Object::MapIngredientsToGroceryProducts200ResponseInner](docs/MapIngredientsToGroceryProducts200ResponseInner.md)
  - [WWW::OpenAPIClient::Object::MapIngredientsToGroceryProducts200ResponseInnerProductsInner](docs/MapIngredientsToGroceryProducts200ResponseInnerProductsInner.md)
  - [WWW::OpenAPIClient::Object::MapIngredientsToGroceryProductsRequest](docs/MapIngredientsToGroceryProductsRequest.md)
- - [WWW::OpenAPIClient::Object::ParseIngredients200ResponseInner](docs/ParseIngredients200ResponseInner.md)
- - [WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerEstimatedCost](docs/ParseIngredients200ResponseInnerEstimatedCost.md)
- - [WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutrition](docs/ParseIngredients200ResponseInnerNutrition.md)
- - [WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionCaloricBreakdown](docs/ParseIngredients200ResponseInnerNutritionCaloricBreakdown.md)
- - [WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionNutrientsInner](docs/ParseIngredients200ResponseInnerNutritionNutrientsInner.md)
- - [WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionPropertiesInner](docs/ParseIngredients200ResponseInnerNutritionPropertiesInner.md)
- - [WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionWeightPerServing](docs/ParseIngredients200ResponseInnerNutritionWeightPerServing.md)
+ - [WWW::OpenAPIClient::Object::MenuItem](docs/MenuItem.md)
+ - [WWW::OpenAPIClient::Object::MenuItemServings](docs/MenuItemServings.md)
+ - [WWW::OpenAPIClient::Object::ProductInformation](docs/ProductInformation.md)
+ - [WWW::OpenAPIClient::Object::ProductInformationCredits](docs/ProductInformationCredits.md)
  - [WWW::OpenAPIClient::Object::QuickAnswer200Response](docs/QuickAnswer200Response.md)
+ - [WWW::OpenAPIClient::Object::RecipeInformation](docs/RecipeInformation.md)
+ - [WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInner](docs/RecipeInformationExtendedIngredientsInner.md)
+ - [WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInnerMeasures](docs/RecipeInformationExtendedIngredientsInnerMeasures.md)
+ - [WWW::OpenAPIClient::Object::RecipeInformationExtendedIngredientsInnerMeasuresMetric](docs/RecipeInformationExtendedIngredientsInnerMeasuresMetric.md)
+ - [WWW::OpenAPIClient::Object::RecipeInformationWinePairing](docs/RecipeInformationWinePairing.md)
+ - [WWW::OpenAPIClient::Object::RecipeInformationWinePairingProductMatchesInner](docs/RecipeInformationWinePairingProductMatchesInner.md)
  - [WWW::OpenAPIClient::Object::SearchAllFood200Response](docs/SearchAllFood200Response.md)
  - [WWW::OpenAPIClient::Object::SearchAllFood200ResponseSearchResultsInner](docs/SearchAllFood200ResponseSearchResultsInner.md)
- - [WWW::OpenAPIClient::Object::SearchAllFood200ResponseSearchResultsInnerResultsInner](docs/SearchAllFood200ResponseSearchResultsInnerResultsInner.md)
  - [WWW::OpenAPIClient::Object::SearchCustomFoods200Response](docs/SearchCustomFoods200Response.md)
  - [WWW::OpenAPIClient::Object::SearchCustomFoods200ResponseCustomFoodsInner](docs/SearchCustomFoods200ResponseCustomFoodsInner.md)
  - [WWW::OpenAPIClient::Object::SearchFoodVideos200Response](docs/SearchFoodVideos200Response.md)
  - [WWW::OpenAPIClient::Object::SearchFoodVideos200ResponseVideosInner](docs/SearchFoodVideos200ResponseVideosInner.md)
  - [WWW::OpenAPIClient::Object::SearchGroceryProducts200Response](docs/SearchGroceryProducts200Response.md)
  - [WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200Response](docs/SearchGroceryProductsByUPC200Response.md)
- - [WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseIngredientsInner](docs/SearchGroceryProductsByUPC200ResponseIngredientsInner.md)
  - [WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutrition](docs/SearchGroceryProductsByUPC200ResponseNutrition.md)
+ - [WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown](docs/SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.md)
+ - [WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner](docs/SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.md)
  - [WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseServings](docs/SearchGroceryProductsByUPC200ResponseServings.md)
  - [WWW::OpenAPIClient::Object::SearchMenuItems200Response](docs/SearchMenuItems200Response.md)
- - [WWW::OpenAPIClient::Object::SearchMenuItems200ResponseMenuItemsInner](docs/SearchMenuItems200ResponseMenuItemsInner.md)
  - [WWW::OpenAPIClient::Object::SearchRecipes200Response](docs/SearchRecipes200Response.md)
  - [WWW::OpenAPIClient::Object::SearchRecipes200ResponseResultsInner](docs/SearchRecipes200ResponseResultsInner.md)
  - [WWW::OpenAPIClient::Object::SearchRecipesByIngredients200ResponseInner](docs/SearchRecipesByIngredients200ResponseInner.md)
@@ -859,12 +831,13 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddress](docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md)
  - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
  - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
+ - [WWW::OpenAPIClient::Object::SearchResult](docs/SearchResult.md)
+ - [WWW::OpenAPIClient::Object::SearchResultDataPointsInner](docs/SearchResultDataPointsInner.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
- - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInner](docs/SearchSiteContent200ResponseArticlesInner.md)
- - [WWW::OpenAPIClient::Object::SearchSiteContent200ResponseArticlesInnerDataPointsInner](docs/SearchSiteContent200ResponseArticlesInnerDataPointsInner.md)
  - [WWW::OpenAPIClient::Object::SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [WWW::OpenAPIClient::Object::TalkToChatbot200Response](docs/TalkToChatbot200Response.md)
  - [WWW::OpenAPIClient::Object::TalkToChatbot200ResponseMediaInner](docs/TalkToChatbot200ResponseMediaInner.md)
+ - [WWW::OpenAPIClient::Object::TasteInformation](docs/TasteInformation.md)
 
 
 # DOCUMENTATION FOR AUTHORIZATION

@@ -44,7 +44,7 @@ namespace spoonacular.Model
         /// <param name="name">name (required).</param>
         /// <param name="localizedName">localizedName (required).</param>
         /// <param name="image">image (required).</param>
-        public AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(decimal id = default(decimal), string name = default(string), string localizedName = default(string), string image = default(string))
+        public AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(int id = default(int), string name = default(string), string localizedName = default(string), string image = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -71,7 +71,7 @@ namespace spoonacular.Model
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public decimal Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name

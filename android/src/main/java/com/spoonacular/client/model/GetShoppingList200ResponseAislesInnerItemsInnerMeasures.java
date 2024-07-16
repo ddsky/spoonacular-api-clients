@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionWeightPerServing;
+import com.spoonacular.client.model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -20,39 +20,39 @@ import com.google.gson.annotations.SerializedName;
 public class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
   
   @SerializedName("original")
-  private ParseIngredients200ResponseInnerNutritionWeightPerServing original = null;
+  private GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original = null;
   @SerializedName("metric")
-  private ParseIngredients200ResponseInnerNutritionWeightPerServing metric = null;
+  private GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric = null;
   @SerializedName("us")
-  private ParseIngredients200ResponseInnerNutritionWeightPerServing us = null;
+  private GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public ParseIngredients200ResponseInnerNutritionWeightPerServing getOriginal() {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getOriginal() {
     return original;
   }
-  public void setOriginal(ParseIngredients200ResponseInnerNutritionWeightPerServing original) {
+  public void setOriginal(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original) {
     this.original = original;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public ParseIngredients200ResponseInnerNutritionWeightPerServing getMetric() {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getMetric() {
     return metric;
   }
-  public void setMetric(ParseIngredients200ResponseInnerNutritionWeightPerServing metric) {
+  public void setMetric(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric) {
     this.metric = metric;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public ParseIngredients200ResponseInnerNutritionWeightPerServing getUs() {
+  public GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal getUs() {
     return us;
   }
-  public void setUs(ParseIngredients200ResponseInnerNutritionWeightPerServing us) {
+  public void setUs(GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us) {
     this.us = us;
   }
 

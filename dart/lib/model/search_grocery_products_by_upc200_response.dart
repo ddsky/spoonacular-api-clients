@@ -22,7 +22,7 @@ class SearchGroceryProductsByUPC200Response {
     required this.imageType,
     this.ingredientCount,
     required this.ingredientList,
-    this.ingredients = const {},
+    this.ingredients = const [],
     required this.likes,
     required this.nutrition,
     required this.price,
@@ -40,7 +40,7 @@ class SearchGroceryProductsByUPC200Response {
 
   List<String> breadcrumbs;
 
-  String generatedText;
+  String? generatedText;
 
   String imageType;
 
@@ -54,7 +54,7 @@ class SearchGroceryProductsByUPC200Response {
 
   String ingredientList;
 
-  Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients;
+  List<IngredientBasics> ingredients;
 
   num likes;
 
@@ -92,7 +92,7 @@ class SearchGroceryProductsByUPC200Response {
     (badges.hashCode) +
     (importantBadges.hashCode) +
     (breadcrumbs.hashCode) +
-    (generatedText.hashCode) +
+    (generatedText == null ? 0 : generatedText!.hashCode) +
     (imageType.hashCode) +
     (ingredientCount == null ? 0 : ingredientCount!.hashCode) +
     (ingredientList.hashCode) +
@@ -113,7 +113,11 @@ class SearchGroceryProductsByUPC200Response {
       json[r'badges'] = this.badges;
       json[r'importantBadges'] = this.importantBadges;
       json[r'breadcrumbs'] = this.breadcrumbs;
+    if (this.generatedText != null) {
       json[r'generatedText'] = this.generatedText;
+    } else {
+      json[r'generatedText'] = null;
+    }
       json[r'imageType'] = this.imageType;
     if (this.ingredientCount != null) {
       json[r'ingredientCount'] = this.ingredientCount;
@@ -121,7 +125,7 @@ class SearchGroceryProductsByUPC200Response {
       json[r'ingredientCount'] = null;
     }
       json[r'ingredientList'] = this.ingredientList;
-      json[r'ingredients'] = this.ingredients.toList(growable: false);
+      json[r'ingredients'] = this.ingredients;
       json[r'likes'] = this.likes;
       json[r'nutrition'] = this.nutrition;
       json[r'price'] = this.price;
@@ -160,11 +164,11 @@ class SearchGroceryProductsByUPC200Response {
         breadcrumbs: json[r'breadcrumbs'] is Iterable
             ? (json[r'breadcrumbs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        generatedText: mapValueOfType<String>(json, r'generatedText')!,
+        generatedText: mapValueOfType<String>(json, r'generatedText'),
         imageType: mapValueOfType<String>(json, r'imageType')!,
         ingredientCount: mapValueOfType<int>(json, r'ingredientCount'),
         ingredientList: mapValueOfType<String>(json, r'ingredientList')!,
-        ingredients: SearchGroceryProductsByUPC200ResponseIngredientsInner.listFromJson(json[r'ingredients']).toSet(),
+        ingredients: IngredientBasics.listFromJson(json[r'ingredients']),
         likes: num.parse('${json[r'likes']}'),
         nutrition: SearchGroceryProductsByUPC200ResponseNutrition.fromJson(json[r'nutrition'])!,
         price: num.parse('${json[r'price']}'),

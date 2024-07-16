@@ -347,7 +347,7 @@ void OAIDefaultApi::analyzeRecipeCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIDefaultApi::createRecipeCardGet(const double &id, const ::OpenAPI::OptionalParam<QString> &mask, const ::OpenAPI::OptionalParam<QString> &background_image, const ::OpenAPI::OptionalParam<QString> &background_color, const ::OpenAPI::OptionalParam<QString> &font_color) {
+void OAIDefaultApi::createRecipeCardGet(const qint32 &id, const ::OpenAPI::OptionalParam<QString> &mask, const ::OpenAPI::OptionalParam<QString> &background_image, const ::OpenAPI::OptionalParam<QString> &background_color, const ::OpenAPI::OptionalParam<QString> &font_color) {
     QString fullPath = QString(_serverConfigs["createRecipeCardGet"][_serverIndices.value("createRecipeCardGet")].URL()+"/recipes/{id}/card");
     
     if (_apiKeys.contains("apiKeyScheme")) {

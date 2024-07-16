@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Articles** | [**List&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**GroceryProducts** | [**List&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**MenuItems** | [**List&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**Recipes** | [**List&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  | 
+**Articles** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  | 
+**GroceryProducts** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  | 
+**MenuItems** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  | 
+**Recipes** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

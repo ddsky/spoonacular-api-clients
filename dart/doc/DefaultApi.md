@@ -83,7 +83,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = DefaultApi();
-final id = 4632; // num | The recipe id.
+final id = 4632; // int | The recipe id.
 final mask = ellipseMask; // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
 final backgroundImage = background1; // String | The background image (\"none\",\"background1\", or \"background2\").
 final backgroundColor = ffffff; // String | The background color for the recipe card as a hex-string.
@@ -101,7 +101,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **mask** | **String**| The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). | [optional] 
  **backgroundImage** | **String**| The background image (\"none\",\"background1\", or \"background2\"). | [optional] 
  **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] 

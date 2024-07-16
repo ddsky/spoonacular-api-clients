@@ -25,11 +25,11 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
      * @param amount {String} 
      * @param indented {Boolean} 
      * @param percentOfDailyNeeds {Number} 
-     * @param name {String} 
+     * @param title {String} 
      */
-    constructor(amount, indented, percentOfDailyNeeds, name) { 
+    constructor(amount, indented, percentOfDailyNeeds, title) { 
         
-        GetRecipeNutritionWidgetByID200ResponseGoodInner.initialize(this, amount, indented, percentOfDailyNeeds, name);
+        GetRecipeNutritionWidgetByID200ResponseGoodInner.initialize(this, amount, indented, percentOfDailyNeeds, title);
     }
 
     /**
@@ -37,11 +37,11 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, amount, indented, percentOfDailyNeeds, name) { 
+    static initialize(obj, amount, indented, percentOfDailyNeeds, title) { 
         obj['amount'] = amount;
         obj['indented'] = indented;
         obj['percentOfDailyNeeds'] = percentOfDailyNeeds;
-        obj['name'] = name;
+        obj['title'] = title;
     }
 
     /**
@@ -64,8 +64,8 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
             if (data.hasOwnProperty('percentOfDailyNeeds')) {
                 obj['percentOfDailyNeeds'] = ApiClient.convertToType(data['percentOfDailyNeeds'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
         }
         return obj;
@@ -88,8 +88,8 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
             throw new Error("Expected the field `amount` to be a primitive type in the JSON string but got " + data['amount']);
         }
         // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        if (data['title'] && !(typeof data['title'] === 'string' || data['title'] instanceof String)) {
+            throw new Error("Expected the field `title` to be a primitive type in the JSON string but got " + data['title']);
         }
 
         return true;
@@ -98,7 +98,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
 
 }
 
-GetRecipeNutritionWidgetByID200ResponseGoodInner.RequiredProperties = ["amount", "indented", "percentOfDailyNeeds", "name"];
+GetRecipeNutritionWidgetByID200ResponseGoodInner.RequiredProperties = ["amount", "indented", "percentOfDailyNeeds", "title"];
 
 /**
  * @member {String} amount
@@ -116,9 +116,9 @@ GetRecipeNutritionWidgetByID200ResponseGoodInner.prototype['indented'] = undefin
 GetRecipeNutritionWidgetByID200ResponseGoodInner.prototype['percentOfDailyNeeds'] = undefined;
 
 /**
- * @member {String} name
+ * @member {String} title
  */
-GetRecipeNutritionWidgetByID200ResponseGoodInner.prototype['name'] = undefined;
+GetRecipeNutritionWidgetByID200ResponseGoodInner.prototype['title'] = undefined;
 
 
 

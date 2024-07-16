@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 
-import { ParseIngredients200ResponseInnerNutritionCaloricBreakdown } from '../models/ParseIngredients200ResponseInnerNutritionCaloricBreakdown';
-import { ParseIngredients200ResponseInnerNutritionNutrientsInner } from '../models/ParseIngredients200ResponseInnerNutritionNutrientsInner';
+import { SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown } from '../models/SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown';
+import { SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner } from '../models/SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner';
 import { HttpFile } from '../http/http';
 
 export class SearchGroceryProductsByUPC200ResponseNutrition {
-    'nutrients': Set<ParseIngredients200ResponseInnerNutritionNutrientsInner>;
-    'caloricBreakdown': ParseIngredients200ResponseInnerNutritionCaloricBreakdown;
+    'nutrients': Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>;
+    'caloricBreakdown': SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -24,13 +24,13 @@ export class SearchGroceryProductsByUPC200ResponseNutrition {
         {
             "name": "nutrients",
             "baseName": "nutrients",
-            "type": "Set<ParseIngredients200ResponseInnerNutritionNutrientsInner>",
+            "type": "Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>",
             "format": ""
         },
         {
             "name": "caloricBreakdown",
             "baseName": "caloricBreakdown",
-            "type": "ParseIngredients200ResponseInnerNutritionCaloricBreakdown",
+            "type": "SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown",
             "format": ""
         }    ];
 

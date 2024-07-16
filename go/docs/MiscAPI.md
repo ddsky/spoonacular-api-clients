@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## GetRandomFoodTrivia
 
-> GetRandomFoodTrivia200Response GetRandomFoodTrivia(ctx).Execute()
+> GetARandomFoodJoke200Response GetRandomFoodTrivia(ctx).Execute()
 
 Random Food Trivia
 
@@ -242,7 +242,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetRandomFoodTrivia``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRandomFoodTrivia`: GetRandomFoodTrivia200Response
+	// response from `GetRandomFoodTrivia`: GetARandomFoodJoke200Response
 	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.GetRandomFoodTrivia`: %v\n", resp)
 }
 ```
@@ -258,7 +258,7 @@ Other parameters are passed through a pointer to a apiGetRandomFoodTriviaRequest
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 ## SearchCustomFoods
 
-> SearchCustomFoods200Response SearchCustomFoods(ctx).Username(username).Hash(hash).Query(query).Offset(offset).Number(number).Execute()
+> SearchCustomFoods200Response SearchCustomFoods(ctx).Query(query).Username(username).Hash(hash).Offset(offset).Number(number).Execute()
 
 Search Custom Foods
 
@@ -497,15 +497,15 @@ import (
 )
 
 func main() {
+	query := "burger" // string | The (natural language) search query.
 	username := "dsky" // string | The username.
 	hash := "4b5v4398573406" // string | The private hash for the username.
-	query := "burger" // string | The (natural language) search query. (optional)
 	offset := int32(56) // int32 | The number of results to skip (between 0 and 900). (optional)
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.SearchCustomFoods(context.Background()).Username(username).Hash(hash).Query(query).Offset(offset).Number(number).Execute()
+	resp, r, err := apiClient.MiscAPI.SearchCustomFoods(context.Background()).Query(query).Username(username).Hash(hash).Offset(offset).Number(number).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.SearchCustomFoods``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -526,9 +526,9 @@ Other parameters are passed through a pointer to a apiSearchCustomFoodsRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | **string** | The (natural language) search query. | 
  **username** | **string** | The username. | 
  **hash** | **string** | The private hash for the username. | 
- **query** | **string** | The (natural language) search query. | 
  **offset** | **int32** | The number of results to skip (between 0 and 900). | 
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
 
@@ -571,7 +571,7 @@ import (
 )
 
 func main() {
-	query := "burger" // string | The (natural language) search query. (optional)
+	query := "burger" // string | The (natural language) search query.
 	type_ := "main course" // string | The type of the recipes. See a full list of supported meal types. (optional)
 	cuisine := "italian" // string | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
 	diet := "vegetarian" // string | The diet for which the recipes must be suitable. See a full list of supported diets. (optional)

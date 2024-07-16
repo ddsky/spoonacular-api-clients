@@ -551,7 +551,7 @@ void OAIProductsApi::classifyGroceryProductBulkCallback(OAIHttpRequestWorker *wo
     }
 }
 
-void OAIProductsApi::getComparableProducts(const double &upc) {
+void OAIProductsApi::getComparableProducts(const QString &upc) {
     QString fullPath = QString(_serverConfigs["getComparableProducts"][_serverIndices.value("getComparableProducts")].URL()+"/food/products/upc/{upc}/comparable");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -699,7 +699,7 @@ void OAIProductsApi::getProductInformationCallback(OAIHttpRequestWorker *worker)
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIGetProductInformation_200_response output(QString(worker->response));
+    OAIProductInformation output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -737,7 +737,7 @@ void OAIProductsApi::getProductInformationCallback(OAIHttpRequestWorker *worker)
     }
 }
 
-void OAIProductsApi::productNutritionByIDImage(const double &id) {
+void OAIProductsApi::productNutritionByIDImage(const qint32 &id) {
     QString fullPath = QString(_serverConfigs["productNutritionByIDImage"][_serverIndices.value("productNutritionByIDImage")].URL()+"/food/products/{id}/nutritionWidget.png");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -830,7 +830,7 @@ void OAIProductsApi::productNutritionByIDImageCallback(OAIHttpRequestWorker *wor
     }
 }
 
-void OAIProductsApi::productNutritionLabelImage(const double &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
+void OAIProductsApi::productNutritionLabelImage(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
     QString fullPath = QString(_serverConfigs["productNutritionLabelImage"][_serverIndices.value("productNutritionLabelImage")].URL()+"/food/products/{id}/nutritionLabel.png");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -969,7 +969,7 @@ void OAIProductsApi::productNutritionLabelImageCallback(OAIHttpRequestWorker *wo
     }
 }
 
-void OAIProductsApi::productNutritionLabelWidget(const double &id, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
+void OAIProductsApi::productNutritionLabelWidget(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients, const ::OpenAPI::OptionalParam<bool> &show_zero_values, const ::OpenAPI::OptionalParam<bool> &show_ingredients) {
     QString fullPath = QString(_serverConfigs["productNutritionLabelWidget"][_serverIndices.value("productNutritionLabelWidget")].URL()+"/food/products/{id}/nutritionLabel");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -1124,7 +1124,7 @@ void OAIProductsApi::productNutritionLabelWidgetCallback(OAIHttpRequestWorker *w
     }
 }
 
-void OAIProductsApi::searchGroceryProducts(const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<double> &min_calories, const ::OpenAPI::OptionalParam<double> &max_calories, const ::OpenAPI::OptionalParam<double> &min_carbs, const ::OpenAPI::OptionalParam<double> &max_carbs, const ::OpenAPI::OptionalParam<double> &min_protein, const ::OpenAPI::OptionalParam<double> &max_protein, const ::OpenAPI::OptionalParam<double> &min_fat, const ::OpenAPI::OptionalParam<double> &max_fat, const ::OpenAPI::OptionalParam<bool> &add_product_information, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
+void OAIProductsApi::searchGroceryProducts(const QString &query, const ::OpenAPI::OptionalParam<double> &min_calories, const ::OpenAPI::OptionalParam<double> &max_calories, const ::OpenAPI::OptionalParam<double> &min_carbs, const ::OpenAPI::OptionalParam<double> &max_carbs, const ::OpenAPI::OptionalParam<double> &min_protein, const ::OpenAPI::OptionalParam<double> &max_protein, const ::OpenAPI::OptionalParam<double> &min_fat, const ::OpenAPI::OptionalParam<double> &max_fat, const ::OpenAPI::OptionalParam<bool> &add_product_information, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number) {
     QString fullPath = QString(_serverConfigs["searchGroceryProducts"][_serverIndices.value("searchGroceryProducts")].URL()+"/food/products/search");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -1132,7 +1132,7 @@ void OAIProductsApi::searchGroceryProducts(const ::OpenAPI::OptionalParam<QStrin
     }
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (query.hasValue())
+    
     {
         queryStyle = "form";
         if (queryStyle == "")
@@ -1145,7 +1145,7 @@ void OAIProductsApi::searchGroceryProducts(const ::OpenAPI::OptionalParam<QStrin
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (min_calories.hasValue())
     {
@@ -1384,7 +1384,7 @@ void OAIProductsApi::searchGroceryProductsCallback(OAIHttpRequestWorker *worker)
     }
 }
 
-void OAIProductsApi::searchGroceryProductsByUPC(const double &upc) {
+void OAIProductsApi::searchGroceryProductsByUPC(const QString &upc) {
     QString fullPath = QString(_serverConfigs["searchGroceryProductsByUPC"][_serverIndices.value("searchGroceryProductsByUPC")].URL()+"/food/products/upc/{upc}");
     
     if (_apiKeys.contains("apiKeyScheme")) {

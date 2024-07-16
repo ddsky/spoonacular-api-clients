@@ -116,10 +116,10 @@ bool OAISearchAllFood_200_response_searchResults_inner::is_total_results_Valid()
     return m_total_results_isValid;
 }
 
-QSet<OAISearchAllFood_200_response_searchResults_inner_results_inner> OAISearchAllFood_200_response_searchResults_inner::getResults() const {
+QSet<OAISearchResult> OAISearchAllFood_200_response_searchResults_inner::getResults() const {
     return m_results;
 }
-void OAISearchAllFood_200_response_searchResults_inner::setResults(const QSet<OAISearchAllFood_200_response_searchResults_inner_results_inner> &results) {
+void OAISearchAllFood_200_response_searchResults_inner::setResults(const QSet<OAISearchResult> &results) {
     m_results = results;
     m_results_isSet = true;
 }

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**menu_items** | [**\OpenAPI\Client\Model\SearchMenuItems200ResponseMenuItemsInner[]**](SearchMenuItems200ResponseMenuItemsInner.md) |  |
+**menu_items** | [**\OpenAPI\Client\Model\MenuItem[]**](MenuItem.md) |  |
 **total_menu_items** | **int** |  |
 **type** | **string** |  |
 **offset** | **int** |  |

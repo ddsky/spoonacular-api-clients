@@ -31,7 +31,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .IngredientsApi(configuration);
 
 let body:.IngredientsApiAutocompleteIngredientSearchRequest = {
-  // string | The (natural language) search query. (optional)
+  // string | The (natural language) search query.
   query: "burger",
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
@@ -53,7 +53,7 @@ apiInstance.autocompleteIngredientSearch(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
  **metaInformation** | [**boolean**] | Whether to return more meta information about the ingredients. | (optional) defaults to undefined
  **intolerances** | [**string**] | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | (optional) defaults to undefined
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getIngredientInformation**
-> GetIngredientInformation200Response getIngredientInformation()
+> IngredientInformation getIngredientInformation()
 
 Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 
@@ -166,8 +166,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .IngredientsApi(configuration);
 
 let body:.IngredientsApiGetIngredientInformationRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The ingredient id.
+  id: 9266,
   // number | The amount of this ingredient. (optional)
   amount: 150,
   // string | The unit for the given amount. (optional)
@@ -184,14 +184,14 @@ apiInstance.getIngredientInformation(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The ingredient id. | defaults to undefined
  **amount** | [**number**] | The amount of this ingredient. | (optional) defaults to undefined
  **unit** | [**string**] | The unit for the given amount. | (optional) defaults to undefined
 
 
 ### Return type
 
-**GetIngredientInformation200Response**
+**IngredientInformation**
 
 ### Authorization
 
@@ -286,8 +286,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .IngredientsApi(configuration);
 
 let body:.IngredientsApiGetIngredientSubstitutesByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The id of the ingredient you want substitutes for.
+  id: 1001,
 };
 
 apiInstance.getIngredientSubstitutesByID(body).then((data:any) => {
@@ -300,7 +300,7 @@ apiInstance.getIngredientSubstitutesByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The id of the ingredient you want substitutes for. | defaults to undefined
 
 
 ### Return type
@@ -343,7 +343,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .IngredientsApi(configuration);
 
 let body:.IngredientsApiIngredientSearchRequest = {
-  // string | The (natural language) search query. (optional)
+  // string | The (natural language) search query.
   query: "burger",
   // boolean | Whether to add children of found foods. (optional)
   addChildren: true,
@@ -385,7 +385,7 @@ apiInstance.ingredientSearch(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **addChildren** | [**boolean**] | Whether to add children of found foods. | (optional) defaults to undefined
  **minProteinPercent** | [**number**] | The minimum percentage of protein the food must have (between 0 and 100). | (optional) defaults to undefined
  **maxProteinPercent** | [**number**] | The maximum percentage of protein the food can have (between 0 and 100). | (optional) defaults to undefined

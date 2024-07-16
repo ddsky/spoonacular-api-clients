@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipes** | [**List[GetRandomRecipes200ResponseRecipesInner]**](GetRandomRecipes200ResponseRecipesInner.md) |  | 
+**recipes** | [**List[RecipeInformation]**](RecipeInformation.md) |  | 
 
 ## Example
 

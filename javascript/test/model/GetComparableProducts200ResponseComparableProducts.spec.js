@@ -78,7 +78,7 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property spoonacularScore (base name: "spoonacularScore")', function() {
+    it('should have the property spoonacularScore (base name: "spoonacular_score")', function() {
       // uncomment below and update the code to test the property spoonacularScore
       //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
       //expect(instance).to.be();

@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionCaloricBreakdown;
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionNutrientsInner;
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown;
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -57,21 +57,21 @@ import com.spoonacular.client.JSON;
 public class SearchGroceryProductsByUPC200ResponseNutrition {
   public static final String SERIALIZED_NAME_NUTRIENTS = "nutrients";
   @SerializedName(SERIALIZED_NAME_NUTRIENTS)
-  private Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients = new LinkedHashSet<>();
+  private Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_CALORIC_BREAKDOWN = "caloricBreakdown";
   @SerializedName(SERIALIZED_NAME_CALORIC_BREAKDOWN)
-  private ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown;
+  private SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown;
 
   public SearchGroceryProductsByUPC200ResponseNutrition() {
   }
 
-  public SearchGroceryProductsByUPC200ResponseNutrition nutrients(Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients) {
+  public SearchGroceryProductsByUPC200ResponseNutrition nutrients(Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients) {
     this.nutrients = nutrients;
     return this;
   }
 
-  public SearchGroceryProductsByUPC200ResponseNutrition addNutrientsItem(ParseIngredients200ResponseInnerNutritionNutrientsInner nutrientsItem) {
+  public SearchGroceryProductsByUPC200ResponseNutrition addNutrientsItem(SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner nutrientsItem) {
     if (this.nutrients == null) {
       this.nutrients = new LinkedHashSet<>();
     }
@@ -84,16 +84,16 @@ public class SearchGroceryProductsByUPC200ResponseNutrition {
    * @return nutrients
    */
   @javax.annotation.Nonnull
-  public Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> getNutrients() {
+  public Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> getNutrients() {
     return nutrients;
   }
 
-  public void setNutrients(Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients) {
+  public void setNutrients(Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients) {
     this.nutrients = nutrients;
   }
 
 
-  public SearchGroceryProductsByUPC200ResponseNutrition caloricBreakdown(ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown) {
+  public SearchGroceryProductsByUPC200ResponseNutrition caloricBreakdown(SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown) {
     this.caloricBreakdown = caloricBreakdown;
     return this;
   }
@@ -103,11 +103,11 @@ public class SearchGroceryProductsByUPC200ResponseNutrition {
    * @return caloricBreakdown
    */
   @javax.annotation.Nonnull
-  public ParseIngredients200ResponseInnerNutritionCaloricBreakdown getCaloricBreakdown() {
+  public SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown getCaloricBreakdown() {
     return caloricBreakdown;
   }
 
-  public void setCaloricBreakdown(ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown) {
+  public void setCaloricBreakdown(SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown) {
     this.caloricBreakdown = caloricBreakdown;
   }
 
@@ -204,10 +204,10 @@ public class SearchGroceryProductsByUPC200ResponseNutrition {
       JsonArray jsonArraynutrients = jsonObj.getAsJsonArray("nutrients");
       // validate the required field `nutrients` (array)
       for (int i = 0; i < jsonArraynutrients.size(); i++) {
-        ParseIngredients200ResponseInnerNutritionNutrientsInner.validateJsonElement(jsonArraynutrients.get(i));
+        SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.validateJsonElement(jsonArraynutrients.get(i));
       };
       // validate the required field `caloricBreakdown`
-      ParseIngredients200ResponseInnerNutritionCaloricBreakdown.validateJsonElement(jsonObj.get("caloricBreakdown"));
+      SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.validateJsonElement(jsonObj.get("caloricBreakdown"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

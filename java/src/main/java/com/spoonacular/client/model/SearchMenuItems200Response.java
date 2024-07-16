@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.SearchMenuItems200ResponseMenuItemsInner;
+import com.spoonacular.client.model.MenuItem;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -56,7 +56,7 @@ import com.spoonacular.client.JSON;
 public class SearchMenuItems200Response {
   public static final String SERIALIZED_NAME_MENU_ITEMS = "menuItems";
   @SerializedName(SERIALIZED_NAME_MENU_ITEMS)
-  private Set<SearchMenuItems200ResponseMenuItemsInner> menuItems = new LinkedHashSet<>();
+  private Set<MenuItem> menuItems = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_TOTAL_MENU_ITEMS = "totalMenuItems";
   @SerializedName(SERIALIZED_NAME_TOTAL_MENU_ITEMS)
@@ -77,12 +77,12 @@ public class SearchMenuItems200Response {
   public SearchMenuItems200Response() {
   }
 
-  public SearchMenuItems200Response menuItems(Set<SearchMenuItems200ResponseMenuItemsInner> menuItems) {
+  public SearchMenuItems200Response menuItems(Set<MenuItem> menuItems) {
     this.menuItems = menuItems;
     return this;
   }
 
-  public SearchMenuItems200Response addMenuItemsItem(SearchMenuItems200ResponseMenuItemsInner menuItemsItem) {
+  public SearchMenuItems200Response addMenuItemsItem(MenuItem menuItemsItem) {
     if (this.menuItems == null) {
       this.menuItems = new LinkedHashSet<>();
     }
@@ -95,11 +95,11 @@ public class SearchMenuItems200Response {
    * @return menuItems
    */
   @javax.annotation.Nonnull
-  public Set<SearchMenuItems200ResponseMenuItemsInner> getMenuItems() {
+  public Set<MenuItem> getMenuItems() {
     return menuItems;
   }
 
-  public void setMenuItems(Set<SearchMenuItems200ResponseMenuItemsInner> menuItems) {
+  public void setMenuItems(Set<MenuItem> menuItems) {
     this.menuItems = menuItems;
   }
 
@@ -284,7 +284,7 @@ public class SearchMenuItems200Response {
       JsonArray jsonArraymenuItems = jsonObj.getAsJsonArray("menuItems");
       // validate the required field `menuItems` (array)
       for (int i = 0; i < jsonArraymenuItems.size(); i++) {
-        SearchMenuItems200ResponseMenuItemsInner.validateJsonElement(jsonArraymenuItems.get(i));
+        MenuItem.validateJsonElement(jsonArraymenuItems.get(i));
       };
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

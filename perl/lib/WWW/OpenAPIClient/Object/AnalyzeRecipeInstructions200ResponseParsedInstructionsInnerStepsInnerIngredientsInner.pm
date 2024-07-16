@@ -220,7 +220,7 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'id' => {
-        datatype => 'double',
+        datatype => 'int',
         base_name => 'id',
         description => '',
         format => '',
@@ -250,7 +250,7 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'id' => 'double',
+    'id' => 'int',
     'name' => 'string',
     'localized_name' => 'string',
     'image' => 'string'

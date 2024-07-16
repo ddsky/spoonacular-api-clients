@@ -14,18 +14,18 @@ defmodule SpoonacularAPI.Model.GetShoppingList200ResponseAislesInnerItemsInnerMe
   ]
 
   @type t :: %__MODULE__{
-    :original => SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing.t,
-    :metric => SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing.t,
-    :us => SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing.t
+    :original => SpoonacularAPI.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.t,
+    :metric => SpoonacularAPI.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.t,
+    :us => SpoonacularAPI.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.t
   }
 
   alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:original, :struct, SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing)
-     |> Deserializer.deserialize(:metric, :struct, SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing)
-     |> Deserializer.deserialize(:us, :struct, SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionWeightPerServing)
+     |> Deserializer.deserialize(:original, :struct, SpoonacularAPI.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal)
+     |> Deserializer.deserialize(:metric, :struct, SpoonacularAPI.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal)
+     |> Deserializer.deserialize(:us, :struct, SpoonacularAPI.Model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal)
   end
 end
 

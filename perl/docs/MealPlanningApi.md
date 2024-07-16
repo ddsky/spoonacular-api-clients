@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_shopping_list**
-> GenerateShoppingList200Response add_to_shopping_list(username => $username, hash => $hash, add_to_shopping_list_request => $add_to_shopping_list_request)
+> GetShoppingList200Response add_to_shopping_list(username => $username, hash => $hash, add_to_shopping_list_request => $add_to_shopping_list_request)
 
 Add to Shopping List
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -314,7 +314,7 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 );
 
 my $username = dsky; # string | The username.
-my $id = 15678; # double | The shopping list item id.
+my $id = 15678; # int | The shopping list item id.
 my $hash = "hash_example"; # string | The private hash for the username.
 
 eval {
@@ -331,7 +331,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
- **id** | **double**| The shopping list item id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **string**| The private hash for the username. | 
 
 ### Return type
@@ -369,7 +369,7 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 );
 
 my $username = dsky; # string | The username.
-my $id = 1; # int | The item's id.
+my $id = 15678; # int | The shopping list item id.
 my $hash = "hash_example"; # string | The private hash for the username.
 
 eval {
@@ -386,7 +386,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **string**| The private hash for the username. | 
 
 ### Return type
@@ -424,7 +424,7 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 );
 
 my $username = dsky; # string | The username.
-my $id = 1; # int | The item's id.
+my $id = 15678; # int | The shopping list item id.
 my $hash = 4b5v4398573406; # string | The private hash for the username.
 
 eval {
@@ -441,7 +441,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **string**| The private hash for the username. | 
 
 ### Return type
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_shopping_list**
-> GenerateShoppingList200Response generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash)
+> GetShoppingList200Response generate_shopping_list(username => $username, start_date => $start_date, end_date => $end_date, hash => $hash)
 
 Generate Shopping List
 
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -593,7 +593,7 @@ my $api_instance = WWW::OpenAPIClient::MealPlanningApi->new(
 );
 
 my $username = dsky; # string | The username.
-my $id = 1; # int | The item's id.
+my $id = 15678; # int | The shopping list item id.
 my $hash = "hash_example"; # string | The private hash for the username.
 
 eval {
@@ -610,7 +610,7 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **string**| The username. | 
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **string**| The private hash for the username. | 
 
 ### Return type

@@ -22,7 +22,7 @@ var _ MappedNullable = &AnalyzeRecipeInstructions200ResponseParsedInstructionsIn
 
 // AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner struct for AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
 type AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner struct {
-	Id float32 `json:"id"`
+	Id int32 `json:"id"`
 	Name string `json:"name"`
 	LocalizedName string `json:"localizedName"`
 	Image string `json:"image"`
@@ -34,7 +34,7 @@ type _AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngre
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(id float32, name string, localizedName string, image string) *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {
+func NewAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner(id int32, name string, localizedName string, image string) *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {
 	this := AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner{}
 	this.Id = id
 	this.Name = name
@@ -52,9 +52,9 @@ func NewAnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIng
 }
 
 // GetId returns the Id field value
-func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetId() float32 {
+func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIn
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetIdOk() (*float32, bool) {
+func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIn
 }
 
 // SetId sets field value
-func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) SetId(v float32) {
+func (o *AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner) SetId(v int32) {
 	o.Id = v
 }
 

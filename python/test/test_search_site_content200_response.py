@@ -37,95 +37,143 @@ class TestSearchSiteContent200Response(unittest.TestCase):
         if include_optional:
             return SearchSiteContent200Response(
                 articles = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ],
                 grocery_products = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ],
                 menu_items = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ],
                 recipes = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ]
             )
         else:
             return SearchSiteContent200Response(
                 articles = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ],
                 grocery_products = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ],
                 menu_items = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ],
                 recipes = [
-                    spoonacular.models.search_site_content_200_response_articles_inner.searchSiteContent_200_response_Articles_inner(
+                    spoonacular.models.search_result.SearchResult(
                         data_points = [
-                            spoonacular.models.search_site_content_200_response_articles_inner_data_points_inner.searchSiteContent_200_response_Articles_inner_dataPoints_inner(
-                                key = '0', 
-                                value = '0', )
+                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                key = '', 
+                                value = null, 
+                                show = True, )
                             ], 
-                        image = '0', 
-                        link = '0', 
-                        name = '0', )
+                        image = '', 
+                        link = '', 
+                        name = '', 
+                        type = '', 
+                        kvtable = '', 
+                        content = '', 
+                        id = 56, 
+                        relevance = 1.337, )
                     ],
         )
         """

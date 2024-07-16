@@ -98,7 +98,7 @@ module OpenapiClient
 
     # Create Recipe Card
     # Generate a recipe card for a recipe.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
     # @option opts [String] :background_image The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).
@@ -112,7 +112,7 @@ module OpenapiClient
 
     # Create Recipe Card
     # Generate a recipe card for a recipe.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :mask The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;).
     # @option opts [String] :background_image The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;).

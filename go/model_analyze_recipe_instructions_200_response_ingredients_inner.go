@@ -22,7 +22,7 @@ var _ MappedNullable = &AnalyzeRecipeInstructions200ResponseIngredientsInner{}
 
 // AnalyzeRecipeInstructions200ResponseIngredientsInner struct for AnalyzeRecipeInstructions200ResponseIngredientsInner
 type AnalyzeRecipeInstructions200ResponseIngredientsInner struct {
-	Id float32 `json:"id"`
+	Id int32 `json:"id"`
 	Name string `json:"name"`
 }
 
@@ -32,7 +32,7 @@ type _AnalyzeRecipeInstructions200ResponseIngredientsInner AnalyzeRecipeInstruct
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyzeRecipeInstructions200ResponseIngredientsInner(id float32, name string) *AnalyzeRecipeInstructions200ResponseIngredientsInner {
+func NewAnalyzeRecipeInstructions200ResponseIngredientsInner(id int32, name string) *AnalyzeRecipeInstructions200ResponseIngredientsInner {
 	this := AnalyzeRecipeInstructions200ResponseIngredientsInner{}
 	this.Id = id
 	this.Name = name
@@ -48,9 +48,9 @@ func NewAnalyzeRecipeInstructions200ResponseIngredientsInnerWithDefaults() *Anal
 }
 
 // GetId returns the Id field value
-func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetId() float32 {
+func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetId() int32 {
 	if o == nil {
-		var ret float32
+		var ret int32
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetId() float32 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetIdOk() (*float32, bool) {
+func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) GetIdOk() (*float
 }
 
 // SetId sets field value
-func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) SetId(v float32) {
+func (o *AnalyzeRecipeInstructions200ResponseIngredientsInner) SetId(v int32) {
 	o.Id = v
 }
 

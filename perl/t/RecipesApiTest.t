@@ -146,7 +146,9 @@ isa_ok($api, 'WWW::OpenAPIClient::RecipesApi');
 # uncomment below and update the test
 #my $get_recipe_information_id = undef; # replace NULL with a proper value
 #my $get_recipe_information_include_nutrition = undef; # replace NULL with a proper value
-#my $get_recipe_information_result = $api->get_recipe_information(id => $get_recipe_information_id, include_nutrition => $get_recipe_information_include_nutrition);
+#my $get_recipe_information_add_wine_pairing = undef; # replace NULL with a proper value
+#my $get_recipe_information_add_taste_data = undef; # replace NULL with a proper value
+#my $get_recipe_information_result = $api->get_recipe_information(id => $get_recipe_information_id, include_nutrition => $get_recipe_information_include_nutrition, add_wine_pairing => $get_recipe_information_add_wine_pairing, add_taste_data => $get_recipe_information_add_taste_data);
 
 #
 # get_recipe_information_bulk test

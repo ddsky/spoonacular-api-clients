@@ -45,14 +45,14 @@ class TestAnalyzeRecipeInstructions200Response(unittest.TestCase):
                                 step = '0', 
                                 ingredients = [
                                     spoonacular.models.analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner_ingredients_inner.analyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner(
-                                        id = 1.337, 
+                                        id = 56, 
                                         name = '0', 
                                         localized_name = '0', 
                                         image = '0', )
                                     ], 
                                 equipment = [
                                     spoonacular.models.analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner_ingredients_inner.analyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner(
-                                        id = 1.337, 
+                                        id = 56, 
                                         name = '0', 
                                         localized_name = '0', 
                                         image = '0', )
@@ -61,12 +61,12 @@ class TestAnalyzeRecipeInstructions200Response(unittest.TestCase):
                     ],
                 ingredients = [
                     spoonacular.models.analyze_recipe_instructions_200_response_ingredients_inner.analyzeRecipeInstructions_200_response_ingredients_inner(
-                        id = 1.337, 
+                        id = 56, 
                         name = '0', )
                     ],
                 equipment = [
                     spoonacular.models.analyze_recipe_instructions_200_response_ingredients_inner.analyzeRecipeInstructions_200_response_ingredients_inner(
-                        id = 1.337, 
+                        id = 56, 
                         name = '0', )
                     ]
             )
@@ -81,14 +81,14 @@ class TestAnalyzeRecipeInstructions200Response(unittest.TestCase):
                                 step = '0', 
                                 ingredients = [
                                     spoonacular.models.analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner_ingredients_inner.analyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner(
-                                        id = 1.337, 
+                                        id = 56, 
                                         name = '0', 
                                         localized_name = '0', 
                                         image = '0', )
                                     ], 
                                 equipment = [
                                     spoonacular.models.analyze_recipe_instructions_200_response_parsed_instructions_inner_steps_inner_ingredients_inner.analyzeRecipeInstructions_200_response_parsedInstructions_inner_steps_inner_ingredients_inner(
-                                        id = 1.337, 
+                                        id = 56, 
                                         name = '0', 
                                         localized_name = '0', 
                                         image = '0', )
@@ -97,12 +97,12 @@ class TestAnalyzeRecipeInstructions200Response(unittest.TestCase):
                     ],
                 ingredients = [
                     spoonacular.models.analyze_recipe_instructions_200_response_ingredients_inner.analyzeRecipeInstructions_200_response_ingredients_inner(
-                        id = 1.337, 
+                        id = 56, 
                         name = '0', )
                     ],
                 equipment = [
                     spoonacular.models.analyze_recipe_instructions_200_response_ingredients_inner.analyzeRecipeInstructions_200_response_ingredients_inner(
-                        id = 1.337, 
+                        id = 56, 
                         name = '0', )
                     ],
         )

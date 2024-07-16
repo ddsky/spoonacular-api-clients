@@ -16,17 +16,17 @@ void main() {
   // final instance = GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
 
   group('test GetShoppingList200ResponseAislesInnerItemsInnerMeasures', () {
-    // ParseIngredients200ResponseInnerNutritionWeightPerServing original
+    // GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original
     test('to test the property `original`', () async {
       // TODO
     });
 
-    // ParseIngredients200ResponseInnerNutritionWeightPerServing metric
+    // GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric
     test('to test the property `metric`', () async {
       // TODO
     });
 
-    // ParseIngredients200ResponseInnerNutritionWeightPerServing us
+    // GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us
     test('to test the property `us`', () async {
       // TODO
     });

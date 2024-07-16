@@ -269,7 +269,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    BigDecimal upc = new BigDecimal("33698816271"); // BigDecimal | The UPC of the product for which you want to find comparable products.
+    String upc = "033698816271"; // String | The UPC of the product for which you want to find comparable products.
     try {
       GetComparableProducts200Response result = apiInstance.getComparableProducts(upc);
       System.out.println(result);
@@ -288,7 +288,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **upc** | **BigDecimal**| The UPC of the product for which you want to find comparable products. | |
+| **upc** | **String**| The UPC of the product for which you want to find comparable products. | |
 
 ### Return type
 
@@ -313,7 +313,7 @@ public class Example {
 
 <a id="getProductInformation"></a>
 # **getProductInformation**
-> GetProductInformation200Response getProductInformation(id)
+> ProductInformation getProductInformation(id)
 
 Get Product Information
 
@@ -341,9 +341,9 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 22347; // Integer | The id of the packaged food.
     try {
-      GetProductInformation200Response result = apiInstance.getProductInformation(id);
+      ProductInformation result = apiInstance.getProductInformation(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProductsApi#getProductInformation");
@@ -360,11 +360,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The id of the packaged food. | |
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -413,7 +413,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    BigDecimal id = new BigDecimal("7657"); // BigDecimal | The id of the product.
+    Integer id = 7657; // Integer | The id of the product.
     try {
       File result = apiInstance.productNutritionByIDImage(id);
       System.out.println(result);
@@ -432,7 +432,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The id of the product. | |
+| **id** | **Integer**| The id of the product. | |
 
 ### Return type
 
@@ -485,7 +485,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    BigDecimal id = new BigDecimal("22347"); // BigDecimal | The product id.
+    Integer id = 22347; // Integer | The product id.
     Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
     Boolean showZeroValues = false; // Boolean | Whether to show zero values.
     Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
@@ -507,7 +507,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The product id. | |
+| **id** | **Integer**| The product id. | |
 | **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] |
 | **showIngredients** | **Boolean**| Whether to show a list of ingredients. | [optional] |
@@ -563,7 +563,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    BigDecimal id = new BigDecimal("22347"); // BigDecimal | The product id.
+    Integer id = 22347; // Integer | The product id.
     Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
     Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
     Boolean showZeroValues = false; // Boolean | Whether to show zero values.
@@ -586,7 +586,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The product id. | |
+| **id** | **Integer**| The product id. | |
 | **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] |
@@ -673,7 +673,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **query** | **String**| The (natural language) search query. | [optional] |
+| **query** | **String**| The (natural language) search query. | |
 | **minCalories** | **BigDecimal**| The minimum amount of calories the product must have. | [optional] |
 | **maxCalories** | **BigDecimal**| The maximum amount of calories the product can have. | [optional] |
 | **minCarbs** | **BigDecimal**| The minimum amount of carbohydrates in grams the product must have. | [optional] |
@@ -737,7 +737,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    BigDecimal upc = new BigDecimal("41631000564"); // BigDecimal | The product's UPC.
+    String upc = "041631000564"; // String | The product's UPC.
     try {
       SearchGroceryProductsByUPC200Response result = apiInstance.searchGroceryProductsByUPC(upc);
       System.out.println(result);
@@ -756,7 +756,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **upc** | **BigDecimal**| The product&#39;s UPC. | |
+| **upc** | **String**| The product&#39;s UPC. | |
 
 ### Return type
 
@@ -809,7 +809,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     ProductsApi apiInstance = new ProductsApi(defaultClient);
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 7657; // Integer | The id of the product.
     Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
     try {
       String result = apiInstance.visualizeProductNutritionByID(id, defaultCss);
@@ -829,7 +829,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The id of the product. | |
 | **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type

@@ -33,7 +33,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'templates' => :'Array<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>'
+        :'templates' => :'Array<GetMealPlanTemplates200ResponseTemplatesInner>'
       }
     end
 

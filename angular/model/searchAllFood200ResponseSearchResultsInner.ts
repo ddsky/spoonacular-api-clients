@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { SearchAllFood200ResponseSearchResultsInnerResultsInner } from './searchAllFood200ResponseSearchResultsInnerResultsInner';
+import { SearchResult } from './searchResult';
 
 
 export interface SearchAllFood200ResponseSearchResultsInner { 
     name: string;
     totalResults: number;
-    results?: Set<SearchAllFood200ResponseSearchResultsInnerResultsInner>;
+    results?: Set<SearchResult>;
 }
 

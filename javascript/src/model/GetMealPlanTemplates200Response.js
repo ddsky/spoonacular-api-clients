@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import GetAnalyzedRecipeInstructions200ResponseIngredientsInner from './GetAnalyzedRecipeInstructions200ResponseIngredientsInner';
+import GetMealPlanTemplates200ResponseTemplatesInner from './GetMealPlanTemplates200ResponseTemplatesInner';
 
 /**
  * The GetMealPlanTemplates200Response model module.
@@ -24,7 +24,7 @@ class GetMealPlanTemplates200Response {
      * Constructs a new <code>GetMealPlanTemplates200Response</code>.
      * 
      * @alias module:model/GetMealPlanTemplates200Response
-     * @param templates {Array.<module:model/GetAnalyzedRecipeInstructions200ResponseIngredientsInner>} 
+     * @param templates {Array.<module:model/GetMealPlanTemplates200ResponseTemplatesInner>} 
      */
     constructor(templates) { 
         
@@ -52,7 +52,7 @@ class GetMealPlanTemplates200Response {
             obj = obj || new GetMealPlanTemplates200Response();
 
             if (data.hasOwnProperty('templates')) {
-                obj['templates'] = ApiClient.convertToType(data['templates'], [GetAnalyzedRecipeInstructions200ResponseIngredientsInner]);
+                obj['templates'] = ApiClient.convertToType(data['templates'], [GetMealPlanTemplates200ResponseTemplatesInner]);
             }
         }
         return obj;
@@ -77,7 +77,7 @@ class GetMealPlanTemplates200Response {
             }
             // validate the optional field `templates` (array)
             for (const item of data['templates']) {
-                GetAnalyzedRecipeInstructions200ResponseIngredientsInner.validateJSON(item);
+                GetMealPlanTemplates200ResponseTemplatesInner.validateJSON(item);
             };
         }
 
@@ -90,7 +90,7 @@ class GetMealPlanTemplates200Response {
 GetMealPlanTemplates200Response.RequiredProperties = ["templates"];
 
 /**
- * @member {Array.<module:model/GetAnalyzedRecipeInstructions200ResponseIngredientsInner>} templates
+ * @member {Array.<module:model/GetMealPlanTemplates200ResponseTemplatesInner>} templates
  */
 GetMealPlanTemplates200Response.prototype['templates'] = undefined;
 

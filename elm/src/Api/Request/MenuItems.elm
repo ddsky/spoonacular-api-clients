@@ -34,21 +34,21 @@ import File exposing (File)
 
 {-| Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
 -}
-autocompleteMenuItemSearch : String -> Maybe Float -> Api.Request Api.Data.AutocompleteMenuItemSearch200Response
+autocompleteMenuItemSearch : String -> Maybe Int -> Api.Request Api.Data.AutocompleteProductSearch200Response
 autocompleteMenuItemSearch query_query number_query =
     Api.request
         "GET"
         "/food/menuItems/suggest"
         []
-        [ ( "query", Just <| identity query_query ), ( "number", Maybe.map String.fromFloat number_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "number", Maybe.map String.fromInt number_query ) ]
         []
         Nothing
-        Api.Data.autocompleteMenuItemSearch200ResponseDecoder
+        Api.Data.autocompleteProductSearch200ResponseDecoder
 
 
 {-| Use a menu item id to get all available information about a menu item, such as nutrition.
 -}
-getMenuItemInformation : Int -> Api.Request Api.Data.GetMenuItemInformation200Response
+getMenuItemInformation : Int -> Api.Request Api.Data.MenuItem
 getMenuItemInformation id_path =
     Api.request
         "GET"
@@ -57,17 +57,17 @@ getMenuItemInformation id_path =
         []
         []
         Nothing
-        Api.Data.getMenuItemInformation200ResponseDecoder
+        Api.Data.menuItemDecoder
 
 
 {-| Visualize a menu item's nutritional information as HTML including CSS.
 -}
-menuItemNutritionByIDImage : Float -> Api.Request File
+menuItemNutritionByIDImage : Int -> Api.Request File
 menuItemNutritionByIDImage id_path =
     Api.request
         "GET"
         "/food/menuItems/{id}/nutritionWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         []
         []
         Nothing
@@ -76,12 +76,12 @@ menuItemNutritionByIDImage id_path =
 
 {-| Visualize a menu item's nutritional label information as an image.
 -}
-menuItemNutritionLabelImage : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
+menuItemNutritionLabelImage : Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request File
 menuItemNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
         "/food/menuItems/{id}/nutritionLabel.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
@@ -90,12 +90,12 @@ menuItemNutritionLabelImage id_path showOptionalNutrients_query showZeroValues_q
 
 {-| Visualize a menu item's nutritional label information as HTML including CSS.
 -}
-menuItemNutritionLabelWidget : Float -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request String
+menuItemNutritionLabelWidget : Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Maybe Bool -> Api.Request String
 menuItemNutritionLabelWidget id_path defaultCss_query showOptionalNutrients_query showZeroValues_query showIngredients_query =
     Api.request
         "GET"
         "/food/menuItems/{id}/nutritionLabel"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "defaultCss", Maybe.map (\val -> if val then "true" else "false") defaultCss_query ), ( "showOptionalNutrients", Maybe.map (\val -> if val then "true" else "false") showOptionalNutrients_query ), ( "showZeroValues", Maybe.map (\val -> if val then "true" else "false") showZeroValues_query ), ( "showIngredients", Maybe.map (\val -> if val then "true" else "false") showIngredients_query ) ]
         []
         Nothing
@@ -104,13 +104,13 @@ menuItemNutritionLabelWidget id_path defaultCss_query showOptionalNutrients_quer
 
 {-| Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
 -}
-searchMenuItems : Maybe String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchMenuItems200Response
+searchMenuItems : String -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe Int -> Maybe Int -> Api.Request Api.Data.SearchMenuItems200Response
 searchMenuItems query_query minCalories_query maxCalories_query minCarbs_query maxCarbs_query minProtein_query maxProtein_query minFat_query maxFat_query addMenuItemInformation_query offset_query number_query =
     Api.request
         "GET"
         "/food/menuItems/search"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "minCalories", Maybe.map String.fromFloat minCalories_query ), ( "maxCalories", Maybe.map String.fromFloat maxCalories_query ), ( "minCarbs", Maybe.map String.fromFloat minCarbs_query ), ( "maxCarbs", Maybe.map String.fromFloat maxCarbs_query ), ( "minProtein", Maybe.map String.fromFloat minProtein_query ), ( "maxProtein", Maybe.map String.fromFloat maxProtein_query ), ( "minFat", Maybe.map String.fromFloat minFat_query ), ( "maxFat", Maybe.map String.fromFloat maxFat_query ), ( "addMenuItemInformation", Maybe.map (\val -> if val then "true" else "false") addMenuItemInformation_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "minCalories", Maybe.map String.fromFloat minCalories_query ), ( "maxCalories", Maybe.map String.fromFloat maxCalories_query ), ( "minCarbs", Maybe.map String.fromFloat minCarbs_query ), ( "maxCarbs", Maybe.map String.fromFloat maxCarbs_query ), ( "minProtein", Maybe.map String.fromFloat minProtein_query ), ( "maxProtein", Maybe.map String.fromFloat maxProtein_query ), ( "minFat", Maybe.map String.fromFloat minFat_query ), ( "maxFat", Maybe.map String.fromFloat maxFat_query ), ( "addMenuItemInformation", Maybe.map (\val -> if val then "true" else "false") addMenuItemInformation_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ) ]
         []
         Nothing
         Api.Data.searchMenuItems200ResponseDecoder

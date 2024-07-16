@@ -48,7 +48,7 @@ void main() {
     //
     // Returns random food trivia.
     //
-    //Future<GetRandomFoodTrivia200Response> getRandomFoodTrivia() async
+    //Future<GetARandomFoodJoke200Response> getRandomFoodTrivia() async
     test('test getRandomFoodTrivia', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Search custom foods in a user's account.
     //
-    //Future<SearchCustomFoods200Response> searchCustomFoods(String username, String hash, { String query, int offset, int number }) async
+    //Future<SearchCustomFoods200Response> searchCustomFoods(String query, String username, String hash, { int offset, int number }) async
     test('test searchCustomFoods', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Find recipe and other food related videos.
     //
-    //Future<SearchFoodVideos200Response> searchFoodVideos({ String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, num minLength, num maxLength, int offset, int number }) async
+    //Future<SearchFoodVideos200Response> searchFoodVideos(String query, { String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, num minLength, num maxLength, int offset, int number }) async
     test('test searchFoodVideos', () async {
       // TODO
     });

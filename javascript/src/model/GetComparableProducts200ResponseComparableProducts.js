@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import GetComparableProducts200ResponseComparableProductsProteinInner from './GetComparableProducts200ResponseComparableProductsProteinInner';
+import ComparableProduct from './ComparableProduct';
 
 /**
  * The GetComparableProducts200ResponseComparableProducts model module.
@@ -23,12 +23,12 @@ class GetComparableProducts200ResponseComparableProducts {
     /**
      * Constructs a new <code>GetComparableProducts200ResponseComparableProducts</code>.
      * @alias module:model/GetComparableProducts200ResponseComparableProducts
-     * @param calories {Array.<Object>} 
-     * @param likes {Array.<Object>} 
-     * @param price {Array.<Object>} 
-     * @param protein {Array.<module:model/GetComparableProducts200ResponseComparableProductsProteinInner>} 
-     * @param spoonacularScore {Array.<module:model/GetComparableProducts200ResponseComparableProductsProteinInner>} 
-     * @param sugar {Array.<Object>} 
+     * @param calories {Array.<module:model/ComparableProduct>} 
+     * @param likes {Array.<module:model/ComparableProduct>} 
+     * @param price {Array.<module:model/ComparableProduct>} 
+     * @param protein {Array.<module:model/ComparableProduct>} 
+     * @param spoonacularScore {Array.<module:model/ComparableProduct>} 
+     * @param sugar {Array.<module:model/ComparableProduct>} 
      */
     constructor(calories, likes, price, protein, spoonacularScore, sugar) { 
         
@@ -45,7 +45,7 @@ class GetComparableProducts200ResponseComparableProducts {
         obj['likes'] = likes;
         obj['price'] = price;
         obj['protein'] = protein;
-        obj['spoonacularScore'] = spoonacularScore;
+        obj['spoonacular_score'] = spoonacularScore;
         obj['sugar'] = sugar;
     }
 
@@ -61,22 +61,22 @@ class GetComparableProducts200ResponseComparableProducts {
             obj = obj || new GetComparableProducts200ResponseComparableProducts();
 
             if (data.hasOwnProperty('calories')) {
-                obj['calories'] = ApiClient.convertToType(data['calories'], [Object]);
+                obj['calories'] = ApiClient.convertToType(data['calories'], [ComparableProduct]);
             }
             if (data.hasOwnProperty('likes')) {
-                obj['likes'] = ApiClient.convertToType(data['likes'], [Object]);
+                obj['likes'] = ApiClient.convertToType(data['likes'], [ComparableProduct]);
             }
             if (data.hasOwnProperty('price')) {
-                obj['price'] = ApiClient.convertToType(data['price'], [Object]);
+                obj['price'] = ApiClient.convertToType(data['price'], [ComparableProduct]);
             }
             if (data.hasOwnProperty('protein')) {
-                obj['protein'] = ApiClient.convertToType(data['protein'], [GetComparableProducts200ResponseComparableProductsProteinInner]);
+                obj['protein'] = ApiClient.convertToType(data['protein'], [ComparableProduct]);
             }
-            if (data.hasOwnProperty('spoonacularScore')) {
-                obj['spoonacularScore'] = ApiClient.convertToType(data['spoonacularScore'], [GetComparableProducts200ResponseComparableProductsProteinInner]);
+            if (data.hasOwnProperty('spoonacular_score')) {
+                obj['spoonacular_score'] = ApiClient.convertToType(data['spoonacular_score'], [ComparableProduct]);
             }
             if (data.hasOwnProperty('sugar')) {
-                obj['sugar'] = ApiClient.convertToType(data['sugar'], [Object]);
+                obj['sugar'] = ApiClient.convertToType(data['sugar'], [ComparableProduct]);
             }
         }
         return obj;
@@ -94,17 +94,35 @@ class GetComparableProducts200ResponseComparableProducts {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['calories'])) {
-            throw new Error("Expected the field `calories` to be an array in the JSON data but got " + data['calories']);
+        if (data['calories']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['calories'])) {
+                throw new Error("Expected the field `calories` to be an array in the JSON data but got " + data['calories']);
+            }
+            // validate the optional field `calories` (array)
+            for (const item of data['calories']) {
+                ComparableProduct.validateJSON(item);
+            };
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['likes'])) {
-            throw new Error("Expected the field `likes` to be an array in the JSON data but got " + data['likes']);
+        if (data['likes']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['likes'])) {
+                throw new Error("Expected the field `likes` to be an array in the JSON data but got " + data['likes']);
+            }
+            // validate the optional field `likes` (array)
+            for (const item of data['likes']) {
+                ComparableProduct.validateJSON(item);
+            };
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['price'])) {
-            throw new Error("Expected the field `price` to be an array in the JSON data but got " + data['price']);
+        if (data['price']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['price'])) {
+                throw new Error("Expected the field `price` to be an array in the JSON data but got " + data['price']);
+            }
+            // validate the optional field `price` (array)
+            for (const item of data['price']) {
+                ComparableProduct.validateJSON(item);
+            };
         }
         if (data['protein']) { // data not null
             // ensure the json data is an array
@@ -113,22 +131,28 @@ class GetComparableProducts200ResponseComparableProducts {
             }
             // validate the optional field `protein` (array)
             for (const item of data['protein']) {
-                GetComparableProducts200ResponseComparableProductsProteinInner.validateJSON(item);
+                ComparableProduct.validateJSON(item);
             };
         }
-        if (data['spoonacularScore']) { // data not null
+        if (data['spoonacular_score']) { // data not null
             // ensure the json data is an array
-            if (!Array.isArray(data['spoonacularScore'])) {
-                throw new Error("Expected the field `spoonacularScore` to be an array in the JSON data but got " + data['spoonacularScore']);
+            if (!Array.isArray(data['spoonacular_score'])) {
+                throw new Error("Expected the field `spoonacular_score` to be an array in the JSON data but got " + data['spoonacular_score']);
             }
-            // validate the optional field `spoonacularScore` (array)
-            for (const item of data['spoonacularScore']) {
-                GetComparableProducts200ResponseComparableProductsProteinInner.validateJSON(item);
+            // validate the optional field `spoonacular_score` (array)
+            for (const item of data['spoonacular_score']) {
+                ComparableProduct.validateJSON(item);
             };
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['sugar'])) {
-            throw new Error("Expected the field `sugar` to be an array in the JSON data but got " + data['sugar']);
+        if (data['sugar']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['sugar'])) {
+                throw new Error("Expected the field `sugar` to be an array in the JSON data but got " + data['sugar']);
+            }
+            // validate the optional field `sugar` (array)
+            for (const item of data['sugar']) {
+                ComparableProduct.validateJSON(item);
+            };
         }
 
         return true;
@@ -137,35 +161,35 @@ class GetComparableProducts200ResponseComparableProducts {
 
 }
 
-GetComparableProducts200ResponseComparableProducts.RequiredProperties = ["calories", "likes", "price", "protein", "spoonacularScore", "sugar"];
+GetComparableProducts200ResponseComparableProducts.RequiredProperties = ["calories", "likes", "price", "protein", "spoonacular_score", "sugar"];
 
 /**
- * @member {Array.<Object>} calories
+ * @member {Array.<module:model/ComparableProduct>} calories
  */
 GetComparableProducts200ResponseComparableProducts.prototype['calories'] = undefined;
 
 /**
- * @member {Array.<Object>} likes
+ * @member {Array.<module:model/ComparableProduct>} likes
  */
 GetComparableProducts200ResponseComparableProducts.prototype['likes'] = undefined;
 
 /**
- * @member {Array.<Object>} price
+ * @member {Array.<module:model/ComparableProduct>} price
  */
 GetComparableProducts200ResponseComparableProducts.prototype['price'] = undefined;
 
 /**
- * @member {Array.<module:model/GetComparableProducts200ResponseComparableProductsProteinInner>} protein
+ * @member {Array.<module:model/ComparableProduct>} protein
  */
 GetComparableProducts200ResponseComparableProducts.prototype['protein'] = undefined;
 
 /**
- * @member {Array.<module:model/GetComparableProducts200ResponseComparableProductsProteinInner>} spoonacularScore
+ * @member {Array.<module:model/ComparableProduct>} spoonacular_score
  */
-GetComparableProducts200ResponseComparableProducts.prototype['spoonacularScore'] = undefined;
+GetComparableProducts200ResponseComparableProducts.prototype['spoonacular_score'] = undefined;
 
 /**
- * @member {Array.<Object>} sugar
+ * @member {Array.<module:model/ComparableProduct>} sugar
  */
 GetComparableProducts200ResponseComparableProducts.prototype['sugar'] = undefined;
 

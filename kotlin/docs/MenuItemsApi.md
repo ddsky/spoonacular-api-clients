@@ -15,7 +15,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="autocompleteMenuItemSearch"></a>
 # **autocompleteMenuItemSearch**
-> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, number)
+> AutocompleteProductSearch200Response autocompleteMenuItemSearch(query, number)
 
 Autocomplete Menu Item Search
 
@@ -29,9 +29,9 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 
 val apiInstance = MenuItemsApi()
 val query : kotlin.String = chicke // kotlin.String | The (partial) search query.
-val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of results to return (between 1 and 25).
+val number : kotlin.Int = 10 // kotlin.Int | The number of results to return (between 1 and 25).
 try {
-    val result : AutocompleteMenuItemSearch200Response = apiInstance.autocompleteMenuItemSearch(query, number)
+    val result : AutocompleteProductSearch200Response = apiInstance.autocompleteMenuItemSearch(query, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MenuItemsApi#autocompleteMenuItemSearch")
@@ -46,11 +46,11 @@ try {
 | **query** | **kotlin.String**| The (partial) search query. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **number** | **java.math.BigDecimal**| The number of results to return (between 1 and 25). | [optional] |
+| **number** | **kotlin.Int**| The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ Configure apiKeyScheme:
 
 <a id="getMenuItemInformation"></a>
 # **getMenuItemInformation**
-> GetMenuItemInformation200Response getMenuItemInformation(id)
+> MenuItem getMenuItemInformation(id)
 
 Get Menu Item Information
 
@@ -79,9 +79,9 @@ Use a menu item id to get all available information about a menu item, such as n
 //import com.spoonacular.client.model.*
 
 val apiInstance = MenuItemsApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 424571 // kotlin.Int | The menu item id.
 try {
-    val result : GetMenuItemInformation200Response = apiInstance.getMenuItemInformation(id)
+    val result : MenuItem = apiInstance.getMenuItemInformation(id)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MenuItemsApi#getMenuItemInformation")
@@ -95,11 +95,11 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The menu item id. | |
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.client.model.*
 
 val apiInstance = MenuItemsApi()
-val id : java.math.BigDecimal = 424571 // java.math.BigDecimal | The menu item id.
+val id : kotlin.Int = 424571 // kotlin.Int | The menu item id.
 try {
     val result : java.io.File = apiInstance.menuItemNutritionByIDImage(id)
     println(result)
@@ -144,7 +144,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **java.math.BigDecimal**| The menu item id. | |
+| **id** | **kotlin.Int**| The menu item id. | |
 
 ### Return type
 
@@ -177,7 +177,7 @@ Visualize a menu item&#39;s nutritional label information as an image.
 //import com.spoonacular.client.model.*
 
 val apiInstance = MenuItemsApi()
-val id : java.math.BigDecimal = 342313 // java.math.BigDecimal | The menu item id.
+val id : kotlin.Int = 342313 // kotlin.Int | The menu item id.
 val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
 val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
@@ -194,7 +194,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The menu item id. | |
+| **id** | **kotlin.Int**| The menu item id. | |
 | **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
 | Name | Type | Description  | Notes |
@@ -232,7 +232,7 @@ Visualize a menu item&#39;s nutritional label information as HTML including CSS.
 //import com.spoonacular.client.model.*
 
 val apiInstance = MenuItemsApi()
-val id : java.math.BigDecimal = 342313 // java.math.BigDecimal | The menu item id.
+val id : kotlin.Int = 342313 // kotlin.Int | The menu item id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
@@ -250,7 +250,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The menu item id. | |
+| **id** | **kotlin.Int**| The menu item id. | |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
@@ -314,7 +314,7 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the menu item must have. | [optional] |
 | **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the menu item can have. | [optional] |
 | **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] |
@@ -360,7 +360,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.client.model.*
 
 val apiInstance = MenuItemsApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1003464 // kotlin.Int | The menu item id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 try {
     val result : kotlin.String = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss)
@@ -375,7 +375,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The menu item id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |

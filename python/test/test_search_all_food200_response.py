@@ -45,14 +45,21 @@ class TestSearchAllFood200Response(unittest.TestCase):
                         name = '0', 
                         total_results = 56, 
                         results = [
-                            spoonacular.models.search_all_food_200_response_search_results_inner_results_inner.searchAllFood_200_response_searchResults_inner_results_inner(
-                                id = '', 
-                                name = '0', 
-                                image = '0', 
-                                link = '0', 
-                                type = '0', 
-                                relevance = 1.337, 
-                                content = '', )
+                            spoonacular.models.search_result.SearchResult(
+                                data_points = [
+                                    spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                        key = '', 
+                                        value = null, 
+                                        show = True, )
+                                    ], 
+                                image = '', 
+                                link = '', 
+                                name = '', 
+                                type = '', 
+                                kvtable = '', 
+                                content = '', 
+                                id = 56, 
+                                relevance = 1.337, )
                             ], )
                     ]
             )
@@ -67,14 +74,21 @@ class TestSearchAllFood200Response(unittest.TestCase):
                         name = '0', 
                         total_results = 56, 
                         results = [
-                            spoonacular.models.search_all_food_200_response_search_results_inner_results_inner.searchAllFood_200_response_searchResults_inner_results_inner(
-                                id = '', 
-                                name = '0', 
-                                image = '0', 
-                                link = '0', 
-                                type = '0', 
-                                relevance = 1.337, 
-                                content = '', )
+                            spoonacular.models.search_result.SearchResult(
+                                data_points = [
+                                    spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
+                                        key = '', 
+                                        value = null, 
+                                        show = True, )
+                                    ], 
+                                image = '', 
+                                link = '', 
+                                name = '', 
+                                type = '', 
+                                kvtable = '', 
+                                content = '', 
+                                id = 56, 
+                                relevance = 1.337, )
                             ], )
                     ],
         )

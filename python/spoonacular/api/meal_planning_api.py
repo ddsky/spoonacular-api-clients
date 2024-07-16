@@ -26,7 +26,6 @@ from spoonacular.models.add_to_shopping_list_request import AddToShoppingListReq
 from spoonacular.models.connect_user200_response import ConnectUser200Response
 from spoonacular.models.connect_user_request import ConnectUserRequest
 from spoonacular.models.generate_meal_plan200_response import GenerateMealPlan200Response
-from spoonacular.models.generate_shopping_list200_response import GenerateShoppingList200Response
 from spoonacular.models.get_meal_plan_template200_response import GetMealPlanTemplate200Response
 from spoonacular.models.get_meal_plan_templates200_response import GetMealPlanTemplates200Response
 from spoonacular.models.get_meal_plan_week200_response import GetMealPlanWeek200Response
@@ -666,7 +665,7 @@ class MealPlanningApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GenerateShoppingList200Response:
+    ) -> GetShoppingList200Response:
         """Add to Shopping List
 
         Add an item to the current shopping list of a user.
@@ -710,7 +709,7 @@ class MealPlanningApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GenerateShoppingList200Response",
+            '200': "GetShoppingList200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -744,7 +743,7 @@ class MealPlanningApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GenerateShoppingList200Response]:
+    ) -> ApiResponse[GetShoppingList200Response]:
         """Add to Shopping List
 
         Add an item to the current shopping list of a user.
@@ -788,7 +787,7 @@ class MealPlanningApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GenerateShoppingList200Response",
+            '200': "GetShoppingList200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -866,7 +865,7 @@ class MealPlanningApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GenerateShoppingList200Response",
+            '200': "GetShoppingList200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -1546,7 +1545,7 @@ class MealPlanningApi:
     def delete_from_meal_plan(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The shopping list item id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -1568,7 +1567,7 @@ class MealPlanningApi:
         :param username: The username. (required)
         :type username: str
         :param id: The shopping list item id. (required)
-        :type id: float
+        :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1624,7 +1623,7 @@ class MealPlanningApi:
     def delete_from_meal_plan_with_http_info(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The shopping list item id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -1646,7 +1645,7 @@ class MealPlanningApi:
         :param username: The username. (required)
         :type username: str
         :param id: The shopping list item id. (required)
-        :type id: float
+        :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1702,7 +1701,7 @@ class MealPlanningApi:
     def delete_from_meal_plan_without_preload_content(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The shopping list item id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -1724,7 +1723,7 @@ class MealPlanningApi:
         :param username: The username. (required)
         :type username: str
         :param id: The shopping list item id. (required)
-        :type id: float
+        :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1846,7 +1845,7 @@ class MealPlanningApi:
     def delete_from_shopping_list(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -1867,7 +1866,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -1924,7 +1923,7 @@ class MealPlanningApi:
     def delete_from_shopping_list_with_http_info(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -1945,7 +1944,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -2002,7 +2001,7 @@ class MealPlanningApi:
     def delete_from_shopping_list_without_preload_content(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -2023,7 +2022,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -2146,7 +2145,7 @@ class MealPlanningApi:
     def delete_meal_plan_template(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -2167,7 +2166,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -2224,7 +2223,7 @@ class MealPlanningApi:
     def delete_meal_plan_template_with_http_info(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -2245,7 +2244,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -2302,7 +2301,7 @@ class MealPlanningApi:
     def delete_meal_plan_template_without_preload_content(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -2323,7 +2322,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -2782,7 +2781,7 @@ class MealPlanningApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GenerateShoppingList200Response:
+    ) -> GetShoppingList200Response:
         """Generate Shopping List
 
         Generate the shopping list for a user from the meal planner in a given time frame.
@@ -2829,7 +2828,7 @@ class MealPlanningApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GenerateShoppingList200Response",
+            '200': "GetShoppingList200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -2864,7 +2863,7 @@ class MealPlanningApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GenerateShoppingList200Response]:
+    ) -> ApiResponse[GetShoppingList200Response]:
         """Generate Shopping List
 
         Generate the shopping list for a user from the meal planner in a given time frame.
@@ -2911,7 +2910,7 @@ class MealPlanningApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GenerateShoppingList200Response",
+            '200': "GetShoppingList200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -2993,7 +2992,7 @@ class MealPlanningApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GenerateShoppingList200Response",
+            '200': "GetShoppingList200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -3082,7 +3081,7 @@ class MealPlanningApi:
     def get_meal_plan_template(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -3103,7 +3102,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -3160,7 +3159,7 @@ class MealPlanningApi:
     def get_meal_plan_template_with_http_info(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -3181,7 +3180,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str
@@ -3238,7 +3237,7 @@ class MealPlanningApi:
     def get_meal_plan_template_without_preload_content(
         self,
         username: Annotated[StrictStr, Field(description="The username.")],
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The shopping list item id.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
         _request_timeout: Union[
             None,
@@ -3259,7 +3258,7 @@ class MealPlanningApi:
 
         :param username: The username. (required)
         :type username: str
-        :param id: The item's id. (required)
+        :param id: The shopping list item id. (required)
         :type id: int
         :param hash: The private hash for the username. (required)
         :type hash: str

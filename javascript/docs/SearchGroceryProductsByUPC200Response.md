@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **imageType** | **String** |  | 
 **ingredientCount** | **Number** |  | [optional] 
 **ingredientList** | **String** |  | 
-**ingredients** | [**[SearchGroceryProductsByUPC200ResponseIngredientsInner]**](SearchGroceryProductsByUPC200ResponseIngredientsInner.md) |  | 
+**ingredients** | [**[IngredientBasics]**](IngredientBasics.md) |  | 
 **likes** | **Number** |  | 
 **nutrition** | [**SearchGroceryProductsByUPC200ResponseNutrition**](SearchGroceryProductsByUPC200ResponseNutrition.md) |  | 
 **price** | **Number** |  | 

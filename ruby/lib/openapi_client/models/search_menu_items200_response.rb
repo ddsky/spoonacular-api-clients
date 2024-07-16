@@ -45,7 +45,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'menu_items' => :'Array<SearchMenuItems200ResponseMenuItemsInner>',
+        :'menu_items' => :'Array<MenuItem>',
         :'total_menu_items' => :'Integer',
         :'type' => :'String',
         :'offset' => :'Integer',

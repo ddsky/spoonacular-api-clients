@@ -15,8 +15,8 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionNutrientsInner
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,10 +32,10 @@ import com.squareup.moshi.JsonClass
 data class SearchGroceryProductsByUPC200ResponseNutrition (
 
     @Json(name = "nutrients")
-    val nutrients: kotlin.collections.Set<ParseIngredients200ResponseInnerNutritionNutrientsInner>,
+    val nutrients: kotlin.collections.Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner>,
 
     @Json(name = "caloricBreakdown")
-    val caloricBreakdown: ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+    val caloricBreakdown: SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
 
 ) {
 

@@ -249,10 +249,10 @@ sub get_conversation_suggests {
     __PACKAGE__->method_documentation->{ 'get_random_food_trivia' } = {
         summary => 'Random Food Trivia',
         params => $params,
-        returns => 'GetRandomFoodTrivia200Response',
+        returns => 'GetARandomFoodJoke200Response',
         };
 }
-# @return GetRandomFoodTrivia200Response
+# @return GetARandomFoodJoke200Response
 #
 sub get_random_food_trivia {
     my ($self, %args) = @_;
@@ -283,7 +283,7 @@ sub get_random_food_trivia {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetRandomFoodTrivia200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('GetARandomFoodJoke200Response', $response);
     return $_response_object;
 }
 
@@ -509,13 +509,18 @@ sub search_all_food {
 #
 # Search Custom Foods
 #
+# @param string $query The (natural language) search query. (required)
 # @param string $username The username. (required)
 # @param string $hash The private hash for the username. (required)
-# @param string $query The (natural language) search query. (optional)
 # @param int $offset The number of results to skip (between 0 and 900). (optional)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 {
     my $params = {
+    'query' => {
+        data_type => 'string',
+        description => 'The (natural language) search query.',
+        required => '1',
+    },
     'username' => {
         data_type => 'string',
         description => 'The username.',
@@ -525,11 +530,6 @@ sub search_all_food {
         data_type => 'string',
         description => 'The private hash for the username.',
         required => '1',
-    },
-    'query' => {
-        data_type => 'string',
-        description => 'The (natural language) search query.',
-        required => '0',
     },
     'offset' => {
         data_type => 'int',
@@ -552,6 +552,11 @@ sub search_all_food {
 #
 sub search_custom_foods {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling search_custom_foods");
+    }
 
     # verify the required parameter 'username' is set
     unless (exists $args{'username'}) {
@@ -623,7 +628,7 @@ sub search_custom_foods {
 #
 # Search Food Videos
 #
-# @param string $query The (natural language) search query. (optional)
+# @param string $query The (natural language) search query. (required)
 # @param string $type The type of the recipes. See a full list of supported meal types. (optional)
 # @param string $cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
 # @param string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -638,7 +643,7 @@ sub search_custom_foods {
     'query' => {
         data_type => 'string',
         description => 'The (natural language) search query.',
-        required => '0',
+        required => '1',
     },
     'type' => {
         data_type => 'string',
@@ -696,6 +701,11 @@ sub search_custom_foods {
 #
 sub search_food_videos {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling search_food_videos");
+    }
 
     # parse inputs
     my $_resource_path = '/food/videos/search';

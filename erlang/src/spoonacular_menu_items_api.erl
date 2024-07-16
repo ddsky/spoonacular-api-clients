@@ -5,18 +5,18 @@
          menu_item_nutrition_by_id_image/2, menu_item_nutrition_by_id_image/3,
          menu_item_nutrition_label_image/2, menu_item_nutrition_label_image/3,
          menu_item_nutrition_label_widget/2, menu_item_nutrition_label_widget/3,
-         search_menu_items/1, search_menu_items/2,
+         search_menu_items/2, search_menu_items/3,
          visualize_menu_item_nutrition_by_id/2, visualize_menu_item_nutrition_by_id/3]).
 
 -define(BASE_URL, <<"">>).
 
 %% @doc Autocomplete Menu Item Search
 %% Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
--spec autocomplete_menu_item_search(ctx:ctx(), binary()) -> {ok, spoonacular_autocomplete_menu_item_search_200_response:spoonacular_autocomplete_menu_item_search_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec autocomplete_menu_item_search(ctx:ctx(), binary()) -> {ok, spoonacular_autocomplete_product_search_200_response:spoonacular_autocomplete_product_search_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 autocomplete_menu_item_search(Ctx, Query) ->
     autocomplete_menu_item_search(Ctx, Query, #{}).
 
--spec autocomplete_menu_item_search(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_autocomplete_menu_item_search_200_response:spoonacular_autocomplete_menu_item_search_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec autocomplete_menu_item_search(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_autocomplete_product_search_200_response:spoonacular_autocomplete_product_search_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 autocomplete_menu_item_search(Ctx, Query, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
@@ -33,11 +33,11 @@ autocomplete_menu_item_search(Ctx, Query, Optional) ->
 
 %% @doc Get Menu Item Information
 %% Use a menu item id to get all available information about a menu item, such as nutrition.
--spec get_menu_item_information(ctx:ctx(), integer()) -> {ok, spoonacular_get_menu_item_information_200_response:spoonacular_get_menu_item_information_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_menu_item_information(ctx:ctx(), integer()) -> {ok, spoonacular_menu_item:spoonacular_menu_item(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_menu_item_information(Ctx, Id) ->
     get_menu_item_information(Ctx, Id, #{}).
 
--spec get_menu_item_information(ctx:ctx(), integer(), maps:map()) -> {ok, spoonacular_get_menu_item_information_200_response:spoonacular_get_menu_item_information_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec get_menu_item_information(ctx:ctx(), integer(), maps:map()) -> {ok, spoonacular_menu_item:spoonacular_menu_item(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 get_menu_item_information(Ctx, Id, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
@@ -117,18 +117,18 @@ menu_item_nutrition_label_widget(Ctx, Id, Optional) ->
 
 %% @doc Search Menu Items
 %% Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
--spec search_menu_items(ctx:ctx()) -> {ok, spoonacular_search_menu_items_200_response:spoonacular_search_menu_items_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_menu_items(Ctx) ->
-    search_menu_items(Ctx, #{}).
+-spec search_menu_items(ctx:ctx(), binary()) -> {ok, spoonacular_search_menu_items_200_response:spoonacular_search_menu_items_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_menu_items(Ctx, Query) ->
+    search_menu_items(Ctx, Query, #{}).
 
--spec search_menu_items(ctx:ctx(), maps:map()) -> {ok, spoonacular_search_menu_items_200_response:spoonacular_search_menu_items_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
-search_menu_items(Ctx, Optional) ->
+-spec search_menu_items(ctx:ctx(), binary(), maps:map()) -> {ok, spoonacular_search_menu_items_200_response:spoonacular_search_menu_items_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+search_menu_items(Ctx, Query, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
 
     Method = get,
     Path = [?BASE_URL, "/food/menuItems/search"],
-    QS = lists:flatten([])++spoonacular_utils:optional_params(['query', 'minCalories', 'maxCalories', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minFat', 'maxFat', 'addMenuItemInformation', 'offset', 'number'], _OptionalParams),
+    QS = lists:flatten([{<<"query">>, Query}])++spoonacular_utils:optional_params(['minCalories', 'maxCalories', 'minCarbs', 'maxCarbs', 'minProtein', 'maxProtein', 'minFat', 'maxFat', 'addMenuItemInformation', 'offset', 'number'], _OptionalParams),
     Headers = [],
     Body1 = [],
     ContentTypeHeader = spoonacular_utils:select_header_content_type([]),

@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.GetMealPlanTemplates200Response
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseIngredientsInner
+import com.spoonacular.client.model.GetMealPlanTemplates200ResponseTemplatesInner
 
 class GetMealPlanTemplates200ResponseTest : ShouldSpec() {
     init {

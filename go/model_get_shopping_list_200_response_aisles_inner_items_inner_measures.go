@@ -22,9 +22,9 @@ var _ MappedNullable = &GetShoppingList200ResponseAislesInnerItemsInnerMeasures{
 
 // GetShoppingList200ResponseAislesInnerItemsInnerMeasures struct for GetShoppingList200ResponseAislesInnerItemsInnerMeasures
 type GetShoppingList200ResponseAislesInnerItemsInnerMeasures struct {
-	Original ParseIngredients200ResponseInnerNutritionWeightPerServing `json:"original"`
-	Metric ParseIngredients200ResponseInnerNutritionWeightPerServing `json:"metric"`
-	Us ParseIngredients200ResponseInnerNutritionWeightPerServing `json:"us"`
+	Original GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal `json:"original"`
+	Metric GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal `json:"metric"`
+	Us GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal `json:"us"`
 }
 
 type _GetShoppingList200ResponseAislesInnerItemsInnerMeasures GetShoppingList200ResponseAislesInnerItemsInnerMeasures
@@ -33,7 +33,7 @@ type _GetShoppingList200ResponseAislesInnerItemsInnerMeasures GetShoppingList200
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetShoppingList200ResponseAislesInnerItemsInnerMeasures(original ParseIngredients200ResponseInnerNutritionWeightPerServing, metric ParseIngredients200ResponseInnerNutritionWeightPerServing, us ParseIngredients200ResponseInnerNutritionWeightPerServing) *GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
+func NewGetShoppingList200ResponseAislesInnerItemsInnerMeasures(original GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal, metric GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal, us GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) *GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
 	this := GetShoppingList200ResponseAislesInnerItemsInnerMeasures{}
 	this.Original = original
 	this.Metric = metric
@@ -50,9 +50,9 @@ func NewGetShoppingList200ResponseAislesInnerItemsInnerMeasuresWithDefaults() *G
 }
 
 // GetOriginal returns the Original field value
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetOriginal() ParseIngredients200ResponseInnerNutritionWeightPerServing {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetOriginal() GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal {
 	if o == nil {
-		var ret ParseIngredients200ResponseInnerNutritionWeightPerServing
+		var ret GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
 		return ret
 	}
 
@@ -61,7 +61,7 @@ func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetOriginal() 
 
 // GetOriginalOk returns a tuple with the Original field value
 // and a boolean to check if the value has been set.
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetOriginalOk() (*ParseIngredients200ResponseInnerNutritionWeightPerServing, bool) {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetOriginalOk() (*GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,14 +69,14 @@ func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetOriginalOk(
 }
 
 // SetOriginal sets field value
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) SetOriginal(v ParseIngredients200ResponseInnerNutritionWeightPerServing) {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) SetOriginal(v GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) {
 	o.Original = v
 }
 
 // GetMetric returns the Metric field value
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetMetric() ParseIngredients200ResponseInnerNutritionWeightPerServing {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetMetric() GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal {
 	if o == nil {
-		var ret ParseIngredients200ResponseInnerNutritionWeightPerServing
+		var ret GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
 		return ret
 	}
 
@@ -85,7 +85,7 @@ func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetMetric() Pa
 
 // GetMetricOk returns a tuple with the Metric field value
 // and a boolean to check if the value has been set.
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetMetricOk() (*ParseIngredients200ResponseInnerNutritionWeightPerServing, bool) {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetMetricOk() (*GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,14 +93,14 @@ func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetMetricOk() 
 }
 
 // SetMetric sets field value
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) SetMetric(v ParseIngredients200ResponseInnerNutritionWeightPerServing) {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) SetMetric(v GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) {
 	o.Metric = v
 }
 
 // GetUs returns the Us field value
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetUs() ParseIngredients200ResponseInnerNutritionWeightPerServing {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetUs() GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal {
 	if o == nil {
-		var ret ParseIngredients200ResponseInnerNutritionWeightPerServing
+		var ret GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
 		return ret
 	}
 
@@ -109,7 +109,7 @@ func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetUs() ParseI
 
 // GetUsOk returns a tuple with the Us field value
 // and a boolean to check if the value has been set.
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetUsOk() (*ParseIngredients200ResponseInnerNutritionWeightPerServing, bool) {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetUsOk() (*GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,7 +117,7 @@ func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) GetUsOk() (*Pa
 }
 
 // SetUs sets field value
-func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) SetUs(v ParseIngredients200ResponseInnerNutritionWeightPerServing) {
+func (o *GetShoppingList200ResponseAislesInnerItemsInnerMeasures) SetUs(v GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) {
 	o.Us = v
 }
 

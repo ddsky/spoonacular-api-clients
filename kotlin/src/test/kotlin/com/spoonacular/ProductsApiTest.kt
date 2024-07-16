@@ -25,7 +25,7 @@ import com.spoonacular.client.model.ClassifyGroceryProductBulk200ResponseInner
 import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner
 import com.spoonacular.client.model.ClassifyGroceryProductRequest
 import com.spoonacular.client.model.GetComparableProducts200Response
-import com.spoonacular.client.model.GetProductInformation200Response
+import com.spoonacular.client.model.ProductInformation
 import com.spoonacular.client.model.SearchGroceryProducts200Response
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200Response
 
@@ -64,7 +64,7 @@ class ProductsApiTest : ShouldSpec() {
         // to test getComparableProducts
         should("test getComparableProducts") {
             // uncomment below to test getComparableProducts
-            //val upc : java.math.BigDecimal = 33698816271 // java.math.BigDecimal | The UPC of the product for which you want to find comparable products.
+            //val upc : kotlin.String = 033698816271 // kotlin.String | The UPC of the product for which you want to find comparable products.
             //val result : GetComparableProducts200Response = apiInstance.getComparableProducts(upc)
             //result shouldBe ("TODO")
         }
@@ -72,15 +72,15 @@ class ProductsApiTest : ShouldSpec() {
         // to test getProductInformation
         should("test getProductInformation") {
             // uncomment below to test getProductInformation
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
-            //val result : GetProductInformation200Response = apiInstance.getProductInformation(id)
+            //val id : kotlin.Int = 22347 // kotlin.Int | The id of the packaged food.
+            //val result : ProductInformation = apiInstance.getProductInformation(id)
             //result shouldBe ("TODO")
         }
 
         // to test productNutritionByIDImage
         should("test productNutritionByIDImage") {
             // uncomment below to test productNutritionByIDImage
-            //val id : java.math.BigDecimal = 7657 // java.math.BigDecimal | The id of the product.
+            //val id : kotlin.Int = 7657 // kotlin.Int | The id of the product.
             //val result : java.io.File = apiInstance.productNutritionByIDImage(id)
             //result shouldBe ("TODO")
         }
@@ -88,7 +88,7 @@ class ProductsApiTest : ShouldSpec() {
         // to test productNutritionLabelImage
         should("test productNutritionLabelImage") {
             // uncomment below to test productNutritionLabelImage
-            //val id : java.math.BigDecimal = 22347 // java.math.BigDecimal | The product id.
+            //val id : kotlin.Int = 22347 // kotlin.Int | The product id.
             //val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
             //val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
             //val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
@@ -99,7 +99,7 @@ class ProductsApiTest : ShouldSpec() {
         // to test productNutritionLabelWidget
         should("test productNutritionLabelWidget") {
             // uncomment below to test productNutritionLabelWidget
-            //val id : java.math.BigDecimal = 22347 // java.math.BigDecimal | The product id.
+            //val id : kotlin.Int = 22347 // kotlin.Int | The product id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
             //val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
@@ -130,7 +130,7 @@ class ProductsApiTest : ShouldSpec() {
         // to test searchGroceryProductsByUPC
         should("test searchGroceryProductsByUPC") {
             // uncomment below to test searchGroceryProductsByUPC
-            //val upc : java.math.BigDecimal = 41631000564 // java.math.BigDecimal | The product's UPC.
+            //val upc : kotlin.String = 041631000564 // kotlin.String | The product's UPC.
             //val result : SearchGroceryProductsByUPC200Response = apiInstance.searchGroceryProductsByUPC(upc)
             //result shouldBe ("TODO")
         }
@@ -138,7 +138,7 @@ class ProductsApiTest : ShouldSpec() {
         // to test visualizeProductNutritionByID
         should("test visualizeProductNutritionByID") {
             // uncomment below to test visualizeProductNutritionByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 7657 // kotlin.Int | The id of the product.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val result : kotlin.String = apiInstance.visualizeProductNutritionByID(id, defaultCss)
             //result shouldBe ("TODO")

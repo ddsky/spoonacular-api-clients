@@ -134,7 +134,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.DefaultApi(api_client)
-    id = 4632 # float | The recipe id.
+    id = 4632 # int | The recipe id.
     mask = 'ellipseMask' # str | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional)
     background_image = 'background1' # str | The background image (\"none\",\"background1\", or \"background2\"). (optional)
     background_color = 'ffffff' # str | The background color for the recipe card as a hex-string. (optional)
@@ -156,7 +156,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **mask** | **str**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] 
  **background_image** | **str**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] 
  **background_color** | **str**| The background color for the recipe card as a hex-string. | [optional] 

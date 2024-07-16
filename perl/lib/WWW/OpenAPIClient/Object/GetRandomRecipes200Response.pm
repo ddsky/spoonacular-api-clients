@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::GetRandomRecipes200ResponseRecipesInner;
+use WWW::OpenAPIClient::Object::RecipeInformation;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -221,7 +221,7 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'recipes' => {
-        datatype => 'ARRAY[GetRandomRecipes200ResponseRecipesInner]',
+        datatype => 'ARRAY[RecipeInformation]',
         base_name => 'recipes',
         description => '',
         format => '',
@@ -230,7 +230,7 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'recipes' => 'ARRAY[GetRandomRecipes200ResponseRecipesInner]'
+    'recipes' => 'ARRAY[RecipeInformation]'
 } );
 
 __PACKAGE__->attribute_map( {

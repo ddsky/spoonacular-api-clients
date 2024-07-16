@@ -27,7 +27,6 @@ import java.math.BigDecimal;
 import com.spoonacular.client.model.DetectFoodInText200Response;
 import com.spoonacular.client.model.GetARandomFoodJoke200Response;
 import com.spoonacular.client.model.GetConversationSuggests200Response;
-import com.spoonacular.client.model.GetRandomFoodTrivia200Response;
 import com.spoonacular.client.model.ImageAnalysisByURL200Response;
 import com.spoonacular.client.model.ImageClassificationByURL200Response;
 import com.spoonacular.client.model.SearchAllFood200Response;
@@ -454,9 +453,9 @@ public class MiscApi {
   /**
   * Random Food Trivia
   * Returns random food trivia.
-   * @return GetRandomFoodTrivia200Response
+   * @return GetARandomFoodJoke200Response
   */
-  public GetRandomFoodTrivia200Response getRandomFoodTrivia () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GetARandomFoodJoke200Response getRandomFoodTrivia () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -486,7 +485,7 @@ public class MiscApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetRandomFoodTrivia200Response) ApiInvoker.deserialize(localVarResponse, "", GetRandomFoodTrivia200Response.class);
+         return (GetARandomFoodJoke200Response) ApiInvoker.deserialize(localVarResponse, "", GetARandomFoodJoke200Response.class);
       } else {
          return null;
       }
@@ -512,7 +511,7 @@ public class MiscApi {
    * Returns random food trivia.
 
   */
-  public void getRandomFoodTrivia (final Response.Listener<GetRandomFoodTrivia200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getRandomFoodTrivia (final Response.Listener<GetARandomFoodJoke200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -552,7 +551,7 @@ public class MiscApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetRandomFoodTrivia200Response) ApiInvoker.deserialize(localVarResponse,  "", GetRandomFoodTrivia200Response.class));
+              responseListener.onResponse((GetARandomFoodJoke200Response) ApiInvoker.deserialize(localVarResponse,  "", GetARandomFoodJoke200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -963,15 +962,20 @@ public class MiscApi {
   /**
   * Search Custom Foods
   * Search custom foods in a user&#39;s account.
+   * @param query The (natural language) search query.
    * @param username The username.
    * @param hash The private hash for the username.
-   * @param query The (natural language) search query.
    * @param offset The number of results to skip (between 0 and 900).
    * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
    * @return SearchCustomFoods200Response
   */
-  public SearchCustomFoods200Response searchCustomFoods (String username, String hash, String query, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SearchCustomFoods200Response searchCustomFoods (String query, String username, String hash, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchCustomFoods",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchCustomFoods"));
+    }
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling searchCustomFoods",
@@ -1039,11 +1043,16 @@ public class MiscApi {
       /**
    * Search Custom Foods
    * Search custom foods in a user&#39;s account.
-   * @param username The username.   * @param hash The private hash for the username.   * @param query The (natural language) search query.   * @param offset The number of results to skip (between 0 and 900).   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
+   * @param query The (natural language) search query.   * @param username The username.   * @param hash The private hash for the username.   * @param offset The number of results to skip (between 0 and 900).   * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
   */
-  public void searchCustomFoods (String username, String hash, String query, Integer offset, Integer number, final Response.Listener<SearchCustomFoods200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void searchCustomFoods (String query, String username, String hash, Integer offset, Integer number, final Response.Listener<SearchCustomFoods200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchCustomFoods",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchCustomFoods"));
+    }
     // verify the required parameter 'username' is set
     if (username == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'username' when calling searchCustomFoods",
@@ -1128,6 +1137,11 @@ public class MiscApi {
   */
   public SearchFoodVideos200Response searchFoodVideos (String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchFoodVideos",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchFoodVideos"));
+    }
 
     // create path and map variables
     String path = "/food/videos/search";
@@ -1195,6 +1209,11 @@ public class MiscApi {
   public void searchFoodVideos (String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number, final Response.Listener<SearchFoodVideos200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchFoodVideos",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchFoodVideos"));
+    }
 
     // create path and map variables
     String path = "/food/videos/search".replaceAll("\\{format\\}","json");

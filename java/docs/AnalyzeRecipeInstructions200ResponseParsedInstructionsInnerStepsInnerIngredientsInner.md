@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **BigDecimal** |  |  |
+|**id** | **Integer** |  |  |
 |**name** | **String** |  |  |
 |**localizedName** | **String** |  |  |
 |**image** | **String** |  |  |

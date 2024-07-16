@@ -54,10 +54,10 @@ public:
     bool is_percent_of_daily_needs_Set() const;
     bool is_percent_of_daily_needs_Valid() const;
 
-    QString getName() const;
-    void setName(const QString &name);
-    bool is_name_Set() const;
-    bool is_name_Valid() const;
+    QString getTitle() const;
+    void setTitle(const QString &title);
+    bool is_title_Set() const;
+    bool is_title_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -77,9 +77,9 @@ private:
     bool m_percent_of_daily_needs_isSet;
     bool m_percent_of_daily_needs_isValid;
 
-    QString m_name;
-    bool m_name_isSet;
-    bool m_name_isValid;
+    QString m_title;
+    bool m_title_isSet;
+    bool m_title_isValid;
 };
 
 } // namespace OpenAPI

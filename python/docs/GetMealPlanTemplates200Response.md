@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**templates** | [**List[GetAnalyzedRecipeInstructions200ResponseIngredientsInner]**](GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md) |  | 
+**templates** | [**List[GetMealPlanTemplates200ResponseTemplatesInner]**](GetMealPlanTemplates200ResponseTemplatesInner.md) |  | 
 
 ## Example
 
