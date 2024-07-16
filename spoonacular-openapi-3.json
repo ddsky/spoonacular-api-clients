@@ -3001,7 +3001,6 @@
                       "vegetarian": false,
                       "veryHealthy": false,
                       "veryPopular": false,
-                      "whole30": false,
                       "weightWatcherSmartPoints": 17,
                       "dishTypes": [
                         "lunch",
@@ -3437,9 +3436,6 @@
                     "veryPopular": {
                       "type": "boolean"
                     },
-                    "whole30": {
-                      "type": "boolean"
-                    },
                     "weightWatcherSmartPoints": {
                       "type": "number"
                     },
@@ -3671,7 +3667,6 @@
                     "vegetarian",
                     "veryHealthy",
                     "veryPopular",
-                    "whole30",
                     "weightWatcherSmartPoints",
                     "dishTypes",
                     "extendedIngredients",
@@ -3713,7 +3708,6 @@
                       "vegetarian": false,
                       "veryHealthy": false,
                       "veryPopular": false,
-                      "whole30": false,
                       "weightWatcherSmartPoints": 17,
                       "dishTypes": [
                         "lunch",
@@ -4130,7 +4124,6 @@
                         "vegetarian": false,
                         "veryHealthy": false,
                         "veryPopular": false,
-                        "whole30": false,
                         "weightWatcherSmartPoints": 17,
                         "dishTypes": [
                           "lunch",
@@ -4482,7 +4475,6 @@
                         "vegetarian": false,
                         "veryHealthy": false,
                         "veryPopular": false,
-                        "whole30": false,
                         "weightWatcherSmartPoints": 17,
                         "dishTypes": [
                           "lunch",
@@ -4921,9 +4913,6 @@
                       "veryPopular": {
                         "type": "boolean"
                       },
-                      "whole30": {
-                        "type": "boolean"
-                      },
                       "weightWatcherSmartPoints": {
                         "type": "number"
                       },
@@ -5155,7 +5144,6 @@
                       "vegetarian",
                       "veryHealthy",
                       "veryPopular",
-                      "whole30",
                       "weightWatcherSmartPoints",
                       "dishTypes",
                       "extendedIngredients",
@@ -5199,7 +5187,6 @@
                         "vegetarian": false,
                         "veryHealthy": false,
                         "veryPopular": false,
-                        "whole30": false,
                         "weightWatcherSmartPoints": 17,
                         "dishTypes": [
                           "lunch",
@@ -5749,7 +5736,6 @@
                           "vegetarian": false,
                           "veryHealthy": false,
                           "veryPopular": false,
-                          "whole30": false,
                           "weightWatcherSmartPoints": 17,
                           "dishTypes": [
                             "lunch",
@@ -6194,9 +6180,6 @@
                           "veryPopular": {
                             "type": "boolean"
                           },
-                          "whole30": {
-                            "type": "boolean"
-                          },
                           "weightWatcherSmartPoints": {
                             "type": "number"
                           },
@@ -6424,7 +6407,6 @@
                           "vegetarian",
                           "veryHealthy",
                           "veryPopular",
-                          "whole30",
                           "weightWatcherSmartPoints",
                           "summary"
                         ]
@@ -6471,7 +6453,6 @@
                           "vegetarian": false,
                           "veryHealthy": false,
                           "veryPopular": false,
-                          "whole30": false,
                           "weightWatcherSmartPoints": 17,
                           "dishTypes": [
                             "lunch",
@@ -9603,7 +9584,6 @@
                       "vegetarian": false,
                       "veryHealthy": false,
                       "veryPopular": false,
-                      "whole30": false,
                       "weightWatcherSmartPoints": 17,
                       "dishTypes": [
                         "lunch",
@@ -10039,9 +10019,6 @@
                     "veryPopular": {
                       "type": "boolean"
                     },
-                    "whole30": {
-                      "type": "boolean"
-                    },
                     "weightWatcherSmartPoints": {
                       "type": "number"
                     },
@@ -10273,7 +10250,6 @@
                     "vegetarian",
                     "veryHealthy",
                     "veryPopular",
-                    "whole30",
                     "weightWatcherSmartPoints",
                     "dishTypes",
                     "extendedIngredients",
@@ -10315,7 +10291,6 @@
                       "vegetarian": false,
                       "veryHealthy": false,
                       "veryPopular": false,
-                      "whole30": false,
                       "weightWatcherSmartPoints": 17,
                       "dishTypes": [
                         "lunch",
