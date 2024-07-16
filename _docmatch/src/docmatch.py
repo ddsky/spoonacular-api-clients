@@ -188,6 +188,24 @@ with open("docs.html") as f:
                 print(f"** ! unresolved/unnamed param in spec: {p}")
                 continue
             spec_params[p['name']] = p
+        spec_frm_sch = scm.get('requestBody', {}).get('content', {}).get('application/x-www-form-urlencoded', {}).get('schema')
+        if not spec_frm_sch:
+            spec_frm_sch = scm.get('requestBody', {}).get('content', {}).get('multipart/form-data', {}).get('schema')
+        if spec_frm_sch:
+            if spec_frm_sch.get('type') != 'object':
+                print(f"** ! form schema is not an object")
+            for key, prop in spec_frm_sch.get('properties', {}).items():
+                spec_params[key] = {
+                    'name': key,
+                    'in': 'form',
+                    'required': False,
+                    'schema': prop
+                }
+            for reqd in spec_frm_sch.get('required', []):
+                if reqd in spec_params:
+                    spec_params[reqd]['required'] = True
+                else:
+                    print(f"** ! param `{reqd}` marked as required but does not exist")
         for name in spec_params.keys():
             if not name in pdoc.params:
                 print(f"** ! param `{name}` found in spec, but not in doc")
@@ -201,8 +219,9 @@ with open("docs.html") as f:
                     return
                 if spec != doc:
                     print(f"** ! param `{name}`.`{par}`: spec `{spec}` vs doc `{doc}`")
+            spec_sch = spec_param.get('schema', {})
             print_cmp(name, 'required', spec_param.get('required'), doc_param.required)
-            print_cmp(name, 'type', spec_param.get('schema', {}).get('type'), doc_param.typ)
+            print_cmp(name, 'type', spec_sch.get('format', spec_sch.get('type')), doc_param.typ)
             print_cmp(name, 'in', spec_param.get('in'), doc_param.where)
 
         spec_req_sch = scm.get('requestBody', {}).get('content', {}).get('application/json', {}).get('schema')
