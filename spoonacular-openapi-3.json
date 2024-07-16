@@ -4070,12 +4070,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/informationBulk": {
       "get": {
@@ -5683,12 +5678,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/random": {
       "get": {
@@ -7074,12 +7064,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/tasteWidget.png": {
       "get": {
@@ -7146,18 +7131,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The recipe id."
-        }
-      ]
+      }
     },
     "/recipes/{id}/equipmentWidget.json": {
       "get": {
@@ -7281,12 +7255,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/equipmentWidget.png": {
       "get": {
@@ -7338,18 +7307,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The recipe id."
-        }
-      ]
+      }
     },
     "/recipes/{id}/priceBreakdownWidget.json": {
       "get": {
@@ -7799,12 +7757,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/priceBreakdownWidget.png": {
       "get": {
@@ -7856,18 +7809,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The recipe id."
-        }
-      ]
+      }
     },
     "/recipes/{id}/ingredientWidget.json": {
       "get": {
@@ -8309,12 +8251,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/ingredientWidget.png": {
       "get": {
@@ -8382,18 +8319,7 @@
         "tags": [
           "ingredients"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The recipe id."
-        }
-      ]
+      }
     },
     "/recipes/{id}/nutritionWidget.json": {
       "get": {
@@ -8891,12 +8817,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/nutritionWidget.png": {
       "get": {
@@ -8948,18 +8869,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The recipe id."
-        }
-      ]
+      }
     },
     "/recipes/{id}/nutritionLabel": {
       "get": {
@@ -9049,18 +8959,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The recipe id."
-        }
-      ]
+      }
     },
     "/recipes/{id}/nutritionLabel.png": {
       "get": {
@@ -9148,18 +9047,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The recipe id."
-        }
-      ]
+      }
     },
     "/recipes/{id}/analyzedInstructions": {
       "get": {
@@ -9533,12 +9421,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/extract": {
       "get": {
@@ -10748,12 +10631,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/tasteWidget": {
       "get": {
@@ -10822,12 +10700,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/equipmentWidget": {
       "get": {
@@ -10882,12 +10755,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/priceBreakdownWidget": {
       "get": {
@@ -10941,12 +10809,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/visualizeTaste": {
       "post": {
@@ -11471,12 +11334,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/{id}/card": {
       "get": {
@@ -13438,12 +13296,7 @@
         "tags": [
           "recipes"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/recipes/visualizeIngredients": {
       "post": {
@@ -14585,12 +14438,7 @@
         "tags": [
           "ingredients"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/food/ingredients/{id}/amount": {
       "get": {
@@ -15620,12 +15468,7 @@
         "tags": [
           "ingredients"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/food/products/search": {
       "get": {
@@ -16279,19 +16122,7 @@
         "tags": [
           "products"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "example": "041631000564"
-          },
-          "name": "upc",
-          "in": "path",
-          "required": true,
-          "description": "The UPC code of the product."
-        }
-      ]
+      }
     },
     "/food/customFoods/search": {
       "get": {
@@ -17077,12 +16908,7 @@
         "tags": [
           "products"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/food/products/upc/{upc}/comparable": {
       "get": {
@@ -17362,19 +17188,7 @@
         "tags": [
           "products"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string",
-            "example": "033698816271"
-          },
-          "name": "upc",
-          "in": "path",
-          "required": true,
-          "description": "The UPC of the product."
-        }
-      ]
+      }
     },
     "/food/products/suggest": {
       "get": {
@@ -17555,12 +17369,7 @@
         "tags": [
           "products"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/food/products/{id}/nutritionWidget.png": {
       "get": {
@@ -17612,18 +17421,7 @@
         "tags": [
           "products"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The id of the product."
-        }
-      ]
+      }
     },
     "/food/products/{id}/nutritionLabel": {
       "get": {
@@ -17713,18 +17511,7 @@
         "tags": [
           "products"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The product id."
-        }
-      ]
+      }
     },
     "/food/products/{id}/nutritionLabel.png": {
       "get": {
@@ -17812,18 +17599,7 @@
         "tags": [
           "products"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The product id."
-        }
-      ]
+      }
     },
     "/food/products/classify": {
       "post": {
@@ -19145,12 +18921,7 @@
         "tags": [
           "menu items"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/food/menuItems/{id}/nutritionWidget": {
       "get": {
@@ -19204,12 +18975,7 @@
         "tags": [
           "menu items"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/food/menuItems/{id}/nutritionWidget.png": {
       "get": {
@@ -19261,18 +19027,7 @@
         "tags": [
           "menu items"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The menu item id."
-        }
-      ]
+      }
     },
     "/food/menuItems/{id}/nutritionLabel": {
       "get": {
@@ -19362,18 +19117,7 @@
         "tags": [
           "menu items"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The menu item id."
-        }
-      ]
+      }
     },
     "/food/menuItems/{id}/nutritionLabel.png": {
       "get": {
@@ -19461,18 +19205,7 @@
         "tags": [
           "menu items"
         ]
-      },
-      "parameters": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "description": "The menu item id."
-        }
-      ]
+      }
     },
     "/mealplanner/generate": {
       "get": {
@@ -20848,22 +20581,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        },
-        {
-          "schema": {
-            "type": "string",
-            "example": "2020-06-01"
-          },
-          "name": "start_date",
-          "in": "path",
-          "description": "The start date.",
-          "required": true
-        }
-      ]
+      }
     },
     "/mealplanner/{username}/day/{date}": {
       "delete": {
@@ -20929,22 +20647,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        },
-        {
-          "schema": {
-            "type": "string",
-            "example": "2021-10-01"
-          },
-          "name": "date",
-          "in": "path",
-          "required": true,
-          "description": "The date to delete."
-        }
-      ]
+      }
     },
     "/mealplanner/{username}/items": {
       "post": {
@@ -21105,12 +20808,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        }
-      ]
+      }
     },
     "/mealplanner/{username}/items/{id}": {
       "delete": {
@@ -21176,29 +20874,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "name": "username",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "example": "dsky"
-          },
-          "description": "The username."
-        },
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "integer",
-            "example": 1
-          },
-          "description": "The item's id."
-        }
-      ]
+      }
     },
     "/mealplanner/{username}/templates": {
       "get": {
@@ -21334,11 +21010,6 @@
           "meal planning"
         ]
       },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        }
-      ],
       "post": {
         "responses": {
           "200": {
@@ -24671,15 +24342,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        },
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/mealplanner/{username}/shopping-list": {
       "get": {
@@ -24938,12 +24601,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        }
-      ]
+      }
     },
     "/mealplanner/{username}/shopping-list/{start_date}/{end_date}": {
       "post": {
@@ -25226,32 +24884,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        },
-        {
-          "schema": {
-            "type": "string",
-            "example": "2021-10-01"
-          },
-          "name": "start_date",
-          "in": "path",
-          "required": true,
-          "description": "The start date."
-        },
-        {
-          "schema": {
-            "type": "string",
-            "example": "2021-10-07"
-          },
-          "name": "end_date",
-          "in": "path",
-          "required": true,
-          "description": "The end date."
-        }
-      ]
+      }
     },
     "/users/connect": {
       "post": {
@@ -25675,12 +25308,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        }
-      ]
+      }
     },
     "/mealplanner/{username}/shopping-list/items/{id}": {
       "delete": {
@@ -25746,15 +25374,7 @@
         "tags": [
           "meal planning"
         ]
-      },
-      "parameters": [
-        {
-          "$ref": "#/components/parameters/username"
-        },
-        {
-          "$ref": "#/components/parameters/id"
-        }
-      ]
+      }
     },
     "/food/restaurants/search": {
       "get": {
