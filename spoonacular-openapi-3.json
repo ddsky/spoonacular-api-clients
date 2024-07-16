@@ -5683,7 +5683,7 @@
           },
           {
             "$ref": "#/components/parameters/number"
-          }          
+          }
         ],
         "externalDocs": {
           "description": "Read entire docs",
@@ -7076,6 +7076,7 @@
               ],
               "example": true
             },
+            "required": false,
             "in": "query",
             "name": "normalize",
             "description": "Normalize to the strongest taste."
@@ -10755,6 +10756,7 @@
               ],
               "example": "metric"
             },
+            "required": false,
             "in": "query",
             "name": "measure",
             "description": "Whether the the measures should be 'us' or 'metric'."
@@ -10825,6 +10827,7 @@
               "example": true,
               "default": true
             },
+            "required": false,
             "in": "query",
             "name": "normalize",
             "description": "Whether to normalize to the strongest taste."
@@ -15873,6 +15876,7 @@
                 true
               ]
             },
+            "required": false,
             "in": "query",
             "name": "addProductInformation",
             "description": "If set to true, you get more information about the products returned."
@@ -18847,6 +18851,7 @@
                 true
               ]
             },
+            "required": false,
             "in": "query",
             "name": "addMenuItemInformation",
             "description": "If set to true, you get more information about the menu items returned."
@@ -29314,6 +29319,7 @@
       "ingredients": {
         "name": "ingredients",
         "in": "query",
+        "required": true,
         "schema": {
           "type": "string",
           "example": "carrots,tomatoes"
@@ -29323,6 +29329,7 @@
       "number": {
         "name": "number",
         "in": "query",
+        "required": false,
         "schema": {
           "type": "integer",
           "minimum": 1,
@@ -29342,11 +29349,11 @@
           "example": false
         },
         "description": "Whether to ignore typical pantry items, such as water, salt, flour, etc."
-      },      
+      },
       "query": {
         "name": "query",
         "in": "query",
-        "required": false,
+        "required": true,
         "schema": {
           "type": "string",
           "example": "burger"
