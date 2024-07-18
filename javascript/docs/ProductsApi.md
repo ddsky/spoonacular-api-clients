@@ -29,7 +29,7 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -84,7 +84,7 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -139,7 +139,7 @@ Provide a set of product jsons, get back classified products.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -194,7 +194,7 @@ Find comparable products to the given one.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -245,7 +245,7 @@ Use a product id to get full information about a product, such as ingredients, n
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -296,7 +296,7 @@ Visualize a product&#39;s nutritional information as an image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -347,7 +347,7 @@ Get a product&#39;s nutrition label as an image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -406,7 +406,7 @@ Get a product&#39;s nutrition label as an HTML widget.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -467,7 +467,7 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -542,7 +542,7 @@ Get information about a packaged food using its UPC.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -593,7 +593,7 @@ Visualize a product&#39;s nutritional information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];

@@ -27,7 +27,7 @@ Autocomplete the entry of an ingredient.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -88,7 +88,7 @@ Compute the amount you need of a certain ingredient for a certain nutritional go
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -147,7 +147,7 @@ Use an ingredient id to get all available information about an ingredient, such 
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -204,7 +204,7 @@ Search for substitutes for a given ingredient.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -255,7 +255,7 @@ Search for substitutes for a given ingredient.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -306,7 +306,7 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -387,7 +387,7 @@ Visualize a recipe&#39;s ingredient list.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -442,7 +442,7 @@ Map a set of ingredients to products you can buy in the grocery store.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -493,7 +493,7 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];

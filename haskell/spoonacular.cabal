@@ -8,7 +8,7 @@ description:    .
                 .
                 base path: https://api.spoonacular.com
                 .
-                spoonacular API API version: 1.1
+                spoonacular API API version: 2.0.1
                 .
                 OpenAPI version: 3.0.0
                 .

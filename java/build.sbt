@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.spoonacular",
     name := "java-client",
-    version := "1.1.2",
+    version := "2.0.1",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

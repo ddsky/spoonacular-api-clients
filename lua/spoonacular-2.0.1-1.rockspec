@@ -1,5 +1,5 @@
 package = "spoonacular"
-version = "1.1.2-1"
+version = "2.0.1-1"
 source = {
 	url = "https://github.com/ddsky/spoonacular-api-clients/tree/master/lua/.git"
 }

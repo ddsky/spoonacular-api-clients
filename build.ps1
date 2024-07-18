@@ -2,7 +2,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -F
 
 # Setting environment variables
 $env:PYTHON_POST_PROCESS_FILE = "yapf -i"
-$VERSION = "1.1.2"
+$VERSION = "2.0.1"
 $GEN = "openapi-generator-cli-7.8.0-SNAPSHOT.jar"
 $SPEC = "spoonacular-openapi-3.json"
 
@@ -30,7 +30,7 @@ Remove-Item -Path kotlin -Recurse -Force
 Remove-Item -Path elm -Recurse -Force
 
 java -jar $GEN generate -i $SPEC -g java --enable-post-process-file --api-package com.spoonacular --artifact-version $VERSION --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular" --model-package com.spoonacular.client.model  --invoker-package com.spoonacular.client --group-id com.spoonacular --git-repo-id=spoonacular-api-clients/tree/master/java/ --git-user-id=ddsky --artifact-id java-client --additional-properties hideGenerationTimestamp=true -o java -c java-config.json
-java -jar $GEN generate -i $SPEC -g javascript --artifact-version $VERSION --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular"  --git-repo-id=spoonacular-api-clients/tree/master/javascript/ --git-user-id=ddsky --artifact-id javascript-client -o javascript
+java -jar $GEN generate -i $SPEC -g javascript --artifact-version $VERSION --additional-properties projectVersion=${VERSION},projectName=spoonacular --git-repo-id=spoonacular-api-clients/tree/master/javascript/ --git-user-id=ddsky --artifact-id javascript-client -o javascript
 java -jar $GEN generate -i $SPEC -g typescript --artifact-version $VERSION --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular"  --git-repo-id=spoonacular-api-clients/tree/master/typescript/ --git-user-id=ddsky --artifact-id typescript-client -o typescript
 java -jar $GEN generate -i $SPEC -g typescript-angular --artifact-version $VERSION --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular"  --git-repo-id=spoonacular-api-clients/tree/master/angular/ --git-user-id=ddsky --artifact-id angular-client -o angular --additional-properties "npmName=spoonacular-angular"
 java -jar $GEN generate -i $SPEC -g android --artifact-version $VERSION --api-package com.spoonacular --model-package com.spoonacular.client.model --invoker-package com.spoonacular.client --group-id com.spoonacular --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular"  --git-repo-id=spoonacular-api-clients/tree/master/android/ --git-user-id=ddsky --artifact-id android-client -o android --additional-properties "androidGradleVersion=7.4.2,useAndroidMavenGradlePlugin=false"
@@ -50,6 +50,14 @@ java -jar $GEN generate -i $SPEC -g perl --artifact-version $VERSION --additiona
 java -jar $GEN generate -i $SPEC -g haskell-http-client --artifact-version $VERSION --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular"  --git-repo-id=spoonacular-api-clients/tree/master/haskell/ --git-user-id=ddsky --artifact-id haskell-client -o haskell
 java -jar $GEN generate -i $SPEC -g kotlin --artifact-version $VERSION --api-package com.spoonacular --model-package com.spoonacular.client.model --invoker-package com.spoonacular.client --group-id com.spoonacular --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular"  --git-repo-id=spoonacular-api-clients/tree/master/kotlin/ --git-user-id=ddsky --artifact-id kotlin-client -o kotlin -c java-config.json
 java -jar $GEN generate -i $SPEC -g elm --artifact-version $VERSION --additional-properties "packageVersion=${VERSION},project-name=spoonacular,packageName=spoonacular"  --git-repo-id=spoonacular-api-clients/tree/master/elm/ --git-user-id=ddsky --artifact-id elm-client -o elm --additional-properties elmPrefixCustomTypeVariants=true
+
+# build npm package
+cd javascript
+npm uninstall babel
+npm run build
+npm publish
+Remove-Item -Path node_modules -Recurse -Force
+cd ..
 
 # create sdk zips
 .\7za.exe a -tzip .\zips\java-client.zip .\java\*

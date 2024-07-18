@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.spoonacular</groupId>
     <artifactId>android-client</artifactId>
-    <version>1.1.2</version>
+    <version>2.0.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.spoonacular:android-client:1.1.2"
+compile "com.spoonacular:android-client:2.0.1"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-- target/android-client-1.1.2.jar
+- target/android-client-2.0.1.jar
 - target/lib/*.jar
 
 ## Getting Started

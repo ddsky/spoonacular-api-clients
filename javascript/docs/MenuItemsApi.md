@@ -25,7 +25,7 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -80,7 +80,7 @@ Use a menu item id to get all available information about a menu item, such as n
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -131,7 +131,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -182,7 +182,7 @@ Visualize a menu item&#39;s nutritional label information as an image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -241,7 +241,7 @@ Visualize a menu item&#39;s nutritional label information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -302,7 +302,7 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -377,7 +377,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];

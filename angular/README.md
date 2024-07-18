@@ -1,4 +1,4 @@
-## spoonacular-angular@1.1
+## spoonacular-angular@2.0.1
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install spoonacular-angular@1.1 --save
+npm install spoonacular-angular@2.0.1 --save
 ```
 
 _without publishing (not recommended):_

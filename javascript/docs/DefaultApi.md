@@ -21,7 +21,7 @@ This endpoint allows you to send raw recipe information, such as title, servings
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -80,7 +80,7 @@ Generate a recipe card for a recipe.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -141,7 +141,7 @@ Search through thousands of restaurants (in North America) by location, cuisine,
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];

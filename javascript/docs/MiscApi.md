@@ -29,7 +29,7 @@ Take any text and find all mentions of food contained within it. This task is al
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -80,7 +80,7 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -127,7 +127,7 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -182,7 +182,7 @@ Returns random food trivia.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -229,7 +229,7 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -280,7 +280,7 @@ Classify a food image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -331,7 +331,7 @@ Search all food content with one call. That includes recipes, grocery products, 
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -388,7 +388,7 @@ Search custom foods in a user&#39;s account.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -449,7 +449,7 @@ Find recipe and other food related videos.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -520,7 +520,7 @@ Search spoonacular&#39;s site content. You&#39;ll be able to find everything tha
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -571,7 +571,7 @@ This endpoint can be used to have a conversation about food with the spoonacular
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
+import SpoonacularApi from 'spoonacular-api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
