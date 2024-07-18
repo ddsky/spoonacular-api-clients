@@ -8835,568 +8835,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "title": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "breadcrumbs": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "imageType": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "badges": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "importantBadges": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "ingredientCount": {
-                      "type": "integer"
-                    },
-                    "generatedText": {
-                      "type": "string"
-                    },
-                    "ingredientList": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "ingredients": {
-                      "type": "array",
-                      "uniqueItems": false,
-                      "minItems": 0,
-                      "items": {
-                        "$ref": "#/components/schemas/IngredientBasics"
-                      }
-                    },
-                    "likes": {
-                      "type": "number"
-                    },
-                    "aisle": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "nutrition": {
-                      "type": "object",
-                      "required": [
-                        "nutrients",
-                        "caloricBreakdown"
-                      ],
-                      "properties": {
-                        "nutrients": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 0,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "name": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "amount": {
-                                "type": "number"
-                              },
-                              "unit": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "percentOfDailyNeeds": {
-                                "type": "number"
-                              }
-                            },
-                            "required": [
-                              "name",
-                              "amount",
-                              "unit",
-                              "percentOfDailyNeeds"
-                            ]
-                          }
-                        },
-                        "caloricBreakdown": {
-                          "type": "object",
-                          "required": [
-                            "percentProtein",
-                            "percentFat",
-                            "percentCarbs"
-                          ],
-                          "properties": {
-                            "percentProtein": {
-                              "type": "number"
-                            },
-                            "percentFat": {
-                              "type": "number"
-                            },
-                            "percentCarbs": {
-                              "type": "number"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "price": {
-                      "type": "number"
-                    },
-                    "servings": {
-                      "type": "object",
-                      "required": [
-                        "number",
-                        "size",
-                        "unit"
-                      ],
-                      "properties": {
-                        "number": {
-                          "type": "number"
-                        },
-                        "size": {
-                          "type": "number"
-                        },
-                        "unit": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    },
-                    "spoonacularScore": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "title",
-                    "breadcrumbs",
-                    "imageType",
-                    "badges",
-                    "importantBadges",
-                    "ingredientCount",
-                    "ingredientList",
-                    "ingredients",
-                    "likes",
-                    "aisle",
-                    "nutrition",
-                    "price",
-                    "servings",
-                    "spoonacularScore"
-                  ]
-                },
-                "examples": {
-                  "example-1": {
-                    "value": {
-                      "id": 22347,
-                      "title": "SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag",
-                      "breadcrumbs": [
-                        "bars"
-                      ],
-                      "imageType": "jpg",
-                      "badges": [
-                        "msg_free",
-                        "no_artificial_colors",
-                        "no_artificial_flavors",
-                        "no_artificial_ingredients",
-                        "gluten_free"
-                      ],
-                      "importantBadges": [
-                        "no_artificial_flavors",
-                        "no_artificial_colors",
-                        "no_artificial_ingredients",
-                        "gluten_free",
-                        "msg_free"
-                      ],
-                      "ingredientCount": 32,
-                      "generatedText": null,
-                      "ingredientList": "Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2% - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk, Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain Freshness",
-                      "ingredients": [
-                        {
-                          "description": null,
-                          "name": "emulsifier",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "added sugar",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "sweetener",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "cooking fat",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "cooking oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "lecithin",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "yeast",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "menu item type",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "nuts",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "partially hydrogenated vegetable oil",
-                          "safety_level": "low"
-                        },
-                        {
-                          "description": "Unlike partially hydrogenated oils, fully hydrogenated oils do not contain trans fat and thus are currently considered safer.",
-                          "name": "hydrogenated vegetable oil",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "calcium",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "nut butter",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "legumes",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "refined sweetener",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "non food item",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "tree nuts",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "chocolate",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "sugar",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "snack",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "corn syrup",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "drink",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "milk",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "spread",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "vegetable oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "yeast nutrient",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "palm kernel oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial ingredient",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "stabilizer",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "additive",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "nutrient",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "soybean oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "supplement",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "mineral",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial flavor",
-                          "safety_level": "medium"
-                        },
-                        {
-                          "description": null,
-                          "name": "skim milk",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "peanuts",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "corn syrup solids",
-                          "safety_level": "medium"
-                        },
-                        {
-                          "description": "Unlike partially hydrogenated oils, fully hydrogenated oils do not contain trans fat and thus are currently considered safer.",
-                          "name": "hydrogenated palm kernel oil",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "cottonseed oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "milkfat",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "lactose",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "corn syrup",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "cocoa butter",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "tbhq to maintain freshness",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "peanut butter",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "egg whites",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "sugar",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "milk chocolate",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "palm oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial flavor",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "salt",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "almonds",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "skim milk less than 2% - lactose",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "vegetable oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "less than 2% - glycerin",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "dextrose",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": "Soy lecithin is not a concern for most people allergic to soy.",
-                          "name": "soy lecithin",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "invert sugar",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "chocolate",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "rapeseed oil",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "partially hydrogenated soybean oil",
-                          "safety_level": "low"
-                        },
-                        {
-                          "description": null,
-                          "name": "calcium carbonate",
-                          "safety_level": "high"
-                        },
-                        {
-                          "description": null,
-                          "name": "partially hydrogenated palm kernel oil",
-                          "safety_level": "low"
-                        },
-                        {
-                          "description": null,
-                          "name": "artificial flavor.snickers brand",
-                          "safety_level": null
-                        },
-                        {
-                          "description": null,
-                          "name": "snickers brand almond bar",
-                          "safety_level": null
-                        }
-                      ],
-                      "likes": 0,
-                      "aisle": "Sweet Snacks",
-                      "nutrition": {
-                        "nutrients": [
-                          {
-                            "name": "Fat",
-                            "amount": 4,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 6.15
-                          },
-                          {
-                            "name": "Protein",
-                            "amount": 10,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 20
-                          },
-                          {
-                            "name": "Calories",
-                            "amount": 200,
-                            "unit": "cal",
-                            "percentOfDailyNeeds": 10
-                          },
-                          {
-                            "name": "Carbohydrates",
-                            "amount": 26,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 9.45
-                          }
-                        ],
-                        "caloricBreakdown": {
-                          "percentProtein": 22.22,
-                          "percentFat": 20,
-                          "percentCarbs": 57.78
-                        }
-                      },
-                      "price": 324,
-                      "servings": {
-                        "number": 8,
-                        "size": 4,
-                        "unit": "pieces"
-                      },
-                      "spoonacularScore": 0
-                    }
-                  }
+                  "$ref": "#/components/schemas/ProductInformation"
                 }
               }
             }
@@ -18217,6 +17656,285 @@
   },
   "components": {
     "schemas": {
+      "ProductInformation": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "upc": {
+            "type": "string",
+            "nullable": true
+          },
+          "usdaCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "breadcrumbs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "imageType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "badges": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "importantBadges": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ingredientCount": {
+            "type": "integer"
+          },
+          "generatedText": {
+            "type": "string",
+            "nullable": true
+          },
+          "ingredientList": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ingredients": {
+            "type": "array",
+            "uniqueItems": false,
+            "minItems": 0,
+            "items": {
+              "$ref": "#/components/schemas/IngredientBasics"
+            }
+          },
+          "likes": {
+            "type": "number"
+          },
+          "aisle": {
+            "type": "string",
+            "nullable": true
+          },
+          "credits": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string" },
+              "link": { "type": "string" },
+              "image": { "type": "string" },
+              "imageLink": { "type": "string" }
+            }
+          },
+          "nutrition": {
+            "type": "object",
+            "required": [
+              "nutrients",
+              "caloricBreakdown"
+            ],
+            "properties": {
+              "nutrients": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 0,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "percentOfDailyNeeds": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "amount",
+                    "unit",
+                    "percentOfDailyNeeds"
+                  ]
+                }
+              },
+              "caloricBreakdown": {
+                "type": "object",
+                "required": [
+                  "percentProtein",
+                  "percentFat",
+                  "percentCarbs"
+                ],
+                "properties": {
+                  "percentProtein": {
+                    "type": "number"
+                  },
+                  "percentFat": {
+                    "type": "number"
+                  },
+                  "percentCarbs": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "price": {
+            "type": "number"
+          },
+          "servings": {
+            "type": "object",
+            "required": [
+              "number",
+              "size",
+              "unit"
+            ],
+            "properties": {
+              "number": {
+                "type": "number"
+              },
+              "size": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "spoonacularScore": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "breadcrumbs",
+          "imageType",
+          "badges",
+          "importantBadges",
+          "ingredientCount",
+          "ingredientList",
+          "ingredients",
+          "likes",
+          "aisle",
+          "nutrition",
+          "price",
+          "servings",
+          "spoonacularScore"
+        ],
+        "example": {
+          "breadcrumbs": [
+            "bars"
+          ],
+          "category": "bars",
+          "usdaCode": null,
+          "id": 22347,
+          "title": "SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag",
+          "price": 324,
+          "likes": 0,
+          "badges": [
+            "msg_free",
+            "no_artificial_colors",
+            "no_artificial_flavors",
+            "no_artificial_ingredients",
+            "gluten_free"
+          ],
+          "importantBadges": [
+            "no_artificial_flavors",
+            "no_artificial_colors",
+            "no_artificial_ingredients",
+            "gluten_free",
+            "msg_free"
+          ],
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Caffeine",
+                "amount": 0,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 24,
+                "unit": "g",
+                "percentOfDailyNeeds": 8.73
+              }
+            ],
+            "caloricBreakdown": {
+              "percentProtein": 4.44,
+              "percentFat": 40,
+              "percentCarbs": 55.56
+            },
+            "calories": 180,
+            "fat": "8g",
+            "protein": "2g",
+            "carbs": "25g"
+          },
+          "servings": {
+            "number": 1,
+            "size": 4,
+            "unit": "pieces",
+            "raw": "4.0 pieces (38 g)"
+          },
+          "spoonacularScore": 0,
+          "aisle": null,
+          "description": "SnickersÂ® brand almond bar.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand peanut butter squared bars.What&#39;s inside... per minis piece.Calories 50, 3% DV.Total fat 2.5g, 4% DV.Sat fat 1g, 5% DV.Sugars 4g.Sodium 30mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.snickers.com.Please save the unused product and wrapper.Mars Real ChocolateÂ®.We value your questions or comments. Call 1-800-551-0702 or visit us at www.snickers.com.Visit us at www.snickers.com.Â®/TM trademarks.Â©Mars, Incorporated.",
+          "image": "https://img.spoonacular.com/products/22347-312x231.jpeg",
+          "imageType": "jpeg",
+          "images": [
+            "https://img.spoonacular.com/products/22347-90x90.jpeg",
+            "https://img.spoonacular.com/products/22347-312x231.jpeg",
+            "https://img.spoonacular.com/products/22347-636x393.jpeg"
+          ],
+          "generatedText": null,
+          "upc": "040000421610",
+          "brand": "Snickers",
+          "ingredients": [
+            {
+              "name": "artificial flavor.snickersâ® brand",
+              "safety_level": null,
+              "description": null
+            },
+            {
+              "name": "cocoa butter",
+              "safety_level": "high",
+              "description": null
+            },
+            {
+              "name": "soy lecithin",
+              "safety_level": "high",
+              "description": "Soy lecithin is <a href=\"http://farrp.unl.edu/resources/gi-fas/opinion-and-summaries/soy-lecithin\">not a concern</a> for most people allergic to soy."
+            }
+          ],
+          "ingredientCount": 32,
+          "ingredientList": "Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2% - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk, Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain Freshness",
+          "credits": {
+            "text": "openfoodfacts.org under (ODbL) v1.0",
+            "link": "https://opendatacommons.org/licenses/odbl/1-0/",
+            "image": "openfoodfacts.org under CC BY-SA 3.0 DEED",
+            "imageLink": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+          }
+        }
+      },
       "ComparableProduct": {
         "type": "object",
         "properties": {
