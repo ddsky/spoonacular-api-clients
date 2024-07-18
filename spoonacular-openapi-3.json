@@ -4190,13 +4190,13 @@
                       "minItems": 0,
                       "items": {
                         "required": [
-                          "name",
+                          "title",
                           "amount",
                           "indented",
                           "percentOfDailyNeeds"
                         ],
                         "properties": {
-                          "name": {
+                          "title": {
                             "type": "string",
                             "minLength": 1
                           },
@@ -4222,7 +4222,7 @@
                           "amount",
                           "indented",
                           "percentOfDailyNeeds",
-                          "name"
+                          "title"
                         ],
                         "properties": {
                           "amount": {
@@ -4235,7 +4235,7 @@
                           "percentOfDailyNeeds": {
                             "type": "number"
                           },
-                          "name": {
+                          "title": {
                             "type": "string",
                             "minLength": 1
                           }
@@ -4261,46 +4261,16 @@
                       "protein": "3g",
                       "bad": [
                         {
-                          "name": "Calories",
+                          "title": "Calories",
                           "amount": "316",
                           "indented": false,
                           "percentOfDailyNeeds": 15.84
                         },
                         {
-                          "name": "Fat",
+                          "title": "Fat",
                           "amount": "12g",
                           "indented": false,
                           "percentOfDailyNeeds": 18.51
-                        },
-                        {
-                          "name": "Saturated Fat",
-                          "amount": "3g",
-                          "indented": true,
-                          "percentOfDailyNeeds": 24.88
-                        },
-                        {
-                          "name": "Carbohydrates",
-                          "amount": "49g",
-                          "indented": false,
-                          "percentOfDailyNeeds": 16.44
-                        },
-                        {
-                          "name": "Sugar",
-                          "amount": "21g",
-                          "indented": true,
-                          "percentOfDailyNeeds": 24.42
-                        },
-                        {
-                          "name": "Cholesterol",
-                          "amount": "1mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 0.63
-                        },
-                        {
-                          "name": "Sodium",
-                          "amount": "279mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 12.13
                         }
                       ],
                       "good": [
@@ -4308,127 +4278,13 @@
                           "amount": "3g",
                           "indented": false,
                           "percentOfDailyNeeds": 7.57,
-                          "name": "Protein"
+                          "title": "Protein"
                         },
                         {
                           "amount": "19µg",
                           "indented": false,
                           "percentOfDailyNeeds": 18.76,
-                          "name": "Vitamin K"
-                        },
-                        {
-                          "amount": "0.37mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 18.69,
-                          "name": "Manganese"
-                        },
-                        {
-                          "amount": "0.15mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 10.02,
-                          "name": "Vitamin B1"
-                        },
-                        {
-                          "amount": "2g",
-                          "indented": false,
-                          "percentOfDailyNeeds": 9.97,
-                          "name": "Fiber"
-                        },
-                        {
-                          "amount": "37µg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 9.48,
-                          "name": "Folate"
-                        },
-                        {
-                          "amount": "1mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 7.62,
-                          "name": "Iron"
-                        },
-                        {
-                          "amount": "1mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 7.48,
-                          "name": "Vitamin B3"
-                        },
-                        {
-                          "amount": "0.12mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 7.34,
-                          "name": "Vitamin B2"
-                        },
-                        {
-                          "amount": "5mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 7.26,
-                          "name": "Vitamin C"
-                        },
-                        {
-                          "amount": "4µg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 6.26,
-                          "name": "Selenium"
-                        },
-                        {
-                          "amount": "182mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 5.21,
-                          "name": "Potassium"
-                        },
-                        {
-                          "amount": "43mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 4.38,
-                          "name": "Calcium"
-                        },
-                        {
-                          "amount": "42mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 4.24,
-                          "name": "Phosphorus"
-                        },
-                        {
-                          "amount": "13mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 3.43,
-                          "name": "Magnesium"
-                        },
-                        {
-                          "amount": "0.48mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 3.19,
-                          "name": "Vitamin E"
-                        },
-                        {
-                          "amount": "0.06mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 3.11,
-                          "name": "Copper"
-                        },
-                        {
-                          "amount": "0.26mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 2.56,
-                          "name": "Vitamin B5"
-                        },
-                        {
-                          "amount": "0.05mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 2.32,
-                          "name": "Vitamin B6"
-                        },
-                        {
-                          "amount": "0.29mg",
-                          "indented": false,
-                          "percentOfDailyNeeds": 1.96,
-                          "name": "Zinc"
-                        },
-                        {
-                          "amount": "76IU",
-                          "indented": false,
-                          "percentOfDailyNeeds": 1.53,
-                          "name": "Vitamin A"
+                          "title": "Vitamin K"
                         }
                       ]
                     }
