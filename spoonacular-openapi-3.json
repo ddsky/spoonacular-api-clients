@@ -16361,190 +16361,26 @@
                   "properties": {
                     "Articles": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
                       "items": {
-                        "required": [
-                          "image",
-                          "link",
-                          "name"
-                        ],
-                        "properties": {
-                          "dataPoints": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "required": [
-                                "key",
-                                "value"
-                              ],
-                              "properties": {
-                                "key": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "value": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              }
-                            }
-                          },
-                          "image": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "link": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
+                        "$ref": "#/components/schemas/SearchResult"
                       }
                     },
                     "Grocery Products": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
                       "items": {
-                        "required": [
-                          "image",
-                          "link",
-                          "name"
-                        ],
-                        "properties": {
-                          "dataPoints": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "required": [
-                                "key",
-                                "value"
-                              ],
-                              "properties": {
-                                "key": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "value": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              }
-                            }
-                          },
-                          "image": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "link": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
+                        "$ref": "#/components/schemas/SearchResult"
                       }
                     },
                     "Menu Items": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
                       "items": {
-                        "required": [
-                          "image",
-                          "link",
-                          "name"
-                        ],
-                        "properties": {
-                          "dataPoints": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "required": [
-                                "key",
-                                "value"
-                              ],
-                              "properties": {
-                                "key": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "value": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              }
-                            }
-                          },
-                          "image": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "link": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
+                        "$ref": "#/components/schemas/SearchResult"
                       }
                     },
                     "Recipes": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
                       "items": {
-                        "required": [
-                          "image",
-                          "link",
-                          "name"
-                        ],
-                        "properties": {
-                          "dataPoints": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "required": [
-                                "key",
-                                "value"
-                              ],
-                              "properties": {
-                                "key": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "value": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              }
-                            }
-                          },
-                          "image": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "link": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
+                        "$ref": "#/components/schemas/SearchResult"
                       }
                     }
                   },
@@ -16844,47 +16680,7 @@
                             "uniqueItems": true,
                             "minItems": 0,
                             "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                },
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "image": {
-                                  "type": "string",
-                                  "minLength": 1,
-                                  "nullable": true
-                                },
-                                "link": {
-                                  "type": "string",
-                                  "minLength": 1,
-                                  "nullable": true
-                                },
-                                "type": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "relevance": {
-                                  "type": "number"
-                                },
-                                "content": {
-                                  "type": "string",
-                                  "minLength": 0,
-                                  "nullable": true
-                                }
-                              },
-                              "required": [
-                                "id",
-                                "name",
-                                "image",
-                                "link",
-                                "type",
-                                "relevance",
-                                "content"
-                              ]
+                              "$ref": "#/components/schemas/SearchResult"
                             }
                           }
                         },
@@ -17656,6 +17452,64 @@
   },
   "components": {
     "schemas": {
+      "SearchResult": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "dataPoints": {
+            "type": "array",
+            "items": {
+              "required": [
+                "key",
+                "value"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "oneOf": [
+                    { "type": "string" },
+                    { "type": "integer" }
+                  ]
+                },
+                "show": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "image": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "kvtable": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer"
+          },
+          "relevance": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
       "ProductInformation": {
         "description": "",
         "type": "object",
