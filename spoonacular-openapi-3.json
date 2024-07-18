@@ -6752,514 +6752,7 @@
                   "minItems": 0,
                   "uniqueItems": true,
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer"
-                      },
-                      "original": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "originalName": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "name": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "nameClean": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "amount": {
-                        "type": "number"
-                      },
-                      "unit": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "unitShort": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "unitLong": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "possibleUnits": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "estimatedCost": {
-                        "type": "object",
-                        "required": [
-                          "value",
-                          "unit"
-                        ],
-                        "properties": {
-                          "value": {
-                            "type": "number"
-                          },
-                          "unit": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        }
-                      },
-                      "consistency": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "aisle": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "image": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "meta": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "nutrition": {
-                        "type": "object",
-                        "required": [
-                          "nutrients",
-                          "properties",
-                          "flavonoids",
-                          "caloricBreakdown",
-                          "weightPerServing"
-                        ],
-                        "properties": {
-                          "nutrients": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "amount": {
-                                  "type": "number"
-                                },
-                                "unit": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "percentOfDailyNeeds": {
-                                  "type": "number"
-                                }
-                              },
-                              "required": [
-                                "name",
-                                "amount",
-                                "unit",
-                                "percentOfDailyNeeds"
-                              ]
-                            }
-                          },
-                          "properties": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "amount": {
-                                  "type": "number"
-                                },
-                                "unit": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "name",
-                                "amount",
-                                "unit"
-                              ]
-                            }
-                          },
-                          "flavonoids": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "name": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "amount": {
-                                  "type": "number"
-                                },
-                                "unit": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "name",
-                                "amount",
-                                "unit"
-                              ]
-                            }
-                          },
-                          "caloricBreakdown": {
-                            "type": "object",
-                            "required": [
-                              "percentProtein",
-                              "percentFat",
-                              "percentCarbs"
-                            ],
-                            "properties": {
-                              "percentProtein": {
-                                "type": "number"
-                              },
-                              "percentFat": {
-                                "type": "number"
-                              },
-                              "percentCarbs": {
-                                "type": "number"
-                              }
-                            }
-                          },
-                          "weightPerServing": {
-                            "type": "object",
-                            "required": [
-                              "amount",
-                              "unit"
-                            ],
-                            "properties": {
-                              "amount": {
-                                "type": "number"
-                              },
-                              "unit": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "original",
-                      "originalName",
-                      "name",
-                      "nameClean",
-                      "amount",
-                      "unit",
-                      "unitShort",
-                      "unitLong",
-                      "possibleUnits",
-                      "estimatedCost",
-                      "consistency",
-                      "aisle",
-                      "image",
-                      "meta",
-                      "nutrition"
-                    ]
-                  }
-                },
-                "examples": {
-                  "example-1": {
-                    "value": [
-                      {
-                        "id": 10014355,
-                        "original": "1 cup green tea",
-                        "originalName": "green tea",
-                        "name": "tea",
-                        "nameClean": "green tea",
-                        "amount": 1,
-                        "unit": "cup",
-                        "unitShort": "cup",
-                        "unitLong": "cup",
-                        "possibleUnits": [
-                          "g",
-                          "oz",
-                          "fluid ounce",
-                          "cup"
-                        ],
-                        "estimatedCost": {
-                          "value": 1786.86,
-                          "unit": "US Cents"
-                        },
-                        "consistency": "solid",
-                        "aisle": "Tea and Coffee",
-                        "image": "green-tea-leaves.jpg",
-                        "meta": [
-                          "green"
-                        ],
-                        "nutrition": {
-                          "nutrients": [
-                            {
-                              "name": "Calories",
-                              "amount": 2.36,
-                              "unit": "kcal",
-                              "percentOfDailyNeeds": 0.12
-                            },
-                            {
-                              "name": "Fat",
-                              "amount": 0,
-                              "unit": "g",
-                              "percentOfDailyNeeds": 0
-                            },
-                            {
-                              "name": "Saturated Fat",
-                              "amount": 0,
-                              "unit": "g",
-                              "percentOfDailyNeeds": 0.03
-                            },
-                            {
-                              "name": "Carbohydrates",
-                              "amount": 0.71,
-                              "unit": "g",
-                              "percentOfDailyNeeds": 0.24
-                            },
-                            {
-                              "name": "Net Carbohydrates",
-                              "amount": 0.71,
-                              "unit": "g",
-                              "percentOfDailyNeeds": 0.26
-                            },
-                            {
-                              "name": "Sugar",
-                              "amount": 0,
-                              "unit": "g",
-                              "percentOfDailyNeeds": 0
-                            },
-                            {
-                              "name": "Cholesterol",
-                              "amount": 0,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 0
-                            },
-                            {
-                              "name": "Sodium",
-                              "amount": 7.08,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 0.31
-                            },
-                            {
-                              "name": "Caffeine",
-                              "amount": 47.2,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 15.73
-                            },
-                            {
-                              "name": "Protein",
-                              "amount": 0,
-                              "unit": "g",
-                              "percentOfDailyNeeds": 0
-                            },
-                            {
-                              "name": "Manganese",
-                              "amount": 0.52,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 25.84
-                            },
-                            {
-                              "name": "Folate",
-                              "amount": 11.8,
-                              "unit": "µg",
-                              "percentOfDailyNeeds": 2.95
-                            },
-                            {
-                              "name": "Potassium",
-                              "amount": 87.32,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 2.49
-                            },
-                            {
-                              "name": "Vitamin B2",
-                              "amount": 0.03,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 1.94
-                            },
-                            {
-                              "name": "Magnesium",
-                              "amount": 7.08,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 1.77
-                            },
-                            {
-                              "name": "Copper",
-                              "amount": 0.02,
-                              "unit": "mg",
-                              "percentOfDailyNeeds": 1.18
-                            }
-                          ],
-                          "properties": [
-                            {
-                              "name": "Glycemic Index",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Glycemic Load",
-                              "amount": 0,
-                              "unit": ""
-                            }
-                          ],
-                          "flavonoids": [
-                            {
-                              "name": "Cyanidin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Petunidin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Delphinidin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Malvidin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Pelargonidin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Peonidin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Catechin",
-                              "amount": 3.56,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Epigallocatechin",
-                              "amount": 19,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Epicatechin",
-                              "amount": 5.03,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Epicatechin 3-gallate",
-                              "amount": 13.83,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Epigallocatechin 3-gallate",
-                              "amount": 22.09,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Theaflavin",
-                              "amount": 3.73,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Thearubigins",
-                              "amount": 191.87,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Eriodictyol",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Hesperetin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Naringenin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Apigenin",
-                              "amount": 0,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Luteolin",
-                              "amount": 0,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Isorhamnetin",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Kaempferol",
-                              "amount": 3.33,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Myricetin",
-                              "amount": 1.06,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Quercetin",
-                              "amount": 5.17,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Theaflavin-3,3'-digallate",
-                              "amount": 4.13,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Theaflavin-3'-gallate",
-                              "amount": 3.56,
-                              "unit": "mg"
-                            },
-                            {
-                              "name": "Theaflavin-3-gallate",
-                              "amount": 0,
-                              "unit": ""
-                            },
-                            {
-                              "name": "Gallocatechin",
-                              "amount": 2.95,
-                              "unit": "mg"
-                            }
-                          ],
-                          "caloricBreakdown": {
-                            "percentProtein": 0,
-                            "percentFat": 0,
-                            "percentCarbs": 100
-                          },
-                          "weightPerServing": {
-                            "amount": 236,
-                            "unit": "g"
-                          }
-                        }
-                      }
-                    ]
+                    "$ref": "#/components/schemas/IngredientInformation"
                   }
                 }
               }
@@ -7295,7 +6788,8 @@
                     "description": "The number of servings that you can make from the ingredients."
                   },
                   "includeNutrition": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Whether nutrition data should be added to correctly parsed ingredients."
                   }
                 }
               },
@@ -7732,452 +7226,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "original": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "originalName": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "name": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "nameClean": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "amount": {
-                      "type": "number"
-                    },
-                    "unit": {
-                      "type": "string"
-                    },
-                    "unitShort": {
-                      "type": "string"
-                    },
-                    "unitLong": {
-                      "type": "string"
-                    },
-                    "possibleUnits": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "estimatedCost": {
-                      "type": "object",
-                      "required": [
-                        "value",
-                        "unit"
-                      ],
-                      "properties": {
-                        "value": {
-                          "type": "number"
-                        },
-                        "unit": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    },
-                    "consistency": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "shoppingListUnits": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "aisle": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "image": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "meta": {
-                      "type": "array",
-                      "items": {
-                        "type": "object"
-                      }
-                    },
-                    "nutrition": {
-                      "type": "object",
-                      "required": [
-                        "nutrients",
-                        "properties",
-                        "caloricBreakdown",
-                        "weightPerServing"
-                      ],
-                      "properties": {
-                        "nutrients": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 0,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "name": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "amount": {
-                                "type": "number"
-                              },
-                              "unit": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "percentOfDailyNeeds": {
-                                "type": "number"
-                              }
-                            },
-                            "required": [
-                              "name",
-                              "amount",
-                              "unit",
-                              "percentOfDailyNeeds"
-                            ]
-                          }
-                        },
-                        "properties": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 0,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "name": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "amount": {
-                                "type": "number"
-                              },
-                              "unit": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "name",
-                              "amount",
-                              "unit"
-                            ]
-                          }
-                        },
-                        "caloricBreakdown": {
-                          "type": "object",
-                          "required": [
-                            "percentProtein",
-                            "percentFat",
-                            "percentCarbs"
-                          ],
-                          "properties": {
-                            "percentProtein": {
-                              "type": "number"
-                            },
-                            "percentFat": {
-                              "type": "number"
-                            },
-                            "percentCarbs": {
-                              "type": "number"
-                            }
-                          }
-                        },
-                        "weightPerServing": {
-                          "type": "object",
-                          "required": [
-                            "amount",
-                            "unit"
-                          ],
-                          "properties": {
-                            "amount": {
-                              "type": "number"
-                            },
-                            "unit": {
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "categoryPath": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "original",
-                    "originalName",
-                    "name",
-                    "nameClean",
-                    "amount",
-                    "unit",
-                    "unitShort",
-                    "unitLong",
-                    "possibleUnits",
-                    "estimatedCost",
-                    "consistency",
-                    "shoppingListUnits",
-                    "aisle",
-                    "image",
-                    "meta",
-                    "nutrition",
-                    "categoryPath"
-                  ]
-                },
-                "examples": {
-                  "example-1": {
-                    "value": {
-                      "id": 9266,
-                      "original": "pineapples",
-                      "originalName": "pineapples",
-                      "name": "pineapples",
-                      "nameClean": "pineapple",
-                      "amount": 1,
-                      "unit": "",
-                      "unitShort": "",
-                      "unitLong": "",
-                      "possibleUnits": [
-                        "piece",
-                        "slice",
-                        "fruit",
-                        "g",
-                        "oz",
-                        "cup",
-                        "serving"
-                      ],
-                      "estimatedCost": {
-                        "value": 299,
-                        "unit": "US Cents"
-                      },
-                      "consistency": "solid",
-                      "shoppingListUnits": [
-                        "pieces"
-                      ],
-                      "aisle": "Produce",
-                      "image": "pineapple.jpg",
-                      "meta": [],
-                      "nutrition": {
-                        "nutrients": [
-                          {
-                            "name": "Calories",
-                            "amount": 452.5,
-                            "unit": "cal",
-                            "percentOfDailyNeeds": 22.63
-                          },
-                          {
-                            "name": "Fat",
-                            "amount": 1.09,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 1.67
-                          },
-                          {
-                            "name": "Saturated Fat",
-                            "amount": 0.08,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 0.51
-                          },
-                          {
-                            "name": "Carbohydrates",
-                            "amount": 118.74,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 39.58
-                          },
-                          {
-                            "name": "Net Carbohydrates",
-                            "amount": 106.07,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 38.57
-                          },
-                          {
-                            "name": "Sugar",
-                            "amount": 89.14,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 99.05
-                          },
-                          {
-                            "name": "Cholesterol",
-                            "amount": 0,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 0
-                          },
-                          {
-                            "name": "Sodium",
-                            "amount": 9.05,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 0.39
-                          },
-                          {
-                            "name": "Protein",
-                            "amount": 4.89,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 9.77
-                          },
-                          {
-                            "name": "Vitamin C",
-                            "amount": 432.59,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 524.35
-                          },
-                          {
-                            "name": "Manganese",
-                            "amount": 8.39,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 419.47
-                          },
-                          {
-                            "name": "Fiber",
-                            "amount": 12.67,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 50.68
-                          },
-                          {
-                            "name": "Vitamin B6",
-                            "amount": 1.01,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 50.68
-                          },
-                          {
-                            "name": "Copper",
-                            "amount": 1,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 49.78
-                          },
-                          {
-                            "name": "Vitamin B1",
-                            "amount": 0.72,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 47.66
-                          },
-                          {
-                            "name": "Folate",
-                            "amount": 162.9,
-                            "unit": "µg",
-                            "percentOfDailyNeeds": 40.73
-                          },
-                          {
-                            "name": "Potassium",
-                            "amount": 986.45,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 28.18
-                          },
-                          {
-                            "name": "Magnesium",
-                            "amount": 108.6,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 27.15
-                          },
-                          {
-                            "name": "Vitamin B3",
-                            "amount": 4.53,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 22.63
-                          },
-                          {
-                            "name": "Vitamin B5",
-                            "amount": 1.93,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 19.28
-                          },
-                          {
-                            "name": "Vitamin B2",
-                            "amount": 0.29,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 17.04
-                          },
-                          {
-                            "name": "Iron",
-                            "amount": 2.62,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 14.58
-                          },
-                          {
-                            "name": "Calcium",
-                            "amount": 117.65,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 11.77
-                          },
-                          {
-                            "name": "Vitamin A",
-                            "amount": 524.9,
-                            "unit": "IU",
-                            "percentOfDailyNeeds": 10.5
-                          },
-                          {
-                            "name": "Zinc",
-                            "amount": 1.09,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 7.24
-                          },
-                          {
-                            "name": "Phosphorus",
-                            "amount": 72.4,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 7.24
-                          },
-                          {
-                            "name": "Vitamin K",
-                            "amount": 6.34,
-                            "unit": "µg",
-                            "percentOfDailyNeeds": 6.03
-                          },
-                          {
-                            "name": "Selenium",
-                            "amount": 0.91,
-                            "unit": "µg",
-                            "percentOfDailyNeeds": 1.29
-                          },
-                          {
-                            "name": "Vitamin E",
-                            "amount": 0.18,
-                            "unit": "mg",
-                            "percentOfDailyNeeds": 1.21
-                          }
-                        ],
-                        "properties": [
-                          {
-                            "name": "Glycemic Index",
-                            "amount": 58.67,
-                            "unit": ""
-                          },
-                          {
-                            "name": "Glycemic Load",
-                            "amount": 62.23,
-                            "unit": ""
-                          }
-                        ],
-                        "caloricBreakdown": {
-                          "percentProtein": 3.88,
-                          "percentFat": 1.94,
-                          "percentCarbs": 94.18
-                        },
-                        "weightPerServing": {
-                          "amount": 905,
-                          "unit": "g"
-                        }
-                      },
-                      "categoryPath": [
-                        "tropical fruit",
-                        "fruit"
-                      ]
-                    }
-                  }
+                  "$ref": "#/components/schemas/IngredientInformation"
                 }
               }
             }
@@ -19482,6 +18531,441 @@
   },
   "components": {
     "schemas": {
+      "IngredientInformation": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "original": {
+            "type": "string",
+            "minLength": 1
+          },
+          "originalName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "amount": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "unitShort": {
+            "type": "string"
+          },
+          "unitLong": {
+            "type": "string"
+          },
+          "possibleUnits": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "estimatedCost": {
+            "type": "object",
+            "required": [
+              "value",
+              "unit"
+            ],
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "consistency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shoppingListUnits": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "aisle": {
+            "type": "string",
+            "minLength": 1
+          },
+          "image": {
+            "type": "string",
+            "minLength": 1
+          },
+          "meta": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "nutrition": {
+            "type": "object",
+            "required": [
+              "nutrients",
+              "properties",
+              "caloricBreakdown",
+              "weightPerServing"
+            ],
+            "properties": {
+              "nutrients": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 0,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "percentOfDailyNeeds": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "amount",
+                    "unit",
+                    "percentOfDailyNeeds"
+                  ]
+                }
+              },
+              "properties": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 0,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "amount",
+                    "unit"
+                  ]
+                }
+              },
+              "caloricBreakdown": {
+                "type": "object",
+                "required": [
+                  "percentProtein",
+                  "percentFat",
+                  "percentCarbs"
+                ],
+                "properties": {
+                  "percentProtein": {
+                    "type": "number"
+                  },
+                  "percentFat": {
+                    "type": "number"
+                  },
+                  "percentCarbs": {
+                    "type": "number"
+                  }
+                }
+              },
+              "weightPerServing": {
+                "type": "object",
+                "required": [
+                  "amount",
+                  "unit"
+                ],
+                "properties": {
+                  "amount": {
+                    "type": "number"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          },
+          "categoryPath": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "original",
+          "originalName",
+          "name",
+          "amount",
+          "unit",
+          "unitShort",
+          "unitLong",
+          "possibleUnits",
+          "estimatedCost",
+          "consistency",
+          "aisle",
+          "image",
+          "meta"
+        ],
+        "example": {
+          "id": 9266,
+          "original": "pineapples",
+          "originalName": "pineapples",
+          "name": "pineapples",
+          "amount": 1,
+          "unit": "",
+          "unitShort": "",
+          "unitLong": "",
+          "possibleUnits": [
+            "piece",
+            "slice",
+            "fruit",
+            "g",
+            "oz",
+            "cup",
+            "serving"
+          ],
+          "estimatedCost": {
+            "value": 299,
+            "unit": "US Cents"
+          },
+          "consistency": "solid",
+          "shoppingListUnits": [
+            "pieces"
+          ],
+          "aisle": "Produce",
+          "image": "pineapple.jpg",
+          "meta": [],
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 452.5,
+                "unit": "cal",
+                "percentOfDailyNeeds": 22.63
+              },
+              {
+                "name": "Fat",
+                "amount": 1.09,
+                "unit": "g",
+                "percentOfDailyNeeds": 1.67
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 0.08,
+                "unit": "g",
+                "percentOfDailyNeeds": 0.51
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 118.74,
+                "unit": "g",
+                "percentOfDailyNeeds": 39.58
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 106.07,
+                "unit": "g",
+                "percentOfDailyNeeds": 38.57
+              },
+              {
+                "name": "Sugar",
+                "amount": 89.14,
+                "unit": "g",
+                "percentOfDailyNeeds": 99.05
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 0,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0
+              },
+              {
+                "name": "Sodium",
+                "amount": 9.05,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0.39
+              },
+              {
+                "name": "Protein",
+                "amount": 4.89,
+                "unit": "g",
+                "percentOfDailyNeeds": 9.77
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 432.59,
+                "unit": "mg",
+                "percentOfDailyNeeds": 524.35
+              },
+              {
+                "name": "Manganese",
+                "amount": 8.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 419.47
+              },
+              {
+                "name": "Fiber",
+                "amount": 12.67,
+                "unit": "g",
+                "percentOfDailyNeeds": 50.68
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.01,
+                "unit": "mg",
+                "percentOfDailyNeeds": 50.68
+              },
+              {
+                "name": "Copper",
+                "amount": 1,
+                "unit": "mg",
+                "percentOfDailyNeeds": 49.78
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.72,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.66
+              },
+              {
+                "name": "Folate",
+                "amount": 162.9,
+                "unit": "µg",
+                "percentOfDailyNeeds": 40.73
+              },
+              {
+                "name": "Potassium",
+                "amount": 986.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.18
+              },
+              {
+                "name": "Magnesium",
+                "amount": 108.6,
+                "unit": "mg",
+                "percentOfDailyNeeds": 27.15
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 4.53,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.63
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.93,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.28
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.29,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.04
+              },
+              {
+                "name": "Iron",
+                "amount": 2.62,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.58
+              },
+              {
+                "name": "Calcium",
+                "amount": 117.65,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.77
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 524.9,
+                "unit": "IU",
+                "percentOfDailyNeeds": 10.5
+              },
+              {
+                "name": "Zinc",
+                "amount": 1.09,
+                "unit": "mg",
+                "percentOfDailyNeeds": 7.24
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 72.4,
+                "unit": "mg",
+                "percentOfDailyNeeds": 7.24
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 6.34,
+                "unit": "µg",
+                "percentOfDailyNeeds": 6.03
+              },
+              {
+                "name": "Selenium",
+                "amount": 0.91,
+                "unit": "µg",
+                "percentOfDailyNeeds": 1.29
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 0.18,
+                "unit": "mg",
+                "percentOfDailyNeeds": 1.21
+              }
+            ],
+            "properties": [
+              {
+                "name": "Glycemic Index",
+                "amount": 58.67,
+                "unit": ""
+              },
+              {
+                "name": "Glycemic Load",
+                "amount": 62.23,
+                "unit": ""
+              }
+            ],
+            "caloricBreakdown": {
+              "percentProtein": 3.88,
+              "percentFat": 1.94,
+              "percentCarbs": 94.18
+            },
+            "weightPerServing": {
+              "amount": 905,
+              "unit": "g"
+            }
+          },
+          "categoryPath": [
+            "tropical fruit",
+            "fruit"
+          ]
+        }
+      },
       "TasteInformation": {
         "description": "",
         "type": "object",
