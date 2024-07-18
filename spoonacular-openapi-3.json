@@ -8441,21 +8441,7 @@
                       "uniqueItems": true,
                       "minItems": 0,
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "description": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "type": "string"
-                          },
-                          "safety_level": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ]
+                        "$ref": "#/components/schemas/IngredientBasics"
                       }
                     },
                     "likes": {
@@ -8896,22 +8882,7 @@
                       "uniqueItems": false,
                       "minItems": 0,
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "description": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "safety_level": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ]
+                        "$ref": "#/components/schemas/IngredientBasics"
                       }
                     },
                     "likes": {
@@ -18531,6 +18502,27 @@
   },
   "components": {
     "schemas": {
+      "IngredientBasics": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "safety_level": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "safety_level"
+        ]
+      },
       "IngredientInformation": {
         "description": "",
         "type": "object",
