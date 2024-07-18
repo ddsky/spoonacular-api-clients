@@ -4713,237 +4713,156 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "type": "object",
-                  "properties": {
-                    "parsedInstructions": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string"
-                          },
-                          "steps": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 0,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "number": {
-                                  "type": "number"
-                                },
-                                "step": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "ingredients": {
-                                  "type": "array",
-                                  "uniqueItems": true,
-                                  "minItems": 0,
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "integer"
-                                      },
-                                      "name": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      },
-                                      "localizedName": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      },
-                                      "image": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      }
-                                    },
-                                    "required": [
-                                      "id",
-                                      "name",
-                                      "localizedName",
-                                      "image"
-                                    ]
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "steps": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "minItems": 0,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "number": {
+                              "type": "number"
+                            },
+                            "step": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "ingredients": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 0,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "localizedName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "image": {
+                                    "type": "string",
+                                    "minLength": 1
                                   }
                                 },
-                                "equipment": {
-                                  "type": "array",
-                                  "uniqueItems": true,
-                                  "minItems": 0,
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "id": {
-                                        "type": "integer"
-                                      },
-                                      "name": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      },
-                                      "localizedName": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      },
-                                      "image": {
-                                        "type": "string",
-                                        "minLength": 1
-                                      }
-                                    },
-                                    "required": [
-                                      "id",
-                                      "name",
-                                      "localizedName",
-                                      "image"
-                                    ]
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "localizedName",
+                                  "image"
+                                ]
+                              }
+                            },
+                            "equipment": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 0,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "localizedName": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "image": {
+                                    "type": "string",
+                                    "minLength": 1
                                   }
-                                }
-                              },
-                              "required": [
-                                "number",
-                                "step"
-                              ]
+                                },
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "localizedName",
+                                  "image"
+                                ]
+                              }
                             }
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ]
+                          },
+                          "required": [
+                            "number",
+                            "step"
+                          ]
+                        }
                       }
                     },
-                    "ingredients": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "name"
-                        ]
-                      }
-                    },
-                    "equipment": {
-                      "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "name": {
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "name"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "parsedInstructions",
-                    "ingredients",
-                    "equipment"
-                  ]
+                    "required": [
+                      "name"
+                    ]
+                  }
                 },
                 "examples": {
                   "example-1": {
-                    "value": {
-                      "parsedInstructions": [
-                        {
-                          "name": "",
-                          "steps": [
-                            {
-                              "number": 1,
-                              "step": "Put the garlic in a pan and then add the onion.",
-                              "ingredients": [
-                                {
-                                  "id": 11215,
-                                  "name": "garlic",
-                                  "localizedName": "garlic",
-                                  "image": "garlic.png"
-                                },
-                                {
-                                  "id": 11282,
-                                  "name": "onion",
-                                  "localizedName": "onion",
-                                  "image": "brown-onion.png"
-                                }
-                              ],
-                              "equipment": [
-                                {
-                                  "id": 404645,
-                                  "name": "frying pan",
-                                  "localizedName": "frying pan",
-                                  "image": "pan.png"
-                                }
-                              ]
-                            },
-                            {
-                              "number": 2,
-                              "step": "Add some salt and oregano.",
-                              "ingredients": [
-                                {
-                                  "id": 2027,
-                                  "name": "oregano",
-                                  "localizedName": "oregano",
-                                  "image": "oregano.jpg"
-                                },
-                                {
-                                  "id": 2047,
-                                  "name": "salt",
-                                  "localizedName": "salt",
-                                  "image": "salt.jpg"
-                                }
-                              ],
-                              "equipment": []
-                            }
-                          ]
-                        }
-                      ],
-                      "ingredients": [
-                        {
-                          "id": 2027,
-                          "name": "oregano"
-                        },
-                        {
-                          "id": 11215,
-                          "name": "garlic"
-                        },
-                        {
-                          "id": 11282,
-                          "name": "onion"
-                        },
-                        {
-                          "id": 2047,
-                          "name": "salt"
-                        }
-                      ],
-                      "equipment": [
-                        {
-                          "id": 404645,
-                          "name": "frying pan"
-                        }
-                      ]
-                    }
+                    "value": [
+                      {
+                        "name": "",
+                        "steps": [
+                          {
+                            "number": 1,
+                            "step": "Put the garlic in a pan and then add the onion.",
+                            "ingredients": [
+                              {
+                                "id": 11215,
+                                "name": "garlic",
+                                "localizedName": "garlic",
+                                "image": "garlic.png"
+                              },
+                              {
+                                "id": 11282,
+                                "name": "onion",
+                                "localizedName": "onion",
+                                "image": "brown-onion.png"
+                              }
+                            ],
+                            "equipment": [
+                              {
+                                "id": 404645,
+                                "name": "frying pan",
+                                "localizedName": "frying pan",
+                                "image": "pan.png"
+                              }
+                            ]
+                          },
+                          {
+                            "number": 2,
+                            "step": "Add some salt and oregano.",
+                            "ingredients": [
+                              {
+                                "id": 2027,
+                                "name": "oregano",
+                                "localizedName": "oregano",
+                                "image": "oregano.jpg"
+                              },
+                              {
+                                "id": 2047,
+                                "name": "salt",
+                                "localizedName": "salt",
+                                "image": "salt.jpg"
+                              }
+                            ],
+                            "equipment": []
+                          }
+                        ]
+                      }
+                    ]
                   }
                 }
               }
