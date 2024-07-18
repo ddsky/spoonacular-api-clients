@@ -19254,11 +19254,7 @@
           },
           "winePairing": {
             "type": "object",
-            "required": [
-              "pairedWines",
-              "pairingText",
-              "productMatches"
-            ],
+            "required": [],
             "properties": {
               "pairedWines": {
                 "type": "array",
@@ -19336,7 +19332,6 @@
           "imageType",
           "servings",
           "readyInMinutes",
-          "license",
           "sourceName",
           "sourceUrl",
           "spoonacularSourceUrl",
