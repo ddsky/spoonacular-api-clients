@@ -2785,6 +2785,30 @@
           },
           {
             "$ref": "#/components/parameters/includeNutrition"
+          },
+          {
+            "name": "addWinePairing",
+            "description": "Add a wine pairing to the recipe.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
+          },
+          {
+            "name": "addTasteData",
+            "description": "Add taste data to the recipe.",
+            "schema": {
+              "type": "boolean",
+              "example": false
+            },
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "in": "query"
           }
         ],
         "externalDocs": {
@@ -19603,9 +19627,6 @@
             "type": "string",
             "nullable": true
           },
-          "ketogenic": {
-            "type": "boolean"
-          },
           "lowFodmap": {
             "type": "boolean"
           },
@@ -19856,7 +19877,6 @@
           "gaps",
           "glutenFree",
           "instructions",
-          "ketogenic",
           "lowFodmap",
           "occasions",
           "sustainable",
@@ -19893,7 +19913,6 @@
           "gaps": "no",
           "glutenFree": false,
           "instructions": "",
-          "ketogenic": false,
           "lowFodmap": false,
           "occasions": [],
           "sustainable": false,
