@@ -373,7 +373,7 @@
             "name": "recipeBoxId",
             "description": "The id of the recipe box to which the search should be limited to.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 2468
             },
             "required": false,
@@ -1726,7 +1726,7 @@
             "name": "ranking",
             "description": "Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1
             },
             "required": false,
@@ -3483,7 +3483,7 @@
             "name": "id",
             "description": "The id of the recipe.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 716429
             },
             "required": true,
@@ -4365,7 +4365,7 @@
             "name": "id",
             "description": "The id of the source recipe for which similar recipes should be found.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 715538
             },
             "required": true,
@@ -5347,7 +5347,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 69095
             },
             "required": true,
@@ -5414,7 +5414,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 69095
             },
             "required": true,
@@ -5531,7 +5531,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1003464
             },
             "required": true,
@@ -5583,7 +5583,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 44860
             },
             "required": true,
@@ -5875,7 +5875,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1003464
             },
             "required": true,
@@ -5927,7 +5927,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1082038
             },
             "required": true,
@@ -6209,7 +6209,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1003464
             },
             "required": true,
@@ -6261,7 +6261,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1082038
             },
             "required": true,
@@ -6595,7 +6595,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1003464
             },
             "required": true,
@@ -6647,7 +6647,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1082038
             },
             "required": true,
@@ -6698,7 +6698,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 641166
             },
             "required": true,
@@ -6789,7 +6789,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 641166
             },
             "required": true,
@@ -7107,7 +7107,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 324694
             },
             "required": true,
@@ -7959,7 +7959,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1082038
             },
             "required": true,
@@ -8027,7 +8027,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 69095
             },
             "required": true,
@@ -8097,7 +8097,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 44860
             },
             "required": true,
@@ -8151,7 +8151,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1082038
             },
             "required": true,
@@ -8658,7 +8658,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 4632
             },
             "required": true,
@@ -8710,7 +8710,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 4632
             },
             "required": true,
@@ -8982,7 +8982,7 @@
                                     ],
                                     "properties": {
                                       "id": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "name": {
                                         "type": "string",
@@ -9012,7 +9012,7 @@
                                     ],
                                     "properties": {
                                       "id": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "name": {
                                         "type": "string",
@@ -9046,7 +9046,7 @@
                         ],
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "name": {
                             "type": "string",
@@ -9066,7 +9066,7 @@
                         ],
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "name": {
                             "type": "string",
@@ -10204,7 +10204,7 @@
             "name": "id",
             "description": "The recipe id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1082038
             },
             "required": true,
@@ -11048,7 +11048,7 @@
             "name": "id",
             "description": "The ingredient id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 9266
             },
             "required": true,
@@ -11145,7 +11145,7 @@
             "name": "id",
             "description": "The id of the ingredient you want the amount for.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 9266
             },
             "required": true,
@@ -11169,7 +11169,7 @@
             "name": "target",
             "description": "The target number of the given nutrient.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 2
             },
             "required": true,
@@ -11935,7 +11935,7 @@
             "name": "id",
             "description": "The id of the ingredient you want substitutes for.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1001
             },
             "required": true,
@@ -12477,7 +12477,7 @@
             "name": "upc",
             "description": "The product's UPC.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 41631000564
             },
             "required": true,
@@ -13247,7 +13247,7 @@
             "name": "id",
             "description": "The id of the packaged food.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 22347
             },
             "required": true,
@@ -13465,7 +13465,7 @@
             "name": "upc",
             "description": "The UPC of the product for which you want to find comparable products.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 33698816271
             },
             "required": true,
@@ -13629,7 +13629,7 @@
             "name": "id",
             "description": "The id of the product.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 7657
             },
             "required": true,
@@ -13684,7 +13684,7 @@
             "name": "id",
             "description": "The id of the product.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 7657
             },
             "required": true,
@@ -13735,7 +13735,7 @@
             "name": "id",
             "description": "The product id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 22347
             },
             "required": true,
@@ -13826,7 +13826,7 @@
             "name": "id",
             "description": "The product id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 22347
             },
             "required": true,
@@ -14451,7 +14451,7 @@
             "name": "number",
             "description": "The number of results to return (between 1 and 25).",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 10,
               "minimum": 1,
               "maximum": 25
@@ -14517,7 +14517,7 @@
                             "type": "object",
                             "properties": {
                               "number": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "size": {
                                 "type": "number"
@@ -14849,7 +14849,7 @@
                       "minLength": 1
                     },
                     "likes": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "servings": {
                       "type": "object",
@@ -14966,7 +14966,7 @@
             "name": "id",
             "description": "The menu item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 424571
             },
             "required": true,
@@ -15017,7 +15017,7 @@
             "name": "id",
             "description": "The menu item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 1003464
             },
             "required": true,
@@ -15072,7 +15072,7 @@
             "name": "id",
             "description": "The menu item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 424571
             },
             "required": true,
@@ -15123,7 +15123,7 @@
             "name": "id",
             "description": "The menu item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 342313
             },
             "required": true,
@@ -15214,7 +15214,7 @@
             "name": "id",
             "description": "The menu item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 342313
             },
             "required": true,
@@ -16445,7 +16445,7 @@
             "name": "id",
             "description": "The shopping list item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 15678
             },
             "required": true,
@@ -18413,7 +18413,7 @@
             "name": "id",
             "description": "The shopping list item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 15678
             },
             "required": true,
@@ -18477,7 +18477,7 @@
             "name": "id",
             "description": "The shopping list item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 15678
             },
             "required": true,
@@ -19389,7 +19389,7 @@
             "name": "id",
             "description": "The shopping list item id.",
             "schema": {
-              "type": "number",
+              "type": "integer",
               "example": 15678
             },
             "required": true,
