@@ -8436,8 +8436,8 @@
             "name": "upc",
             "description": "The product's UPC.",
             "schema": {
-              "type": "integer",
-              "example": 41631000564
+              "type": "string",
+              "example": "041631000564"
             },
             "required": true,
             "style": "simple",
@@ -8800,8 +8800,8 @@
             "name": "upc",
             "description": "The UPC of the product for which you want to find comparable products.",
             "schema": {
-              "type": "integer",
-              "example": 33698816271
+              "type": "string",
+              "example": "033698816271"
             },
             "required": true,
             "style": "simple",
