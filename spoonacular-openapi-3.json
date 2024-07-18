@@ -9457,92 +9457,44 @@
                         "likes",
                         "price",
                         "protein",
-                        "spoonacularScore",
+                        "spoonacular_score",
                         "sugar"
                       ],
                       "properties": {
                         "calories": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/ComparableProduct"
                           }
                         },
                         "likes": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/ComparableProduct"
                           }
                         },
                         "price": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/ComparableProduct"
                           }
                         },
                         "protein": {
                           "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 0,
                           "items": {
-                            "type": "object",
-                            "properties": {
-                              "difference": {
-                                "type": "number"
-                              },
-                              "id": {
-                                "type": "integer"
-                              },
-                              "image": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "title": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "difference",
-                              "id",
-                              "image",
-                              "title"
-                            ]
+                            "$ref": "#/components/schemas/ComparableProduct"
                           }
                         },
-                        "spoonacularScore": {
+                        "spoonacular_score": {
                           "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 0,
                           "items": {
-                            "type": "object",
-                            "properties": {
-                              "difference": {
-                                "type": "number"
-                              },
-                              "id": {
-                                "type": "integer"
-                              },
-                              "image": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "title": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "difference",
-                              "id",
-                              "image",
-                              "title"
-                            ]
+                            "$ref": "#/components/schemas/ComparableProduct"
                           }
                         },
                         "sugar": {
                           "type": "array",
                           "items": {
-                            "type": "object"
+                            "$ref": "#/components/schemas/ComparableProduct"
                           }
                         }
                       }
@@ -9585,7 +9537,7 @@
                             "title": "Victoria Imported Capers"
                           }
                         ],
-                        "spoonacularScore": [
+                        "spoonacular_score": [
                           {
                             "difference": 7,
                             "id": 125354,
@@ -18265,6 +18217,31 @@
   },
   "components": {
     "schemas": {
+      "ComparableProduct": {
+        "type": "object",
+        "properties": {
+          "difference": {
+            "type": "number"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "image": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "difference",
+          "id",
+          "image",
+          "title"
+        ]
+      },
       "MenuItem": {
         "description": "",
         "type": "object",
@@ -18968,7 +18945,7 @@
           },
           "image": {
             "type": "string",
-            "minLength": 1
+            "nullable": true
           },
           "imageType": {
             "type": "string",
@@ -19001,8 +18978,7 @@
             "minLength": 1
           },
           "spoonacularSourceUrl": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "aggregateLikes": {
             "type": "integer"
@@ -19206,7 +19182,6 @@
           },
           "winePairing": {
             "type": "object",
-            "required": [],
             "properties": {
               "pairedWines": {
                 "type": "array",
@@ -19281,7 +19256,6 @@
           "id",
           "title",
           "image",
-          "imageType",
           "servings",
           "readyInMinutes",
           "sourceName",
