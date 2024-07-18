@@ -10661,55 +10661,7 @@
                       "uniqueItems": true,
                       "minItems": 0,
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "title": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "restaurantChain": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "image": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "imageType": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "servings": {
-                            "type": "object",
-                            "properties": {
-                              "number": {
-                                "type": "integer"
-                              },
-                              "size": {
-                                "type": "number"
-                              },
-                              "unit": {
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "number",
-                              "size",
-                              "unit"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "title",
-                          "restaurantChain",
-                          "image",
-                          "imageType"
-                        ]
+                        "$ref": "#/components/schemas/MenuItem"
                       }
                     },
                     "totalMenuItems": {
@@ -10926,196 +10878,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer"
-                    },
-                    "title": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "restaurantChain": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "nutrition": {
-                      "type": "object",
-                      "required": [
-                        "nutrients",
-                        "caloricBreakdown"
-                      ],
-                      "properties": {
-                        "nutrients": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 0,
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "name": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "amount": {
-                                "type": "number"
-                              },
-                              "unit": {
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "percentOfDailyNeeds": {
-                                "type": "number"
-                              }
-                            },
-                            "required": [
-                              "name",
-                              "amount",
-                              "unit",
-                              "percentOfDailyNeeds"
-                            ]
-                          }
-                        },
-                        "caloricBreakdown": {
-                          "type": "object",
-                          "required": [
-                            "percentProtein",
-                            "percentFat",
-                            "percentCarbs"
-                          ],
-                          "properties": {
-                            "percentProtein": {
-                              "type": "number"
-                            },
-                            "percentFat": {
-                              "type": "number"
-                            },
-                            "percentCarbs": {
-                              "type": "number"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "badges": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "breadcrumbs": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "generatedText": {
-                      "type": "string"
-                    },
-                    "imageType": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "likes": {
-                      "type": "integer"
-                    },
-                    "servings": {
-                      "type": "object",
-                      "required": [
-                        "number",
-                        "size",
-                        "unit"
-                      ],
-                      "properties": {
-                        "number": {
-                          "type": "number"
-                        },
-                        "size": {
-                          "type": "number"
-                        },
-                        "unit": {
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      }
-                    },
-                    "price": {
-                      "type": "number"
-                    },
-                    "spoonacularScore": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "title",
-                    "restaurantChain",
-                    "nutrition",
-                    "badges",
-                    "breadcrumbs",
-                    "imageType",
-                    "likes",
-                    "servings"
-                  ]
-                },
-                "examples": {
-                  "example-1": {
-                    "value": {
-                      "id": 424571,
-                      "title": "Bacon King Burger",
-                      "restaurantChain": "Burger King",
-                      "nutrition": {
-                        "nutrients": [
-                          {
-                            "name": "Fat",
-                            "amount": 69,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 30
-                          },
-                          {
-                            "name": "Protein",
-                            "amount": 57,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 35
-                          },
-                          {
-                            "name": "Calories",
-                            "amount": 1040,
-                            "unit": "cal",
-                            "percentOfDailyNeeds": 50
-                          },
-                          {
-                            "name": "Carbohydrates",
-                            "amount": 48,
-                            "unit": "g",
-                            "percentOfDailyNeeds": 35
-                          }
-                        ],
-                        "caloricBreakdown": {
-                          "percentProtein": 35,
-                          "percentFat": 30,
-                          "percentCarbs": 35
-                        }
-                      },
-                      "badges": [],
-                      "breadcrumbs": [
-                        "burger",
-                        "main course",
-                        "food product category"
-                      ],
-                      "generatedText": "",
-                      "imageType": "png",
-                      "likes": 0,
-                      "servings": {
-                        "number": 1,
-                        "size": 2,
-                        "unit": "oz"
-                      },
-                      "price": 2.35,
-                      "spoonacularScore": 12.5
-                    }
-                  }
+                  "$ref": "#/components/schemas/MenuItem"
                 }
               }
             }
@@ -18502,6 +18265,195 @@
   },
   "components": {
     "schemas": {
+      "MenuItem": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "restaurantChain": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nutrition": {
+            "type": "object",
+            "required": [
+              "nutrients",
+              "caloricBreakdown"
+            ],
+            "properties": {
+              "nutrients": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 0,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "percentOfDailyNeeds": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "amount",
+                    "unit",
+                    "percentOfDailyNeeds"
+                  ]
+                }
+              },
+              "caloricBreakdown": {
+                "type": "object",
+                "required": [
+                  "percentProtein",
+                  "percentFat",
+                  "percentCarbs"
+                ],
+                "properties": {
+                  "percentProtein": {
+                    "type": "number"
+                  },
+                  "percentFat": {
+                    "type": "number"
+                  },
+                  "percentCarbs": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "badges": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "breadcrumbs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "generatedText": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "likes": {
+            "type": "integer"
+          },
+          "servings": {
+            "type": "object",
+            "required": [
+              "number",
+              "size",
+              "unit"
+            ],
+            "properties": {
+              "number": {
+                "type": "number"
+              },
+              "size": {
+                "type": "number",
+                "nullable": true
+              },
+              "unit": {
+                "type": "string",
+                "nullable": true,
+                "minLength": 1
+              }
+            }
+          },
+          "price": {
+            "type": "number",
+            "nullable": true
+          },
+          "spoonacularScore": {
+            "type": "number",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "restaurantChain",
+          "price",
+          "spoonacularScore"
+        ],
+        "example": {
+          "id": 424571,
+          "title": "Bacon King Burger",
+          "restaurantChain": "Burger King",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Fat",
+                "amount": 69,
+                "unit": "g",
+                "percentOfDailyNeeds": 30
+              },
+              {
+                "name": "Protein",
+                "amount": 57,
+                "unit": "g",
+                "percentOfDailyNeeds": 35
+              },
+              {
+                "name": "Calories",
+                "amount": 1040,
+                "unit": "cal",
+                "percentOfDailyNeeds": 50
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 48,
+                "unit": "g",
+                "percentOfDailyNeeds": 35
+              }
+            ],
+            "caloricBreakdown": {
+              "percentProtein": 35,
+              "percentFat": 30,
+              "percentCarbs": 35
+            }
+          },
+          "badges": [],
+          "breadcrumbs": [
+            "burger",
+            "main course",
+            "food product category"
+          ],
+          "generatedText": "",
+          "imageType": "png",
+          "likes": 0,
+          "servings": {
+            "number": 1,
+            "size": 2,
+            "unit": "oz"
+          },
+          "price": 2.35,
+          "spoonacularScore": 12.5
+        }
+      },
       "IngredientBasics": {
         "type": "object",
         "properties": {
