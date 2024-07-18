@@ -17237,12 +17237,7 @@
                 "key": {
                   "type": "string"
                 },
-                "value": {
-                  "oneOf": [
-                    { "type": "string" },
-                    { "type": "integer" }
-                  ]
-                },
+                "value": {},
                 "show": {
                   "type": "boolean"
                 }
