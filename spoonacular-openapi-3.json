@@ -3160,53 +3160,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "description": "",
-                  "type": "object",
-                  "properties": {
-                    "sweetness": {
-                      "type": "number"
-                    },
-                    "saltiness": {
-                      "type": "number"
-                    },
-                    "sourness": {
-                      "type": "number"
-                    },
-                    "bitterness": {
-                      "type": "number"
-                    },
-                    "savoriness": {
-                      "type": "number"
-                    },
-                    "fattiness": {
-                      "type": "number"
-                    },
-                    "spiciness": {
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "sweetness",
-                    "saltiness",
-                    "sourness",
-                    "bitterness",
-                    "savoriness",
-                    "fattiness",
-                    "spiciness"
-                  ]
-                },
-                "examples": {
-                  "example-1": {
-                    "value": {
-                      "sweetness": 28.79,
-                      "saltiness": 26.74,
-                      "sourness": 6.22,
-                      "bitterness": 12.38,
-                      "savoriness": 11.8,
-                      "fattiness": 100,
-                      "spiciness": 0
-                    }
-                  }
+                  "$ref": "#/components/schemas/TasteInformation"
                 }
               }
             }
@@ -19504,6 +19458,51 @@
   },
   "components": {
     "schemas": {
+      "TasteInformation": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "sweetness": {
+            "type": "number"
+          },
+          "saltiness": {
+            "type": "number"
+          },
+          "sourness": {
+            "type": "number"
+          },
+          "bitterness": {
+            "type": "number"
+          },
+          "savoriness": {
+            "type": "number"
+          },
+          "fattiness": {
+            "type": "number"
+          },
+          "spiciness": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "sweetness",
+          "saltiness",
+          "sourness",
+          "bitterness",
+          "savoriness",
+          "fattiness",
+          "spiciness"
+        ],
+        "example": {
+          "sweetness": 28.79,
+          "saltiness": 26.74,
+          "sourness": 6.22,
+          "bitterness": 12.38,
+          "savoriness": 11.8,
+          "fattiness": 100,
+          "spiciness": 0
+        }
+      },
       "RecipeInformation": {
         "description": "",
         "type": "object",
@@ -19528,6 +19527,14 @@
           },
           "readyInMinutes": {
             "type": "integer"
+          },
+          "preparationMinutes": {
+            "type": "integer",
+            "nullable": true
+          },
+          "cookingMinutes": {
+            "type": "integer",
+            "nullable": true
           },
           "license": {
             "type": "string",
@@ -19593,7 +19600,8 @@
             "type": "boolean"
           },
           "instructions": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "ketogenic": {
             "type": "boolean"
@@ -19819,6 +19827,9 @@
                 }
               }
             }
+          },
+          "taste": {
+            "$ref": "#/components/schemas/TasteInformation"
           }
         },
         "required": [
@@ -19856,8 +19867,7 @@
           "weightWatcherSmartPoints",
           "dishTypes",
           "extendedIngredients",
-          "summary",
-          "winePairing"
+          "summary"
         ],
         "example": {
           "id": 716429,
