@@ -183,14 +183,14 @@ sub analyze_recipe_instructions {
 #
 # Autocomplete Recipe Search
 #
-# @param string $query The (natural language) search query. (optional)
+# @param string $query The (natural language) search query. (required)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 {
     my $params = {
     'query' => {
         data_type => 'string',
         description => 'The (natural language) search query.',
-        required => '0',
+        required => '1',
     },
     'number' => {
         data_type => 'int',
@@ -208,6 +208,11 @@ sub analyze_recipe_instructions {
 #
 sub autocomplete_recipe_search {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling autocomplete_recipe_search");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/autocomplete';
@@ -763,11 +768,11 @@ sub create_recipe_card {
 #
 # Equipment by ID Image
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },
@@ -866,10 +871,10 @@ sub equipment_by_id_image {
     __PACKAGE__->method_documentation->{ 'extract_recipe_from_website' } = {
         summary => 'Extract Recipe from Website',
         params => $params,
-        returns => 'GetRecipeInformation200Response',
+        returns => 'RecipeInformation',
         };
 }
-# @return GetRecipeInformation200Response
+# @return RecipeInformation
 #
 sub extract_recipe_from_website {
     my ($self, %args) = @_;
@@ -930,7 +935,7 @@ sub extract_recipe_from_website {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetRecipeInformation200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('RecipeInformation', $response);
     return $_response_object;
 }
 
@@ -939,13 +944,13 @@ sub extract_recipe_from_website {
 #
 # Get Analyzed Recipe Instructions
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $step_breakdown Whether to break down the recipe steps even more. (optional)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     'step_breakdown' => {
@@ -957,10 +962,10 @@ sub extract_recipe_from_website {
     __PACKAGE__->method_documentation->{ 'get_analyzed_recipe_instructions' } = {
         summary => 'Get Analyzed Recipe Instructions',
         params => $params,
-        returns => 'GetAnalyzedRecipeInstructions200Response',
+        returns => 'ARRAY[GetAnalyzedRecipeInstructions200ResponseInner]',
         };
 }
-# @return GetAnalyzedRecipeInstructions200Response
+# @return ARRAY[GetAnalyzedRecipeInstructions200ResponseInner]
 #
 sub get_analyzed_recipe_instructions {
     my ($self, %args) = @_;
@@ -1008,7 +1013,7 @@ sub get_analyzed_recipe_instructions {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetAnalyzedRecipeInstructions200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('ARRAY[GetAnalyzedRecipeInstructions200ResponseInner]', $response);
     return $_response_object;
 }
 
@@ -1110,12 +1115,12 @@ sub get_random_recipes {
 #
 # Equipment by ID
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     };
@@ -1177,13 +1182,15 @@ sub get_recipe_equipment_by_id {
 #
 # Get Recipe Information
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The id of the recipe. (required)
 # @param boolean $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+# @param boolean $add_wine_pairing Add a wine pairing to the recipe. (optional)
+# @param boolean $add_taste_data Add taste data to the recipe. (optional)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The id of the recipe.',
         required => '1',
     },
     'include_nutrition' => {
@@ -1191,14 +1198,24 @@ sub get_recipe_equipment_by_id {
         description => 'Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.',
         required => '0',
     },
+    'add_wine_pairing' => {
+        data_type => 'boolean',
+        description => 'Add a wine pairing to the recipe.',
+        required => '0',
+    },
+    'add_taste_data' => {
+        data_type => 'boolean',
+        description => 'Add taste data to the recipe.',
+        required => '0',
+    },
     };
     __PACKAGE__->method_documentation->{ 'get_recipe_information' } = {
         summary => 'Get Recipe Information',
         params => $params,
-        returns => 'GetRecipeInformation200Response',
+        returns => 'RecipeInformation',
         };
 }
-# @return GetRecipeInformation200Response
+# @return RecipeInformation
 #
 sub get_recipe_information {
     my ($self, %args) = @_;
@@ -1228,6 +1245,16 @@ sub get_recipe_information {
         $query_params->{'includeNutrition'} = $self->{api_client}->to_query_value($args{'include_nutrition'});
     }
 
+    # query params
+    if ( exists $args{'add_wine_pairing'}) {
+        $query_params->{'addWinePairing'} = $self->{api_client}->to_query_value($args{'add_wine_pairing'});
+    }
+
+    # query params
+    if ( exists $args{'add_taste_data'}) {
+        $query_params->{'addTasteData'} = $self->{api_client}->to_query_value($args{'add_taste_data'});
+    }
+
     # path params
     if ( exists $args{'id'}) {
         my $_base_variable = "{" . "id" . "}";
@@ -1246,7 +1273,7 @@ sub get_recipe_information {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetRecipeInformation200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('RecipeInformation', $response);
     return $_response_object;
 }
 
@@ -1273,10 +1300,10 @@ sub get_recipe_information {
     __PACKAGE__->method_documentation->{ 'get_recipe_information_bulk' } = {
         summary => 'Get Recipe Information Bulk',
         params => $params,
-        returns => 'ARRAY[GetRecipeInformationBulk200ResponseInner]',
+        returns => 'ARRAY[RecipeInformation]',
         };
 }
-# @return ARRAY[GetRecipeInformationBulk200ResponseInner]
+# @return ARRAY[RecipeInformation]
 #
 sub get_recipe_information_bulk {
     my ($self, %args) = @_;
@@ -1322,7 +1349,7 @@ sub get_recipe_information_bulk {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ARRAY[GetRecipeInformationBulk200ResponseInner]', $response);
+    my $_response_object = $self->{api_client}->deserialize('ARRAY[RecipeInformation]', $response);
     return $_response_object;
 }
 
@@ -1331,12 +1358,12 @@ sub get_recipe_information_bulk {
 #
 # Ingredients by ID
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     };
@@ -1398,12 +1425,12 @@ sub get_recipe_ingredients_by_id {
 #
 # Nutrition by ID
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     };
@@ -1465,12 +1492,12 @@ sub get_recipe_nutrition_widget_by_id {
 #
 # Price Breakdown by ID
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     };
@@ -1532,13 +1559,13 @@ sub get_recipe_price_breakdown_by_id {
 #
 # Taste by ID
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $normalize Normalize to the strongest taste. (optional, default to true)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     'normalize' => {
@@ -1550,10 +1577,10 @@ sub get_recipe_price_breakdown_by_id {
     __PACKAGE__->method_documentation->{ 'get_recipe_taste_by_id' } = {
         summary => 'Taste by ID',
         params => $params,
-        returns => 'GetRecipeTasteByID200Response',
+        returns => 'TasteInformation',
         };
 }
-# @return GetRecipeTasteByID200Response
+# @return TasteInformation
 #
 sub get_recipe_taste_by_id {
     my ($self, %args) = @_;
@@ -1601,7 +1628,7 @@ sub get_recipe_taste_by_id {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetRecipeTasteByID200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('TasteInformation', $response);
     return $_response_object;
 }
 
@@ -1610,13 +1637,13 @@ sub get_recipe_taste_by_id {
 #
 # Get Similar Recipes
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The id of the source recipe for which similar recipes should be found. (required)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The id of the source recipe for which similar recipes should be found.',
         required => '1',
     },
     'number' => {
@@ -1756,7 +1783,7 @@ sub guess_nutrition_by_dish_name {
 # @param string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
 # @param double $servings The number of servings that you can make from the ingredients. (required)
 # @param string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-# @param boolean $include_nutrition  (optional)
+# @param boolean $include_nutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
 {
     my $params = {
     'ingredient_list' => {
@@ -1776,17 +1803,17 @@ sub guess_nutrition_by_dish_name {
     },
     'include_nutrition' => {
         data_type => 'boolean',
-        description => '',
+        description => 'Whether nutrition data should be added to correctly parsed ingredients.',
         required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ 'parse_ingredients' } = {
         summary => 'Parse Ingredients',
         params => $params,
-        returns => 'ARRAY[ParseIngredients200ResponseInner]',
+        returns => 'ARRAY[IngredientInformation]',
         };
 }
-# @return ARRAY[ParseIngredients200ResponseInner]
+# @return ARRAY[IngredientInformation]
 #
 sub parse_ingredients {
     my ($self, %args) = @_;
@@ -1847,7 +1874,7 @@ sub parse_ingredients {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ARRAY[ParseIngredients200ResponseInner]', $response);
+    my $_response_object = $self->{api_client}->deserialize('ARRAY[IngredientInformation]', $response);
     return $_response_object;
 }
 
@@ -1856,11 +1883,11 @@ sub parse_ingredients {
 #
 # Price Breakdown by ID Image
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },
@@ -1988,11 +2015,11 @@ sub quick_answer {
 #
 # Recipe Nutrition by ID Image
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },
@@ -2055,14 +2082,14 @@ sub recipe_nutrition_by_id_image {
 #
 # Recipe Nutrition Label Image
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $show_optional_nutrients Whether to show optional nutrients. (optional)
 # @param boolean $show_zero_values Whether to show zero values. (optional)
 # @param boolean $show_ingredients Whether to show a list of ingredients. (optional)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },
@@ -2155,7 +2182,7 @@ sub recipe_nutrition_label_image {
 #
 # Recipe Nutrition Label Widget
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 # @param boolean $show_optional_nutrients Whether to show optional nutrients. (optional)
 # @param boolean $show_zero_values Whether to show zero values. (optional)
@@ -2163,7 +2190,7 @@ sub recipe_nutrition_label_image {
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },
@@ -2266,13 +2293,13 @@ sub recipe_nutrition_label_widget {
 #
 # Recipe Taste by ID Image
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $normalize Normalize to the strongest taste. (optional)
 # @param string $rgb Red, green, blue values for the chart color. (optional)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },
@@ -2355,7 +2382,7 @@ sub recipe_taste_by_id_image {
 #
 # Search Recipes
 #
-# @param string $query The (natural language) search query. (optional)
+# @param string $query The (natural language) search query. (required)
 # @param string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
 # @param string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
 # @param string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2370,7 +2397,7 @@ sub recipe_taste_by_id_image {
 # @param boolean $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
 # @param string $author The username of the recipe author. (optional)
 # @param string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-# @param double $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+# @param int $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
 # @param string $title_match Enter text that must be found in the title of the recipes. (optional)
 # @param double $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
 # @param double $min_servings The minimum amount of servings the recipe is for. (optional)
@@ -2457,7 +2484,7 @@ sub recipe_taste_by_id_image {
     'query' => {
         data_type => 'string',
         description => 'The (natural language) search query.',
-        required => '0',
+        required => '1',
     },
     'cuisine' => {
         data_type => 'string',
@@ -2530,7 +2557,7 @@ sub recipe_taste_by_id_image {
         required => '0',
     },
     'recipe_box_id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The id of the recipe box to which the search should be limited to.',
         required => '0',
     },
@@ -2950,6 +2977,11 @@ sub recipe_taste_by_id_image {
 #
 sub search_recipes {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling search_recipes");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/complexSearch';
@@ -3471,16 +3503,16 @@ sub search_recipes {
 #
 # Search Recipes by Ingredients
 #
-# @param string $ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+# @param string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-# @param double $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+# @param int $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
 # @param boolean $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
 {
     my $params = {
     'ingredients' => {
         data_type => 'string',
         description => 'A comma-separated list of ingredients that the recipes should contain.',
-        required => '0',
+        required => '1',
     },
     'number' => {
         data_type => 'int',
@@ -3488,7 +3520,7 @@ sub search_recipes {
         required => '0',
     },
     'ranking' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.',
         required => '0',
     },
@@ -3508,6 +3540,11 @@ sub search_recipes {
 #
 sub search_recipes_by_ingredients {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'ingredients' is set
+    unless (exists $args{'ingredients'}) {
+      croak("Missing the required parameter 'ingredients' when calling search_recipes_by_ingredients");
+    }
 
     # parse inputs
     my $_resource_path = '/recipes/findByIngredients';
@@ -4438,12 +4475,12 @@ sub search_recipes_by_nutrients {
 #
 # Summarize Recipe
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     };
@@ -4728,13 +4765,13 @@ sub visualize_price_breakdown {
 #
 # Equipment by ID Widget
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     'default_css' => {
@@ -4806,14 +4843,14 @@ sub visualize_recipe_equipment_by_id {
 #
 # Ingredients by ID Widget
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 # @param string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     'default_css' => {
@@ -5009,13 +5046,13 @@ sub visualize_recipe_nutrition {
 #
 # Recipe Nutrition by ID Widget
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     'default_css' => {
@@ -5087,13 +5124,13 @@ sub visualize_recipe_nutrition_by_id {
 #
 # Price Breakdown by ID Widget
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     'default_css' => {
@@ -5263,14 +5300,14 @@ sub visualize_recipe_taste {
 #
 # Recipe Taste by ID Widget
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The recipe id. (required)
 # @param boolean $normalize Whether to normalize to the strongest taste. (optional, default to true)
 # @param string $rgb Red, green, blue values for the chart color. (optional)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The recipe id.',
         required => '1',
     },
     'normalize' => {

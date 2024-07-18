@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **autocompleteMenuItemSearch**
-> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, number)
+> AutocompleteProductSearch200Response autocompleteMenuItemSearch(query, number)
 
 Autocomplete Menu Item Search
 
@@ -35,7 +35,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = MenuItemsApi();
 final query = chicke; // String | The (partial) search query.
-final number = 10; // num | The number of results to return (between 1 and 25).
+final number = 10; // int | The number of results to return (between 1 and 25).
 
 try {
     final result = api_instance.autocompleteMenuItemSearch(query, number);
@@ -50,11 +50,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (partial) search query. | 
- **number** | **num**| The number of results to return (between 1 and 25). | [optional] 
+ **number** | **int**| The number of results to return (between 1 and 25). | [optional] 
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMenuItemInformation**
-> GetMenuItemInformation200Response getMenuItemInformation(id)
+> MenuItem getMenuItemInformation(id)
 
 Get Menu Item Information
 
@@ -83,7 +83,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MenuItemsApi();
-final id = 1; // int | The item's id.
+final id = 424571; // int | The menu item id.
 
 try {
     final result = api_instance.getMenuItemInformation(id);
@@ -97,11 +97,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The menu item id. | 
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MenuItemsApi();
-final id = 424571; // num | The menu item id.
+final id = 424571; // int | The menu item id.
 
 try {
     final result = api_instance.menuItemNutritionByIDImage(id);
@@ -144,7 +144,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
 
 ### Return type
 
@@ -177,7 +177,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MenuItemsApi();
-final id = 342313; // num | The menu item id.
+final id = 342313; // int | The menu item id.
 final showOptionalNutrients = false; // bool | Whether to show optional nutrients.
 final showZeroValues = false; // bool | Whether to show zero values.
 final showIngredients = false; // bool | Whether to show a list of ingredients.
@@ -194,7 +194,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
  **showOptionalNutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **showZeroValues** | **bool**| Whether to show zero values. | [optional] 
  **showIngredients** | **bool**| Whether to show a list of ingredients. | [optional] 
@@ -230,7 +230,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MenuItemsApi();
-final id = 342313; // num | The menu item id.
+final id = 342313; // int | The menu item id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 final showOptionalNutrients = false; // bool | Whether to show optional nutrients.
 final showZeroValues = false; // bool | Whether to show zero values.
@@ -248,7 +248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **showOptionalNutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **showZeroValues** | **bool**| Whether to show zero values. | [optional] 
@@ -310,7 +310,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **minCalories** | **num**| The minimum amount of calories the menu item must have. | [optional] 
  **maxCalories** | **num**| The maximum amount of calories the menu item can have. | [optional] 
  **minCarbs** | **num**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] 
@@ -354,7 +354,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = MenuItemsApi();
-final id = 1; // int | The item's id.
+final id = 1003464; // int | The menu item id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -369,7 +369,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The menu item id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

@@ -42,10 +42,10 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'articles' => :'Array<SearchSiteContent200ResponseArticlesInner>',
-        :'grocery_products' => :'Array<SearchSiteContent200ResponseArticlesInner>',
-        :'menu_items' => :'Array<SearchSiteContent200ResponseArticlesInner>',
-        :'recipes' => :'Array<SearchSiteContent200ResponseArticlesInner>'
+        :'articles' => :'Array<SearchResult>',
+        :'grocery_products' => :'Array<SearchResult>',
+        :'menu_items' => :'Array<SearchResult>',
+        :'recipes' => :'Array<SearchResult>'
       }
     end
 
@@ -112,32 +112,16 @@ module OpenapiClient
         invalid_properties.push('invalid value for "articles", articles cannot be nil.')
       end
 
-      if @articles.length < 0
-        invalid_properties.push('invalid value for "articles", number of items must be greater than or equal to 0.')
-      end
-
       if @grocery_products.nil?
         invalid_properties.push('invalid value for "grocery_products", grocery_products cannot be nil.')
-      end
-
-      if @grocery_products.length < 0
-        invalid_properties.push('invalid value for "grocery_products", number of items must be greater than or equal to 0.')
       end
 
       if @menu_items.nil?
         invalid_properties.push('invalid value for "menu_items", menu_items cannot be nil.')
       end
 
-      if @menu_items.length < 0
-        invalid_properties.push('invalid value for "menu_items", number of items must be greater than or equal to 0.')
-      end
-
       if @recipes.nil?
         invalid_properties.push('invalid value for "recipes", recipes cannot be nil.')
-      end
-
-      if @recipes.length < 0
-        invalid_properties.push('invalid value for "recipes", number of items must be greater than or equal to 0.')
       end
 
       invalid_properties
@@ -148,70 +132,10 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @articles.nil?
-      return false if @articles.length < 0
       return false if @grocery_products.nil?
-      return false if @grocery_products.length < 0
       return false if @menu_items.nil?
-      return false if @menu_items.length < 0
       return false if @recipes.nil?
-      return false if @recipes.length < 0
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] articles Value to be assigned
-    def articles=(articles)
-      if articles.nil?
-        fail ArgumentError, 'articles cannot be nil'
-      end
-
-      if articles.length < 0
-        fail ArgumentError, 'invalid value for "articles", number of items must be greater than or equal to 0.'
-      end
-
-      @articles = articles
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] grocery_products Value to be assigned
-    def grocery_products=(grocery_products)
-      if grocery_products.nil?
-        fail ArgumentError, 'grocery_products cannot be nil'
-      end
-
-      if grocery_products.length < 0
-        fail ArgumentError, 'invalid value for "grocery_products", number of items must be greater than or equal to 0.'
-      end
-
-      @grocery_products = grocery_products
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] menu_items Value to be assigned
-    def menu_items=(menu_items)
-      if menu_items.nil?
-        fail ArgumentError, 'menu_items cannot be nil'
-      end
-
-      if menu_items.length < 0
-        fail ArgumentError, 'invalid value for "menu_items", number of items must be greater than or equal to 0.'
-      end
-
-      @menu_items = menu_items
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] recipes Value to be assigned
-    def recipes=(recipes)
-      if recipes.nil?
-        fail ArgumentError, 'recipes cannot be nil'
-      end
-
-      if recipes.length < 0
-        fail ArgumentError, 'invalid value for "recipes", number of items must be greater than or equal to 0.'
-      end
-
-      @recipes = recipes
     end
 
     # Checks equality by comparing each attribute.

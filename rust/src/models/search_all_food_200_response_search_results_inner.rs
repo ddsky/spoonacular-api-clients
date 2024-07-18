@@ -18,7 +18,7 @@ pub struct SearchAllFood200ResponseSearchResultsInner {
     #[serde(rename = "totalResults")]
     pub total_results: i32,
     #[serde(rename = "results", skip_serializing_if = "Option::is_none")]
-    pub results: Option<Vec<models::SearchAllFood200ResponseSearchResultsInnerResultsInner>>,
+    pub results: Option<Vec<models::SearchResult>>,
 }
 
 impl SearchAllFood200ResponseSearchResultsInner {

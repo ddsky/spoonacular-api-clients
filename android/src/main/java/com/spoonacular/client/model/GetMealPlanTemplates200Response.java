@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseIngredientsInner;
+import com.spoonacular.client.model.GetMealPlanTemplates200ResponseTemplatesInner;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -24,15 +24,15 @@ import com.google.gson.annotations.SerializedName;
 public class GetMealPlanTemplates200Response {
   
   @SerializedName("templates")
-  private Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates = null;
+  private Set<GetMealPlanTemplates200ResponseTemplatesInner> templates = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> getTemplates() {
+  public Set<GetMealPlanTemplates200ResponseTemplatesInner> getTemplates() {
     return templates;
   }
-  public void setTemplates(Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates) {
+  public void setTemplates(Set<GetMealPlanTemplates200ResponseTemplatesInner> templates) {
     this.templates = templates;
   }
 

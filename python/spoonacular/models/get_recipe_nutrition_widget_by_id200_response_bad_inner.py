@@ -28,11 +28,11 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner(BaseModel):
     """
     GetRecipeNutritionWidgetByID200ResponseBadInner
     """ # noqa: E501
-    name: Annotated[str, Field(min_length=1, strict=True)]
+    title: Annotated[str, Field(min_length=1, strict=True)]
     amount: Annotated[str, Field(min_length=1, strict=True)]
     indented: StrictBool
     percent_of_daily_needs: Union[StrictFloat, StrictInt] = Field(alias="percentOfDailyNeeds")
-    __properties: ClassVar[List[str]] = ["name", "amount", "indented", "percentOfDailyNeeds"]
+    __properties: ClassVar[List[str]] = ["title", "amount", "indented", "percentOfDailyNeeds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,7 +85,7 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
+            "title": obj.get("title"),
             "amount": obj.get("amount"),
             "indented": obj.get("indented"),
             "percentOfDailyNeeds": obj.get("percentOfDailyNeeds")

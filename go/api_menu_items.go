@@ -29,7 +29,7 @@ type ApiAutocompleteMenuItemSearchRequest struct {
 	ctx context.Context
 	ApiService *MenuItemsAPIService
 	query *string
-	number *float32
+	number *int32
 }
 
 // The (partial) search query.
@@ -39,12 +39,12 @@ func (r ApiAutocompleteMenuItemSearchRequest) Query(query string) ApiAutocomplet
 }
 
 // The number of results to return (between 1 and 25).
-func (r ApiAutocompleteMenuItemSearchRequest) Number(number float32) ApiAutocompleteMenuItemSearchRequest {
+func (r ApiAutocompleteMenuItemSearchRequest) Number(number int32) ApiAutocompleteMenuItemSearchRequest {
 	r.number = &number
 	return r
 }
 
-func (r ApiAutocompleteMenuItemSearchRequest) Execute() (*AutocompleteMenuItemSearch200Response, *http.Response, error) {
+func (r ApiAutocompleteMenuItemSearchRequest) Execute() (*AutocompleteProductSearch200Response, *http.Response, error) {
 	return r.ApiService.AutocompleteMenuItemSearchExecute(r)
 }
 
@@ -64,13 +64,13 @@ func (a *MenuItemsAPIService) AutocompleteMenuItemSearch(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return AutocompleteMenuItemSearch200Response
-func (a *MenuItemsAPIService) AutocompleteMenuItemSearchExecute(r ApiAutocompleteMenuItemSearchRequest) (*AutocompleteMenuItemSearch200Response, *http.Response, error) {
+//  @return AutocompleteProductSearch200Response
+func (a *MenuItemsAPIService) AutocompleteMenuItemSearchExecute(r ApiAutocompleteMenuItemSearchRequest) (*AutocompleteProductSearch200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AutocompleteMenuItemSearch200Response
+		localVarReturnValue  *AutocompleteProductSearch200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MenuItemsAPIService.AutocompleteMenuItemSearch")
@@ -165,7 +165,7 @@ type ApiGetMenuItemInformationRequest struct {
 	id int32
 }
 
-func (r ApiGetMenuItemInformationRequest) Execute() (*GetMenuItemInformation200Response, *http.Response, error) {
+func (r ApiGetMenuItemInformationRequest) Execute() (*MenuItem, *http.Response, error) {
 	return r.ApiService.GetMenuItemInformationExecute(r)
 }
 
@@ -175,7 +175,7 @@ GetMenuItemInformation Get Menu Item Information
 Use a menu item id to get all available information about a menu item, such as nutrition.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The menu item id.
  @return ApiGetMenuItemInformationRequest
 */
 func (a *MenuItemsAPIService) GetMenuItemInformation(ctx context.Context, id int32) ApiGetMenuItemInformationRequest {
@@ -187,13 +187,13 @@ func (a *MenuItemsAPIService) GetMenuItemInformation(ctx context.Context, id int
 }
 
 // Execute executes the request
-//  @return GetMenuItemInformation200Response
-func (a *MenuItemsAPIService) GetMenuItemInformationExecute(r ApiGetMenuItemInformationRequest) (*GetMenuItemInformation200Response, *http.Response, error) {
+//  @return MenuItem
+func (a *MenuItemsAPIService) GetMenuItemInformationExecute(r ApiGetMenuItemInformationRequest) (*MenuItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetMenuItemInformation200Response
+		localVarReturnValue  *MenuItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MenuItemsAPIService.GetMenuItemInformation")
@@ -279,7 +279,7 @@ func (a *MenuItemsAPIService) GetMenuItemInformationExecute(r ApiGetMenuItemInfo
 type ApiMenuItemNutritionByIDImageRequest struct {
 	ctx context.Context
 	ApiService *MenuItemsAPIService
-	id float32
+	id int32
 }
 
 func (r ApiMenuItemNutritionByIDImageRequest) Execute() (*os.File, *http.Response, error) {
@@ -295,7 +295,7 @@ Visualize a menu item's nutritional information as HTML including CSS.
  @param id The menu item id.
  @return ApiMenuItemNutritionByIDImageRequest
 */
-func (a *MenuItemsAPIService) MenuItemNutritionByIDImage(ctx context.Context, id float32) ApiMenuItemNutritionByIDImageRequest {
+func (a *MenuItemsAPIService) MenuItemNutritionByIDImage(ctx context.Context, id int32) ApiMenuItemNutritionByIDImageRequest {
 	return ApiMenuItemNutritionByIDImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -396,7 +396,7 @@ func (a *MenuItemsAPIService) MenuItemNutritionByIDImageExecute(r ApiMenuItemNut
 type ApiMenuItemNutritionLabelImageRequest struct {
 	ctx context.Context
 	ApiService *MenuItemsAPIService
-	id float32
+	id int32
 	showOptionalNutrients *bool
 	showZeroValues *bool
 	showIngredients *bool
@@ -433,7 +433,7 @@ Visualize a menu item's nutritional label information as an image.
  @param id The menu item id.
  @return ApiMenuItemNutritionLabelImageRequest
 */
-func (a *MenuItemsAPIService) MenuItemNutritionLabelImage(ctx context.Context, id float32) ApiMenuItemNutritionLabelImageRequest {
+func (a *MenuItemsAPIService) MenuItemNutritionLabelImage(ctx context.Context, id int32) ApiMenuItemNutritionLabelImageRequest {
 	return ApiMenuItemNutritionLabelImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -543,7 +543,7 @@ func (a *MenuItemsAPIService) MenuItemNutritionLabelImageExecute(r ApiMenuItemNu
 type ApiMenuItemNutritionLabelWidgetRequest struct {
 	ctx context.Context
 	ApiService *MenuItemsAPIService
-	id float32
+	id int32
 	defaultCss *bool
 	showOptionalNutrients *bool
 	showZeroValues *bool
@@ -587,7 +587,7 @@ Visualize a menu item's nutritional label information as HTML including CSS.
  @param id The menu item id.
  @return ApiMenuItemNutritionLabelWidgetRequest
 */
-func (a *MenuItemsAPIService) MenuItemNutritionLabelWidget(ctx context.Context, id float32) ApiMenuItemNutritionLabelWidgetRequest {
+func (a *MenuItemsAPIService) MenuItemNutritionLabelWidget(ctx context.Context, id int32) ApiMenuItemNutritionLabelWidgetRequest {
 	return ApiMenuItemNutritionLabelWidgetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -828,10 +828,11 @@ func (a *MenuItemsAPIService) SearchMenuItemsExecute(r ApiSearchMenuItemsRequest
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.minCalories != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "minCalories", r.minCalories, "")
 	}
@@ -959,7 +960,7 @@ VisualizeMenuItemNutritionByID Menu Item Nutrition by ID Widget
 Visualize a menu item's nutritional information as HTML including CSS.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The menu item id.
  @return ApiVisualizeMenuItemNutritionByIDRequest
 */
 func (a *MenuItemsAPIService) VisualizeMenuItemNutritionByID(ctx context.Context, id int32) ApiVisualizeMenuItemNutritionByIDRequest {

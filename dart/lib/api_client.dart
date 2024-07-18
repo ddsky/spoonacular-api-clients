@@ -216,8 +216,6 @@ class ApiClient {
           return AnalyzeRecipeRequest.fromJson(value);
         case 'AutocompleteIngredientSearch200ResponseInner':
           return AutocompleteIngredientSearch200ResponseInner.fromJson(value);
-        case 'AutocompleteMenuItemSearch200Response':
-          return AutocompleteMenuItemSearch200Response.fromJson(value);
         case 'AutocompleteProductSearch200Response':
           return AutocompleteProductSearch200Response.fromJson(value);
         case 'AutocompleteProductSearch200ResponseResultsInner':
@@ -234,6 +232,8 @@ class ApiClient {
           return ClassifyGroceryProductBulkRequestInner.fromJson(value);
         case 'ClassifyGroceryProductRequest':
           return ClassifyGroceryProductRequest.fromJson(value);
+        case 'ComparableProduct':
+          return ComparableProduct.fromJson(value);
         case 'ComputeGlycemicLoad200Response':
           return ComputeGlycemicLoad200Response.fromJson(value);
         case 'ComputeGlycemicLoad200ResponseIngredientsInner':
@@ -258,26 +258,18 @@ class ApiClient {
           return GenerateMealPlan200Response.fromJson(value);
         case 'GenerateMealPlan200ResponseNutrients':
           return GenerateMealPlan200ResponseNutrients.fromJson(value);
-        case 'GenerateShoppingList200Response':
-          return GenerateShoppingList200Response.fromJson(value);
         case 'GetARandomFoodJoke200Response':
           return GetARandomFoodJoke200Response.fromJson(value);
-        case 'GetAnalyzedRecipeInstructions200Response':
-          return GetAnalyzedRecipeInstructions200Response.fromJson(value);
-        case 'GetAnalyzedRecipeInstructions200ResponseIngredientsInner':
-          return GetAnalyzedRecipeInstructions200ResponseIngredientsInner.fromJson(value);
-        case 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner':
-          return GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInner.fromJson(value);
-        case 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner':
-          return GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInner.fromJson(value);
-        case 'GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner':
-          return GetAnalyzedRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200ResponseInner':
+          return GetAnalyzedRecipeInstructions200ResponseInner.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200ResponseInnerStepsInner':
+          return GetAnalyzedRecipeInstructions200ResponseInnerStepsInner.fromJson(value);
+        case 'GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner':
+          return GetAnalyzedRecipeInstructions200ResponseInnerStepsInnerIngredientsInner.fromJson(value);
         case 'GetComparableProducts200Response':
           return GetComparableProducts200Response.fromJson(value);
         case 'GetComparableProducts200ResponseComparableProducts':
           return GetComparableProducts200ResponseComparableProducts.fromJson(value);
-        case 'GetComparableProducts200ResponseComparableProductsProteinInner':
-          return GetComparableProducts200ResponseComparableProductsProteinInner.fromJson(value);
         case 'GetConversationSuggests200Response':
           return GetConversationSuggests200Response.fromJson(value);
         case 'GetConversationSuggests200ResponseSuggests':
@@ -286,10 +278,6 @@ class ApiClient {
           return GetConversationSuggests200ResponseSuggestsInner.fromJson(value);
         case 'GetDishPairingForWine200Response':
           return GetDishPairingForWine200Response.fromJson(value);
-        case 'GetIngredientInformation200Response':
-          return GetIngredientInformation200Response.fromJson(value);
-        case 'GetIngredientInformation200ResponseNutrition':
-          return GetIngredientInformation200ResponseNutrition.fromJson(value);
         case 'GetIngredientSubstitutes200Response':
           return GetIngredientSubstitutes200Response.fromJson(value);
         case 'GetMealPlanTemplate200Response':
@@ -302,6 +290,8 @@ class ApiClient {
           return GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue.fromJson(value);
         case 'GetMealPlanTemplates200Response':
           return GetMealPlanTemplates200Response.fromJson(value);
+        case 'GetMealPlanTemplates200ResponseTemplatesInner':
+          return GetMealPlanTemplates200ResponseTemplatesInner.fromJson(value);
         case 'GetMealPlanWeek200Response':
           return GetMealPlanWeek200Response.fromJson(value);
         case 'GetMealPlanWeek200ResponseDaysInner':
@@ -314,36 +304,12 @@ class ApiClient {
           return GetMealPlanWeek200ResponseDaysInnerNutritionSummary.fromJson(value);
         case 'GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner':
           return GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner.fromJson(value);
-        case 'GetMenuItemInformation200Response':
-          return GetMenuItemInformation200Response.fromJson(value);
-        case 'GetProductInformation200Response':
-          return GetProductInformation200Response.fromJson(value);
-        case 'GetProductInformation200ResponseIngredientsInner':
-          return GetProductInformation200ResponseIngredientsInner.fromJson(value);
-        case 'GetRandomFoodTrivia200Response':
-          return GetRandomFoodTrivia200Response.fromJson(value);
         case 'GetRandomRecipes200Response':
           return GetRandomRecipes200Response.fromJson(value);
-        case 'GetRandomRecipes200ResponseRecipesInner':
-          return GetRandomRecipes200ResponseRecipesInner.fromJson(value);
         case 'GetRecipeEquipmentByID200Response':
           return GetRecipeEquipmentByID200Response.fromJson(value);
         case 'GetRecipeEquipmentByID200ResponseEquipmentInner':
           return GetRecipeEquipmentByID200ResponseEquipmentInner.fromJson(value);
-        case 'GetRecipeInformation200Response':
-          return GetRecipeInformation200Response.fromJson(value);
-        case 'GetRecipeInformation200ResponseExtendedIngredientsInner':
-          return GetRecipeInformation200ResponseExtendedIngredientsInner.fromJson(value);
-        case 'GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures':
-          return GetRecipeInformation200ResponseExtendedIngredientsInnerMeasures.fromJson(value);
-        case 'GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric':
-          return GetRecipeInformation200ResponseExtendedIngredientsInnerMeasuresMetric.fromJson(value);
-        case 'GetRecipeInformation200ResponseWinePairing':
-          return GetRecipeInformation200ResponseWinePairing.fromJson(value);
-        case 'GetRecipeInformation200ResponseWinePairingProductMatchesInner':
-          return GetRecipeInformation200ResponseWinePairingProductMatchesInner.fromJson(value);
-        case 'GetRecipeInformationBulk200ResponseInner':
-          return GetRecipeInformationBulk200ResponseInner.fromJson(value);
         case 'GetRecipeIngredientsByID200Response':
           return GetRecipeIngredientsByID200Response.fromJson(value);
         case 'GetRecipeIngredientsByID200ResponseIngredientsInner':
@@ -362,8 +328,6 @@ class ApiClient {
           return GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount.fromJson(value);
         case 'GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric':
           return GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmountMetric.fromJson(value);
-        case 'GetRecipeTasteByID200Response':
-          return GetRecipeTasteByID200Response.fromJson(value);
         case 'GetShoppingList200Response':
           return GetShoppingList200Response.fromJson(value);
         case 'GetShoppingList200ResponseAislesInner':
@@ -372,6 +336,8 @@ class ApiClient {
           return GetShoppingList200ResponseAislesInnerItemsInner.fromJson(value);
         case 'GetShoppingList200ResponseAislesInnerItemsInnerMeasures':
           return GetShoppingList200ResponseAislesInnerItemsInnerMeasures.fromJson(value);
+        case 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal':
+          return GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.fromJson(value);
         case 'GetSimilarRecipes200ResponseInner':
           return GetSimilarRecipes200ResponseInner.fromJson(value);
         case 'GetWineDescription200Response':
@@ -404,6 +370,16 @@ class ApiClient {
           return ImageAnalysisByURL200ResponseRecipesInner.fromJson(value);
         case 'ImageClassificationByURL200Response':
           return ImageClassificationByURL200Response.fromJson(value);
+        case 'IngredientBasics':
+          return IngredientBasics.fromJson(value);
+        case 'IngredientInformation':
+          return IngredientInformation.fromJson(value);
+        case 'IngredientInformationEstimatedCost':
+          return IngredientInformationEstimatedCost.fromJson(value);
+        case 'IngredientInformationNutrition':
+          return IngredientInformationNutrition.fromJson(value);
+        case 'IngredientInformationNutritionPropertiesInner':
+          return IngredientInformationNutritionPropertiesInner.fromJson(value);
         case 'IngredientSearch200Response':
           return IngredientSearch200Response.fromJson(value);
         case 'IngredientSearch200ResponseResultsInner':
@@ -414,28 +390,32 @@ class ApiClient {
           return MapIngredientsToGroceryProducts200ResponseInnerProductsInner.fromJson(value);
         case 'MapIngredientsToGroceryProductsRequest':
           return MapIngredientsToGroceryProductsRequest.fromJson(value);
-        case 'ParseIngredients200ResponseInner':
-          return ParseIngredients200ResponseInner.fromJson(value);
-        case 'ParseIngredients200ResponseInnerEstimatedCost':
-          return ParseIngredients200ResponseInnerEstimatedCost.fromJson(value);
-        case 'ParseIngredients200ResponseInnerNutrition':
-          return ParseIngredients200ResponseInnerNutrition.fromJson(value);
-        case 'ParseIngredients200ResponseInnerNutritionCaloricBreakdown':
-          return ParseIngredients200ResponseInnerNutritionCaloricBreakdown.fromJson(value);
-        case 'ParseIngredients200ResponseInnerNutritionNutrientsInner':
-          return ParseIngredients200ResponseInnerNutritionNutrientsInner.fromJson(value);
-        case 'ParseIngredients200ResponseInnerNutritionPropertiesInner':
-          return ParseIngredients200ResponseInnerNutritionPropertiesInner.fromJson(value);
-        case 'ParseIngredients200ResponseInnerNutritionWeightPerServing':
-          return ParseIngredients200ResponseInnerNutritionWeightPerServing.fromJson(value);
+        case 'MenuItem':
+          return MenuItem.fromJson(value);
+        case 'MenuItemServings':
+          return MenuItemServings.fromJson(value);
+        case 'ProductInformation':
+          return ProductInformation.fromJson(value);
+        case 'ProductInformationCredits':
+          return ProductInformationCredits.fromJson(value);
         case 'QuickAnswer200Response':
           return QuickAnswer200Response.fromJson(value);
+        case 'RecipeInformation':
+          return RecipeInformation.fromJson(value);
+        case 'RecipeInformationExtendedIngredientsInner':
+          return RecipeInformationExtendedIngredientsInner.fromJson(value);
+        case 'RecipeInformationExtendedIngredientsInnerMeasures':
+          return RecipeInformationExtendedIngredientsInnerMeasures.fromJson(value);
+        case 'RecipeInformationExtendedIngredientsInnerMeasuresMetric':
+          return RecipeInformationExtendedIngredientsInnerMeasuresMetric.fromJson(value);
+        case 'RecipeInformationWinePairing':
+          return RecipeInformationWinePairing.fromJson(value);
+        case 'RecipeInformationWinePairingProductMatchesInner':
+          return RecipeInformationWinePairingProductMatchesInner.fromJson(value);
         case 'SearchAllFood200Response':
           return SearchAllFood200Response.fromJson(value);
         case 'SearchAllFood200ResponseSearchResultsInner':
           return SearchAllFood200ResponseSearchResultsInner.fromJson(value);
-        case 'SearchAllFood200ResponseSearchResultsInnerResultsInner':
-          return SearchAllFood200ResponseSearchResultsInnerResultsInner.fromJson(value);
         case 'SearchCustomFoods200Response':
           return SearchCustomFoods200Response.fromJson(value);
         case 'SearchCustomFoods200ResponseCustomFoodsInner':
@@ -448,16 +428,16 @@ class ApiClient {
           return SearchGroceryProducts200Response.fromJson(value);
         case 'SearchGroceryProductsByUPC200Response':
           return SearchGroceryProductsByUPC200Response.fromJson(value);
-        case 'SearchGroceryProductsByUPC200ResponseIngredientsInner':
-          return SearchGroceryProductsByUPC200ResponseIngredientsInner.fromJson(value);
         case 'SearchGroceryProductsByUPC200ResponseNutrition':
           return SearchGroceryProductsByUPC200ResponseNutrition.fromJson(value);
+        case 'SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown':
+          return SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.fromJson(value);
+        case 'SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner':
+          return SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.fromJson(value);
         case 'SearchGroceryProductsByUPC200ResponseServings':
           return SearchGroceryProductsByUPC200ResponseServings.fromJson(value);
         case 'SearchMenuItems200Response':
           return SearchMenuItems200Response.fromJson(value);
-        case 'SearchMenuItems200ResponseMenuItemsInner':
-          return SearchMenuItems200ResponseMenuItemsInner.fromJson(value);
         case 'SearchRecipes200Response':
           return SearchRecipes200Response.fromJson(value);
         case 'SearchRecipes200ResponseResultsInner':
@@ -478,18 +458,20 @@ class ApiClient {
           return SearchRestaurants200ResponseRestaurantsInnerLocalHours.fromJson(value);
         case 'SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational':
           return SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.fromJson(value);
+        case 'SearchResult':
+          return SearchResult.fromJson(value);
+        case 'SearchResultDataPointsInner':
+          return SearchResultDataPointsInner.fromJson(value);
         case 'SearchSiteContent200Response':
           return SearchSiteContent200Response.fromJson(value);
-        case 'SearchSiteContent200ResponseArticlesInner':
-          return SearchSiteContent200ResponseArticlesInner.fromJson(value);
-        case 'SearchSiteContent200ResponseArticlesInnerDataPointsInner':
-          return SearchSiteContent200ResponseArticlesInnerDataPointsInner.fromJson(value);
         case 'SummarizeRecipe200Response':
           return SummarizeRecipe200Response.fromJson(value);
         case 'TalkToChatbot200Response':
           return TalkToChatbot200Response.fromJson(value);
         case 'TalkToChatbot200ResponseMediaInner':
           return TalkToChatbot200ResponseMediaInner.fromJson(value);
+        case 'TasteInformation':
+          return TasteInformation.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {

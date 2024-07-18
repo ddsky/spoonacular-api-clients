@@ -23,7 +23,6 @@ from typing_extensions import Annotated
 from spoonacular.models.detect_food_in_text200_response import DetectFoodInText200Response
 from spoonacular.models.get_a_random_food_joke200_response import GetARandomFoodJoke200Response
 from spoonacular.models.get_conversation_suggests200_response import GetConversationSuggests200Response
-from spoonacular.models.get_random_food_trivia200_response import GetRandomFoodTrivia200Response
 from spoonacular.models.image_analysis_by_url200_response import ImageAnalysisByURL200Response
 from spoonacular.models.image_classification_by_url200_response import ImageClassificationByURL200Response
 from spoonacular.models.search_all_food200_response import SearchAllFood200Response
@@ -886,7 +885,7 @@ class MiscApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetRandomFoodTrivia200Response:
+    ) -> GetARandomFoodJoke200Response:
         """Random Food Trivia
 
         Returns random food trivia.
@@ -921,7 +920,7 @@ class MiscApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRandomFoodTrivia200Response",
+            '200': "GetARandomFoodJoke200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -952,7 +951,7 @@ class MiscApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetRandomFoodTrivia200Response]:
+    ) -> ApiResponse[GetARandomFoodJoke200Response]:
         """Random Food Trivia
 
         Returns random food trivia.
@@ -987,7 +986,7 @@ class MiscApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRandomFoodTrivia200Response",
+            '200': "GetARandomFoodJoke200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -1053,7 +1052,7 @@ class MiscApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetRandomFoodTrivia200Response",
+            '200': "GetARandomFoodJoke200Response",
             '401': None,
             '403': None,
             '404': None,
@@ -1971,9 +1970,9 @@ class MiscApi:
     @validate_call
     def search_custom_foods(
         self,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
@@ -1993,12 +1992,12 @@ class MiscApi:
 
         Search custom foods in a user's account.
 
+        :param query: The (natural language) search query. (required)
+        :type query: str
         :param username: The username. (required)
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param query: The (natural language) search query.
-        :type query: str
         :param offset: The number of results to skip (between 0 and 900).
         :type offset: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
@@ -2026,9 +2025,9 @@ class MiscApi:
         """ # noqa: E501
 
         _param = self._search_custom_foods_serialize(
+            query=query,
             username=username,
             hash=hash,
-            query=query,
             offset=offset,
             number=number,
             _request_auth=_request_auth,
@@ -2057,9 +2056,9 @@ class MiscApi:
     @validate_call
     def search_custom_foods_with_http_info(
         self,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
@@ -2079,12 +2078,12 @@ class MiscApi:
 
         Search custom foods in a user's account.
 
+        :param query: The (natural language) search query. (required)
+        :type query: str
         :param username: The username. (required)
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param query: The (natural language) search query.
-        :type query: str
         :param offset: The number of results to skip (between 0 and 900).
         :type offset: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
@@ -2112,9 +2111,9 @@ class MiscApi:
         """ # noqa: E501
 
         _param = self._search_custom_foods_serialize(
+            query=query,
             username=username,
             hash=hash,
-            query=query,
             offset=offset,
             number=number,
             _request_auth=_request_auth,
@@ -2143,9 +2142,9 @@ class MiscApi:
     @validate_call
     def search_custom_foods_without_preload_content(
         self,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         username: Annotated[StrictStr, Field(description="The username.")],
         hash: Annotated[StrictStr, Field(description="The private hash for the username.")],
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
         offset: Annotated[Optional[Annotated[int, Field(le=900, strict=True, ge=0)]], Field(description="The number of results to skip (between 0 and 900).")] = None,
         number: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="The maximum number of items to return (between 1 and 100). Defaults to 10.")] = None,
         _request_timeout: Union[
@@ -2165,12 +2164,12 @@ class MiscApi:
 
         Search custom foods in a user's account.
 
+        :param query: The (natural language) search query. (required)
+        :type query: str
         :param username: The username. (required)
         :type username: str
         :param hash: The private hash for the username. (required)
         :type hash: str
-        :param query: The (natural language) search query.
-        :type query: str
         :param offset: The number of results to skip (between 0 and 900).
         :type offset: int
         :param number: The maximum number of items to return (between 1 and 100). Defaults to 10.
@@ -2198,9 +2197,9 @@ class MiscApi:
         """ # noqa: E501
 
         _param = self._search_custom_foods_serialize(
+            query=query,
             username=username,
             hash=hash,
-            query=query,
             offset=offset,
             number=number,
             _request_auth=_request_auth,
@@ -2224,9 +2223,9 @@ class MiscApi:
 
     def _search_custom_foods_serialize(
         self,
+        query,
         username,
         hash,
-        query,
         offset,
         number,
         _request_auth,
@@ -2309,7 +2308,7 @@ class MiscApi:
     @validate_call
     def search_food_videos(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         type: Annotated[Optional[StrictStr], Field(description="The type of the recipes. See a full list of supported meal types.")] = None,
         cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.")] = None,
         diet: Annotated[Optional[StrictStr], Field(description="The diet for which the recipes must be suitable. See a full list of supported diets.")] = None,
@@ -2336,7 +2335,7 @@ class MiscApi:
 
         Find recipe and other food related videos.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param type: The type of the recipes. See a full list of supported meal types.
         :type type: str
@@ -2415,7 +2414,7 @@ class MiscApi:
     @validate_call
     def search_food_videos_with_http_info(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         type: Annotated[Optional[StrictStr], Field(description="The type of the recipes. See a full list of supported meal types.")] = None,
         cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.")] = None,
         diet: Annotated[Optional[StrictStr], Field(description="The diet for which the recipes must be suitable. See a full list of supported diets.")] = None,
@@ -2442,7 +2441,7 @@ class MiscApi:
 
         Find recipe and other food related videos.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param type: The type of the recipes. See a full list of supported meal types.
         :type type: str
@@ -2521,7 +2520,7 @@ class MiscApi:
     @validate_call
     def search_food_videos_without_preload_content(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         type: Annotated[Optional[StrictStr], Field(description="The type of the recipes. See a full list of supported meal types.")] = None,
         cuisine: Annotated[Optional[StrictStr], Field(description="The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.")] = None,
         diet: Annotated[Optional[StrictStr], Field(description="The diet for which the recipes must be suitable. See a full list of supported diets.")] = None,
@@ -2548,7 +2547,7 @@ class MiscApi:
 
         Find recipe and other food related videos.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param type: The type of the recipes. See a full list of supported meal types.
         :type type: str

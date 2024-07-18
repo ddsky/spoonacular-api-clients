@@ -21,7 +21,7 @@ void main() {
     //
     // Autocomplete the entry of an ingredient.
     //
-    //Future<Set<AutocompleteIngredientSearch200ResponseInner>> autocompleteIngredientSearch({ String query, int number, bool metaInformation, String intolerances, String language }) async
+    //Future<Set<AutocompleteIngredientSearch200ResponseInner>> autocompleteIngredientSearch(String query, { int number, bool metaInformation, String intolerances, String language }) async
     test('test autocompleteIngredientSearch', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
     //
-    //Future<ComputeIngredientAmount200Response> computeIngredientAmount(num id, String nutrient, num target, { String unit }) async
+    //Future<ComputeIngredientAmount200Response> computeIngredientAmount(int id, String nutrient, int target, { String unit }) async
     test('test computeIngredientAmount', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
     //
-    //Future<GetIngredientInformation200Response> getIngredientInformation(int id, { num amount, String unit }) async
+    //Future<IngredientInformation> getIngredientInformation(int id, { num amount, String unit }) async
     test('test getIngredientInformation', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
     //
-    //Future<IngredientSearch200Response> ingredientSearch({ String query, bool addChildren, num minProteinPercent, num maxProteinPercent, num minFatPercent, num maxFatPercent, num minCarbsPercent, num maxCarbsPercent, bool metaInformation, String intolerances, String sort, String sortDirection, int offset, int number, String language }) async
+    //Future<IngredientSearch200Response> ingredientSearch(String query, { bool addChildren, num minProteinPercent, num maxProteinPercent, num minFatPercent, num maxFatPercent, num minCarbsPercent, num maxCarbsPercent, bool metaInformation, String intolerances, String sort, String sortDirection, int offset, int number, String language }) async
     test('test ingredientSearch', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Visualize a recipe's ingredient list.
     //
-    //Future<MultipartFile> ingredientsByIDImage(num id, { String measure }) async
+    //Future<MultipartFile> ingredientsByIDImage(int id, { String measure }) async
     test('test ingredientsByIDImage', () async {
       // TODO
     });

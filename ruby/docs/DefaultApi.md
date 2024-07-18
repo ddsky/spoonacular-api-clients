@@ -110,7 +110,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::DefaultApi.new
-id = 4632 # Float | The recipe id.
+id = 4632 # Integer | The recipe id.
 opts = {
   mask: 'ellipseMask', # String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
   background_image: 'background1', # String | The background image (\"none\",\"background1\", or \"background2\").
@@ -149,7 +149,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **mask** | **String** | The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] |
 | **background_image** | **String** | The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] |
 | **background_color** | **String** | The background color for the recipe card as a hex-string. | [optional] |

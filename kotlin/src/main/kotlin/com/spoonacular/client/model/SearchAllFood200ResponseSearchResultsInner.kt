@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.SearchAllFood200ResponseSearchResultsInnerResultsInner
+import com.spoonacular.client.model.SearchResult
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -38,7 +38,7 @@ data class SearchAllFood200ResponseSearchResultsInner (
     val totalResults: kotlin.Int,
 
     @Json(name = "results")
-    val results: kotlin.collections.Set<SearchAllFood200ResponseSearchResultsInnerResultsInner>? = null
+    val results: kotlin.collections.Set<SearchResult>? = null
 
 ) {
 

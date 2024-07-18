@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProductsProteinInner;
+use WWW::OpenAPIClient::Object::ComparableProduct;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -221,42 +221,42 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'calories' => {
-        datatype => 'ARRAY[object]',
+        datatype => 'ARRAY[ComparableProduct]',
         base_name => 'calories',
         description => '',
         format => '',
         read_only => '',
             },
     'likes' => {
-        datatype => 'ARRAY[object]',
+        datatype => 'ARRAY[ComparableProduct]',
         base_name => 'likes',
         description => '',
         format => '',
         read_only => '',
             },
     'price' => {
-        datatype => 'ARRAY[object]',
+        datatype => 'ARRAY[ComparableProduct]',
         base_name => 'price',
         description => '',
         format => '',
         read_only => '',
             },
     'protein' => {
-        datatype => 'ARRAY[GetComparableProducts200ResponseComparableProductsProteinInner]',
+        datatype => 'ARRAY[ComparableProduct]',
         base_name => 'protein',
         description => '',
         format => '',
         read_only => '',
             },
     'spoonacular_score' => {
-        datatype => 'ARRAY[GetComparableProducts200ResponseComparableProductsProteinInner]',
-        base_name => 'spoonacularScore',
+        datatype => 'ARRAY[ComparableProduct]',
+        base_name => 'spoonacular_score',
         description => '',
         format => '',
         read_only => '',
             },
     'sugar' => {
-        datatype => 'ARRAY[object]',
+        datatype => 'ARRAY[ComparableProduct]',
         base_name => 'sugar',
         description => '',
         format => '',
@@ -265,12 +265,12 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'calories' => 'ARRAY[object]',
-    'likes' => 'ARRAY[object]',
-    'price' => 'ARRAY[object]',
-    'protein' => 'ARRAY[GetComparableProducts200ResponseComparableProductsProteinInner]',
-    'spoonacular_score' => 'ARRAY[GetComparableProducts200ResponseComparableProductsProteinInner]',
-    'sugar' => 'ARRAY[object]'
+    'calories' => 'ARRAY[ComparableProduct]',
+    'likes' => 'ARRAY[ComparableProduct]',
+    'price' => 'ARRAY[ComparableProduct]',
+    'protein' => 'ARRAY[ComparableProduct]',
+    'spoonacular_score' => 'ARRAY[ComparableProduct]',
+    'sugar' => 'ARRAY[ComparableProduct]'
 } );
 
 __PACKAGE__->attribute_map( {
@@ -278,7 +278,7 @@ __PACKAGE__->attribute_map( {
     'likes' => 'likes',
     'price' => 'price',
     'protein' => 'protein',
-    'spoonacular_score' => 'spoonacularScore',
+    'spoonacular_score' => 'spoonacular_score',
     'sugar' => 'sugar'
 } );
 

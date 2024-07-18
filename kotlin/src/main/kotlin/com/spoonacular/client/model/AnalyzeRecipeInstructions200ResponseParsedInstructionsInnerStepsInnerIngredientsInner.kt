@@ -32,7 +32,7 @@ import com.squareup.moshi.JsonClass
 data class AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner (
 
     @Json(name = "id")
-    val id: java.math.BigDecimal,
+    val id: kotlin.Int,
 
     @Json(name = "name")
     val name: kotlin.String,

@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **badges** | **Vec<String>** |  | 
 **important_badges** | **Vec<String>** |  | 
 **breadcrumbs** | **Vec<String>** |  | 
-**generated_text** | **String** |  | 
+**generated_text** | Option<**String**> |  | 
 **image_type** | **String** |  | 
 **ingredient_count** | Option<**i32**> |  | [optional]
 **ingredient_list** | **String** |  | 
-**ingredients** | [**Vec<models::SearchGroceryProductsByUpc200ResponseIngredientsInner>**](searchGroceryProductsByUPC_200_response_ingredients_inner.md) |  | 
+**ingredients** | [**Vec<models::IngredientBasics>**](IngredientBasics.md) |  | 
 **likes** | **f64** |  | 
 **nutrition** | [**models::SearchGroceryProductsByUpc200ResponseNutrition**](searchGroceryProductsByUPC_200_response_nutrition.md) |  | 
 **price** | **f64** |  | 

@@ -155,7 +155,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun createRecipeCardGet(id: java.math.BigDecimal, mask: kotlin.String? = null, backgroundImage: kotlin.String? = null, backgroundColor: kotlin.String? = null, fontColor: kotlin.String? = null) : kotlin.Any {
+    fun createRecipeCardGet(id: kotlin.Int, mask: kotlin.String? = null, backgroundImage: kotlin.String? = null, backgroundColor: kotlin.String? = null, fontColor: kotlin.String? = null) : kotlin.Any {
         val localVarResponse = createRecipeCardGetWithHttpInfo(id = id, mask = mask, backgroundImage = backgroundImage, backgroundColor = backgroundColor, fontColor = fontColor)
 
         return when (localVarResponse.responseType) {
@@ -187,7 +187,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun createRecipeCardGetWithHttpInfo(id: java.math.BigDecimal, mask: kotlin.String?, backgroundImage: kotlin.String?, backgroundColor: kotlin.String?, fontColor: kotlin.String?) : ApiResponse<kotlin.Any?> {
+    fun createRecipeCardGetWithHttpInfo(id: kotlin.Int, mask: kotlin.String?, backgroundImage: kotlin.String?, backgroundColor: kotlin.String?, fontColor: kotlin.String?) : ApiResponse<kotlin.Any?> {
         val localVariableConfig = createRecipeCardGetRequestConfig(id = id, mask = mask, backgroundImage = backgroundImage, backgroundColor = backgroundColor, fontColor = fontColor)
 
         return request<Unit, kotlin.Any>(
@@ -205,7 +205,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param fontColor The font color for the recipe card as a hex-string. (optional)
      * @return RequestConfig
      */
-    fun createRecipeCardGetRequestConfig(id: java.math.BigDecimal, mask: kotlin.String?, backgroundImage: kotlin.String?, backgroundColor: kotlin.String?, fontColor: kotlin.String?) : RequestConfig<Unit> {
+    fun createRecipeCardGetRequestConfig(id: kotlin.Int, mask: kotlin.String?, backgroundImage: kotlin.String?, backgroundColor: kotlin.String?, fontColor: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {

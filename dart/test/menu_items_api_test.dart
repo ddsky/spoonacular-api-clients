@@ -21,7 +21,7 @@ void main() {
     //
     // Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
     //
-    //Future<AutocompleteMenuItemSearch200Response> autocompleteMenuItemSearch(String query, { num number }) async
+    //Future<AutocompleteProductSearch200Response> autocompleteMenuItemSearch(String query, { int number }) async
     test('test autocompleteMenuItemSearch', () async {
       // TODO
     });
@@ -30,7 +30,7 @@ void main() {
     //
     // Use a menu item id to get all available information about a menu item, such as nutrition.
     //
-    //Future<GetMenuItemInformation200Response> getMenuItemInformation(int id) async
+    //Future<MenuItem> getMenuItemInformation(int id) async
     test('test getMenuItemInformation', () async {
       // TODO
     });
@@ -39,7 +39,7 @@ void main() {
     //
     // Visualize a menu item's nutritional information as HTML including CSS.
     //
-    //Future<MultipartFile> menuItemNutritionByIDImage(num id) async
+    //Future<MultipartFile> menuItemNutritionByIDImage(int id) async
     test('test menuItemNutritionByIDImage', () async {
       // TODO
     });
@@ -48,7 +48,7 @@ void main() {
     //
     // Visualize a menu item's nutritional label information as an image.
     //
-    //Future<MultipartFile> menuItemNutritionLabelImage(num id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<MultipartFile> menuItemNutritionLabelImage(int id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test menuItemNutritionLabelImage', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Visualize a menu item's nutritional label information as HTML including CSS.
     //
-    //Future<String> menuItemNutritionLabelWidget(num id, { bool defaultCss, bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<String> menuItemNutritionLabelWidget(int id, { bool defaultCss, bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test menuItemNutritionLabelWidget', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
     //
-    //Future<SearchMenuItems200Response> searchMenuItems({ String query, num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, bool addMenuItemInformation, int offset, int number }) async
+    //Future<SearchMenuItems200Response> searchMenuItems(String query, { num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, bool addMenuItemInformation, int offset, int number }) async
     test('test searchMenuItems', () async {
       // TODO
     });

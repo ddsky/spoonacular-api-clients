@@ -13,13 +13,13 @@ part of openapi.api;
 class GetRecipeNutritionWidgetByID200ResponseBadInner {
   /// Returns a new [GetRecipeNutritionWidgetByID200ResponseBadInner] instance.
   GetRecipeNutritionWidgetByID200ResponseBadInner({
-    required this.name,
+    required this.title,
     required this.amount,
     required this.indented,
     required this.percentOfDailyNeeds,
   });
 
-  String name;
+  String title;
 
   String amount;
 
@@ -29,7 +29,7 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetRecipeNutritionWidgetByID200ResponseBadInner &&
-    other.name == name &&
+    other.title == title &&
     other.amount == amount &&
     other.indented == indented &&
     other.percentOfDailyNeeds == percentOfDailyNeeds;
@@ -37,17 +37,17 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (name.hashCode) +
+    (title.hashCode) +
     (amount.hashCode) +
     (indented.hashCode) +
     (percentOfDailyNeeds.hashCode);
 
   @override
-  String toString() => 'GetRecipeNutritionWidgetByID200ResponseBadInner[name=$name, amount=$amount, indented=$indented, percentOfDailyNeeds=$percentOfDailyNeeds]';
+  String toString() => 'GetRecipeNutritionWidgetByID200ResponseBadInner[title=$title, amount=$amount, indented=$indented, percentOfDailyNeeds=$percentOfDailyNeeds]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'name'] = this.name;
+      json[r'title'] = this.title;
       json[r'amount'] = this.amount;
       json[r'indented'] = this.indented;
       json[r'percentOfDailyNeeds'] = this.percentOfDailyNeeds;
@@ -73,7 +73,7 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
       }());
 
       return GetRecipeNutritionWidgetByID200ResponseBadInner(
-        name: mapValueOfType<String>(json, r'name')!,
+        title: mapValueOfType<String>(json, r'title')!,
         amount: mapValueOfType<String>(json, r'amount')!,
         indented: mapValueOfType<bool>(json, r'indented')!,
         percentOfDailyNeeds: num.parse('${json[r'percentOfDailyNeeds']}'),
@@ -124,7 +124,7 @@ class GetRecipeNutritionWidgetByID200ResponseBadInner {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'name',
+    'title',
     'amount',
     'indented',
     'percentOfDailyNeeds',

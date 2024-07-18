@@ -182,7 +182,7 @@ func (a *DefaultAPIService) AnalyzeRecipeExecute(r ApiAnalyzeRecipeRequest) (map
 type ApiCreateRecipeCardGetRequest struct {
 	ctx context.Context
 	ApiService *DefaultAPIService
-	id float32
+	id int32
 	mask *string
 	backgroundImage *string
 	backgroundColor *string
@@ -226,7 +226,7 @@ Generate a recipe card for a recipe.
  @param id The recipe id.
  @return ApiCreateRecipeCardGetRequest
 */
-func (a *DefaultAPIService) CreateRecipeCardGet(ctx context.Context, id float32) ApiCreateRecipeCardGetRequest {
+func (a *DefaultAPIService) CreateRecipeCardGet(ctx context.Context, id int32) ApiCreateRecipeCardGetRequest {
 	return ApiCreateRecipeCardGetRequest{
 		ApiService: a,
 		ctx: ctx,

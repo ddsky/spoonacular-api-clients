@@ -16,8 +16,8 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local spoonacular_autocomplete_menu_item_search_200_response = require "spoonacular.model.autocomplete_menu_item_search_200_response"
-local spoonacular_get_menu_item_information_200_response = require "spoonacular.model.get_menu_item_information_200_response"
+local spoonacular_menu_item = require "spoonacular.model.menu_item"
+local spoonacular_autocomplete_product_search_200_response = require "spoonacular.model.autocomplete_product_search_200_response"
 local spoonacular_search_menu_items_200_response = require "spoonacular.model.search_menu_items_200_response"
 
 local menu_items_api = {}
@@ -84,7 +84,7 @@ function menu_items_api:autocomplete_menu_item_search(query, Number_)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_autocomplete_menu_item_search_200_response.cast(result), headers
+		return spoonacular_autocomplete_product_search_200_response.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -134,7 +134,7 @@ function menu_items_api:get_menu_item_information(id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_menu_item_information_200_response.cast(result), headers
+		return spoonacular_menu_item.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

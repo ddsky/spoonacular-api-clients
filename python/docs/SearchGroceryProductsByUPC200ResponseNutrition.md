@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**nutrients** | [**List[ParseIngredients200ResponseInnerNutritionNutrientsInner]**](ParseIngredients200ResponseInnerNutritionNutrientsInner.md) |  | 
-**caloric_breakdown** | [**ParseIngredients200ResponseInnerNutritionCaloricBreakdown**](ParseIngredients200ResponseInnerNutritionCaloricBreakdown.md) |  | 
+**nutrients** | [**List[SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner]**](SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.md) |  | 
+**caloric_breakdown** | [**SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown**](SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.md) |  | 
 
 ## Example
 

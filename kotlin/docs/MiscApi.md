@@ -165,7 +165,7 @@ Configure apiKeyScheme:
 
 <a id="getRandomFoodTrivia"></a>
 # **getRandomFoodTrivia**
-> GetRandomFoodTrivia200Response getRandomFoodTrivia()
+> GetARandomFoodJoke200Response getRandomFoodTrivia()
 
 Random Food Trivia
 
@@ -179,7 +179,7 @@ Returns random food trivia.
 
 val apiInstance = MiscApi()
 try {
-    val result : GetRandomFoodTrivia200Response = apiInstance.getRandomFoodTrivia()
+    val result : GetARandomFoodJoke200Response = apiInstance.getRandomFoodTrivia()
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#getRandomFoodTrivia")
@@ -195,7 +195,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -362,7 +362,7 @@ Configure apiKeyScheme:
 
 <a id="searchCustomFoods"></a>
 # **searchCustomFoods**
-> SearchCustomFoods200Response searchCustomFoods(username, hash, query, offset, number)
+> SearchCustomFoods200Response searchCustomFoods(query, username, hash, offset, number)
 
 Search Custom Foods
 
@@ -375,13 +375,13 @@ Search custom foods in a user&#39;s account.
 //import com.spoonacular.client.model.*
 
 val apiInstance = MiscApi()
+val query : kotlin.String = burger // kotlin.String | The (natural language) search query.
 val username : kotlin.String = dsky // kotlin.String | The username.
 val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
-val query : kotlin.String = burger // kotlin.String | The (natural language) search query.
 val offset : kotlin.Int = 56 // kotlin.Int | The number of results to skip (between 0 and 900).
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
-    val result : SearchCustomFoods200Response = apiInstance.searchCustomFoods(username, hash, query, offset, number)
+    val result : SearchCustomFoods200Response = apiInstance.searchCustomFoods(query, username, hash, offset, number)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MiscApi#searchCustomFoods")
@@ -393,9 +393,9 @@ try {
 ```
 
 ### Parameters
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | **username** | **kotlin.String**| The username. | |
 | **hash** | **kotlin.String**| The private hash for the username. | |
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
 | **offset** | **kotlin.Int**| The number of results to skip (between 0 and 900). | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -455,7 +455,7 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | **type** | **kotlin.String**| The type of the recipes. See a full list of supported meal types. | [optional] |
 | **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] |
 | **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |

@@ -331,10 +331,11 @@ func (a *RecipesAPIService) AutocompleteRecipeSearchExecute(r ApiAutocompleteRec
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.number != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "number", r.number, "")
 	} else {
@@ -1110,7 +1111,7 @@ func (a *RecipesAPIService) CreateRecipeCardExecute(r ApiCreateRecipeCardRequest
 type ApiEquipmentByIDImageRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
-	id float32
+	id int32
 }
 
 func (r ApiEquipmentByIDImageRequest) Execute() (*os.File, *http.Response, error) {
@@ -1126,7 +1127,7 @@ Visualize a recipe's equipment list as an image.
  @param id The recipe id.
  @return ApiEquipmentByIDImageRequest
 */
-func (a *RecipesAPIService) EquipmentByIDImage(ctx context.Context, id float32) ApiEquipmentByIDImageRequest {
+func (a *RecipesAPIService) EquipmentByIDImage(ctx context.Context, id int32) ApiEquipmentByIDImageRequest {
 	return ApiEquipmentByIDImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1264,7 +1265,7 @@ func (r ApiExtractRecipeFromWebsiteRequest) IncludeTaste(includeTaste bool) ApiE
 	return r
 }
 
-func (r ApiExtractRecipeFromWebsiteRequest) Execute() (*GetRecipeInformation200Response, *http.Response, error) {
+func (r ApiExtractRecipeFromWebsiteRequest) Execute() (*RecipeInformation, *http.Response, error) {
 	return r.ApiService.ExtractRecipeFromWebsiteExecute(r)
 }
 
@@ -1284,13 +1285,13 @@ func (a *RecipesAPIService) ExtractRecipeFromWebsite(ctx context.Context) ApiExt
 }
 
 // Execute executes the request
-//  @return GetRecipeInformation200Response
-func (a *RecipesAPIService) ExtractRecipeFromWebsiteExecute(r ApiExtractRecipeFromWebsiteRequest) (*GetRecipeInformation200Response, *http.Response, error) {
+//  @return RecipeInformation
+func (a *RecipesAPIService) ExtractRecipeFromWebsiteExecute(r ApiExtractRecipeFromWebsiteRequest) (*RecipeInformation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetRecipeInformation200Response
+		localVarReturnValue  *RecipeInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecipesAPIService.ExtractRecipeFromWebsite")
@@ -1407,7 +1408,7 @@ func (r ApiGetAnalyzedRecipeInstructionsRequest) StepBreakdown(stepBreakdown boo
 	return r
 }
 
-func (r ApiGetAnalyzedRecipeInstructionsRequest) Execute() (*GetAnalyzedRecipeInstructions200Response, *http.Response, error) {
+func (r ApiGetAnalyzedRecipeInstructionsRequest) Execute() ([]GetAnalyzedRecipeInstructions200ResponseInner, *http.Response, error) {
 	return r.ApiService.GetAnalyzedRecipeInstructionsExecute(r)
 }
 
@@ -1417,7 +1418,7 @@ GetAnalyzedRecipeInstructions Get Analyzed Recipe Instructions
 Get an analyzed breakdown of a recipe's instructions. Each step is enriched with the ingredients and equipment required.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiGetAnalyzedRecipeInstructionsRequest
 */
 func (a *RecipesAPIService) GetAnalyzedRecipeInstructions(ctx context.Context, id int32) ApiGetAnalyzedRecipeInstructionsRequest {
@@ -1429,13 +1430,13 @@ func (a *RecipesAPIService) GetAnalyzedRecipeInstructions(ctx context.Context, i
 }
 
 // Execute executes the request
-//  @return GetAnalyzedRecipeInstructions200Response
-func (a *RecipesAPIService) GetAnalyzedRecipeInstructionsExecute(r ApiGetAnalyzedRecipeInstructionsRequest) (*GetAnalyzedRecipeInstructions200Response, *http.Response, error) {
+//  @return []GetAnalyzedRecipeInstructions200ResponseInner
+func (a *RecipesAPIService) GetAnalyzedRecipeInstructionsExecute(r ApiGetAnalyzedRecipeInstructionsRequest) ([]GetAnalyzedRecipeInstructions200ResponseInner, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetAnalyzedRecipeInstructions200Response
+		localVarReturnValue  []GetAnalyzedRecipeInstructions200ResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecipesAPIService.GetAnalyzedRecipeInstructions")
@@ -1696,7 +1697,7 @@ GetRecipeEquipmentByID Equipment by ID
 Get a recipe's equipment list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiGetRecipeEquipmentByIDRequest
 */
 func (a *RecipesAPIService) GetRecipeEquipmentByID(ctx context.Context, id int32) ApiGetRecipeEquipmentByIDRequest {
@@ -1802,6 +1803,8 @@ type ApiGetRecipeInformationRequest struct {
 	ApiService *RecipesAPIService
 	id int32
 	includeNutrition *bool
+	addWinePairing *bool
+	addTasteData *bool
 }
 
 // Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
@@ -1810,7 +1813,19 @@ func (r ApiGetRecipeInformationRequest) IncludeNutrition(includeNutrition bool) 
 	return r
 }
 
-func (r ApiGetRecipeInformationRequest) Execute() (*GetRecipeInformation200Response, *http.Response, error) {
+// Add a wine pairing to the recipe.
+func (r ApiGetRecipeInformationRequest) AddWinePairing(addWinePairing bool) ApiGetRecipeInformationRequest {
+	r.addWinePairing = &addWinePairing
+	return r
+}
+
+// Add taste data to the recipe.
+func (r ApiGetRecipeInformationRequest) AddTasteData(addTasteData bool) ApiGetRecipeInformationRequest {
+	r.addTasteData = &addTasteData
+	return r
+}
+
+func (r ApiGetRecipeInformationRequest) Execute() (*RecipeInformation, *http.Response, error) {
 	return r.ApiService.GetRecipeInformationExecute(r)
 }
 
@@ -1820,7 +1835,7 @@ GetRecipeInformation Get Recipe Information
 Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The id of the recipe.
  @return ApiGetRecipeInformationRequest
 */
 func (a *RecipesAPIService) GetRecipeInformation(ctx context.Context, id int32) ApiGetRecipeInformationRequest {
@@ -1832,13 +1847,13 @@ func (a *RecipesAPIService) GetRecipeInformation(ctx context.Context, id int32) 
 }
 
 // Execute executes the request
-//  @return GetRecipeInformation200Response
-func (a *RecipesAPIService) GetRecipeInformationExecute(r ApiGetRecipeInformationRequest) (*GetRecipeInformation200Response, *http.Response, error) {
+//  @return RecipeInformation
+func (a *RecipesAPIService) GetRecipeInformationExecute(r ApiGetRecipeInformationRequest) (*RecipeInformation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetRecipeInformation200Response
+		localVarReturnValue  *RecipeInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecipesAPIService.GetRecipeInformation")
@@ -1858,6 +1873,12 @@ func (a *RecipesAPIService) GetRecipeInformationExecute(r ApiGetRecipeInformatio
 	} else {
 		var defaultValue bool = false
 		r.includeNutrition = &defaultValue
+	}
+	if r.addWinePairing != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "addWinePairing", r.addWinePairing, "")
+	}
+	if r.addTasteData != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "addTasteData", r.addTasteData, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1946,7 +1967,7 @@ func (r ApiGetRecipeInformationBulkRequest) IncludeNutrition(includeNutrition bo
 	return r
 }
 
-func (r ApiGetRecipeInformationBulkRequest) Execute() ([]GetRecipeInformationBulk200ResponseInner, *http.Response, error) {
+func (r ApiGetRecipeInformationBulkRequest) Execute() ([]RecipeInformation, *http.Response, error) {
 	return r.ApiService.GetRecipeInformationBulkExecute(r)
 }
 
@@ -1966,13 +1987,13 @@ func (a *RecipesAPIService) GetRecipeInformationBulk(ctx context.Context) ApiGet
 }
 
 // Execute executes the request
-//  @return []GetRecipeInformationBulk200ResponseInner
-func (a *RecipesAPIService) GetRecipeInformationBulkExecute(r ApiGetRecipeInformationBulkRequest) ([]GetRecipeInformationBulk200ResponseInner, *http.Response, error) {
+//  @return []RecipeInformation
+func (a *RecipesAPIService) GetRecipeInformationBulkExecute(r ApiGetRecipeInformationBulkRequest) ([]RecipeInformation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []GetRecipeInformationBulk200ResponseInner
+		localVarReturnValue  []RecipeInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecipesAPIService.GetRecipeInformationBulk")
@@ -2080,7 +2101,7 @@ GetRecipeIngredientsByID Ingredients by ID
 Get a recipe's ingredient list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiGetRecipeIngredientsByIDRequest
 */
 func (a *RecipesAPIService) GetRecipeIngredientsByID(ctx context.Context, id int32) ApiGetRecipeIngredientsByIDRequest {
@@ -2197,7 +2218,7 @@ GetRecipeNutritionWidgetByID Nutrition by ID
 Get a recipe's nutrition data.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiGetRecipeNutritionWidgetByIDRequest
 */
 func (a *RecipesAPIService) GetRecipeNutritionWidgetByID(ctx context.Context, id int32) ApiGetRecipeNutritionWidgetByIDRequest {
@@ -2314,7 +2335,7 @@ GetRecipePriceBreakdownByID Price Breakdown by ID
 Get a recipe's price breakdown data.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiGetRecipePriceBreakdownByIDRequest
 */
 func (a *RecipesAPIService) GetRecipePriceBreakdownByID(ctx context.Context, id int32) ApiGetRecipePriceBreakdownByIDRequest {
@@ -2428,7 +2449,7 @@ func (r ApiGetRecipeTasteByIDRequest) Normalize(normalize bool) ApiGetRecipeTast
 	return r
 }
 
-func (r ApiGetRecipeTasteByIDRequest) Execute() (*GetRecipeTasteByID200Response, *http.Response, error) {
+func (r ApiGetRecipeTasteByIDRequest) Execute() (*TasteInformation, *http.Response, error) {
 	return r.ApiService.GetRecipeTasteByIDExecute(r)
 }
 
@@ -2438,7 +2459,7 @@ GetRecipeTasteByID Taste by ID
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiGetRecipeTasteByIDRequest
 */
 func (a *RecipesAPIService) GetRecipeTasteByID(ctx context.Context, id int32) ApiGetRecipeTasteByIDRequest {
@@ -2450,13 +2471,13 @@ func (a *RecipesAPIService) GetRecipeTasteByID(ctx context.Context, id int32) Ap
 }
 
 // Execute executes the request
-//  @return GetRecipeTasteByID200Response
-func (a *RecipesAPIService) GetRecipeTasteByIDExecute(r ApiGetRecipeTasteByIDRequest) (*GetRecipeTasteByID200Response, *http.Response, error) {
+//  @return TasteInformation
+func (a *RecipesAPIService) GetRecipeTasteByIDExecute(r ApiGetRecipeTasteByIDRequest) (*TasteInformation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetRecipeTasteByID200Response
+		localVarReturnValue  *TasteInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecipesAPIService.GetRecipeTasteByID")
@@ -2568,7 +2589,7 @@ GetSimilarRecipes Get Similar Recipes
 Find recipes which are similar to the given one.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The id of the source recipe for which similar recipes should be found.
  @return ApiGetSimilarRecipesRequest
 */
 func (a *RecipesAPIService) GetSimilarRecipes(ctx context.Context, id int32) ApiGetSimilarRecipesRequest {
@@ -2826,12 +2847,13 @@ func (r ApiParseIngredientsRequest) Language(language string) ApiParseIngredient
 	return r
 }
 
+// Whether nutrition data should be added to correctly parsed ingredients.
 func (r ApiParseIngredientsRequest) IncludeNutrition(includeNutrition bool) ApiParseIngredientsRequest {
 	r.includeNutrition = &includeNutrition
 	return r
 }
 
-func (r ApiParseIngredientsRequest) Execute() ([]ParseIngredients200ResponseInner, *http.Response, error) {
+func (r ApiParseIngredientsRequest) Execute() ([]IngredientInformation, *http.Response, error) {
 	return r.ApiService.ParseIngredientsExecute(r)
 }
 
@@ -2851,13 +2873,13 @@ func (a *RecipesAPIService) ParseIngredients(ctx context.Context) ApiParseIngred
 }
 
 // Execute executes the request
-//  @return []ParseIngredients200ResponseInner
-func (a *RecipesAPIService) ParseIngredientsExecute(r ApiParseIngredientsRequest) ([]ParseIngredients200ResponseInner, *http.Response, error) {
+//  @return []IngredientInformation
+func (a *RecipesAPIService) ParseIngredientsExecute(r ApiParseIngredientsRequest) ([]IngredientInformation, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ParseIngredients200ResponseInner
+		localVarReturnValue  []IngredientInformation
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecipesAPIService.ParseIngredients")
@@ -2956,7 +2978,7 @@ func (a *RecipesAPIService) ParseIngredientsExecute(r ApiParseIngredientsRequest
 type ApiPriceBreakdownByIDImageRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
-	id float32
+	id int32
 }
 
 func (r ApiPriceBreakdownByIDImageRequest) Execute() (*os.File, *http.Response, error) {
@@ -2972,7 +2994,7 @@ Visualize a recipe's price breakdown.
  @param id The recipe id.
  @return ApiPriceBreakdownByIDImageRequest
 */
-func (a *RecipesAPIService) PriceBreakdownByIDImage(ctx context.Context, id float32) ApiPriceBreakdownByIDImageRequest {
+func (a *RecipesAPIService) PriceBreakdownByIDImage(ctx context.Context, id int32) ApiPriceBreakdownByIDImageRequest {
 	return ApiPriceBreakdownByIDImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3197,7 +3219,7 @@ func (a *RecipesAPIService) QuickAnswerExecute(r ApiQuickAnswerRequest) (*QuickA
 type ApiRecipeNutritionByIDImageRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
-	id float32
+	id int32
 }
 
 func (r ApiRecipeNutritionByIDImageRequest) Execute() (*os.File, *http.Response, error) {
@@ -3213,7 +3235,7 @@ Visualize a recipe's nutritional information as an image.
  @param id The recipe id.
  @return ApiRecipeNutritionByIDImageRequest
 */
-func (a *RecipesAPIService) RecipeNutritionByIDImage(ctx context.Context, id float32) ApiRecipeNutritionByIDImageRequest {
+func (a *RecipesAPIService) RecipeNutritionByIDImage(ctx context.Context, id int32) ApiRecipeNutritionByIDImageRequest {
 	return ApiRecipeNutritionByIDImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3314,7 +3336,7 @@ func (a *RecipesAPIService) RecipeNutritionByIDImageExecute(r ApiRecipeNutrition
 type ApiRecipeNutritionLabelImageRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
-	id float32
+	id int32
 	showOptionalNutrients *bool
 	showZeroValues *bool
 	showIngredients *bool
@@ -3351,7 +3373,7 @@ Get a recipe's nutrition label as an image.
  @param id The recipe id.
  @return ApiRecipeNutritionLabelImageRequest
 */
-func (a *RecipesAPIService) RecipeNutritionLabelImage(ctx context.Context, id float32) ApiRecipeNutritionLabelImageRequest {
+func (a *RecipesAPIService) RecipeNutritionLabelImage(ctx context.Context, id int32) ApiRecipeNutritionLabelImageRequest {
 	return ApiRecipeNutritionLabelImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3461,7 +3483,7 @@ func (a *RecipesAPIService) RecipeNutritionLabelImageExecute(r ApiRecipeNutritio
 type ApiRecipeNutritionLabelWidgetRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
-	id float32
+	id int32
 	defaultCss *bool
 	showOptionalNutrients *bool
 	showZeroValues *bool
@@ -3505,7 +3527,7 @@ Get a recipe's nutrition label as an HTML widget.
  @param id The recipe id.
  @return ApiRecipeNutritionLabelWidgetRequest
 */
-func (a *RecipesAPIService) RecipeNutritionLabelWidget(ctx context.Context, id float32) ApiRecipeNutritionLabelWidgetRequest {
+func (a *RecipesAPIService) RecipeNutritionLabelWidget(ctx context.Context, id int32) ApiRecipeNutritionLabelWidgetRequest {
 	return ApiRecipeNutritionLabelWidgetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3621,7 +3643,7 @@ func (a *RecipesAPIService) RecipeNutritionLabelWidgetExecute(r ApiRecipeNutriti
 type ApiRecipeTasteByIDImageRequest struct {
 	ctx context.Context
 	ApiService *RecipesAPIService
-	id float32
+	id int32
 	normalize *bool
 	rgb *string
 }
@@ -3651,7 +3673,7 @@ Get a recipe's taste as an image. The tastes supported are sweet, salty, sour, b
  @param id The recipe id.
  @return ApiRecipeTasteByIDImageRequest
 */
-func (a *RecipesAPIService) RecipeTasteByIDImage(ctx context.Context, id float32) ApiRecipeTasteByIDImageRequest {
+func (a *RecipesAPIService) RecipeTasteByIDImage(ctx context.Context, id int32) ApiRecipeTasteByIDImageRequest {
 	return ApiRecipeTasteByIDImageRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3773,7 +3795,7 @@ type ApiSearchRecipesRequest struct {
 	addRecipeNutrition *bool
 	author *string
 	tags *string
-	recipeBoxId *float32
+	recipeBoxId *int32
 	titleMatch *string
 	maxReadyTime *float32
 	minServings *float32
@@ -3948,7 +3970,7 @@ func (r ApiSearchRecipesRequest) Tags(tags string) ApiSearchRecipesRequest {
 }
 
 // The id of the recipe box to which the search should be limited to.
-func (r ApiSearchRecipesRequest) RecipeBoxId(recipeBoxId float32) ApiSearchRecipesRequest {
+func (r ApiSearchRecipesRequest) RecipeBoxId(recipeBoxId int32) ApiSearchRecipesRequest {
 	r.recipeBoxId = &recipeBoxId
 	return r
 }
@@ -4478,10 +4500,11 @@ func (a *RecipesAPIService) SearchRecipesExecute(r ApiSearchRecipesRequest) (*Se
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.query != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
+	if r.query == nil {
+		return localVarReturnValue, nil, reportError("query is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "")
 	if r.cuisine != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "cuisine", r.cuisine, "")
 	}
@@ -4849,7 +4872,7 @@ type ApiSearchRecipesByIngredientsRequest struct {
 	ApiService *RecipesAPIService
 	ingredients *string
 	number *int32
-	ranking *float32
+	ranking *int32
 	ignorePantry *bool
 }
 
@@ -4866,7 +4889,7 @@ func (r ApiSearchRecipesByIngredientsRequest) Number(number int32) ApiSearchReci
 }
 
 // Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
-func (r ApiSearchRecipesByIngredientsRequest) Ranking(ranking float32) ApiSearchRecipesByIngredientsRequest {
+func (r ApiSearchRecipesByIngredientsRequest) Ranking(ranking int32) ApiSearchRecipesByIngredientsRequest {
 	r.ranking = &ranking
 	return r
 }
@@ -4918,10 +4941,11 @@ func (a *RecipesAPIService) SearchRecipesByIngredientsExecute(r ApiSearchRecipes
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.ingredients != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "ingredients", r.ingredients, "")
+	if r.ingredients == nil {
+		return localVarReturnValue, nil, reportError("ingredients is required and must be specified")
 	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "ingredients", r.ingredients, "")
 	if r.number != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "number", r.number, "")
 	} else {
@@ -5887,7 +5911,7 @@ SummarizeRecipe Summarize Recipe
 Automatically generate a short description that summarizes key information about the recipe.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiSummarizeRecipeRequest
 */
 func (a *RecipesAPIService) SummarizeRecipe(ctx context.Context, id int32) ApiSummarizeRecipeRequest {
@@ -6340,7 +6364,7 @@ VisualizeRecipeEquipmentByID Equipment by ID Widget
 Visualize a recipe's equipment list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiVisualizeRecipeEquipmentByIDRequest
 */
 func (a *RecipesAPIService) VisualizeRecipeEquipmentByID(ctx context.Context, id int32) ApiVisualizeRecipeEquipmentByIDRequest {
@@ -6477,7 +6501,7 @@ VisualizeRecipeIngredientsByID Ingredients by ID Widget
 Visualize a recipe's ingredient list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiVisualizeRecipeIngredientsByIDRequest
 */
 func (a *RecipesAPIService) VisualizeRecipeIngredientsByID(ctx context.Context, id int32) ApiVisualizeRecipeIngredientsByIDRequest {
@@ -6775,7 +6799,7 @@ VisualizeRecipeNutritionByID Recipe Nutrition by ID Widget
 Visualize a recipe's nutritional information as HTML including CSS.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiVisualizeRecipeNutritionByIDRequest
 */
 func (a *RecipesAPIService) VisualizeRecipeNutritionByID(ctx context.Context, id int32) ApiVisualizeRecipeNutritionByIDRequest {
@@ -6905,7 +6929,7 @@ VisualizeRecipePriceBreakdownByID Price Breakdown by ID Widget
 Visualize a recipe's price breakdown.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiVisualizeRecipePriceBreakdownByIDRequest
 */
 func (a *RecipesAPIService) VisualizeRecipePriceBreakdownByID(ctx context.Context, id int32) ApiVisualizeRecipePriceBreakdownByIDRequest {
@@ -7196,7 +7220,7 @@ VisualizeRecipeTasteByID Recipe Taste by ID Widget
 Get a recipe's taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The item's id.
+ @param id The recipe id.
  @return ApiVisualizeRecipeTasteByIDRequest
 */
 func (a *RecipesAPIService) VisualizeRecipeTasteByID(ctx context.Context, id int32) ApiVisualizeRecipeTasteByIDRequest {

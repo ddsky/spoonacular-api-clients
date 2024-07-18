@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.GetShoppingList200ResponseAislesInnerItemsInnerMeasures
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionWeightPerServing
+import com.spoonacular.client.model.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
 
 class GetShoppingList200ResponseAislesInnerItemsInnerMeasuresTest : ShouldSpec() {
     init {

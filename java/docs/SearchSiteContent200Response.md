@@ -8,10 +8,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**articles** | [**Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-|**groceryProducts** | [**Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-|**menuItems** | [**Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-|**recipes** | [**Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
+|**articles** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+|**groceryProducts** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+|**menuItems** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+|**recipes** | [**List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
 
 
 

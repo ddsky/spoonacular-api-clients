@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-import { GetRandomRecipes200ResponseRecipesInner } from '../models/GetRandomRecipes200ResponseRecipesInner';
+import { RecipeInformation } from '../models/RecipeInformation';
 import { HttpFile } from '../http/http';
 
 /**
 * 
 */
 export class GetRandomRecipes200Response {
-    'recipes': Set<GetRandomRecipes200ResponseRecipesInner>;
+    'recipes': Set<RecipeInformation>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -25,7 +25,7 @@ export class GetRandomRecipes200Response {
         {
             "name": "recipes",
             "baseName": "recipes",
-            "type": "Set<GetRandomRecipes200ResponseRecipesInner>",
+            "type": "Set<RecipeInformation>",
             "format": ""
         }    ];
 

@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.SearchMenuItems200ResponseMenuItemsInner
+import com.spoonacular.client.model.MenuItem
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,7 +34,7 @@ import com.squareup.moshi.JsonClass
 data class SearchMenuItems200Response (
 
     @Json(name = "menuItems")
-    val menuItems: kotlin.collections.Set<SearchMenuItems200ResponseMenuItemsInner>,
+    val menuItems: kotlin.collections.Set<MenuItem>,
 
     @Json(name = "totalMenuItems")
     val totalMenuItems: kotlin.Int,

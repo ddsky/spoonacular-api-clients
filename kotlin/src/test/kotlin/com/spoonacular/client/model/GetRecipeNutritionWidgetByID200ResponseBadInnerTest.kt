@@ -25,10 +25,10 @@ class GetRecipeNutritionWidgetByID200ResponseBadInnerTest : ShouldSpec() {
         // uncomment below to create an instance of GetRecipeNutritionWidgetByID200ResponseBadInner
         //val modelInstance = GetRecipeNutritionWidgetByID200ResponseBadInner()
 
-        // to test the property `name`
-        should("test name") {
+        // to test the property `title`
+        should("test title") {
             // uncomment below to test the property
-            //modelInstance.name shouldBe ("TODO")
+            //modelInstance.title shouldBe ("TODO")
         }
 
         // to test the property `amount`

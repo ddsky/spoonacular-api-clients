@@ -42,7 +42,7 @@ class TestGetRecipeNutritionWidgetByID200Response(unittest.TestCase):
                 protein = '0',
                 bad = [
                     spoonacular.models.get_recipe_nutrition_widget_by_id_200_response_bad_inner.getRecipeNutritionWidgetByID_200_response_bad_inner(
-                        name = '0', 
+                        title = '0', 
                         amount = '0', 
                         indented = True, 
                         percent_of_daily_needs = 1.337, )
@@ -52,7 +52,7 @@ class TestGetRecipeNutritionWidgetByID200Response(unittest.TestCase):
                         amount = '0', 
                         indented = True, 
                         percent_of_daily_needs = 1.337, 
-                        name = '0', )
+                        title = '0', )
                     ]
             )
         else:
@@ -63,7 +63,7 @@ class TestGetRecipeNutritionWidgetByID200Response(unittest.TestCase):
                 protein = '0',
                 bad = [
                     spoonacular.models.get_recipe_nutrition_widget_by_id_200_response_bad_inner.getRecipeNutritionWidgetByID_200_response_bad_inner(
-                        name = '0', 
+                        title = '0', 
                         amount = '0', 
                         indented = True, 
                         percent_of_daily_needs = 1.337, )
@@ -73,7 +73,7 @@ class TestGetRecipeNutritionWidgetByID200Response(unittest.TestCase):
                         amount = '0', 
                         indented = True, 
                         percent_of_daily_needs = 1.337, 
-                        name = '0', )
+                        title = '0', )
                     ],
         )
         """

@@ -55,7 +55,7 @@ Generate a recipe card for a recipe.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The recipe id. | [required] |
+**id** | **i32** | The recipe id. | [required] |
 **mask** | Option<**String**> | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). |  |
 **background_image** | Option<**String**> | The background image (\"none\",\"background1\", or \"background2\"). |  |
 **background_color** | Option<**String**> | The background color for the recipe card as a hex-string. |  |

@@ -24,8 +24,8 @@ pub struct SearchGroceryProductsByUpc200Response {
     pub important_badges: Vec<String>,
     #[serde(rename = "breadcrumbs")]
     pub breadcrumbs: Vec<String>,
-    #[serde(rename = "generatedText")]
-    pub generated_text: String,
+    #[serde(rename = "generatedText", deserialize_with = "Option::deserialize")]
+    pub generated_text: Option<String>,
     #[serde(rename = "imageType")]
     pub image_type: String,
     #[serde(rename = "ingredientCount", skip_serializing_if = "Option::is_none")]
@@ -33,7 +33,7 @@ pub struct SearchGroceryProductsByUpc200Response {
     #[serde(rename = "ingredientList")]
     pub ingredient_list: String,
     #[serde(rename = "ingredients")]
-    pub ingredients: Vec<models::SearchGroceryProductsByUpc200ResponseIngredientsInner>,
+    pub ingredients: Vec<models::IngredientBasics>,
     #[serde(rename = "likes")]
     pub likes: f64,
     #[serde(rename = "nutrition")]
@@ -48,7 +48,7 @@ pub struct SearchGroceryProductsByUpc200Response {
 
 impl SearchGroceryProductsByUpc200Response {
     /// 
-    pub fn new(id: i32, title: String, badges: Vec<String>, important_badges: Vec<String>, breadcrumbs: Vec<String>, generated_text: String, image_type: String, ingredient_list: String, ingredients: Vec<models::SearchGroceryProductsByUpc200ResponseIngredientsInner>, likes: f64, nutrition: models::SearchGroceryProductsByUpc200ResponseNutrition, price: f64, servings: models::SearchGroceryProductsByUpc200ResponseServings, spoonacular_score: f64) -> SearchGroceryProductsByUpc200Response {
+    pub fn new(id: i32, title: String, badges: Vec<String>, important_badges: Vec<String>, breadcrumbs: Vec<String>, generated_text: Option<String>, image_type: String, ingredient_list: String, ingredients: Vec<models::IngredientBasics>, likes: f64, nutrition: models::SearchGroceryProductsByUpc200ResponseNutrition, price: f64, servings: models::SearchGroceryProductsByUpc200ResponseServings, spoonacular_score: f64) -> SearchGroceryProductsByUpc200Response {
         SearchGroceryProductsByUpc200Response {
             id,
             title,

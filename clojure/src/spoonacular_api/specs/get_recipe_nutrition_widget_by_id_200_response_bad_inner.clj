@@ -7,7 +7,7 @@
 
 (def get-recipe-nutrition-widget-by-id-200-response-bad-inner-data
   {
-   (ds/req :name) string?
+   (ds/req :title) string?
    (ds/req :amount) string?
    (ds/req :indented) boolean?
    (ds/req :percentOfDailyNeeds) float?

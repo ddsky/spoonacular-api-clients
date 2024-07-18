@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Amount** | **string** |  | 
 **Indented** | **bool** |  | 
 **PercentOfDailyNeeds** | **float32** |  | 
-**Name** | **string** |  | 
+**Title** | **string** |  | 
 
 ## Methods
 
 ### NewGetRecipeNutritionWidgetByID200ResponseGoodInner
 
-`func NewGetRecipeNutritionWidgetByID200ResponseGoodInner(amount string, indented bool, percentOfDailyNeeds float32, name string, ) *GetRecipeNutritionWidgetByID200ResponseGoodInner`
+`func NewGetRecipeNutritionWidgetByID200ResponseGoodInner(amount string, indented bool, percentOfDailyNeeds float32, title string, ) *GetRecipeNutritionWidgetByID200ResponseGoodInner`
 
 NewGetRecipeNutritionWidgetByID200ResponseGoodInner instantiates a new GetRecipeNutritionWidgetByID200ResponseGoodInner object
 This constructor will assign default values to properties that have it defined,
@@ -88,24 +88,24 @@ and a boolean to check if the value has been set.
 SetPercentOfDailyNeeds sets PercentOfDailyNeeds field to given value.
 
 
-### GetName
+### GetTitle
 
-`func (o *GetRecipeNutritionWidgetByID200ResponseGoodInner) GetName() string`
+`func (o *GetRecipeNutritionWidgetByID200ResponseGoodInner) GetTitle() string`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+GetTitle returns the Title field if non-nil, zero value otherwise.
 
-### GetNameOk
+### GetTitleOk
 
-`func (o *GetRecipeNutritionWidgetByID200ResponseGoodInner) GetNameOk() (*string, bool)`
+`func (o *GetRecipeNutritionWidgetByID200ResponseGoodInner) GetTitleOk() (*string, bool)`
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetTitle
 
-`func (o *GetRecipeNutritionWidgetByID200ResponseGoodInner) SetName(v string)`
+`func (o *GetRecipeNutritionWidgetByID200ResponseGoodInner) SetTitle(v string)`
 
-SetName sets Name field to given value.
+SetTitle sets Title field to given value.
 
 
 

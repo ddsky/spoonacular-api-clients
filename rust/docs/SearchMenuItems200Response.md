@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**menu_items** | [**Vec<models::SearchMenuItems200ResponseMenuItemsInner>**](searchMenuItems_200_response_menuItems_inner.md) |  | 
+**menu_items** | [**Vec<models::MenuItem>**](MenuItem.md) |  | 
 **total_menu_items** | **i32** |  | 
 **r#type** | **String** |  | 
 **offset** | **i32** |  | 

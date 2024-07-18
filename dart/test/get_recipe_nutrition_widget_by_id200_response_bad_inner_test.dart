@@ -16,8 +16,8 @@ void main() {
   // final instance = GetRecipeNutritionWidgetByID200ResponseBadInner();
 
   group('test GetRecipeNutritionWidgetByID200ResponseBadInner', () {
-    // String name
-    test('to test the property `name`', () async {
+    // String title
+    test('to test the property `title`', () async {
       // TODO
     });
 

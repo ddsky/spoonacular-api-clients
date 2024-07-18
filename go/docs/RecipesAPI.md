@@ -200,7 +200,7 @@ import (
 )
 
 func main() {
-	query := "burger" // string | The (natural language) search query. (optional)
+	query := "burger" // string | The (natural language) search query.
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
 	configuration := openapiclient.NewConfiguration()
@@ -568,7 +568,7 @@ import (
 )
 
 func main() {
-	id := float32(44860) // float32 | The recipe id.
+	id := int32(44860) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -588,7 +588,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 
 ## ExtractRecipeFromWebsite
 
-> GetRecipeInformation200Response ExtractRecipeFromWebsite(ctx).Url(url).ForceExtraction(forceExtraction).Analyze(analyze).IncludeNutrition(includeNutrition).IncludeTaste(includeTaste).Execute()
+> RecipeInformation ExtractRecipeFromWebsite(ctx).Url(url).ForceExtraction(forceExtraction).Analyze(analyze).IncludeNutrition(includeNutrition).IncludeTaste(includeTaste).Execute()
 
 Extract Recipe from Website
 
@@ -651,7 +651,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.ExtractRecipeFromWebsite``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ExtractRecipeFromWebsite`: GetRecipeInformation200Response
+	// response from `ExtractRecipeFromWebsite`: RecipeInformation
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.ExtractRecipeFromWebsite`: %v\n", resp)
 }
 ```
@@ -675,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 ## GetAnalyzedRecipeInstructions
 
-> GetAnalyzedRecipeInstructions200Response GetAnalyzedRecipeInstructions(ctx, id).StepBreakdown(stepBreakdown).Execute()
+> []GetAnalyzedRecipeInstructions200ResponseInner GetAnalyzedRecipeInstructions(ctx, id).StepBreakdown(stepBreakdown).Execute()
 
 Get Analyzed Recipe Instructions
 
@@ -712,7 +712,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(324694) // int32 | The recipe id.
 	stepBreakdown := true // bool | Whether to break down the recipe steps even more. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -722,7 +722,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.GetAnalyzedRecipeInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAnalyzedRecipeInstructions`: GetAnalyzedRecipeInstructions200Response
+	// response from `GetAnalyzedRecipeInstructions`: []GetAnalyzedRecipeInstructions200ResponseInner
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.GetAnalyzedRecipeInstructions`: %v\n", resp)
 }
 ```
@@ -733,7 +733,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**[]GetAnalyzedRecipeInstructions200ResponseInner**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -856,7 +856,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1003464) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -876,7 +876,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -907,7 +907,7 @@ Name | Type | Description  | Notes
 
 ## GetRecipeInformation
 
-> GetRecipeInformation200Response GetRecipeInformation(ctx, id).IncludeNutrition(includeNutrition).Execute()
+> RecipeInformation GetRecipeInformation(ctx, id).IncludeNutrition(includeNutrition).AddWinePairing(addWinePairing).AddTasteData(addTasteData).Execute()
 
 Get Recipe Information
 
@@ -926,17 +926,19 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(716429) // int32 | The id of the recipe.
 	includeNutrition := true // bool | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional) (default to false)
+	addWinePairing := false // bool | Add a wine pairing to the recipe. (optional)
+	addTasteData := false // bool | Add taste data to the recipe. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecipesAPI.GetRecipeInformation(context.Background(), id).IncludeNutrition(includeNutrition).Execute()
+	resp, r, err := apiClient.RecipesAPI.GetRecipeInformation(context.Background(), id).IncludeNutrition(includeNutrition).AddWinePairing(addWinePairing).AddTasteData(addTasteData).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.GetRecipeInformation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRecipeInformation`: GetRecipeInformation200Response
+	// response from `GetRecipeInformation`: RecipeInformation
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.GetRecipeInformation`: %v\n", resp)
 }
 ```
@@ -947,7 +949,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The id of the recipe. | 
 
 ### Other Parameters
 
@@ -958,10 +960,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **includeNutrition** | **bool** | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [default to false]
+ **addWinePairing** | **bool** | Add a wine pairing to the recipe. | 
+ **addTasteData** | **bool** | Add taste data to the recipe. | 
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -979,7 +983,7 @@ Name | Type | Description  | Notes
 
 ## GetRecipeInformationBulk
 
-> []GetRecipeInformationBulk200ResponseInner GetRecipeInformationBulk(ctx).Ids(ids).IncludeNutrition(includeNutrition).Execute()
+> []RecipeInformation GetRecipeInformationBulk(ctx).Ids(ids).IncludeNutrition(includeNutrition).Execute()
 
 Get Recipe Information Bulk
 
@@ -1008,7 +1012,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.GetRecipeInformationBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRecipeInformationBulk`: []GetRecipeInformationBulk200ResponseInner
+	// response from `GetRecipeInformationBulk`: []RecipeInformation
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.GetRecipeInformationBulk`: %v\n", resp)
 }
 ```
@@ -1029,7 +1033,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GetRecipeInformationBulk200ResponseInner**](GetRecipeInformationBulk200ResponseInner.md)
+[**[]RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -1066,7 +1070,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1003464) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1086,7 +1090,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1136,7 +1140,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1003464) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1156,7 +1160,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1206,7 +1210,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1003464) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1226,7 +1230,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1257,7 +1261,7 @@ Name | Type | Description  | Notes
 
 ## GetRecipeTasteByID
 
-> GetRecipeTasteByID200Response GetRecipeTasteByID(ctx, id).Normalize(normalize).Execute()
+> TasteInformation GetRecipeTasteByID(ctx, id).Normalize(normalize).Execute()
 
 Taste by ID
 
@@ -1276,7 +1280,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(69095) // int32 | The recipe id.
 	normalize := true // bool | Normalize to the strongest taste. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1286,7 +1290,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.GetRecipeTasteByID``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetRecipeTasteByID`: GetRecipeTasteByID200Response
+	// response from `GetRecipeTasteByID`: TasteInformation
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.GetRecipeTasteByID`: %v\n", resp)
 }
 ```
@@ -1297,7 +1301,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1311,7 +1315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -1348,7 +1352,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(715538) // int32 | The id of the source recipe for which similar recipes should be found.
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 
 	configuration := openapiclient.NewConfiguration()
@@ -1369,7 +1373,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The id of the source recipe for which similar recipes should be found. | 
 
 ### Other Parameters
 
@@ -1467,7 +1471,7 @@ Name | Type | Description  | Notes
 
 ## ParseIngredients
 
-> []ParseIngredients200ResponseInner ParseIngredients(ctx).IngredientList(ingredientList).Servings(servings).Language(language).IncludeNutrition(includeNutrition).Execute()
+> []IngredientInformation ParseIngredients(ctx).IngredientList(ingredientList).Servings(servings).Language(language).IncludeNutrition(includeNutrition).Execute()
 
 Parse Ingredients
 
@@ -1489,7 +1493,7 @@ func main() {
 	ingredientList := "ingredientList_example" // string | The ingredient list of the recipe, one ingredient per line.
 	servings := float32(8.14) // float32 | The number of servings that you can make from the ingredients.
 	language := "en" // string | The language of the input. Either 'en' or 'de'. (optional)
-	includeNutrition := true // bool |  (optional)
+	includeNutrition := true // bool | Whether nutrition data should be added to correctly parsed ingredients. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1498,7 +1502,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecipesAPI.ParseIngredients``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ParseIngredients`: []ParseIngredients200ResponseInner
+	// response from `ParseIngredients`: []IngredientInformation
 	fmt.Fprintf(os.Stdout, "Response from `RecipesAPI.ParseIngredients`: %v\n", resp)
 }
 ```
@@ -1517,11 +1521,11 @@ Name | Type | Description  | Notes
  **ingredientList** | **string** | The ingredient list of the recipe, one ingredient per line. | 
  **servings** | **float32** | The number of servings that you can make from the ingredients. | 
  **language** | **string** | The language of the input. Either &#39;en&#39; or &#39;de&#39;. | 
- **includeNutrition** | **bool** |  | 
+ **includeNutrition** | **bool** | Whether nutrition data should be added to correctly parsed ingredients. | 
 
 ### Return type
 
-[**[]ParseIngredients200ResponseInner**](ParseIngredients200ResponseInner.md)
+[**[]IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1558,7 +1562,7 @@ import (
 )
 
 func main() {
-	id := float32(1082038) // float32 | The recipe id.
+	id := int32(1082038) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1578,7 +1582,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1694,7 +1698,7 @@ import (
 )
 
 func main() {
-	id := float32(1082038) // float32 | The recipe id.
+	id := int32(1082038) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1714,7 +1718,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1764,7 +1768,7 @@ import (
 )
 
 func main() {
-	id := float32(641166) // float32 | The recipe id.
+	id := int32(641166) // int32 | The recipe id.
 	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
 	showZeroValues := false // bool | Whether to show zero values. (optional)
 	showIngredients := false // bool | Whether to show a list of ingredients. (optional)
@@ -1787,7 +1791,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1840,7 +1844,7 @@ import (
 )
 
 func main() {
-	id := float32(641166) // float32 | The recipe id.
+	id := int32(641166) // int32 | The recipe id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
 	showZeroValues := false // bool | Whether to show zero values. (optional)
@@ -1864,7 +1868,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1918,7 +1922,7 @@ import (
 )
 
 func main() {
-	id := float32(69095) // float32 | The recipe id.
+	id := int32(69095) // int32 | The recipe id.
 	normalize := false // bool | Normalize to the strongest taste. (optional)
 	rgb := "75,192,192" // string | Red, green, blue values for the chart color. (optional)
 
@@ -1940,7 +1944,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -1992,7 +1996,7 @@ import (
 )
 
 func main() {
-	query := "burger" // string | The (natural language) search query. (optional)
+	query := "burger" // string | The (natural language) search query.
 	cuisine := "italian" // string | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines. (optional)
 	excludeCuisine := "greek" // string | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines. (optional)
 	diet := "vegetarian" // string | The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2007,7 +2011,7 @@ func main() {
 	addRecipeNutrition := false // bool | If set to true, you get nutritional information about each recipes returned. (optional)
 	author := "coffeebean" // string | The username of the recipe author. (optional)
 	tags := "tags_example" // string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-	recipeBoxId := float32(2468) // float32 | The id of the recipe box to which the search should be limited to. (optional)
+	recipeBoxId := int32(2468) // int32 | The id of the recipe box to which the search should be limited to. (optional)
 	titleMatch := "Crock Pot" // string | Enter text that must be found in the title of the recipes. (optional)
 	maxReadyTime := float32(20) // float32 | The maximum time in minutes it should take to prepare and cook the recipe. (optional)
 	minServings := float32(1) // float32 | The minimum amount of servings the recipe is for. (optional)
@@ -2128,7 +2132,7 @@ Name | Type | Description  | Notes
  **addRecipeNutrition** | **bool** | If set to true, you get nutritional information about each recipes returned. | 
  **author** | **string** | The username of the recipe author. | 
  **tags** | **string** | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | 
- **recipeBoxId** | **float32** | The id of the recipe box to which the search should be limited to. | 
+ **recipeBoxId** | **int32** | The id of the recipe box to which the search should be limited to. | 
  **titleMatch** | **string** | Enter text that must be found in the title of the recipes. | 
  **maxReadyTime** | **float32** | The maximum time in minutes it should take to prepare and cook the recipe. | 
  **minServings** | **float32** | The minimum amount of servings the recipe is for. | 
@@ -2250,9 +2254,9 @@ import (
 )
 
 func main() {
-	ingredients := "carrots,tomatoes" // string | A comma-separated list of ingredients that the recipes should contain. (optional)
+	ingredients := "carrots,tomatoes" // string | A comma-separated list of ingredients that the recipes should contain.
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
-	ranking := float32(1) // float32 | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+	ranking := int32(1) // int32 | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
 	ignorePantry := false // bool | Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
@@ -2280,7 +2284,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ingredients** | **string** | A comma-separated list of ingredients that the recipes should contain. | 
  **number** | **int32** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [default to 10]
- **ranking** | **float32** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | 
+ **ranking** | **int32** | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | 
  **ignorePantry** | **bool** | Whether to ignore typical pantry items, such as water, salt, flour, etc. | [default to false]
 
 ### Return type
@@ -2536,7 +2540,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(4632) // int32 | The recipe id.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2556,7 +2560,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -2754,7 +2758,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(44860) // int32 | The recipe id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -2775,7 +2779,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -2826,7 +2830,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1082038) // int32 | The recipe id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 	measure := "metric" // string | Whether the the measures should be 'us' or 'metric'. (optional)
 
@@ -2848,7 +2852,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -2974,7 +2978,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1082038) // int32 | The recipe id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -2995,7 +2999,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -3046,7 +3050,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1082038) // int32 | The recipe id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -3067,7 +3071,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 
@@ -3190,7 +3194,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(69095) // int32 | The recipe id.
 	normalize := true // bool | Whether to normalize to the strongest taste. (optional) (default to true)
 	rgb := "75,192,192" // string | Red, green, blue values for the chart color. (optional)
 
@@ -3212,7 +3216,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 

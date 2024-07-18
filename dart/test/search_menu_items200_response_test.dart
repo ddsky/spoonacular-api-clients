@@ -16,7 +16,7 @@ void main() {
   // final instance = SearchMenuItems200Response();
 
   group('test SearchMenuItems200Response', () {
-    // Set<SearchMenuItems200ResponseMenuItemsInner> menuItems (default value: const {})
+    // Set<MenuItem> menuItems (default value: const {})
     test('to test the property `menuItems`', () async {
       // TODO
     });

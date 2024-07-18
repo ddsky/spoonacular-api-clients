@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **autocomplete_menu_item_search**
-> AutocompleteMenuItemSearch200Response autocomplete_menu_item_search(query, number=number)
+> AutocompleteProductSearch200Response autocomplete_menu_item_search(query, number=number)
 
 Autocomplete Menu Item Search
 
@@ -26,7 +26,7 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 
 ```python
 import spoonacular
-from spoonacular.models.autocomplete_menu_item_search200_response import AutocompleteMenuItemSearch200Response
+from spoonacular.models.autocomplete_product_search200_response import AutocompleteProductSearch200Response
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -52,7 +52,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MenuItemsApi(api_client)
     query = 'chicke' # str | The (partial) search query.
-    number = 10 # float | The number of results to return (between 1 and 25). (optional)
+    number = 10 # int | The number of results to return (between 1 and 25). (optional)
 
     try:
         # Autocomplete Menu Item Search
@@ -71,11 +71,11 @@ with spoonacular.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **str**| The (partial) search query. | 
- **number** | **float**| The number of results to return (between 1 and 25). | [optional] 
+ **number** | **int**| The number of results to return (between 1 and 25). | [optional] 
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_menu_item_information**
-> GetMenuItemInformation200Response get_menu_item_information(id)
+> MenuItem get_menu_item_information(id)
 
 Get Menu Item Information
 
@@ -110,7 +110,7 @@ Use a menu item id to get all available information about a menu item, such as n
 
 ```python
 import spoonacular
-from spoonacular.models.get_menu_item_information200_response import GetMenuItemInformation200Response
+from spoonacular.models.menu_item import MenuItem
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -135,7 +135,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MenuItemsApi(api_client)
-    id = 1 # int | The item's id.
+    id = 424571 # int | The menu item id.
 
     try:
         # Get Menu Item Information
@@ -153,11 +153,11 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The menu item id. | 
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MenuItemsApi(api_client)
-    id = 424571 # float | The menu item id.
+    id = 424571 # int | The menu item id.
 
     try:
         # Menu Item Nutrition by ID Image
@@ -234,7 +234,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
 
 ### Return type
 
@@ -297,7 +297,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MenuItemsApi(api_client)
-    id = 342313 # float | The menu item id.
+    id = 342313 # int | The menu item id.
     show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
     show_zero_values = false # bool | Whether to show zero values. (optional)
     show_ingredients = false # bool | Whether to show a list of ingredients. (optional)
@@ -318,7 +318,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
  **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
  **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] 
@@ -384,7 +384,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MenuItemsApi(api_client)
-    id = 342313 # float | The menu item id.
+    id = 342313 # int | The menu item id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
     show_optional_nutrients = false # bool | Whether to show optional nutrients. (optional)
     show_zero_values = false # bool | Whether to show zero values. (optional)
@@ -406,7 +406,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **float**| The menu item id. | 
+ **id** | **int**| The menu item id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
  **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **bool**| Whether to show zero values. | [optional] 
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_menu_items**
-> SearchMenuItems200Response search_menu_items(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_menu_item_information=add_menu_item_information, offset=offset, number=number)
+> SearchMenuItems200Response search_menu_items(query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_menu_item_information=add_menu_item_information, offset=offset, number=number)
 
 Search Menu Items
 
@@ -474,7 +474,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MenuItemsApi(api_client)
-    query = 'burger' # str | The (natural language) search query. (optional)
+    query = 'burger' # str | The (natural language) search query.
     min_calories = 50 # float | The minimum amount of calories the menu item must have. (optional)
     max_calories = 800 # float | The maximum amount of calories the menu item can have. (optional)
     min_carbs = 10 # float | The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -489,7 +489,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
     try:
         # Search Menu Items
-        api_response = api_instance.search_menu_items(query=query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_menu_item_information=add_menu_item_information, offset=offset, number=number)
+        api_response = api_instance.search_menu_items(query, min_calories=min_calories, max_calories=max_calories, min_carbs=min_carbs, max_carbs=max_carbs, min_protein=min_protein, max_protein=max_protein, min_fat=min_fat, max_fat=max_fat, add_menu_item_information=add_menu_item_information, offset=offset, number=number)
         print("The response of MenuItemsApi->search_menu_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -503,7 +503,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The (natural language) search query. | [optional] 
+ **query** | **str**| The (natural language) search query. | 
  **min_calories** | **float**| The minimum amount of calories the menu item must have. | [optional] 
  **max_calories** | **float**| The maximum amount of calories the menu item can have. | [optional] 
  **min_carbs** | **float**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] 
@@ -577,7 +577,7 @@ configuration.api_key['apiKeyScheme'] = os.environ["API_KEY"]
 with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MenuItemsApi(api_client)
-    id = 1 # int | The item's id.
+    id = 1003464 # int | The menu item id.
     default_css = True # bool | Whether the default CSS should be added to the response. (optional) (default to True)
 
     try:
@@ -596,7 +596,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The menu item id. | 
  **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to True]
 
 ### Return type

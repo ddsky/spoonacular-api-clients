@@ -23,10 +23,10 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response;
+import com.spoonacular.client.model.AutocompleteProductSearch200Response;
 import java.math.BigDecimal;
 import java.io.File;
-import com.spoonacular.client.model.GetMenuItemInformation200Response;
+import com.spoonacular.client.model.MenuItem;
 import com.spoonacular.client.model.SearchMenuItems200Response;
 
 import org.apache.http.HttpEntity;
@@ -64,9 +64,9 @@ public class MenuItemsApi {
   * Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
    * @param query The (partial) search query.
    * @param number The number of results to return (between 1 and 25).
-   * @return AutocompleteMenuItemSearch200Response
+   * @return AutocompleteProductSearch200Response
   */
-  public AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch (String query, BigDecimal number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AutocompleteProductSearch200Response autocompleteMenuItemSearch (String query, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -103,7 +103,7 @@ public class MenuItemsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (AutocompleteMenuItemSearch200Response) ApiInvoker.deserialize(localVarResponse, "", AutocompleteMenuItemSearch200Response.class);
+         return (AutocompleteProductSearch200Response) ApiInvoker.deserialize(localVarResponse, "", AutocompleteProductSearch200Response.class);
       } else {
          return null;
       }
@@ -129,7 +129,7 @@ public class MenuItemsApi {
    * Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
    * @param query The (partial) search query.   * @param number The number of results to return (between 1 and 25).
   */
-  public void autocompleteMenuItemSearch (String query, BigDecimal number, final Response.Listener<AutocompleteMenuItemSearch200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void autocompleteMenuItemSearch (String query, Integer number, final Response.Listener<AutocompleteProductSearch200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'query' is set
@@ -176,7 +176,7 @@ public class MenuItemsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((AutocompleteMenuItemSearch200Response) ApiInvoker.deserialize(localVarResponse,  "", AutocompleteMenuItemSearch200Response.class));
+              responseListener.onResponse((AutocompleteProductSearch200Response) ApiInvoker.deserialize(localVarResponse,  "", AutocompleteProductSearch200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -194,10 +194,10 @@ public class MenuItemsApi {
   /**
   * Get Menu Item Information
   * Use a menu item id to get all available information about a menu item, such as nutrition.
-   * @param id The item&#39;s id.
-   * @return GetMenuItemInformation200Response
+   * @param id The menu item id.
+   * @return MenuItem
   */
-  public GetMenuItemInformation200Response getMenuItemInformation (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MenuItem getMenuItemInformation (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -232,7 +232,7 @@ public class MenuItemsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetMenuItemInformation200Response) ApiInvoker.deserialize(localVarResponse, "", GetMenuItemInformation200Response.class);
+         return (MenuItem) ApiInvoker.deserialize(localVarResponse, "", MenuItem.class);
       } else {
          return null;
       }
@@ -256,9 +256,9 @@ public class MenuItemsApi {
       /**
    * Get Menu Item Information
    * Use a menu item id to get all available information about a menu item, such as nutrition.
-   * @param id The item&#39;s id.
+   * @param id The menu item id.
   */
-  public void getMenuItemInformation (Integer id, final Response.Listener<GetMenuItemInformation200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getMenuItemInformation (Integer id, final Response.Listener<MenuItem> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -303,7 +303,7 @@ public class MenuItemsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetMenuItemInformation200Response) ApiInvoker.deserialize(localVarResponse,  "", GetMenuItemInformation200Response.class));
+              responseListener.onResponse((MenuItem) ApiInvoker.deserialize(localVarResponse,  "", MenuItem.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -324,7 +324,7 @@ public class MenuItemsApi {
    * @param id The menu item id.
    * @return File
   */
-  public File menuItemNutritionByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File menuItemNutritionByIDImage (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -385,7 +385,7 @@ public class MenuItemsApi {
    * Visualize a menu item&#39;s nutritional information as HTML including CSS.
    * @param id The menu item id.
   */
-  public void menuItemNutritionByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void menuItemNutritionByIDImage (Integer id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -454,7 +454,7 @@ public class MenuItemsApi {
    * @param showIngredients Whether to show a list of ingredients.
    * @return File
   */
-  public File menuItemNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File menuItemNutritionLabelImage (Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -518,7 +518,7 @@ public class MenuItemsApi {
    * Visualize a menu item&#39;s nutritional label information as an image.
    * @param id The menu item id.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void menuItemNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void menuItemNutritionLabelImage (Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -591,7 +591,7 @@ public class MenuItemsApi {
    * @param showIngredients Whether to show a list of ingredients.
    * @return String
   */
-  public String menuItemNutritionLabelWidget (BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String menuItemNutritionLabelWidget (Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -656,7 +656,7 @@ public class MenuItemsApi {
    * Visualize a menu item&#39;s nutritional label information as HTML including CSS.
    * @param id The menu item id.   * @param defaultCss Whether the default CSS should be added to the response.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void menuItemNutritionLabelWidget (BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void menuItemNutritionLabelWidget (Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -739,6 +739,11 @@ public class MenuItemsApi {
   */
   public SearchMenuItems200Response searchMenuItems (String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchMenuItems",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchMenuItems"));
+    }
 
     // create path and map variables
     String path = "/food/menuItems/search";
@@ -808,6 +813,11 @@ public class MenuItemsApi {
   public void searchMenuItems (String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addMenuItemInformation, Integer offset, Integer number, final Response.Listener<SearchMenuItems200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchMenuItems",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchMenuItems"));
+    }
 
     // create path and map variables
     String path = "/food/menuItems/search".replaceAll("\\{format\\}","json");
@@ -875,7 +885,7 @@ public class MenuItemsApi {
   /**
   * Menu Item Nutrition by ID Widget
   * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.
+   * @param id The menu item id.
    * @param defaultCss Whether the default CSS should be added to the response.
    * @return String
   */
@@ -939,7 +949,7 @@ public class MenuItemsApi {
       /**
    * Menu Item Nutrition by ID Widget
    * Visualize a menu item&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param id The menu item id.   * @param defaultCss Whether the default CSS should be added to the response.
   */
   public void visualizeMenuItemNutritionByID (Integer id, Boolean defaultCss, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;

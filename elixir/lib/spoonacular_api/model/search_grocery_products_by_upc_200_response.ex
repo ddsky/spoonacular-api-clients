@@ -31,11 +31,11 @@ defmodule SpoonacularAPI.Model.SearchGroceryProductsByUpc200Response do
     :badges => [String.t],
     :importantBadges => [String.t],
     :breadcrumbs => [String.t],
-    :generatedText => String.t,
+    :generatedText => String.t | nil,
     :imageType => String.t,
     :ingredientCount => integer() | nil,
     :ingredientList => String.t,
-    :ingredients => [SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseIngredientsInner.t],
+    :ingredients => [SpoonacularAPI.Model.IngredientBasics.t],
     :likes => float(),
     :nutrition => SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseNutrition.t,
     :price => float(),
@@ -47,7 +47,7 @@ defmodule SpoonacularAPI.Model.SearchGroceryProductsByUpc200Response do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:ingredients, :list, SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseIngredientsInner)
+     |> Deserializer.deserialize(:ingredients, :list, SpoonacularAPI.Model.IngredientBasics)
      |> Deserializer.deserialize(:nutrition, :struct, SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseNutrition)
      |> Deserializer.deserialize(:servings, :struct, SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseServings)
   end

@@ -12,7 +12,6 @@
 
 package com.spoonacular.client.model;
 
-import java.math.BigDecimal;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -20,17 +19,17 @@ import com.google.gson.annotations.SerializedName;
 public class AnalyzeRecipeInstructions200ResponseIngredientsInner {
   
   @SerializedName("id")
-  private BigDecimal id = null;
+  private Integer id = null;
   @SerializedName("name")
   private String name = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public BigDecimal getId() {
+  public Integer getId() {
     return id;
   }
-  public void setId(BigDecimal id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

@@ -13,16 +13,16 @@ defmodule SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseNutrition do
   ]
 
   @type t :: %__MODULE__{
-    :nutrients => [SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionNutrientsInner.t],
-    :caloricBreakdown => SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionCaloricBreakdown.t
+    :nutrients => [SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseNutritionNutrientsInner.t],
+    :caloricBreakdown => SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseNutritionCaloricBreakdown.t
   }
 
   alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:nutrients, :list, SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionNutrientsInner)
-     |> Deserializer.deserialize(:caloricBreakdown, :struct, SpoonacularAPI.Model.ParseIngredients200ResponseInnerNutritionCaloricBreakdown)
+     |> Deserializer.deserialize(:nutrients, :list, SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseNutritionNutrientsInner)
+     |> Deserializer.deserialize(:caloricBreakdown, :struct, SpoonacularAPI.Model.SearchGroceryProductsByUpc200ResponseNutritionCaloricBreakdown)
   end
 end
 

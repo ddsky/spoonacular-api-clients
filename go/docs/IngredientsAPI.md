@@ -37,7 +37,7 @@ import (
 )
 
 func main() {
-	query := "burger" // string | The (natural language) search query. (optional)
+	query := "burger" // string | The (natural language) search query.
 	number := int32(10) // int32 | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional) (default to 10)
 	metaInformation := false // bool | Whether to return more meta information about the ingredients. (optional)
 	intolerances := "egg" // string | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -111,9 +111,9 @@ import (
 )
 
 func main() {
-	id := float32(9266) // float32 | The id of the ingredient you want the amount for.
+	id := int32(9266) // int32 | The id of the ingredient you want the amount for.
 	nutrient := "protein" // string | The target nutrient. See a list of supported nutrients.
-	target := float32(2) // float32 | The target number of the given nutrient.
+	target := int32(2) // int32 | The target number of the given nutrient.
 	unit := "oz" // string | The target unit. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -134,7 +134,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The id of the ingredient you want the amount for. | 
+**id** | **int32** | The id of the ingredient you want the amount for. | 
 
 ### Other Parameters
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **nutrient** | **string** | The target nutrient. See a list of supported nutrients. | 
- **target** | **float32** | The target number of the given nutrient. | 
+ **target** | **int32** | The target number of the given nutrient. | 
  **unit** | **string** | The target unit. | 
 
 ### Return type
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ## GetIngredientInformation
 
-> GetIngredientInformation200Response GetIngredientInformation(ctx, id).Amount(amount).Unit(unit).Execute()
+> IngredientInformation GetIngredientInformation(ctx, id).Amount(amount).Unit(unit).Execute()
 
 Get Ingredient Information
 
@@ -187,7 +187,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(9266) // int32 | The ingredient id.
 	amount := float32(150) // float32 | The amount of this ingredient. (optional)
 	unit := "grams" // string | The unit for the given amount. (optional)
 
@@ -198,7 +198,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `IngredientsAPI.GetIngredientInformation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetIngredientInformation`: GetIngredientInformation200Response
+	// response from `GetIngredientInformation`: IngredientInformation
 	fmt.Fprintf(os.Stdout, "Response from `IngredientsAPI.GetIngredientInformation`: %v\n", resp)
 }
 ```
@@ -209,7 +209,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The ingredient id. | 
 
 ### Other Parameters
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(1001) // int32 | The id of the ingredient you want substitutes for.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -347,7 +347,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The id of the ingredient you want substitutes for. | 
 
 ### Other Parameters
 
@@ -397,7 +397,7 @@ import (
 )
 
 func main() {
-	query := "burger" // string | The (natural language) search query. (optional)
+	query := "burger" // string | The (natural language) search query.
 	addChildren := true // bool | Whether to add children of found foods. (optional)
 	minProteinPercent := float32(10) // float32 | The minimum percentage of protein the food must have (between 0 and 100). (optional)
 	maxProteinPercent := float32(90) // float32 | The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -491,7 +491,7 @@ import (
 )
 
 func main() {
-	id := float32(1082038) // float32 | The recipe id.
+	id := int32(1082038) // int32 | The recipe id.
 	measure := "metric" // string | Whether the the measures should be 'us' or 'metric'. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -512,7 +512,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The recipe id. | 
+**id** | **int32** | The recipe id. | 
 
 ### Other Parameters
 

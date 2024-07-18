@@ -61,7 +61,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         'amount' => 'string',
         'indented' => 'bool',
         'percent_of_daily_needs' => 'float',
-        'name' => 'string'
+        'title' => 'string'
     ];
 
     /**
@@ -75,7 +75,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         'amount' => null,
         'indented' => null,
         'percent_of_daily_needs' => null,
-        'name' => null
+        'title' => null
     ];
 
     /**
@@ -87,7 +87,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         'amount' => false,
         'indented' => false,
         'percent_of_daily_needs' => false,
-        'name' => false
+        'title' => false
     ];
 
     /**
@@ -179,7 +179,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         'amount' => 'amount',
         'indented' => 'indented',
         'percent_of_daily_needs' => 'percentOfDailyNeeds',
-        'name' => 'name'
+        'title' => 'title'
     ];
 
     /**
@@ -191,7 +191,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         'amount' => 'setAmount',
         'indented' => 'setIndented',
         'percent_of_daily_needs' => 'setPercentOfDailyNeeds',
-        'name' => 'setName'
+        'title' => 'setTitle'
     ];
 
     /**
@@ -203,7 +203,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         'amount' => 'getAmount',
         'indented' => 'getIndented',
         'percent_of_daily_needs' => 'getPercentOfDailyNeeds',
-        'name' => 'getName'
+        'title' => 'getTitle'
     ];
 
     /**
@@ -266,7 +266,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('indented', $data ?? [], null);
         $this->setIfExists('percent_of_daily_needs', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
     }
 
     /**
@@ -309,11 +309,11 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
         if ($this->container['percent_of_daily_needs'] === null) {
             $invalidProperties[] = "'percent_of_daily_needs' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
         }
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        if ((mb_strlen($this->container['title']) < 1)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -418,33 +418,33 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner implements ModelInterface
     }
 
     /**
-     * Gets name
+     * Gets title
      *
      * @return string
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->container['name'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets name
+     * Sets title
      *
-     * @param string $name name
+     * @param string $title title
      *
      * @return self
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
 
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling GetRecipeNutritionWidgetByID200ResponseGoodInner., must be bigger than or equal to 1.');
+        if ((mb_strlen($title) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling GetRecipeNutritionWidgetByID200ResponseGoodInner., must be bigger than or equal to 1.');
         }
 
-        $this->container['name'] = $name;
+        $this->container['title'] = $title;
 
         return $this;
     }

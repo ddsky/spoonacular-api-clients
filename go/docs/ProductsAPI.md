@@ -243,7 +243,7 @@ import (
 )
 
 func main() {
-	upc := float32(33698816271) // float32 | The UPC of the product for which you want to find comparable products.
+	upc := "033698816271" // string | The UPC of the product for which you want to find comparable products.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -263,7 +263,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**upc** | **float32** | The UPC of the product for which you want to find comparable products. | 
+**upc** | **string** | The UPC of the product for which you want to find comparable products. | 
 
 ### Other Parameters
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## GetProductInformation
 
-> GetProductInformation200Response GetProductInformation(ctx, id).Execute()
+> ProductInformation GetProductInformation(ctx, id).Execute()
 
 Get Product Information
 
@@ -313,7 +313,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(22347) // int32 | The id of the packaged food.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -322,7 +322,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProductsAPI.GetProductInformation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetProductInformation`: GetProductInformation200Response
+	// response from `GetProductInformation`: ProductInformation
 	fmt.Fprintf(os.Stdout, "Response from `ProductsAPI.GetProductInformation`: %v\n", resp)
 }
 ```
@@ -333,7 +333,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The id of the packaged food. | 
 
 ### Other Parameters
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ import (
 )
 
 func main() {
-	id := float32(7657) // float32 | The id of the product.
+	id := int32(7657) // int32 | The id of the product.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -403,7 +403,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The id of the product. | 
+**id** | **int32** | The id of the product. | 
 
 ### Other Parameters
 
@@ -453,7 +453,7 @@ import (
 )
 
 func main() {
-	id := float32(22347) // float32 | The product id.
+	id := int32(22347) // int32 | The product id.
 	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
 	showZeroValues := false // bool | Whether to show zero values. (optional)
 	showIngredients := false // bool | Whether to show a list of ingredients. (optional)
@@ -476,7 +476,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The product id. | 
+**id** | **int32** | The product id. | 
 
 ### Other Parameters
 
@@ -529,7 +529,7 @@ import (
 )
 
 func main() {
-	id := float32(22347) // float32 | The product id.
+	id := int32(22347) // int32 | The product id.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 	showOptionalNutrients := false // bool | Whether to show optional nutrients. (optional)
 	showZeroValues := false // bool | Whether to show zero values. (optional)
@@ -553,7 +553,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **float32** | The product id. | 
+**id** | **int32** | The product id. | 
 
 ### Other Parameters
 
@@ -607,7 +607,7 @@ import (
 )
 
 func main() {
-	query := "burger" // string | The (natural language) search query. (optional)
+	query := "burger" // string | The (natural language) search query.
 	minCalories := float32(50) // float32 | The minimum amount of calories the product must have. (optional)
 	maxCalories := float32(800) // float32 | The maximum amount of calories the product can have. (optional)
 	minCarbs := float32(10) // float32 | The minimum amount of carbohydrates in grams the product must have. (optional)
@@ -695,7 +695,7 @@ import (
 )
 
 func main() {
-	upc := float32(41631000564) // float32 | The product's UPC.
+	upc := "041631000564" // string | The product's UPC.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -715,7 +715,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**upc** | **float32** | The product&#39;s UPC. | 
+**upc** | **string** | The product&#39;s UPC. | 
 
 ### Other Parameters
 
@@ -765,7 +765,7 @@ import (
 )
 
 func main() {
-	id := int32(1) // int32 | The item's id.
+	id := int32(7657) // int32 | The id of the product.
 	defaultCss := false // bool | Whether the default CSS should be added to the response. (optional) (default to true)
 
 	configuration := openapiclient.NewConfiguration()
@@ -786,7 +786,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | The item&#39;s id. | 
+**id** | **int32** | The id of the product. | 
 
 ### Other Parameters
 

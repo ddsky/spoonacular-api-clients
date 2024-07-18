@@ -54,7 +54,7 @@ sub new {
 # Autocomplete Menu Item Search
 #
 # @param string $query The (partial) search query. (required)
-# @param double $number The number of results to return (between 1 and 25). (optional)
+# @param int $number The number of results to return (between 1 and 25). (optional)
 {
     my $params = {
     'query' => {
@@ -63,7 +63,7 @@ sub new {
         required => '1',
     },
     'number' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The number of results to return (between 1 and 25).',
         required => '0',
     },
@@ -71,10 +71,10 @@ sub new {
     __PACKAGE__->method_documentation->{ 'autocomplete_menu_item_search' } = {
         summary => 'Autocomplete Menu Item Search',
         params => $params,
-        returns => 'AutocompleteMenuItemSearch200Response',
+        returns => 'AutocompleteProductSearch200Response',
         };
 }
-# @return AutocompleteMenuItemSearch200Response
+# @return AutocompleteProductSearch200Response
 #
 sub autocomplete_menu_item_search {
     my ($self, %args) = @_;
@@ -120,7 +120,7 @@ sub autocomplete_menu_item_search {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('AutocompleteMenuItemSearch200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('AutocompleteProductSearch200Response', $response);
     return $_response_object;
 }
 
@@ -129,22 +129,22 @@ sub autocomplete_menu_item_search {
 #
 # Get Menu Item Information
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The menu item id. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The menu item id.',
         required => '1',
     },
     };
     __PACKAGE__->method_documentation->{ 'get_menu_item_information' } = {
         summary => 'Get Menu Item Information',
         params => $params,
-        returns => 'GetMenuItemInformation200Response',
+        returns => 'MenuItem',
         };
 }
-# @return GetMenuItemInformation200Response
+# @return MenuItem
 #
 sub get_menu_item_information {
     my ($self, %args) = @_;
@@ -187,7 +187,7 @@ sub get_menu_item_information {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetMenuItemInformation200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('MenuItem', $response);
     return $_response_object;
 }
 
@@ -196,11 +196,11 @@ sub get_menu_item_information {
 #
 # Menu Item Nutrition by ID Image
 #
-# @param double $id The menu item id. (required)
+# @param int $id The menu item id. (required)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The menu item id.',
         required => '1',
     },
@@ -263,14 +263,14 @@ sub menu_item_nutrition_by_id_image {
 #
 # Menu Item Nutrition Label Image
 #
-# @param double $id The menu item id. (required)
+# @param int $id The menu item id. (required)
 # @param boolean $show_optional_nutrients Whether to show optional nutrients. (optional)
 # @param boolean $show_zero_values Whether to show zero values. (optional)
 # @param boolean $show_ingredients Whether to show a list of ingredients. (optional)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The menu item id.',
         required => '1',
     },
@@ -363,7 +363,7 @@ sub menu_item_nutrition_label_image {
 #
 # Menu Item Nutrition Label Widget
 #
-# @param double $id The menu item id. (required)
+# @param int $id The menu item id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 # @param boolean $show_optional_nutrients Whether to show optional nutrients. (optional)
 # @param boolean $show_zero_values Whether to show zero values. (optional)
@@ -371,7 +371,7 @@ sub menu_item_nutrition_label_image {
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The menu item id.',
         required => '1',
     },
@@ -474,7 +474,7 @@ sub menu_item_nutrition_label_widget {
 #
 # Search Menu Items
 #
-# @param string $query The (natural language) search query. (optional)
+# @param string $query The (natural language) search query. (required)
 # @param double $min_calories The minimum amount of calories the menu item must have. (optional)
 # @param double $max_calories The maximum amount of calories the menu item can have. (optional)
 # @param double $min_carbs The minimum amount of carbohydrates in grams the menu item must have. (optional)
@@ -491,7 +491,7 @@ sub menu_item_nutrition_label_widget {
     'query' => {
         data_type => 'string',
         description => 'The (natural language) search query.',
-        required => '0',
+        required => '1',
     },
     'min_calories' => {
         data_type => 'double',
@@ -559,6 +559,11 @@ sub menu_item_nutrition_label_widget {
 #
 sub search_menu_items {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling search_menu_items");
+    }
 
     # parse inputs
     my $_resource_path = '/food/menuItems/search';
@@ -655,13 +660,13 @@ sub search_menu_items {
 #
 # Menu Item Nutrition by ID Widget
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The menu item id. (required)
 # @param boolean $default_css Whether the default CSS should be added to the response. (optional, default to true)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The menu item id.',
         required => '1',
     },
     'default_css' => {

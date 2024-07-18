@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Original** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
-**Metric** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
-**Us** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
+**Original** | [**GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.md) |  | 
+**Metric** | [**GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.md) |  | 
+**Us** | [**GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

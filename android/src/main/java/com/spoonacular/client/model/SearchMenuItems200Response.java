@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.SearchMenuItems200ResponseMenuItemsInner;
+import com.spoonacular.client.model.MenuItem;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -24,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 public class SearchMenuItems200Response {
   
   @SerializedName("menuItems")
-  private Set<SearchMenuItems200ResponseMenuItemsInner> menuItems = null;
+  private Set<MenuItem> menuItems = null;
   @SerializedName("totalMenuItems")
   private Integer totalMenuItems = null;
   @SerializedName("type")
@@ -37,10 +37,10 @@ public class SearchMenuItems200Response {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<SearchMenuItems200ResponseMenuItemsInner> getMenuItems() {
+  public Set<MenuItem> getMenuItems() {
     return menuItems;
   }
-  public void setMenuItems(Set<SearchMenuItems200ResponseMenuItemsInner> menuItems) {
+  public void setMenuItems(Set<MenuItem> menuItems) {
     this.menuItems = menuItems;
   }
 

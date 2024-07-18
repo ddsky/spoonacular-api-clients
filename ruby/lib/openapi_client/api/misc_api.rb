@@ -215,7 +215,7 @@ module OpenapiClient
     # Random Food Trivia
     # Returns random food trivia.
     # @param [Hash] opts the optional parameters
-    # @return [GetRandomFoodTrivia200Response]
+    # @return [GetARandomFoodJoke200Response]
     def get_random_food_trivia(opts = {})
       data, _status_code, _headers = get_random_food_trivia_with_http_info(opts)
       data
@@ -224,7 +224,7 @@ module OpenapiClient
     # Random Food Trivia
     # Returns random food trivia.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(GetRandomFoodTrivia200Response, Integer, Hash)>] GetRandomFoodTrivia200Response data, response status code and response headers
+    # @return [Array<(GetARandomFoodJoke200Response, Integer, Hash)>] GetARandomFoodJoke200Response data, response status code and response headers
     def get_random_food_trivia_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.get_random_food_trivia ...'
@@ -247,7 +247,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetRandomFoodTrivia200Response'
+      return_type = opts[:debug_return_type] || 'GetARandomFoodJoke200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -485,30 +485,34 @@ module OpenapiClient
 
     # Search Custom Foods
     # Search custom foods in a user's account.
+    # @param query [String] The (natural language) search query.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [SearchCustomFoods200Response]
-    def search_custom_foods(username, hash, opts = {})
-      data, _status_code, _headers = search_custom_foods_with_http_info(username, hash, opts)
+    def search_custom_foods(query, username, hash, opts = {})
+      data, _status_code, _headers = search_custom_foods_with_http_info(query, username, hash, opts)
       data
     end
 
     # Search Custom Foods
     # Search custom foods in a user&#39;s account.
+    # @param query [String] The (natural language) search query.
     # @param username [String] The username.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<(SearchCustomFoods200Response, Integer, Hash)>] SearchCustomFoods200Response data, response status code and response headers
-    def search_custom_foods_with_http_info(username, hash, opts = {})
+    def search_custom_foods_with_http_info(query, username, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.search_custom_foods ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling MiscApi.search_custom_foods"
       end
       # verify the required parameter 'username' is set
       if @api_client.config.client_side_validation && username.nil?
@@ -539,9 +543,9 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'query'] = query
       query_params[:'username'] = username
       query_params[:'hash'] = hash
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
 
@@ -581,8 +585,8 @@ module OpenapiClient
 
     # Search Food Videos
     # Find recipe and other food related videos.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [String] :type The type of the recipes. See a full list of supported meal types.
     # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
     # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -593,15 +597,15 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [SearchFoodVideos200Response]
-    def search_food_videos(opts = {})
-      data, _status_code, _headers = search_food_videos_with_http_info(opts)
+    def search_food_videos(query, opts = {})
+      data, _status_code, _headers = search_food_videos_with_http_info(query, opts)
       data
     end
 
     # Search Food Videos
     # Find recipe and other food related videos.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [String] :type The type of the recipes. See a full list of supported meal types.
     # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
     # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -612,9 +616,13 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<(SearchFoodVideos200Response, Integer, Hash)>] SearchFoodVideos200Response data, response status code and response headers
-    def search_food_videos_with_http_info(opts = {})
+    def search_food_videos_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MiscApi.search_food_videos ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling MiscApi.search_food_videos"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 900
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling MiscApi.search_food_videos, must be smaller than or equal to 900.'
@@ -637,7 +645,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'query'] = query
       query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
       query_params[:'cuisine'] = opts[:'cuisine'] if !opts[:'cuisine'].nil?
       query_params[:'diet'] = opts[:'diet'] if !opts[:'diet'].nil?

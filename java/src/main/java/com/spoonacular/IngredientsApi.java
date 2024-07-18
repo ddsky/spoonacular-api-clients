@@ -31,8 +31,8 @@ import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner
 import java.math.BigDecimal;
 import com.spoonacular.client.model.ComputeIngredientAmount200Response;
 import java.io.File;
-import com.spoonacular.client.model.GetIngredientInformation200Response;
 import com.spoonacular.client.model.GetIngredientSubstitutes200Response;
+import com.spoonacular.client.model.IngredientInformation;
 import com.spoonacular.client.model.IngredientSearch200Response;
 import com.spoonacular.client.model.MapIngredientsToGroceryProducts200ResponseInner;
 import com.spoonacular.client.model.MapIngredientsToGroceryProductsRequest;
@@ -83,7 +83,7 @@ public class IngredientsApi {
 
     /**
      * Build call for autocompleteIngredientSearch
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -168,6 +168,11 @@ public class IngredientsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call autocompleteIngredientSearchValidateBeforeCall(String query, Integer number, Boolean metaInformation, String intolerances, String language, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling autocompleteIngredientSearch(Async)");
+        }
+
         return autocompleteIngredientSearchCall(query, number, metaInformation, intolerances, language, _callback);
 
     }
@@ -175,7 +180,7 @@ public class IngredientsApi {
     /**
      * Autocomplete Ingredient Search
      * Autocomplete the entry of an ingredient.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -201,7 +206,7 @@ public class IngredientsApi {
     /**
      * Autocomplete Ingredient Search
      * Autocomplete the entry of an ingredient.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -228,7 +233,7 @@ public class IngredientsApi {
     /**
      * Autocomplete Ingredient Search (asynchronously)
      * Autocomplete the entry of an ingredient.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param metaInformation Whether to return more meta information about the ingredients. (optional)
      * @param intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -274,7 +279,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Compute-Ingredient-Amount">Compute Ingredient Amount Documentation</a>
      */
-    public okhttp3.Call computeIngredientAmountCall(BigDecimal id, String nutrient, BigDecimal target, String unit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call computeIngredientAmountCall(Integer id, String nutrient, Integer target, String unit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -332,7 +337,7 @@ public class IngredientsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call computeIngredientAmountValidateBeforeCall(BigDecimal id, String nutrient, BigDecimal target, String unit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call computeIngredientAmountValidateBeforeCall(Integer id, String nutrient, Integer target, String unit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling computeIngredientAmount(Async)");
@@ -372,7 +377,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Compute-Ingredient-Amount">Compute Ingredient Amount Documentation</a>
      */
-    public ComputeIngredientAmount200Response computeIngredientAmount(BigDecimal id, String nutrient, BigDecimal target, String unit) throws ApiException {
+    public ComputeIngredientAmount200Response computeIngredientAmount(Integer id, String nutrient, Integer target, String unit) throws ApiException {
         ApiResponse<ComputeIngredientAmount200Response> localVarResp = computeIngredientAmountWithHttpInfo(id, nutrient, target, unit);
         return localVarResp.getData();
     }
@@ -397,7 +402,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Compute-Ingredient-Amount">Compute Ingredient Amount Documentation</a>
      */
-    public ApiResponse<ComputeIngredientAmount200Response> computeIngredientAmountWithHttpInfo(BigDecimal id, String nutrient, BigDecimal target, String unit) throws ApiException {
+    public ApiResponse<ComputeIngredientAmount200Response> computeIngredientAmountWithHttpInfo(Integer id, String nutrient, Integer target, String unit) throws ApiException {
         okhttp3.Call localVarCall = computeIngredientAmountValidateBeforeCall(id, nutrient, target, unit, null);
         Type localVarReturnType = new TypeToken<ComputeIngredientAmount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -424,7 +429,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Compute-Ingredient-Amount">Compute Ingredient Amount Documentation</a>
      */
-    public okhttp3.Call computeIngredientAmountAsync(BigDecimal id, String nutrient, BigDecimal target, String unit, final ApiCallback<ComputeIngredientAmount200Response> _callback) throws ApiException {
+    public okhttp3.Call computeIngredientAmountAsync(Integer id, String nutrient, Integer target, String unit, final ApiCallback<ComputeIngredientAmount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = computeIngredientAmountValidateBeforeCall(id, nutrient, target, unit, _callback);
         Type localVarReturnType = new TypeToken<ComputeIngredientAmount200Response>(){}.getType();
@@ -433,7 +438,7 @@ public class IngredientsApi {
     }
     /**
      * Build call for getIngredientInformation
-     * @param id The item&#39;s id. (required)
+     * @param id The ingredient id. (required)
      * @param amount The amount of this ingredient. (optional)
      * @param unit The unit for the given amount. (optional)
      * @param _callback Callback for upload/download progress
@@ -517,10 +522,10 @@ public class IngredientsApi {
     /**
      * Get Ingredient Information
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-     * @param id The item&#39;s id. (required)
+     * @param id The ingredient id. (required)
      * @param amount The amount of this ingredient. (optional)
      * @param unit The unit for the given amount. (optional)
-     * @return GetIngredientInformation200Response
+     * @return IngredientInformation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -533,18 +538,18 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Ingredient-Information">Get Ingredient Information Documentation</a>
      */
-    public GetIngredientInformation200Response getIngredientInformation(Integer id, BigDecimal amount, String unit) throws ApiException {
-        ApiResponse<GetIngredientInformation200Response> localVarResp = getIngredientInformationWithHttpInfo(id, amount, unit);
+    public IngredientInformation getIngredientInformation(Integer id, BigDecimal amount, String unit) throws ApiException {
+        ApiResponse<IngredientInformation> localVarResp = getIngredientInformationWithHttpInfo(id, amount, unit);
         return localVarResp.getData();
     }
 
     /**
      * Get Ingredient Information
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-     * @param id The item&#39;s id. (required)
+     * @param id The ingredient id. (required)
      * @param amount The amount of this ingredient. (optional)
      * @param unit The unit for the given amount. (optional)
-     * @return ApiResponse&lt;GetIngredientInformation200Response&gt;
+     * @return ApiResponse&lt;IngredientInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -557,16 +562,16 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Ingredient-Information">Get Ingredient Information Documentation</a>
      */
-    public ApiResponse<GetIngredientInformation200Response> getIngredientInformationWithHttpInfo(Integer id, BigDecimal amount, String unit) throws ApiException {
+    public ApiResponse<IngredientInformation> getIngredientInformationWithHttpInfo(Integer id, BigDecimal amount, String unit) throws ApiException {
         okhttp3.Call localVarCall = getIngredientInformationValidateBeforeCall(id, amount, unit, null);
-        Type localVarReturnType = new TypeToken<GetIngredientInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<IngredientInformation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Ingredient Information (asynchronously)
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-     * @param id The item&#39;s id. (required)
+     * @param id The ingredient id. (required)
      * @param amount The amount of this ingredient. (optional)
      * @param unit The unit for the given amount. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -583,10 +588,10 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Ingredient-Information">Get Ingredient Information Documentation</a>
      */
-    public okhttp3.Call getIngredientInformationAsync(Integer id, BigDecimal amount, String unit, final ApiCallback<GetIngredientInformation200Response> _callback) throws ApiException {
+    public okhttp3.Call getIngredientInformationAsync(Integer id, BigDecimal amount, String unit, final ApiCallback<IngredientInformation> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getIngredientInformationValidateBeforeCall(id, amount, unit, _callback);
-        Type localVarReturnType = new TypeToken<GetIngredientInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<IngredientInformation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -738,7 +743,7 @@ public class IngredientsApi {
     }
     /**
      * Build call for getIngredientSubstitutesByID
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the ingredient you want substitutes for. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -812,7 +817,7 @@ public class IngredientsApi {
     /**
      * Get Ingredient Substitutes by ID
      * Search for substitutes for a given ingredient.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the ingredient you want substitutes for. (required)
      * @return GetIngredientSubstitutes200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -834,7 +839,7 @@ public class IngredientsApi {
     /**
      * Get Ingredient Substitutes by ID
      * Search for substitutes for a given ingredient.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the ingredient you want substitutes for. (required)
      * @return ApiResponse&lt;GetIngredientSubstitutes200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -857,7 +862,7 @@ public class IngredientsApi {
     /**
      * Get Ingredient Substitutes by ID (asynchronously)
      * Search for substitutes for a given ingredient.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the ingredient you want substitutes for. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -881,7 +886,7 @@ public class IngredientsApi {
     }
     /**
      * Build call for ingredientSearch
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param addChildren Whether to add children of found foods. (optional)
      * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -1016,6 +1021,11 @@ public class IngredientsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call ingredientSearchValidateBeforeCall(String query, Boolean addChildren, BigDecimal minProteinPercent, BigDecimal maxProteinPercent, BigDecimal minFatPercent, BigDecimal maxFatPercent, BigDecimal minCarbsPercent, BigDecimal maxCarbsPercent, Boolean metaInformation, String intolerances, String sort, String sortDirection, Integer offset, Integer number, String language, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling ingredientSearch(Async)");
+        }
+
         return ingredientSearchCall(query, addChildren, minProteinPercent, maxProteinPercent, minFatPercent, maxFatPercent, minCarbsPercent, maxCarbsPercent, metaInformation, intolerances, sort, sortDirection, offset, number, language, _callback);
 
     }
@@ -1023,7 +1033,7 @@ public class IngredientsApi {
     /**
      * Ingredient Search
      * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param addChildren Whether to add children of found foods. (optional)
      * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -1059,7 +1069,7 @@ public class IngredientsApi {
     /**
      * Ingredient Search
      * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param addChildren Whether to add children of found foods. (optional)
      * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -1096,7 +1106,7 @@ public class IngredientsApi {
     /**
      * Ingredient Search (asynchronously)
      * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param addChildren Whether to add children of found foods. (optional)
      * @param minProteinPercent The minimum percentage of protein the food must have (between 0 and 100). (optional)
      * @param maxProteinPercent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -1150,7 +1160,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-by-ID-Image">Ingredients by ID Image Documentation</a>
      */
-    public okhttp3.Call ingredientsByIDImageCall(BigDecimal id, String measure, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call ingredientsByIDImageCall(Integer id, String measure, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1200,7 +1210,7 @@ public class IngredientsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call ingredientsByIDImageValidateBeforeCall(BigDecimal id, String measure, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call ingredientsByIDImageValidateBeforeCall(Integer id, String measure, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling ingredientsByIDImage(Async)");
@@ -1228,7 +1238,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-by-ID-Image">Ingredients by ID Image Documentation</a>
      */
-    public File ingredientsByIDImage(BigDecimal id, String measure) throws ApiException {
+    public File ingredientsByIDImage(Integer id, String measure) throws ApiException {
         ApiResponse<File> localVarResp = ingredientsByIDImageWithHttpInfo(id, measure);
         return localVarResp.getData();
     }
@@ -1251,7 +1261,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-by-ID-Image">Ingredients by ID Image Documentation</a>
      */
-    public ApiResponse<File> ingredientsByIDImageWithHttpInfo(BigDecimal id, String measure) throws ApiException {
+    public ApiResponse<File> ingredientsByIDImageWithHttpInfo(Integer id, String measure) throws ApiException {
         okhttp3.Call localVarCall = ingredientsByIDImageValidateBeforeCall(id, measure, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1276,7 +1286,7 @@ public class IngredientsApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Ingredients-by-ID-Image">Ingredients by ID Image Documentation</a>
      */
-    public okhttp3.Call ingredientsByIDImageAsync(BigDecimal id, String measure, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call ingredientsByIDImageAsync(Integer id, String measure, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = ingredientsByIDImageValidateBeforeCall(id, measure, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();

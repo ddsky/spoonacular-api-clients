@@ -86,7 +86,7 @@ Name | Type | Description  | Required | Notes
 
 ## add_to_shopping_list
 
-> models::GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
+> models::GetShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
 Add to Shopping List
 
 Add an item to the current shopping list of a user.
@@ -102,7 +102,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GenerateShoppingList200Response**](generateShoppingList_200_response.md)
+[**models::GetShoppingList200Response**](getShoppingList_200_response.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Delete an item from the user's meal plan.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **username** | **String** | The username. | [required] |
-**id** | **f64** | The shopping list item id. | [required] |
+**id** | **i32** | The shopping list item id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
 
 ### Return type
@@ -223,7 +223,7 @@ Delete an item from the current shopping list of the user.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **username** | **String** | The username. | [required] |
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The shopping list item id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
 
 ### Return type
@@ -255,7 +255,7 @@ Delete a meal plan template for a user.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **username** | **String** | The username. | [required] |
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The shopping list item id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
 
 ### Return type
@@ -309,7 +309,7 @@ Name | Type | Description  | Required | Notes
 
 ## generate_shopping_list
 
-> models::GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
+> models::GetShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
 Generate Shopping List
 
 Generate the shopping list for a user from the meal planner in a given time frame.
@@ -326,7 +326,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::GenerateShoppingList200Response**](generateShoppingList_200_response.md)
+[**models::GetShoppingList200Response**](getShoppingList_200_response.md)
 
 ### Authorization
 
@@ -353,7 +353,7 @@ Get information about a meal plan template.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **username** | **String** | The username. | [required] |
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The shopping list item id. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
 
 ### Return type

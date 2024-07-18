@@ -117,7 +117,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    BigDecimal id = new BigDecimal("4632"); // BigDecimal | The recipe id.
+    Integer id = 4632; // Integer | The recipe id.
     String mask = "ellipseMask"; // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
     String backgroundImage = "background1"; // String | The background image (\"none\",\"background1\", or \"background2\").
     String backgroundColor = "ffffff"; // String | The background color for the recipe card as a hex-string.
@@ -140,7 +140,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The recipe id. | |
+| **id** | **Integer**| The recipe id. | |
 | **mask** | **String**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] |
 | **backgroundImage** | **String**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] |
 | **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] |

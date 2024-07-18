@@ -228,12 +228,12 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] upc (required):
+  /// * [String] upc (required):
   ///   The UPC of the product for which you want to find comparable products.
-  Future<Response> getComparableProductsWithHttpInfo(num upc,) async {
+  Future<Response> getComparableProductsWithHttpInfo(String upc,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/upc/{upc}/comparable'
-      .replaceAll('{upc}', upc.toString());
+      .replaceAll('{upc}', upc);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -262,9 +262,9 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] upc (required):
+  /// * [String] upc (required):
   ///   The UPC of the product for which you want to find comparable products.
-  Future<GetComparableProducts200Response?> getComparableProducts(num upc,) async {
+  Future<GetComparableProducts200Response?> getComparableProducts(String upc,) async {
     final response = await getComparableProductsWithHttpInfo(upc,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -288,7 +288,7 @@ class ProductsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the packaged food.
   Future<Response> getProductInformationWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/{id}'
@@ -322,8 +322,8 @@ class ProductsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
-  Future<GetProductInformation200Response?> getProductInformation(int id,) async {
+  ///   The id of the packaged food.
+  Future<ProductInformation?> getProductInformation(int id,) async {
     final response = await getProductInformationWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -332,7 +332,7 @@ class ProductsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetProductInformation200Response',) as GetProductInformation200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ProductInformation',) as ProductInformation;
     
     }
     return null;
@@ -346,9 +346,9 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The id of the product.
-  Future<Response> productNutritionByIDImageWithHttpInfo(num id,) async {
+  Future<Response> productNutritionByIDImageWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/{id}/nutritionWidget.png'
       .replaceAll('{id}', id.toString());
@@ -380,9 +380,9 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The id of the product.
-  Future<MultipartFile?> productNutritionByIDImage(num id,) async {
+  Future<MultipartFile?> productNutritionByIDImage(int id,) async {
     final response = await productNutritionByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -405,7 +405,7 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The product id.
   ///
   /// * [bool] showOptionalNutrients:
@@ -416,7 +416,7 @@ class ProductsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Response> productNutritionLabelImageWithHttpInfo(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<Response> productNutritionLabelImageWithHttpInfo(int id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/{id}/nutritionLabel.png'
       .replaceAll('{id}', id.toString());
@@ -458,7 +458,7 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The product id.
   ///
   /// * [bool] showOptionalNutrients:
@@ -469,7 +469,7 @@ class ProductsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<MultipartFile?> productNutritionLabelImage(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<MultipartFile?> productNutritionLabelImage(int id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await productNutritionLabelImageWithHttpInfo(id,  showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -492,7 +492,7 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The product id.
   ///
   /// * [bool] defaultCss:
@@ -506,7 +506,7 @@ class ProductsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Response> productNutritionLabelWidgetWithHttpInfo(num id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<Response> productNutritionLabelWidgetWithHttpInfo(int id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/{id}/nutritionLabel'
       .replaceAll('{id}', id.toString());
@@ -551,7 +551,7 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The product id.
   ///
   /// * [bool] defaultCss:
@@ -565,7 +565,7 @@ class ProductsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<String?> productNutritionLabelWidget(num id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<String?> productNutritionLabelWidget(int id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await productNutritionLabelWidgetWithHttpInfo(id,  defaultCss: defaultCss, showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -588,7 +588,7 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [num] minCalories:
@@ -623,7 +623,7 @@ class ProductsApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> searchGroceryProductsWithHttpInfo({ String? query, num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addProductInformation, int? offset, int? number, }) async {
+  Future<Response> searchGroceryProductsWithHttpInfo(String query, { num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addProductInformation, int? offset, int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/search';
 
@@ -634,9 +634,7 @@ class ProductsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
     if (minCalories != null) {
       queryParams.addAll(_queryParams('', 'minCalories', minCalories));
     }
@@ -691,7 +689,7 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [num] minCalories:
@@ -726,8 +724,8 @@ class ProductsApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<SearchGroceryProducts200Response?> searchGroceryProducts({ String? query, num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addProductInformation, int? offset, int? number, }) async {
-    final response = await searchGroceryProductsWithHttpInfo( query: query, minCalories: minCalories, maxCalories: maxCalories, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minFat: minFat, maxFat: maxFat, addProductInformation: addProductInformation, offset: offset, number: number, );
+  Future<SearchGroceryProducts200Response?> searchGroceryProducts(String query, { num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addProductInformation, int? offset, int? number, }) async {
+    final response = await searchGroceryProductsWithHttpInfo(query,  minCalories: minCalories, maxCalories: maxCalories, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minFat: minFat, maxFat: maxFat, addProductInformation: addProductInformation, offset: offset, number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -749,12 +747,12 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] upc (required):
+  /// * [String] upc (required):
   ///   The product's UPC.
-  Future<Response> searchGroceryProductsByUPCWithHttpInfo(num upc,) async {
+  Future<Response> searchGroceryProductsByUPCWithHttpInfo(String upc,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/products/upc/{upc}'
-      .replaceAll('{upc}', upc.toString());
+      .replaceAll('{upc}', upc);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -783,9 +781,9 @@ class ProductsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] upc (required):
+  /// * [String] upc (required):
   ///   The product's UPC.
-  Future<SearchGroceryProductsByUPC200Response?> searchGroceryProductsByUPC(num upc,) async {
+  Future<SearchGroceryProductsByUPC200Response?> searchGroceryProductsByUPC(String upc,) async {
     final response = await searchGroceryProductsByUPCWithHttpInfo(upc,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -809,7 +807,7 @@ class ProductsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the product.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -850,7 +848,7 @@ class ProductsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the product.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.

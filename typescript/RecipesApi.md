@@ -176,7 +176,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiAutocompleteRecipeSearchRequest = {
-  // string | The (natural language) search query. (optional)
+  // string | The (natural language) search query.
   query: "burger",
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
@@ -192,7 +192,7 @@ apiInstance.autocompleteRecipeSearch(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
 
 
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **extractRecipeFromWebsite**
-> GetRecipeInformation200Response extractRecipeFromWebsite()
+> RecipeInformation extractRecipeFromWebsite()
 
 This endpoint lets you extract recipe data such as title, ingredients, and instructions from any properly formatted Website.
 
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**GetRecipeInformation200Response**
+**RecipeInformation**
 
 ### Authorization
 
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getAnalyzedRecipeInstructions**
-> GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions()
+> Array<GetAnalyzedRecipeInstructions200ResponseInner> getAnalyzedRecipeInstructions()
 
 Get an analyzed breakdown of a recipe\'s instructions. Each step is enriched with the ingredients and equipment required.
 
@@ -648,8 +648,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetAnalyzedRecipeInstructionsRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 324694,
   // boolean | Whether to break down the recipe steps even more. (optional)
   stepBreakdown: true,
 };
@@ -664,13 +664,13 @@ apiInstance.getAnalyzedRecipeInstructions(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
  **stepBreakdown** | [**boolean**] | Whether to break down the recipe steps even more. | (optional) defaults to undefined
 
 
 ### Return type
 
-**GetAnalyzedRecipeInstructions200Response**
+**Array<GetAnalyzedRecipeInstructions200ResponseInner>**
 
 ### Authorization
 
@@ -774,8 +774,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetRecipeEquipmentByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 1003464,
 };
 
 apiInstance.getRecipeEquipmentByID(body).then((data:any) => {
@@ -788,7 +788,7 @@ apiInstance.getRecipeEquipmentByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
 
 
 ### Return type
@@ -816,7 +816,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRecipeInformation**
-> GetRecipeInformation200Response getRecipeInformation()
+> RecipeInformation getRecipeInformation()
 
 Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
 
@@ -831,10 +831,14 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetRecipeInformationRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The id of the recipe.
+  id: 716429,
   // boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional)
   includeNutrition: false,
+  // boolean | Add a wine pairing to the recipe. (optional)
+  addWinePairing: false,
+  // boolean | Add taste data to the recipe. (optional)
+  addTasteData: false,
 };
 
 apiInstance.getRecipeInformation(body).then((data:any) => {
@@ -847,13 +851,15 @@ apiInstance.getRecipeInformation(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The id of the recipe. | defaults to undefined
  **includeNutrition** | [**boolean**] | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | (optional) defaults to false
+ **addWinePairing** | [**boolean**] | Add a wine pairing to the recipe. | (optional) defaults to undefined
+ **addTasteData** | [**boolean**] | Add taste data to the recipe. | (optional) defaults to undefined
 
 
 ### Return type
 
-**GetRecipeInformation200Response**
+**RecipeInformation**
 
 ### Authorization
 
@@ -876,7 +882,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRecipeInformationBulk**
-> Set<GetRecipeInformationBulk200ResponseInner> getRecipeInformationBulk()
+> Set<RecipeInformation> getRecipeInformationBulk()
 
 Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
 
@@ -913,7 +919,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Set<GetRecipeInformationBulk200ResponseInner>**
+**Set<RecipeInformation>**
 
 ### Authorization
 
@@ -951,8 +957,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetRecipeIngredientsByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 1003464,
 };
 
 apiInstance.getRecipeIngredientsByID(body).then((data:any) => {
@@ -965,7 +971,7 @@ apiInstance.getRecipeIngredientsByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
 
 
 ### Return type
@@ -1008,8 +1014,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetRecipeNutritionWidgetByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 1003464,
 };
 
 apiInstance.getRecipeNutritionWidgetByID(body).then((data:any) => {
@@ -1022,7 +1028,7 @@ apiInstance.getRecipeNutritionWidgetByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
 
 
 ### Return type
@@ -1065,8 +1071,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetRecipePriceBreakdownByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 1003464,
 };
 
 apiInstance.getRecipePriceBreakdownByID(body).then((data:any) => {
@@ -1079,7 +1085,7 @@ apiInstance.getRecipePriceBreakdownByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
 
 
 ### Return type
@@ -1107,7 +1113,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **getRecipeTasteByID**
-> GetRecipeTasteByID200Response getRecipeTasteByID()
+> TasteInformation getRecipeTasteByID()
 
 Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
 
@@ -1122,8 +1128,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetRecipeTasteByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 69095,
   // boolean | Normalize to the strongest taste. (optional)
   normalize: true,
 };
@@ -1138,13 +1144,13 @@ apiInstance.getRecipeTasteByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
  **normalize** | [**boolean**] | Normalize to the strongest taste. | (optional) defaults to true
 
 
 ### Return type
 
-**GetRecipeTasteByID200Response**
+**TasteInformation**
 
 ### Authorization
 
@@ -1182,8 +1188,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiGetSimilarRecipesRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The id of the source recipe for which similar recipes should be found.
+  id: 715538,
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
 };
@@ -1198,7 +1204,7 @@ apiInstance.getSimilarRecipes(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The id of the source recipe for which similar recipes should be found. | defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
 
 
@@ -1284,7 +1290,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **parseIngredients**
-> Set<ParseIngredients200ResponseInner> parseIngredients()
+> Set<IngredientInformation> parseIngredients()
 
 Extract an ingredient from plain text.
 
@@ -1305,7 +1311,7 @@ let body:.RecipesApiParseIngredientsRequest = {
   servings: 3.14,
   // 'en' | 'de' | The language of the input. Either \'en\' or \'de\'. (optional)
   language: "en",
-  // boolean (optional)
+  // boolean | Whether nutrition data should be added to correctly parsed ingredients. (optional)
   includeNutrition: true,
 };
 
@@ -1322,12 +1328,12 @@ Name | Type | Description  | Notes
  **ingredientList** | [**string**] | The ingredient list of the recipe, one ingredient per line. | defaults to undefined
  **servings** | [**number**] | The number of servings that you can make from the ingredients. | defaults to undefined
  **language** | [**&#39;en&#39; | &#39;de&#39;**]**Array<&#39;en&#39; &#124; &#39;de&#39;>** | The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;. | (optional) defaults to undefined
- **includeNutrition** | [**boolean**] |  | (optional) defaults to undefined
+ **includeNutrition** | [**boolean**] | Whether nutrition data should be added to correctly parsed ingredients. | (optional) defaults to undefined
 
 
 ### Return type
 
-**Set<ParseIngredients200ResponseInner>**
+**Set<IngredientInformation>**
 
 ### Authorization
 
@@ -1734,7 +1740,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiSearchRecipesRequest = {
-  // string | The (natural language) search query. (optional)
+  // string | The (natural language) search query.
   query: "burger",
   // string | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as \'OR\'). See a full list of supported cuisines. (optional)
   cuisine: "italian",
@@ -1940,7 +1946,7 @@ apiInstance.searchRecipes(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | [**string**] | The (natural language) search query. | (optional) defaults to undefined
+ **query** | [**string**] | The (natural language) search query. | defaults to undefined
  **cuisine** | [**string**] | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as \&#39;OR\&#39;). See a full list of supported cuisines. | (optional) defaults to undefined
  **excludeCuisine** | [**string**] | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as \&#39;AND\&#39;). See a full list of supported cuisines. | (optional) defaults to undefined
  **diet** | [**string**] | The diet for which the recipes must be suitable. See a full list of supported diets. | (optional) defaults to undefined
@@ -2079,7 +2085,7 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiSearchRecipesByIngredientsRequest = {
-  // string | A comma-separated list of ingredients that the recipes should contain. (optional)
+  // string | A comma-separated list of ingredients that the recipes should contain.
   ingredients: "carrots,tomatoes",
   // number | The maximum number of items to return (between 1 and 100). Defaults to 10. (optional)
   number: 10,
@@ -2099,7 +2105,7 @@ apiInstance.searchRecipesByIngredients(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredients** | [**string**] | A comma-separated list of ingredients that the recipes should contain. | (optional) defaults to undefined
+ **ingredients** | [**string**] | A comma-separated list of ingredients that the recipes should contain. | defaults to undefined
  **number** | [**number**] | The maximum number of items to return (between 1 and 100). Defaults to 10. | (optional) defaults to 10
  **ranking** | [**number**] | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | (optional) defaults to undefined
  **ignorePantry** | [**boolean**] | Whether to ignore typical pantry items, such as water, salt, flour, etc. | (optional) defaults to false
@@ -2424,8 +2430,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiSummarizeRecipeRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 4632,
 };
 
 apiInstance.summarizeRecipe(body).then((data:any) => {
@@ -2438,7 +2444,7 @@ apiInstance.summarizeRecipe(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
 
 
 ### Return type
@@ -2619,8 +2625,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeRecipeEquipmentByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 44860,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
 };
@@ -2635,7 +2641,7 @@ apiInstance.visualizeRecipeEquipmentByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
 
 
@@ -2679,8 +2685,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeRecipeIngredientsByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 1082038,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
   // 'us' | 'metric' | Whether the the measures should be \'us\' or \'metric\'. (optional)
@@ -2697,7 +2703,7 @@ apiInstance.visualizeRecipeIngredientsByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
  **measure** | [**&#39;us&#39; | &#39;metric&#39;**]**Array<&#39;us&#39; &#124; &#39;metric&#39;>** | Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;. | (optional) defaults to undefined
 
@@ -2811,8 +2817,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeRecipeNutritionByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 1082038,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
 };
@@ -2827,7 +2833,7 @@ apiInstance.visualizeRecipeNutritionByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
 
 
@@ -2871,8 +2877,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeRecipePriceBreakdownByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 1082038,
   // boolean | Whether the default CSS should be added to the response. (optional)
   defaultCss: false,
 };
@@ -2887,7 +2893,7 @@ apiInstance.visualizeRecipePriceBreakdownByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
  **defaultCss** | [**boolean**] | Whether the default CSS should be added to the response. | (optional) defaults to true
 
 
@@ -2997,8 +3003,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .RecipesApi(configuration);
 
 let body:.RecipesApiVisualizeRecipeTasteByIDRequest = {
-  // number | The item\'s id.
-  id: 1,
+  // number | The recipe id.
+  id: 69095,
   // boolean | Whether to normalize to the strongest taste. (optional)
   normalize: true,
   // string | Red, green, blue values for the chart color. (optional)
@@ -3015,7 +3021,7 @@ apiInstance.visualizeRecipeTasteByID(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The recipe id. | defaults to undefined
  **normalize** | [**boolean**] | Whether to normalize to the strongest taste. | (optional) defaults to true
  **rgb** | [**string**] | Red, green, blue values for the chart color. | (optional) defaults to undefined
 

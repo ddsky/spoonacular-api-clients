@@ -115,7 +115,7 @@ catch (ApiException e)
 
 <a id="createrecipecardget"></a>
 # **CreateRecipeCardGet**
-> Object CreateRecipeCardGet (decimal id, string? mask = null, string? backgroundImage = null, string? backgroundColor = null, string? fontColor = null)
+> Object CreateRecipeCardGet (int id, string? mask = null, string? backgroundImage = null, string? backgroundColor = null, string? fontColor = null)
 
 Create Recipe Card
 
@@ -143,7 +143,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new DefaultApi(config);
-            var id = 4632;  // decimal | The recipe id.
+            var id = 4632;  // int | The recipe id.
             var mask = ellipseMask;  // string? | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\"). (optional) 
             var backgroundImage = background1;  // string? | The background image (\"none\",\"background1\", or \"background2\"). (optional) 
             var backgroundColor = ffffff;  // string? | The background color for the recipe card as a hex-string. (optional) 
@@ -190,7 +190,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The recipe id. |  |
+| **id** | **int** | The recipe id. |  |
 | **mask** | **string?** | The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional]  |
 | **backgroundImage** | **string?** | The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional]  |
 | **backgroundColor** | **string?** | The background color for the recipe card as a hex-string. | [optional]  |

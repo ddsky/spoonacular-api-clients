@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.GetComparableProducts200ResponseComparableProductsProteinInner;
+import com.spoonacular.client.model.ComparableProduct;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -21,75 +21,75 @@ import com.google.gson.annotations.SerializedName;
 public class GetComparableProducts200ResponseComparableProducts {
   
   @SerializedName("calories")
-  private List<Object> calories = null;
+  private List<ComparableProduct> calories = null;
   @SerializedName("likes")
-  private List<Object> likes = null;
+  private List<ComparableProduct> likes = null;
   @SerializedName("price")
-  private List<Object> price = null;
+  private List<ComparableProduct> price = null;
   @SerializedName("protein")
-  private Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein = null;
-  @SerializedName("spoonacularScore")
-  private Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore = null;
+  private List<ComparableProduct> protein = null;
+  @SerializedName("spoonacular_score")
+  private List<ComparableProduct> spoonacularScore = null;
   @SerializedName("sugar")
-  private List<Object> sugar = null;
+  private List<ComparableProduct> sugar = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getCalories() {
+  public List<ComparableProduct> getCalories() {
     return calories;
   }
-  public void setCalories(List<Object> calories) {
+  public void setCalories(List<ComparableProduct> calories) {
     this.calories = calories;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getLikes() {
+  public List<ComparableProduct> getLikes() {
     return likes;
   }
-  public void setLikes(List<Object> likes) {
+  public void setLikes(List<ComparableProduct> likes) {
     this.likes = likes;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getPrice() {
+  public List<ComparableProduct> getPrice() {
     return price;
   }
-  public void setPrice(List<Object> price) {
+  public void setPrice(List<ComparableProduct> price) {
     this.price = price;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getProtein() {
+  public List<ComparableProduct> getProtein() {
     return protein;
   }
-  public void setProtein(Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein) {
+  public void setProtein(List<ComparableProduct> protein) {
     this.protein = protein;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<GetComparableProducts200ResponseComparableProductsProteinInner> getSpoonacularScore() {
+  public List<ComparableProduct> getSpoonacularScore() {
     return spoonacularScore;
   }
-  public void setSpoonacularScore(Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore) {
+  public void setSpoonacularScore(List<ComparableProduct> spoonacularScore) {
     this.spoonacularScore = spoonacularScore;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public List<Object> getSugar() {
+  public List<ComparableProduct> getSugar() {
     return sugar;
   }
-  public void setSugar(List<Object> sugar) {
+  public void setSugar(List<ComparableProduct> sugar) {
     this.sugar = sugar;
   }
 

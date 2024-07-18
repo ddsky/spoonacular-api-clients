@@ -77,7 +77,7 @@ Generate a recipe card for a recipe.
 //import com.spoonacular.DefaultApi;
 
 DefaultApi apiInstance = new DefaultApi();
-BigDecimal id = 4632; // BigDecimal | The recipe id.
+Integer id = 4632; // Integer | The recipe id.
 String mask = ellipseMask; // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
 String backgroundImage = background1; // String | The background image (\"none\",\"background1\", or \"background2\").
 String backgroundColor = ffffff; // String | The background color for the recipe card as a hex-string.
@@ -96,7 +96,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **mask** | **String**| The mask to put over the recipe image (\&quot;ellipseMask\&quot;, \&quot;diamondMask\&quot;, \&quot;starMask\&quot;, \&quot;heartMask\&quot;, \&quot;potMask\&quot;, \&quot;fishMask\&quot;). | [optional] [default to null]
  **backgroundImage** | **String**| The background image (\&quot;none\&quot;,\&quot;background1\&quot;, or \&quot;background2\&quot;). | [optional] [default to null]
  **backgroundColor** | **String**| The background color for the recipe card as a hex-string. | [optional] [default to null]

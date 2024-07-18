@@ -1090,7 +1090,7 @@ class MiscApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetRandomFoodTrivia200Response
+     * @return \OpenAPI\Client\Model\GetARandomFoodJoke200Response
      */
     public function getRandomFoodTrivia(string $contentType = self::contentTypes['getRandomFoodTrivia'][0])
     {
@@ -1107,7 +1107,7 @@ class MiscApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetRandomFoodTrivia200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetARandomFoodJoke200Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRandomFoodTriviaWithHttpInfo(string $contentType = self::contentTypes['getRandomFoodTrivia'][0])
     {
@@ -1150,11 +1150,11 @@ class MiscApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetRandomFoodTrivia200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetARandomFoodJoke200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetRandomFoodTrivia200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetARandomFoodJoke200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1172,13 +1172,13 @@ class MiscApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetRandomFoodTrivia200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetARandomFoodJoke200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetRandomFoodTrivia200Response';
+            $returnType = '\OpenAPI\Client\Model\GetARandomFoodJoke200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1211,7 +1211,7 @@ class MiscApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetRandomFoodTrivia200Response',
+                        '\OpenAPI\Client\Model\GetARandomFoodJoke200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1253,7 +1253,7 @@ class MiscApi
      */
     public function getRandomFoodTriviaAsyncWithHttpInfo(string $contentType = self::contentTypes['getRandomFoodTrivia'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetRandomFoodTrivia200Response';
+        $returnType = '\OpenAPI\Client\Model\GetARandomFoodJoke200Response';
         $request = $this->getRandomFoodTriviaRequest($contentType);
 
         return $this->client
@@ -2359,9 +2359,9 @@ class MiscApi
      *
      * Search Custom Foods
      *
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  string $query The (natural language) search query. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCustomFoods'] to see the possible values for this operation
@@ -2370,9 +2370,9 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchCustomFoods200Response
      */
-    public function searchCustomFoods($username, $hash, $query = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
+    public function searchCustomFoods($query, $username, $hash, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
     {
-        list($response) = $this->searchCustomFoodsWithHttpInfo($username, $hash, $query, $offset, $number, $contentType);
+        list($response) = $this->searchCustomFoodsWithHttpInfo($query, $username, $hash, $offset, $number, $contentType);
         return $response;
     }
 
@@ -2381,9 +2381,9 @@ class MiscApi
      *
      * Search Custom Foods
      *
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  string $query The (natural language) search query. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCustomFoods'] to see the possible values for this operation
@@ -2392,9 +2392,9 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchCustomFoods200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchCustomFoodsWithHttpInfo($username, $hash, $query = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
+    public function searchCustomFoodsWithHttpInfo($query, $username, $hash, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
     {
-        $request = $this->searchCustomFoodsRequest($username, $hash, $query, $offset, $number, $contentType);
+        $request = $this->searchCustomFoodsRequest($query, $username, $hash, $offset, $number, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2509,9 +2509,9 @@ class MiscApi
      *
      * Search Custom Foods
      *
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  string $query The (natural language) search query. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCustomFoods'] to see the possible values for this operation
@@ -2519,9 +2519,9 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCustomFoodsAsync($username, $hash, $query = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
+    public function searchCustomFoodsAsync($query, $username, $hash, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
     {
-        return $this->searchCustomFoodsAsyncWithHttpInfo($username, $hash, $query, $offset, $number, $contentType)
+        return $this->searchCustomFoodsAsyncWithHttpInfo($query, $username, $hash, $offset, $number, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2534,9 +2534,9 @@ class MiscApi
      *
      * Search Custom Foods
      *
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  string $query The (natural language) search query. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCustomFoods'] to see the possible values for this operation
@@ -2544,10 +2544,10 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchCustomFoodsAsyncWithHttpInfo($username, $hash, $query = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
+    public function searchCustomFoodsAsyncWithHttpInfo($query, $username, $hash, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchCustomFoods200Response';
-        $request = $this->searchCustomFoodsRequest($username, $hash, $query, $offset, $number, $contentType);
+        $request = $this->searchCustomFoodsRequest($query, $username, $hash, $offset, $number, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2588,9 +2588,9 @@ class MiscApi
     /**
      * Create request for operation 'searchCustomFoods'
      *
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $username The username. (required)
      * @param  string $hash The private hash for the username. (required)
-     * @param  string $query The (natural language) search query. (optional)
      * @param  int $offset The number of results to skip (between 0 and 900). (optional)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchCustomFoods'] to see the possible values for this operation
@@ -2598,8 +2598,15 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchCustomFoodsRequest($username, $hash, $query = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
+    public function searchCustomFoodsRequest($query, $username, $hash, $offset = null, $number = 10, string $contentType = self::contentTypes['searchCustomFoods'][0])
     {
+
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling searchCustomFoods'
+            );
+        }
 
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
@@ -2614,7 +2621,6 @@ class MiscApi
                 'Missing the required parameter $hash when calling searchCustomFoods'
             );
         }
-
 
         if ($offset !== null && $offset > 900) {
             throw new \InvalidArgumentException('invalid value for "$offset" when calling MiscApi.searchCustomFoods, must be smaller than or equal to 900.');
@@ -2645,7 +2651,7 @@ class MiscApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2750,7 +2756,7 @@ class MiscApi
      *
      * Search Food Videos
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $type The type of the recipes. See a full list of supported meal types. (optional)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2766,7 +2772,7 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchFoodVideos200Response
      */
-    public function searchFoodVideos($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
+    public function searchFoodVideos($query, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
     {
         list($response) = $this->searchFoodVideosWithHttpInfo($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number, $contentType);
         return $response;
@@ -2777,7 +2783,7 @@ class MiscApi
      *
      * Search Food Videos
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $type The type of the recipes. See a full list of supported meal types. (optional)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2793,7 +2799,7 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchFoodVideos200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchFoodVideosWithHttpInfo($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
+    public function searchFoodVideosWithHttpInfo($query, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
     {
         $request = $this->searchFoodVideosRequest($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number, $contentType);
 
@@ -2910,7 +2916,7 @@ class MiscApi
      *
      * Search Food Videos
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $type The type of the recipes. See a full list of supported meal types. (optional)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2925,7 +2931,7 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFoodVideosAsync($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
+    public function searchFoodVideosAsync($query, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
     {
         return $this->searchFoodVideosAsyncWithHttpInfo($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number, $contentType)
             ->then(
@@ -2940,7 +2946,7 @@ class MiscApi
      *
      * Search Food Videos
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $type The type of the recipes. See a full list of supported meal types. (optional)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2955,7 +2961,7 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchFoodVideosAsyncWithHttpInfo($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
+    public function searchFoodVideosAsyncWithHttpInfo($query, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchFoodVideos200Response';
         $request = $this->searchFoodVideosRequest($query, $type, $cuisine, $diet, $include_ingredients, $exclude_ingredients, $min_length, $max_length, $offset, $number, $contentType);
@@ -2999,7 +3005,7 @@ class MiscApi
     /**
      * Create request for operation 'searchFoodVideos'
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $type The type of the recipes. See a full list of supported meal types. (optional)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -3014,9 +3020,15 @@ class MiscApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchFoodVideosRequest($query = null, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
+    public function searchFoodVideosRequest($query, $type = null, $cuisine = null, $diet = null, $include_ingredients = null, $exclude_ingredients = null, $min_length = null, $max_length = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchFoodVideos'][0])
     {
 
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling searchFoodVideos'
+            );
+        }
 
 
 
@@ -3054,7 +3066,7 @@ class MiscApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(

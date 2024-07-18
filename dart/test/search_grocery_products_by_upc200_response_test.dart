@@ -61,7 +61,7 @@ void main() {
       // TODO
     });
 
-    // Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients (default value: const {})
+    // List<IngredientBasics> ingredients (default value: const [])
     test('to test the property `ingredients`', () async {
       // TODO
     });

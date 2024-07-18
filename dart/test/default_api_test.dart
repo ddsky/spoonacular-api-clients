@@ -30,7 +30,7 @@ void main() {
     //
     // Generate a recipe card for a recipe.
     //
-    //Future<Object> createRecipeCardGet(num id, { String mask, String backgroundImage, String backgroundColor, String fontColor }) async
+    //Future<Object> createRecipeCardGet(int id, { String mask, String backgroundImage, String backgroundColor, String fontColor }) async
     test('test createRecipeCardGet', () async {
       // TODO
     });

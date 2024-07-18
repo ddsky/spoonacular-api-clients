@@ -16,12 +16,12 @@ void main() {
   // final instance = SearchGroceryProductsByUPC200ResponseNutrition();
 
   group('test SearchGroceryProductsByUPC200ResponseNutrition', () {
-    // Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients (default value: const {})
+    // Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients (default value: const {})
     test('to test the property `nutrients`', () async {
       // TODO
     });
 
-    // ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown
+    // SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown
     test('to test the property `caloricBreakdown`', () async {
       // TODO
     });

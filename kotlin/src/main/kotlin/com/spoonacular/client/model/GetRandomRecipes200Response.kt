@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.GetRandomRecipes200ResponseRecipesInner
+import com.spoonacular.client.model.RecipeInformation
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 data class GetRandomRecipes200Response (
 
     @Json(name = "recipes")
-    val recipes: kotlin.collections.Set<GetRandomRecipes200ResponseRecipesInner>
+    val recipes: kotlin.collections.Set<RecipeInformation>
 
 ) {
 

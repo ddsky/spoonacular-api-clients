@@ -31,7 +31,7 @@ import { ClassifyGroceryProductRequest } from '../model/classifyGroceryProductRe
 // @ts-ignore
 import { GetComparableProducts200Response } from '../model/getComparableProducts200Response';
 // @ts-ignore
-import { GetProductInformation200Response } from '../model/getProductInformation200Response';
+import { ProductInformation } from '../model/productInformation';
 // @ts-ignore
 import { SearchGroceryProducts200Response } from '../model/searchGroceryProducts200Response';
 // @ts-ignore
@@ -379,10 +379,10 @@ export class ProductsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getComparableProducts(upc: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetComparableProducts200Response>;
-    public getComparableProducts(upc: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetComparableProducts200Response>>;
-    public getComparableProducts(upc: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetComparableProducts200Response>>;
-    public getComparableProducts(upc: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public getComparableProducts(upc: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetComparableProducts200Response>;
+    public getComparableProducts(upc: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetComparableProducts200Response>>;
+    public getComparableProducts(upc: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetComparableProducts200Response>>;
+    public getComparableProducts(upc: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (upc === null || upc === undefined) {
             throw new Error('Required parameter upc was null or undefined when calling getComparableProducts.');
         }
@@ -430,7 +430,7 @@ export class ProductsService {
             }
         }
 
-        let localVarPath = `/food/products/upc/${this.configuration.encodeParam({name: "upc", value: upc, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/comparable`;
+        let localVarPath = `/food/products/upc/${this.configuration.encodeParam({name: "upc", value: upc, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/comparable`;
         return this.httpClient.request<GetComparableProducts200Response>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -447,13 +447,13 @@ export class ProductsService {
     /**
      * Get Product Information
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-     * @param id The item\&#39;s id.
+     * @param id The id of the packaged food.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getProductInformation(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetProductInformation200Response>;
-    public getProductInformation(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetProductInformation200Response>>;
-    public getProductInformation(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetProductInformation200Response>>;
+    public getProductInformation(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<ProductInformation>;
+    public getProductInformation(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<ProductInformation>>;
+    public getProductInformation(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<ProductInformation>>;
     public getProductInformation(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getProductInformation.');
@@ -503,7 +503,7 @@ export class ProductsService {
         }
 
         let localVarPath = `/food/products/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}`;
-        return this.httpClient.request<GetProductInformation200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<ProductInformation>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -769,10 +769,13 @@ export class ProductsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public searchGroceryProducts(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<SearchGroceryProducts200Response>;
-    public searchGroceryProducts(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchGroceryProducts200Response>>;
-    public searchGroceryProducts(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchGroceryProducts200Response>>;
-    public searchGroceryProducts(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public searchGroceryProducts(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<SearchGroceryProducts200Response>;
+    public searchGroceryProducts(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchGroceryProducts200Response>>;
+    public searchGroceryProducts(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchGroceryProducts200Response>>;
+    public searchGroceryProducts(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (query === null || query === undefined) {
+            throw new Error('Required parameter query was null or undefined when calling searchGroceryProducts.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (query !== undefined && query !== null) {
@@ -889,10 +892,10 @@ export class ProductsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public searchGroceryProductsByUPC(upc: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<SearchGroceryProductsByUPC200Response>;
-    public searchGroceryProductsByUPC(upc: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchGroceryProductsByUPC200Response>>;
-    public searchGroceryProductsByUPC(upc: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchGroceryProductsByUPC200Response>>;
-    public searchGroceryProductsByUPC(upc: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public searchGroceryProductsByUPC(upc: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<SearchGroceryProductsByUPC200Response>;
+    public searchGroceryProductsByUPC(upc: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<SearchGroceryProductsByUPC200Response>>;
+    public searchGroceryProductsByUPC(upc: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<SearchGroceryProductsByUPC200Response>>;
+    public searchGroceryProductsByUPC(upc: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (upc === null || upc === undefined) {
             throw new Error('Required parameter upc was null or undefined when calling searchGroceryProductsByUPC.');
         }
@@ -940,7 +943,7 @@ export class ProductsService {
             }
         }
 
-        let localVarPath = `/food/products/upc/${this.configuration.encodeParam({name: "upc", value: upc, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}`;
+        let localVarPath = `/food/products/upc/${this.configuration.encodeParam({name: "upc", value: upc, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}`;
         return this.httpClient.request<SearchGroceryProductsByUPC200Response>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
@@ -957,7 +960,7 @@ export class ProductsService {
     /**
      * Product Nutrition by ID Widget
      * Visualize a product\&#39;s nutritional information as HTML including CSS.
-     * @param id The item\&#39;s id.
+     * @param id The id of the product.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

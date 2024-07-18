@@ -238,7 +238,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$upc = 33698816271; // float | The UPC of the product for which you want to find comparable products.
+$upc = 033698816271; // string | The UPC of the product for which you want to find comparable products.
 
 try {
     $result = $apiInstance->getComparableProducts($upc);
@@ -252,7 +252,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **upc** | **float**| The UPC of the product for which you want to find comparable products. | |
+| **upc** | **string**| The UPC of the product for which you want to find comparable products. | |
 
 ### Return type
 
@@ -274,7 +274,7 @@ try {
 ## `getProductInformation()`
 
 ```php
-getProductInformation($id): \OpenAPI\Client\Model\GetProductInformation200Response
+getProductInformation($id): \OpenAPI\Client\Model\ProductInformation
 ```
 
 Get Product Information
@@ -300,7 +300,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 22347; // int | The id of the packaged food.
 
 try {
     $result = $apiInstance->getProductInformation($id);
@@ -314,11 +314,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The id of the packaged food. | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetProductInformation200Response**](../Model/GetProductInformation200Response.md)
+[**\OpenAPI\Client\Model\ProductInformation**](../Model/ProductInformation.md)
 
 ### Authorization
 
@@ -362,7 +362,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 7657; // float | The id of the product.
+$id = 7657; // int | The id of the product.
 
 try {
     $result = $apiInstance->productNutritionByIDImage($id);
@@ -376,7 +376,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The id of the product. | |
+| **id** | **int**| The id of the product. | |
 
 ### Return type
 
@@ -424,7 +424,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 22347; // float | The product id.
+$id = 22347; // int | The product id.
 $show_optional_nutrients = false; // bool | Whether to show optional nutrients.
 $show_zero_values = false; // bool | Whether to show zero values.
 $show_ingredients = false; // bool | Whether to show a list of ingredients.
@@ -441,7 +441,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The product id. | |
+| **id** | **int**| The product id. | |
 | **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
 | **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
@@ -492,7 +492,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 22347; // float | The product id.
+$id = 22347; // int | The product id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 $show_optional_nutrients = false; // bool | Whether to show optional nutrients.
 $show_zero_values = false; // bool | Whether to show zero values.
@@ -510,7 +510,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The product id. | |
+| **id** | **int**| The product id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
@@ -587,7 +587,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **string**| The (natural language) search query. | [optional] |
+| **query** | **string**| The (natural language) search query. | |
 | **min_calories** | **float**| The minimum amount of calories the product must have. | [optional] |
 | **max_calories** | **float**| The maximum amount of calories the product can have. | [optional] |
 | **min_carbs** | **float**| The minimum amount of carbohydrates in grams the product must have. | [optional] |
@@ -646,7 +646,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$upc = 41631000564; // float | The product's UPC.
+$upc = 041631000564; // string | The product's UPC.
 
 try {
     $result = $apiInstance->searchGroceryProductsByUPC($upc);
@@ -660,7 +660,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **upc** | **float**| The product&#39;s UPC. | |
+| **upc** | **string**| The product&#39;s UPC. | |
 
 ### Return type
 
@@ -708,7 +708,7 @@ $apiInstance = new OpenAPI\Client\Api\ProductsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 7657; // int | The id of the product.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -723,7 +723,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The id of the product. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type

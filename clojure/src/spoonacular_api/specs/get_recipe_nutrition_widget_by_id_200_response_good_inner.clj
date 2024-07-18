@@ -10,7 +10,7 @@
    (ds/req :amount) string?
    (ds/req :indented) boolean?
    (ds/req :percentOfDailyNeeds) float?
-   (ds/req :name) string?
+   (ds/req :title) string?
    })
 
 (def get-recipe-nutrition-widget-by-id-200-response-good-inner-spec

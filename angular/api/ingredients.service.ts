@@ -23,9 +23,9 @@ import { AutocompleteIngredientSearch200ResponseInner } from '../model/autocompl
 // @ts-ignore
 import { ComputeIngredientAmount200Response } from '../model/computeIngredientAmount200Response';
 // @ts-ignore
-import { GetIngredientInformation200Response } from '../model/getIngredientInformation200Response';
-// @ts-ignore
 import { GetIngredientSubstitutes200Response } from '../model/getIngredientSubstitutes200Response';
+// @ts-ignore
+import { IngredientInformation } from '../model/ingredientInformation';
 // @ts-ignore
 import { IngredientSearch200Response } from '../model/ingredientSearch200Response';
 // @ts-ignore
@@ -128,10 +128,13 @@ export class IngredientsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<AutocompleteIngredientSearch200ResponseInner>>;
-    public autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<AutocompleteIngredientSearch200ResponseInner>>>;
-    public autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<AutocompleteIngredientSearch200ResponseInner>>>;
-    public autocompleteIngredientSearch(query?: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public autocompleteIngredientSearch(query: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<Set<AutocompleteIngredientSearch200ResponseInner>>;
+    public autocompleteIngredientSearch(query: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Set<AutocompleteIngredientSearch200ResponseInner>>>;
+    public autocompleteIngredientSearch(query: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Set<AutocompleteIngredientSearch200ResponseInner>>>;
+    public autocompleteIngredientSearch(query: string, number?: number, metaInformation?: boolean, intolerances?: string, language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (query === null || query === undefined) {
+            throw new Error('Required parameter query was null or undefined when calling autocompleteIngredientSearch.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (query !== undefined && query !== null) {
@@ -312,15 +315,15 @@ export class IngredientsService {
     /**
      * Get Ingredient Information
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-     * @param id The item\&#39;s id.
+     * @param id The ingredient id.
      * @param amount The amount of this ingredient.
      * @param unit The unit for the given amount.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getIngredientInformation(id: number, amount?: number, unit?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<GetIngredientInformation200Response>;
-    public getIngredientInformation(id: number, amount?: number, unit?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<GetIngredientInformation200Response>>;
-    public getIngredientInformation(id: number, amount?: number, unit?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<GetIngredientInformation200Response>>;
+    public getIngredientInformation(id: number, amount?: number, unit?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<IngredientInformation>;
+    public getIngredientInformation(id: number, amount?: number, unit?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<IngredientInformation>>;
+    public getIngredientInformation(id: number, amount?: number, unit?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<IngredientInformation>>;
     public getIngredientInformation(id: number, amount?: number, unit?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getIngredientInformation.');
@@ -380,7 +383,7 @@ export class IngredientsService {
         }
 
         let localVarPath = `/food/ingredients/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: undefined})}/information`;
-        return this.httpClient.request<GetIngredientInformation200Response>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<IngredientInformation>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -476,7 +479,7 @@ export class IngredientsService {
     /**
      * Get Ingredient Substitutes by ID
      * Search for substitutes for a given ingredient.
-     * @param id The item\&#39;s id.
+     * @param id The id of the ingredient you want substitutes for.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -566,10 +569,13 @@ export class IngredientsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<IngredientSearch200Response>;
-    public ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<IngredientSearch200Response>>;
-    public ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<IngredientSearch200Response>>;
-    public ingredientSearch(query?: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+    public ingredientSearch(query: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<IngredientSearch200Response>;
+    public ingredientSearch(query: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<IngredientSearch200Response>>;
+    public ingredientSearch(query: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<IngredientSearch200Response>>;
+    public ingredientSearch(query: string, addChildren?: boolean, minProteinPercent?: number, maxProteinPercent?: number, minFatPercent?: number, maxFatPercent?: number, minCarbsPercent?: number, maxCarbsPercent?: number, metaInformation?: boolean, intolerances?: string, sort?: string, sortDirection?: string, offset?: number, number?: number, language?: 'en' | 'de', observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
+        if (query === null || query === undefined) {
+            throw new Error('Required parameter query was null or undefined when calling ingredientSearch.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (query !== undefined && query !== null) {

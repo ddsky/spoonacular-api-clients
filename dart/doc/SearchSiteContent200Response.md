@@ -8,10 +8,10 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**articles** | [**Set<SearchSiteContent200ResponseArticlesInner>**](SearchSiteContent200ResponseArticlesInner.md) |  | [default to const {}]
-**groceryProducts** | [**Set<SearchSiteContent200ResponseArticlesInner>**](SearchSiteContent200ResponseArticlesInner.md) |  | [default to const {}]
-**menuItems** | [**Set<SearchSiteContent200ResponseArticlesInner>**](SearchSiteContent200ResponseArticlesInner.md) |  | [default to const {}]
-**recipes** | [**Set<SearchSiteContent200ResponseArticlesInner>**](SearchSiteContent200ResponseArticlesInner.md) |  | [default to const {}]
+**articles** | [**List<SearchResult>**](SearchResult.md) |  | [default to const []]
+**groceryProducts** | [**List<SearchResult>**](SearchResult.md) |  | [default to const []]
+**menuItems** | [**List<SearchResult>**](SearchResult.md) |  | [default to const []]
+**recipes** | [**List<SearchResult>**](SearchResult.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

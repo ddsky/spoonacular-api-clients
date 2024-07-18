@@ -22,7 +22,7 @@ var _ MappedNullable = &SearchMenuItems200Response{}
 
 // SearchMenuItems200Response 
 type SearchMenuItems200Response struct {
-	MenuItems []SearchMenuItems200ResponseMenuItemsInner `json:"menuItems"`
+	MenuItems []MenuItem `json:"menuItems"`
 	TotalMenuItems int32 `json:"totalMenuItems"`
 	Type string `json:"type"`
 	Offset int32 `json:"offset"`
@@ -35,7 +35,7 @@ type _SearchMenuItems200Response SearchMenuItems200Response
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchMenuItems200Response(menuItems []SearchMenuItems200ResponseMenuItemsInner, totalMenuItems int32, type_ string, offset int32, number int32) *SearchMenuItems200Response {
+func NewSearchMenuItems200Response(menuItems []MenuItem, totalMenuItems int32, type_ string, offset int32, number int32) *SearchMenuItems200Response {
 	this := SearchMenuItems200Response{}
 	this.MenuItems = menuItems
 	this.TotalMenuItems = totalMenuItems
@@ -54,9 +54,9 @@ func NewSearchMenuItems200ResponseWithDefaults() *SearchMenuItems200Response {
 }
 
 // GetMenuItems returns the MenuItems field value
-func (o *SearchMenuItems200Response) GetMenuItems() []SearchMenuItems200ResponseMenuItemsInner {
+func (o *SearchMenuItems200Response) GetMenuItems() []MenuItem {
 	if o == nil {
-		var ret []SearchMenuItems200ResponseMenuItemsInner
+		var ret []MenuItem
 		return ret
 	}
 
@@ -65,7 +65,7 @@ func (o *SearchMenuItems200Response) GetMenuItems() []SearchMenuItems200Response
 
 // GetMenuItemsOk returns a tuple with the MenuItems field value
 // and a boolean to check if the value has been set.
-func (o *SearchMenuItems200Response) GetMenuItemsOk() ([]SearchMenuItems200ResponseMenuItemsInner, bool) {
+func (o *SearchMenuItems200Response) GetMenuItemsOk() ([]MenuItem, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *SearchMenuItems200Response) GetMenuItemsOk() ([]SearchMenuItems200Respo
 }
 
 // SetMenuItems sets field value
-func (o *SearchMenuItems200Response) SetMenuItems(v []SearchMenuItems200ResponseMenuItemsInner) {
+func (o *SearchMenuItems200Response) SetMenuItems(v []MenuItem) {
 	o.MenuItems = v
 }
 

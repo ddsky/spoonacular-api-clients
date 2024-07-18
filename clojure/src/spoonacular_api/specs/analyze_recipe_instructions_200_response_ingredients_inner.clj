@@ -7,7 +7,7 @@
 
 (def analyze-recipe-instructions-200-response-ingredients-inner-data
   {
-   (ds/req :id) float?
+   (ds/req :id) int?
    (ds/req :name) string?
    })
 

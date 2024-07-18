@@ -19,16 +19,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseIngredientsInner;
+import com.spoonacular.client.model.IngredientBasics;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseServings;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -97,7 +95,7 @@ public class SearchGroceryProductsByUPC200Response {
 
   public static final String SERIALIZED_NAME_INGREDIENTS = "ingredients";
   @SerializedName(SERIALIZED_NAME_INGREDIENTS)
-  private Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients = new LinkedHashSet<>();
+  private List<IngredientBasics> ingredients = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LIKES = "likes";
   @SerializedName(SERIALIZED_NAME_LIKES)
@@ -250,7 +248,7 @@ public class SearchGroceryProductsByUPC200Response {
    * Get generatedText
    * @return generatedText
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getGeneratedText() {
     return generatedText;
   }
@@ -317,14 +315,14 @@ public class SearchGroceryProductsByUPC200Response {
   }
 
 
-  public SearchGroceryProductsByUPC200Response ingredients(Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients) {
+  public SearchGroceryProductsByUPC200Response ingredients(List<IngredientBasics> ingredients) {
     this.ingredients = ingredients;
     return this;
   }
 
-  public SearchGroceryProductsByUPC200Response addIngredientsItem(SearchGroceryProductsByUPC200ResponseIngredientsInner ingredientsItem) {
+  public SearchGroceryProductsByUPC200Response addIngredientsItem(IngredientBasics ingredientsItem) {
     if (this.ingredients == null) {
-      this.ingredients = new LinkedHashSet<>();
+      this.ingredients = new ArrayList<>();
     }
     this.ingredients.add(ingredientsItem);
     return this;
@@ -335,11 +333,11 @@ public class SearchGroceryProductsByUPC200Response {
    * @return ingredients
    */
   @javax.annotation.Nonnull
-  public Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> getIngredients() {
+  public List<IngredientBasics> getIngredients() {
     return ingredients;
   }
 
-  public void setIngredients(Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients) {
+  public void setIngredients(List<IngredientBasics> ingredients) {
     this.ingredients = ingredients;
   }
 
@@ -595,7 +593,7 @@ public class SearchGroceryProductsByUPC200Response {
       } else if (!jsonObj.get("breadcrumbs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `breadcrumbs` to be an array in the JSON string but got `%s`", jsonObj.get("breadcrumbs").toString()));
       }
-      if (!jsonObj.get("generatedText").isJsonPrimitive()) {
+      if ((jsonObj.get("generatedText") != null && !jsonObj.get("generatedText").isJsonNull()) && !jsonObj.get("generatedText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `generatedText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("generatedText").toString()));
       }
       if (!jsonObj.get("imageType").isJsonPrimitive()) {
@@ -612,7 +610,7 @@ public class SearchGroceryProductsByUPC200Response {
       JsonArray jsonArrayingredients = jsonObj.getAsJsonArray("ingredients");
       // validate the required field `ingredients` (array)
       for (int i = 0; i < jsonArrayingredients.size(); i++) {
-        SearchGroceryProductsByUPC200ResponseIngredientsInner.validateJsonElement(jsonArrayingredients.get(i));
+        IngredientBasics.validateJsonElement(jsonArrayingredients.get(i));
       };
       // validate the required field `nutrition`
       SearchGroceryProductsByUPC200ResponseNutrition.validateJsonElement(jsonObj.get("nutrition"));

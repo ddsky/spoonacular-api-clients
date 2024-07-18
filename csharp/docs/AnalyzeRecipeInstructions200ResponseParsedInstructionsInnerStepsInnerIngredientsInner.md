@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **decimal** |  | 
+**Id** | **int** |  | 
 **Name** | **string** |  | 
 **LocalizedName** | **string** |  | 
 **Image** | **string** |  | 

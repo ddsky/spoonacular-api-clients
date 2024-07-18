@@ -16,13 +16,13 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
+local spoonacular_product_information = require "spoonacular.model.product_information"
 local spoonacular_autocomplete_product_search_200_response = require "spoonacular.model.autocomplete_product_search_200_response"
 local spoonacular_classify_grocery_product_bulk_200_response_inner = require "spoonacular.model.classify_grocery_product_bulk_200_response_inner"
 local spoonacular_classify_grocery_product_bulk_request_inner = require "spoonacular.model.classify_grocery_product_bulk_request_inner"
 local spoonacular_classify_grocery_product_200_response = require "spoonacular.model.classify_grocery_product_200_response"
 local spoonacular_classify_grocery_product_request = require "spoonacular.model.classify_grocery_product_request"
 local spoonacular_get_comparable_products_200_response = require "spoonacular.model.get_comparable_products_200_response"
-local spoonacular_get_product_information_200_response = require "spoonacular.model.get_product_information_200_response"
 local spoonacular_search_grocery_products_by_upc_200_response = require "spoonacular.model.search_grocery_products_by_upc_200_response"
 local spoonacular_search_grocery_products_200_response = require "spoonacular.model.search_grocery_products_200_response"
 local spoonacular_set = require "spoonacular.model.set"
@@ -306,7 +306,7 @@ function products_api:get_product_information(id)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_product_information_200_response.cast(result), headers
+		return spoonacular_product_information.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

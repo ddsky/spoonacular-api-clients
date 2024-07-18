@@ -12,7 +12,7 @@
 
 
 export interface GetRecipeNutritionWidgetByID200ResponseBadInner { 
-    name: string;
+    title: string;
     amount: string;
     indented: boolean;
     percentOfDailyNeeds: number;

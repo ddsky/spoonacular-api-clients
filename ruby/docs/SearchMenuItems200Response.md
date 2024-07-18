@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **menu_items** | [**Array&lt;SearchMenuItems200ResponseMenuItemsInner&gt;**](SearchMenuItems200ResponseMenuItemsInner.md) |  |  |
+| **menu_items** | [**Array&lt;MenuItem&gt;**](MenuItem.md) |  |  |
 | **total_menu_items** | **Integer** |  |  |
 | **type** | **String** |  |  |
 | **offset** | **Integer** |  |  |

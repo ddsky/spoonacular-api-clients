@@ -60,7 +60,7 @@ defmodule SpoonacularAPI.Api.Default do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (float()): The recipe id.
+  - `id` (integer()): The recipe id.
   - `opts` (keyword): Optional parameters
     - `:mask` (String.t): The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
     - `:backgroundImage` (String.t): The background image (\"none\",\"background1\", or \"background2\").
@@ -72,7 +72,7 @@ defmodule SpoonacularAPI.Api.Default do
   - `{:ok, map()}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec create_recipe_card_get(Tesla.Env.client, float(), keyword()) :: {:ok, map()} | {:ok, nil} | {:error, Tesla.Env.t}
+  @spec create_recipe_card_get(Tesla.Env.client, integer(), keyword()) :: {:ok, map()} | {:ok, nil} | {:error, Tesla.Env.t}
   def create_recipe_card_get(connection, id, opts \\ []) do
     optional_params = %{
       :mask => :query,

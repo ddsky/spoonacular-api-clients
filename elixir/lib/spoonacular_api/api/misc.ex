@@ -126,10 +126,10 @@ defmodule SpoonacularAPI.Api.Misc do
 
   ### Returns
 
-  - `{:ok, SpoonacularAPI.Model.GetRandomFoodTrivia200Response.t}` on success
+  - `{:ok, SpoonacularAPI.Model.GetARandomFoodJoke200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_random_food_trivia(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetRandomFoodTrivia200Response.t} | {:error, Tesla.Env.t}
+  @spec get_random_food_trivia(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetARandomFoodJoke200Response.t} | {:error, Tesla.Env.t}
   def get_random_food_trivia(connection, _opts \\ []) do
     request =
       %{}
@@ -140,7 +140,7 @@ defmodule SpoonacularAPI.Api.Misc do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, SpoonacularAPI.Model.GetRandomFoodTrivia200Response},
+      {200, SpoonacularAPI.Model.GetARandomFoodJoke200Response},
       {401, false},
       {403, false},
       {404, false}
@@ -264,10 +264,10 @@ defmodule SpoonacularAPI.Api.Misc do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `query` (String.t): The (natural language) search query.
   - `username` (String.t): The username.
   - `hash` (String.t): The private hash for the username.
   - `opts` (keyword): Optional parameters
-    - `:query` (String.t): The (natural language) search query.
     - `:offset` (integer()): The number of results to skip (between 0 and 900).
     - `:number` (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
 
@@ -276,10 +276,9 @@ defmodule SpoonacularAPI.Api.Misc do
   - `{:ok, SpoonacularAPI.Model.SearchCustomFoods200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec search_custom_foods(Tesla.Env.client, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchCustomFoods200Response.t} | {:error, Tesla.Env.t}
-  def search_custom_foods(connection, username, hash, opts \\ []) do
+  @spec search_custom_foods(Tesla.Env.client, String.t, String.t, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchCustomFoods200Response.t} | {:error, Tesla.Env.t}
+  def search_custom_foods(connection, query, username, hash, opts \\ []) do
     optional_params = %{
-      :query => :query,
       :offset => :query,
       :number => :query
     }
@@ -288,6 +287,7 @@ defmodule SpoonacularAPI.Api.Misc do
       %{}
       |> method(:get)
       |> url("/food/customFoods/search")
+      |> add_param(:query, :query, query)
       |> add_param(:query, :username, username)
       |> add_param(:query, :hash, hash)
       |> add_optional_params(optional_params, opts)
@@ -310,8 +310,8 @@ defmodule SpoonacularAPI.Api.Misc do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `query` (String.t): The (natural language) search query.
   - `opts` (keyword): Optional parameters
-    - `:query` (String.t): The (natural language) search query.
     - `:type` (String.t): The type of the recipes. See a full list of supported meal types.
     - `:cuisine` (String.t): The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
     - `:diet` (String.t): The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -327,10 +327,9 @@ defmodule SpoonacularAPI.Api.Misc do
   - `{:ok, SpoonacularAPI.Model.SearchFoodVideos200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec search_food_videos(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchFoodVideos200Response.t} | {:error, Tesla.Env.t}
-  def search_food_videos(connection, opts \\ []) do
+  @spec search_food_videos(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchFoodVideos200Response.t} | {:error, Tesla.Env.t}
+  def search_food_videos(connection, query, opts \\ []) do
     optional_params = %{
-      :query => :query,
       :type => :query,
       :cuisine => :query,
       :diet => :query,
@@ -346,6 +345,7 @@ defmodule SpoonacularAPI.Api.Misc do
       %{}
       |> method(:get)
       |> url("/food/videos/search")
+      |> add_param(:query, :query, query)
       |> add_optional_params(optional_params, opts)
       |> Enum.into([])
 

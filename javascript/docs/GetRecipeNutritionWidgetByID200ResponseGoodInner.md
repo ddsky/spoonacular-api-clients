@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **amount** | **String** |  | 
 **indented** | **Boolean** |  | 
 **percentOfDailyNeeds** | **Number** |  | 
-**name** | **String** |  | 
+**title** | **String** |  | 
 
 

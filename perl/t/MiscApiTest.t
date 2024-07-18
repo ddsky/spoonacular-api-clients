@@ -83,12 +83,12 @@ isa_ok($api, 'WWW::OpenAPIClient::MiscApi');
 # search_custom_foods test
 #
 # uncomment below and update the test
+#my $search_custom_foods_query = undef; # replace NULL with a proper value
 #my $search_custom_foods_username = undef; # replace NULL with a proper value
 #my $search_custom_foods_hash = undef; # replace NULL with a proper value
-#my $search_custom_foods_query = undef; # replace NULL with a proper value
 #my $search_custom_foods_offset = undef; # replace NULL with a proper value
 #my $search_custom_foods_number = undef; # replace NULL with a proper value
-#my $search_custom_foods_result = $api->search_custom_foods(username => $search_custom_foods_username, hash => $search_custom_foods_hash, query => $search_custom_foods_query, offset => $search_custom_foods_offset, number => $search_custom_foods_number);
+#my $search_custom_foods_result = $api->search_custom_foods(query => $search_custom_foods_query, username => $search_custom_foods_username, hash => $search_custom_foods_hash, offset => $search_custom_foods_offset, number => $search_custom_foods_number);
 
 #
 # search_food_videos test

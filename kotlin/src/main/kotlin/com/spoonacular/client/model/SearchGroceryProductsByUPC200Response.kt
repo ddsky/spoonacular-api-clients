@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseIngredientsInner
+import com.spoonacular.client.model.IngredientBasics
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseServings
 
@@ -61,7 +61,7 @@ data class SearchGroceryProductsByUPC200Response (
     val breadcrumbs: kotlin.collections.List<kotlin.String>,
 
     @Json(name = "generatedText")
-    val generatedText: kotlin.String,
+    val generatedText: kotlin.String?,
 
     @Json(name = "imageType")
     val imageType: kotlin.String,
@@ -70,7 +70,7 @@ data class SearchGroceryProductsByUPC200Response (
     val ingredientList: kotlin.String,
 
     @Json(name = "ingredients")
-    val ingredients: kotlin.collections.Set<SearchGroceryProductsByUPC200ResponseIngredientsInner>,
+    val ingredients: kotlin.collections.List<IngredientBasics>,
 
     @Json(name = "likes")
     val likes: java.math.BigDecimal,

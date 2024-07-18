@@ -866,7 +866,7 @@ class RecipesApi
      *
      * Autocomplete Recipe Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteRecipeSearch'] to see the possible values for this operation
      *
@@ -874,7 +874,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AutocompleteRecipeSearch200ResponseInner[]
      */
-    public function autocompleteRecipeSearch($query = null, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
+    public function autocompleteRecipeSearch($query, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
     {
         list($response) = $this->autocompleteRecipeSearchWithHttpInfo($query, $number, $contentType);
         return $response;
@@ -885,7 +885,7 @@ class RecipesApi
      *
      * Autocomplete Recipe Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteRecipeSearch'] to see the possible values for this operation
      *
@@ -893,7 +893,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AutocompleteRecipeSearch200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function autocompleteRecipeSearchWithHttpInfo($query = null, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
+    public function autocompleteRecipeSearchWithHttpInfo($query, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
     {
         $request = $this->autocompleteRecipeSearchRequest($query, $number, $contentType);
 
@@ -1010,14 +1010,14 @@ class RecipesApi
      *
      * Autocomplete Recipe Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteRecipeSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function autocompleteRecipeSearchAsync($query = null, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
+    public function autocompleteRecipeSearchAsync($query, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
     {
         return $this->autocompleteRecipeSearchAsyncWithHttpInfo($query, $number, $contentType)
             ->then(
@@ -1032,14 +1032,14 @@ class RecipesApi
      *
      * Autocomplete Recipe Search
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteRecipeSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function autocompleteRecipeSearchAsyncWithHttpInfo($query = null, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
+    public function autocompleteRecipeSearchAsyncWithHttpInfo($query, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AutocompleteRecipeSearch200ResponseInner[]';
         $request = $this->autocompleteRecipeSearchRequest($query, $number, $contentType);
@@ -1083,16 +1083,22 @@ class RecipesApi
     /**
      * Create request for operation 'autocompleteRecipeSearch'
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['autocompleteRecipeSearch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function autocompleteRecipeSearchRequest($query = null, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
+    public function autocompleteRecipeSearchRequest($query, $number = 10, string $contentType = self::contentTypes['autocompleteRecipeSearch'][0])
     {
 
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling autocompleteRecipeSearch'
+            );
+        }
 
         if ($number !== null && $number > 100) {
             throw new \InvalidArgumentException('invalid value for "$number" when calling RecipesApi.autocompleteRecipeSearch, must be smaller than or equal to 100.');
@@ -1116,7 +1122,7 @@ class RecipesApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -2707,7 +2713,7 @@ class RecipesApi
      *
      * Equipment by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['equipmentByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2725,7 +2731,7 @@ class RecipesApi
      *
      * Equipment by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['equipmentByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2849,7 +2855,7 @@ class RecipesApi
      *
      * Equipment by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['equipmentByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2870,7 +2876,7 @@ class RecipesApi
      *
      * Equipment by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['equipmentByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2920,7 +2926,7 @@ class RecipesApi
     /**
      * Create request for operation 'equipmentByIDImage'
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['equipmentByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3028,7 +3034,7 @@ class RecipesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetRecipeInformation200Response
+     * @return \OpenAPI\Client\Model\RecipeInformation
      */
     public function extractRecipeFromWebsite($url, $force_extraction = null, $analyze = null, $include_nutrition = false, $include_taste = false, string $contentType = self::contentTypes['extractRecipeFromWebsite'][0])
     {
@@ -3050,7 +3056,7 @@ class RecipesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetRecipeInformation200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RecipeInformation, HTTP status code, HTTP response headers (array of strings)
      */
     public function extractRecipeFromWebsiteWithHttpInfo($url, $force_extraction = null, $analyze = null, $include_nutrition = false, $include_taste = false, string $contentType = self::contentTypes['extractRecipeFromWebsite'][0])
     {
@@ -3093,11 +3099,11 @@ class RecipesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetRecipeInformation200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\RecipeInformation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetRecipeInformation200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\RecipeInformation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3115,13 +3121,13 @@ class RecipesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetRecipeInformation200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecipeInformation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetRecipeInformation200Response';
+            $returnType = '\OpenAPI\Client\Model\RecipeInformation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3154,7 +3160,7 @@ class RecipesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetRecipeInformation200Response',
+                        '\OpenAPI\Client\Model\RecipeInformation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3206,7 +3212,7 @@ class RecipesApi
      */
     public function extractRecipeFromWebsiteAsyncWithHttpInfo($url, $force_extraction = null, $analyze = null, $include_nutrition = false, $include_taste = false, string $contentType = self::contentTypes['extractRecipeFromWebsite'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetRecipeInformation200Response';
+        $returnType = '\OpenAPI\Client\Model\RecipeInformation';
         $request = $this->extractRecipeFromWebsiteRequest($url, $force_extraction, $analyze, $include_nutrition, $include_taste, $contentType);
 
         return $this->client
@@ -3392,13 +3398,13 @@ class RecipesApi
      *
      * Get Analyzed Recipe Instructions
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $step_breakdown Whether to break down the recipe steps even more. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyzedRecipeInstructions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response
+     * @return \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]
      */
     public function getAnalyzedRecipeInstructions($id, $step_breakdown = null, string $contentType = self::contentTypes['getAnalyzedRecipeInstructions'][0])
     {
@@ -3411,13 +3417,13 @@ class RecipesApi
      *
      * Get Analyzed Recipe Instructions
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $step_breakdown Whether to break down the recipe steps even more. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyzedRecipeInstructions'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getAnalyzedRecipeInstructionsWithHttpInfo($id, $step_breakdown = null, string $contentType = self::contentTypes['getAnalyzedRecipeInstructions'][0])
     {
@@ -3460,11 +3466,11 @@ class RecipesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3482,13 +3488,13 @@ class RecipesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response';
+            $returnType = '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3521,7 +3527,7 @@ class RecipesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response',
+                        '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3536,7 +3542,7 @@ class RecipesApi
      *
      * Get Analyzed Recipe Instructions
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $step_breakdown Whether to break down the recipe steps even more. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyzedRecipeInstructions'] to see the possible values for this operation
      *
@@ -3558,7 +3564,7 @@ class RecipesApi
      *
      * Get Analyzed Recipe Instructions
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $step_breakdown Whether to break down the recipe steps even more. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyzedRecipeInstructions'] to see the possible values for this operation
      *
@@ -3567,7 +3573,7 @@ class RecipesApi
      */
     public function getAnalyzedRecipeInstructionsAsyncWithHttpInfo($id, $step_breakdown = null, string $contentType = self::contentTypes['getAnalyzedRecipeInstructions'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200Response';
+        $returnType = '\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseInner[]';
         $request = $this->getAnalyzedRecipeInstructionsRequest($id, $step_breakdown, $contentType);
 
         return $this->client
@@ -3609,7 +3615,7 @@ class RecipesApi
     /**
      * Create request for operation 'getAnalyzedRecipeInstructions'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $step_breakdown Whether to break down the recipe steps even more. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyzedRecipeInstructions'] to see the possible values for this operation
      *
@@ -4077,7 +4083,7 @@ class RecipesApi
      *
      * Equipment by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeEquipmentByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4095,7 +4101,7 @@ class RecipesApi
      *
      * Equipment by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeEquipmentByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4219,7 +4225,7 @@ class RecipesApi
      *
      * Equipment by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeEquipmentByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4240,7 +4246,7 @@ class RecipesApi
      *
      * Equipment by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeEquipmentByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4290,7 +4296,7 @@ class RecipesApi
     /**
      * Create request for operation 'getRecipeEquipmentByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeEquipmentByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4389,17 +4395,19 @@ class RecipesApi
      *
      * Get Recipe Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the recipe. (required)
      * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  bool $add_wine_pairing Add a wine pairing to the recipe. (optional)
+     * @param  bool $add_taste_data Add taste data to the recipe. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetRecipeInformation200Response
+     * @return \OpenAPI\Client\Model\RecipeInformation
      */
-    public function getRecipeInformation($id, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformation'][0])
+    public function getRecipeInformation($id, $include_nutrition = false, $add_wine_pairing = null, $add_taste_data = null, string $contentType = self::contentTypes['getRecipeInformation'][0])
     {
-        list($response) = $this->getRecipeInformationWithHttpInfo($id, $include_nutrition, $contentType);
+        list($response) = $this->getRecipeInformationWithHttpInfo($id, $include_nutrition, $add_wine_pairing, $add_taste_data, $contentType);
         return $response;
     }
 
@@ -4408,17 +4416,19 @@ class RecipesApi
      *
      * Get Recipe Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the recipe. (required)
      * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  bool $add_wine_pairing Add a wine pairing to the recipe. (optional)
+     * @param  bool $add_taste_data Add taste data to the recipe. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeInformation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetRecipeInformation200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RecipeInformation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRecipeInformationWithHttpInfo($id, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformation'][0])
+    public function getRecipeInformationWithHttpInfo($id, $include_nutrition = false, $add_wine_pairing = null, $add_taste_data = null, string $contentType = self::contentTypes['getRecipeInformation'][0])
     {
-        $request = $this->getRecipeInformationRequest($id, $include_nutrition, $contentType);
+        $request = $this->getRecipeInformationRequest($id, $include_nutrition, $add_wine_pairing, $add_taste_data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4457,11 +4467,11 @@ class RecipesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetRecipeInformation200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\RecipeInformation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetRecipeInformation200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\RecipeInformation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4479,13 +4489,13 @@ class RecipesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetRecipeInformation200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecipeInformation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetRecipeInformation200Response';
+            $returnType = '\OpenAPI\Client\Model\RecipeInformation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4518,7 +4528,7 @@ class RecipesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetRecipeInformation200Response',
+                        '\OpenAPI\Client\Model\RecipeInformation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4533,16 +4543,18 @@ class RecipesApi
      *
      * Get Recipe Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the recipe. (required)
      * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  bool $add_wine_pairing Add a wine pairing to the recipe. (optional)
+     * @param  bool $add_taste_data Add taste data to the recipe. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRecipeInformationAsync($id, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformation'][0])
+    public function getRecipeInformationAsync($id, $include_nutrition = false, $add_wine_pairing = null, $add_taste_data = null, string $contentType = self::contentTypes['getRecipeInformation'][0])
     {
-        return $this->getRecipeInformationAsyncWithHttpInfo($id, $include_nutrition, $contentType)
+        return $this->getRecipeInformationAsyncWithHttpInfo($id, $include_nutrition, $add_wine_pairing, $add_taste_data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4555,17 +4567,19 @@ class RecipesApi
      *
      * Get Recipe Information
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the recipe. (required)
      * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  bool $add_wine_pairing Add a wine pairing to the recipe. (optional)
+     * @param  bool $add_taste_data Add taste data to the recipe. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRecipeInformationAsyncWithHttpInfo($id, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformation'][0])
+    public function getRecipeInformationAsyncWithHttpInfo($id, $include_nutrition = false, $add_wine_pairing = null, $add_taste_data = null, string $contentType = self::contentTypes['getRecipeInformation'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetRecipeInformation200Response';
-        $request = $this->getRecipeInformationRequest($id, $include_nutrition, $contentType);
+        $returnType = '\OpenAPI\Client\Model\RecipeInformation';
+        $request = $this->getRecipeInformationRequest($id, $include_nutrition, $add_wine_pairing, $add_taste_data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4606,14 +4620,16 @@ class RecipesApi
     /**
      * Create request for operation 'getRecipeInformation'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the recipe. (required)
      * @param  bool $include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param  bool $add_wine_pairing Add a wine pairing to the recipe. (optional)
+     * @param  bool $add_taste_data Add taste data to the recipe. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeInformation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRecipeInformationRequest($id, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformation'][0])
+    public function getRecipeInformationRequest($id, $include_nutrition = false, $add_wine_pairing = null, $add_taste_data = null, string $contentType = self::contentTypes['getRecipeInformation'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4622,6 +4638,8 @@ class RecipesApi
                 'Missing the required parameter $id when calling getRecipeInformation'
             );
         }
+
+
 
 
 
@@ -4639,6 +4657,24 @@ class RecipesApi
             'boolean', // openApiType
             'form', // style
             true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $add_wine_pairing,
+            'addWinePairing', // param base name
+            'boolean', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $add_taste_data,
+            'addTasteData', // param base name
+            'boolean', // openApiType
+            'form', // style
+            false, // explode
             false // required
         ) ?? []);
 
@@ -4722,7 +4758,7 @@ class RecipesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]
+     * @return \OpenAPI\Client\Model\RecipeInformation[]
      */
     public function getRecipeInformationBulk($ids, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformationBulk'][0])
     {
@@ -4741,7 +4777,7 @@ class RecipesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\RecipeInformation[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getRecipeInformationBulkWithHttpInfo($ids, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformationBulk'][0])
     {
@@ -4784,11 +4820,11 @@ class RecipesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\RecipeInformation[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]' !== 'string') {
+                        if ('\OpenAPI\Client\Model\RecipeInformation[]' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4806,13 +4842,13 @@ class RecipesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecipeInformation[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]';
+            $returnType = '\OpenAPI\Client\Model\RecipeInformation[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4845,7 +4881,7 @@ class RecipesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]',
+                        '\OpenAPI\Client\Model\RecipeInformation[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4891,7 +4927,7 @@ class RecipesApi
      */
     public function getRecipeInformationBulkAsyncWithHttpInfo($ids, $include_nutrition = false, string $contentType = self::contentTypes['getRecipeInformationBulk'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetRecipeInformationBulk200ResponseInner[]';
+        $returnType = '\OpenAPI\Client\Model\RecipeInformation[]';
         $request = $this->getRecipeInformationBulkRequest($ids, $include_nutrition, $contentType);
 
         return $this->client
@@ -5044,7 +5080,7 @@ class RecipesApi
      *
      * Ingredients by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeIngredientsByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5062,7 +5098,7 @@ class RecipesApi
      *
      * Ingredients by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeIngredientsByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5186,7 +5222,7 @@ class RecipesApi
      *
      * Ingredients by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeIngredientsByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5207,7 +5243,7 @@ class RecipesApi
      *
      * Ingredients by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeIngredientsByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5257,7 +5293,7 @@ class RecipesApi
     /**
      * Create request for operation 'getRecipeIngredientsByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeIngredientsByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5356,7 +5392,7 @@ class RecipesApi
      *
      * Nutrition by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeNutritionWidgetByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5374,7 +5410,7 @@ class RecipesApi
      *
      * Nutrition by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeNutritionWidgetByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5498,7 +5534,7 @@ class RecipesApi
      *
      * Nutrition by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeNutritionWidgetByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5519,7 +5555,7 @@ class RecipesApi
      *
      * Nutrition by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeNutritionWidgetByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5569,7 +5605,7 @@ class RecipesApi
     /**
      * Create request for operation 'getRecipeNutritionWidgetByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeNutritionWidgetByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5668,7 +5704,7 @@ class RecipesApi
      *
      * Price Breakdown by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipePriceBreakdownByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5686,7 +5722,7 @@ class RecipesApi
      *
      * Price Breakdown by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipePriceBreakdownByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -5810,7 +5846,7 @@ class RecipesApi
      *
      * Price Breakdown by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipePriceBreakdownByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5831,7 +5867,7 @@ class RecipesApi
      *
      * Price Breakdown by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipePriceBreakdownByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5881,7 +5917,7 @@ class RecipesApi
     /**
      * Create request for operation 'getRecipePriceBreakdownByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipePriceBreakdownByID'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5980,13 +6016,13 @@ class RecipesApi
      *
      * Taste by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeTasteByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetRecipeTasteByID200Response
+     * @return \OpenAPI\Client\Model\TasteInformation
      */
     public function getRecipeTasteByID($id, $normalize = true, string $contentType = self::contentTypes['getRecipeTasteByID'][0])
     {
@@ -5999,13 +6035,13 @@ class RecipesApi
      *
      * Taste by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeTasteByID'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetRecipeTasteByID200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\TasteInformation, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRecipeTasteByIDWithHttpInfo($id, $normalize = true, string $contentType = self::contentTypes['getRecipeTasteByID'][0])
     {
@@ -6048,11 +6084,11 @@ class RecipesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetRecipeTasteByID200Response' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\TasteInformation' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\GetRecipeTasteByID200Response' !== 'string') {
+                        if ('\OpenAPI\Client\Model\TasteInformation' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6070,13 +6106,13 @@ class RecipesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetRecipeTasteByID200Response', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TasteInformation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetRecipeTasteByID200Response';
+            $returnType = '\OpenAPI\Client\Model\TasteInformation';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6109,7 +6145,7 @@ class RecipesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetRecipeTasteByID200Response',
+                        '\OpenAPI\Client\Model\TasteInformation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6124,7 +6160,7 @@ class RecipesApi
      *
      * Taste by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeTasteByID'] to see the possible values for this operation
      *
@@ -6146,7 +6182,7 @@ class RecipesApi
      *
      * Taste by ID
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeTasteByID'] to see the possible values for this operation
      *
@@ -6155,7 +6191,7 @@ class RecipesApi
      */
     public function getRecipeTasteByIDAsyncWithHttpInfo($id, $normalize = true, string $contentType = self::contentTypes['getRecipeTasteByID'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\GetRecipeTasteByID200Response';
+        $returnType = '\OpenAPI\Client\Model\TasteInformation';
         $request = $this->getRecipeTasteByIDRequest($id, $normalize, $contentType);
 
         return $this->client
@@ -6197,7 +6233,7 @@ class RecipesApi
     /**
      * Create request for operation 'getRecipeTasteByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecipeTasteByID'] to see the possible values for this operation
      *
@@ -6307,7 +6343,7 @@ class RecipesApi
      *
      * Get Similar Recipes
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSimilarRecipes'] to see the possible values for this operation
      *
@@ -6326,7 +6362,7 @@ class RecipesApi
      *
      * Get Similar Recipes
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSimilarRecipes'] to see the possible values for this operation
      *
@@ -6451,7 +6487,7 @@ class RecipesApi
      *
      * Get Similar Recipes
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSimilarRecipes'] to see the possible values for this operation
      *
@@ -6473,7 +6509,7 @@ class RecipesApi
      *
      * Get Similar Recipes
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSimilarRecipes'] to see the possible values for this operation
      *
@@ -6524,7 +6560,7 @@ class RecipesApi
     /**
      * Create request for operation 'getSimilarRecipes'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The id of the source recipe for which similar recipes should be found. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSimilarRecipes'] to see the possible values for this operation
      *
@@ -6956,12 +6992,12 @@ class RecipesApi
      * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
      * @param  float $servings The number of servings that you can make from the ingredients. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  bool $include_nutrition include_nutrition (optional)
+     * @param  bool $include_nutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseIngredients'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ParseIngredients200ResponseInner[]
+     * @return \OpenAPI\Client\Model\IngredientInformation[]
      */
     public function parseIngredients($ingredient_list, $servings, $language = null, $include_nutrition = null, string $contentType = self::contentTypes['parseIngredients'][0])
     {
@@ -6977,12 +7013,12 @@ class RecipesApi
      * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
      * @param  float $servings The number of servings that you can make from the ingredients. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  bool $include_nutrition (optional)
+     * @param  bool $include_nutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseIngredients'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ParseIngredients200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\IngredientInformation[], HTTP status code, HTTP response headers (array of strings)
      */
     public function parseIngredientsWithHttpInfo($ingredient_list, $servings, $language = null, $include_nutrition = null, string $contentType = self::contentTypes['parseIngredients'][0])
     {
@@ -7025,11 +7061,11 @@ class RecipesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\IngredientInformation[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]' !== 'string') {
+                        if ('\OpenAPI\Client\Model\IngredientInformation[]' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7047,13 +7083,13 @@ class RecipesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\IngredientInformation[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]';
+            $returnType = '\OpenAPI\Client\Model\IngredientInformation[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7086,7 +7122,7 @@ class RecipesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]',
+                        '\OpenAPI\Client\Model\IngredientInformation[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7104,7 +7140,7 @@ class RecipesApi
      * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
      * @param  float $servings The number of servings that you can make from the ingredients. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  bool $include_nutrition (optional)
+     * @param  bool $include_nutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7128,7 +7164,7 @@ class RecipesApi
      * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
      * @param  float $servings The number of servings that you can make from the ingredients. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  bool $include_nutrition (optional)
+     * @param  bool $include_nutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7136,7 +7172,7 @@ class RecipesApi
      */
     public function parseIngredientsAsyncWithHttpInfo($ingredient_list, $servings, $language = null, $include_nutrition = null, string $contentType = self::contentTypes['parseIngredients'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ParseIngredients200ResponseInner[]';
+        $returnType = '\OpenAPI\Client\Model\IngredientInformation[]';
         $request = $this->parseIngredientsRequest($ingredient_list, $servings, $language, $include_nutrition, $contentType);
 
         return $this->client
@@ -7181,7 +7217,7 @@ class RecipesApi
      * @param  string $ingredient_list The ingredient list of the recipe, one ingredient per line. (required)
      * @param  float $servings The number of servings that you can make from the ingredients. (required)
      * @param  string $language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param  bool $include_nutrition (optional)
+     * @param  bool $include_nutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['parseIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7302,7 +7338,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['priceBreakdownByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7320,7 +7356,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['priceBreakdownByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7444,7 +7480,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['priceBreakdownByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7465,7 +7501,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['priceBreakdownByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7515,7 +7551,7 @@ class RecipesApi
     /**
      * Create request for operation 'priceBreakdownByIDImage'
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['priceBreakdownByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7927,7 +7963,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7945,7 +7981,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8069,7 +8105,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8090,7 +8126,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8140,7 +8176,7 @@ class RecipesApi
     /**
      * Create request for operation 'recipeNutritionByIDImage'
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeNutritionByIDImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8239,7 +8275,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -8260,7 +8296,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -8387,7 +8423,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -8411,7 +8447,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -8464,7 +8500,7 @@ class RecipesApi
     /**
      * Create request for operation 'recipeNutritionLabelImage'
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
      * @param  bool $show_ingredients Whether to show a list of ingredients. (optional)
@@ -8596,7 +8632,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Widget
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -8618,7 +8654,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Widget
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -8746,7 +8782,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Widget
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -8771,7 +8807,7 @@ class RecipesApi
      *
      * Recipe Nutrition Label Widget
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -8825,7 +8861,7 @@ class RecipesApi
     /**
      * Create request for operation 'recipeNutritionLabelWidget'
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  bool $show_optional_nutrients Whether to show optional nutrients. (optional)
      * @param  bool $show_zero_values Whether to show zero values. (optional)
@@ -8968,7 +9004,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeTasteByIDImage'] to see the possible values for this operation
@@ -8988,7 +9024,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeTasteByIDImage'] to see the possible values for this operation
@@ -9114,7 +9150,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeTasteByIDImage'] to see the possible values for this operation
@@ -9137,7 +9173,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Image
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeTasteByIDImage'] to see the possible values for this operation
@@ -9189,7 +9225,7 @@ class RecipesApi
     /**
      * Create request for operation 'recipeTasteByIDImage'
      *
-     * @param  float $id The recipe id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Normalize to the strongest taste. (optional)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['recipeTasteByIDImage'] to see the possible values for this operation
@@ -9310,7 +9346,7 @@ class RecipesApi
      *
      * Search Recipes
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -9325,7 +9361,7 @@ class RecipesApi
      * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
      * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  int $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
@@ -9413,7 +9449,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchRecipes200Response
      */
-    public function searchRecipes($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipes($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
     {
         list($response) = $this->searchRecipesWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $contentType);
         return $response;
@@ -9424,7 +9460,7 @@ class RecipesApi
      *
      * Search Recipes
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -9439,7 +9475,7 @@ class RecipesApi
      * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
      * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  int $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
@@ -9527,7 +9563,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchRecipes200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRecipesWithHttpInfo($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
     {
         $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $contentType);
 
@@ -9644,7 +9680,7 @@ class RecipesApi
      *
      * Search Recipes
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -9659,7 +9695,7 @@ class RecipesApi
      * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
      * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  int $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
@@ -9746,7 +9782,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesAsync($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesAsync($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
     {
         return $this->searchRecipesAsyncWithHttpInfo($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $contentType)
             ->then(
@@ -9761,7 +9797,7 @@ class RecipesApi
      *
      * Search Recipes
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -9776,7 +9812,7 @@ class RecipesApi
      * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
      * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  int $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
@@ -9863,7 +9899,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesAsyncWithHttpInfo($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesAsyncWithHttpInfo($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchRecipes200Response';
         $request = $this->searchRecipesRequest($query, $cuisine, $exclude_cuisine, $diet, $intolerances, $equipment, $include_ingredients, $exclude_ingredients, $type, $instructions_required, $fill_ingredients, $add_recipe_information, $add_recipe_nutrition, $author, $tags, $recipe_box_id, $title_match, $max_ready_time, $min_servings, $max_servings, $ignore_pantry, $sort, $sort_direction, $min_carbs, $max_carbs, $min_protein, $max_protein, $min_calories, $max_calories, $min_fat, $max_fat, $min_alcohol, $max_alcohol, $min_caffeine, $max_caffeine, $min_copper, $max_copper, $min_calcium, $max_calcium, $min_choline, $max_choline, $min_cholesterol, $max_cholesterol, $min_fluoride, $max_fluoride, $min_saturated_fat, $max_saturated_fat, $min_vitamin_a, $max_vitamin_a, $min_vitamin_c, $max_vitamin_c, $min_vitamin_d, $max_vitamin_d, $min_vitamin_e, $max_vitamin_e, $min_vitamin_k, $max_vitamin_k, $min_vitamin_b1, $max_vitamin_b1, $min_vitamin_b2, $max_vitamin_b2, $min_vitamin_b5, $max_vitamin_b5, $min_vitamin_b3, $max_vitamin_b3, $min_vitamin_b6, $max_vitamin_b6, $min_vitamin_b12, $max_vitamin_b12, $min_fiber, $max_fiber, $min_folate, $max_folate, $min_folic_acid, $max_folic_acid, $min_iodine, $max_iodine, $min_iron, $max_iron, $min_magnesium, $max_magnesium, $min_manganese, $max_manganese, $min_phosphorus, $max_phosphorus, $min_potassium, $max_potassium, $min_selenium, $max_selenium, $min_sodium, $max_sodium, $min_sugar, $max_sugar, $min_zinc, $max_zinc, $offset, $number, $contentType);
@@ -9907,7 +9943,7 @@ class RecipesApi
     /**
      * Create request for operation 'searchRecipes'
      *
-     * @param  string $query The (natural language) search query. (optional)
+     * @param  string $query The (natural language) search query. (required)
      * @param  string $cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param  string $exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param  string $diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -9922,7 +9958,7 @@ class RecipesApi
      * @param  bool $add_recipe_nutrition If set to true, you get nutritional information about each recipes returned. (optional)
      * @param  string $author The username of the recipe author. (optional)
      * @param  string $tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. (optional)
-     * @param  float $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
+     * @param  int $recipe_box_id The id of the recipe box to which the search should be limited to. (optional)
      * @param  string $title_match Enter text that must be found in the title of the recipes. (optional)
      * @param  float $max_ready_time The maximum time in minutes it should take to prepare and cook the recipe. (optional)
      * @param  float $min_servings The minimum amount of servings the recipe is for. (optional)
@@ -10009,9 +10045,15 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRecipesRequest($query = null, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
+    public function searchRecipesRequest($query, $cuisine = null, $exclude_cuisine = null, $diet = null, $intolerances = null, $equipment = null, $include_ingredients = null, $exclude_ingredients = null, $type = null, $instructions_required = null, $fill_ingredients = null, $add_recipe_information = null, $add_recipe_nutrition = null, $author = null, $tags = null, $recipe_box_id = null, $title_match = null, $max_ready_time = null, $min_servings = null, $max_servings = null, $ignore_pantry = false, $sort = null, $sort_direction = null, $min_carbs = null, $max_carbs = null, $min_protein = null, $max_protein = null, $min_calories = null, $max_calories = null, $min_fat = null, $max_fat = null, $min_alcohol = null, $max_alcohol = null, $min_caffeine = null, $max_caffeine = null, $min_copper = null, $max_copper = null, $min_calcium = null, $max_calcium = null, $min_choline = null, $max_choline = null, $min_cholesterol = null, $max_cholesterol = null, $min_fluoride = null, $max_fluoride = null, $min_saturated_fat = null, $max_saturated_fat = null, $min_vitamin_a = null, $max_vitamin_a = null, $min_vitamin_c = null, $max_vitamin_c = null, $min_vitamin_d = null, $max_vitamin_d = null, $min_vitamin_e = null, $max_vitamin_e = null, $min_vitamin_k = null, $max_vitamin_k = null, $min_vitamin_b1 = null, $max_vitamin_b1 = null, $min_vitamin_b2 = null, $max_vitamin_b2 = null, $min_vitamin_b5 = null, $max_vitamin_b5 = null, $min_vitamin_b3 = null, $max_vitamin_b3 = null, $min_vitamin_b6 = null, $max_vitamin_b6 = null, $min_vitamin_b12 = null, $max_vitamin_b12 = null, $min_fiber = null, $max_fiber = null, $min_folate = null, $max_folate = null, $min_folic_acid = null, $max_folic_acid = null, $min_iodine = null, $max_iodine = null, $min_iron = null, $max_iron = null, $min_magnesium = null, $max_magnesium = null, $min_manganese = null, $max_manganese = null, $min_phosphorus = null, $max_phosphorus = null, $min_potassium = null, $max_potassium = null, $min_selenium = null, $max_selenium = null, $min_sodium = null, $max_sodium = null, $min_sugar = null, $max_sugar = null, $min_zinc = null, $max_zinc = null, $offset = null, $number = 10, string $contentType = self::contentTypes['searchRecipes'][0])
     {
 
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling searchRecipes'
+            );
+        }
 
 
 
@@ -10136,7 +10178,7 @@ class RecipesApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -10268,7 +10310,7 @@ class RecipesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $recipe_box_id,
             'recipeBoxId', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             false, // explode
             false // required
@@ -11069,9 +11111,9 @@ class RecipesApi
      *
      * Search Recipes by Ingredients
      *
-     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param  float $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param  int $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecipesByIngredients'] to see the possible values for this operation
      *
@@ -11079,7 +11121,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInner[]
      */
-    public function searchRecipesByIngredients($ingredients = null, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
+    public function searchRecipesByIngredients($ingredients, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
     {
         list($response) = $this->searchRecipesByIngredientsWithHttpInfo($ingredients, $number, $ranking, $ignore_pantry, $contentType);
         return $response;
@@ -11090,9 +11132,9 @@ class RecipesApi
      *
      * Search Recipes by Ingredients
      *
-     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param  float $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param  int $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecipesByIngredients'] to see the possible values for this operation
      *
@@ -11100,7 +11142,7 @@ class RecipesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInner[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchRecipesByIngredientsWithHttpInfo($ingredients = null, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
+    public function searchRecipesByIngredientsWithHttpInfo($ingredients, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
     {
         $request = $this->searchRecipesByIngredientsRequest($ingredients, $number, $ranking, $ignore_pantry, $contentType);
 
@@ -11217,16 +11259,16 @@ class RecipesApi
      *
      * Search Recipes by Ingredients
      *
-     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param  float $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param  int $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecipesByIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesByIngredientsAsync($ingredients = null, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
+    public function searchRecipesByIngredientsAsync($ingredients, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
     {
         return $this->searchRecipesByIngredientsAsyncWithHttpInfo($ingredients, $number, $ranking, $ignore_pantry, $contentType)
             ->then(
@@ -11241,16 +11283,16 @@ class RecipesApi
      *
      * Search Recipes by Ingredients
      *
-     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param  float $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param  int $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecipesByIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchRecipesByIngredientsAsyncWithHttpInfo($ingredients = null, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
+    public function searchRecipesByIngredientsAsyncWithHttpInfo($ingredients, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
     {
         $returnType = '\OpenAPI\Client\Model\SearchRecipesByIngredients200ResponseInner[]';
         $request = $this->searchRecipesByIngredientsRequest($ingredients, $number, $ranking, $ignore_pantry, $contentType);
@@ -11294,18 +11336,24 @@ class RecipesApi
     /**
      * Create request for operation 'searchRecipesByIngredients'
      *
-     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param  string $ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param  int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
-     * @param  float $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
+     * @param  int $ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param  bool $ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchRecipesByIngredients'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchRecipesByIngredientsRequest($ingredients = null, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
+    public function searchRecipesByIngredientsRequest($ingredients, $number = 10, $ranking = null, $ignore_pantry = false, string $contentType = self::contentTypes['searchRecipesByIngredients'][0])
     {
 
+        // verify the required parameter 'ingredients' is set
+        if ($ingredients === null || (is_array($ingredients) && count($ingredients) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ingredients when calling searchRecipesByIngredients'
+            );
+        }
 
         if ($number !== null && $number > 100) {
             throw new \InvalidArgumentException('invalid value for "$number" when calling RecipesApi.searchRecipesByIngredients, must be smaller than or equal to 100.');
@@ -11331,7 +11379,7 @@ class RecipesApi
             'string', // openApiType
             'form', // style
             true, // explode
-            false // required
+            true // required
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
@@ -11346,7 +11394,7 @@ class RecipesApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $ranking,
             'ranking', // param base name
-            'number', // openApiType
+            'integer', // openApiType
             'form', // style
             false, // explode
             false // required
@@ -12856,7 +12904,7 @@ class RecipesApi
      *
      * Summarize Recipe
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['summarizeRecipe'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12874,7 +12922,7 @@ class RecipesApi
      *
      * Summarize Recipe
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['summarizeRecipe'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -12998,7 +13046,7 @@ class RecipesApi
      *
      * Summarize Recipe
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['summarizeRecipe'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13019,7 +13067,7 @@ class RecipesApi
      *
      * Summarize Recipe
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['summarizeRecipe'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13069,7 +13117,7 @@ class RecipesApi
     /**
      * Create request for operation 'summarizeRecipe'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['summarizeRecipe'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -13875,7 +13923,7 @@ class RecipesApi
      *
      * Equipment by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeEquipmentByID'] to see the possible values for this operation
      *
@@ -13894,7 +13942,7 @@ class RecipesApi
      *
      * Equipment by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeEquipmentByID'] to see the possible values for this operation
      *
@@ -14019,7 +14067,7 @@ class RecipesApi
      *
      * Equipment by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeEquipmentByID'] to see the possible values for this operation
      *
@@ -14041,7 +14089,7 @@ class RecipesApi
      *
      * Equipment by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeEquipmentByID'] to see the possible values for this operation
      *
@@ -14092,7 +14140,7 @@ class RecipesApi
     /**
      * Create request for operation 'visualizeRecipeEquipmentByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeEquipmentByID'] to see the possible values for this operation
      *
@@ -14202,7 +14250,7 @@ class RecipesApi
      *
      * Ingredients by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeIngredientsByID'] to see the possible values for this operation
@@ -14222,7 +14270,7 @@ class RecipesApi
      *
      * Ingredients by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeIngredientsByID'] to see the possible values for this operation
@@ -14348,7 +14396,7 @@ class RecipesApi
      *
      * Ingredients by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeIngredientsByID'] to see the possible values for this operation
@@ -14371,7 +14419,7 @@ class RecipesApi
      *
      * Ingredients by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeIngredientsByID'] to see the possible values for this operation
@@ -14423,7 +14471,7 @@ class RecipesApi
     /**
      * Create request for operation 'visualizeRecipeIngredientsByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeIngredientsByID'] to see the possible values for this operation
@@ -14903,7 +14951,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeNutritionByID'] to see the possible values for this operation
      *
@@ -14922,7 +14970,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeNutritionByID'] to see the possible values for this operation
      *
@@ -15047,7 +15095,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeNutritionByID'] to see the possible values for this operation
      *
@@ -15069,7 +15117,7 @@ class RecipesApi
      *
      * Recipe Nutrition by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeNutritionByID'] to see the possible values for this operation
      *
@@ -15120,7 +15168,7 @@ class RecipesApi
     /**
      * Create request for operation 'visualizeRecipeNutritionByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeNutritionByID'] to see the possible values for this operation
      *
@@ -15230,7 +15278,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipePriceBreakdownByID'] to see the possible values for this operation
      *
@@ -15249,7 +15297,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipePriceBreakdownByID'] to see the possible values for this operation
      *
@@ -15374,7 +15422,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipePriceBreakdownByID'] to see the possible values for this operation
      *
@@ -15396,7 +15444,7 @@ class RecipesApi
      *
      * Price Breakdown by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipePriceBreakdownByID'] to see the possible values for this operation
      *
@@ -15447,7 +15495,7 @@ class RecipesApi
     /**
      * Create request for operation 'visualizeRecipePriceBreakdownByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $default_css Whether the default CSS should be added to the response. (optional, default to true)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipePriceBreakdownByID'] to see the possible values for this operation
      *
@@ -15900,7 +15948,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeTasteByID'] to see the possible values for this operation
@@ -15920,7 +15968,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeTasteByID'] to see the possible values for this operation
@@ -16046,7 +16094,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeTasteByID'] to see the possible values for this operation
@@ -16069,7 +16117,7 @@ class RecipesApi
      *
      * Recipe Taste by ID Widget
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeTasteByID'] to see the possible values for this operation
@@ -16121,7 +16169,7 @@ class RecipesApi
     /**
      * Create request for operation 'visualizeRecipeTasteByID'
      *
-     * @param  int $id The item&#39;s id. (required)
+     * @param  int $id The recipe id. (required)
      * @param  bool $normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param  string $rgb Red, green, blue values for the chart color. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['visualizeRecipeTasteByID'] to see the possible values for this operation

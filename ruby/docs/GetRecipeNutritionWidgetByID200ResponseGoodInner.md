@@ -7,7 +7,7 @@
 | **amount** | **String** |  |  |
 | **indented** | **Boolean** |  |  |
 | **percent_of_daily_needs** | **Float** |  |  |
-| **name** | **String** |  |  |
+| **title** | **String** |  |  |
 
 ## Example
 
@@ -18,7 +18,7 @@ instance = OpenapiClient::GetRecipeNutritionWidgetByID200ResponseGoodInner.new(
   amount: null,
   indented: null,
   percent_of_daily_needs: null,
-  name: null
+  title: null
 )
 ```
 

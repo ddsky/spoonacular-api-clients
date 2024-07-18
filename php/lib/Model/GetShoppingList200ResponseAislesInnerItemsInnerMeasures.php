@@ -58,9 +58,9 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures implements ModelIn
       * @var string[]
       */
     protected static $openAPITypes = [
-        'original' => '\OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing',
-        'metric' => '\OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing',
-        'us' => '\OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing'
+        'original' => '\OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
+        'metric' => '\OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
+        'us' => '\OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal'
     ];
 
     /**
@@ -316,7 +316,7 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures implements ModelIn
     /**
      * Gets original
      *
-     * @return \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing
+     * @return \OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
      */
     public function getOriginal()
     {
@@ -326,7 +326,7 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures implements ModelIn
     /**
      * Sets original
      *
-     * @param \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing $original original
+     * @param \OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal $original original
      *
      * @return self
      */
@@ -343,7 +343,7 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures implements ModelIn
     /**
      * Gets metric
      *
-     * @return \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing
+     * @return \OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
      */
     public function getMetric()
     {
@@ -353,7 +353,7 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures implements ModelIn
     /**
      * Sets metric
      *
-     * @param \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing $metric metric
+     * @param \OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal $metric metric
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures implements ModelIn
     /**
      * Gets us
      *
-     * @return \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing
+     * @return \OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
      */
     public function getUs()
     {
@@ -380,7 +380,7 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures implements ModelIn
     /**
      * Sets us
      *
-     * @param \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionWeightPerServing $us us
+     * @param \OpenAPI\Client\Model\GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal $us us
      *
      * @return self
      */

@@ -16,6 +16,9 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
+local spoonacular_ingredient_information = require "spoonacular.model.ingredient_information"
+local spoonacular_recipe_information = require "spoonacular.model.recipe_information"
+local spoonacular_taste_information = require "spoonacular.model.taste_information"
 local spoonacular_analyze_a_recipe_search_query_200_response = require "spoonacular.model.analyze_a_recipe_search_query_200_response"
 local spoonacular_analyze_recipe_instructions_200_response = require "spoonacular.model.analyze_recipe_instructions_200_response"
 local spoonacular_autocomplete_recipe_search_200_response_inner = require "spoonacular.model.autocomplete_recipe_search_200_response_inner"
@@ -24,18 +27,14 @@ local spoonacular_compute_glycemic_load_200_response = require "spoonacular.mode
 local spoonacular_compute_glycemic_load_request = require "spoonacular.model.compute_glycemic_load_request"
 local spoonacular_convert_amounts_200_response = require "spoonacular.model.convert_amounts_200_response"
 local spoonacular_create_recipe_card_200_response = require "spoonacular.model.create_recipe_card_200_response"
-local spoonacular_get_analyzed_recipe_instructions_200_response = require "spoonacular.model.get_analyzed_recipe_instructions_200_response"
+local spoonacular_get_analyzed_recipe_instructions_200_response_inner = require "spoonacular.model.get_analyzed_recipe_instructions_200_response_inner"
 local spoonacular_get_random_recipes_200_response = require "spoonacular.model.get_random_recipes_200_response"
 local spoonacular_get_recipe_equipment_by_id_200_response = require "spoonacular.model.get_recipe_equipment_by_id_200_response"
-local spoonacular_get_recipe_information_bulk_200_response_inner = require "spoonacular.model.get_recipe_information_bulk_200_response_inner"
-local spoonacular_get_recipe_information_200_response = require "spoonacular.model.get_recipe_information_200_response"
 local spoonacular_get_recipe_ingredients_by_id_200_response = require "spoonacular.model.get_recipe_ingredients_by_id_200_response"
 local spoonacular_get_recipe_nutrition_widget_by_id_200_response = require "spoonacular.model.get_recipe_nutrition_widget_by_id_200_response"
 local spoonacular_get_recipe_price_breakdown_by_id_200_response = require "spoonacular.model.get_recipe_price_breakdown_by_id_200_response"
-local spoonacular_get_recipe_taste_by_id_200_response = require "spoonacular.model.get_recipe_taste_by_id_200_response"
 local spoonacular_get_similar_recipes_200_response_inner = require "spoonacular.model.get_similar_recipes_200_response_inner"
 local spoonacular_guess_nutrition_by_dish_name_200_response = require "spoonacular.model.guess_nutrition_by_dish_name_200_response"
-local spoonacular_parse_ingredients_200_response_inner = require "spoonacular.model.parse_ingredients_200_response_inner"
 local spoonacular_quick_answer_200_response = require "spoonacular.model.quick_answer_200_response"
 local spoonacular_search_recipes_by_ingredients_200_response_inner = require "spoonacular.model.search_recipes_by_ingredients_200_response_inner"
 local spoonacular_search_recipes_by_nutrients_200_response_inner = require "spoonacular.model.search_recipes_by_nutrients_200_response_inner"
@@ -550,7 +549,7 @@ function recipes_api:extract_recipe_from_website(url, force_extraction, analyze,
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_recipe_information_200_response.cast(result), headers
+		return spoonacular_recipe_information.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -600,7 +599,10 @@ function recipes_api:get_analyzed_recipe_instructions(id, step_breakdown)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_analyzed_recipe_instructions_200_response.cast(result), headers
+		for _, ob in ipairs(result) do
+			spoonacular_get_analyzed_recipe_instructions_200_response_inner.cast(ob)
+		end
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -712,13 +714,13 @@ function recipes_api:get_recipe_equipment_by_id(id)
 	end
 end
 
-function recipes_api:get_recipe_information(id, include_nutrition)
+function recipes_api:get_recipe_information(id, include_nutrition, add_wine_pairing, add_taste_data)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
 		port = self.port;
-		path = string.format("%s/recipes/%s/information?includeNutrition=%s",
-			self.basePath, id, http_util.encodeURIComponent(include_nutrition));
+		path = string.format("%s/recipes/%s/information?includeNutrition=%s&addWinePairing=%s&addTasteData=%s",
+			self.basePath, id, http_util.encodeURIComponent(include_nutrition), http_util.encodeURIComponent(add_wine_pairing), http_util.encodeURIComponent(add_taste_data));
 	})
 
 	-- set HTTP verb
@@ -750,7 +752,7 @@ function recipes_api:get_recipe_information(id, include_nutrition)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_recipe_information_200_response.cast(result), headers
+		return spoonacular_recipe_information.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -801,7 +803,7 @@ function recipes_api:get_recipe_information_bulk(ids, include_nutrition)
 			return nil, err3
 		end
 		for _, ob in ipairs(result) do
-			spoonacular_get_recipe_information_bulk_200_response_inner.cast(ob)
+			spoonacular_recipe_information.cast(ob)
 		end
 		return result, headers
 	else
@@ -1003,7 +1005,7 @@ function recipes_api:get_recipe_taste_by_id(id, normalize)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_recipe_taste_by_id_200_response.cast(result), headers
+		return spoonacular_taste_information.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -1166,7 +1168,7 @@ function recipes_api:parse_ingredients(ingredient_list, servings, language, incl
 			return nil, err3
 		end
 		for _, ob in ipairs(result) do
-			spoonacular_parse_ingredients_200_response_inner.cast(ob)
+			spoonacular_ingredient_information.cast(ob)
 		end
 		return result, headers
 	else

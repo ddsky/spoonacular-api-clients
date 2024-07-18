@@ -12,14 +12,14 @@ defmodule SpoonacularAPI.Model.GetRandomRecipes200Response do
   ]
 
   @type t :: %__MODULE__{
-    :recipes => [SpoonacularAPI.Model.GetRandomRecipes200ResponseRecipesInner.t]
+    :recipes => [SpoonacularAPI.Model.RecipeInformation.t]
   }
 
   alias SpoonacularAPI.Deserializer
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:recipes, :list, SpoonacularAPI.Model.GetRandomRecipes200ResponseRecipesInner)
+     |> Deserializer.deserialize(:recipes, :list, SpoonacularAPI.Model.RecipeInformation)
   end
 end
 

@@ -8,7 +8,7 @@ use WWW::OpenAPIClient::Object::AnalyzeRecipeInstructions200ResponseParsedInstru
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **double** |  | 
+**id** | **int** |  | 
 **name** | **string** |  | 
 **localized_name** | **string** |  | 
 **image** | **string** |  | 

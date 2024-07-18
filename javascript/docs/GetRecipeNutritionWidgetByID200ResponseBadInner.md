@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
+**title** | **String** |  | 
 **amount** | **String** |  | 
 **indented** | **Boolean** |  | 
 **percentOfDailyNeeds** | **Number** |  | 

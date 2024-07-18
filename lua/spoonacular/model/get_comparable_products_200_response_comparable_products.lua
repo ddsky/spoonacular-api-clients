@@ -25,7 +25,7 @@ local function new_get_comparable_products_200_response_comparable_products(calo
 		["likes"] = likes;
 		["price"] = price;
 		["protein"] = protein;
-		["spoonacularScore"] = spoonacular_score;
+		["spoonacular_score"] = spoonacular_score;
 		["sugar"] = sugar;
 	})
 end

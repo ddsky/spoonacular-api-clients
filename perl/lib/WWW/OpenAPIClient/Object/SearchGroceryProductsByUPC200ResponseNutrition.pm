@@ -30,8 +30,8 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionCaloricBreakdown;
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionNutrientsInner;
+use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown;
+use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -222,14 +222,14 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'nutrients' => {
-        datatype => 'ARRAY[ParseIngredients200ResponseInnerNutritionNutrientsInner]',
+        datatype => 'ARRAY[SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner]',
         base_name => 'nutrients',
         description => '',
         format => '',
         read_only => '',
             },
     'caloric_breakdown' => {
-        datatype => 'ParseIngredients200ResponseInnerNutritionCaloricBreakdown',
+        datatype => 'SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown',
         base_name => 'caloricBreakdown',
         description => '',
         format => '',
@@ -238,8 +238,8 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'nutrients' => 'ARRAY[ParseIngredients200ResponseInnerNutritionNutrientsInner]',
-    'caloric_breakdown' => 'ParseIngredients200ResponseInnerNutritionCaloricBreakdown'
+    'nutrients' => 'ARRAY[SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner]',
+    'caloric_breakdown' => 'SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown'
 } );
 
 __PACKAGE__->attribute_map( {

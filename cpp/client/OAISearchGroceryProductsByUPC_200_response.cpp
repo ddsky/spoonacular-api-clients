@@ -336,10 +336,10 @@ bool OAISearchGroceryProductsByUPC_200_response::is_ingredient_list_Valid() cons
     return m_ingredient_list_isValid;
 }
 
-QSet<OAISearchGroceryProductsByUPC_200_response_ingredients_inner> OAISearchGroceryProductsByUPC_200_response::getIngredients() const {
+QList<OAIIngredientBasics> OAISearchGroceryProductsByUPC_200_response::getIngredients() const {
     return m_ingredients;
 }
-void OAISearchGroceryProductsByUPC_200_response::setIngredients(const QSet<OAISearchGroceryProductsByUPC_200_response_ingredients_inner> &ingredients) {
+void OAISearchGroceryProductsByUPC_200_response::setIngredients(const QList<OAIIngredientBasics> &ingredients) {
     m_ingredients = ingredients;
     m_ingredients_isSet = true;
 }

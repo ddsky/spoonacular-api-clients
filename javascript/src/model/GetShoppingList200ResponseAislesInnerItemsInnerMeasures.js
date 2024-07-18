@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ParseIngredients200ResponseInnerNutritionWeightPerServing from './ParseIngredients200ResponseInnerNutritionWeightPerServing';
+import GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal from './GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal';
 
 /**
  * The GetShoppingList200ResponseAislesInnerItemsInnerMeasures model module.
@@ -23,9 +23,9 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
     /**
      * Constructs a new <code>GetShoppingList200ResponseAislesInnerItemsInnerMeasures</code>.
      * @alias module:model/GetShoppingList200ResponseAislesInnerItemsInnerMeasures
-     * @param original {module:model/ParseIngredients200ResponseInnerNutritionWeightPerServing} 
-     * @param metric {module:model/ParseIngredients200ResponseInnerNutritionWeightPerServing} 
-     * @param us {module:model/ParseIngredients200ResponseInnerNutritionWeightPerServing} 
+     * @param original {module:model/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal} 
+     * @param metric {module:model/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal} 
+     * @param us {module:model/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal} 
      */
     constructor(original, metric, us) { 
         
@@ -55,13 +55,13 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
             obj = obj || new GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
 
             if (data.hasOwnProperty('original')) {
-                obj['original'] = ParseIngredients200ResponseInnerNutritionWeightPerServing.constructFromObject(data['original']);
+                obj['original'] = GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.constructFromObject(data['original']);
             }
             if (data.hasOwnProperty('metric')) {
-                obj['metric'] = ParseIngredients200ResponseInnerNutritionWeightPerServing.constructFromObject(data['metric']);
+                obj['metric'] = GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.constructFromObject(data['metric']);
             }
             if (data.hasOwnProperty('us')) {
-                obj['us'] = ParseIngredients200ResponseInnerNutritionWeightPerServing.constructFromObject(data['us']);
+                obj['us'] = GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.constructFromObject(data['us']);
             }
         }
         return obj;
@@ -81,15 +81,15 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
         }
         // validate the optional field `original`
         if (data['original']) { // data not null
-          ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJSON(data['original']);
+          GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.validateJSON(data['original']);
         }
         // validate the optional field `metric`
         if (data['metric']) { // data not null
-          ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJSON(data['metric']);
+          GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.validateJSON(data['metric']);
         }
         // validate the optional field `us`
         if (data['us']) { // data not null
-          ParseIngredients200ResponseInnerNutritionWeightPerServing.validateJSON(data['us']);
+          GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.validateJSON(data['us']);
         }
 
         return true;
@@ -101,17 +101,17 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
 GetShoppingList200ResponseAislesInnerItemsInnerMeasures.RequiredProperties = ["original", "metric", "us"];
 
 /**
- * @member {module:model/ParseIngredients200ResponseInnerNutritionWeightPerServing} original
+ * @member {module:model/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal} original
  */
 GetShoppingList200ResponseAislesInnerItemsInnerMeasures.prototype['original'] = undefined;
 
 /**
- * @member {module:model/ParseIngredients200ResponseInnerNutritionWeightPerServing} metric
+ * @member {module:model/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal} metric
  */
 GetShoppingList200ResponseAislesInnerItemsInnerMeasures.prototype['metric'] = undefined;
 
 /**
- * @member {module:model/ParseIngredients200ResponseInnerNutritionWeightPerServing} us
+ * @member {module:model/GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal} us
  */
 GetShoppingList200ResponseAislesInnerItemsInnerMeasures.prototype['us'] = undefined;
 

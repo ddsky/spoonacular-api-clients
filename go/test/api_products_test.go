@@ -62,7 +62,7 @@ func Test_spoonacular_ProductsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var upc float32
+		var upc string
 
 		resp, httpRes, err := apiClient.ProductsAPI.GetComparableProducts(context.Background(), upc).Execute()
 
@@ -90,7 +90,7 @@ func Test_spoonacular_ProductsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.ProductsAPI.ProductNutritionByIDImage(context.Background(), id).Execute()
 
@@ -104,7 +104,7 @@ func Test_spoonacular_ProductsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.ProductsAPI.ProductNutritionLabelImage(context.Background(), id).Execute()
 
@@ -118,7 +118,7 @@ func Test_spoonacular_ProductsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.ProductsAPI.ProductNutritionLabelWidget(context.Background(), id).Execute()
 
@@ -144,7 +144,7 @@ func Test_spoonacular_ProductsAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var upc float32
+		var upc string
 
 		resp, httpRes, err := apiClient.ProductsAPI.SearchGroceryProductsByUPC(context.Background(), upc).Execute()
 

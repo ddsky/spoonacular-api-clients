@@ -75,10 +75,10 @@ QJsonObject OAISearchGroceryProductsByUPC_200_response_nutrition::asJsonObject()
     return obj;
 }
 
-QSet<OAIParseIngredients_200_response_inner_nutrition_nutrients_inner> OAISearchGroceryProductsByUPC_200_response_nutrition::getNutrients() const {
+QSet<OAISearchGroceryProductsByUPC_200_response_nutrition_nutrients_inner> OAISearchGroceryProductsByUPC_200_response_nutrition::getNutrients() const {
     return m_nutrients;
 }
-void OAISearchGroceryProductsByUPC_200_response_nutrition::setNutrients(const QSet<OAIParseIngredients_200_response_inner_nutrition_nutrients_inner> &nutrients) {
+void OAISearchGroceryProductsByUPC_200_response_nutrition::setNutrients(const QSet<OAISearchGroceryProductsByUPC_200_response_nutrition_nutrients_inner> &nutrients) {
     m_nutrients = nutrients;
     m_nutrients_isSet = true;
 }
@@ -91,10 +91,10 @@ bool OAISearchGroceryProductsByUPC_200_response_nutrition::is_nutrients_Valid() 
     return m_nutrients_isValid;
 }
 
-OAIParseIngredients_200_response_inner_nutrition_caloricBreakdown OAISearchGroceryProductsByUPC_200_response_nutrition::getCaloricBreakdown() const {
+OAISearchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown OAISearchGroceryProductsByUPC_200_response_nutrition::getCaloricBreakdown() const {
     return m_caloric_breakdown;
 }
-void OAISearchGroceryProductsByUPC_200_response_nutrition::setCaloricBreakdown(const OAIParseIngredients_200_response_inner_nutrition_caloricBreakdown &caloric_breakdown) {
+void OAISearchGroceryProductsByUPC_200_response_nutrition::setCaloricBreakdown(const OAISearchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown &caloric_breakdown) {
     m_caloric_breakdown = caloric_breakdown;
     m_caloric_breakdown_isSet = true;
 }

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Title** | **string** |  | 
 **Amount** | **string** |  | 
 **Indented** | **bool** |  | 
 **PercentOfDailyNeeds** | **decimal** |  | 

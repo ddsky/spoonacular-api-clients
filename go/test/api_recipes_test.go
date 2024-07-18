@@ -110,7 +110,7 @@ func Test_spoonacular_RecipesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.RecipesAPI.EquipmentByIDImage(context.Background(), id).Execute()
 
@@ -296,7 +296,7 @@ func Test_spoonacular_RecipesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.RecipesAPI.PriceBreakdownByIDImage(context.Background(), id).Execute()
 
@@ -322,7 +322,7 @@ func Test_spoonacular_RecipesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.RecipesAPI.RecipeNutritionByIDImage(context.Background(), id).Execute()
 
@@ -336,7 +336,7 @@ func Test_spoonacular_RecipesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.RecipesAPI.RecipeNutritionLabelImage(context.Background(), id).Execute()
 
@@ -350,7 +350,7 @@ func Test_spoonacular_RecipesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.RecipesAPI.RecipeNutritionLabelWidget(context.Background(), id).Execute()
 
@@ -364,7 +364,7 @@ func Test_spoonacular_RecipesAPIService(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.RecipesAPI.RecipeTasteByIDImage(context.Background(), id).Execute()
 

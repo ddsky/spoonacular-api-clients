@@ -23,8 +23,8 @@ module OpenapiClient
     # Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
     # @param query [String] The (partial) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [Float] :number The number of results to return (between 1 and 25).
-    # @return [AutocompleteMenuItemSearch200Response]
+    # @option opts [Integer] :number The number of results to return (between 1 and 25).
+    # @return [AutocompleteProductSearch200Response]
     def autocomplete_menu_item_search(query, opts = {})
       data, _status_code, _headers = autocomplete_menu_item_search_with_http_info(query, opts)
       data
@@ -34,8 +34,8 @@ module OpenapiClient
     # Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
     # @param query [String] The (partial) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [Float] :number The number of results to return (between 1 and 25).
-    # @return [Array<(AutocompleteMenuItemSearch200Response, Integer, Hash)>] AutocompleteMenuItemSearch200Response data, response status code and response headers
+    # @option opts [Integer] :number The number of results to return (between 1 and 25).
+    # @return [Array<(AutocompleteProductSearch200Response, Integer, Hash)>] AutocompleteProductSearch200Response data, response status code and response headers
     def autocomplete_menu_item_search_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MenuItemsApi.autocomplete_menu_item_search ...'
@@ -72,7 +72,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'AutocompleteMenuItemSearch200Response'
+      return_type = opts[:debug_return_type] || 'AutocompleteProductSearch200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -96,9 +96,9 @@ module OpenapiClient
 
     # Get Menu Item Information
     # Use a menu item id to get all available information about a menu item, such as nutrition.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
-    # @return [GetMenuItemInformation200Response]
+    # @return [MenuItem]
     def get_menu_item_information(id, opts = {})
       data, _status_code, _headers = get_menu_item_information_with_http_info(id, opts)
       data
@@ -106,9 +106,9 @@ module OpenapiClient
 
     # Get Menu Item Information
     # Use a menu item id to get all available information about a menu item, such as nutrition.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(GetMenuItemInformation200Response, Integer, Hash)>] GetMenuItemInformation200Response data, response status code and response headers
+    # @return [Array<(MenuItem, Integer, Hash)>] MenuItem data, response status code and response headers
     def get_menu_item_information_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MenuItemsApi.get_menu_item_information ...'
@@ -135,7 +135,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetMenuItemInformation200Response'
+      return_type = opts[:debug_return_type] || 'MenuItem'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -159,7 +159,7 @@ module OpenapiClient
 
     # Menu Item Nutrition by ID Image
     # Visualize a menu item's nutritional information as HTML including CSS.
-    # @param id [Float] The menu item id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @return [File]
     def menu_item_nutrition_by_id_image(id, opts = {})
@@ -169,7 +169,7 @@ module OpenapiClient
 
     # Menu Item Nutrition by ID Image
     # Visualize a menu item&#39;s nutritional information as HTML including CSS.
-    # @param id [Float] The menu item id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def menu_item_nutrition_by_id_image_with_http_info(id, opts = {})
@@ -222,7 +222,7 @@ module OpenapiClient
 
     # Menu Item Nutrition Label Image
     # Visualize a menu item's nutritional label information as an image.
-    # @param id [Float] The menu item id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
@@ -235,7 +235,7 @@ module OpenapiClient
 
     # Menu Item Nutrition Label Image
     # Visualize a menu item&#39;s nutritional label information as an image.
-    # @param id [Float] The menu item id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
@@ -294,7 +294,7 @@ module OpenapiClient
 
     # Menu Item Nutrition Label Widget
     # Visualize a menu item's nutritional label information as HTML including CSS.
-    # @param id [Float] The menu item id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
@@ -308,7 +308,7 @@ module OpenapiClient
 
     # Menu Item Nutrition Label Widget
     # Visualize a menu item&#39;s nutritional label information as HTML including CSS.
-    # @param id [Float] The menu item id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
@@ -369,8 +369,8 @@ module OpenapiClient
 
     # Search Menu Items
     # Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Float] :min_calories The minimum amount of calories the menu item must have.
     # @option opts [Float] :max_calories The maximum amount of calories the menu item can have.
     # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the menu item must have.
@@ -383,15 +383,15 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [SearchMenuItems200Response]
-    def search_menu_items(opts = {})
-      data, _status_code, _headers = search_menu_items_with_http_info(opts)
+    def search_menu_items(query, opts = {})
+      data, _status_code, _headers = search_menu_items_with_http_info(query, opts)
       data
     end
 
     # Search Menu Items
     # Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald&#39;s Big Mac or Starbucks Mocha.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Float] :min_calories The minimum amount of calories the menu item must have.
     # @option opts [Float] :max_calories The maximum amount of calories the menu item can have.
     # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the menu item must have.
@@ -404,9 +404,13 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<(SearchMenuItems200Response, Integer, Hash)>] SearchMenuItems200Response data, response status code and response headers
-    def search_menu_items_with_http_info(opts = {})
+    def search_menu_items_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MenuItemsApi.search_menu_items ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling MenuItemsApi.search_menu_items"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 900
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling MenuItemsApi.search_menu_items, must be smaller than or equal to 900.'
@@ -429,7 +433,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'query'] = query
       query_params[:'minCalories'] = opts[:'min_calories'] if !opts[:'min_calories'].nil?
       query_params[:'maxCalories'] = opts[:'max_calories'] if !opts[:'max_calories'].nil?
       query_params[:'minCarbs'] = opts[:'min_carbs'] if !opts[:'min_carbs'].nil?
@@ -478,7 +482,7 @@ module OpenapiClient
 
     # Menu Item Nutrition by ID Widget
     # Visualize a menu item's nutritional information as HTML including CSS.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [String]
@@ -489,7 +493,7 @@ module OpenapiClient
 
     # Menu Item Nutrition by ID Widget
     # Visualize a menu item&#39;s nutritional information as HTML including CSS.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The menu item id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers

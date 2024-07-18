@@ -17,9 +17,9 @@ class SearchGroceryProductsByUPC200ResponseNutrition {
     required this.caloricBreakdown,
   });
 
-  Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients;
+  Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients;
 
-  ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown;
+  SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchGroceryProductsByUPC200ResponseNutrition &&
@@ -61,8 +61,8 @@ class SearchGroceryProductsByUPC200ResponseNutrition {
       }());
 
       return SearchGroceryProductsByUPC200ResponseNutrition(
-        nutrients: ParseIngredients200ResponseInnerNutritionNutrientsInner.listFromJson(json[r'nutrients']).toSet(),
-        caloricBreakdown: ParseIngredients200ResponseInnerNutritionCaloricBreakdown.fromJson(json[r'caloricBreakdown'])!,
+        nutrients: SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.listFromJson(json[r'nutrients']).toSet(),
+        caloricBreakdown: SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.fromJson(json[r'caloricBreakdown'])!,
       );
     }
     return null;

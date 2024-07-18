@@ -14,7 +14,6 @@ import { AddToShoppingListRequest } from '../models/AddToShoppingListRequest';
 import { ConnectUser200Response } from '../models/ConnectUser200Response';
 import { ConnectUserRequest } from '../models/ConnectUserRequest';
 import { GenerateMealPlan200Response } from '../models/GenerateMealPlan200Response';
-import { GenerateShoppingList200Response } from '../models/GenerateShoppingList200Response';
 import { GetMealPlanTemplate200Response } from '../models/GetMealPlanTemplate200Response';
 import { GetMealPlanTemplates200Response } from '../models/GetMealPlanTemplates200Response';
 import { GetMealPlanWeek200Response } from '../models/GetMealPlanWeek200Response';
@@ -379,7 +378,7 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * Delete an item from the current shopping list of the user.
      * Delete from Shopping List
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public async deleteFromShoppingList(username: string, id: number, hash: string, _options?: Configuration): Promise<RequestContext> {
@@ -437,7 +436,7 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * Delete a meal plan template for a user.
      * Delete Meal Plan Template
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public async deleteMealPlanTemplate(username: string, id: number, hash: string, _options?: Configuration): Promise<RequestContext> {
@@ -619,7 +618,7 @@ export class MealPlanningApiRequestFactory extends BaseAPIRequestFactory {
      * Get information about a meal plan template.
      * Get Meal Plan Template
      * @param username The username.
-     * @param id The item\&#39;s id.
+     * @param id The shopping list item id.
      * @param hash The private hash for the username.
      */
     public async getMealPlanTemplate(username: string, id: number, hash: string, _options?: Configuration): Promise<RequestContext> {
@@ -918,13 +917,13 @@ export class MealPlanningApiResponseProcessor {
      * @params response Response returned by the server for a request to addToShoppingList
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async addToShoppingListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GenerateShoppingList200Response >> {
+     public async addToShoppingListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetShoppingList200Response >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GenerateShoppingList200Response = ObjectSerializer.deserialize(
+            const body: GetShoppingList200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GenerateShoppingList200Response", ""
-            ) as GenerateShoppingList200Response;
+                "GetShoppingList200Response", ""
+            ) as GetShoppingList200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -939,10 +938,10 @@ export class MealPlanningApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GenerateShoppingList200Response = ObjectSerializer.deserialize(
+            const body: GetShoppingList200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GenerateShoppingList200Response", ""
-            ) as GenerateShoppingList200Response;
+                "GetShoppingList200Response", ""
+            ) as GetShoppingList200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -1184,13 +1183,13 @@ export class MealPlanningApiResponseProcessor {
      * @params response Response returned by the server for a request to generateShoppingList
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async generateShoppingListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GenerateShoppingList200Response >> {
+     public async generateShoppingListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetShoppingList200Response >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GenerateShoppingList200Response = ObjectSerializer.deserialize(
+            const body: GetShoppingList200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GenerateShoppingList200Response", ""
-            ) as GenerateShoppingList200Response;
+                "GetShoppingList200Response", ""
+            ) as GetShoppingList200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -1205,10 +1204,10 @@ export class MealPlanningApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GenerateShoppingList200Response = ObjectSerializer.deserialize(
+            const body: GetShoppingList200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GenerateShoppingList200Response", ""
-            ) as GenerateShoppingList200Response;
+                "GetShoppingList200Response", ""
+            ) as GetShoppingList200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

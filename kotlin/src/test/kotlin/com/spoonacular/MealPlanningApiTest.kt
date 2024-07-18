@@ -25,7 +25,6 @@ import com.spoonacular.client.model.AddToShoppingListRequest
 import com.spoonacular.client.model.ConnectUser200Response
 import com.spoonacular.client.model.ConnectUserRequest
 import com.spoonacular.client.model.GenerateMealPlan200Response
-import com.spoonacular.client.model.GenerateShoppingList200Response
 import com.spoonacular.client.model.GetMealPlanTemplate200Response
 import com.spoonacular.client.model.GetMealPlanTemplates200Response
 import com.spoonacular.client.model.GetMealPlanWeek200Response
@@ -61,7 +60,7 @@ class MealPlanningApiTest : ShouldSpec() {
             //val username : kotlin.String = dsky // kotlin.String | The username.
             //val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
             //val addToShoppingListRequest : AddToShoppingListRequest = {"item":"1 package baking powder","aisle":"Baking","parse":true} // AddToShoppingListRequest | 
-            //val result : GenerateShoppingList200Response = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest)
+            //val result : GetShoppingList200Response = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest)
             //result shouldBe ("TODO")
         }
 
@@ -87,7 +86,7 @@ class MealPlanningApiTest : ShouldSpec() {
         should("test deleteFromMealPlan") {
             // uncomment below to test deleteFromMealPlan
             //val username : kotlin.String = dsky // kotlin.String | The username.
-            //val id : java.math.BigDecimal = 15678 // java.math.BigDecimal | The shopping list item id.
+            //val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
             //val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
             //val result : kotlin.Any = apiInstance.deleteFromMealPlan(username, id, hash)
             //result shouldBe ("TODO")
@@ -97,7 +96,7 @@ class MealPlanningApiTest : ShouldSpec() {
         should("test deleteFromShoppingList") {
             // uncomment below to test deleteFromShoppingList
             //val username : kotlin.String = dsky // kotlin.String | The username.
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
             //val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
             //val result : kotlin.Any = apiInstance.deleteFromShoppingList(username, id, hash)
             //result shouldBe ("TODO")
@@ -107,7 +106,7 @@ class MealPlanningApiTest : ShouldSpec() {
         should("test deleteMealPlanTemplate") {
             // uncomment below to test deleteMealPlanTemplate
             //val username : kotlin.String = dsky // kotlin.String | The username.
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
             //val hash : kotlin.String = 4b5v4398573406 // kotlin.String | The private hash for the username.
             //val result : kotlin.Any = apiInstance.deleteMealPlanTemplate(username, id, hash)
             //result shouldBe ("TODO")
@@ -131,7 +130,7 @@ class MealPlanningApiTest : ShouldSpec() {
             //val startDate : kotlin.String = 2020-06-01 // kotlin.String | The start date in the format yyyy-mm-dd.
             //val endDate : kotlin.String = 2020-06-07 // kotlin.String | The end date in the format yyyy-mm-dd.
             //val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
-            //val result : GenerateShoppingList200Response = apiInstance.generateShoppingList(username, startDate, endDate, hash)
+            //val result : GetShoppingList200Response = apiInstance.generateShoppingList(username, startDate, endDate, hash)
             //result shouldBe ("TODO")
         }
 
@@ -139,7 +138,7 @@ class MealPlanningApiTest : ShouldSpec() {
         should("test getMealPlanTemplate") {
             // uncomment below to test getMealPlanTemplate
             //val username : kotlin.String = dsky // kotlin.String | The username.
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 15678 // kotlin.Int | The shopping list item id.
             //val hash : kotlin.String = hash_example // kotlin.String | The private hash for the username.
             //val result : GetMealPlanTemplate200Response = apiInstance.getMealPlanTemplate(username, id, hash)
             //result shouldBe ("TODO")

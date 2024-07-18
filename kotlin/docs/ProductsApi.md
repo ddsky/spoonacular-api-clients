@@ -185,7 +185,7 @@ Find comparable products to the given one.
 //import com.spoonacular.client.model.*
 
 val apiInstance = ProductsApi()
-val upc : java.math.BigDecimal = 33698816271 // java.math.BigDecimal | The UPC of the product for which you want to find comparable products.
+val upc : kotlin.String = 033698816271 // kotlin.String | The UPC of the product for which you want to find comparable products.
 try {
     val result : GetComparableProducts200Response = apiInstance.getComparableProducts(upc)
     println(result)
@@ -201,7 +201,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **upc** | **java.math.BigDecimal**| The UPC of the product for which you want to find comparable products. | |
+| **upc** | **kotlin.String**| The UPC of the product for which you want to find comparable products. | |
 
 ### Return type
 
@@ -221,7 +221,7 @@ Configure apiKeyScheme:
 
 <a id="getProductInformation"></a>
 # **getProductInformation**
-> GetProductInformation200Response getProductInformation(id)
+> ProductInformation getProductInformation(id)
 
 Get Product Information
 
@@ -234,9 +234,9 @@ Use a product id to get full information about a product, such as ingredients, n
 //import com.spoonacular.client.model.*
 
 val apiInstance = ProductsApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 22347 // kotlin.Int | The id of the packaged food.
 try {
-    val result : GetProductInformation200Response = apiInstance.getProductInformation(id)
+    val result : ProductInformation = apiInstance.getProductInformation(id)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling ProductsApi#getProductInformation")
@@ -250,11 +250,11 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The id of the packaged food. | |
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ Visualize a product&#39;s nutritional information as an image.
 //import com.spoonacular.client.model.*
 
 val apiInstance = ProductsApi()
-val id : java.math.BigDecimal = 7657 // java.math.BigDecimal | The id of the product.
+val id : kotlin.Int = 7657 // kotlin.Int | The id of the product.
 try {
     val result : java.io.File = apiInstance.productNutritionByIDImage(id)
     println(result)
@@ -299,7 +299,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **java.math.BigDecimal**| The id of the product. | |
+| **id** | **kotlin.Int**| The id of the product. | |
 
 ### Return type
 
@@ -332,7 +332,7 @@ Get a product&#39;s nutrition label as an image.
 //import com.spoonacular.client.model.*
 
 val apiInstance = ProductsApi()
-val id : java.math.BigDecimal = 22347 // java.math.BigDecimal | The product id.
+val id : kotlin.Int = 22347 // kotlin.Int | The product id.
 val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
 val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
@@ -349,7 +349,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The product id. | |
+| **id** | **kotlin.Int**| The product id. | |
 | **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
 | Name | Type | Description  | Notes |
@@ -387,7 +387,7 @@ Get a product&#39;s nutrition label as an HTML widget.
 //import com.spoonacular.client.model.*
 
 val apiInstance = ProductsApi()
-val id : java.math.BigDecimal = 22347 // java.math.BigDecimal | The product id.
+val id : kotlin.Int = 22347 // kotlin.Int | The product id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
@@ -405,7 +405,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The product id. | |
+| **id** | **kotlin.Int**| The product id. | |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
@@ -469,7 +469,7 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | **minCalories** | **java.math.BigDecimal**| The minimum amount of calories the product must have. | [optional] |
 | **maxCalories** | **java.math.BigDecimal**| The maximum amount of calories the product can have. | [optional] |
 | **minCarbs** | **java.math.BigDecimal**| The minimum amount of carbohydrates in grams the product must have. | [optional] |
@@ -515,7 +515,7 @@ Get information about a packaged food using its UPC.
 //import com.spoonacular.client.model.*
 
 val apiInstance = ProductsApi()
-val upc : java.math.BigDecimal = 41631000564 // java.math.BigDecimal | The product's UPC.
+val upc : kotlin.String = 041631000564 // kotlin.String | The product's UPC.
 try {
     val result : SearchGroceryProductsByUPC200Response = apiInstance.searchGroceryProductsByUPC(upc)
     println(result)
@@ -531,7 +531,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **upc** | **java.math.BigDecimal**| The product&#39;s UPC. | |
+| **upc** | **kotlin.String**| The product&#39;s UPC. | |
 
 ### Return type
 
@@ -564,7 +564,7 @@ Visualize a product&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.client.model.*
 
 val apiInstance = ProductsApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 7657 // kotlin.Int | The id of the product.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 try {
     val result : kotlin.String = apiInstance.visualizeProductNutritionByID(id, defaultCss)
@@ -579,7 +579,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The id of the product. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |

@@ -176,7 +176,7 @@ module OpenapiClient
     # @param hash [String] The private hash for the username.
     # @param add_to_shopping_list_request [AddToShoppingListRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [GenerateShoppingList200Response]
+    # @return [GetShoppingList200Response]
     def add_to_shopping_list(username, hash, add_to_shopping_list_request, opts = {})
       data, _status_code, _headers = add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request, opts)
       data
@@ -188,7 +188,7 @@ module OpenapiClient
     # @param hash [String] The private hash for the username.
     # @param add_to_shopping_list_request [AddToShoppingListRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(GenerateShoppingList200Response, Integer, Hash)>] GenerateShoppingList200Response data, response status code and response headers
+    # @return [Array<(GetShoppingList200Response, Integer, Hash)>] GetShoppingList200Response data, response status code and response headers
     def add_to_shopping_list_with_http_info(username, hash, add_to_shopping_list_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.add_to_shopping_list ...'
@@ -229,7 +229,7 @@ module OpenapiClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(add_to_shopping_list_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GenerateShoppingList200Response'
+      return_type = opts[:debug_return_type] || 'GetShoppingList200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -398,7 +398,7 @@ module OpenapiClient
     # Delete from Meal Plan
     # Delete an item from the user's meal plan.
     # @param username [String] The username.
-    # @param id [Float] The shopping list item id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -410,7 +410,7 @@ module OpenapiClient
     # Delete from Meal Plan
     # Delete an item from the user&#39;s meal plan.
     # @param username [String] The username.
-    # @param id [Float] The shopping list item id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -474,7 +474,7 @@ module OpenapiClient
     # Delete from Shopping List
     # Delete an item from the current shopping list of the user.
     # @param username [String] The username.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -486,7 +486,7 @@ module OpenapiClient
     # Delete from Shopping List
     # Delete an item from the current shopping list of the user.
     # @param username [String] The username.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -550,7 +550,7 @@ module OpenapiClient
     # Delete Meal Plan Template
     # Delete a meal plan template for a user.
     # @param username [String] The username.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -562,7 +562,7 @@ module OpenapiClient
     # Delete Meal Plan Template
     # Delete a meal plan template for a user.
     # @param username [String] The username.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -699,7 +699,7 @@ module OpenapiClient
     # @param end_date [String] The end date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
-    # @return [GenerateShoppingList200Response]
+    # @return [GetShoppingList200Response]
     def generate_shopping_list(username, start_date, end_date, hash, opts = {})
       data, _status_code, _headers = generate_shopping_list_with_http_info(username, start_date, end_date, hash, opts)
       data
@@ -712,7 +712,7 @@ module OpenapiClient
     # @param end_date [String] The end date in the format yyyy-mm-dd.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(GenerateShoppingList200Response, Integer, Hash)>] GenerateShoppingList200Response data, response status code and response headers
+    # @return [Array<(GetShoppingList200Response, Integer, Hash)>] GetShoppingList200Response data, response status code and response headers
     def generate_shopping_list_with_http_info(username, start_date, end_date, hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MealPlanningApi.generate_shopping_list ...'
@@ -752,7 +752,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GenerateShoppingList200Response'
+      return_type = opts[:debug_return_type] || 'GetShoppingList200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -777,7 +777,7 @@ module OpenapiClient
     # Get Meal Plan Template
     # Get information about a meal plan template.
     # @param username [String] The username.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [GetMealPlanTemplate200Response]
@@ -789,7 +789,7 @@ module OpenapiClient
     # Get Meal Plan Template
     # Get information about a meal plan template.
     # @param username [String] The username.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The shopping list item id.
     # @param hash [String] The private hash for the username.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetMealPlanTemplate200Response, Integer, Hash)>] GetMealPlanTemplate200Response data, response status code and response headers

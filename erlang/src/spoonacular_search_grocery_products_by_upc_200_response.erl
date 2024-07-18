@@ -14,7 +14,7 @@
        'imageType' := binary(),
        'ingredientCount' => integer(),
        'ingredientList' := binary(),
-       'ingredients' := spoonacular_set:spoonacular_set(),
+       'ingredients' := list(),
        'likes' := integer(),
        'nutrition' := spoonacular_search_grocery_products_by_upc_200_response_nutrition:spoonacular_search_grocery_products_by_upc_200_response_nutrition(),
        'price' := integer(),

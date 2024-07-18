@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **f64** |  | 
+**id** | **i32** |  | 
 **name** | **String** |  | 
 **localized_name** | **String** |  | 
 **image** | **String** |  | 

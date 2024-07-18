@@ -26,7 +26,7 @@ from spoonacular.models.classify_grocery_product_bulk200_response_inner import C
 from spoonacular.models.classify_grocery_product_bulk_request_inner import ClassifyGroceryProductBulkRequestInner
 from spoonacular.models.classify_grocery_product_request import ClassifyGroceryProductRequest
 from spoonacular.models.get_comparable_products200_response import GetComparableProducts200Response
-from spoonacular.models.get_product_information200_response import GetProductInformation200Response
+from spoonacular.models.product_information import ProductInformation
 from spoonacular.models.search_grocery_products200_response import SearchGroceryProducts200Response
 from spoonacular.models.search_grocery_products_by_upc200_response import SearchGroceryProductsByUPC200Response
 
@@ -935,7 +935,7 @@ class ProductsApi:
     @validate_call
     def get_comparable_products(
         self,
-        upc: Annotated[Union[StrictFloat, StrictInt], Field(description="The UPC of the product for which you want to find comparable products.")],
+        upc: Annotated[StrictStr, Field(description="The UPC of the product for which you want to find comparable products.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -954,7 +954,7 @@ class ProductsApi:
         Find comparable products to the given one.
 
         :param upc: The UPC of the product for which you want to find comparable products. (required)
-        :type upc: float
+        :type upc: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1005,7 +1005,7 @@ class ProductsApi:
     @validate_call
     def get_comparable_products_with_http_info(
         self,
-        upc: Annotated[Union[StrictFloat, StrictInt], Field(description="The UPC of the product for which you want to find comparable products.")],
+        upc: Annotated[StrictStr, Field(description="The UPC of the product for which you want to find comparable products.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1024,7 +1024,7 @@ class ProductsApi:
         Find comparable products to the given one.
 
         :param upc: The UPC of the product for which you want to find comparable products. (required)
-        :type upc: float
+        :type upc: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1075,7 +1075,7 @@ class ProductsApi:
     @validate_call
     def get_comparable_products_without_preload_content(
         self,
-        upc: Annotated[Union[StrictFloat, StrictInt], Field(description="The UPC of the product for which you want to find comparable products.")],
+        upc: Annotated[StrictStr, Field(description="The UPC of the product for which you want to find comparable products.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1094,7 +1094,7 @@ class ProductsApi:
         Find comparable products to the given one.
 
         :param upc: The UPC of the product for which you want to find comparable products. (required)
-        :type upc: float
+        :type upc: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1203,7 +1203,7 @@ class ProductsApi:
     @validate_call
     def get_product_information(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the packaged food.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1216,12 +1216,12 @@ class ProductsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetProductInformation200Response:
+    ) -> ProductInformation:
         """Get Product Information
 
         Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
-        :param id: The item's id. (required)
+        :param id: The id of the packaged food. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1254,7 +1254,7 @@ class ProductsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProductInformation200Response",
+            '200': "ProductInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -1273,7 +1273,7 @@ class ProductsApi:
     @validate_call
     def get_product_information_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the packaged food.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1286,12 +1286,12 @@ class ProductsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetProductInformation200Response]:
+    ) -> ApiResponse[ProductInformation]:
         """Get Product Information
 
         Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
-        :param id: The item's id. (required)
+        :param id: The id of the packaged food. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1324,7 +1324,7 @@ class ProductsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProductInformation200Response",
+            '200': "ProductInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -1343,7 +1343,7 @@ class ProductsApi:
     @validate_call
     def get_product_information_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the packaged food.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1361,7 +1361,7 @@ class ProductsApi:
 
         Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
 
-        :param id: The item's id. (required)
+        :param id: The id of the packaged food. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1394,7 +1394,7 @@ class ProductsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProductInformation200Response",
+            '200': "ProductInformation",
             '401': None,
             '403': None,
             '404': None,
@@ -1471,7 +1471,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_by_id_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The id of the product.")],
+        id: Annotated[StrictInt, Field(description="The id of the product.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1490,7 +1490,7 @@ class ProductsApi:
         Visualize a product's nutritional information as an image.
 
         :param id: The id of the product. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1541,7 +1541,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_by_id_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The id of the product.")],
+        id: Annotated[StrictInt, Field(description="The id of the product.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1560,7 +1560,7 @@ class ProductsApi:
         Visualize a product's nutritional information as an image.
 
         :param id: The id of the product. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1611,7 +1611,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_by_id_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The id of the product.")],
+        id: Annotated[StrictInt, Field(description="The id of the product.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1630,7 +1630,7 @@ class ProductsApi:
         Visualize a product's nutritional information as an image.
 
         :param id: The id of the product. (required)
-        :type id: float
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1739,7 +1739,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_label_image(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The product id.")],
+        id: Annotated[StrictInt, Field(description="The product id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -1761,7 +1761,7 @@ class ProductsApi:
         Get a product's nutrition label as an image.
 
         :param id: The product id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -1821,7 +1821,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_label_image_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The product id.")],
+        id: Annotated[StrictInt, Field(description="The product id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -1843,7 +1843,7 @@ class ProductsApi:
         Get a product's nutrition label as an image.
 
         :param id: The product id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -1903,7 +1903,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_label_image_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The product id.")],
+        id: Annotated[StrictInt, Field(description="The product id.")],
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
         show_ingredients: Annotated[Optional[StrictBool], Field(description="Whether to show a list of ingredients.")] = None,
@@ -1925,7 +1925,7 @@ class ProductsApi:
         Get a product's nutrition label as an image.
 
         :param id: The product id. (required)
-        :type id: float
+        :type id: int
         :param show_optional_nutrients: Whether to show optional nutrients.
         :type show_optional_nutrients: bool
         :param show_zero_values: Whether to show zero values.
@@ -2058,7 +2058,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_label_widget(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The product id.")],
+        id: Annotated[StrictInt, Field(description="The product id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -2081,7 +2081,7 @@ class ProductsApi:
         Get a product's nutrition label as an HTML widget.
 
         :param id: The product id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -2144,7 +2144,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_label_widget_with_http_info(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The product id.")],
+        id: Annotated[StrictInt, Field(description="The product id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -2167,7 +2167,7 @@ class ProductsApi:
         Get a product's nutrition label as an HTML widget.
 
         :param id: The product id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -2230,7 +2230,7 @@ class ProductsApi:
     @validate_call
     def product_nutrition_label_widget_without_preload_content(
         self,
-        id: Annotated[Union[StrictFloat, StrictInt], Field(description="The product id.")],
+        id: Annotated[StrictInt, Field(description="The product id.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         show_optional_nutrients: Annotated[Optional[StrictBool], Field(description="Whether to show optional nutrients.")] = None,
         show_zero_values: Annotated[Optional[StrictBool], Field(description="Whether to show zero values.")] = None,
@@ -2253,7 +2253,7 @@ class ProductsApi:
         Get a product's nutrition label as an HTML widget.
 
         :param id: The product id. (required)
-        :type id: float
+        :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
         :param show_optional_nutrients: Whether to show optional nutrients.
@@ -2394,7 +2394,7 @@ class ProductsApi:
     @validate_call
     def search_grocery_products(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         min_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of calories the product must have.")] = None,
         max_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of calories the product can have.")] = None,
         min_carbs: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of carbohydrates in grams the product must have.")] = None,
@@ -2423,7 +2423,7 @@ class ProductsApi:
 
         Search packaged food products, such as frozen pizza or Greek yogurt.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param min_calories: The minimum amount of calories the product must have.
         :type min_calories: float
@@ -2508,7 +2508,7 @@ class ProductsApi:
     @validate_call
     def search_grocery_products_with_http_info(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         min_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of calories the product must have.")] = None,
         max_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of calories the product can have.")] = None,
         min_carbs: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of carbohydrates in grams the product must have.")] = None,
@@ -2537,7 +2537,7 @@ class ProductsApi:
 
         Search packaged food products, such as frozen pizza or Greek yogurt.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param min_calories: The minimum amount of calories the product must have.
         :type min_calories: float
@@ -2622,7 +2622,7 @@ class ProductsApi:
     @validate_call
     def search_grocery_products_without_preload_content(
         self,
-        query: Annotated[Optional[StrictStr], Field(description="The (natural language) search query.")] = None,
+        query: Annotated[StrictStr, Field(description="The (natural language) search query.")],
         min_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of calories the product must have.")] = None,
         max_calories: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The maximum amount of calories the product can have.")] = None,
         min_carbs: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The minimum amount of carbohydrates in grams the product must have.")] = None,
@@ -2651,7 +2651,7 @@ class ProductsApi:
 
         Search packaged food products, such as frozen pizza or Greek yogurt.
 
-        :param query: The (natural language) search query.
+        :param query: The (natural language) search query. (required)
         :type query: str
         :param min_calories: The minimum amount of calories the product must have.
         :type min_calories: float
@@ -2851,7 +2851,7 @@ class ProductsApi:
     @validate_call
     def search_grocery_products_by_upc(
         self,
-        upc: Annotated[Union[StrictFloat, StrictInt], Field(description="The product's UPC.")],
+        upc: Annotated[StrictStr, Field(description="The product's UPC.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2870,7 +2870,7 @@ class ProductsApi:
         Get information about a packaged food using its UPC.
 
         :param upc: The product's UPC. (required)
-        :type upc: float
+        :type upc: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2921,7 +2921,7 @@ class ProductsApi:
     @validate_call
     def search_grocery_products_by_upc_with_http_info(
         self,
-        upc: Annotated[Union[StrictFloat, StrictInt], Field(description="The product's UPC.")],
+        upc: Annotated[StrictStr, Field(description="The product's UPC.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2940,7 +2940,7 @@ class ProductsApi:
         Get information about a packaged food using its UPC.
 
         :param upc: The product's UPC. (required)
-        :type upc: float
+        :type upc: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2991,7 +2991,7 @@ class ProductsApi:
     @validate_call
     def search_grocery_products_by_upc_without_preload_content(
         self,
-        upc: Annotated[Union[StrictFloat, StrictInt], Field(description="The product's UPC.")],
+        upc: Annotated[StrictStr, Field(description="The product's UPC.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3010,7 +3010,7 @@ class ProductsApi:
         Get information about a packaged food using its UPC.
 
         :param upc: The product's UPC. (required)
-        :type upc: float
+        :type upc: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3119,7 +3119,7 @@ class ProductsApi:
     @validate_call
     def visualize_product_nutrition_by_id(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the product.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -3138,7 +3138,7 @@ class ProductsApi:
 
         Visualize a product's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The id of the product. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -3193,7 +3193,7 @@ class ProductsApi:
     @validate_call
     def visualize_product_nutrition_by_id_with_http_info(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the product.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -3212,7 +3212,7 @@ class ProductsApi:
 
         Visualize a product's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The id of the product. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool
@@ -3267,7 +3267,7 @@ class ProductsApi:
     @validate_call
     def visualize_product_nutrition_by_id_without_preload_content(
         self,
-        id: Annotated[StrictInt, Field(description="The item's id.")],
+        id: Annotated[StrictInt, Field(description="The id of the product.")],
         default_css: Annotated[Optional[StrictBool], Field(description="Whether the default CSS should be added to the response.")] = None,
         _request_timeout: Union[
             None,
@@ -3286,7 +3286,7 @@ class ProductsApi:
 
         Visualize a product's nutritional information as HTML including CSS.
 
-        :param id: The item's id. (required)
+        :param id: The id of the product. (required)
         :type id: int
         :param default_css: Whether the default CSS should be added to the response.
         :type default_css: bool

@@ -146,7 +146,7 @@ instance Produces GetConversationSuggests MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRandomFoodTrivia
-  :: SpoonacularRequest GetRandomFoodTrivia MimeNoContent GetRandomFoodTrivia200Response MimeJSON
+  :: SpoonacularRequest GetRandomFoodTrivia MimeNoContent GetARandomFoodJoke200Response MimeJSON
 getRandomFoodTrivia =
   _mkRequest "GET" ["/food/trivia/random"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -246,21 +246,18 @@ instance Produces SearchAllFood MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 searchCustomFoods
-  :: Username -- ^ "username" -  The username.
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> Username -- ^ "username" -  The username.
   -> Hash -- ^ "hash" -  The private hash for the username.
   -> SpoonacularRequest SearchCustomFoods MimeNoContent SearchCustomFoods200Response MimeJSON
-searchCustomFoods (Username username) (Hash hash) =
+searchCustomFoods (Query query) (Username username) (Hash hash) =
   _mkRequest "GET" ["/food/customFoods/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
     `addQuery` toQuery ("username", Just username)
     `addQuery` toQuery ("hash", Just hash)
 
 data SearchCustomFoods  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam SearchCustomFoods Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "offset" - The number of results to skip (between 0 and 900).
 instance HasOptionalParam SearchCustomFoods Offset where
@@ -286,17 +283,14 @@ instance Produces SearchCustomFoods MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 searchFoodVideos
-  :: SpoonacularRequest SearchFoodVideos MimeNoContent SearchFoodVideos200Response MimeJSON
-searchFoodVideos =
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> SpoonacularRequest SearchFoodVideos MimeNoContent SearchFoodVideos200Response MimeJSON
+searchFoodVideos (Query query) =
   _mkRequest "GET" ["/food/videos/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
 
 data SearchFoodVideos  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam SearchFoodVideos Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "type" - The type of the recipes. See a full list of supported meal types.
 instance HasOptionalParam SearchFoodVideos ParamType where

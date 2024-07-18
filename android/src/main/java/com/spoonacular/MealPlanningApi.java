@@ -30,7 +30,6 @@ import java.math.BigDecimal;
 import com.spoonacular.client.model.ConnectUser200Response;
 import com.spoonacular.client.model.ConnectUserRequest;
 import com.spoonacular.client.model.GenerateMealPlan200Response;
-import com.spoonacular.client.model.GenerateShoppingList200Response;
 import com.spoonacular.client.model.GetMealPlanTemplate200Response;
 import com.spoonacular.client.model.GetMealPlanTemplates200Response;
 import com.spoonacular.client.model.GetMealPlanWeek200Response;
@@ -364,9 +363,9 @@ public class MealPlanningApi {
    * @param username The username.
    * @param hash The private hash for the username.
    * @param addToShoppingListRequest 
-   * @return GenerateShoppingList200Response
+   * @return GetShoppingList200Response
   */
-  public GenerateShoppingList200Response addToShoppingList (String username, String hash, AddToShoppingListRequest addToShoppingListRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GetShoppingList200Response addToShoppingList (String username, String hash, AddToShoppingListRequest addToShoppingListRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = addToShoppingListRequest;
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -413,7 +412,7 @@ public class MealPlanningApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GenerateShoppingList200Response) ApiInvoker.deserialize(localVarResponse, "", GenerateShoppingList200Response.class);
+         return (GetShoppingList200Response) ApiInvoker.deserialize(localVarResponse, "", GetShoppingList200Response.class);
       } else {
          return null;
       }
@@ -439,7 +438,7 @@ public class MealPlanningApi {
    * Add an item to the current shopping list of a user.
    * @param username The username.   * @param hash The private hash for the username.   * @param addToShoppingListRequest 
   */
-  public void addToShoppingList (String username, String hash, AddToShoppingListRequest addToShoppingListRequest, final Response.Listener<GenerateShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void addToShoppingList (String username, String hash, AddToShoppingListRequest addToShoppingListRequest, final Response.Listener<GetShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = addToShoppingListRequest;
 
     // verify the required parameter 'username' is set
@@ -495,7 +494,7 @@ public class MealPlanningApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GenerateShoppingList200Response) ApiInvoker.deserialize(localVarResponse,  "", GenerateShoppingList200Response.class));
+              responseListener.onResponse((GetShoppingList200Response) ApiInvoker.deserialize(localVarResponse,  "", GetShoppingList200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -797,7 +796,7 @@ public class MealPlanningApi {
    * @param hash The private hash for the username.
    * @return Object
   */
-  public Object deleteFromMealPlan (String username, BigDecimal id, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Object deleteFromMealPlan (String username, Integer id, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -869,7 +868,7 @@ public class MealPlanningApi {
    * Delete an item from the user&#39;s meal plan.
    * @param username The username.   * @param id The shopping list item id.   * @param hash The private hash for the username.
   */
-  public void deleteFromMealPlan (String username, BigDecimal id, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteFromMealPlan (String username, Integer id, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'username' is set
@@ -944,7 +943,7 @@ public class MealPlanningApi {
   * Delete from Shopping List
   * Delete an item from the current shopping list of the user.
    * @param username The username.
-   * @param id The item&#39;s id.
+   * @param id The shopping list item id.
    * @param hash The private hash for the username.
    * @return Object
   */
@@ -1018,7 +1017,7 @@ public class MealPlanningApi {
       /**
    * Delete from Shopping List
    * Delete an item from the current shopping list of the user.
-   * @param username The username.   * @param id The item&#39;s id.   * @param hash The private hash for the username.
+   * @param username The username.   * @param id The shopping list item id.   * @param hash The private hash for the username.
   */
   public void deleteFromShoppingList (String username, Integer id, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -1095,7 +1094,7 @@ public class MealPlanningApi {
   * Delete Meal Plan Template
   * Delete a meal plan template for a user.
    * @param username The username.
-   * @param id The item&#39;s id.
+   * @param id The shopping list item id.
    * @param hash The private hash for the username.
    * @return Object
   */
@@ -1169,7 +1168,7 @@ public class MealPlanningApi {
       /**
    * Delete Meal Plan Template
    * Delete a meal plan template for a user.
-   * @param username The username.   * @param id The item&#39;s id.   * @param hash The private hash for the username.
+   * @param username The username.   * @param id The shopping list item id.   * @param hash The private hash for the username.
   */
   public void deleteMealPlanTemplate (String username, Integer id, String hash, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -1377,9 +1376,9 @@ public class MealPlanningApi {
    * @param startDate The start date in the format yyyy-mm-dd.
    * @param endDate The end date in the format yyyy-mm-dd.
    * @param hash The private hash for the username.
-   * @return GenerateShoppingList200Response
+   * @return GetShoppingList200Response
   */
-  public GenerateShoppingList200Response generateShoppingList (String username, String startDate, String endDate, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GetShoppingList200Response generateShoppingList (String username, String startDate, String endDate, String hash) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'username' is set
     if (username == null) {
@@ -1430,7 +1429,7 @@ public class MealPlanningApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GenerateShoppingList200Response) ApiInvoker.deserialize(localVarResponse, "", GenerateShoppingList200Response.class);
+         return (GetShoppingList200Response) ApiInvoker.deserialize(localVarResponse, "", GetShoppingList200Response.class);
       } else {
          return null;
       }
@@ -1456,7 +1455,7 @@ public class MealPlanningApi {
    * Generate the shopping list for a user from the meal planner in a given time frame.
    * @param username The username.   * @param startDate The start date in the format yyyy-mm-dd.   * @param endDate The end date in the format yyyy-mm-dd.   * @param hash The private hash for the username.
   */
-  public void generateShoppingList (String username, String startDate, String endDate, String hash, final Response.Listener<GenerateShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void generateShoppingList (String username, String startDate, String endDate, String hash, final Response.Listener<GetShoppingList200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'username' is set
@@ -1517,7 +1516,7 @@ public class MealPlanningApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GenerateShoppingList200Response) ApiInvoker.deserialize(localVarResponse,  "", GenerateShoppingList200Response.class));
+              responseListener.onResponse((GetShoppingList200Response) ApiInvoker.deserialize(localVarResponse,  "", GetShoppingList200Response.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1536,7 +1535,7 @@ public class MealPlanningApi {
   * Get Meal Plan Template
   * Get information about a meal plan template.
    * @param username The username.
-   * @param id The item&#39;s id.
+   * @param id The shopping list item id.
    * @param hash The private hash for the username.
    * @return GetMealPlanTemplate200Response
   */
@@ -1610,7 +1609,7 @@ public class MealPlanningApi {
       /**
    * Get Meal Plan Template
    * Get information about a meal plan template.
-   * @param username The username.   * @param id The item&#39;s id.   * @param hash The private hash for the username.
+   * @param username The username.   * @param id The shopping list item id.   * @param hash The private hash for the username.
   */
   public void getMealPlanTemplate (String username, Integer id, String hash, final Response.Listener<GetMealPlanTemplate200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;

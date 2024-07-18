@@ -16,22 +16,22 @@ class GetComparableProducts200ResponseComparableProducts {
     this.calories = const [],
     this.likes = const [],
     this.price = const [],
-    this.protein = const {},
-    this.spoonacularScore = const {},
+    this.protein = const [],
+    this.spoonacularScore = const [],
     this.sugar = const [],
   });
 
-  List<Object> calories;
+  List<ComparableProduct> calories;
 
-  List<Object> likes;
+  List<ComparableProduct> likes;
 
-  List<Object> price;
+  List<ComparableProduct> price;
 
-  Set<GetComparableProducts200ResponseComparableProductsProteinInner> protein;
+  List<ComparableProduct> protein;
 
-  Set<GetComparableProducts200ResponseComparableProductsProteinInner> spoonacularScore;
+  List<ComparableProduct> spoonacularScore;
 
-  List<Object> sugar;
+  List<ComparableProduct> sugar;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetComparableProducts200ResponseComparableProducts &&
@@ -60,8 +60,8 @@ class GetComparableProducts200ResponseComparableProducts {
       json[r'calories'] = this.calories;
       json[r'likes'] = this.likes;
       json[r'price'] = this.price;
-      json[r'protein'] = this.protein.toList(growable: false);
-      json[r'spoonacularScore'] = this.spoonacularScore.toList(growable: false);
+      json[r'protein'] = this.protein;
+      json[r'spoonacular_score'] = this.spoonacularScore;
       json[r'sugar'] = this.sugar;
     return json;
   }
@@ -85,12 +85,12 @@ class GetComparableProducts200ResponseComparableProducts {
       }());
 
       return GetComparableProducts200ResponseComparableProducts(
-        calories: Object.listFromJson(json[r'calories']),
-        likes: Object.listFromJson(json[r'likes']),
-        price: Object.listFromJson(json[r'price']),
-        protein: GetComparableProducts200ResponseComparableProductsProteinInner.listFromJson(json[r'protein']).toSet(),
-        spoonacularScore: GetComparableProducts200ResponseComparableProductsProteinInner.listFromJson(json[r'spoonacularScore']).toSet(),
-        sugar: Object.listFromJson(json[r'sugar']),
+        calories: ComparableProduct.listFromJson(json[r'calories']),
+        likes: ComparableProduct.listFromJson(json[r'likes']),
+        price: ComparableProduct.listFromJson(json[r'price']),
+        protein: ComparableProduct.listFromJson(json[r'protein']),
+        spoonacularScore: ComparableProduct.listFromJson(json[r'spoonacular_score']),
+        sugar: ComparableProduct.listFromJson(json[r'sugar']),
       );
     }
     return null;
@@ -142,7 +142,7 @@ class GetComparableProducts200ResponseComparableProducts {
     'likes',
     'price',
     'protein',
-    'spoonacularScore',
+    'spoonacular_score',
     'sugar',
   };
 }

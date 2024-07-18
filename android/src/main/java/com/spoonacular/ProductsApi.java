@@ -31,7 +31,7 @@ import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner;
 import com.spoonacular.client.model.ClassifyGroceryProductRequest;
 import java.io.File;
 import com.spoonacular.client.model.GetComparableProducts200Response;
-import com.spoonacular.client.model.GetProductInformation200Response;
+import com.spoonacular.client.model.ProductInformation;
 import com.spoonacular.client.model.SearchGroceryProducts200Response;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200Response;
 import java.util.*;
@@ -466,7 +466,7 @@ public class ProductsApi {
    * @param upc The UPC of the product for which you want to find comparable products.
    * @return GetComparableProducts200Response
   */
-  public GetComparableProducts200Response getComparableProducts (BigDecimal upc) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GetComparableProducts200Response getComparableProducts (String upc) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'upc' is set
     if (upc == null) {
@@ -527,7 +527,7 @@ public class ProductsApi {
    * Find comparable products to the given one.
    * @param upc The UPC of the product for which you want to find comparable products.
   */
-  public void getComparableProducts (BigDecimal upc, final Response.Listener<GetComparableProducts200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getComparableProducts (String upc, final Response.Listener<GetComparableProducts200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'upc' is set
@@ -590,10 +590,10 @@ public class ProductsApi {
   /**
   * Get Product Information
   * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-   * @param id The item&#39;s id.
-   * @return GetProductInformation200Response
+   * @param id The id of the packaged food.
+   * @return ProductInformation
   */
-  public GetProductInformation200Response getProductInformation (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProductInformation getProductInformation (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -628,7 +628,7 @@ public class ProductsApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (GetProductInformation200Response) ApiInvoker.deserialize(localVarResponse, "", GetProductInformation200Response.class);
+         return (ProductInformation) ApiInvoker.deserialize(localVarResponse, "", ProductInformation.class);
       } else {
          return null;
       }
@@ -652,9 +652,9 @@ public class ProductsApi {
       /**
    * Get Product Information
    * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-   * @param id The item&#39;s id.
+   * @param id The id of the packaged food.
   */
-  public void getProductInformation (Integer id, final Response.Listener<GetProductInformation200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void getProductInformation (Integer id, final Response.Listener<ProductInformation> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -699,7 +699,7 @@ public class ProductsApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((GetProductInformation200Response) ApiInvoker.deserialize(localVarResponse,  "", GetProductInformation200Response.class));
+              responseListener.onResponse((ProductInformation) ApiInvoker.deserialize(localVarResponse,  "", ProductInformation.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -720,7 +720,7 @@ public class ProductsApi {
    * @param id The id of the product.
    * @return File
   */
-  public File productNutritionByIDImage (BigDecimal id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File productNutritionByIDImage (Integer id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -781,7 +781,7 @@ public class ProductsApi {
    * Visualize a product&#39;s nutritional information as an image.
    * @param id The id of the product.
   */
-  public void productNutritionByIDImage (BigDecimal id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void productNutritionByIDImage (Integer id, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -850,7 +850,7 @@ public class ProductsApi {
    * @param showIngredients Whether to show a list of ingredients.
    * @return File
   */
-  public File productNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public File productNutritionLabelImage (Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -914,7 +914,7 @@ public class ProductsApi {
    * Get a product&#39;s nutrition label as an image.
    * @param id The product id.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void productNutritionLabelImage (BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
+  public void productNutritionLabelImage (Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<File> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -987,7 +987,7 @@ public class ProductsApi {
    * @param showIngredients Whether to show a list of ingredients.
    * @return String
   */
-  public String productNutritionLabelWidget (BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public String productNutritionLabelWidget (Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'id' is set
     if (id == null) {
@@ -1052,7 +1052,7 @@ public class ProductsApi {
    * Get a product&#39;s nutrition label as an HTML widget.
    * @param id The product id.   * @param defaultCss Whether the default CSS should be added to the response.   * @param showOptionalNutrients Whether to show optional nutrients.   * @param showZeroValues Whether to show zero values.   * @param showIngredients Whether to show a list of ingredients.
   */
-  public void productNutritionLabelWidget (BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void productNutritionLabelWidget (Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'id' is set
@@ -1135,6 +1135,11 @@ public class ProductsApi {
   */
   public SearchGroceryProducts200Response searchGroceryProducts (String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchGroceryProducts",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchGroceryProducts"));
+    }
 
     // create path and map variables
     String path = "/food/products/search";
@@ -1204,6 +1209,11 @@ public class ProductsApi {
   public void searchGroceryProducts (String query, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minFat, BigDecimal maxFat, Boolean addProductInformation, Integer offset, Integer number, final Response.Listener<SearchGroceryProducts200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'query' when calling searchGroceryProducts",
+        new ApiException(400, "Missing the required parameter 'query' when calling searchGroceryProducts"));
+    }
 
     // create path and map variables
     String path = "/food/products/search".replaceAll("\\{format\\}","json");
@@ -1274,7 +1284,7 @@ public class ProductsApi {
    * @param upc The product&#39;s UPC.
    * @return SearchGroceryProductsByUPC200Response
   */
-  public SearchGroceryProductsByUPC200Response searchGroceryProductsByUPC (BigDecimal upc) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SearchGroceryProductsByUPC200Response searchGroceryProductsByUPC (String upc) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'upc' is set
     if (upc == null) {
@@ -1335,7 +1345,7 @@ public class ProductsApi {
    * Get information about a packaged food using its UPC.
    * @param upc The product&#39;s UPC.
   */
-  public void searchGroceryProductsByUPC (BigDecimal upc, final Response.Listener<SearchGroceryProductsByUPC200Response> responseListener, final Response.ErrorListener errorListener) {
+  public void searchGroceryProductsByUPC (String upc, final Response.Listener<SearchGroceryProductsByUPC200Response> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'upc' is set
@@ -1398,7 +1408,7 @@ public class ProductsApi {
   /**
   * Product Nutrition by ID Widget
   * Visualize a product&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.
+   * @param id The id of the product.
    * @param defaultCss Whether the default CSS should be added to the response.
    * @return String
   */
@@ -1462,7 +1472,7 @@ public class ProductsApi {
       /**
    * Product Nutrition by ID Widget
    * Visualize a product&#39;s nutritional information as HTML including CSS.
-   * @param id The item&#39;s id.   * @param defaultCss Whether the default CSS should be added to the response.
+   * @param id The id of the product.   * @param defaultCss Whether the default CSS should be added to the response.
   */
   public void visualizeProductNutritionByID (Integer id, Boolean defaultCss, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;

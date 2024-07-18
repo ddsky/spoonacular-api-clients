@@ -5,9 +5,9 @@
 -export_type([spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures/0]).
 
 -type spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures() ::
-    #{ 'original' := spoonacular_parse_ingredients_200_response_inner_nutrition_weight_per_serving:spoonacular_parse_ingredients_200_response_inner_nutrition_weight_per_serving(),
-       'metric' := spoonacular_parse_ingredients_200_response_inner_nutrition_weight_per_serving:spoonacular_parse_ingredients_200_response_inner_nutrition_weight_per_serving(),
-       'us' := spoonacular_parse_ingredients_200_response_inner_nutrition_weight_per_serving:spoonacular_parse_ingredients_200_response_inner_nutrition_weight_per_serving()
+    #{ 'original' := spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures_original:spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures_original(),
+       'metric' := spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures_original:spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures_original(),
+       'us' := spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures_original:spoonacular_get_shopping_list_200_response_aisles_inner_items_inner_measures_original()
      }.
 
 encode(#{ 'original' := Original,

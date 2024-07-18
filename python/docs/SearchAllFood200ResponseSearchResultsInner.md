@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
 **total_results** | **int** |  | 
-**results** | [**List[SearchAllFood200ResponseSearchResultsInnerResultsInner]**](SearchAllFood200ResponseSearchResultsInnerResultsInner.md) |  | [optional] 
+**results** | [**List[SearchResult]**](SearchResult.md) |  | [optional] 
 
 ## Example
 

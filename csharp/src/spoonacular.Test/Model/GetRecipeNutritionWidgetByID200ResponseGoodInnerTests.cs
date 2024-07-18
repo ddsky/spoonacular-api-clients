@@ -83,12 +83,12 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Name'
+        /// Test the property 'Title'
         /// </summary>
         [Fact]
-        public void NameTest()
+        public void TitleTest()
         {
-            // TODO unit test for the property 'Name'
+            // TODO unit test for the property 'Title'
         }
     }
 }

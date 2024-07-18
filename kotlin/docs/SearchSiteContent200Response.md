@@ -4,10 +4,10 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **articles** | [**kotlin.collections.Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-| **groceryProducts** | [**kotlin.collections.Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-| **menuItems** | [**kotlin.collections.Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
-| **recipes** | [**kotlin.collections.Set&lt;SearchSiteContent200ResponseArticlesInner&gt;**](SearchSiteContent200ResponseArticlesInner.md) |  |  |
+| **articles** | [**kotlin.collections.List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+| **groceryProducts** | [**kotlin.collections.List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+| **menuItems** | [**kotlin.collections.List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
+| **recipes** | [**kotlin.collections.List&lt;SearchResult&gt;**](SearchResult.md) |  |  |
 
 
 

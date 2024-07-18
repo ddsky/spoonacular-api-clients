@@ -12,7 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseIngredientsInner;
+import com.spoonacular.client.model.IngredientBasics;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseServings;
 import java.math.BigDecimal;
@@ -45,7 +45,7 @@ public class SearchGroceryProductsByUPC200Response {
   @SerializedName("ingredientList")
   private String ingredientList = null;
   @SerializedName("ingredients")
-  private Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients = null;
+  private List<IngredientBasics> ingredients = null;
   @SerializedName("likes")
   private BigDecimal likes = null;
   @SerializedName("nutrition")
@@ -150,10 +150,10 @@ public class SearchGroceryProductsByUPC200Response {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> getIngredients() {
+  public List<IngredientBasics> getIngredients() {
     return ingredients;
   }
-  public void setIngredients(Set<SearchGroceryProductsByUPC200ResponseIngredientsInner> ingredients) {
+  public void setIngredients(List<IngredientBasics> ingredients) {
     this.ingredients = ingredients;
   }
 

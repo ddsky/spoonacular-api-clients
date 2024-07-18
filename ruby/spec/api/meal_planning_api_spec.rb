@@ -66,7 +66,7 @@ describe 'MealPlanningApi' do
   # @param hash The private hash for the username.
   # @param add_to_shopping_list_request 
   # @param [Hash] opts the optional parameters
-  # @return [GenerateShoppingList200Response]
+  # @return [GetShoppingList200Response]
   describe 'add_to_shopping_list test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -117,7 +117,7 @@ describe 'MealPlanningApi' do
   # Delete from Shopping List
   # Delete an item from the current shopping list of the user.
   # @param username The username.
-  # @param id The item&#39;s id.
+  # @param id The shopping list item id.
   # @param hash The private hash for the username.
   # @param [Hash] opts the optional parameters
   # @return [Object]
@@ -131,7 +131,7 @@ describe 'MealPlanningApi' do
   # Delete Meal Plan Template
   # Delete a meal plan template for a user.
   # @param username The username.
-  # @param id The item&#39;s id.
+  # @param id The shopping list item id.
   # @param hash The private hash for the username.
   # @param [Hash] opts the optional parameters
   # @return [Object]
@@ -164,7 +164,7 @@ describe 'MealPlanningApi' do
   # @param end_date The end date in the format yyyy-mm-dd.
   # @param hash The private hash for the username.
   # @param [Hash] opts the optional parameters
-  # @return [GenerateShoppingList200Response]
+  # @return [GetShoppingList200Response]
   describe 'generate_shopping_list test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -175,7 +175,7 @@ describe 'MealPlanningApi' do
   # Get Meal Plan Template
   # Get information about a meal plan template.
   # @param username The username.
-  # @param id The item&#39;s id.
+  # @param id The shopping list item id.
   # @param hash The private hash for the username.
   # @param [Hash] opts the optional parameters
   # @return [GetMealPlanTemplate200Response]

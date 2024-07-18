@@ -15,7 +15,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 <a id="autocompleteMenuItemSearch"></a>
 # **autocompleteMenuItemSearch**
-> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, number)
+> AutocompleteProductSearch200Response autocompleteMenuItemSearch(query, number)
 
 Autocomplete Menu Item Search
 
@@ -44,9 +44,9 @@ public class Example {
 
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
     String query = "chicke"; // String | The (partial) search query.
-    BigDecimal number = new BigDecimal("10"); // BigDecimal | The number of results to return (between 1 and 25).
+    Integer number = 10; // Integer | The number of results to return (between 1 and 25).
     try {
-      AutocompleteMenuItemSearch200Response result = apiInstance.autocompleteMenuItemSearch(query, number);
+      AutocompleteProductSearch200Response result = apiInstance.autocompleteMenuItemSearch(query, number);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MenuItemsApi#autocompleteMenuItemSearch");
@@ -64,11 +64,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **query** | **String**| The (partial) search query. | |
-| **number** | **BigDecimal**| The number of results to return (between 1 and 25). | [optional] |
+| **number** | **Integer**| The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ public class Example {
 
 <a id="getMenuItemInformation"></a>
 # **getMenuItemInformation**
-> GetMenuItemInformation200Response getMenuItemInformation(id)
+> MenuItem getMenuItemInformation(id)
 
 Get Menu Item Information
 
@@ -117,9 +117,9 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 424571; // Integer | The menu item id.
     try {
-      GetMenuItemInformation200Response result = apiInstance.getMenuItemInformation(id);
+      MenuItem result = apiInstance.getMenuItemInformation(id);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MenuItemsApi#getMenuItemInformation");
@@ -136,11 +136,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The menu item id. | |
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -189,7 +189,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
-    BigDecimal id = new BigDecimal("424571"); // BigDecimal | The menu item id.
+    Integer id = 424571; // Integer | The menu item id.
     try {
       File result = apiInstance.menuItemNutritionByIDImage(id);
       System.out.println(result);
@@ -208,7 +208,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The menu item id. | |
+| **id** | **Integer**| The menu item id. | |
 
 ### Return type
 
@@ -261,7 +261,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
-    BigDecimal id = new BigDecimal("342313"); // BigDecimal | The menu item id.
+    Integer id = 342313; // Integer | The menu item id.
     Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
     Boolean showZeroValues = false; // Boolean | Whether to show zero values.
     Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
@@ -283,7 +283,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The menu item id. | |
+| **id** | **Integer**| The menu item id. | |
 | **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] |
 | **showIngredients** | **Boolean**| Whether to show a list of ingredients. | [optional] |
@@ -339,7 +339,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
-    BigDecimal id = new BigDecimal("342313"); // BigDecimal | The menu item id.
+    Integer id = 342313; // Integer | The menu item id.
     Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
     Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
     Boolean showZeroValues = false; // Boolean | Whether to show zero values.
@@ -362,7 +362,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The menu item id. | |
+| **id** | **Integer**| The menu item id. | |
 | **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] |
@@ -449,7 +449,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **query** | **String**| The (natural language) search query. | [optional] |
+| **query** | **String**| The (natural language) search query. | |
 | **minCalories** | **BigDecimal**| The minimum amount of calories the menu item must have. | [optional] |
 | **maxCalories** | **BigDecimal**| The maximum amount of calories the menu item can have. | [optional] |
 | **minCarbs** | **BigDecimal**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] |
@@ -513,7 +513,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     MenuItemsApi apiInstance = new MenuItemsApi(defaultClient);
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 1003464; // Integer | The menu item id.
     Boolean defaultCss = true; // Boolean | Whether the default CSS should be added to the response.
     try {
       String result = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss);
@@ -533,7 +533,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The menu item id. | |
 | **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type

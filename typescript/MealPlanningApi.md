@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **addToShoppingList**
-> GenerateShoppingList200Response addToShoppingList(addToShoppingListRequest)
+> GetShoppingList200Response addToShoppingList(addToShoppingListRequest)
 
 Add an item to the current shopping list of a user.
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**GenerateShoppingList200Response**
+**GetShoppingList200Response**
 
 ### Authorization
 
@@ -428,8 +428,8 @@ const apiInstance = new .MealPlanningApi(configuration);
 let body:.MealPlanningApiDeleteFromShoppingListRequest = {
   // string | The username.
   username: "dsky",
-  // number | The item\'s id.
-  id: 1,
+  // number | The shopping list item id.
+  id: 15678,
   // string | The private hash for the username.
   hash: "hash_example",
 };
@@ -445,7 +445,7 @@ apiInstance.deleteFromShoppingList(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | [**string**] | The username. | defaults to undefined
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The shopping list item id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
 
@@ -491,8 +491,8 @@ const apiInstance = new .MealPlanningApi(configuration);
 let body:.MealPlanningApiDeleteMealPlanTemplateRequest = {
   // string | The username.
   username: "dsky",
-  // number | The item\'s id.
-  id: 1,
+  // number | The shopping list item id.
+  id: 15678,
   // string | The private hash for the username.
   hash: "4b5v4398573406",
 };
@@ -508,7 +508,7 @@ apiInstance.deleteMealPlanTemplate(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | [**string**] | The username. | defaults to undefined
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The shopping list item id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **generateShoppingList**
-> GenerateShoppingList200Response generateShoppingList()
+> GetShoppingList200Response generateShoppingList()
 
 Generate the shopping list for a user from the meal planner in a given time frame.
 
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**GenerateShoppingList200Response**
+**GetShoppingList200Response**
 
 ### Authorization
 
@@ -686,8 +686,8 @@ const apiInstance = new .MealPlanningApi(configuration);
 let body:.MealPlanningApiGetMealPlanTemplateRequest = {
   // string | The username.
   username: "dsky",
-  // number | The item\'s id.
-  id: 1,
+  // number | The shopping list item id.
+  id: 15678,
   // string | The private hash for the username.
   hash: "hash_example",
 };
@@ -703,7 +703,7 @@ apiInstance.getMealPlanTemplate(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | [**string**] | The username. | defaults to undefined
- **id** | [**number**] | The item\&#39;s id. | defaults to undefined
+ **id** | [**number**] | The shopping list item id. | defaults to undefined
  **hash** | [**string**] | The private hash for the username. | defaults to undefined
 
 

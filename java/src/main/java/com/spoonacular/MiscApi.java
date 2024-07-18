@@ -31,7 +31,6 @@ import java.math.BigDecimal;
 import com.spoonacular.client.model.DetectFoodInText200Response;
 import com.spoonacular.client.model.GetARandomFoodJoke200Response;
 import com.spoonacular.client.model.GetConversationSuggests200Response;
-import com.spoonacular.client.model.GetRandomFoodTrivia200Response;
 import com.spoonacular.client.model.ImageAnalysisByURL200Response;
 import com.spoonacular.client.model.ImageClassificationByURL200Response;
 import com.spoonacular.client.model.SearchAllFood200Response;
@@ -586,7 +585,7 @@ public class MiscApi {
     /**
      * Random Food Trivia
      * Returns random food trivia.
-     * @return GetRandomFoodTrivia200Response
+     * @return GetARandomFoodJoke200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -599,15 +598,15 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Trivia">Random Food Trivia Documentation</a>
      */
-    public GetRandomFoodTrivia200Response getRandomFoodTrivia() throws ApiException {
-        ApiResponse<GetRandomFoodTrivia200Response> localVarResp = getRandomFoodTriviaWithHttpInfo();
+    public GetARandomFoodJoke200Response getRandomFoodTrivia() throws ApiException {
+        ApiResponse<GetARandomFoodJoke200Response> localVarResp = getRandomFoodTriviaWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Random Food Trivia
      * Returns random food trivia.
-     * @return ApiResponse&lt;GetRandomFoodTrivia200Response&gt;
+     * @return ApiResponse&lt;GetARandomFoodJoke200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -620,9 +619,9 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Trivia">Random Food Trivia Documentation</a>
      */
-    public ApiResponse<GetRandomFoodTrivia200Response> getRandomFoodTriviaWithHttpInfo() throws ApiException {
+    public ApiResponse<GetARandomFoodJoke200Response> getRandomFoodTriviaWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getRandomFoodTriviaValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<GetRandomFoodTrivia200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetARandomFoodJoke200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -643,10 +642,10 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Random-Food-Trivia">Random Food Trivia Documentation</a>
      */
-    public okhttp3.Call getRandomFoodTriviaAsync(final ApiCallback<GetRandomFoodTrivia200Response> _callback) throws ApiException {
+    public okhttp3.Call getRandomFoodTriviaAsync(final ApiCallback<GetARandomFoodJoke200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRandomFoodTriviaValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<GetRandomFoodTrivia200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetARandomFoodJoke200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1106,9 +1105,9 @@ public class MiscApi {
     }
     /**
      * Build call for searchCustomFoods
+     * @param query The (natural language) search query. (required)
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param query The (natural language) search query. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback Callback for upload/download progress
@@ -1125,7 +1124,7 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
      */
-    public okhttp3.Call searchCustomFoodsCall(String username, String hash, String query, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCustomFoodsCall(String query, String username, String hash, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1190,7 +1189,12 @@ public class MiscApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCustomFoodsValidateBeforeCall(String username, String hash, String query, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchCustomFoodsValidateBeforeCall(String query, String username, String hash, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchCustomFoods(Async)");
+        }
+
         // verify the required parameter 'username' is set
         if (username == null) {
             throw new ApiException("Missing the required parameter 'username' when calling searchCustomFoods(Async)");
@@ -1201,16 +1205,16 @@ public class MiscApi {
             throw new ApiException("Missing the required parameter 'hash' when calling searchCustomFoods(Async)");
         }
 
-        return searchCustomFoodsCall(username, hash, query, offset, number, _callback);
+        return searchCustomFoodsCall(query, username, hash, offset, number, _callback);
 
     }
 
     /**
      * Search Custom Foods
      * Search custom foods in a user&#39;s account.
+     * @param query The (natural language) search query. (required)
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param query The (natural language) search query. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return SearchCustomFoods200Response
@@ -1226,17 +1230,17 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
      */
-    public SearchCustomFoods200Response searchCustomFoods(String username, String hash, String query, Integer offset, Integer number) throws ApiException {
-        ApiResponse<SearchCustomFoods200Response> localVarResp = searchCustomFoodsWithHttpInfo(username, hash, query, offset, number);
+    public SearchCustomFoods200Response searchCustomFoods(String query, String username, String hash, Integer offset, Integer number) throws ApiException {
+        ApiResponse<SearchCustomFoods200Response> localVarResp = searchCustomFoodsWithHttpInfo(query, username, hash, offset, number);
         return localVarResp.getData();
     }
 
     /**
      * Search Custom Foods
      * Search custom foods in a user&#39;s account.
+     * @param query The (natural language) search query. (required)
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param query The (natural language) search query. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse&lt;SearchCustomFoods200Response&gt;
@@ -1252,8 +1256,8 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
      */
-    public ApiResponse<SearchCustomFoods200Response> searchCustomFoodsWithHttpInfo(String username, String hash, String query, Integer offset, Integer number) throws ApiException {
-        okhttp3.Call localVarCall = searchCustomFoodsValidateBeforeCall(username, hash, query, offset, number, null);
+    public ApiResponse<SearchCustomFoods200Response> searchCustomFoodsWithHttpInfo(String query, String username, String hash, Integer offset, Integer number) throws ApiException {
+        okhttp3.Call localVarCall = searchCustomFoodsValidateBeforeCall(query, username, hash, offset, number, null);
         Type localVarReturnType = new TypeToken<SearchCustomFoods200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1261,9 +1265,9 @@ public class MiscApi {
     /**
      * Search Custom Foods (asynchronously)
      * Search custom foods in a user&#39;s account.
+     * @param query The (natural language) search query. (required)
      * @param username The username. (required)
      * @param hash The private hash for the username. (required)
-     * @param query The (natural language) search query. (optional)
      * @param offset The number of results to skip (between 0 and 900). (optional)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
@@ -1280,16 +1284,16 @@ public class MiscApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Custom-Foods">Search Custom Foods Documentation</a>
      */
-    public okhttp3.Call searchCustomFoodsAsync(String username, String hash, String query, Integer offset, Integer number, final ApiCallback<SearchCustomFoods200Response> _callback) throws ApiException {
+    public okhttp3.Call searchCustomFoodsAsync(String query, String username, String hash, Integer offset, Integer number, final ApiCallback<SearchCustomFoods200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCustomFoodsValidateBeforeCall(username, hash, query, offset, number, _callback);
+        okhttp3.Call localVarCall = searchCustomFoodsValidateBeforeCall(query, username, hash, offset, number, _callback);
         Type localVarReturnType = new TypeToken<SearchCustomFoods200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchFoodVideos
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -1399,6 +1403,11 @@ public class MiscApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchFoodVideosValidateBeforeCall(String query, String type, String cuisine, String diet, String includeIngredients, String excludeIngredients, BigDecimal minLength, BigDecimal maxLength, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchFoodVideos(Async)");
+        }
+
         return searchFoodVideosCall(query, type, cuisine, diet, includeIngredients, excludeIngredients, minLength, maxLength, offset, number, _callback);
 
     }
@@ -1406,7 +1415,7 @@ public class MiscApi {
     /**
      * Search Food Videos
      * Find recipe and other food related videos.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -1437,7 +1446,7 @@ public class MiscApi {
     /**
      * Search Food Videos
      * Find recipe and other food related videos.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -1469,7 +1478,7 @@ public class MiscApi {
     /**
      * Search Food Videos (asynchronously)
      * Find recipe and other food related videos.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param type The type of the recipes. See a full list of supported meal types. (optional)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)

@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**calories** | **List&lt;Object&gt;** |  |  |
-|**likes** | **List&lt;Object&gt;** |  |  |
-|**price** | **List&lt;Object&gt;** |  |  |
-|**protein** | [**Set&lt;GetComparableProducts200ResponseComparableProductsProteinInner&gt;**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  |  |
-|**spoonacularScore** | [**Set&lt;GetComparableProducts200ResponseComparableProductsProteinInner&gt;**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  |  |
-|**sugar** | **List&lt;Object&gt;** |  |  |
+|**calories** | [**List&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+|**likes** | [**List&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+|**price** | [**List&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+|**protein** | [**List&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+|**spoonacularScore** | [**List&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+|**sugar** | [**List&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
 
 
 

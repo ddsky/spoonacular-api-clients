@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { SearchGroceryProductsByUPC200ResponseIngredientsInner } from '../models/SearchGroceryProductsByUPC200ResponseIngredientsInner';
+import { IngredientBasics } from '../models/IngredientBasics';
 import { SearchGroceryProductsByUPC200ResponseNutrition } from '../models/SearchGroceryProductsByUPC200ResponseNutrition';
 import { SearchGroceryProductsByUPC200ResponseServings } from '../models/SearchGroceryProductsByUPC200ResponseServings';
 import { HttpFile } from '../http/http';
@@ -24,11 +24,11 @@ export class SearchGroceryProductsByUPC200Response {
     'badges': Array<string>;
     'importantBadges': Array<string>;
     'breadcrumbs': Array<string>;
-    'generatedText': string;
+    'generatedText': string | null;
     'imageType': string;
     'ingredientCount'?: number;
     'ingredientList': string;
-    'ingredients': Set<SearchGroceryProductsByUPC200ResponseIngredientsInner>;
+    'ingredients': Array<IngredientBasics>;
     'likes': number;
     'nutrition': SearchGroceryProductsByUPC200ResponseNutrition;
     'price': number;
@@ -95,7 +95,7 @@ export class SearchGroceryProductsByUPC200Response {
         {
             "name": "ingredients",
             "baseName": "ingredients",
-            "type": "Set<SearchGroceryProductsByUPC200ResponseIngredientsInner>",
+            "type": "Array<IngredientBasics>",
             "format": ""
         },
         {

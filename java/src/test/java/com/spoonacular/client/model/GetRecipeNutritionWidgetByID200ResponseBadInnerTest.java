@@ -39,11 +39,11 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInnerTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'title'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void titleTest() {
+        // TODO: test title
     }
 
     /**

@@ -22,7 +22,7 @@ import com.spoonacular.client.model.ClassifyGroceryProductBulkRequestInner;
 import com.spoonacular.client.model.ClassifyGroceryProductRequest;
 import java.io.File;
 import com.spoonacular.client.model.GetComparableProducts200Response;
-import com.spoonacular.client.model.GetProductInformation200Response;
+import com.spoonacular.client.model.ProductInformation;
 import com.spoonacular.client.model.SearchGroceryProducts200Response;
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200Response;
 import java.util.Set;
@@ -96,7 +96,7 @@ public class ProductsApiTest {
      */
     @Test
     public void getComparableProductsTest() throws ApiException {
-        BigDecimal upc = null;
+        String upc = null;
         GetComparableProducts200Response response = api.getComparableProducts(upc);
         // TODO: test validations
     }
@@ -111,7 +111,7 @@ public class ProductsApiTest {
     @Test
     public void getProductInformationTest() throws ApiException {
         Integer id = null;
-        GetProductInformation200Response response = api.getProductInformation(id);
+        ProductInformation response = api.getProductInformation(id);
         // TODO: test validations
     }
 
@@ -124,7 +124,7 @@ public class ProductsApiTest {
      */
     @Test
     public void productNutritionByIDImageTest() throws ApiException {
-        BigDecimal id = null;
+        Integer id = null;
         File response = api.productNutritionByIDImage(id);
         // TODO: test validations
     }
@@ -138,7 +138,7 @@ public class ProductsApiTest {
      */
     @Test
     public void productNutritionLabelImageTest() throws ApiException {
-        BigDecimal id = null;
+        Integer id = null;
         Boolean showOptionalNutrients = null;
         Boolean showZeroValues = null;
         Boolean showIngredients = null;
@@ -155,7 +155,7 @@ public class ProductsApiTest {
      */
     @Test
     public void productNutritionLabelWidgetTest() throws ApiException {
-        BigDecimal id = null;
+        Integer id = null;
         Boolean defaultCss = null;
         Boolean showOptionalNutrients = null;
         Boolean showZeroValues = null;
@@ -198,7 +198,7 @@ public class ProductsApiTest {
      */
     @Test
     public void searchGroceryProductsByUPCTest() throws ApiException {
-        BigDecimal upc = null;
+        String upc = null;
         SearchGroceryProductsByUPC200Response response = api.searchGroceryProductsByUPC(upc);
         // TODO: test validations
     }

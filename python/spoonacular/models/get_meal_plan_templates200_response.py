@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from spoonacular.models.get_analyzed_recipe_instructions200_response_ingredients_inner import GetAnalyzedRecipeInstructions200ResponseIngredientsInner
+from spoonacular.models.get_meal_plan_templates200_response_templates_inner import GetMealPlanTemplates200ResponseTemplatesInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetMealPlanTemplates200Response(BaseModel):
     """
     
     """ # noqa: E501
-    templates: Annotated[List[GetAnalyzedRecipeInstructions200ResponseIngredientsInner], Field(min_length=0)]
+    templates: Annotated[List[GetMealPlanTemplates200ResponseTemplatesInner], Field(min_length=0)]
     __properties: ClassVar[List[str]] = ["templates"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class GetMealPlanTemplates200Response(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "templates": [GetAnalyzedRecipeInstructions200ResponseIngredientsInner.from_dict(_item) for _item in obj["templates"]] if obj.get("templates") is not None else None
+            "templates": [GetMealPlanTemplates200ResponseTemplatesInner.from_dict(_item) for _item in obj["templates"]] if obj.get("templates") is not None else None
         })
         return _obj
 

@@ -62,7 +62,7 @@ namespace spoonacular.Test.Api
         public void AutocompleteIngredientSearchTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
+            //string query = null;
             //int? number = null;
             //bool? metaInformation = null;
             //string? intolerances = null;
@@ -78,9 +78,9 @@ namespace spoonacular.Test.Api
         public void ComputeIngredientAmountTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //string nutrient = null;
-            //decimal target = null;
+            //int target = null;
             //string? unit = null;
             //var response = instance.ComputeIngredientAmount(id, nutrient, target, unit);
             //Assert.IsType<ComputeIngredientAmount200Response>(response);
@@ -97,7 +97,7 @@ namespace spoonacular.Test.Api
             //decimal? amount = null;
             //string? unit = null;
             //var response = instance.GetIngredientInformation(id, amount, unit);
-            //Assert.IsType<GetIngredientInformation200Response>(response);
+            //Assert.IsType<IngredientInformation>(response);
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace spoonacular.Test.Api
         public void IngredientSearchTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
+            //string query = null;
             //bool? addChildren = null;
             //decimal? minProteinPercent = null;
             //decimal? maxProteinPercent = null;
@@ -157,7 +157,7 @@ namespace spoonacular.Test.Api
         public void IngredientsByIDImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //string? measure = null;
             //var response = instance.IngredientsByIDImage(id, measure);
             //Assert.IsType<System.IO.Stream>(response);

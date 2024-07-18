@@ -108,7 +108,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_random_food_trivia
 
-> models::GetRandomFoodTrivia200Response get_random_food_trivia()
+> models::GetARandomFoodJoke200Response get_random_food_trivia()
 Random Food Trivia
 
 Returns random food trivia.
@@ -119,7 +119,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**models::GetRandomFoodTrivia200Response**](getRandomFoodTrivia_200_response.md)
+[**models::GetARandomFoodJoke200Response**](getARandomFoodJoke_200_response.md)
 
 ### Authorization
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Required | Notes
 
 ## search_custom_foods
 
-> models::SearchCustomFoods200Response search_custom_foods(username, hash, query, offset, number)
+> models::SearchCustomFoods200Response search_custom_foods(query, username, hash, offset, number)
 Search Custom Foods
 
 Search custom foods in a user's account.
@@ -237,9 +237,9 @@ Search custom foods in a user's account.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**query** | **String** | The (natural language) search query. | [required] |
 **username** | **String** | The username. | [required] |
 **hash** | **String** | The private hash for the username. | [required] |
-**query** | Option<**String**> | The (natural language) search query. |  |
 **offset** | Option<**i32**> | The number of results to skip (between 0 and 900). |  |
 **number** | Option<**i32**> | The maximum number of items to return (between 1 and 100). Defaults to 10. |  |[default to 10]
 
@@ -271,7 +271,7 @@ Find recipe and other food related videos.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**query** | Option<**String**> | The (natural language) search query. |  |
+**query** | **String** | The (natural language) search query. | [required] |
 **r#type** | Option<**String**> | The type of the recipes. See a full list of supported meal types. |  |
 **cuisine** | Option<**String**> | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. |  |
 **diet** | Option<**String**> | The diet for which the recipes must be suitable. See a full list of supported diets. |  |

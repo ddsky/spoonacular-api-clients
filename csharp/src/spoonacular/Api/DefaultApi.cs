@@ -70,7 +70,7 @@ namespace spoonacular.Api
         /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
-        Object CreateRecipeCardGet(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0);
+        Object CreateRecipeCardGet(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Recipe Card
@@ -86,7 +86,7 @@ namespace spoonacular.Api
         /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> CreateRecipeCardGetWithHttpInfo(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0);
+        ApiResponse<Object> CreateRecipeCardGetWithHttpInfo(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0);
         /// <summary>
         /// Search Restaurants
         /// </summary>
@@ -183,7 +183,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> CreateRecipeCardGetAsync(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> CreateRecipeCardGetAsync(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Recipe Card
@@ -200,7 +200,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateRecipeCardGetWithHttpInfoAsync(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateRecipeCardGetWithHttpInfoAsync(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Search Restaurants
         /// </summary>
@@ -567,7 +567,7 @@ namespace spoonacular.Api
         /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
-        public Object CreateRecipeCardGet(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0)
+        public Object CreateRecipeCardGet(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<Object> localVarResponse = CreateRecipeCardGetWithHttpInfo(id, mask, backgroundImage, backgroundColor, fontColor);
             return localVarResponse.Data;
@@ -584,7 +584,7 @@ namespace spoonacular.Api
         /// <param name="fontColor">The font color for the recipe card as a hex-string. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> CreateRecipeCardGetWithHttpInfo(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<Object> CreateRecipeCardGetWithHttpInfo(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0)
         {
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();
 
@@ -661,7 +661,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> CreateRecipeCardGetAsync(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> CreateRecipeCardGetAsync(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<Object> localVarResponse = await CreateRecipeCardGetWithHttpInfoAsync(id, mask, backgroundImage, backgroundColor, fontColor, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -679,7 +679,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> CreateRecipeCardGetWithHttpInfoAsync(decimal id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> CreateRecipeCardGetWithHttpInfoAsync(int id, string? mask = default(string?), string? backgroundImage = default(string?), string? backgroundColor = default(string?), string? fontColor = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             spoonacular.Client.RequestOptions localVarRequestOptions = new spoonacular.Client.RequestOptions();

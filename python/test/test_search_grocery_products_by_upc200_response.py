@@ -37,7 +37,7 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
         if include_optional:
             return SearchGroceryProductsByUPC200Response(
                 id = 56,
-                title = '0',
+                title = '',
                 badges = [
                     ''
                     ],
@@ -47,12 +47,12 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
                 breadcrumbs = [
                     ''
                     ],
-                generated_text = '0',
-                image_type = '0',
+                generated_text = '',
+                image_type = '',
                 ingredient_count = 56,
-                ingredient_list = '0',
+                ingredient_list = '',
                 ingredients = [
-                    spoonacular.models.search_grocery_products_by_upc_200_response_ingredients_inner.searchGroceryProductsByUPC_200_response_ingredients_inner(
+                    spoonacular.models.ingredient_basics.IngredientBasics(
                         description = '', 
                         name = '', 
                         safety_level = '', )
@@ -60,13 +60,13 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
                 likes = 1.337,
                 nutrition = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition.searchGroceryProductsByUPC_200_response_nutrition(
                     nutrients = [
-                        spoonacular.models.parse_ingredients_200_response_inner_nutrition_nutrients_inner.parseIngredients_200_response_inner_nutrition_nutrients_inner(
+                        spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_nutrients_inner.searchGroceryProductsByUPC_200_response_nutrition_nutrients_inner(
                             name = '0', 
                             amount = 1.337, 
                             unit = '0', 
                             percent_of_daily_needs = 1.337, )
                         ], 
-                    caloric_breakdown = spoonacular.models.parse_ingredients_200_response_inner_nutrition_caloric_breakdown.parseIngredients_200_response_inner_nutrition_caloricBreakdown(
+                    caloric_breakdown = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_caloric_breakdown.searchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown(
                         percent_protein = 1.337, 
                         percent_fat = 1.337, 
                         percent_carbs = 1.337, ), ),
@@ -80,7 +80,7 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
         else:
             return SearchGroceryProductsByUPC200Response(
                 id = 56,
-                title = '0',
+                title = '',
                 badges = [
                     ''
                     ],
@@ -90,11 +90,11 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
                 breadcrumbs = [
                     ''
                     ],
-                generated_text = '0',
-                image_type = '0',
-                ingredient_list = '0',
+                generated_text = '',
+                image_type = '',
+                ingredient_list = '',
                 ingredients = [
-                    spoonacular.models.search_grocery_products_by_upc_200_response_ingredients_inner.searchGroceryProductsByUPC_200_response_ingredients_inner(
+                    spoonacular.models.ingredient_basics.IngredientBasics(
                         description = '', 
                         name = '', 
                         safety_level = '', )
@@ -102,13 +102,13 @@ class TestSearchGroceryProductsByUPC200Response(unittest.TestCase):
                 likes = 1.337,
                 nutrition = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition.searchGroceryProductsByUPC_200_response_nutrition(
                     nutrients = [
-                        spoonacular.models.parse_ingredients_200_response_inner_nutrition_nutrients_inner.parseIngredients_200_response_inner_nutrition_nutrients_inner(
+                        spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_nutrients_inner.searchGroceryProductsByUPC_200_response_nutrition_nutrients_inner(
                             name = '0', 
                             amount = 1.337, 
                             unit = '0', 
                             percent_of_daily_needs = 1.337, )
                         ], 
-                    caloric_breakdown = spoonacular.models.parse_ingredients_200_response_inner_nutrition_caloric_breakdown.parseIngredients_200_response_inner_nutrition_caloricBreakdown(
+                    caloric_breakdown = spoonacular.models.search_grocery_products_by_upc_200_response_nutrition_caloric_breakdown.searchGroceryProductsByUPC_200_response_nutrition_caloricBreakdown(
                         percent_protein = 1.337, 
                         percent_fat = 1.337, 
                         percent_carbs = 1.337, ), ),

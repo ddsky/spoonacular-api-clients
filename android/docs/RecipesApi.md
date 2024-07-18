@@ -170,7 +170,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] [default to null]
+ **query** | **String**| The (natural language) search query. | [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -422,7 +422,7 @@ Visualize a recipe&#39;s equipment list as an image.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-BigDecimal id = 44860; // BigDecimal | The recipe id.
+Integer id = 44860; // Integer | The recipe id.
 try {
     File result = apiInstance.equipmentByIDImage(id);
     System.out.println(result);
@@ -437,7 +437,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ## extractRecipeFromWebsite
 
-> GetRecipeInformation200Response extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
+> RecipeInformation extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
 
 Extract Recipe from Website
 
@@ -474,7 +474,7 @@ Boolean analyze = false; // Boolean | If true, the recipe will be analyzed and c
 Boolean includeNutrition = false; // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 Boolean includeTaste = false; // Boolean | Whether taste data should be added to correctly parsed ingredients.
 try {
-    GetRecipeInformation200Response result = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
+    RecipeInformation result = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#extractRecipeFromWebsite");
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -509,7 +509,7 @@ Name | Type | Description  | Notes
 
 ## getAnalyzedRecipeInstructions
 
-> GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(id, stepBreakdown)
+> List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt; getAnalyzedRecipeInstructions(id, stepBreakdown)
 
 Get Analyzed Recipe Instructions
 
@@ -522,10 +522,10 @@ Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched 
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 324694; // Integer | The recipe id.
 Boolean stepBreakdown = true; // Boolean | Whether to break down the recipe steps even more.
 try {
-    GetAnalyzedRecipeInstructions200Response result = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown);
+    List<GetAnalyzedRecipeInstructions200ResponseInner> result = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getAnalyzedRecipeInstructions");
@@ -538,12 +538,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **stepBreakdown** | **Boolean**| Whether to break down the recipe steps even more. | [optional] [default to null]
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -622,7 +622,7 @@ Get a recipe&#39;s equipment list.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1003464; // Integer | The recipe id.
 try {
     GetRecipeEquipmentByID200Response result = apiInstance.getRecipeEquipmentByID(id);
     System.out.println(result);
@@ -637,7 +637,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformation
 
-> GetRecipeInformation200Response getRecipeInformation(id, includeNutrition)
+> RecipeInformation getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData)
 
 Get Recipe Information
 
@@ -668,10 +668,12 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 716429; // Integer | The id of the recipe.
 Boolean includeNutrition = false; // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+Boolean addWinePairing = false; // Boolean | Add a wine pairing to the recipe.
+Boolean addTasteData = false; // Boolean | Add taste data to the recipe.
 try {
-    GetRecipeInformation200Response result = apiInstance.getRecipeInformation(id, includeNutrition);
+    RecipeInformation result = apiInstance.getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeInformation");
@@ -684,12 +686,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The id of the recipe. | [default to null]
  **includeNutrition** | **Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+ **addWinePairing** | **Boolean**| Add a wine pairing to the recipe. | [optional] [default to null]
+ **addTasteData** | **Boolean**| Add taste data to the recipe. | [optional] [default to null]
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -703,7 +707,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformationBulk
 
-> Set&lt;GetRecipeInformationBulk200ResponseInner&gt; getRecipeInformationBulk(ids, includeNutrition)
+> Set&lt;RecipeInformation&gt; getRecipeInformationBulk(ids, includeNutrition)
 
 Get Recipe Information Bulk
 
@@ -719,7 +723,7 @@ RecipesApi apiInstance = new RecipesApi();
 String ids = 715538,716429; // String | A comma-separated list of recipe ids.
 Boolean includeNutrition = false; // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 try {
-    Set<GetRecipeInformationBulk200ResponseInner> result = apiInstance.getRecipeInformationBulk(ids, includeNutrition);
+    Set<RecipeInformation> result = apiInstance.getRecipeInformationBulk(ids, includeNutrition);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeInformationBulk");
@@ -737,7 +741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Set&lt;GetRecipeInformationBulk200ResponseInner&gt;**](GetRecipeInformationBulk200ResponseInner.md)
+[**Set&lt;RecipeInformation&gt;**](RecipeInformation.md)
 
 ### Authorization
 
@@ -764,7 +768,7 @@ Get a recipe&#39;s ingredient list.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1003464; // Integer | The recipe id.
 try {
     GetRecipeIngredientsByID200Response result = apiInstance.getRecipeIngredientsByID(id);
     System.out.println(result);
@@ -779,7 +783,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -810,7 +814,7 @@ Get a recipe&#39;s nutrition data.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1003464; // Integer | The recipe id.
 try {
     GetRecipeNutritionWidgetByID200Response result = apiInstance.getRecipeNutritionWidgetByID(id);
     System.out.println(result);
@@ -825,7 +829,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -856,7 +860,7 @@ Get a recipe&#39;s price breakdown data.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1003464; // Integer | The recipe id.
 try {
     GetRecipePriceBreakdownByID200Response result = apiInstance.getRecipePriceBreakdownByID(id);
     System.out.println(result);
@@ -871,7 +875,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -889,7 +893,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeTasteByID
 
-> GetRecipeTasteByID200Response getRecipeTasteByID(id, normalize)
+> TasteInformation getRecipeTasteByID(id, normalize)
 
 Taste by ID
 
@@ -902,10 +906,10 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 69095; // Integer | The recipe id.
 Boolean normalize = true; // Boolean | Normalize to the strongest taste.
 try {
-    GetRecipeTasteByID200Response result = apiInstance.getRecipeTasteByID(id, normalize);
+    TasteInformation result = apiInstance.getRecipeTasteByID(id, normalize);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#getRecipeTasteByID");
@@ -918,12 +922,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to true]
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -950,7 +954,7 @@ Find recipes which are similar to the given one.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 715538; // Integer | The id of the source recipe for which similar recipes should be found.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
     Set<GetSimilarRecipes200ResponseInner> result = apiInstance.getSimilarRecipes(id, number);
@@ -966,7 +970,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The id of the source recipe for which similar recipes should be found. | [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -1031,7 +1035,7 @@ Name | Type | Description  | Notes
 
 ## parseIngredients
 
-> Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(ingredientList, servings, language, includeNutrition)
+> Set&lt;IngredientInformation&gt; parseIngredients(ingredientList, servings, language, includeNutrition)
 
 Parse Ingredients
 
@@ -1047,9 +1051,9 @@ RecipesApi apiInstance = new RecipesApi();
 String ingredientList = null; // String | The ingredient list of the recipe, one ingredient per line.
 BigDecimal servings = null; // BigDecimal | The number of servings that you can make from the ingredients.
 String language = en; // String | The language of the input. Either 'en' or 'de'.
-Boolean includeNutrition = null; // Boolean | 
+Boolean includeNutrition = null; // Boolean | Whether nutrition data should be added to correctly parsed ingredients.
 try {
-    Set<ParseIngredients200ResponseInner> result = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition);
+    Set<IngredientInformation> result = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RecipesApi#parseIngredients");
@@ -1065,11 +1069,11 @@ Name | Type | Description  | Notes
  **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | [default to null]
  **servings** | **BigDecimal**| The number of servings that you can make from the ingredients. | [default to null]
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [default to null] [enum: en, de]
- **includeNutrition** | **Boolean**|  | [optional] [default to null]
+ **includeNutrition** | **Boolean**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] [default to null]
 
 ### Return type
 
-[**Set&lt;ParseIngredients200ResponseInner&gt;**](ParseIngredients200ResponseInner.md)
+[**Set&lt;IngredientInformation&gt;**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1096,7 +1100,7 @@ Visualize a recipe&#39;s price breakdown.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-BigDecimal id = 1082038; // BigDecimal | The recipe id.
+Integer id = 1082038; // Integer | The recipe id.
 try {
     File result = apiInstance.priceBreakdownByIDImage(id);
     System.out.println(result);
@@ -1111,7 +1115,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -1188,7 +1192,7 @@ Visualize a recipe&#39;s nutritional information as an image.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-BigDecimal id = 1082038; // BigDecimal | The recipe id.
+Integer id = 1082038; // Integer | The recipe id.
 try {
     File result = apiInstance.recipeNutritionByIDImage(id);
     System.out.println(result);
@@ -1203,7 +1207,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -1234,7 +1238,7 @@ Get a recipe&#39;s nutrition label as an image.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-BigDecimal id = 641166; // BigDecimal | The recipe id.
+Integer id = 641166; // Integer | The recipe id.
 Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
 Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
@@ -1252,7 +1256,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] [default to null]
  **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] [default to null]
  **showIngredients** | **Boolean**| Whether to show a list of ingredients. | [optional] [default to null]
@@ -1286,7 +1290,7 @@ Get a recipe&#39;s nutrition label as an HTML widget.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-BigDecimal id = 641166; // BigDecimal | The recipe id.
+Integer id = 641166; // Integer | The recipe id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
@@ -1305,7 +1309,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] [default to null]
  **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] [default to null]
@@ -1340,7 +1344,7 @@ Get a recipe&#39;s taste as an image. The tastes supported are sweet, salty, sou
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-BigDecimal id = 69095; // BigDecimal | The recipe id.
+Integer id = 69095; // Integer | The recipe id.
 Boolean normalize = false; // Boolean | Normalize to the strongest taste.
 String rgb = 75,192,192; // String | Red, green, blue values for the chart color.
 try {
@@ -1357,7 +1361,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The recipe id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to null]
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] [default to null]
 
@@ -1405,7 +1409,7 @@ Boolean addRecipeInformation = false; // Boolean | If set to true, you get more 
 Boolean addRecipeNutrition = false; // Boolean | If set to true, you get nutritional information about each recipes returned.
 String author = coffeebean; // String | The username of the recipe author.
 String tags = null; // String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-BigDecimal recipeBoxId = 2468; // BigDecimal | The id of the recipe box to which the search should be limited to.
+Integer recipeBoxId = 2468; // Integer | The id of the recipe box to which the search should be limited to.
 String titleMatch = Crock Pot; // String | Enter text that must be found in the title of the recipes.
 BigDecimal maxReadyTime = 20; // BigDecimal | The maximum time in minutes it should take to prepare and cook the recipe.
 BigDecimal minServings = 1; // BigDecimal | The minimum amount of servings the recipe is for.
@@ -1501,7 +1505,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] [default to null]
+ **query** | **String**| The (natural language) search query. | [default to null]
  **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] [default to null]
  **excludeCuisine** | **String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] [default to null]
  **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] [default to null]
@@ -1516,7 +1520,7 @@ Name | Type | Description  | Notes
  **addRecipeNutrition** | **Boolean**| If set to true, you get nutritional information about each recipes returned. | [optional] [default to null]
  **author** | **String**| The username of the recipe author. | [optional] [default to null]
  **tags** | **String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] [default to null]
- **recipeBoxId** | **BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional] [default to null]
+ **recipeBoxId** | **Integer**| The id of the recipe box to which the search should be limited to. | [optional] [default to null]
  **titleMatch** | **String**| Enter text that must be found in the title of the recipes. | [optional] [default to null]
  **maxReadyTime** | **BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] [default to null]
  **minServings** | **BigDecimal**| The minimum amount of servings the recipe is for. | [optional] [default to null]
@@ -1630,7 +1634,7 @@ Search Recipes by Ingredients
 RecipesApi apiInstance = new RecipesApi();
 String ingredients = carrots,tomatoes; // String | A comma-separated list of ingredients that the recipes should contain.
 Integer number = 10; // Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
-BigDecimal ranking = 1; // BigDecimal | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+Integer ranking = 1; // Integer | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 Boolean ignorePantry = false; // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 try {
     Set<SearchRecipesByIngredients200ResponseInner> result = apiInstance.searchRecipesByIngredients(ingredients, number, ranking, ignorePantry);
@@ -1646,9 +1650,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [optional] [default to null]
+ **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [default to null]
  **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **ranking** | **BigDecimal**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] [default to null]
+ **ranking** | **Integer**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] [default to null]
  **ignorePantry** | **Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
 
 ### Return type
@@ -1874,7 +1878,7 @@ Automatically generate a short description that summarizes key information about
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 4632; // Integer | The recipe id.
 try {
     SummarizeRecipe200Response result = apiInstance.summarizeRecipe(id);
     System.out.println(result);
@@ -1889,7 +1893,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
 
 ### Return type
 
@@ -2028,7 +2032,7 @@ Visualize a recipe&#39;s equipment list.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 44860; // Integer | The recipe id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 try {
     String result = apiInstance.visualizeRecipeEquipmentByID(id, defaultCss);
@@ -2044,7 +2048,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2076,7 +2080,7 @@ Visualize a recipe&#39;s ingredient list.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1082038; // Integer | The recipe id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 String measure = metric; // String | Whether the the measures should be 'us' or 'metric'.
 try {
@@ -2093,7 +2097,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **measure** | **String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [default to null] [enum: us, metric]
 
@@ -2180,7 +2184,7 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1082038; // Integer | The recipe id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 try {
     String result = apiInstance.visualizeRecipeNutritionByID(id, defaultCss);
@@ -2196,7 +2200,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2228,7 +2232,7 @@ Visualize a recipe&#39;s price breakdown.
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1082038; // Integer | The recipe id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 try {
     String result = apiInstance.visualizeRecipePriceBreakdownByID(id, defaultCss);
@@ -2244,7 +2248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2328,7 +2332,7 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 //import com.spoonacular.RecipesApi;
 
 RecipesApi apiInstance = new RecipesApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 69095; // Integer | The recipe id.
 Boolean normalize = true; // Boolean | Whether to normalize to the strongest taste.
 String rgb = 75,192,192; // String | Red, green, blue values for the chart color.
 try {
@@ -2345,7 +2349,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The recipe id. | [default to null]
  **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true]
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] [default to null]
 

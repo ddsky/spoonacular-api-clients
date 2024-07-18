@@ -13,8 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
-import AutocompleteMenuItemSearch200Response from '../model/AutocompleteMenuItemSearch200Response';
-import GetMenuItemInformation200Response from '../model/GetMenuItemInformation200Response';
+import AutocompleteProductSearch200Response from '../model/AutocompleteProductSearch200Response';
+import MenuItem from '../model/MenuItem';
 import SearchMenuItems200Response from '../model/SearchMenuItems200Response';
 
 /**
@@ -40,7 +40,7 @@ export default class MenuItemsApi {
      * Callback function to receive the result of the autocompleteMenuItemSearch operation.
      * @callback module:api/MenuItemsApi~autocompleteMenuItemSearchCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/AutocompleteMenuItemSearch200Response} data The data returned by the service call.
+     * @param {module:model/AutocompleteProductSearch200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -51,7 +51,7 @@ export default class MenuItemsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} [number] The number of results to return (between 1 and 25).
      * @param {module:api/MenuItemsApi~autocompleteMenuItemSearchCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/AutocompleteMenuItemSearch200Response}
+     * data is of type: {@link module:model/AutocompleteProductSearch200Response}
      */
     autocompleteMenuItemSearch(query, opts, callback) {
       opts = opts || {};
@@ -75,7 +75,7 @@ export default class MenuItemsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = AutocompleteMenuItemSearch200Response;
+      let returnType = AutocompleteProductSearch200Response;
       return this.apiClient.callApi(
         '/food/menuItems/suggest', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -87,16 +87,16 @@ export default class MenuItemsApi {
      * Callback function to receive the result of the getMenuItemInformation operation.
      * @callback module:api/MenuItemsApi~getMenuItemInformationCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetMenuItemInformation200Response} data The data returned by the service call.
+     * @param {module:model/MenuItem} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Menu Item Information
      * Use a menu item id to get all available information about a menu item, such as nutrition.
-     * @param {Number} id The item's id.
+     * @param {Number} id The menu item id.
      * @param {module:api/MenuItemsApi~getMenuItemInformationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetMenuItemInformation200Response}
+     * data is of type: {@link module:model/MenuItem}
      */
     getMenuItemInformation(id, callback) {
       let postBody = null;
@@ -118,7 +118,7 @@ export default class MenuItemsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetMenuItemInformation200Response;
+      let returnType = MenuItem;
       return this.apiClient.callApi(
         '/food/menuItems/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -284,8 +284,8 @@ export default class MenuItemsApi {
     /**
      * Search Menu Items
      * Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
+     * @param {String} query The (natural language) search query.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {Number} [minCalories] The minimum amount of calories the menu item must have.
      * @param {Number} [maxCalories] The maximum amount of calories the menu item can have.
      * @param {Number} [minCarbs] The minimum amount of carbohydrates in grams the menu item must have.
@@ -300,14 +300,18 @@ export default class MenuItemsApi {
      * @param {module:api/MenuItemsApi~searchMenuItemsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchMenuItems200Response}
      */
-    searchMenuItems(opts, callback) {
+    searchMenuItems(query, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling searchMenuItems");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'minCalories': opts['minCalories'],
         'maxCalories': opts['maxCalories'],
         'minCarbs': opts['minCarbs'],
@@ -347,7 +351,7 @@ export default class MenuItemsApi {
     /**
      * Menu Item Nutrition by ID Widget
      * Visualize a menu item's nutritional information as HTML including CSS.
-     * @param {Number} id The item's id.
+     * @param {Number} id The menu item id.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
      * @param {module:api/MenuItemsApi~visualizeMenuItemNutritionByIDCallback} callback The callback function, accepting three arguments: error, data, response

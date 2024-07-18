@@ -12,8 +12,8 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionCaloricBreakdown;
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionNutrientsInner;
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown;
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner;
 import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -22,27 +22,27 @@ import com.google.gson.annotations.SerializedName;
 public class SearchGroceryProductsByUPC200ResponseNutrition {
   
   @SerializedName("nutrients")
-  private Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients = null;
+  private Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients = null;
   @SerializedName("caloricBreakdown")
-  private ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown = null;
+  private SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown = null;
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> getNutrients() {
+  public Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> getNutrients() {
     return nutrients;
   }
-  public void setNutrients(Set<ParseIngredients200ResponseInnerNutritionNutrientsInner> nutrients) {
+  public void setNutrients(Set<SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner> nutrients) {
     this.nutrients = nutrients;
   }
 
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public ParseIngredients200ResponseInnerNutritionCaloricBreakdown getCaloricBreakdown() {
+  public SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown getCaloricBreakdown() {
     return caloricBreakdown;
   }
-  public void setCaloricBreakdown(ParseIngredients200ResponseInnerNutritionCaloricBreakdown caloricBreakdown) {
+  public void setCaloricBreakdown(SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown caloricBreakdown) {
     this.caloricBreakdown = caloricBreakdown;
   }
 

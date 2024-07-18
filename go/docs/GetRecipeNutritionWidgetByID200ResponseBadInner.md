@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**Title** | **string** |  | 
 **Amount** | **string** |  | 
 **Indented** | **bool** |  | 
 **PercentOfDailyNeeds** | **float32** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewGetRecipeNutritionWidgetByID200ResponseBadInner
 
-`func NewGetRecipeNutritionWidgetByID200ResponseBadInner(name string, amount string, indented bool, percentOfDailyNeeds float32, ) *GetRecipeNutritionWidgetByID200ResponseBadInner`
+`func NewGetRecipeNutritionWidgetByID200ResponseBadInner(title string, amount string, indented bool, percentOfDailyNeeds float32, ) *GetRecipeNutritionWidgetByID200ResponseBadInner`
 
 NewGetRecipeNutritionWidgetByID200ResponseBadInner instantiates a new GetRecipeNutritionWidgetByID200ResponseBadInner object
 This constructor will assign default values to properties that have it defined,
@@ -28,24 +28,24 @@ NewGetRecipeNutritionWidgetByID200ResponseBadInnerWithDefaults instantiates a ne
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetName
+### GetTitle
 
-`func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetName() string`
+`func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetTitle() string`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+GetTitle returns the Title field if non-nil, zero value otherwise.
 
-### GetNameOk
+### GetTitleOk
 
-`func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetNameOk() (*string, bool)`
+`func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) GetTitleOk() (*string, bool)`
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetTitle
 
-`func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) SetName(v string)`
+`func (o *GetRecipeNutritionWidgetByID200ResponseBadInner) SetTitle(v string)`
 
-SetName sets Name field to given value.
+SetTitle sets Title field to given value.
 
 
 ### GetAmount

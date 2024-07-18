@@ -107,7 +107,7 @@ pub enum VisualizeIngredientsError {
 
 
 /// Autocomplete the entry of an ingredient.
-pub async fn autocomplete_ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, number: Option<i32>, meta_information: Option<bool>, intolerances: Option<&str>, language: Option<&str>) -> Result<Vec<models::AutocompleteIngredientSearch200ResponseInner>, Error<AutocompleteIngredientSearchError>> {
+pub async fn autocomplete_ingredient_search(configuration: &configuration::Configuration, query: &str, number: Option<i32>, meta_information: Option<bool>, intolerances: Option<&str>, language: Option<&str>) -> Result<Vec<models::AutocompleteIngredientSearch200ResponseInner>, Error<AutocompleteIngredientSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -115,9 +115,7 @@ pub async fn autocomplete_ingredient_search(configuration: &configuration::Confi
     let local_var_uri_str = format!("{}/food/ingredients/autocomplete", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query {
-        local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("query", &query.to_string())]);
     if let Some(ref local_var_str) = number {
         local_var_req_builder = local_var_req_builder.query(&[("number", &local_var_str.to_string())]);
     }
@@ -158,7 +156,7 @@ pub async fn autocomplete_ingredient_search(configuration: &configuration::Confi
 }
 
 /// Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
-pub async fn compute_ingredient_amount(configuration: &configuration::Configuration, id: f64, nutrient: &str, target: f64, unit: Option<&str>) -> Result<models::ComputeIngredientAmount200Response, Error<ComputeIngredientAmountError>> {
+pub async fn compute_ingredient_amount(configuration: &configuration::Configuration, id: i32, nutrient: &str, target: i32, unit: Option<&str>) -> Result<models::ComputeIngredientAmount200Response, Error<ComputeIngredientAmountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,7 +197,7 @@ pub async fn compute_ingredient_amount(configuration: &configuration::Configurat
 }
 
 /// Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-pub async fn get_ingredient_information(configuration: &configuration::Configuration, id: i32, amount: Option<f64>, unit: Option<&str>) -> Result<models::GetIngredientInformation200Response, Error<GetIngredientInformationError>> {
+pub async fn get_ingredient_information(configuration: &configuration::Configuration, id: i32, amount: Option<f64>, unit: Option<&str>) -> Result<models::IngredientInformation, Error<GetIngredientInformationError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -314,7 +312,7 @@ pub async fn get_ingredient_substitutes_by_id(configuration: &configuration::Con
 }
 
 /// Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
-pub async fn ingredient_search(configuration: &configuration::Configuration, query: Option<&str>, add_children: Option<bool>, min_protein_percent: Option<f64>, max_protein_percent: Option<f64>, min_fat_percent: Option<f64>, max_fat_percent: Option<f64>, min_carbs_percent: Option<f64>, max_carbs_percent: Option<f64>, meta_information: Option<bool>, intolerances: Option<&str>, sort: Option<&str>, sort_direction: Option<&str>, offset: Option<i32>, number: Option<i32>, language: Option<&str>) -> Result<models::IngredientSearch200Response, Error<IngredientSearchError>> {
+pub async fn ingredient_search(configuration: &configuration::Configuration, query: &str, add_children: Option<bool>, min_protein_percent: Option<f64>, max_protein_percent: Option<f64>, min_fat_percent: Option<f64>, max_fat_percent: Option<f64>, min_carbs_percent: Option<f64>, max_carbs_percent: Option<f64>, meta_information: Option<bool>, intolerances: Option<&str>, sort: Option<&str>, sort_direction: Option<&str>, offset: Option<i32>, number: Option<i32>, language: Option<&str>) -> Result<models::IngredientSearch200Response, Error<IngredientSearchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -322,9 +320,7 @@ pub async fn ingredient_search(configuration: &configuration::Configuration, que
     let local_var_uri_str = format!("{}/food/ingredients/search", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = query {
-        local_var_req_builder = local_var_req_builder.query(&[("query", &local_var_str.to_string())]);
-    }
+    local_var_req_builder = local_var_req_builder.query(&[("query", &query.to_string())]);
     if let Some(ref local_var_str) = add_children {
         local_var_req_builder = local_var_req_builder.query(&[("addChildren", &local_var_str.to_string())]);
     }
@@ -395,7 +391,7 @@ pub async fn ingredient_search(configuration: &configuration::Configuration, que
 }
 
 /// Visualize a recipe's ingredient list.
-pub async fn ingredients_by_id_image(configuration: &configuration::Configuration, id: f64, measure: Option<&str>) -> Result<std::path::PathBuf, Error<IngredientsByIdImageError>> {
+pub async fn ingredients_by_id_image(configuration: &configuration::Configuration, id: i32, measure: Option<&str>) -> Result<std::path::PathBuf, Error<IngredientsByIdImageError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

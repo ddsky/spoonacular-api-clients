@@ -96,7 +96,7 @@ func Test_spoonacular_MealPlanningAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		var username string
-		var id float32
+		var id int32
 
 		resp, httpRes, err := apiClient.MealPlanningAPI.DeleteFromMealPlan(context.Background(), username, id).Execute()
 

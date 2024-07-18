@@ -86,9 +86,9 @@ describe 'ProductsApi' do
   # unit tests for get_product_information
   # Get Product Information
   # Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-  # @param id The item&#39;s id.
+  # @param id The id of the packaged food.
   # @param [Hash] opts the optional parameters
-  # @return [GetProductInformation200Response]
+  # @return [ProductInformation]
   describe 'get_product_information test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -141,8 +141,8 @@ describe 'ProductsApi' do
   # unit tests for search_grocery_products
   # Search Grocery Products
   # Search packaged food products, such as frozen pizza or Greek yogurt.
+  # @param query The (natural language) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [Float] :min_calories The minimum amount of calories the product must have.
   # @option opts [Float] :max_calories The maximum amount of calories the product can have.
   # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the product must have.
@@ -176,7 +176,7 @@ describe 'ProductsApi' do
   # unit tests for visualize_product_nutrition_by_id
   # Product Nutrition by ID Widget
   # Visualize a product&#39;s nutritional information as HTML including CSS.
-  # @param id The item&#39;s id.
+  # @param id The id of the product.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
   # @return [String]

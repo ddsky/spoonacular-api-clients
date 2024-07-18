@@ -246,7 +246,7 @@ module OpenapiClient
 
     # Get Comparable Products
     # Find comparable products to the given one.
-    # @param upc [Float] The UPC of the product for which you want to find comparable products.
+    # @param upc [String] The UPC of the product for which you want to find comparable products.
     # @param [Hash] opts the optional parameters
     # @return [GetComparableProducts200Response]
     def get_comparable_products(upc, opts = {})
@@ -256,7 +256,7 @@ module OpenapiClient
 
     # Get Comparable Products
     # Find comparable products to the given one.
-    # @param upc [Float] The UPC of the product for which you want to find comparable products.
+    # @param upc [String] The UPC of the product for which you want to find comparable products.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetComparableProducts200Response, Integer, Hash)>] GetComparableProducts200Response data, response status code and response headers
     def get_comparable_products_with_http_info(upc, opts = {})
@@ -309,9 +309,9 @@ module OpenapiClient
 
     # Get Product Information
     # Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the packaged food.
     # @param [Hash] opts the optional parameters
-    # @return [GetProductInformation200Response]
+    # @return [ProductInformation]
     def get_product_information(id, opts = {})
       data, _status_code, _headers = get_product_information_with_http_info(id, opts)
       data
@@ -319,9 +319,9 @@ module OpenapiClient
 
     # Get Product Information
     # Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the packaged food.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(GetProductInformation200Response, Integer, Hash)>] GetProductInformation200Response data, response status code and response headers
+    # @return [Array<(ProductInformation, Integer, Hash)>] ProductInformation data, response status code and response headers
     def get_product_information_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProductsApi.get_product_information ...'
@@ -348,7 +348,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetProductInformation200Response'
+      return_type = opts[:debug_return_type] || 'ProductInformation'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -372,7 +372,7 @@ module OpenapiClient
 
     # Product Nutrition by ID Image
     # Visualize a product's nutritional information as an image.
-    # @param id [Float] The id of the product.
+    # @param id [Integer] The id of the product.
     # @param [Hash] opts the optional parameters
     # @return [File]
     def product_nutrition_by_id_image(id, opts = {})
@@ -382,7 +382,7 @@ module OpenapiClient
 
     # Product Nutrition by ID Image
     # Visualize a product&#39;s nutritional information as an image.
-    # @param id [Float] The id of the product.
+    # @param id [Integer] The id of the product.
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def product_nutrition_by_id_image_with_http_info(id, opts = {})
@@ -435,7 +435,7 @@ module OpenapiClient
 
     # Product Nutrition Label Image
     # Get a product's nutrition label as an image.
-    # @param id [Float] The product id.
+    # @param id [Integer] The product id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
@@ -448,7 +448,7 @@ module OpenapiClient
 
     # Product Nutrition Label Image
     # Get a product&#39;s nutrition label as an image.
-    # @param id [Float] The product id.
+    # @param id [Integer] The product id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
     # @option opts [Boolean] :show_zero_values Whether to show zero values.
@@ -507,7 +507,7 @@ module OpenapiClient
 
     # Product Nutrition Label Widget
     # Get a product's nutrition label as an HTML widget.
-    # @param id [Float] The product id.
+    # @param id [Integer] The product id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
@@ -521,7 +521,7 @@ module OpenapiClient
 
     # Product Nutrition Label Widget
     # Get a product&#39;s nutrition label as an HTML widget.
-    # @param id [Float] The product id.
+    # @param id [Integer] The product id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @option opts [Boolean] :show_optional_nutrients Whether to show optional nutrients.
@@ -582,8 +582,8 @@ module OpenapiClient
 
     # Search Grocery Products
     # Search packaged food products, such as frozen pizza or Greek yogurt.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Float] :min_calories The minimum amount of calories the product must have.
     # @option opts [Float] :max_calories The maximum amount of calories the product can have.
     # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the product must have.
@@ -596,15 +596,15 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [SearchGroceryProducts200Response]
-    def search_grocery_products(opts = {})
-      data, _status_code, _headers = search_grocery_products_with_http_info(opts)
+    def search_grocery_products(query, opts = {})
+      data, _status_code, _headers = search_grocery_products_with_http_info(query, opts)
       data
     end
 
     # Search Grocery Products
     # Search packaged food products, such as frozen pizza or Greek yogurt.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Float] :min_calories The minimum amount of calories the product must have.
     # @option opts [Float] :max_calories The maximum amount of calories the product can have.
     # @option opts [Float] :min_carbs The minimum amount of carbohydrates in grams the product must have.
@@ -617,9 +617,13 @@ module OpenapiClient
     # @option opts [Integer] :offset The number of results to skip (between 0 and 900).
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @return [Array<(SearchGroceryProducts200Response, Integer, Hash)>] SearchGroceryProducts200Response data, response status code and response headers
-    def search_grocery_products_with_http_info(opts = {})
+    def search_grocery_products_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProductsApi.search_grocery_products ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling ProductsApi.search_grocery_products"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 900
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling ProductsApi.search_grocery_products, must be smaller than or equal to 900.'
@@ -642,7 +646,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'query'] = query
       query_params[:'minCalories'] = opts[:'min_calories'] if !opts[:'min_calories'].nil?
       query_params[:'maxCalories'] = opts[:'max_calories'] if !opts[:'max_calories'].nil?
       query_params[:'minCarbs'] = opts[:'min_carbs'] if !opts[:'min_carbs'].nil?
@@ -691,7 +695,7 @@ module OpenapiClient
 
     # Search Grocery Products by UPC
     # Get information about a packaged food using its UPC.
-    # @param upc [Float] The product&#39;s UPC.
+    # @param upc [String] The product&#39;s UPC.
     # @param [Hash] opts the optional parameters
     # @return [SearchGroceryProductsByUPC200Response]
     def search_grocery_products_by_upc(upc, opts = {})
@@ -701,7 +705,7 @@ module OpenapiClient
 
     # Search Grocery Products by UPC
     # Get information about a packaged food using its UPC.
-    # @param upc [Float] The product&#39;s UPC.
+    # @param upc [String] The product&#39;s UPC.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SearchGroceryProductsByUPC200Response, Integer, Hash)>] SearchGroceryProductsByUPC200Response data, response status code and response headers
     def search_grocery_products_by_upc_with_http_info(upc, opts = {})
@@ -754,7 +758,7 @@ module OpenapiClient
 
     # Product Nutrition by ID Widget
     # Visualize a product's nutritional information as HTML including CSS.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the product.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [String]
@@ -765,7 +769,7 @@ module OpenapiClient
 
     # Product Nutrition by ID Widget
     # Visualize a product&#39;s nutritional information as HTML including CSS.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the product.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :default_css Whether the default CSS should be added to the response. (default to true)
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers

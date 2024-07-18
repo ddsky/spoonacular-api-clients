@@ -14,7 +14,7 @@ import { ClassifyGroceryProductBulk200ResponseInner } from '../models/ClassifyGr
 import { ClassifyGroceryProductBulkRequestInner } from '../models/ClassifyGroceryProductBulkRequestInner';
 import { ClassifyGroceryProductRequest } from '../models/ClassifyGroceryProductRequest';
 import { GetComparableProducts200Response } from '../models/GetComparableProducts200Response';
-import { GetProductInformation200Response } from '../models/GetProductInformation200Response';
+import { ProductInformation } from '../models/ProductInformation';
 import { SearchGroceryProducts200Response } from '../models/SearchGroceryProducts200Response';
 import { SearchGroceryProductsByUPC200Response } from '../models/SearchGroceryProductsByUPC200Response';
 
@@ -187,7 +187,7 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
      * Get Comparable Products
      * @param upc The UPC of the product for which you want to find comparable products.
      */
-    public async getComparableProducts(upc: number, _options?: Configuration): Promise<RequestContext> {
+    public async getComparableProducts(upc: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'upc' is not null or undefined
@@ -223,7 +223,7 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
      * Get Product Information
-     * @param id The item\&#39;s id.
+     * @param id The id of the packaged food.
      */
     public async getProductInformation(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -437,8 +437,13 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public async searchGroceryProducts(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async searchGroceryProducts(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addProductInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("ProductsApi", "searchGroceryProducts", "query");
+        }
 
 
 
@@ -540,7 +545,7 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
      * Search Grocery Products by UPC
      * @param upc The product\&#39;s UPC.
      */
-    public async searchGroceryProductsByUPC(upc: number, _options?: Configuration): Promise<RequestContext> {
+    public async searchGroceryProductsByUPC(upc: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'upc' is not null or undefined
@@ -576,7 +581,7 @@ export class ProductsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a product\'s nutritional information as HTML including CSS.
      * Product Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The id of the product.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public async visualizeProductNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<RequestContext> {
@@ -781,13 +786,13 @@ export class ProductsApiResponseProcessor {
      * @params response Response returned by the server for a request to getProductInformation
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getProductInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetProductInformation200Response >> {
+     public async getProductInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ProductInformation >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetProductInformation200Response = ObjectSerializer.deserialize(
+            const body: ProductInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetProductInformation200Response", ""
-            ) as GetProductInformation200Response;
+                "ProductInformation", ""
+            ) as ProductInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -802,10 +807,10 @@ export class ProductsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetProductInformation200Response = ObjectSerializer.deserialize(
+            const body: ProductInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetProductInformation200Response", ""
-            ) as GetProductInformation200Response;
+                "ProductInformation", ""
+            ) as ProductInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

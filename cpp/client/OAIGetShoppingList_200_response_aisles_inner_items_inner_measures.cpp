@@ -84,10 +84,10 @@ QJsonObject OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::a
     return obj;
 }
 
-OAIParseIngredients_200_response_inner_nutrition_weightPerServing OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::getOriginal() const {
+OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::getOriginal() const {
     return m_original;
 }
-void OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::setOriginal(const OAIParseIngredients_200_response_inner_nutrition_weightPerServing &original) {
+void OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::setOriginal(const OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original &original) {
     m_original = original;
     m_original_isSet = true;
 }
@@ -100,10 +100,10 @@ bool OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::is_origi
     return m_original_isValid;
 }
 
-OAIParseIngredients_200_response_inner_nutrition_weightPerServing OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::getMetric() const {
+OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::getMetric() const {
     return m_metric;
 }
-void OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::setMetric(const OAIParseIngredients_200_response_inner_nutrition_weightPerServing &metric) {
+void OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::setMetric(const OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original &metric) {
     m_metric = metric;
     m_metric_isSet = true;
 }
@@ -116,10 +116,10 @@ bool OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::is_metri
     return m_metric_isValid;
 }
 
-OAIParseIngredients_200_response_inner_nutrition_weightPerServing OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::getUs() const {
+OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::getUs() const {
     return m_us;
 }
-void OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::setUs(const OAIParseIngredients_200_response_inner_nutrition_weightPerServing &us) {
+void OAIGetShoppingList_200_response_aisles_inner_items_inner_measures::setUs(const OAIGetShoppingList_200_response_aisles_inner_items_inner_measures_original &us) {
     m_us = us;
     m_us_isSet = true;
 }

@@ -24,7 +24,6 @@
 #include "OAIConnectUser_200_response.h"
 #include "OAIConnectUser_request.h"
 #include "OAIGenerateMealPlan_200_response.h"
-#include "OAIGenerateShoppingList_200_response.h"
 #include "OAIGetMealPlanTemplate_200_response.h"
 #include "OAIGetMealPlanTemplates_200_response.h"
 #include "OAIGetMealPlanWeek_200_response.h"
@@ -102,10 +101,10 @@ public:
 
     /**
     * @param[in]  username QString [required]
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  hash QString [required]
     */
-    void deleteFromMealPlan(const QString &username, const double &id, const QString &hash);
+    void deleteFromMealPlan(const QString &username, const qint32 &id, const QString &hash);
 
     /**
     * @param[in]  username QString [required]
@@ -205,14 +204,14 @@ Q_SIGNALS:
 
     void addMealPlanTemplateSignal(OAIAddMealPlanTemplate_200_response summary);
     void addToMealPlanSignal(OAIObject summary);
-    void addToShoppingListSignal(OAIGenerateShoppingList_200_response summary);
+    void addToShoppingListSignal(OAIGetShoppingList_200_response summary);
     void clearMealPlanDaySignal(OAIObject summary);
     void connectUserSignal(OAIConnectUser_200_response summary);
     void deleteFromMealPlanSignal(OAIObject summary);
     void deleteFromShoppingListSignal(OAIObject summary);
     void deleteMealPlanTemplateSignal(OAIObject summary);
     void generateMealPlanSignal(OAIGenerateMealPlan_200_response summary);
-    void generateShoppingListSignal(OAIGenerateShoppingList_200_response summary);
+    void generateShoppingListSignal(OAIGetShoppingList_200_response summary);
     void getMealPlanTemplateSignal(OAIGetMealPlanTemplate_200_response summary);
     void getMealPlanTemplatesSignal(OAIGetMealPlanTemplates_200_response summary);
     void getMealPlanWeekSignal(OAIGetMealPlanWeek_200_response summary);
@@ -220,14 +219,14 @@ Q_SIGNALS:
 
     void addMealPlanTemplateSignalFull(OAIHttpRequestWorker *worker, OAIAddMealPlanTemplate_200_response summary);
     void addToMealPlanSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
-    void addToShoppingListSignalFull(OAIHttpRequestWorker *worker, OAIGenerateShoppingList_200_response summary);
+    void addToShoppingListSignalFull(OAIHttpRequestWorker *worker, OAIGetShoppingList_200_response summary);
     void clearMealPlanDaySignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
     void connectUserSignalFull(OAIHttpRequestWorker *worker, OAIConnectUser_200_response summary);
     void deleteFromMealPlanSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
     void deleteFromShoppingListSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
     void deleteMealPlanTemplateSignalFull(OAIHttpRequestWorker *worker, OAIObject summary);
     void generateMealPlanSignalFull(OAIHttpRequestWorker *worker, OAIGenerateMealPlan_200_response summary);
-    void generateShoppingListSignalFull(OAIHttpRequestWorker *worker, OAIGenerateShoppingList_200_response summary);
+    void generateShoppingListSignalFull(OAIHttpRequestWorker *worker, OAIGetShoppingList_200_response summary);
     void getMealPlanTemplateSignalFull(OAIHttpRequestWorker *worker, OAIGetMealPlanTemplate_200_response summary);
     void getMealPlanTemplatesSignalFull(OAIHttpRequestWorker *worker, OAIGetMealPlanTemplates_200_response summary);
     void getMealPlanWeekSignalFull(OAIHttpRequestWorker *worker, OAIGetMealPlanWeek_200_response summary);
@@ -240,8 +239,8 @@ Q_SIGNALS:
     void addToMealPlanSignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
     void addToMealPlanSignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use addToShoppingListSignalError() instead")
-    void addToShoppingListSignalE(OAIGenerateShoppingList_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void addToShoppingListSignalError(OAIGenerateShoppingList_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void addToShoppingListSignalE(OAIGetShoppingList_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void addToShoppingListSignalError(OAIGetShoppingList_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use clearMealPlanDaySignalError() instead")
     void clearMealPlanDaySignalE(OAIObject summary, QNetworkReply::NetworkError error_type, QString error_str);
     void clearMealPlanDaySignalError(OAIObject summary, QNetworkReply::NetworkError error_type, const QString &error_str);
@@ -261,8 +260,8 @@ Q_SIGNALS:
     void generateMealPlanSignalE(OAIGenerateMealPlan_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void generateMealPlanSignalError(OAIGenerateMealPlan_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use generateShoppingListSignalError() instead")
-    void generateShoppingListSignalE(OAIGenerateShoppingList_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void generateShoppingListSignalError(OAIGenerateShoppingList_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void generateShoppingListSignalE(OAIGetShoppingList_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void generateShoppingListSignalError(OAIGetShoppingList_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getMealPlanTemplateSignalError() instead")
     void getMealPlanTemplateSignalE(OAIGetMealPlanTemplate_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getMealPlanTemplateSignalError(OAIGetMealPlanTemplate_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

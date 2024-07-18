@@ -16,7 +16,7 @@ All URIs are relative to https://api.spoonacular.com, except if the operation de
 ## `autocompleteMenuItemSearch()`
 
 ```php
-autocompleteMenuItemSearch($query, $number): \OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response
+autocompleteMenuItemSearch($query, $number): \OpenAPI\Client\Model\AutocompleteProductSearch200Response
 ```
 
 Autocomplete Menu Item Search
@@ -43,7 +43,7 @@ $apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     $config
 );
 $query = chicke; // string | The (partial) search query.
-$number = 10; // float | The number of results to return (between 1 and 25).
+$number = 10; // int | The number of results to return (between 1 and 25).
 
 try {
     $result = $apiInstance->autocompleteMenuItemSearch($query, $number);
@@ -58,11 +58,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **query** | **string**| The (partial) search query. | |
-| **number** | **float**| The number of results to return (between 1 and 25). | [optional] |
+| **number** | **int**| The number of results to return (between 1 and 25). | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AutocompleteMenuItemSearch200Response**](../Model/AutocompleteMenuItemSearch200Response.md)
+[**\OpenAPI\Client\Model\AutocompleteProductSearch200Response**](../Model/AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ try {
 ## `getMenuItemInformation()`
 
 ```php
-getMenuItemInformation($id): \OpenAPI\Client\Model\GetMenuItemInformation200Response
+getMenuItemInformation($id): \OpenAPI\Client\Model\MenuItem
 ```
 
 Get Menu Item Information
@@ -106,7 +106,7 @@ $apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 424571; // int | The menu item id.
 
 try {
     $result = $apiInstance->getMenuItemInformation($id);
@@ -120,11 +120,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The menu item id. | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetMenuItemInformation200Response**](../Model/GetMenuItemInformation200Response.md)
+[**\OpenAPI\Client\Model\MenuItem**](../Model/MenuItem.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ $apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 424571; // float | The menu item id.
+$id = 424571; // int | The menu item id.
 
 try {
     $result = $apiInstance->menuItemNutritionByIDImage($id);
@@ -182,7 +182,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The menu item id. | |
+| **id** | **int**| The menu item id. | |
 
 ### Return type
 
@@ -230,7 +230,7 @@ $apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 342313; // float | The menu item id.
+$id = 342313; // int | The menu item id.
 $show_optional_nutrients = false; // bool | Whether to show optional nutrients.
 $show_zero_values = false; // bool | Whether to show zero values.
 $show_ingredients = false; // bool | Whether to show a list of ingredients.
@@ -247,7 +247,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The menu item id. | |
+| **id** | **int**| The menu item id. | |
 | **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
 | **show_ingredients** | **bool**| Whether to show a list of ingredients. | [optional] |
@@ -298,7 +298,7 @@ $apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 342313; // float | The menu item id.
+$id = 342313; // int | The menu item id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 $show_optional_nutrients = false; // bool | Whether to show optional nutrients.
 $show_zero_values = false; // bool | Whether to show zero values.
@@ -316,7 +316,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **float**| The menu item id. | |
+| **id** | **int**| The menu item id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **show_optional_nutrients** | **bool**| Whether to show optional nutrients. | [optional] |
 | **show_zero_values** | **bool**| Whether to show zero values. | [optional] |
@@ -393,7 +393,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **string**| The (natural language) search query. | [optional] |
+| **query** | **string**| The (natural language) search query. | |
 | **min_calories** | **float**| The minimum amount of calories the menu item must have. | [optional] |
 | **max_calories** | **float**| The maximum amount of calories the menu item can have. | [optional] |
 | **min_carbs** | **float**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] |
@@ -452,7 +452,7 @@ $apiInstance = new OpenAPI\Client\Api\MenuItemsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 1; // int | The item's id.
+$id = 1003464; // int | The menu item id.
 $default_css = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -467,7 +467,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The menu item id. | |
 | **default_css** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type

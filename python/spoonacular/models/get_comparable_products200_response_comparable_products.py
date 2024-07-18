@@ -18,10 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
-from spoonacular.models.get_comparable_products200_response_comparable_products_protein_inner import GetComparableProducts200ResponseComparableProductsProteinInner
+from spoonacular.models.comparable_product import ComparableProduct
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,13 +28,13 @@ class GetComparableProducts200ResponseComparableProducts(BaseModel):
     """
     GetComparableProducts200ResponseComparableProducts
     """ # noqa: E501
-    calories: List[Dict[str, Any]]
-    likes: List[Dict[str, Any]]
-    price: List[Dict[str, Any]]
-    protein: Annotated[List[GetComparableProducts200ResponseComparableProductsProteinInner], Field(min_length=0)]
-    spoonacular_score: Annotated[List[GetComparableProducts200ResponseComparableProductsProteinInner], Field(min_length=0)] = Field(alias="spoonacularScore")
-    sugar: List[Dict[str, Any]]
-    __properties: ClassVar[List[str]] = ["calories", "likes", "price", "protein", "spoonacularScore", "sugar"]
+    calories: List[ComparableProduct]
+    likes: List[ComparableProduct]
+    price: List[ComparableProduct]
+    protein: List[ComparableProduct]
+    spoonacular_score: List[ComparableProduct]
+    sugar: List[ComparableProduct]
+    __properties: ClassVar[List[str]] = ["calories", "likes", "price", "protein", "spoonacular_score", "sugar"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +75,27 @@ class GetComparableProducts200ResponseComparableProducts(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in calories (list)
+        _items = []
+        if self.calories:
+            for _item in self.calories:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['calories'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in likes (list)
+        _items = []
+        if self.likes:
+            for _item in self.likes:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['likes'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in price (list)
+        _items = []
+        if self.price:
+            for _item in self.price:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['price'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in protein (list)
         _items = []
         if self.protein:
@@ -89,7 +109,14 @@ class GetComparableProducts200ResponseComparableProducts(BaseModel):
             for _item in self.spoonacular_score:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['spoonacularScore'] = _items
+            _dict['spoonacular_score'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in sugar (list)
+        _items = []
+        if self.sugar:
+            for _item in self.sugar:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['sugar'] = _items
         return _dict
 
     @classmethod
@@ -102,12 +129,12 @@ class GetComparableProducts200ResponseComparableProducts(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "calories": obj.get("calories"),
-            "likes": obj.get("likes"),
-            "price": obj.get("price"),
-            "protein": [GetComparableProducts200ResponseComparableProductsProteinInner.from_dict(_item) for _item in obj["protein"]] if obj.get("protein") is not None else None,
-            "spoonacularScore": [GetComparableProducts200ResponseComparableProductsProteinInner.from_dict(_item) for _item in obj["spoonacularScore"]] if obj.get("spoonacularScore") is not None else None,
-            "sugar": obj.get("sugar")
+            "calories": [ComparableProduct.from_dict(_item) for _item in obj["calories"]] if obj.get("calories") is not None else None,
+            "likes": [ComparableProduct.from_dict(_item) for _item in obj["likes"]] if obj.get("likes") is not None else None,
+            "price": [ComparableProduct.from_dict(_item) for _item in obj["price"]] if obj.get("price") is not None else None,
+            "protein": [ComparableProduct.from_dict(_item) for _item in obj["protein"]] if obj.get("protein") is not None else None,
+            "spoonacular_score": [ComparableProduct.from_dict(_item) for _item in obj["spoonacular_score"]] if obj.get("spoonacular_score") is not None else None,
+            "sugar": [ComparableProduct.from_dict(_item) for _item in obj["sugar"]] if obj.get("sugar") is not None else None
         })
         return _obj
 

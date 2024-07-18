@@ -16,7 +16,6 @@ import ApiClient from "../ApiClient";
 import DetectFoodInText200Response from '../model/DetectFoodInText200Response';
 import GetARandomFoodJoke200Response from '../model/GetARandomFoodJoke200Response';
 import GetConversationSuggests200Response from '../model/GetConversationSuggests200Response';
-import GetRandomFoodTrivia200Response from '../model/GetRandomFoodTrivia200Response';
 import ImageAnalysisByURL200Response from '../model/ImageAnalysisByURL200Response';
 import ImageClassificationByURL200Response from '../model/ImageClassificationByURL200Response';
 import SearchAllFood200Response from '../model/SearchAllFood200Response';
@@ -175,7 +174,7 @@ export default class MiscApi {
      * Callback function to receive the result of the getRandomFoodTrivia operation.
      * @callback module:api/MiscApi~getRandomFoodTriviaCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetRandomFoodTrivia200Response} data The data returned by the service call.
+     * @param {module:model/GetARandomFoodJoke200Response} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -183,7 +182,7 @@ export default class MiscApi {
      * Random Food Trivia
      * Returns random food trivia.
      * @param {module:api/MiscApi~getRandomFoodTriviaCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetRandomFoodTrivia200Response}
+     * data is of type: {@link module:model/GetARandomFoodJoke200Response}
      */
     getRandomFoodTrivia(callback) {
       let postBody = null;
@@ -200,7 +199,7 @@ export default class MiscApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetRandomFoodTrivia200Response;
+      let returnType = GetARandomFoodJoke200Response;
       return this.apiClient.callApi(
         '/food/trivia/random', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -354,18 +353,22 @@ export default class MiscApi {
     /**
      * Search Custom Foods
      * Search custom foods in a user's account.
+     * @param {String} query The (natural language) search query.
      * @param {String} username The username.
      * @param {String} hash The private hash for the username.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {Number} [offset] The number of results to skip (between 0 and 900).
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param {module:api/MiscApi~searchCustomFoodsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchCustomFoods200Response}
      */
-    searchCustomFoods(username, hash, opts, callback) {
+    searchCustomFoods(query, username, hash, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling searchCustomFoods");
+      }
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling searchCustomFoods");
@@ -378,7 +381,7 @@ export default class MiscApi {
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'username': username,
         'hash': hash,
         'offset': opts['offset'],
@@ -411,8 +414,8 @@ export default class MiscApi {
     /**
      * Search Food Videos
      * Find recipe and other food related videos.
+     * @param {String} query The (natural language) search query.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {String} [type] The type of the recipes. See a full list of supported meal types.
      * @param {String} [cuisine] The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
      * @param {String} [diet] The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -425,14 +428,18 @@ export default class MiscApi {
      * @param {module:api/MiscApi~searchFoodVideosCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchFoodVideos200Response}
      */
-    searchFoodVideos(opts, callback) {
+    searchFoodVideos(query, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling searchFoodVideos");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'type': opts['type'],
         'cuisine': opts['cuisine'],
         'diet': opts['diet'],

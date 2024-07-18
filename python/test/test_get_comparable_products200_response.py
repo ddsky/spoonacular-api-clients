@@ -38,60 +38,60 @@ class TestGetComparableProducts200Response(unittest.TestCase):
             return GetComparableProducts200Response(
                 comparable_products = spoonacular.models.get_comparable_products_200_response_comparable_products.getComparableProducts_200_response_comparableProducts(
                     calories = [
-                        None
+                        spoonacular.models.comparable_product.ComparableProduct(
+                            difference = 1.337, 
+                            id = 56, 
+                            image = '0', 
+                            title = '0', )
                         ], 
                     likes = [
-                        None
+                        spoonacular.models.comparable_product.ComparableProduct(
+                            difference = 1.337, 
+                            id = 56, 
+                            image = '0', 
+                            title = '0', )
                         ], 
                     price = [
-                        None
+                        
                         ], 
                     protein = [
-                        spoonacular.models.get_comparable_products_200_response_comparable_products_protein_inner.getComparableProducts_200_response_comparableProducts_protein_inner(
-                            difference = 1.337, 
-                            id = 56, 
-                            image = '0', 
-                            title = '0', )
+                        
                         ], 
                     spoonacular_score = [
-                        spoonacular.models.get_comparable_products_200_response_comparable_products_protein_inner.getComparableProducts_200_response_comparableProducts_protein_inner(
-                            difference = 1.337, 
-                            id = 56, 
-                            image = '0', 
-                            title = '0', )
+                        
                         ], 
                     sugar = [
-                        None
+                        
                         ], )
             )
         else:
             return GetComparableProducts200Response(
                 comparable_products = spoonacular.models.get_comparable_products_200_response_comparable_products.getComparableProducts_200_response_comparableProducts(
                     calories = [
-                        None
+                        spoonacular.models.comparable_product.ComparableProduct(
+                            difference = 1.337, 
+                            id = 56, 
+                            image = '0', 
+                            title = '0', )
                         ], 
                     likes = [
-                        None
+                        spoonacular.models.comparable_product.ComparableProduct(
+                            difference = 1.337, 
+                            id = 56, 
+                            image = '0', 
+                            title = '0', )
                         ], 
                     price = [
-                        None
+                        
                         ], 
                     protein = [
-                        spoonacular.models.get_comparable_products_200_response_comparable_products_protein_inner.getComparableProducts_200_response_comparableProducts_protein_inner(
-                            difference = 1.337, 
-                            id = 56, 
-                            image = '0', 
-                            title = '0', )
+                        
                         ], 
                     spoonacular_score = [
-                        spoonacular.models.get_comparable_products_200_response_comparable_products_protein_inner.getComparableProducts_200_response_comparableProducts_protein_inner(
-                            difference = 1.337, 
-                            id = 56, 
-                            image = '0', 
-                            title = '0', )
+                        
                         ], 
                     sugar = [
-                        None
+                        
                         ], ),
         )
         """

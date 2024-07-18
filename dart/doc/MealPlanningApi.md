@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addToShoppingList**
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
+> GetShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
-final id = 15678; // num | The shopping list item id.
+final id = 15678; // int | The shopping list item id.
 final hash = hash_example; // String | The private hash for the username.
 
 try {
@@ -307,7 +307,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **id** | **num**| The shopping list item id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
 
 ### Return type
@@ -342,7 +342,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
-final id = 1; // int | The item's id.
+final id = 15678; // int | The shopping list item id.
 final hash = hash_example; // String | The private hash for the username.
 
 try {
@@ -358,7 +358,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **id** | **int**| The item's id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
 
 ### Return type
@@ -393,7 +393,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
-final id = 1; // int | The item's id.
+final id = 15678; // int | The shopping list item id.
 final hash = 4b5v4398573406; // String | The private hash for the username.
 
 try {
@@ -409,7 +409,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **id** | **int**| The item's id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
 
 ### Return type
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generateShoppingList**
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
+> GetShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -520,7 +520,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -550,7 +550,7 @@ import 'package:openapi/api.dart';
 
 final api_instance = MealPlanningApi();
 final username = dsky; // String | The username.
-final id = 1; // int | The item's id.
+final id = 15678; // int | The shopping list item id.
 final hash = hash_example; // String | The private hash for the username.
 
 try {
@@ -566,7 +566,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **String**| The username. | 
- **id** | **int**| The item's id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **String**| The private hash for the username. | 
 
 ### Return type

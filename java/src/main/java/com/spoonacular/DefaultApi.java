@@ -262,7 +262,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
      */
-    public okhttp3.Call createRecipeCardGetCall(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRecipeCardGetCall(Integer id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -324,7 +324,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRecipeCardGetValidateBeforeCall(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createRecipeCardGetValidateBeforeCall(Integer id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createRecipeCardGet(Async)");
@@ -355,7 +355,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
      */
-    public Object createRecipeCardGet(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws ApiException {
+    public Object createRecipeCardGet(Integer id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws ApiException {
         ApiResponse<Object> localVarResp = createRecipeCardGetWithHttpInfo(id, mask, backgroundImage, backgroundColor, fontColor);
         return localVarResp.getData();
     }
@@ -381,7 +381,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
      */
-    public ApiResponse<Object> createRecipeCardGetWithHttpInfo(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws ApiException {
+    public ApiResponse<Object> createRecipeCardGetWithHttpInfo(Integer id, String mask, String backgroundImage, String backgroundColor, String fontColor) throws ApiException {
         okhttp3.Call localVarCall = createRecipeCardGetValidateBeforeCall(id, mask, backgroundImage, backgroundColor, fontColor, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -409,7 +409,7 @@ public class DefaultApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Create-Recipe-Card">Create Recipe Card Documentation</a>
      */
-    public okhttp3.Call createRecipeCardGetAsync(BigDecimal id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call createRecipeCardGetAsync(Integer id, String mask, String backgroundImage, String backgroundColor, String fontColor, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createRecipeCardGetValidateBeforeCall(id, mask, backgroundImage, backgroundColor, fontColor, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();

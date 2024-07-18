@@ -259,10 +259,10 @@ sub add_to_meal_plan {
     __PACKAGE__->method_documentation->{ 'add_to_shopping_list' } = {
         summary => 'Add to Shopping List',
         params => $params,
-        returns => 'GenerateShoppingList200Response',
+        returns => 'GetShoppingList200Response',
         };
 }
-# @return GenerateShoppingList200Response
+# @return GetShoppingList200Response
 #
 sub add_to_shopping_list {
     my ($self, %args) = @_;
@@ -325,7 +325,7 @@ sub add_to_shopping_list {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GenerateShoppingList200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('GetShoppingList200Response', $response);
     return $_response_object;
 }
 
@@ -501,7 +501,7 @@ sub connect_user {
 # Delete from Meal Plan
 #
 # @param string $username The username. (required)
-# @param double $id The shopping list item id. (required)
+# @param int $id The shopping list item id. (required)
 # @param string $hash The private hash for the username. (required)
 {
     my $params = {
@@ -511,7 +511,7 @@ sub connect_user {
         required => '1',
     },
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The shopping list item id.',
         required => '1',
     },
@@ -602,7 +602,7 @@ sub delete_from_meal_plan {
 # Delete from Shopping List
 #
 # @param string $username The username. (required)
-# @param int $id The item&#39;s id. (required)
+# @param int $id The shopping list item id. (required)
 # @param string $hash The private hash for the username. (required)
 {
     my $params = {
@@ -613,7 +613,7 @@ sub delete_from_meal_plan {
     },
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The shopping list item id.',
         required => '1',
     },
     'hash' => {
@@ -703,7 +703,7 @@ sub delete_from_shopping_list {
 # Delete Meal Plan Template
 #
 # @param string $username The username. (required)
-# @param int $id The item&#39;s id. (required)
+# @param int $id The shopping list item id. (required)
 # @param string $hash The private hash for the username. (required)
 {
     my $params = {
@@ -714,7 +714,7 @@ sub delete_from_shopping_list {
     },
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The shopping list item id.',
         required => '1',
     },
     'hash' => {
@@ -926,10 +926,10 @@ sub generate_meal_plan {
     __PACKAGE__->method_documentation->{ 'generate_shopping_list' } = {
         summary => 'Generate Shopping List',
         params => $params,
-        returns => 'GenerateShoppingList200Response',
+        returns => 'GetShoppingList200Response',
         };
 }
-# @return GenerateShoppingList200Response
+# @return GetShoppingList200Response
 #
 sub generate_shopping_list {
     my ($self, %args) = @_;
@@ -1006,7 +1006,7 @@ sub generate_shopping_list {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GenerateShoppingList200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('GetShoppingList200Response', $response);
     return $_response_object;
 }
 
@@ -1016,7 +1016,7 @@ sub generate_shopping_list {
 # Get Meal Plan Template
 #
 # @param string $username The username. (required)
-# @param int $id The item&#39;s id. (required)
+# @param int $id The shopping list item id. (required)
 # @param string $hash The private hash for the username. (required)
 {
     my $params = {
@@ -1027,7 +1027,7 @@ sub generate_shopping_list {
     },
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The shopping list item id.',
         required => '1',
     },
     'hash' => {

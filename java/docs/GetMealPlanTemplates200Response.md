@@ -8,7 +8,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**templates** | [**Set&lt;GetAnalyzedRecipeInstructions200ResponseIngredientsInner&gt;**](GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md) |  |  |
+|**templates** | [**Set&lt;GetMealPlanTemplates200ResponseTemplatesInner&gt;**](GetMealPlanTemplates200ResponseTemplatesInner.md) |  |  |
 
 
 

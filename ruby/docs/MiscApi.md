@@ -233,7 +233,7 @@ end
 
 ## get_random_food_trivia
 
-> <GetRandomFoodTrivia200Response> get_random_food_trivia
+> <GetARandomFoodJoke200Response> get_random_food_trivia
 
 Random Food Trivia
 
@@ -267,7 +267,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetRandomFoodTrivia200Response>, Integer, Hash)> get_random_food_trivia_with_http_info
+> <Array(<GetARandomFoodJoke200Response>, Integer, Hash)> get_random_food_trivia_with_http_info
 
 ```ruby
 begin
@@ -275,7 +275,7 @@ begin
   data, status_code, headers = api_instance.get_random_food_trivia_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetRandomFoodTrivia200Response>
+  p data # => <GetARandomFoodJoke200Response>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MiscApi->get_random_food_trivia_with_http_info: #{e}"
 end
@@ -287,7 +287,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**GetRandomFoodTrivia200Response**](GetRandomFoodTrivia200Response.md)
+[**GetARandomFoodJoke200Response**](GetARandomFoodJoke200Response.md)
 
 ### Authorization
 
@@ -520,7 +520,7 @@ end
 
 ## search_custom_foods
 
-> <SearchCustomFoods200Response> search_custom_foods(username, hash, opts)
+> <SearchCustomFoods200Response> search_custom_foods(query, username, hash, opts)
 
 Search Custom Foods
 
@@ -540,17 +540,17 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MiscApi.new
+query = 'burger' # String | The (natural language) search query.
 username = 'dsky' # String | The username.
 hash = '4b5v4398573406' # String | The private hash for the username.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   offset: 56, # Integer | The number of results to skip (between 0 and 900).
   number: 10 # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
 }
 
 begin
   # Search Custom Foods
-  result = api_instance.search_custom_foods(username, hash, opts)
+  result = api_instance.search_custom_foods(query, username, hash, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MiscApi->search_custom_foods: #{e}"
@@ -561,12 +561,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SearchCustomFoods200Response>, Integer, Hash)> search_custom_foods_with_http_info(username, hash, opts)
+> <Array(<SearchCustomFoods200Response>, Integer, Hash)> search_custom_foods_with_http_info(query, username, hash, opts)
 
 ```ruby
 begin
   # Search Custom Foods
-  data, status_code, headers = api_instance.search_custom_foods_with_http_info(username, hash, opts)
+  data, status_code, headers = api_instance.search_custom_foods_with_http_info(query, username, hash, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SearchCustomFoods200Response>
@@ -579,9 +579,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **query** | **String** | The (natural language) search query. |  |
 | **username** | **String** | The username. |  |
 | **hash** | **String** | The private hash for the username. |  |
-| **query** | **String** | The (natural language) search query. | [optional] |
 | **offset** | **Integer** | The number of results to skip (between 0 and 900). | [optional] |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
 
@@ -601,7 +601,7 @@ end
 
 ## search_food_videos
 
-> <SearchFoodVideos200Response> search_food_videos(opts)
+> <SearchFoodVideos200Response> search_food_videos(query, opts)
 
 Search Food Videos
 
@@ -621,8 +621,8 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::MiscApi.new
+query = 'burger' # String | The (natural language) search query.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   type: 'main course', # String | The type of the recipes. See a full list of supported meal types.
   cuisine: 'italian', # String | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
   diet: 'vegetarian', # String | The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -636,7 +636,7 @@ opts = {
 
 begin
   # Search Food Videos
-  result = api_instance.search_food_videos(opts)
+  result = api_instance.search_food_videos(query, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling MiscApi->search_food_videos: #{e}"
@@ -647,12 +647,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SearchFoodVideos200Response>, Integer, Hash)> search_food_videos_with_http_info(opts)
+> <Array(<SearchFoodVideos200Response>, Integer, Hash)> search_food_videos_with_http_info(query, opts)
 
 ```ruby
 begin
   # Search Food Videos
-  data, status_code, headers = api_instance.search_food_videos_with_http_info(opts)
+  data, status_code, headers = api_instance.search_food_videos_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SearchFoodVideos200Response>
@@ -665,7 +665,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query** | **String** | The (natural language) search query. | [optional] |
+| **query** | **String** | The (natural language) search query. |  |
 | **type** | **String** | The type of the recipes. See a full list of supported meal types. | [optional] |
 | **cuisine** | **String** | The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines. | [optional] |
 | **diet** | **String** | The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |

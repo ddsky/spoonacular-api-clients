@@ -63,9 +63,9 @@ namespace spoonacular.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
-            //decimal? number = null;
+            //int? number = null;
             //var response = instance.AutocompleteMenuItemSearch(query, number);
-            //Assert.IsType<AutocompleteMenuItemSearch200Response>(response);
+            //Assert.IsType<AutocompleteProductSearch200Response>(response);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //var response = instance.GetMenuItemInformation(id);
-            //Assert.IsType<GetMenuItemInformation200Response>(response);
+            //Assert.IsType<MenuItem>(response);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace spoonacular.Test.Api
         public void MenuItemNutritionByIDImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //var response = instance.MenuItemNutritionByIDImage(id);
             //Assert.IsType<System.IO.Stream>(response);
         }
@@ -99,7 +99,7 @@ namespace spoonacular.Test.Api
         public void MenuItemNutritionLabelImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //bool? showOptionalNutrients = null;
             //bool? showZeroValues = null;
             //bool? showIngredients = null;
@@ -114,7 +114,7 @@ namespace spoonacular.Test.Api
         public void MenuItemNutritionLabelWidgetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //bool? defaultCss = null;
             //bool? showOptionalNutrients = null;
             //bool? showZeroValues = null;
@@ -130,7 +130,7 @@ namespace spoonacular.Test.Api
         public void SearchMenuItemsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
+            //string query = null;
             //decimal? minCalories = null;
             //decimal? maxCalories = null;
             //decimal? minCarbs = null;

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SearchGroceryProductsByUPC200ResponseIngredientsInner from './SearchGroceryProductsByUPC200ResponseIngredientsInner';
+import IngredientBasics from './IngredientBasics';
 import SearchGroceryProductsByUPC200ResponseNutrition from './SearchGroceryProductsByUPC200ResponseNutrition';
 import SearchGroceryProductsByUPC200ResponseServings from './SearchGroceryProductsByUPC200ResponseServings';
 
@@ -34,7 +34,7 @@ class SearchGroceryProductsByUPC200Response {
      * @param generatedText {String} 
      * @param imageType {String} 
      * @param ingredientList {String} 
-     * @param ingredients {Array.<module:model/SearchGroceryProductsByUPC200ResponseIngredientsInner>} 
+     * @param ingredients {Array.<module:model/IngredientBasics>} 
      * @param likes {Number} 
      * @param nutrition {module:model/SearchGroceryProductsByUPC200ResponseNutrition} 
      * @param price {Number} 
@@ -107,7 +107,7 @@ class SearchGroceryProductsByUPC200Response {
                 obj['ingredientList'] = ApiClient.convertToType(data['ingredientList'], 'String');
             }
             if (data.hasOwnProperty('ingredients')) {
-                obj['ingredients'] = ApiClient.convertToType(data['ingredients'], [SearchGroceryProductsByUPC200ResponseIngredientsInner]);
+                obj['ingredients'] = ApiClient.convertToType(data['ingredients'], [IngredientBasics]);
             }
             if (data.hasOwnProperty('likes')) {
                 obj['likes'] = ApiClient.convertToType(data['likes'], 'Number');
@@ -175,7 +175,7 @@ class SearchGroceryProductsByUPC200Response {
             }
             // validate the optional field `ingredients` (array)
             for (const item of data['ingredients']) {
-                SearchGroceryProductsByUPC200ResponseIngredientsInner.validateJSON(item);
+                IngredientBasics.validateJSON(item);
             };
         }
         // validate the optional field `nutrition`
@@ -241,7 +241,7 @@ SearchGroceryProductsByUPC200Response.prototype['ingredientCount'] = undefined;
 SearchGroceryProductsByUPC200Response.prototype['ingredientList'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchGroceryProductsByUPC200ResponseIngredientsInner>} ingredients
+ * @member {Array.<module:model/IngredientBasics>} ingredients
  */
 SearchGroceryProductsByUPC200Response.prototype['ingredients'] = undefined;
 

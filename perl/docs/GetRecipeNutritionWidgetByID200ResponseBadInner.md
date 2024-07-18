@@ -8,7 +8,7 @@ use WWW::OpenAPIClient::Object::GetRecipeNutritionWidgetByID200ResponseBadInner;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | 
+**title** | **string** |  | 
 **amount** | **string** |  | 
 **indented** | **boolean** |  | 
 **percent_of_daily_needs** | **double** |  | 

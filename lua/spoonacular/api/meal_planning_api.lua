@@ -23,7 +23,6 @@ local spoonacular_add_to_shopping_list_request = require "spoonacular.model.add_
 local spoonacular_connect_user_200_response = require "spoonacular.model.connect_user_200_response"
 local spoonacular_connect_user_request = require "spoonacular.model.connect_user_request"
 local spoonacular_generate_meal_plan_200_response = require "spoonacular.model.generate_meal_plan_200_response"
-local spoonacular_generate_shopping_list_200_response = require "spoonacular.model.generate_shopping_list_200_response"
 local spoonacular_get_meal_plan_template_200_response = require "spoonacular.model.get_meal_plan_template_200_response"
 local spoonacular_get_meal_plan_templates_200_response = require "spoonacular.model.get_meal_plan_templates_200_response"
 local spoonacular_get_meal_plan_week_200_response = require "spoonacular.model.get_meal_plan_week_200_response"
@@ -205,7 +204,7 @@ function meal_planning_api:add_to_shopping_list(username, hash, add_to_shopping_
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_generate_shopping_list_200_response.cast(result), headers
+		return spoonacular_get_shopping_list_200_response.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -561,7 +560,7 @@ function meal_planning_api:generate_shopping_list(username, start_date, end_date
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_generate_shopping_list_200_response.cast(result), headers
+		return spoonacular_get_shopping_list_200_response.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

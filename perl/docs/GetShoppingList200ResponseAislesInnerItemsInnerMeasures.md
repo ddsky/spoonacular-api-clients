@@ -8,9 +8,9 @@ use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerM
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**original** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
-**metric** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
-**us** | [**ParseIngredients200ResponseInnerNutritionWeightPerServing**](ParseIngredients200ResponseInnerNutritionWeightPerServing.md) |  | 
+**original** | [**GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.md) |  | 
+**metric** | [**GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.md) |  | 
+**us** | [**GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal**](GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

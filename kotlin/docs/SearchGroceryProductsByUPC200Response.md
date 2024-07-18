@@ -12,7 +12,7 @@
 | **generatedText** | **kotlin.String** |  |  |
 | **imageType** | **kotlin.String** |  |  |
 | **ingredientList** | **kotlin.String** |  |  |
-| **ingredients** | [**kotlin.collections.Set&lt;SearchGroceryProductsByUPC200ResponseIngredientsInner&gt;**](SearchGroceryProductsByUPC200ResponseIngredientsInner.md) |  |  |
+| **ingredients** | [**kotlin.collections.List&lt;IngredientBasics&gt;**](IngredientBasics.md) |  |  |
 | **likes** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
 | **nutrition** | [**SearchGroceryProductsByUPC200ResponseNutrition**](SearchGroceryProductsByUPC200ResponseNutrition.md) |  |  |
 | **price** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |

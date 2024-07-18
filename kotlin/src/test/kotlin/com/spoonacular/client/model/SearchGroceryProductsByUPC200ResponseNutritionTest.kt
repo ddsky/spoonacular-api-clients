@@ -19,8 +19,8 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutrition
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-import com.spoonacular.client.model.ParseIngredients200ResponseInnerNutritionNutrientsInner
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+import com.spoonacular.client.model.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
 
 class SearchGroceryProductsByUPC200ResponseNutritionTest : ShouldSpec() {
     init {

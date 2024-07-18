@@ -16,7 +16,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     required this.amount,
     required this.indented,
     required this.percentOfDailyNeeds,
-    required this.name,
+    required this.title,
   });
 
   String amount;
@@ -25,14 +25,14 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
 
   num percentOfDailyNeeds;
 
-  String name;
+  String title;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetRecipeNutritionWidgetByID200ResponseGoodInner &&
     other.amount == amount &&
     other.indented == indented &&
     other.percentOfDailyNeeds == percentOfDailyNeeds &&
-    other.name == name;
+    other.title == title;
 
   @override
   int get hashCode =>
@@ -40,17 +40,17 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     (amount.hashCode) +
     (indented.hashCode) +
     (percentOfDailyNeeds.hashCode) +
-    (name.hashCode);
+    (title.hashCode);
 
   @override
-  String toString() => 'GetRecipeNutritionWidgetByID200ResponseGoodInner[amount=$amount, indented=$indented, percentOfDailyNeeds=$percentOfDailyNeeds, name=$name]';
+  String toString() => 'GetRecipeNutritionWidgetByID200ResponseGoodInner[amount=$amount, indented=$indented, percentOfDailyNeeds=$percentOfDailyNeeds, title=$title]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'amount'] = this.amount;
       json[r'indented'] = this.indented;
       json[r'percentOfDailyNeeds'] = this.percentOfDailyNeeds;
-      json[r'name'] = this.name;
+      json[r'title'] = this.title;
     return json;
   }
 
@@ -76,7 +76,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
         amount: mapValueOfType<String>(json, r'amount')!,
         indented: mapValueOfType<bool>(json, r'indented')!,
         percentOfDailyNeeds: num.parse('${json[r'percentOfDailyNeeds']}'),
-        name: mapValueOfType<String>(json, r'name')!,
+        title: mapValueOfType<String>(json, r'title')!,
       );
     }
     return null;
@@ -127,7 +127,7 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInner {
     'amount',
     'indented',
     'percentOfDailyNeeds',
-    'name',
+    'title',
   };
 }
 

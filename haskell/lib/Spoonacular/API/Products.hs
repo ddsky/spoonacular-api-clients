@@ -187,8 +187,8 @@ instance Produces GetComparableProducts MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getProductInformation
-  :: Id -- ^ "id" -  The item's id.
-  -> SpoonacularRequest GetProductInformation MimeNoContent GetProductInformation200Response MimeJSON
+  :: Id -- ^ "id" -  The id of the packaged food.
+  -> SpoonacularRequest GetProductInformation MimeNoContent ProductInformation MimeJSON
 getProductInformation (Id id) =
   _mkRequest "GET" ["/food/products/",toPath id]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -209,9 +209,9 @@ instance Produces GetProductInformation MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 productNutritionByIDImage
-  :: IdDouble -- ^ "id" -  The id of the product.
+  :: Id -- ^ "id" -  The id of the product.
   -> SpoonacularRequest ProductNutritionByIDImage MimeNoContent FilePath MimeImagePng
-productNutritionByIDImage (IdDouble id) =
+productNutritionByIDImage (Id id) =
   _mkRequest "GET" ["/food/products/",toPath id,"/nutritionWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -231,9 +231,9 @@ instance Produces ProductNutritionByIDImage MimeImagePng
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 productNutritionLabelImage
-  :: IdDouble -- ^ "id" -  The product id.
+  :: Id -- ^ "id" -  The product id.
   -> SpoonacularRequest ProductNutritionLabelImage MimeNoContent FilePath MimeImagePng
-productNutritionLabelImage (IdDouble id) =
+productNutritionLabelImage (Id id) =
   _mkRequest "GET" ["/food/products/",toPath id,"/nutritionLabel.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -268,9 +268,9 @@ instance Produces ProductNutritionLabelImage MimeImagePng
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 productNutritionLabelWidget
-  :: IdDouble -- ^ "id" -  The product id.
+  :: Id -- ^ "id" -  The product id.
   -> SpoonacularRequest ProductNutritionLabelWidget MimeNoContent Text MimeTextHtml
-productNutritionLabelWidget (IdDouble id) =
+productNutritionLabelWidget (Id id) =
   _mkRequest "GET" ["/food/products/",toPath id,"/nutritionLabel"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -310,17 +310,14 @@ instance Produces ProductNutritionLabelWidget MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 searchGroceryProducts
-  :: SpoonacularRequest SearchGroceryProducts MimeNoContent SearchGroceryProducts200Response MimeJSON
-searchGroceryProducts =
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> SpoonacularRequest SearchGroceryProducts MimeNoContent SearchGroceryProducts200Response MimeJSON
+searchGroceryProducts (Query query) =
   _mkRequest "GET" ["/food/products/search"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
 
 data SearchGroceryProducts  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam SearchGroceryProducts Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "minCalories" - The minimum amount of calories the product must have.
 instance HasOptionalParam SearchGroceryProducts MinCalories where
@@ -413,7 +410,7 @@ instance Produces SearchGroceryProductsByUPC MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeProductNutritionByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The id of the product.
   -> SpoonacularRequest VisualizeProductNutritionByID MimeNoContent Text MimeTextHtml
 visualizeProductNutritionByID (Id id) =
   _mkRequest "GET" ["/food/products/",toPath id,"/nutritionWidget"]

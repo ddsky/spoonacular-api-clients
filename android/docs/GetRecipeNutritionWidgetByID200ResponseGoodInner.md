@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **amount** | **String** |  | 
 **indented** | **Boolean** |  | 
 **percentOfDailyNeeds** | [**BigDecimal**](BigDecimal.md) |  | 
-**name** | **String** |  | 
+**title** | **String** |  | 
 
 
 

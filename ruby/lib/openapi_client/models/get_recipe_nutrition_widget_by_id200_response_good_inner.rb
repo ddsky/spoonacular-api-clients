@@ -21,7 +21,7 @@ module OpenapiClient
 
     attr_accessor :percent_of_daily_needs
 
-    attr_accessor :name
+    attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -29,7 +29,7 @@ module OpenapiClient
         :'amount' => :'amount',
         :'indented' => :'indented',
         :'percent_of_daily_needs' => :'percentOfDailyNeeds',
-        :'name' => :'name'
+        :'title' => :'title'
       }
     end
 
@@ -44,7 +44,7 @@ module OpenapiClient
         :'amount' => :'String',
         :'indented' => :'Boolean',
         :'percent_of_daily_needs' => :'Float',
-        :'name' => :'String'
+        :'title' => :'String'
       }
     end
 
@@ -87,10 +87,10 @@ module OpenapiClient
         self.percent_of_daily_needs = nil
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       else
-        self.name = nil
+        self.title = nil
       end
     end
 
@@ -115,12 +115,12 @@ module OpenapiClient
         invalid_properties.push('invalid value for "percent_of_daily_needs", percent_of_daily_needs cannot be nil.')
       end
 
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @title.nil?
+        invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
-      if @name.to_s.length < 1
-        invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
+      if @title.to_s.length < 1
+        invalid_properties.push('invalid value for "title", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -134,8 +134,8 @@ module OpenapiClient
       return false if @amount.to_s.length < 1
       return false if @indented.nil?
       return false if @percent_of_daily_needs.nil?
-      return false if @name.nil?
-      return false if @name.to_s.length < 1
+      return false if @title.nil?
+      return false if @title.to_s.length < 1
       true
     end
 
@@ -154,17 +154,17 @@ module OpenapiClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] name Value to be assigned
-    def name=(name)
-      if name.nil?
-        fail ArgumentError, 'name cannot be nil'
+    # @param [Object] title Value to be assigned
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'title cannot be nil'
       end
 
-      if name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
+      if title.to_s.length < 1
+        fail ArgumentError, 'invalid value for "title", the character length must be great than or equal to 1.'
       end
 
-      @name = name
+      @title = title
     end
 
     # Checks equality by comparing each attribute.
@@ -175,7 +175,7 @@ module OpenapiClient
           amount == o.amount &&
           indented == o.indented &&
           percent_of_daily_needs == o.percent_of_daily_needs &&
-          name == o.name
+          title == o.title
     end
 
     # @see the `==` method
@@ -187,7 +187,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amount, indented, percent_of_daily_needs, name].hash
+      [amount, indented, percent_of_daily_needs, title].hash
     end
 
     # Builds the object from hash

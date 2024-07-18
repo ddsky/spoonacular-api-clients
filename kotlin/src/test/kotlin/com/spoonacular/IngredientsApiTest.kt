@@ -21,8 +21,8 @@ import io.kotlintest.specs.ShouldSpec
 import com.spoonacular.IngredientsApi
 import com.spoonacular.client.model.AutocompleteIngredientSearch200ResponseInner
 import com.spoonacular.client.model.ComputeIngredientAmount200Response
-import com.spoonacular.client.model.GetIngredientInformation200Response
 import com.spoonacular.client.model.GetIngredientSubstitutes200Response
+import com.spoonacular.client.model.IngredientInformation
 import com.spoonacular.client.model.IngredientSearch200Response
 import com.spoonacular.client.model.MapIngredientsToGroceryProducts200ResponseInner
 import com.spoonacular.client.model.MapIngredientsToGroceryProductsRequest
@@ -47,9 +47,9 @@ class IngredientsApiTest : ShouldSpec() {
         // to test computeIngredientAmount
         should("test computeIngredientAmount") {
             // uncomment below to test computeIngredientAmount
-            //val id : java.math.BigDecimal = 9266 // java.math.BigDecimal | The id of the ingredient you want the amount for.
+            //val id : kotlin.Int = 9266 // kotlin.Int | The id of the ingredient you want the amount for.
             //val nutrient : kotlin.String = protein // kotlin.String | The target nutrient. See a list of supported nutrients.
-            //val target : java.math.BigDecimal = 2 // java.math.BigDecimal | The target number of the given nutrient.
+            //val target : kotlin.Int = 2 // kotlin.Int | The target number of the given nutrient.
             //val unit : kotlin.String = oz // kotlin.String | The target unit.
             //val result : ComputeIngredientAmount200Response = apiInstance.computeIngredientAmount(id, nutrient, target, unit)
             //result shouldBe ("TODO")
@@ -58,10 +58,10 @@ class IngredientsApiTest : ShouldSpec() {
         // to test getIngredientInformation
         should("test getIngredientInformation") {
             // uncomment below to test getIngredientInformation
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 9266 // kotlin.Int | The ingredient id.
             //val amount : java.math.BigDecimal = 150 // java.math.BigDecimal | The amount of this ingredient.
             //val unit : kotlin.String = grams // kotlin.String | The unit for the given amount.
-            //val result : GetIngredientInformation200Response = apiInstance.getIngredientInformation(id, amount, unit)
+            //val result : IngredientInformation = apiInstance.getIngredientInformation(id, amount, unit)
             //result shouldBe ("TODO")
         }
 
@@ -76,7 +76,7 @@ class IngredientsApiTest : ShouldSpec() {
         // to test getIngredientSubstitutesByID
         should("test getIngredientSubstitutesByID") {
             // uncomment below to test getIngredientSubstitutesByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1001 // kotlin.Int | The id of the ingredient you want substitutes for.
             //val result : GetIngredientSubstitutes200Response = apiInstance.getIngredientSubstitutesByID(id)
             //result shouldBe ("TODO")
         }
@@ -106,7 +106,7 @@ class IngredientsApiTest : ShouldSpec() {
         // to test ingredientsByIDImage
         should("test ingredientsByIDImage") {
             // uncomment below to test ingredientsByIDImage
-            //val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
+            //val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
             //val measure : kotlin.String = metric // kotlin.String | Whether the the measures should be 'us' or 'metric'.
             //val result : java.io.File = apiInstance.ingredientsByIDImage(id, measure)
             //result shouldBe ("TODO")

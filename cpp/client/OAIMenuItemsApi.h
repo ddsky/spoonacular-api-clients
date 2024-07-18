@@ -18,9 +18,9 @@
 #include "OAIServerConfiguration.h"
 #include "OAIOauth.h"
 
-#include "OAIAutocompleteMenuItemSearch_200_response.h"
-#include "OAIGetMenuItemInformation_200_response.h"
+#include "OAIAutocompleteProductSearch_200_response.h"
 #include "OAIHttpFileElement.h"
+#include "OAIMenuItem.h"
 #include "OAISearchMenuItems_200_response.h"
 #include <QString>
 
@@ -62,9 +62,9 @@ public:
 
     /**
     * @param[in]  query QString [required]
-    * @param[in]  number double [optional]
+    * @param[in]  number qint32 [optional]
     */
-    void autocompleteMenuItemSearch(const QString &query, const ::OpenAPI::OptionalParam<double> &number = ::OpenAPI::OptionalParam<double>());
+    void autocompleteMenuItemSearch(const QString &query, const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
@@ -72,29 +72,29 @@ public:
     void getMenuItemInformation(const qint32 &id);
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     */
-    void menuItemNutritionByIDImage(const double &id);
+    void menuItemNutritionByIDImage(const qint32 &id);
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  show_optional_nutrients bool [optional]
     * @param[in]  show_zero_values bool [optional]
     * @param[in]  show_ingredients bool [optional]
     */
-    void menuItemNutritionLabelImage(const double &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
+    void menuItemNutritionLabelImage(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  default_css bool [optional]
     * @param[in]  show_optional_nutrients bool [optional]
     * @param[in]  show_zero_values bool [optional]
     * @param[in]  show_ingredients bool [optional]
     */
-    void menuItemNutritionLabelWidget(const double &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
+    void menuItemNutritionLabelWidget(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  query QString [optional]
+    * @param[in]  query QString [required]
     * @param[in]  min_calories double [optional]
     * @param[in]  max_calories double [optional]
     * @param[in]  min_carbs double [optional]
@@ -107,7 +107,7 @@ public:
     * @param[in]  offset qint32 [optional]
     * @param[in]  number qint32 [optional]
     */
-    void searchMenuItems(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &min_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &add_menu_item_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
+    void searchMenuItems(const QString &query, const ::OpenAPI::OptionalParam<double> &min_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &add_menu_item_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
     * @param[in]  id qint32 [required]
@@ -148,16 +148,16 @@ private:
 
 Q_SIGNALS:
 
-    void autocompleteMenuItemSearchSignal(OAIAutocompleteMenuItemSearch_200_response summary);
-    void getMenuItemInformationSignal(OAIGetMenuItemInformation_200_response summary);
+    void autocompleteMenuItemSearchSignal(OAIAutocompleteProductSearch_200_response summary);
+    void getMenuItemInformationSignal(OAIMenuItem summary);
     void menuItemNutritionByIDImageSignal(OAIHttpFileElement summary);
     void menuItemNutritionLabelImageSignal(OAIHttpFileElement summary);
     void menuItemNutritionLabelWidgetSignal(QString summary);
     void searchMenuItemsSignal(OAISearchMenuItems_200_response summary);
     void visualizeMenuItemNutritionByIDSignal(QString summary);
 
-    void autocompleteMenuItemSearchSignalFull(OAIHttpRequestWorker *worker, OAIAutocompleteMenuItemSearch_200_response summary);
-    void getMenuItemInformationSignalFull(OAIHttpRequestWorker *worker, OAIGetMenuItemInformation_200_response summary);
+    void autocompleteMenuItemSearchSignalFull(OAIHttpRequestWorker *worker, OAIAutocompleteProductSearch_200_response summary);
+    void getMenuItemInformationSignalFull(OAIHttpRequestWorker *worker, OAIMenuItem summary);
     void menuItemNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void menuItemNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void menuItemNutritionLabelWidgetSignalFull(OAIHttpRequestWorker *worker, QString summary);
@@ -165,11 +165,11 @@ Q_SIGNALS:
     void visualizeMenuItemNutritionByIDSignalFull(OAIHttpRequestWorker *worker, QString summary);
 
     Q_DECL_DEPRECATED_X("Use autocompleteMenuItemSearchSignalError() instead")
-    void autocompleteMenuItemSearchSignalE(OAIAutocompleteMenuItemSearch_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void autocompleteMenuItemSearchSignalError(OAIAutocompleteMenuItemSearch_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void autocompleteMenuItemSearchSignalE(OAIAutocompleteProductSearch_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void autocompleteMenuItemSearchSignalError(OAIAutocompleteProductSearch_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getMenuItemInformationSignalError() instead")
-    void getMenuItemInformationSignalE(OAIGetMenuItemInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getMenuItemInformationSignalError(OAIGetMenuItemInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getMenuItemInformationSignalE(OAIMenuItem summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getMenuItemInformationSignalError(OAIMenuItem summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use menuItemNutritionByIDImageSignalError() instead")
     void menuItemNutritionByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
     void menuItemNutritionByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);

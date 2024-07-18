@@ -19,7 +19,7 @@ import ClassifyGroceryProductBulk200ResponseInner from '../model/ClassifyGrocery
 import ClassifyGroceryProductBulkRequestInner from '../model/ClassifyGroceryProductBulkRequestInner';
 import ClassifyGroceryProductRequest from '../model/ClassifyGroceryProductRequest';
 import GetComparableProducts200Response from '../model/GetComparableProducts200Response';
-import GetProductInformation200Response from '../model/GetProductInformation200Response';
+import ProductInformation from '../model/ProductInformation';
 import SearchGroceryProducts200Response from '../model/SearchGroceryProducts200Response';
 import SearchGroceryProductsByUPC200Response from '../model/SearchGroceryProductsByUPC200Response';
 
@@ -192,7 +192,7 @@ export default class ProductsApi {
     /**
      * Get Comparable Products
      * Find comparable products to the given one.
-     * @param {Number} upc The UPC of the product for which you want to find comparable products.
+     * @param {String} upc The UPC of the product for which you want to find comparable products.
      * @param {module:api/ProductsApi~getComparableProductsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetComparableProducts200Response}
      */
@@ -228,16 +228,16 @@ export default class ProductsApi {
      * Callback function to receive the result of the getProductInformation operation.
      * @callback module:api/ProductsApi~getProductInformationCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetProductInformation200Response} data The data returned by the service call.
+     * @param {module:model/ProductInformation} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Product Information
      * Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
-     * @param {Number} id The item's id.
+     * @param {Number} id The id of the packaged food.
      * @param {module:api/ProductsApi~getProductInformationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetProductInformation200Response}
+     * data is of type: {@link module:model/ProductInformation}
      */
     getProductInformation(id, callback) {
       let postBody = null;
@@ -259,7 +259,7 @@ export default class ProductsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetProductInformation200Response;
+      let returnType = ProductInformation;
       return this.apiClient.callApi(
         '/food/products/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -425,8 +425,8 @@ export default class ProductsApi {
     /**
      * Search Grocery Products
      * Search packaged food products, such as frozen pizza or Greek yogurt.
+     * @param {String} query The (natural language) search query.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {Number} [minCalories] The minimum amount of calories the product must have.
      * @param {Number} [maxCalories] The maximum amount of calories the product can have.
      * @param {Number} [minCarbs] The minimum amount of carbohydrates in grams the product must have.
@@ -441,14 +441,18 @@ export default class ProductsApi {
      * @param {module:api/ProductsApi~searchGroceryProductsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchGroceryProducts200Response}
      */
-    searchGroceryProducts(opts, callback) {
+    searchGroceryProducts(query, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling searchGroceryProducts");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'minCalories': opts['minCalories'],
         'maxCalories': opts['maxCalories'],
         'minCarbs': opts['minCarbs'],
@@ -488,7 +492,7 @@ export default class ProductsApi {
     /**
      * Search Grocery Products by UPC
      * Get information about a packaged food using its UPC.
-     * @param {Number} upc The product's UPC.
+     * @param {String} upc The product's UPC.
      * @param {module:api/ProductsApi~searchGroceryProductsByUPCCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchGroceryProductsByUPC200Response}
      */
@@ -531,7 +535,7 @@ export default class ProductsApi {
     /**
      * Product Nutrition by ID Widget
      * Visualize a product's nutritional information as HTML including CSS.
-     * @param {Number} id The item's id.
+     * @param {Number} id The id of the product.
      * @param {Object} opts Optional parameters
      * @param {Boolean} [defaultCss = true)] Whether the default CSS should be added to the response.
      * @param {module:api/ProductsApi~visualizeProductNutritionByIDCallback} callback The callback function, accepting three arguments: error, data, response

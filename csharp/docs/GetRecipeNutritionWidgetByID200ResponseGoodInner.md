@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Amount** | **string** |  | 
 **Indented** | **bool** |  | 
 **PercentOfDailyNeeds** | **decimal** |  | 
-**Name** | **string** |  | 
+**Title** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

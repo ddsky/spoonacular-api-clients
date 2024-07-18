@@ -15,8 +15,8 @@
 import ApiClient from "../ApiClient";
 import AutocompleteIngredientSearch200ResponseInner from '../model/AutocompleteIngredientSearch200ResponseInner';
 import ComputeIngredientAmount200Response from '../model/ComputeIngredientAmount200Response';
-import GetIngredientInformation200Response from '../model/GetIngredientInformation200Response';
 import GetIngredientSubstitutes200Response from '../model/GetIngredientSubstitutes200Response';
+import IngredientInformation from '../model/IngredientInformation';
 import IngredientSearch200Response from '../model/IngredientSearch200Response';
 import MapIngredientsToGroceryProducts200ResponseInner from '../model/MapIngredientsToGroceryProducts200ResponseInner';
 import MapIngredientsToGroceryProductsRequest from '../model/MapIngredientsToGroceryProductsRequest';
@@ -51,8 +51,8 @@ export default class IngredientsApi {
     /**
      * Autocomplete Ingredient Search
      * Autocomplete the entry of an ingredient.
+     * @param {String} query The (natural language) search query.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {Number} [number = 10)] The maximum number of items to return (between 1 and 100). Defaults to 10.
      * @param {Boolean} [metaInformation] Whether to return more meta information about the ingredients.
      * @param {String} [intolerances] A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
@@ -60,14 +60,18 @@ export default class IngredientsApi {
      * @param {module:api/IngredientsApi~autocompleteIngredientSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AutocompleteIngredientSearch200ResponseInner>}
      */
-    autocompleteIngredientSearch(opts, callback) {
+    autocompleteIngredientSearch(query, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling autocompleteIngredientSearch");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'number': opts['number'],
         'metaInformation': opts['metaInformation'],
         'intolerances': opts['intolerances'],
@@ -152,19 +156,19 @@ export default class IngredientsApi {
      * Callback function to receive the result of the getIngredientInformation operation.
      * @callback module:api/IngredientsApi~getIngredientInformationCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/GetIngredientInformation200Response} data The data returned by the service call.
+     * @param {module:model/IngredientInformation} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get Ingredient Information
      * Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-     * @param {Number} id The item's id.
+     * @param {Number} id The ingredient id.
      * @param {Object} opts Optional parameters
      * @param {Number} [amount] The amount of this ingredient.
      * @param {String} [unit] The unit for the given amount.
      * @param {module:api/IngredientsApi~getIngredientInformationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GetIngredientInformation200Response}
+     * data is of type: {@link module:model/IngredientInformation}
      */
     getIngredientInformation(id, opts, callback) {
       opts = opts || {};
@@ -189,7 +193,7 @@ export default class IngredientsApi {
       let authNames = ['apiKeyScheme'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = GetIngredientInformation200Response;
+      let returnType = IngredientInformation;
       return this.apiClient.callApi(
         '/food/ingredients/{id}/information', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -251,7 +255,7 @@ export default class IngredientsApi {
     /**
      * Get Ingredient Substitutes by ID
      * Search for substitutes for a given ingredient.
-     * @param {Number} id The item's id.
+     * @param {Number} id The id of the ingredient you want substitutes for.
      * @param {module:api/IngredientsApi~getIngredientSubstitutesByIDCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GetIngredientSubstitutes200Response}
      */
@@ -294,8 +298,8 @@ export default class IngredientsApi {
     /**
      * Ingredient Search
      * Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+     * @param {String} query The (natural language) search query.
      * @param {Object} opts Optional parameters
-     * @param {String} [query] The (natural language) search query.
      * @param {Boolean} [addChildren] Whether to add children of found foods.
      * @param {Number} [minProteinPercent] The minimum percentage of protein the food must have (between 0 and 100).
      * @param {Number} [maxProteinPercent] The maximum percentage of protein the food can have (between 0 and 100).
@@ -313,14 +317,18 @@ export default class IngredientsApi {
      * @param {module:api/IngredientsApi~ingredientSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/IngredientSearch200Response}
      */
-    ingredientSearch(opts, callback) {
+    ingredientSearch(query, opts, callback) {
       opts = opts || {};
       let postBody = null;
+      // verify the required parameter 'query' is set
+      if (query === undefined || query === null) {
+        throw new Error("Missing the required parameter 'query' when calling ingredientSearch");
+      }
 
       let pathParams = {
       };
       let queryParams = {
-        'query': opts['query'],
+        'query': query,
         'addChildren': opts['addChildren'],
         'minProteinPercent': opts['minProteinPercent'],
         'maxProteinPercent': opts['maxProteinPercent'],

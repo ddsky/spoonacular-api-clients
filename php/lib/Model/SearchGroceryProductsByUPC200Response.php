@@ -68,7 +68,7 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
         'image_type' => 'string',
         'ingredient_count' => 'int',
         'ingredient_list' => 'string',
-        'ingredients' => '\OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseIngredientsInner[]',
+        'ingredients' => '\OpenAPI\Client\Model\IngredientBasics[]',
         'likes' => 'float',
         'nutrition' => '\OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutrition',
         'price' => 'float',
@@ -112,7 +112,7 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
         'badges' => false,
         'important_badges' => false,
         'breadcrumbs' => false,
-        'generated_text' => false,
+        'generated_text' => true,
         'image_type' => false,
         'ingredient_count' => false,
         'ingredient_list' => false,
@@ -380,10 +380,6 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
-        if ((mb_strlen($this->container['title']) < 1)) {
-            $invalidProperties[] = "invalid value for 'title', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['badges'] === null) {
             $invalidProperties[] = "'badges' can't be null";
         }
@@ -396,31 +392,15 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
         if ($this->container['generated_text'] === null) {
             $invalidProperties[] = "'generated_text' can't be null";
         }
-        if ((mb_strlen($this->container['generated_text']) < 1)) {
-            $invalidProperties[] = "invalid value for 'generated_text', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['image_type'] === null) {
             $invalidProperties[] = "'image_type' can't be null";
         }
-        if ((mb_strlen($this->container['image_type']) < 1)) {
-            $invalidProperties[] = "invalid value for 'image_type', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['ingredient_list'] === null) {
             $invalidProperties[] = "'ingredient_list' can't be null";
         }
-        if ((mb_strlen($this->container['ingredient_list']) < 1)) {
-            $invalidProperties[] = "invalid value for 'ingredient_list', the character length must be bigger than or equal to 1.";
-        }
-
         if ($this->container['ingredients'] === null) {
             $invalidProperties[] = "'ingredients' can't be null";
         }
-        if ((count($this->container['ingredients']) < 0)) {
-            $invalidProperties[] = "invalid value for 'ingredients', number of items must be greater than or equal to 0.";
-        }
-
         if ($this->container['likes'] === null) {
             $invalidProperties[] = "'likes' can't be null";
         }
@@ -500,11 +480,6 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
         if (is_null($title)) {
             throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-
-        if ((mb_strlen($title) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $title when calling SearchGroceryProductsByUPC200Response., must be bigger than or equal to 1.');
-        }
-
         $this->container['title'] = $title;
 
         return $this;
@@ -611,13 +586,15 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
     public function setGeneratedText($generated_text)
     {
         if (is_null($generated_text)) {
-            throw new \InvalidArgumentException('non-nullable generated_text cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'generated_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('generated_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-
-        if ((mb_strlen($generated_text) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $generated_text when calling SearchGroceryProductsByUPC200Response., must be bigger than or equal to 1.');
-        }
-
         $this->container['generated_text'] = $generated_text;
 
         return $this;
@@ -645,11 +622,6 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
         if (is_null($image_type)) {
             throw new \InvalidArgumentException('non-nullable image_type cannot be null');
         }
-
-        if ((mb_strlen($image_type) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $image_type when calling SearchGroceryProductsByUPC200Response., must be bigger than or equal to 1.');
-        }
-
         $this->container['image_type'] = $image_type;
 
         return $this;
@@ -704,11 +676,6 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
         if (is_null($ingredient_list)) {
             throw new \InvalidArgumentException('non-nullable ingredient_list cannot be null');
         }
-
-        if ((mb_strlen($ingredient_list) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $ingredient_list when calling SearchGroceryProductsByUPC200Response., must be bigger than or equal to 1.');
-        }
-
         $this->container['ingredient_list'] = $ingredient_list;
 
         return $this;
@@ -717,7 +684,7 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
     /**
      * Gets ingredients
      *
-     * @return \OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseIngredientsInner[]
+     * @return \OpenAPI\Client\Model\IngredientBasics[]
      */
     public function getIngredients()
     {
@@ -727,7 +694,7 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
     /**
      * Sets ingredients
      *
-     * @param \OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseIngredientsInner[] $ingredients ingredients
+     * @param \OpenAPI\Client\Model\IngredientBasics[] $ingredients ingredients
      *
      * @return self
      */
@@ -735,11 +702,6 @@ class SearchGroceryProductsByUPC200Response implements ModelInterface, ArrayAcce
     {
         if (is_null($ingredients)) {
             throw new \InvalidArgumentException('non-nullable ingredients cannot be null');
-        }
-
-
-        if ((count($ingredients) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $ingredients when calling SearchGroceryProductsByUPC200Response., number of items must be greater than or equal to 0.');
         }
         $this->container['ingredients'] = $ingredients;
 

@@ -18,11 +18,11 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
     required this.us,
   });
 
-  ParseIngredients200ResponseInnerNutritionWeightPerServing original;
+  GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal original;
 
-  ParseIngredients200ResponseInnerNutritionWeightPerServing metric;
+  GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal metric;
 
-  ParseIngredients200ResponseInnerNutritionWeightPerServing us;
+  GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal us;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is GetShoppingList200ResponseAislesInnerItemsInnerMeasures &&
@@ -67,9 +67,9 @@ class GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
       }());
 
       return GetShoppingList200ResponseAislesInnerItemsInnerMeasures(
-        original: ParseIngredients200ResponseInnerNutritionWeightPerServing.fromJson(json[r'original'])!,
-        metric: ParseIngredients200ResponseInnerNutritionWeightPerServing.fromJson(json[r'metric'])!,
-        us: ParseIngredients200ResponseInnerNutritionWeightPerServing.fromJson(json[r'us'])!,
+        original: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.fromJson(json[r'original'])!,
+        metric: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.fromJson(json[r'metric'])!,
+        us: GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal.fromJson(json[r'us'])!,
       );
     }
     return null;

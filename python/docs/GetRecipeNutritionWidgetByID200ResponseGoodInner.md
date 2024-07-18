@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **amount** | **str** |  | 
 **indented** | **bool** |  | 
 **percent_of_daily_needs** | **float** |  | 
-**name** | **str** |  | 
+**title** | **str** |  | 
 
 ## Example
 

@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **calories** | **Array&lt;Object&gt;** |  |  |
-| **likes** | **Array&lt;Object&gt;** |  |  |
-| **price** | **Array&lt;Object&gt;** |  |  |
-| **protein** | [**Array&lt;GetComparableProducts200ResponseComparableProductsProteinInner&gt;**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  |  |
-| **spoonacular_score** | [**Array&lt;GetComparableProducts200ResponseComparableProductsProteinInner&gt;**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  |  |
-| **sugar** | **Array&lt;Object&gt;** |  |  |
+| **calories** | [**Array&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+| **likes** | [**Array&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+| **price** | [**Array&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+| **protein** | [**Array&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+| **spoonacular_score** | [**Array&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
+| **sugar** | [**Array&lt;ComparableProduct&gt;**](ComparableProduct.md) |  |  |
 
 ## Example
 

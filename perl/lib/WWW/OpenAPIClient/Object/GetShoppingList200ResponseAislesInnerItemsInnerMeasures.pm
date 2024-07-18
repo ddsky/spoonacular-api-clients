@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::ParseIngredients200ResponseInnerNutritionWeightPerServing;
+use WWW::OpenAPIClient::Object::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -221,21 +221,21 @@ __PACKAGE__->class_documentation({description => '',
 
 __PACKAGE__->method_documentation({
     'original' => {
-        datatype => 'ParseIngredients200ResponseInnerNutritionWeightPerServing',
+        datatype => 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
         base_name => 'original',
         description => '',
         format => '',
         read_only => '',
             },
     'metric' => {
-        datatype => 'ParseIngredients200ResponseInnerNutritionWeightPerServing',
+        datatype => 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
         base_name => 'metric',
         description => '',
         format => '',
         read_only => '',
             },
     'us' => {
-        datatype => 'ParseIngredients200ResponseInnerNutritionWeightPerServing',
+        datatype => 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
         base_name => 'us',
         description => '',
         format => '',
@@ -244,9 +244,9 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'original' => 'ParseIngredients200ResponseInnerNutritionWeightPerServing',
-    'metric' => 'ParseIngredients200ResponseInnerNutritionWeightPerServing',
-    'us' => 'ParseIngredients200ResponseInnerNutritionWeightPerServing'
+    'original' => 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
+    'metric' => 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal',
+    'us' => 'GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal'
 } );
 
 __PACKAGE__->attribute_map( {

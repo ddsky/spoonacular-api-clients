@@ -172,7 +172,7 @@ public class Example {
 
 <a id="addToShoppingList"></a>
 # **addToShoppingList**
-> GenerateShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
+> GetShoppingList200Response addToShoppingList(username, hash, addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -204,7 +204,7 @@ public class Example {
     String hash = "hash_example"; // String | The private hash for the username.
     AddToShoppingListRequest addToShoppingListRequest = new AddToShoppingListRequest(); // AddToShoppingListRequest | 
     try {
-      GenerateShoppingList200Response result = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest);
+      GetShoppingList200Response result = apiInstance.addToShoppingList(username, hash, addToShoppingListRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#addToShoppingList");
@@ -227,7 +227,7 @@ public class Example {
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -425,7 +425,7 @@ public class Example {
 
     MealPlanningApi apiInstance = new MealPlanningApi(defaultClient);
     String username = "dsky"; // String | The username.
-    BigDecimal id = new BigDecimal("15678"); // BigDecimal | The shopping list item id.
+    Integer id = 15678; // Integer | The shopping list item id.
     String hash = "hash_example"; // String | The private hash for the username.
     try {
       Object result = apiInstance.deleteFromMealPlan(username, id, hash);
@@ -446,7 +446,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **username** | **String**| The username. | |
-| **id** | **BigDecimal**| The shopping list item id. | |
+| **id** | **Integer**| The shopping list item id. | |
 | **hash** | **String**| The private hash for the username. | |
 
 ### Return type
@@ -501,7 +501,7 @@ public class Example {
 
     MealPlanningApi apiInstance = new MealPlanningApi(defaultClient);
     String username = "dsky"; // String | The username.
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 15678; // Integer | The shopping list item id.
     String hash = "hash_example"; // String | The private hash for the username.
     try {
       Object result = apiInstance.deleteFromShoppingList(username, id, hash);
@@ -522,7 +522,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **username** | **String**| The username. | |
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The shopping list item id. | |
 | **hash** | **String**| The private hash for the username. | |
 
 ### Return type
@@ -577,7 +577,7 @@ public class Example {
 
     MealPlanningApi apiInstance = new MealPlanningApi(defaultClient);
     String username = "dsky"; // String | The username.
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 15678; // Integer | The shopping list item id.
     String hash = "4b5v4398573406"; // String | The private hash for the username.
     try {
       Object result = apiInstance.deleteMealPlanTemplate(username, id, hash);
@@ -598,7 +598,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **username** | **String**| The username. | |
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The shopping list item id. | |
 | **hash** | **String**| The private hash for the username. | |
 
 ### Return type
@@ -702,7 +702,7 @@ public class Example {
 
 <a id="generateShoppingList"></a>
 # **generateShoppingList**
-> GenerateShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
+> GetShoppingList200Response generateShoppingList(username, startDate, endDate, hash)
 
 Generate Shopping List
 
@@ -735,7 +735,7 @@ public class Example {
     String endDate = "2020-06-07"; // String | The end date in the format yyyy-mm-dd.
     String hash = "hash_example"; // String | The private hash for the username.
     try {
-      GenerateShoppingList200Response result = apiInstance.generateShoppingList(username, startDate, endDate, hash);
+      GetShoppingList200Response result = apiInstance.generateShoppingList(username, startDate, endDate, hash);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MealPlanningApi#generateShoppingList");
@@ -759,7 +759,7 @@ public class Example {
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -809,7 +809,7 @@ public class Example {
 
     MealPlanningApi apiInstance = new MealPlanningApi(defaultClient);
     String username = "dsky"; // String | The username.
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 15678; // Integer | The shopping list item id.
     String hash = "hash_example"; // String | The private hash for the username.
     try {
       GetMealPlanTemplate200Response result = apiInstance.getMealPlanTemplate(username, id, hash);
@@ -830,7 +830,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **username** | **String**| The username. | |
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The shopping list item id. | |
 | **hash** | **String**| The private hash for the username. | |
 
 ### Return type

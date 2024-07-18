@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **menuItems** | [**kotlin.collections.Set&lt;SearchMenuItems200ResponseMenuItemsInner&gt;**](SearchMenuItems200ResponseMenuItemsInner.md) |  |  |
+| **menuItems** | [**kotlin.collections.Set&lt;MenuItem&gt;**](MenuItem.md) |  |  |
 | **totalMenuItems** | **kotlin.Int** |  |  |
 | **type** | **kotlin.String** |  |  |
 | **offset** | **kotlin.Int** |  |  |

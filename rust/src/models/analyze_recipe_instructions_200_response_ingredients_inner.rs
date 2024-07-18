@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyzeRecipeInstructions200ResponseIngredientsInner {
     #[serde(rename = "id")]
-    pub id: f64,
+    pub id: i32,
     #[serde(rename = "name")]
     pub name: String,
 }
 
 impl AnalyzeRecipeInstructions200ResponseIngredientsInner {
-    pub fn new(id: f64, name: String) -> AnalyzeRecipeInstructions200ResponseIngredientsInner {
+    pub fn new(id: i32, name: String) -> AnalyzeRecipeInstructions200ResponseIngredientsInner {
         AnalyzeRecipeInstructions200ResponseIngredientsInner {
             id,
             name,

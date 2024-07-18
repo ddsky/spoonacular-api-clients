@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseIngredientsInner;
+use WWW::OpenAPIClient::Object::IngredientBasics;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseNutrition;
 use WWW::OpenAPIClient::Object::SearchGroceryProductsByUPC200ResponseServings;
 
@@ -286,7 +286,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'ingredients' => {
-        datatype => 'ARRAY[SearchGroceryProductsByUPC200ResponseIngredientsInner]',
+        datatype => 'ARRAY[IngredientBasics]',
         base_name => 'ingredients',
         description => '',
         format => '',
@@ -339,7 +339,7 @@ __PACKAGE__->openapi_types( {
     'image_type' => 'string',
     'ingredient_count' => 'int',
     'ingredient_list' => 'string',
-    'ingredients' => 'ARRAY[SearchGroceryProductsByUPC200ResponseIngredientsInner]',
+    'ingredients' => 'ARRAY[IngredientBasics]',
     'likes' => 'double',
     'nutrition' => 'SearchGroceryProductsByUPC200ResponseNutrition',
     'price' => 'double',

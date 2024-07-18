@@ -35,8 +35,8 @@ describe 'IngredientsApi' do
   # unit tests for autocomplete_ingredient_search
   # Autocomplete Ingredient Search
   # Autocomplete the entry of an ingredient.
+  # @param query The (natural language) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
   # @option opts [Boolean] :meta_information Whether to return more meta information about the ingredients.
   # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
@@ -66,11 +66,11 @@ describe 'IngredientsApi' do
   # unit tests for get_ingredient_information
   # Get Ingredient Information
   # Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-  # @param id The item&#39;s id.
+  # @param id The ingredient id.
   # @param [Hash] opts the optional parameters
   # @option opts [Float] :amount The amount of this ingredient.
   # @option opts [String] :unit The unit for the given amount.
-  # @return [GetIngredientInformation200Response]
+  # @return [IngredientInformation]
   describe 'get_ingredient_information test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -92,7 +92,7 @@ describe 'IngredientsApi' do
   # unit tests for get_ingredient_substitutes_by_id
   # Get Ingredient Substitutes by ID
   # Search for substitutes for a given ingredient.
-  # @param id The item&#39;s id.
+  # @param id The id of the ingredient you want substitutes for.
   # @param [Hash] opts the optional parameters
   # @return [GetIngredientSubstitutes200Response]
   describe 'get_ingredient_substitutes_by_id test' do
@@ -104,8 +104,8 @@ describe 'IngredientsApi' do
   # unit tests for ingredient_search
   # Ingredient Search
   # Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+  # @param query The (natural language) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [Boolean] :add_children Whether to add children of found foods.
   # @option opts [Float] :min_protein_percent The minimum percentage of protein the food must have (between 0 and 100).
   # @option opts [Float] :max_protein_percent The maximum percentage of protein the food can have (between 0 and 100).

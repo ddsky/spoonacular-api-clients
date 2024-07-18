@@ -321,7 +321,7 @@ catch (ApiException e)
 
 <a id="getcomparableproducts"></a>
 # **GetComparableProducts**
-> GetComparableProducts200Response GetComparableProducts (decimal upc)
+> GetComparableProducts200Response GetComparableProducts (string upc)
 
 Get Comparable Products
 
@@ -349,7 +349,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var upc = 33698816271;  // decimal | The UPC of the product for which you want to find comparable products.
+            var upc = 033698816271;  // string | The UPC of the product for which you want to find comparable products.
 
             try
             {
@@ -392,7 +392,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **upc** | **decimal** | The UPC of the product for which you want to find comparable products. |  |
+| **upc** | **string** | The UPC of the product for which you want to find comparable products. |  |
 
 ### Return type
 
@@ -420,7 +420,7 @@ catch (ApiException e)
 
 <a id="getproductinformation"></a>
 # **GetProductInformation**
-> GetProductInformation200Response GetProductInformation (int id)
+> ProductInformation GetProductInformation (int id)
 
 Get Product Information
 
@@ -448,12 +448,12 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 22347;  // int | The id of the packaged food.
 
             try
             {
                 // Get Product Information
-                GetProductInformation200Response result = apiInstance.GetProductInformation(id);
+                ProductInformation result = apiInstance.GetProductInformation(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -474,7 +474,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Product Information
-    ApiResponse<GetProductInformation200Response> response = apiInstance.GetProductInformationWithHttpInfo(id);
+    ApiResponse<ProductInformation> response = apiInstance.GetProductInformationWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -491,11 +491,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The id of the packaged food. |  |
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -519,7 +519,7 @@ catch (ApiException e)
 
 <a id="productnutritionbyidimage"></a>
 # **ProductNutritionByIDImage**
-> System.IO.Stream ProductNutritionByIDImage (decimal id)
+> System.IO.Stream ProductNutritionByIDImage (int id)
 
 Product Nutrition by ID Image
 
@@ -547,7 +547,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var id = 7657;  // decimal | The id of the product.
+            var id = 7657;  // int | The id of the product.
 
             try
             {
@@ -590,7 +590,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The id of the product. |  |
+| **id** | **int** | The id of the product. |  |
 
 ### Return type
 
@@ -618,7 +618,7 @@ catch (ApiException e)
 
 <a id="productnutritionlabelimage"></a>
 # **ProductNutritionLabelImage**
-> System.IO.Stream ProductNutritionLabelImage (decimal id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> System.IO.Stream ProductNutritionLabelImage (int id, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Product Nutrition Label Image
 
@@ -646,7 +646,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var id = 22347;  // decimal | The product id.
+            var id = 22347;  // int | The product id.
             var showOptionalNutrients = false;  // bool? | Whether to show optional nutrients. (optional) 
             var showZeroValues = false;  // bool? | Whether to show zero values. (optional) 
             var showIngredients = false;  // bool? | Whether to show a list of ingredients. (optional) 
@@ -692,7 +692,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The product id. |  |
+| **id** | **int** | The product id. |  |
 | **showOptionalNutrients** | **bool?** | Whether to show optional nutrients. | [optional]  |
 | **showZeroValues** | **bool?** | Whether to show zero values. | [optional]  |
 | **showIngredients** | **bool?** | Whether to show a list of ingredients. | [optional]  |
@@ -723,7 +723,7 @@ catch (ApiException e)
 
 <a id="productnutritionlabelwidget"></a>
 # **ProductNutritionLabelWidget**
-> string ProductNutritionLabelWidget (decimal id, bool? defaultCss = null, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
+> string ProductNutritionLabelWidget (int id, bool? defaultCss = null, bool? showOptionalNutrients = null, bool? showZeroValues = null, bool? showIngredients = null)
 
 Product Nutrition Label Widget
 
@@ -751,7 +751,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var id = 22347;  // decimal | The product id.
+            var id = 22347;  // int | The product id.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
             var showOptionalNutrients = false;  // bool? | Whether to show optional nutrients. (optional) 
             var showZeroValues = false;  // bool? | Whether to show zero values. (optional) 
@@ -798,7 +798,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **decimal** | The product id. |  |
+| **id** | **int** | The product id. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **bool?** | Whether to show optional nutrients. | [optional]  |
 | **showZeroValues** | **bool?** | Whether to show zero values. | [optional]  |
@@ -830,7 +830,7 @@ catch (ApiException e)
 
 <a id="searchgroceryproducts"></a>
 # **SearchGroceryProducts**
-> SearchGroceryProducts200Response SearchGroceryProducts (string? query = null, decimal? minCalories = null, decimal? maxCalories = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minFat = null, decimal? maxFat = null, bool? addProductInformation = null, int? offset = null, int? number = null)
+> SearchGroceryProducts200Response SearchGroceryProducts (string query, decimal? minCalories = null, decimal? maxCalories = null, decimal? minCarbs = null, decimal? maxCarbs = null, decimal? minProtein = null, decimal? maxProtein = null, decimal? minFat = null, decimal? maxFat = null, bool? addProductInformation = null, int? offset = null, int? number = null)
 
 Search Grocery Products
 
@@ -858,7 +858,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var query = burger;  // string? | The (natural language) search query. (optional) 
+            var query = burger;  // string | The (natural language) search query.
             var minCalories = 50;  // decimal? | The minimum amount of calories the product must have. (optional) 
             var maxCalories = 800;  // decimal? | The maximum amount of calories the product can have. (optional) 
             var minCarbs = 10;  // decimal? | The minimum amount of carbohydrates in grams the product must have. (optional) 
@@ -912,7 +912,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string?** | The (natural language) search query. | [optional]  |
+| **query** | **string** | The (natural language) search query. |  |
 | **minCalories** | **decimal?** | The minimum amount of calories the product must have. | [optional]  |
 | **maxCalories** | **decimal?** | The maximum amount of calories the product can have. | [optional]  |
 | **minCarbs** | **decimal?** | The minimum amount of carbohydrates in grams the product must have. | [optional]  |
@@ -951,7 +951,7 @@ catch (ApiException e)
 
 <a id="searchgroceryproductsbyupc"></a>
 # **SearchGroceryProductsByUPC**
-> SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC (decimal upc)
+> SearchGroceryProductsByUPC200Response SearchGroceryProductsByUPC (string upc)
 
 Search Grocery Products by UPC
 
@@ -979,7 +979,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var upc = 41631000564;  // decimal | The product's UPC.
+            var upc = 041631000564;  // string | The product's UPC.
 
             try
             {
@@ -1022,7 +1022,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **upc** | **decimal** | The product&#39;s UPC. |  |
+| **upc** | **string** | The product&#39;s UPC. |  |
 
 ### Return type
 
@@ -1078,7 +1078,7 @@ namespace Example
             // config.AddApiKeyPrefix("x-api-key", "Bearer");
 
             var apiInstance = new ProductsApi(config);
-            var id = 1;  // int | The item's id.
+            var id = 7657;  // int | The id of the product.
             var defaultCss = false;  // bool? | Whether the default CSS should be added to the response. (optional)  (default to true)
 
             try
@@ -1122,7 +1122,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The id of the product. |  |
 | **defaultCss** | **bool?** | Whether the default CSS should be added to the response. | [optional] [default to true] |
 
 ### Return type

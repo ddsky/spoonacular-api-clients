@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
     #[serde(rename = "original")]
-    pub original: Box<models::ParseIngredients200ResponseInnerNutritionWeightPerServing>,
+    pub original: Box<models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal>,
     #[serde(rename = "metric")]
-    pub metric: Box<models::ParseIngredients200ResponseInnerNutritionWeightPerServing>,
+    pub metric: Box<models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal>,
     #[serde(rename = "us")]
-    pub us: Box<models::ParseIngredients200ResponseInnerNutritionWeightPerServing>,
+    pub us: Box<models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal>,
 }
 
 impl GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
-    pub fn new(original: models::ParseIngredients200ResponseInnerNutritionWeightPerServing, metric: models::ParseIngredients200ResponseInnerNutritionWeightPerServing, us: models::ParseIngredients200ResponseInnerNutritionWeightPerServing) -> GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
+    pub fn new(original: models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal, metric: models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal, us: models::GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal) -> GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
         GetShoppingList200ResponseAislesInnerItemsInnerMeasures {
             original: Box::new(original),
             metric: Box::new(metric),

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## autocompleteMenuItemSearch
 
-> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, opts)
+> AutocompleteProductSearch200Response autocompleteMenuItemSearch(query, opts)
 
 Autocomplete Menu Item Search
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ## getMenuItemInformation
 
-> GetMenuItemInformation200Response getMenuItemInformation(id)
+> MenuItem getMenuItemInformation(id)
 
 Get Menu Item Information
 
@@ -89,7 +89,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MenuItemsApi();
-let id = 1; // Number | The item's id.
+let id = 424571; // Number | The menu item id.
 apiInstance.getMenuItemInformation(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -104,11 +104,11 @@ apiInstance.getMenuItemInformation(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The menu item id. | 
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ## searchMenuItems
 
-> SearchMenuItems200Response searchMenuItems(opts)
+> SearchMenuItems200Response searchMenuItems(query, opts)
 
 Search Menu Items
 
@@ -311,8 +311,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MenuItemsApi();
+let query = "burger"; // String | The (natural language) search query.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'minCalories': 50, // Number | The minimum amount of calories the menu item must have.
   'maxCalories': 800, // Number | The maximum amount of calories the menu item can have.
   'minCarbs': 10, // Number | The minimum amount of carbohydrates in grams the menu item must have.
@@ -325,7 +325,7 @@ let opts = {
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
-apiInstance.searchMenuItems(opts, (error, data, response) => {
+apiInstance.searchMenuItems(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -339,7 +339,7 @@ apiInstance.searchMenuItems(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **minCalories** | **Number**| The minimum amount of calories the menu item must have. | [optional] 
  **maxCalories** | **Number**| The maximum amount of calories the menu item can have. | [optional] 
  **minCarbs** | **Number**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] 
@@ -386,7 +386,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.MenuItemsApi();
-let id = 1; // Number | The item's id.
+let id = 1003464; // Number | The menu item id.
 let opts = {
   'defaultCss': false // Boolean | Whether the default CSS should be added to the response.
 };
@@ -404,7 +404,7 @@ apiInstance.visualizeMenuItemNutritionByID(id, opts, (error, data, response) => 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The menu item id. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

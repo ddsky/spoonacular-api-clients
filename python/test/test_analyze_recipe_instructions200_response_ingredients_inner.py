@@ -36,12 +36,12 @@ class TestAnalyzeRecipeInstructions200ResponseIngredientsInner(unittest.TestCase
         model = AnalyzeRecipeInstructions200ResponseIngredientsInner()
         if include_optional:
             return AnalyzeRecipeInstructions200ResponseIngredientsInner(
-                id = 1.337,
+                id = 56,
                 name = '0'
             )
         else:
             return AnalyzeRecipeInstructions200ResponseIngredientsInner(
-                id = 1.337,
+                id = 56,
                 name = '0',
         )
         """

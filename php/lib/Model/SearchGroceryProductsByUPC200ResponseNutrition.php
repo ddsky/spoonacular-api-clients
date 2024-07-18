@@ -58,8 +58,8 @@ class SearchGroceryProductsByUPC200ResponseNutrition implements ModelInterface, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'nutrients' => '\OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionNutrientsInner[]',
-        'caloric_breakdown' => '\OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionCaloricBreakdown'
+        'nutrients' => '\OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner[]',
+        'caloric_breakdown' => '\OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown'
     ];
 
     /**
@@ -310,7 +310,7 @@ class SearchGroceryProductsByUPC200ResponseNutrition implements ModelInterface, 
     /**
      * Gets nutrients
      *
-     * @return \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionNutrientsInner[]
+     * @return \OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner[]
      */
     public function getNutrients()
     {
@@ -320,7 +320,7 @@ class SearchGroceryProductsByUPC200ResponseNutrition implements ModelInterface, 
     /**
      * Sets nutrients
      *
-     * @param \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionNutrientsInner[] $nutrients nutrients
+     * @param \OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner[] $nutrients nutrients
      *
      * @return self
      */
@@ -342,7 +342,7 @@ class SearchGroceryProductsByUPC200ResponseNutrition implements ModelInterface, 
     /**
      * Gets caloric_breakdown
      *
-     * @return \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionCaloricBreakdown
+     * @return \OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
      */
     public function getCaloricBreakdown()
     {
@@ -352,7 +352,7 @@ class SearchGroceryProductsByUPC200ResponseNutrition implements ModelInterface, 
     /**
      * Sets caloric_breakdown
      *
-     * @param \OpenAPI\Client\Model\ParseIngredients200ResponseInnerNutritionCaloricBreakdown $caloric_breakdown caloric_breakdown
+     * @param \OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown $caloric_breakdown caloric_breakdown
      *
      * @return self
      */

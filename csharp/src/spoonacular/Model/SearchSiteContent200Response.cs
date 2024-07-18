@@ -44,7 +44,7 @@ namespace spoonacular.Model
         /// <param name="groceryProducts">groceryProducts (required).</param>
         /// <param name="menuItems">menuItems (required).</param>
         /// <param name="recipes">recipes (required).</param>
-        public SearchSiteContent200Response(List<SearchSiteContent200ResponseArticlesInner> articles = default(List<SearchSiteContent200ResponseArticlesInner>), List<SearchSiteContent200ResponseArticlesInner> groceryProducts = default(List<SearchSiteContent200ResponseArticlesInner>), List<SearchSiteContent200ResponseArticlesInner> menuItems = default(List<SearchSiteContent200ResponseArticlesInner>), List<SearchSiteContent200ResponseArticlesInner> recipes = default(List<SearchSiteContent200ResponseArticlesInner>))
+        public SearchSiteContent200Response(List<SearchResult> articles = default(List<SearchResult>), List<SearchResult> groceryProducts = default(List<SearchResult>), List<SearchResult> menuItems = default(List<SearchResult>), List<SearchResult> recipes = default(List<SearchResult>))
         {
             // to ensure "articles" is required (not null)
             if (articles == null)
@@ -76,25 +76,25 @@ namespace spoonacular.Model
         /// Gets or Sets Articles
         /// </summary>
         [DataMember(Name = "Articles", IsRequired = true, EmitDefaultValue = true)]
-        public List<SearchSiteContent200ResponseArticlesInner> Articles { get; set; }
+        public List<SearchResult> Articles { get; set; }
 
         /// <summary>
         /// Gets or Sets GroceryProducts
         /// </summary>
         [DataMember(Name = "Grocery Products", IsRequired = true, EmitDefaultValue = true)]
-        public List<SearchSiteContent200ResponseArticlesInner> GroceryProducts { get; set; }
+        public List<SearchResult> GroceryProducts { get; set; }
 
         /// <summary>
         /// Gets or Sets MenuItems
         /// </summary>
         [DataMember(Name = "Menu Items", IsRequired = true, EmitDefaultValue = true)]
-        public List<SearchSiteContent200ResponseArticlesInner> MenuItems { get; set; }
+        public List<SearchResult> MenuItems { get; set; }
 
         /// <summary>
         /// Gets or Sets Recipes
         /// </summary>
         [DataMember(Name = "Recipes", IsRequired = true, EmitDefaultValue = true)]
-        public List<SearchSiteContent200ResponseArticlesInner> Recipes { get; set; }
+        public List<SearchResult> Recipes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

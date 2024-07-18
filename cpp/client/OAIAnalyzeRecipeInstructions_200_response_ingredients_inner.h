@@ -39,8 +39,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    double getId() const;
-    void setId(const double &id);
+    qint32 getId() const;
+    void setId(const qint32 &id);
     bool is_id_Set() const;
     bool is_id_Valid() const;
 
@@ -55,7 +55,7 @@ public:
 private:
     void initializeModel();
 
-    double m_id;
+    qint32 m_id;
     bool m_id_isSet;
     bool m_id_isValid;
 

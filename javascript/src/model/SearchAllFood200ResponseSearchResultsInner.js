@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SearchAllFood200ResponseSearchResultsInnerResultsInner from './SearchAllFood200ResponseSearchResultsInnerResultsInner';
+import SearchResult from './SearchResult';
 
 /**
  * The SearchAllFood200ResponseSearchResultsInner model module.
@@ -59,7 +59,7 @@ class SearchAllFood200ResponseSearchResultsInner {
                 obj['totalResults'] = ApiClient.convertToType(data['totalResults'], 'Number');
             }
             if (data.hasOwnProperty('results')) {
-                obj['results'] = ApiClient.convertToType(data['results'], [SearchAllFood200ResponseSearchResultsInnerResultsInner]);
+                obj['results'] = ApiClient.convertToType(data['results'], [SearchResult]);
             }
         }
         return obj;
@@ -88,7 +88,7 @@ class SearchAllFood200ResponseSearchResultsInner {
             }
             // validate the optional field `results` (array)
             for (const item of data['results']) {
-                SearchAllFood200ResponseSearchResultsInnerResultsInner.validateJSON(item);
+                SearchResult.validateJSON(item);
             };
         }
 
@@ -111,7 +111,7 @@ SearchAllFood200ResponseSearchResultsInner.prototype['name'] = undefined;
 SearchAllFood200ResponseSearchResultsInner.prototype['totalResults'] = undefined;
 
 /**
- * @member {Array.<module:model/SearchAllFood200ResponseSearchResultsInnerResultsInner>} results
+ * @member {Array.<module:model/SearchResult>} results
  */
 SearchAllFood200ResponseSearchResultsInner.prototype['results'] = undefined;
 

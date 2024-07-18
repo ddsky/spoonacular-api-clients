@@ -16,7 +16,7 @@ defmodule SpoonacularAPI.Model.SearchMenuItems200Response do
   ]
 
   @type t :: %__MODULE__{
-    :menuItems => [SpoonacularAPI.Model.SearchMenuItems200ResponseMenuItemsInner.t],
+    :menuItems => [SpoonacularAPI.Model.MenuItem.t],
     :totalMenuItems => integer(),
     :type => String.t,
     :offset => integer(),
@@ -27,7 +27,7 @@ defmodule SpoonacularAPI.Model.SearchMenuItems200Response do
 
   def decode(value) do
     value
-     |> Deserializer.deserialize(:menuItems, :list, SpoonacularAPI.Model.SearchMenuItems200ResponseMenuItemsInner)
+     |> Deserializer.deserialize(:menuItems, :list, SpoonacularAPI.Model.MenuItem)
   end
 end
 

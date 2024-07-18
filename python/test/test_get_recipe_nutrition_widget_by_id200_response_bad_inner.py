@@ -36,14 +36,14 @@ class TestGetRecipeNutritionWidgetByID200ResponseBadInner(unittest.TestCase):
         model = GetRecipeNutritionWidgetByID200ResponseBadInner()
         if include_optional:
             return GetRecipeNutritionWidgetByID200ResponseBadInner(
-                name = '0',
+                title = '0',
                 amount = '0',
                 indented = True,
                 percent_of_daily_needs = 1.337
             )
         else:
             return GetRecipeNutritionWidgetByID200ResponseBadInner(
-                name = '0',
+                title = '0',
                 amount = '0',
                 indented = True,
                 percent_of_daily_needs = 1.337,

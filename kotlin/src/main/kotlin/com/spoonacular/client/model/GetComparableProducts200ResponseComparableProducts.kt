@@ -15,7 +15,7 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.GetComparableProducts200ResponseComparableProductsProteinInner
+import com.spoonacular.client.model.ComparableProduct
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -35,22 +35,22 @@ import com.squareup.moshi.JsonClass
 data class GetComparableProducts200ResponseComparableProducts (
 
     @Json(name = "calories")
-    val calories: kotlin.collections.List<kotlin.Any>,
+    val calories: kotlin.collections.List<ComparableProduct>,
 
     @Json(name = "likes")
-    val likes: kotlin.collections.List<kotlin.Any>,
+    val likes: kotlin.collections.List<ComparableProduct>,
 
     @Json(name = "price")
-    val price: kotlin.collections.List<kotlin.Any>,
+    val price: kotlin.collections.List<ComparableProduct>,
 
     @Json(name = "protein")
-    val protein: kotlin.collections.Set<GetComparableProducts200ResponseComparableProductsProteinInner>,
+    val protein: kotlin.collections.List<ComparableProduct>,
 
-    @Json(name = "spoonacularScore")
-    val spoonacularScore: kotlin.collections.Set<GetComparableProducts200ResponseComparableProductsProteinInner>,
+    @Json(name = "spoonacular_score")
+    val spoonacularScore: kotlin.collections.List<ComparableProduct>,
 
     @Json(name = "sugar")
-    val sugar: kotlin.collections.List<kotlin.Any>
+    val sugar: kotlin.collections.List<ComparableProduct>
 
 ) {
 

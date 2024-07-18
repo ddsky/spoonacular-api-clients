@@ -21,30 +21,34 @@ module OpenapiClient
     end
     # Autocomplete Ingredient Search
     # Autocomplete the entry of an ingredient.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @option opts [Boolean] :meta_information Whether to return more meta information about the ingredients.
     # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
     # @return [Array<AutocompleteIngredientSearch200ResponseInner>]
-    def autocomplete_ingredient_search(opts = {})
-      data, _status_code, _headers = autocomplete_ingredient_search_with_http_info(opts)
+    def autocomplete_ingredient_search(query, opts = {})
+      data, _status_code, _headers = autocomplete_ingredient_search_with_http_info(query, opts)
       data
     end
 
     # Autocomplete Ingredient Search
     # Autocomplete the entry of an ingredient.
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @option opts [Boolean] :meta_information Whether to return more meta information about the ingredients.
     # @option opts [String] :intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
     # @return [Array<(Array<AutocompleteIngredientSearch200ResponseInner>, Integer, Hash)>] Array<AutocompleteIngredientSearch200ResponseInner> data, response status code and response headers
-    def autocomplete_ingredient_search_with_http_info(opts = {})
+    def autocomplete_ingredient_search_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IngredientsApi.autocomplete_ingredient_search ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling IngredientsApi.autocomplete_ingredient_search"
       end
       if @api_client.config.client_side_validation && !opts[:'number'].nil? && opts[:'number'] > 100
         fail ArgumentError, 'invalid value for "opts[:"number"]" when calling IngredientsApi.autocomplete_ingredient_search, must be smaller than or equal to 100.'
@@ -63,7 +67,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'query'] = query
       query_params[:'number'] = opts[:'number'] if !opts[:'number'].nil?
       query_params[:'metaInformation'] = opts[:'meta_information'] if !opts[:'meta_information'].nil?
       query_params[:'intolerances'] = opts[:'intolerances'] if !opts[:'intolerances'].nil?
@@ -105,9 +109,9 @@ module OpenapiClient
 
     # Compute Ingredient Amount
     # Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
-    # @param id [Float] The id of the ingredient you want the amount for.
+    # @param id [Integer] The id of the ingredient you want the amount for.
     # @param nutrient [String] The target nutrient. See a list of supported nutrients.
-    # @param target [Float] The target number of the given nutrient.
+    # @param target [Integer] The target number of the given nutrient.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :unit The target unit.
     # @return [ComputeIngredientAmount200Response]
@@ -118,9 +122,9 @@ module OpenapiClient
 
     # Compute Ingredient Amount
     # Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
-    # @param id [Float] The id of the ingredient you want the amount for.
+    # @param id [Integer] The id of the ingredient you want the amount for.
     # @param nutrient [String] The target nutrient. See a list of supported nutrients.
-    # @param target [Float] The target number of the given nutrient.
+    # @param target [Integer] The target number of the given nutrient.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :unit The target unit.
     # @return [Array<(ComputeIngredientAmount200Response, Integer, Hash)>] ComputeIngredientAmount200Response data, response status code and response headers
@@ -185,11 +189,11 @@ module OpenapiClient
 
     # Get Ingredient Information
     # Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The ingredient id.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :amount The amount of this ingredient.
     # @option opts [String] :unit The unit for the given amount.
-    # @return [GetIngredientInformation200Response]
+    # @return [IngredientInformation]
     def get_ingredient_information(id, opts = {})
       data, _status_code, _headers = get_ingredient_information_with_http_info(id, opts)
       data
@@ -197,11 +201,11 @@ module OpenapiClient
 
     # Get Ingredient Information
     # Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The ingredient id.
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :amount The amount of this ingredient.
     # @option opts [String] :unit The unit for the given amount.
-    # @return [Array<(GetIngredientInformation200Response, Integer, Hash)>] GetIngredientInformation200Response data, response status code and response headers
+    # @return [Array<(IngredientInformation, Integer, Hash)>] IngredientInformation data, response status code and response headers
     def get_ingredient_information_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IngredientsApi.get_ingredient_information ...'
@@ -230,7 +234,7 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'GetIngredientInformation200Response'
+      return_type = opts[:debug_return_type] || 'IngredientInformation'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['apiKeyScheme']
@@ -318,7 +322,7 @@ module OpenapiClient
 
     # Get Ingredient Substitutes by ID
     # Search for substitutes for a given ingredient.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the ingredient you want substitutes for.
     # @param [Hash] opts the optional parameters
     # @return [GetIngredientSubstitutes200Response]
     def get_ingredient_substitutes_by_id(id, opts = {})
@@ -328,7 +332,7 @@ module OpenapiClient
 
     # Get Ingredient Substitutes by ID
     # Search for substitutes for a given ingredient.
-    # @param id [Integer] The item&#39;s id.
+    # @param id [Integer] The id of the ingredient you want substitutes for.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GetIngredientSubstitutes200Response, Integer, Hash)>] GetIngredientSubstitutes200Response data, response status code and response headers
     def get_ingredient_substitutes_by_id_with_http_info(id, opts = {})
@@ -381,8 +385,8 @@ module OpenapiClient
 
     # Ingredient Search
     # Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Boolean] :add_children Whether to add children of found foods.
     # @option opts [Float] :min_protein_percent The minimum percentage of protein the food must have (between 0 and 100).
     # @option opts [Float] :max_protein_percent The maximum percentage of protein the food can have (between 0 and 100).
@@ -398,15 +402,15 @@ module OpenapiClient
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
     # @return [IngredientSearch200Response]
-    def ingredient_search(opts = {})
-      data, _status_code, _headers = ingredient_search_with_http_info(opts)
+    def ingredient_search(query, opts = {})
+      data, _status_code, _headers = ingredient_search_with_http_info(query, opts)
       data
     end
 
     # Ingredient Search
     # Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
+    # @param query [String] The (natural language) search query.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :query The (natural language) search query.
     # @option opts [Boolean] :add_children Whether to add children of found foods.
     # @option opts [Float] :min_protein_percent The minimum percentage of protein the food must have (between 0 and 100).
     # @option opts [Float] :max_protein_percent The maximum percentage of protein the food can have (between 0 and 100).
@@ -422,9 +426,13 @@ module OpenapiClient
     # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10. (default to 10)
     # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
     # @return [Array<(IngredientSearch200Response, Integer, Hash)>] IngredientSearch200Response data, response status code and response headers
-    def ingredient_search_with_http_info(opts = {})
+    def ingredient_search_with_http_info(query, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IngredientsApi.ingredient_search ...'
+      end
+      # verify the required parameter 'query' is set
+      if @api_client.config.client_side_validation && query.nil?
+        fail ArgumentError, "Missing the required parameter 'query' when calling IngredientsApi.ingredient_search"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] > 900
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling IngredientsApi.ingredient_search, must be smaller than or equal to 900.'
@@ -451,7 +459,7 @@ module OpenapiClient
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'query'] = query
       query_params[:'addChildren'] = opts[:'add_children'] if !opts[:'add_children'].nil?
       query_params[:'minProteinPercent'] = opts[:'min_protein_percent'] if !opts[:'min_protein_percent'].nil?
       query_params[:'maxProteinPercent'] = opts[:'max_protein_percent'] if !opts[:'max_protein_percent'].nil?
@@ -503,7 +511,7 @@ module OpenapiClient
 
     # Ingredients by ID Image
     # Visualize a recipe's ingredient list.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
     # @return [File]
@@ -514,7 +522,7 @@ module OpenapiClient
 
     # Ingredients by ID Image
     # Visualize a recipe&#39;s ingredient list.
-    # @param id [Float] The recipe id.
+    # @param id [Integer] The recipe id.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers

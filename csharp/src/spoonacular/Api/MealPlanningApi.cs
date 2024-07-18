@@ -90,8 +90,8 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GenerateShoppingList200Response</returns>
-        GenerateShoppingList200Response AddToShoppingList(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0);
+        /// <returns>GetShoppingList200Response</returns>
+        GetShoppingList200Response AddToShoppingList(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0);
 
         /// <summary>
         /// Add to Shopping List
@@ -104,8 +104,8 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GenerateShoppingList200Response</returns>
-        ApiResponse<GenerateShoppingList200Response> AddToShoppingListWithHttpInfo(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0);
+        /// <returns>ApiResponse of GetShoppingList200Response</returns>
+        ApiResponse<GetShoppingList200Response> AddToShoppingListWithHttpInfo(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0);
         /// <summary>
         /// Clear Meal Plan Day
         /// </summary>
@@ -168,7 +168,7 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
-        Object DeleteFromMealPlan(string username, decimal id, string hash, int operationIndex = 0);
+        Object DeleteFromMealPlan(string username, int id, string hash, int operationIndex = 0);
 
         /// <summary>
         /// Delete from Meal Plan
@@ -182,7 +182,7 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> DeleteFromMealPlanWithHttpInfo(string username, decimal id, string hash, int operationIndex = 0);
+        ApiResponse<Object> DeleteFromMealPlanWithHttpInfo(string username, int id, string hash, int operationIndex = 0);
         /// <summary>
         /// Delete from Shopping List
         /// </summary>
@@ -191,7 +191,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
@@ -205,7 +205,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
@@ -218,7 +218,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
@@ -232,7 +232,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
@@ -278,8 +278,8 @@ namespace spoonacular.Api
         /// <param name="endDate">The end date in the format yyyy-mm-dd.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GenerateShoppingList200Response</returns>
-        GenerateShoppingList200Response GenerateShoppingList(string username, string startDate, string endDate, string hash, int operationIndex = 0);
+        /// <returns>GetShoppingList200Response</returns>
+        GetShoppingList200Response GenerateShoppingList(string username, string startDate, string endDate, string hash, int operationIndex = 0);
 
         /// <summary>
         /// Generate Shopping List
@@ -293,8 +293,8 @@ namespace spoonacular.Api
         /// <param name="endDate">The end date in the format yyyy-mm-dd.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GenerateShoppingList200Response</returns>
-        ApiResponse<GenerateShoppingList200Response> GenerateShoppingListWithHttpInfo(string username, string startDate, string endDate, string hash, int operationIndex = 0);
+        /// <returns>ApiResponse of GetShoppingList200Response</returns>
+        ApiResponse<GetShoppingList200Response> GenerateShoppingListWithHttpInfo(string username, string startDate, string endDate, string hash, int operationIndex = 0);
         /// <summary>
         /// Get Meal Plan Template
         /// </summary>
@@ -303,7 +303,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetMealPlanTemplate200Response</returns>
@@ -317,7 +317,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetMealPlanTemplate200Response</returns>
@@ -476,8 +476,8 @@ namespace spoonacular.Api
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GenerateShoppingList200Response</returns>
-        System.Threading.Tasks.Task<GenerateShoppingList200Response> AddToShoppingListAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetShoppingList200Response</returns>
+        System.Threading.Tasks.Task<GetShoppingList200Response> AddToShoppingListAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Add to Shopping List
@@ -491,8 +491,8 @@ namespace spoonacular.Api
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GenerateShoppingList200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GenerateShoppingList200Response>> AddToShoppingListWithHttpInfoAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetShoppingList200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetShoppingList200Response>> AddToShoppingListWithHttpInfoAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Clear Meal Plan Day
         /// </summary>
@@ -560,7 +560,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> DeleteFromMealPlanAsync(string username, decimal id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> DeleteFromMealPlanAsync(string username, int id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete from Meal Plan
@@ -575,7 +575,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFromMealPlanWithHttpInfoAsync(string username, decimal id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFromMealPlanWithHttpInfoAsync(string username, int id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete from Shopping List
         /// </summary>
@@ -584,7 +584,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -599,7 +599,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -613,7 +613,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -628,7 +628,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -678,8 +678,8 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GenerateShoppingList200Response</returns>
-        System.Threading.Tasks.Task<GenerateShoppingList200Response> GenerateShoppingListAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetShoppingList200Response</returns>
+        System.Threading.Tasks.Task<GetShoppingList200Response> GenerateShoppingListAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Generate Shopping List
@@ -694,8 +694,8 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GenerateShoppingList200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GenerateShoppingList200Response>> GenerateShoppingListWithHttpInfoAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetShoppingList200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetShoppingList200Response>> GenerateShoppingListWithHttpInfoAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Meal Plan Template
         /// </summary>
@@ -704,7 +704,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -719,7 +719,7 @@ namespace spoonacular.Api
         /// </remarks>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1300,10 +1300,10 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GenerateShoppingList200Response</returns>
-        public GenerateShoppingList200Response AddToShoppingList(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0)
+        /// <returns>GetShoppingList200Response</returns>
+        public GetShoppingList200Response AddToShoppingList(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GenerateShoppingList200Response> localVarResponse = AddToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest);
+            spoonacular.Client.ApiResponse<GetShoppingList200Response> localVarResponse = AddToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest);
             return localVarResponse.Data;
         }
 
@@ -1315,8 +1315,8 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GenerateShoppingList200Response</returns>
-        public spoonacular.Client.ApiResponse<GenerateShoppingList200Response> AddToShoppingListWithHttpInfo(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0)
+        /// <returns>ApiResponse of GetShoppingList200Response</returns>
+        public spoonacular.Client.ApiResponse<GetShoppingList200Response> AddToShoppingListWithHttpInfo(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0)
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -1373,7 +1373,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/items", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<GetShoppingList200Response>("/mealplanner/{username}/shopping-list/items", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AddToShoppingList", localVarResponse);
@@ -1395,10 +1395,10 @@ namespace spoonacular.Api
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GenerateShoppingList200Response</returns>
-        public async System.Threading.Tasks.Task<GenerateShoppingList200Response> AddToShoppingListAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetShoppingList200Response</returns>
+        public async System.Threading.Tasks.Task<GetShoppingList200Response> AddToShoppingListAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GenerateShoppingList200Response> localVarResponse = await AddToShoppingListWithHttpInfoAsync(username, hash, addToShoppingListRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<GetShoppingList200Response> localVarResponse = await AddToShoppingListWithHttpInfoAsync(username, hash, addToShoppingListRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1411,8 +1411,8 @@ namespace spoonacular.Api
         /// <param name="addToShoppingListRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GenerateShoppingList200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GenerateShoppingList200Response>> AddToShoppingListWithHttpInfoAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetShoppingList200Response)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetShoppingList200Response>> AddToShoppingListWithHttpInfoAsync(string username, string hash, AddToShoppingListRequest addToShoppingListRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -1470,7 +1470,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<GetShoppingList200Response>("/mealplanner/{username}/shopping-list/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1839,7 +1839,7 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
-        public Object DeleteFromMealPlan(string username, decimal id, string hash, int operationIndex = 0)
+        public Object DeleteFromMealPlan(string username, int id, string hash, int operationIndex = 0)
         {
             spoonacular.Client.ApiResponse<Object> localVarResponse = DeleteFromMealPlanWithHttpInfo(username, id, hash);
             return localVarResponse.Data;
@@ -1854,7 +1854,7 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
-        public spoonacular.Client.ApiResponse<Object> DeleteFromMealPlanWithHttpInfo(string username, decimal id, string hash, int operationIndex = 0)
+        public spoonacular.Client.ApiResponse<Object> DeleteFromMealPlanWithHttpInfo(string username, int id, string hash, int operationIndex = 0)
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -1927,7 +1927,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> DeleteFromMealPlanAsync(string username, decimal id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> DeleteFromMealPlanAsync(string username, int id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             spoonacular.Client.ApiResponse<Object> localVarResponse = await DeleteFromMealPlanWithHttpInfoAsync(username, id, hash, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1943,7 +1943,7 @@ namespace spoonacular.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> DeleteFromMealPlanWithHttpInfoAsync(string username, decimal id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<Object>> DeleteFromMealPlanWithHttpInfoAsync(string username, int id, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -2013,7 +2013,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
@@ -2028,7 +2028,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
@@ -2100,7 +2100,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2116,7 +2116,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2191,7 +2191,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Object</returns>
@@ -2206,7 +2206,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object</returns>
@@ -2278,7 +2278,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2294,7 +2294,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2557,10 +2557,10 @@ namespace spoonacular.Api
         /// <param name="endDate">The end date in the format yyyy-mm-dd.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GenerateShoppingList200Response</returns>
-        public GenerateShoppingList200Response GenerateShoppingList(string username, string startDate, string endDate, string hash, int operationIndex = 0)
+        /// <returns>GetShoppingList200Response</returns>
+        public GetShoppingList200Response GenerateShoppingList(string username, string startDate, string endDate, string hash, int operationIndex = 0)
         {
-            spoonacular.Client.ApiResponse<GenerateShoppingList200Response> localVarResponse = GenerateShoppingListWithHttpInfo(username, startDate, endDate, hash);
+            spoonacular.Client.ApiResponse<GetShoppingList200Response> localVarResponse = GenerateShoppingListWithHttpInfo(username, startDate, endDate, hash);
             return localVarResponse.Data;
         }
 
@@ -2573,8 +2573,8 @@ namespace spoonacular.Api
         /// <param name="endDate">The end date in the format yyyy-mm-dd.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GenerateShoppingList200Response</returns>
-        public spoonacular.Client.ApiResponse<GenerateShoppingList200Response> GenerateShoppingListWithHttpInfo(string username, string startDate, string endDate, string hash, int operationIndex = 0)
+        /// <returns>ApiResponse of GetShoppingList200Response</returns>
+        public spoonacular.Client.ApiResponse<GetShoppingList200Response> GenerateShoppingListWithHttpInfo(string username, string startDate, string endDate, string hash, int operationIndex = 0)
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -2637,7 +2637,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/{start_date}/{end_date}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<GetShoppingList200Response>("/mealplanner/{username}/shopping-list/{start_date}/{end_date}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GenerateShoppingList", localVarResponse);
@@ -2660,10 +2660,10 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GenerateShoppingList200Response</returns>
-        public async System.Threading.Tasks.Task<GenerateShoppingList200Response> GenerateShoppingListAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetShoppingList200Response</returns>
+        public async System.Threading.Tasks.Task<GetShoppingList200Response> GenerateShoppingListAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            spoonacular.Client.ApiResponse<GenerateShoppingList200Response> localVarResponse = await GenerateShoppingListWithHttpInfoAsync(username, startDate, endDate, hash, operationIndex, cancellationToken).ConfigureAwait(false);
+            spoonacular.Client.ApiResponse<GetShoppingList200Response> localVarResponse = await GenerateShoppingListWithHttpInfoAsync(username, startDate, endDate, hash, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2677,8 +2677,8 @@ namespace spoonacular.Api
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GenerateShoppingList200Response)</returns>
-        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GenerateShoppingList200Response>> GenerateShoppingListWithHttpInfoAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetShoppingList200Response)</returns>
+        public async System.Threading.Tasks.Task<spoonacular.Client.ApiResponse<GetShoppingList200Response>> GenerateShoppingListWithHttpInfoAsync(string username, string startDate, string endDate, string hash, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -2742,7 +2742,7 @@ namespace spoonacular.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<GenerateShoppingList200Response>("/mealplanner/{username}/shopping-list/{start_date}/{end_date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<GetShoppingList200Response>("/mealplanner/{username}/shopping-list/{start_date}/{end_date}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2761,7 +2761,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetMealPlanTemplate200Response</returns>
@@ -2776,7 +2776,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetMealPlanTemplate200Response</returns>
@@ -2848,7 +2848,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2864,7 +2864,7 @@ namespace spoonacular.Api
         /// </summary>
         /// <exception cref="spoonacular.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">The username.</param>
-        /// <param name="id">The item&#39;s id.</param>
+        /// <param name="id">The shopping list item id.</param>
         /// <param name="hash">The private hash for the username.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

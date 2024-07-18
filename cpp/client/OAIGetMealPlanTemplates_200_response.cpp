@@ -66,10 +66,10 @@ QJsonObject OAIGetMealPlanTemplates_200_response::asJsonObject() const {
     return obj;
 }
 
-QSet<OAIGetAnalyzedRecipeInstructions_200_response_ingredients_inner> OAIGetMealPlanTemplates_200_response::getTemplates() const {
+QSet<OAIGetMealPlanTemplates_200_response_templates_inner> OAIGetMealPlanTemplates_200_response::getTemplates() const {
     return m_templates;
 }
-void OAIGetMealPlanTemplates_200_response::setTemplates(const QSet<OAIGetAnalyzedRecipeInstructions_200_response_ingredients_inner> &templates) {
+void OAIGetMealPlanTemplates_200_response::setTemplates(const QSet<OAIGetMealPlanTemplates_200_response_templates_inner> &templates) {
     m_templates = templates;
     m_templates_isSet = true;
 }

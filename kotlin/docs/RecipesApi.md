@@ -174,7 +174,7 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
@@ -442,7 +442,7 @@ Visualize a recipe&#39;s equipment list as an image.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : java.math.BigDecimal = 44860 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 44860 // kotlin.Int | The recipe id.
 try {
     val result : java.io.File = apiInstance.equipmentByIDImage(id)
     println(result)
@@ -458,7 +458,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -478,7 +478,7 @@ Configure apiKeyScheme:
 
 <a id="extractRecipeFromWebsite"></a>
 # **extractRecipeFromWebsite**
-> GetRecipeInformation200Response extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
+> RecipeInformation extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
 
 Extract Recipe from Website
 
@@ -497,7 +497,7 @@ val analyze : kotlin.Boolean = false // kotlin.Boolean | If true, the recipe wil
 val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 val includeTaste : kotlin.Boolean = false // kotlin.Boolean | Whether taste data should be added to correctly parsed ingredients.
 try {
-    val result : GetRecipeInformation200Response = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
+    val result : RecipeInformation = apiInstance.extractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#extractRecipeFromWebsite")
@@ -519,7 +519,7 @@ try {
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -535,7 +535,7 @@ Configure apiKeyScheme:
 
 <a id="getAnalyzedRecipeInstructions"></a>
 # **getAnalyzedRecipeInstructions**
-> GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(id, stepBreakdown)
+> kotlin.collections.List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt; getAnalyzedRecipeInstructions(id, stepBreakdown)
 
 Get Analyzed Recipe Instructions
 
@@ -548,10 +548,10 @@ Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched 
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 324694 // kotlin.Int | The recipe id.
 val stepBreakdown : kotlin.Boolean = true // kotlin.Boolean | Whether to break down the recipe steps even more.
 try {
-    val result : GetAnalyzedRecipeInstructions200Response = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown)
+    val result : kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner> = apiInstance.getAnalyzedRecipeInstructions(id, stepBreakdown)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#getAnalyzedRecipeInstructions")
@@ -563,14 +563,14 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **stepBreakdown** | **kotlin.Boolean**| Whether to break down the recipe steps even more. | [optional] |
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**kotlin.collections.List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -654,7 +654,7 @@ Get a recipe&#39;s equipment list.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
 try {
     val result : GetRecipeEquipmentByID200Response = apiInstance.getRecipeEquipmentByID(id)
     println(result)
@@ -670,7 +670,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -690,7 +690,7 @@ Configure apiKeyScheme:
 
 <a id="getRecipeInformation"></a>
 # **getRecipeInformation**
-> GetRecipeInformation200Response getRecipeInformation(id, includeNutrition)
+> RecipeInformation getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData)
 
 Get Recipe Information
 
@@ -703,10 +703,12 @@ Use a recipe id to get full information about a recipe, such as ingredients, nut
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 716429 // kotlin.Int | The id of the recipe.
 val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+val addWinePairing : kotlin.Boolean = false // kotlin.Boolean | Add a wine pairing to the recipe.
+val addTasteData : kotlin.Boolean = false // kotlin.Boolean | Add taste data to the recipe.
 try {
-    val result : GetRecipeInformation200Response = apiInstance.getRecipeInformation(id, includeNutrition)
+    val result : RecipeInformation = apiInstance.getRecipeInformation(id, includeNutrition, addWinePairing, addTasteData)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#getRecipeInformation")
@@ -718,14 +720,16 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The id of the recipe. | |
+| **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| **addWinePairing** | **kotlin.Boolean**| Add a wine pairing to the recipe. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **includeNutrition** | **kotlin.Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false] |
+| **addTasteData** | **kotlin.Boolean**| Add taste data to the recipe. | [optional] |
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -741,7 +745,7 @@ Configure apiKeyScheme:
 
 <a id="getRecipeInformationBulk"></a>
 # **getRecipeInformationBulk**
-> kotlin.collections.Set&lt;GetRecipeInformationBulk200ResponseInner&gt; getRecipeInformationBulk(ids, includeNutrition)
+> kotlin.collections.Set&lt;RecipeInformation&gt; getRecipeInformationBulk(ids, includeNutrition)
 
 Get Recipe Information Bulk
 
@@ -757,7 +761,7 @@ val apiInstance = RecipesApi()
 val ids : kotlin.String = 715538,716429 // kotlin.String | A comma-separated list of recipe ids.
 val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
 try {
-    val result : kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner> = apiInstance.getRecipeInformationBulk(ids, includeNutrition)
+    val result : kotlin.collections.Set<RecipeInformation> = apiInstance.getRecipeInformationBulk(ids, includeNutrition)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#getRecipeInformationBulk")
@@ -776,7 +780,7 @@ try {
 
 ### Return type
 
-[**kotlin.collections.Set&lt;GetRecipeInformationBulk200ResponseInner&gt;**](GetRecipeInformationBulk200ResponseInner.md)
+[**kotlin.collections.Set&lt;RecipeInformation&gt;**](RecipeInformation.md)
 
 ### Authorization
 
@@ -805,7 +809,7 @@ Get a recipe&#39;s ingredient list.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
 try {
     val result : GetRecipeIngredientsByID200Response = apiInstance.getRecipeIngredientsByID(id)
     println(result)
@@ -821,7 +825,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -854,7 +858,7 @@ Get a recipe&#39;s nutrition data.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
 try {
     val result : GetRecipeNutritionWidgetByID200Response = apiInstance.getRecipeNutritionWidgetByID(id)
     println(result)
@@ -870,7 +874,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -903,7 +907,7 @@ Get a recipe&#39;s price breakdown data.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1003464 // kotlin.Int | The recipe id.
 try {
     val result : GetRecipePriceBreakdownByID200Response = apiInstance.getRecipePriceBreakdownByID(id)
     println(result)
@@ -919,7 +923,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -939,7 +943,7 @@ Configure apiKeyScheme:
 
 <a id="getRecipeTasteByID"></a>
 # **getRecipeTasteByID**
-> GetRecipeTasteByID200Response getRecipeTasteByID(id, normalize)
+> TasteInformation getRecipeTasteByID(id, normalize)
 
 Taste by ID
 
@@ -952,10 +956,10 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 69095 // kotlin.Int | The recipe id.
 val normalize : kotlin.Boolean = true // kotlin.Boolean | Normalize to the strongest taste.
 try {
-    val result : GetRecipeTasteByID200Response = apiInstance.getRecipeTasteByID(id, normalize)
+    val result : TasteInformation = apiInstance.getRecipeTasteByID(id, normalize)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#getRecipeTasteByID")
@@ -967,14 +971,14 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional] [default to true] |
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -1003,7 +1007,7 @@ Find recipes which are similar to the given one.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 715538 // kotlin.Int | The id of the source recipe for which similar recipes should be found.
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 try {
     val result : kotlin.collections.Set<GetSimilarRecipes200ResponseInner> = apiInstance.getSimilarRecipes(id, number)
@@ -1018,7 +1022,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The id of the source recipe for which similar recipes should be found. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
@@ -1090,7 +1094,7 @@ Configure apiKeyScheme:
 
 <a id="parseIngredients"></a>
 # **parseIngredients**
-> kotlin.collections.Set&lt;ParseIngredients200ResponseInner&gt; parseIngredients(ingredientList, servings, language, includeNutrition)
+> kotlin.collections.Set&lt;IngredientInformation&gt; parseIngredients(ingredientList, servings, language, includeNutrition)
 
 Parse Ingredients
 
@@ -1106,9 +1110,9 @@ val apiInstance = RecipesApi()
 val ingredientList : kotlin.String = ingredientList_example // kotlin.String | The ingredient list of the recipe, one ingredient per line.
 val servings : java.math.BigDecimal = 8.14 // java.math.BigDecimal | The number of servings that you can make from the ingredients.
 val language : kotlin.String = en // kotlin.String | The language of the input. Either 'en' or 'de'.
-val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | 
+val includeNutrition : kotlin.Boolean = true // kotlin.Boolean | Whether nutrition data should be added to correctly parsed ingredients.
 try {
-    val result : kotlin.collections.Set<ParseIngredients200ResponseInner> = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition)
+    val result : kotlin.collections.Set<IngredientInformation> = apiInstance.parseIngredients(ingredientList, servings, language, includeNutrition)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling RecipesApi#parseIngredients")
@@ -1125,11 +1129,11 @@ try {
 | **language** | **kotlin.String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] [enum: en, de] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **includeNutrition** | **kotlin.Boolean**|  | [optional] |
+| **includeNutrition** | **kotlin.Boolean**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] |
 
 ### Return type
 
-[**kotlin.collections.Set&lt;ParseIngredients200ResponseInner&gt;**](ParseIngredients200ResponseInner.md)
+[**kotlin.collections.Set&lt;IngredientInformation&gt;**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1158,7 +1162,7 @@ Visualize a recipe&#39;s price breakdown.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
 try {
     val result : java.io.File = apiInstance.priceBreakdownByIDImage(id)
     println(result)
@@ -1174,7 +1178,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -1256,7 +1260,7 @@ Visualize a recipe&#39;s nutritional information as an image.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
 try {
     val result : java.io.File = apiInstance.recipeNutritionByIDImage(id)
     println(result)
@@ -1272,7 +1276,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -1305,7 +1309,7 @@ Get a recipe&#39;s nutrition label as an image.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : java.math.BigDecimal = 641166 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 641166 // kotlin.Int | The recipe id.
 val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
 val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
@@ -1322,7 +1326,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
 | Name | Type | Description  | Notes |
@@ -1360,7 +1364,7 @@ Get a recipe&#39;s nutrition label as an HTML widget.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : java.math.BigDecimal = 641166 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 641166 // kotlin.Int | The recipe id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
 val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
@@ -1378,7 +1382,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | **showOptionalNutrients** | **kotlin.Boolean**| Whether to show optional nutrients. | [optional] |
 | **showZeroValues** | **kotlin.Boolean**| Whether to show zero values. | [optional] |
@@ -1417,7 +1421,7 @@ Get a recipe&#39;s taste as an image. The tastes supported are sweet, salty, sou
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : java.math.BigDecimal = 69095 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 69095 // kotlin.Int | The recipe id.
 val normalize : kotlin.Boolean = false // kotlin.Boolean | Normalize to the strongest taste.
 val rgb : kotlin.String = 75,192,192 // kotlin.String | Red, green, blue values for the chart color.
 try {
@@ -1433,7 +1437,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | **normalize** | **kotlin.Boolean**| Normalize to the strongest taste. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -1485,7 +1489,7 @@ val addRecipeInformation : kotlin.Boolean = false // kotlin.Boolean | If set to 
 val addRecipeNutrition : kotlin.Boolean = false // kotlin.Boolean | If set to true, you get nutritional information about each recipes returned.
 val author : kotlin.String = coffeebean // kotlin.String | The username of the recipe author.
 val tags : kotlin.String = tags_example // kotlin.String | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-val recipeBoxId : java.math.BigDecimal = 2468 // java.math.BigDecimal | The id of the recipe box to which the search should be limited to.
+val recipeBoxId : kotlin.Int = 2468 // kotlin.Int | The id of the recipe box to which the search should be limited to.
 val titleMatch : kotlin.String = Crock Pot // kotlin.String | Enter text that must be found in the title of the recipes.
 val maxReadyTime : java.math.BigDecimal = 20 // java.math.BigDecimal | The maximum time in minutes it should take to prepare and cook the recipe.
 val minServings : java.math.BigDecimal = 1 // java.math.BigDecimal | The minimum amount of servings the recipe is for.
@@ -1580,7 +1584,7 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | **cuisine** | **kotlin.String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] |
 | **excludeCuisine** | **kotlin.String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] |
 | **diet** | **kotlin.String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] |
@@ -1595,7 +1599,7 @@ try {
 | **addRecipeNutrition** | **kotlin.Boolean**| If set to true, you get nutritional information about each recipes returned. | [optional] |
 | **author** | **kotlin.String**| The username of the recipe author. | [optional] |
 | **tags** | **kotlin.String**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] |
-| **recipeBoxId** | **java.math.BigDecimal**| The id of the recipe box to which the search should be limited to. | [optional] |
+| **recipeBoxId** | **kotlin.Int**| The id of the recipe box to which the search should be limited to. | [optional] |
 | **titleMatch** | **kotlin.String**| Enter text that must be found in the title of the recipes. | [optional] |
 | **maxReadyTime** | **java.math.BigDecimal**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] |
 | **minServings** | **java.math.BigDecimal**| The minimum amount of servings the recipe is for. | [optional] |
@@ -1713,7 +1717,7 @@ Search Recipes by Ingredients
 val apiInstance = RecipesApi()
 val ingredients : kotlin.String = carrots,tomatoes // kotlin.String | A comma-separated list of ingredients that the recipes should contain.
 val number : kotlin.Int = 10 // kotlin.Int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-val ranking : java.math.BigDecimal = 1 // java.math.BigDecimal | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+val ranking : kotlin.Int = 1 // kotlin.Int | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 val ignorePantry : kotlin.Boolean = false // kotlin.Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 try {
     val result : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> = apiInstance.searchRecipesByIngredients(ingredients, number, ranking, ignorePantry)
@@ -1728,9 +1732,9 @@ try {
 ```
 
 ### Parameters
-| **ingredients** | **kotlin.String**| A comma-separated list of ingredients that the recipes should contain. | [optional] |
+| **ingredients** | **kotlin.String**| A comma-separated list of ingredients that the recipes should contain. | |
 | **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
-| **ranking** | **java.math.BigDecimal**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
+| **ranking** | **kotlin.Int**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **ignorePantry** | **kotlin.Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false] |
@@ -1963,7 +1967,7 @@ Automatically generate a short description that summarizes key information about
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 4632 // kotlin.Int | The recipe id.
 try {
     val result : SummarizeRecipe200Response = apiInstance.summarizeRecipe(id)
     println(result)
@@ -1979,7 +1983,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 
 ### Return type
 
@@ -2126,7 +2130,7 @@ Visualize a recipe&#39;s equipment list.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 44860 // kotlin.Int | The recipe id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 try {
     val result : kotlin.String = apiInstance.visualizeRecipeEquipmentByID(id, defaultCss)
@@ -2141,7 +2145,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
@@ -2177,7 +2181,7 @@ Visualize a recipe&#39;s ingredient list.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 val measure : kotlin.String = metric // kotlin.String | Whether the the measures should be 'us' or 'metric'.
 try {
@@ -2193,7 +2197,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -2287,7 +2291,7 @@ Visualize a recipe&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 try {
     val result : kotlin.String = apiInstance.visualizeRecipeNutritionByID(id, defaultCss)
@@ -2302,7 +2306,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
@@ -2338,7 +2342,7 @@ Visualize a recipe&#39;s price breakdown.
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
 val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
 try {
     val result : kotlin.String = apiInstance.visualizeRecipePriceBreakdownByID(id, defaultCss)
@@ -2353,7 +2357,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **defaultCss** | **kotlin.Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true] |
@@ -2444,7 +2448,7 @@ Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, s
 //import com.spoonacular.client.model.*
 
 val apiInstance = RecipesApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 69095 // kotlin.Int | The recipe id.
 val normalize : kotlin.Boolean = true // kotlin.Boolean | Whether to normalize to the strongest taste.
 val rgb : kotlin.String = 75,192,192 // kotlin.String | Red, green, blue values for the chart color.
 try {
@@ -2460,7 +2464,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | **normalize** | **kotlin.Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |

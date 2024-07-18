@@ -101,7 +101,7 @@ namespace spoonacular.Test.Api
         public void GetComparableProductsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal upc = null;
+            //string upc = null;
             //var response = instance.GetComparableProducts(upc);
             //Assert.IsType<GetComparableProducts200Response>(response);
         }
@@ -115,7 +115,7 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //var response = instance.GetProductInformation(id);
-            //Assert.IsType<GetProductInformation200Response>(response);
+            //Assert.IsType<ProductInformation>(response);
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace spoonacular.Test.Api
         public void ProductNutritionByIDImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //var response = instance.ProductNutritionByIDImage(id);
             //Assert.IsType<System.IO.Stream>(response);
         }
@@ -137,7 +137,7 @@ namespace spoonacular.Test.Api
         public void ProductNutritionLabelImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //bool? showOptionalNutrients = null;
             //bool? showZeroValues = null;
             //bool? showIngredients = null;
@@ -152,7 +152,7 @@ namespace spoonacular.Test.Api
         public void ProductNutritionLabelWidgetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //bool? defaultCss = null;
             //bool? showOptionalNutrients = null;
             //bool? showZeroValues = null;
@@ -168,7 +168,7 @@ namespace spoonacular.Test.Api
         public void SearchGroceryProductsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
+            //string query = null;
             //decimal? minCalories = null;
             //decimal? maxCalories = null;
             //decimal? minCarbs = null;
@@ -191,7 +191,7 @@ namespace spoonacular.Test.Api
         public void SearchGroceryProductsByUPCTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal upc = null;
+            //string upc = null;
             //var response = instance.SearchGroceryProductsByUPC(upc);
             //Assert.IsType<SearchGroceryProductsByUPC200Response>(response);
         }

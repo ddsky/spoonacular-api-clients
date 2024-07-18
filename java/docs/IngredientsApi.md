@@ -68,7 +68,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **query** | **String**| The (natural language) search query. | [optional] |
+| **query** | **String**| The (natural language) search query. | |
 | **number** | **Integer**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | **metaInformation** | **Boolean**| Whether to return more meta information about the ingredients. | [optional] |
 | **intolerances** | **String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
@@ -125,9 +125,9 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     IngredientsApi apiInstance = new IngredientsApi(defaultClient);
-    BigDecimal id = new BigDecimal("9266"); // BigDecimal | The id of the ingredient you want the amount for.
+    Integer id = 9266; // Integer | The id of the ingredient you want the amount for.
     String nutrient = "protein"; // String | The target nutrient. See a list of supported nutrients.
-    BigDecimal target = new BigDecimal("2"); // BigDecimal | The target number of the given nutrient.
+    Integer target = 2; // Integer | The target number of the given nutrient.
     String unit = "oz"; // String | The target unit.
     try {
       ComputeIngredientAmount200Response result = apiInstance.computeIngredientAmount(id, nutrient, target, unit);
@@ -147,9 +147,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The id of the ingredient you want the amount for. | |
+| **id** | **Integer**| The id of the ingredient you want the amount for. | |
 | **nutrient** | **String**| The target nutrient. See a list of supported nutrients. | |
-| **target** | **BigDecimal**| The target number of the given nutrient. | |
+| **target** | **Integer**| The target number of the given nutrient. | |
 | **unit** | **String**| The target unit. | [optional] |
 
 ### Return type
@@ -175,7 +175,7 @@ public class Example {
 
 <a id="getIngredientInformation"></a>
 # **getIngredientInformation**
-> GetIngredientInformation200Response getIngredientInformation(id, amount, unit)
+> IngredientInformation getIngredientInformation(id, amount, unit)
 
 Get Ingredient Information
 
@@ -203,11 +203,11 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     IngredientsApi apiInstance = new IngredientsApi(defaultClient);
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 9266; // Integer | The ingredient id.
     BigDecimal amount = new BigDecimal("150"); // BigDecimal | The amount of this ingredient.
     String unit = "grams"; // String | The unit for the given amount.
     try {
-      GetIngredientInformation200Response result = apiInstance.getIngredientInformation(id, amount, unit);
+      IngredientInformation result = apiInstance.getIngredientInformation(id, amount, unit);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IngredientsApi#getIngredientInformation");
@@ -224,13 +224,13 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The ingredient id. | |
 | **amount** | **BigDecimal**| The amount of this ingredient. | [optional] |
 | **unit** | **String**| The unit for the given amount. | [optional] |
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -351,7 +351,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     IngredientsApi apiInstance = new IngredientsApi(defaultClient);
-    Integer id = 1; // Integer | The item's id.
+    Integer id = 1001; // Integer | The id of the ingredient you want substitutes for.
     try {
       GetIngredientSubstitutes200Response result = apiInstance.getIngredientSubstitutesByID(id);
       System.out.println(result);
@@ -370,7 +370,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **Integer**| The item&#39;s id. | |
+| **id** | **Integer**| The id of the ingredient you want substitutes for. | |
 
 ### Return type
 
@@ -456,7 +456,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **query** | **String**| The (natural language) search query. | [optional] |
+| **query** | **String**| The (natural language) search query. | |
 | **addChildren** | **Boolean**| Whether to add children of found foods. | [optional] |
 | **minProteinPercent** | **BigDecimal**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] |
 | **maxProteinPercent** | **BigDecimal**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] |
@@ -523,7 +523,7 @@ public class Example {
     //apiKeyScheme.setApiKeyPrefix("Token");
 
     IngredientsApi apiInstance = new IngredientsApi(defaultClient);
-    BigDecimal id = new BigDecimal("1082038"); // BigDecimal | The recipe id.
+    Integer id = 1082038; // Integer | The recipe id.
     String measure = "us"; // String | Whether the the measures should be 'us' or 'metric'.
     try {
       File result = apiInstance.ingredientsByIDImage(id, measure);
@@ -543,7 +543,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **BigDecimal**| The recipe id. | |
+| **id** | **Integer**| The recipe id. | |
 | **measure** | **String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric] |
 
 ### Return type

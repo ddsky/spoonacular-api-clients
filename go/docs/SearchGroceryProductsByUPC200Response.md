@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **Badges** | **[]string** |  | 
 **ImportantBadges** | **[]string** |  | 
 **Breadcrumbs** | **[]string** |  | 
-**GeneratedText** | **string** |  | 
+**GeneratedText** | **NullableString** |  | 
 **ImageType** | **string** |  | 
 **IngredientCount** | Pointer to **int32** |  | [optional] 
 **IngredientList** | **string** |  | 
-**Ingredients** | [**[]SearchGroceryProductsByUPC200ResponseIngredientsInner**](SearchGroceryProductsByUPC200ResponseIngredientsInner.md) |  | 
+**Ingredients** | [**[]IngredientBasics**](IngredientBasics.md) |  | 
 **Likes** | **float32** |  | 
 **Nutrition** | [**SearchGroceryProductsByUPC200ResponseNutrition**](SearchGroceryProductsByUPC200ResponseNutrition.md) |  | 
 **Price** | **float32** |  | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewSearchGroceryProductsByUPC200Response
 
-`func NewSearchGroceryProductsByUPC200Response(id int32, title string, badges []string, importantBadges []string, breadcrumbs []string, generatedText string, imageType string, ingredientList string, ingredients []SearchGroceryProductsByUPC200ResponseIngredientsInner, likes float32, nutrition SearchGroceryProductsByUPC200ResponseNutrition, price float32, servings SearchGroceryProductsByUPC200ResponseServings, spoonacularScore float32, ) *SearchGroceryProductsByUPC200Response`
+`func NewSearchGroceryProductsByUPC200Response(id int32, title string, badges []string, importantBadges []string, breadcrumbs []string, generatedText NullableString, imageType string, ingredientList string, ingredients []IngredientBasics, likes float32, nutrition SearchGroceryProductsByUPC200ResponseNutrition, price float32, servings SearchGroceryProductsByUPC200ResponseServings, spoonacularScore float32, ) *SearchGroceryProductsByUPC200Response`
 
 NewSearchGroceryProductsByUPC200Response instantiates a new SearchGroceryProductsByUPC200Response object
 This constructor will assign default values to properties that have it defined,
@@ -159,6 +159,16 @@ and a boolean to check if the value has been set.
 SetGeneratedText sets GeneratedText field to given value.
 
 
+### SetGeneratedTextNil
+
+`func (o *SearchGroceryProductsByUPC200Response) SetGeneratedTextNil(b bool)`
+
+ SetGeneratedTextNil sets the value for GeneratedText to be an explicit nil
+
+### UnsetGeneratedText
+`func (o *SearchGroceryProductsByUPC200Response) UnsetGeneratedText()`
+
+UnsetGeneratedText ensures that no value is present for GeneratedText, not even an explicit nil
 ### GetImageType
 
 `func (o *SearchGroceryProductsByUPC200Response) GetImageType() string`
@@ -226,20 +236,20 @@ SetIngredientList sets IngredientList field to given value.
 
 ### GetIngredients
 
-`func (o *SearchGroceryProductsByUPC200Response) GetIngredients() []SearchGroceryProductsByUPC200ResponseIngredientsInner`
+`func (o *SearchGroceryProductsByUPC200Response) GetIngredients() []IngredientBasics`
 
 GetIngredients returns the Ingredients field if non-nil, zero value otherwise.
 
 ### GetIngredientsOk
 
-`func (o *SearchGroceryProductsByUPC200Response) GetIngredientsOk() (*[]SearchGroceryProductsByUPC200ResponseIngredientsInner, bool)`
+`func (o *SearchGroceryProductsByUPC200Response) GetIngredientsOk() (*[]IngredientBasics, bool)`
 
 GetIngredientsOk returns a tuple with the Ingredients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIngredients
 
-`func (o *SearchGroceryProductsByUPC200Response) SetIngredients(v []SearchGroceryProductsByUPC200ResponseIngredientsInner)`
+`func (o *SearchGroceryProductsByUPC200Response) SetIngredients(v []IngredientBasics)`
 
 SetIngredients sets Ingredients field to given value.
 

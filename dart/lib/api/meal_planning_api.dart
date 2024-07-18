@@ -210,7 +210,7 @@ class MealPlanningApi {
   ///   The private hash for the username.
   ///
   /// * [AddToShoppingListRequest] addToShoppingListRequest (required):
-  Future<GenerateShoppingList200Response?> addToShoppingList(String username, String hash, AddToShoppingListRequest addToShoppingListRequest,) async {
+  Future<GetShoppingList200Response?> addToShoppingList(String username, String hash, AddToShoppingListRequest addToShoppingListRequest,) async {
     final response = await addToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -219,7 +219,7 @@ class MealPlanningApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GenerateShoppingList200Response',) as GenerateShoppingList200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetShoppingList200Response',) as GetShoppingList200Response;
     
     }
     return null;
@@ -366,12 +366,12 @@ class MealPlanningApi {
   /// * [String] username (required):
   ///   The username.
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  Future<Response> deleteFromMealPlanWithHttpInfo(String username, num id, String hash,) async {
+  Future<Response> deleteFromMealPlanWithHttpInfo(String username, int id, String hash,) async {
     // ignore: prefer_const_declarations
     final path = r'/mealplanner/{username}/items/{id}'
       .replaceAll('{username}', username)
@@ -409,12 +409,12 @@ class MealPlanningApi {
   /// * [String] username (required):
   ///   The username.
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  Future<Object?> deleteFromMealPlan(String username, num id, String hash,) async {
+  Future<Object?> deleteFromMealPlan(String username, int id, String hash,) async {
     final response = await deleteFromMealPlanWithHttpInfo(username, id, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -441,7 +441,7 @@ class MealPlanningApi {
   ///   The username.
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
@@ -484,7 +484,7 @@ class MealPlanningApi {
   ///   The username.
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
@@ -515,7 +515,7 @@ class MealPlanningApi {
   ///   The username.
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
@@ -558,7 +558,7 @@ class MealPlanningApi {
   ///   The username.
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
@@ -732,7 +732,7 @@ class MealPlanningApi {
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
-  Future<GenerateShoppingList200Response?> generateShoppingList(String username, String startDate, String endDate, String hash,) async {
+  Future<GetShoppingList200Response?> generateShoppingList(String username, String startDate, String endDate, String hash,) async {
     final response = await generateShoppingListWithHttpInfo(username, startDate, endDate, hash,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -741,7 +741,7 @@ class MealPlanningApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GenerateShoppingList200Response',) as GenerateShoppingList200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetShoppingList200Response',) as GetShoppingList200Response;
     
     }
     return null;
@@ -759,7 +759,7 @@ class MealPlanningApi {
   ///   The username.
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.
@@ -802,7 +802,7 @@ class MealPlanningApi {
   ///   The username.
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The shopping list item id.
   ///
   /// * [String] hash (required):
   ///   The private hash for the username.

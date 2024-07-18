@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## autocompleteRecipeSearch
 
-> [AutocompleteRecipeSearch200ResponseInner] autocompleteRecipeSearch(opts)
+> [AutocompleteRecipeSearch200ResponseInner] autocompleteRecipeSearch(query, opts)
 
 Autocomplete Recipe Search
 
@@ -169,11 +169,11 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let query = "burger"; // String | The (natural language) search query.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
-apiInstance.autocompleteRecipeSearch(opts, (error, data, response) => {
+apiInstance.autocompleteRecipeSearch(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -187,7 +187,7 @@ apiInstance.autocompleteRecipeSearch(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 ## extractRecipeFromWebsite
 
-> GetRecipeInformation200Response extractRecipeFromWebsite(url, opts)
+> RecipeInformation extractRecipeFromWebsite(url, opts)
 
 Extract Recipe from Website
 
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 
 ## getAnalyzedRecipeInstructions
 
-> GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(id, opts)
+> [GetAnalyzedRecipeInstructions200ResponseInner] getAnalyzedRecipeInstructions(id, opts)
 
 Get Analyzed Recipe Instructions
 
@@ -582,7 +582,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 324694; // Number | The recipe id.
 let opts = {
   'stepBreakdown': true // Boolean | Whether to break down the recipe steps even more.
 };
@@ -600,12 +600,12 @@ apiInstance.getAnalyzedRecipeInstructions(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
  **stepBreakdown** | **Boolean**| Whether to break down the recipe steps even more. | [optional] 
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**[GetAnalyzedRecipeInstructions200ResponseInner]**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -696,7 +696,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 1003464; // Number | The recipe id.
 apiInstance.getRecipeEquipmentByID(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -711,7 +711,7 @@ apiInstance.getRecipeEquipmentByID(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
 
 ### Return type
 
@@ -729,7 +729,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformation
 
-> GetRecipeInformation200Response getRecipeInformation(id, opts)
+> RecipeInformation getRecipeInformation(id, opts)
 
 Get Recipe Information
 
@@ -747,9 +747,11 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 716429; // Number | The id of the recipe.
 let opts = {
-  'includeNutrition': false // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+  'includeNutrition': false, // Boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+  'addWinePairing': false, // Boolean | Add a wine pairing to the recipe.
+  'addTasteData': false // Boolean | Add taste data to the recipe.
 };
 apiInstance.getRecipeInformation(id, opts, (error, data, response) => {
   if (error) {
@@ -765,12 +767,14 @@ apiInstance.getRecipeInformation(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The id of the recipe. | 
  **includeNutrition** | **Boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+ **addWinePairing** | **Boolean**| Add a wine pairing to the recipe. | [optional] 
+ **addTasteData** | **Boolean**| Add taste data to the recipe. | [optional] 
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -784,7 +788,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeInformationBulk
 
-> [GetRecipeInformationBulk200ResponseInner] getRecipeInformationBulk(ids, opts)
+> [RecipeInformation] getRecipeInformationBulk(ids, opts)
 
 Get Recipe Information Bulk
 
@@ -825,7 +829,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[GetRecipeInformationBulk200ResponseInner]**](GetRecipeInformationBulk200ResponseInner.md)
+[**[RecipeInformation]**](RecipeInformation.md)
 
 ### Authorization
 
@@ -857,7 +861,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 1003464; // Number | The recipe id.
 apiInstance.getRecipeIngredientsByID(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -872,7 +876,7 @@ apiInstance.getRecipeIngredientsByID(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
 
 ### Return type
 
@@ -908,7 +912,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 1003464; // Number | The recipe id.
 apiInstance.getRecipeNutritionWidgetByID(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -923,7 +927,7 @@ apiInstance.getRecipeNutritionWidgetByID(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
 
 ### Return type
 
@@ -959,7 +963,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 1003464; // Number | The recipe id.
 apiInstance.getRecipePriceBreakdownByID(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -974,7 +978,7 @@ apiInstance.getRecipePriceBreakdownByID(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
 
 ### Return type
 
@@ -992,7 +996,7 @@ Name | Type | Description  | Notes
 
 ## getRecipeTasteByID
 
-> GetRecipeTasteByID200Response getRecipeTasteByID(id, opts)
+> TasteInformation getRecipeTasteByID(id, opts)
 
 Taste by ID
 
@@ -1010,7 +1014,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 69095; // Number | The recipe id.
 let opts = {
   'normalize': true // Boolean | Normalize to the strongest taste.
 };
@@ -1028,12 +1032,12 @@ apiInstance.getRecipeTasteByID(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
  **normalize** | **Boolean**| Normalize to the strongest taste. | [optional] [default to true]
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -1065,7 +1069,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 715538; // Number | The id of the source recipe for which similar recipes should be found.
 let opts = {
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
@@ -1083,7 +1087,7 @@ apiInstance.getSimilarRecipes(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -1153,7 +1157,7 @@ Name | Type | Description  | Notes
 
 ## parseIngredients
 
-> [ParseIngredients200ResponseInner] parseIngredients(ingredientList, servings, opts)
+> [IngredientInformation] parseIngredients(ingredientList, servings, opts)
 
 Parse Ingredients
 
@@ -1175,7 +1179,7 @@ let ingredientList = "ingredientList_example"; // String | The ingredient list o
 let servings = 3.4; // Number | The number of servings that you can make from the ingredients.
 let opts = {
   'language': "en", // String | The language of the input. Either 'en' or 'de'.
-  'includeNutrition': true // Boolean | 
+  'includeNutrition': true // Boolean | Whether nutrition data should be added to correctly parsed ingredients.
 };
 apiInstance.parseIngredients(ingredientList, servings, opts, (error, data, response) => {
   if (error) {
@@ -1194,11 +1198,11 @@ Name | Type | Description  | Notes
  **ingredientList** | **String**| The ingredient list of the recipe, one ingredient per line. | 
  **servings** | **Number**| The number of servings that you can make from the ingredients. | 
  **language** | **String**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **includeNutrition** | **Boolean**|  | [optional] 
+ **includeNutrition** | **Boolean**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] 
 
 ### Return type
 
-[**[ParseIngredients200ResponseInner]**](ParseIngredients200ResponseInner.md)
+[**[IngredientInformation]**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1542,7 +1546,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipes
 
-> SearchRecipes200Response searchRecipes(opts)
+> SearchRecipes200Response searchRecipes(query, opts)
 
 Search Recipes
 
@@ -1560,8 +1564,8 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let query = "burger"; // String | The (natural language) search query.
 let opts = {
-  'query': "burger", // String | The (natural language) search query.
   'cuisine': "italian", // String | The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
   'excludeCuisine': "greek", // String | The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as 'AND'). See a full list of supported cuisines.
   'diet': "vegetarian", // String | The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -1659,7 +1663,7 @@ let opts = {
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
   'number': 10 // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
 };
-apiInstance.searchRecipes(opts, (error, data, response) => {
+apiInstance.searchRecipes(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1673,7 +1677,7 @@ apiInstance.searchRecipes(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **cuisine** | **String**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] 
  **excludeCuisine** | **String**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] 
  **diet** | **String**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
@@ -1787,7 +1791,7 @@ Name | Type | Description  | Notes
 
 ## searchRecipesByIngredients
 
-> [SearchRecipesByIngredients200ResponseInner] searchRecipesByIngredients(opts)
+> [SearchRecipesByIngredients200ResponseInner] searchRecipesByIngredients(ingredients, opts)
 
 Search Recipes by Ingredients
 
@@ -1805,13 +1809,13 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
+let ingredients = "carrots,tomatoes"; // String | A comma-separated list of ingredients that the recipes should contain.
 let opts = {
-  'ingredients': "carrots,tomatoes", // String | A comma-separated list of ingredients that the recipes should contain.
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
   'ranking': 1, // Number | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   'ignorePantry': false // Boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 };
-apiInstance.searchRecipesByIngredients(opts, (error, data, response) => {
+apiInstance.searchRecipesByIngredients(ingredients, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -1825,7 +1829,7 @@ apiInstance.searchRecipesByIngredients(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
+ **ingredients** | **String**| A comma-separated list of ingredients that the recipes should contain. | 
  **number** | **Number**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
  **ranking** | **Number**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
  **ignorePantry** | **Boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
@@ -2065,7 +2069,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 4632; // Number | The recipe id.
 apiInstance.summarizeRecipe(id, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -2080,7 +2084,7 @@ apiInstance.summarizeRecipe(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
 
 ### Return type
 
@@ -2238,7 +2242,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 44860; // Number | The recipe id.
 let opts = {
   'defaultCss': false // Boolean | Whether the default CSS should be added to the response.
 };
@@ -2256,7 +2260,7 @@ apiInstance.visualizeRecipeEquipmentByID(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2293,7 +2297,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 1082038; // Number | The recipe id.
 let opts = {
   'defaultCss': false, // Boolean | Whether the default CSS should be added to the response.
   'measure': "metric" // String | Whether the the measures should be 'us' or 'metric'.
@@ -2312,7 +2316,7 @@ apiInstance.visualizeRecipeIngredientsByID(id, opts, (error, data, response) => 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **measure** | **String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
 
@@ -2411,7 +2415,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 1082038; // Number | The recipe id.
 let opts = {
   'defaultCss': false // Boolean | Whether the default CSS should be added to the response.
 };
@@ -2429,7 +2433,7 @@ apiInstance.visualizeRecipeNutritionByID(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2466,7 +2470,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 1082038; // Number | The recipe id.
 let opts = {
   'defaultCss': false // Boolean | Whether the default CSS should be added to the response.
 };
@@ -2484,7 +2488,7 @@ apiInstance.visualizeRecipePriceBreakdownByID(id, opts, (error, data, response) 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2580,7 +2584,7 @@ apiKeyScheme.apiKey = 'YOUR API KEY';
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
 let apiInstance = new SpoonacularApi.RecipesApi();
-let id = 1; // Number | The item's id.
+let id = 69095; // Number | The recipe id.
 let opts = {
   'normalize': true, // Boolean | Whether to normalize to the strongest taste.
   'rgb': "75,192,192" // String | Red, green, blue values for the chart color.
@@ -2599,7 +2603,7 @@ apiInstance.visualizeRecipeTasteByID(id, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The item&#39;s id. | 
+ **id** | **Number**| The recipe id. | 
  **normalize** | **Boolean**| Whether to normalize to the strongest taste. | [optional] [default to true]
  **rgb** | **String**| Red, green, blue values for the chart color. | [optional] 
 

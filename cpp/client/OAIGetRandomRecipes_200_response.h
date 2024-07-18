@@ -21,14 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAIGetRandomRecipes_200_response_recipes_inner.h"
+#include "OAIRecipeInformation.h"
 #include <QSet>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIGetRandomRecipes_200_response_recipes_inner;
+class OAIRecipeInformation;
 
 class OAIGetRandomRecipes_200_response : public OAIObject {
 public:
@@ -41,8 +41,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QSet<OAIGetRandomRecipes_200_response_recipes_inner> getRecipes() const;
-    void setRecipes(const QSet<OAIGetRandomRecipes_200_response_recipes_inner> &recipes);
+    QSet<OAIRecipeInformation> getRecipes() const;
+    void setRecipes(const QSet<OAIRecipeInformation> &recipes);
     bool is_recipes_Set() const;
     bool is_recipes_Valid() const;
 
@@ -52,7 +52,7 @@ public:
 private:
     void initializeModel();
 
-    QSet<OAIGetRandomRecipes_200_response_recipes_inner> m_recipes;
+    QSet<OAIRecipeInformation> m_recipes;
     bool m_recipes_isSet;
     bool m_recipes_isValid;
 };

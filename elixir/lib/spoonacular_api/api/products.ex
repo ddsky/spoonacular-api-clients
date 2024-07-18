@@ -136,7 +136,7 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `upc` (float()): The UPC of the product for which you want to find comparable products.
+  - `upc` (String.t): The UPC of the product for which you want to find comparable products.
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -144,7 +144,7 @@ defmodule SpoonacularAPI.Api.Products do
   - `{:ok, SpoonacularAPI.Model.GetComparableProducts200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_comparable_products(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetComparableProducts200Response.t} | {:error, Tesla.Env.t}
+  @spec get_comparable_products(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetComparableProducts200Response.t} | {:error, Tesla.Env.t}
   def get_comparable_products(connection, upc, _opts \\ []) do
     request =
       %{}
@@ -169,15 +169,15 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (integer()): The item's id.
+  - `id` (integer()): The id of the packaged food.
   - `opts` (keyword): Optional parameters
 
   ### Returns
 
-  - `{:ok, SpoonacularAPI.Model.GetProductInformation200Response.t}` on success
+  - `{:ok, SpoonacularAPI.Model.ProductInformation.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_product_information(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetProductInformation200Response.t} | {:error, Tesla.Env.t}
+  @spec get_product_information(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.ProductInformation.t} | {:error, Tesla.Env.t}
   def get_product_information(connection, id, _opts \\ []) do
     request =
       %{}
@@ -188,7 +188,7 @@ defmodule SpoonacularAPI.Api.Products do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, SpoonacularAPI.Model.GetProductInformation200Response},
+      {200, SpoonacularAPI.Model.ProductInformation},
       {401, false},
       {403, false},
       {404, false}
@@ -202,7 +202,7 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (float()): The id of the product.
+  - `id` (integer()): The id of the product.
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -210,7 +210,7 @@ defmodule SpoonacularAPI.Api.Products do
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec product_nutrition_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec product_nutrition_by_id_image(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def product_nutrition_by_id_image(connection, id, _opts \\ []) do
     request =
       %{}
@@ -235,7 +235,7 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (float()): The product id.
+  - `id` (integer()): The product id.
   - `opts` (keyword): Optional parameters
     - `:showOptionalNutrients` (boolean()): Whether to show optional nutrients.
     - `:showZeroValues` (boolean()): Whether to show zero values.
@@ -246,7 +246,7 @@ defmodule SpoonacularAPI.Api.Products do
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec product_nutrition_label_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec product_nutrition_label_image(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def product_nutrition_label_image(connection, id, opts \\ []) do
     optional_params = %{
       :showOptionalNutrients => :query,
@@ -278,7 +278,7 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (float()): The product id.
+  - `id` (integer()): The product id.
   - `opts` (keyword): Optional parameters
     - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
     - `:showOptionalNutrients` (boolean()): Whether to show optional nutrients.
@@ -290,7 +290,7 @@ defmodule SpoonacularAPI.Api.Products do
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec product_nutrition_label_widget(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec product_nutrition_label_widget(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def product_nutrition_label_widget(connection, id, opts \\ []) do
     optional_params = %{
       :defaultCss => :query,
@@ -323,8 +323,8 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `query` (String.t): The (natural language) search query.
   - `opts` (keyword): Optional parameters
-    - `:query` (String.t): The (natural language) search query.
     - `:minCalories` (float()): The minimum amount of calories the product must have.
     - `:maxCalories` (float()): The maximum amount of calories the product can have.
     - `:minCarbs` (float()): The minimum amount of carbohydrates in grams the product must have.
@@ -342,10 +342,9 @@ defmodule SpoonacularAPI.Api.Products do
   - `{:ok, SpoonacularAPI.Model.SearchGroceryProducts200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec search_grocery_products(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchGroceryProducts200Response.t} | {:error, Tesla.Env.t}
-  def search_grocery_products(connection, opts \\ []) do
+  @spec search_grocery_products(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchGroceryProducts200Response.t} | {:error, Tesla.Env.t}
+  def search_grocery_products(connection, query, opts \\ []) do
     optional_params = %{
-      :query => :query,
       :minCalories => :query,
       :maxCalories => :query,
       :minCarbs => :query,
@@ -363,6 +362,7 @@ defmodule SpoonacularAPI.Api.Products do
       %{}
       |> method(:get)
       |> url("/food/products/search")
+      |> add_param(:query, :query, query)
       |> add_optional_params(optional_params, opts)
       |> Enum.into([])
 
@@ -383,7 +383,7 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `upc` (float()): The product's UPC.
+  - `upc` (String.t): The product's UPC.
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -391,7 +391,7 @@ defmodule SpoonacularAPI.Api.Products do
   - `{:ok, SpoonacularAPI.Model.SearchGroceryProductsByUpc200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec search_grocery_products_by_upc(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchGroceryProductsByUpc200Response.t} | {:error, Tesla.Env.t}
+  @spec search_grocery_products_by_upc(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.SearchGroceryProductsByUpc200Response.t} | {:error, Tesla.Env.t}
   def search_grocery_products_by_upc(connection, upc, _opts \\ []) do
     request =
       %{}
@@ -416,7 +416,7 @@ defmodule SpoonacularAPI.Api.Products do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (integer()): The item's id.
+  - `id` (integer()): The id of the product.
   - `opts` (keyword): Optional parameters
     - `:defaultCss` (boolean()): Whether the default CSS should be added to the response.
 

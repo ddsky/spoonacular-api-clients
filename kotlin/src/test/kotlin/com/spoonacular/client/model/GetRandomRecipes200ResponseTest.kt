@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.GetRandomRecipes200Response
-import com.spoonacular.client.model.GetRandomRecipes200ResponseRecipesInner
+import com.spoonacular.client.model.RecipeInformation
 
 class GetRandomRecipes200ResponseTest : ShouldSpec() {
     init {

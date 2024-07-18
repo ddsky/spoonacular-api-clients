@@ -53,7 +53,7 @@ sub new {
 #
 # Autocomplete Ingredient Search
 #
-# @param string $query The (natural language) search query. (optional)
+# @param string $query The (natural language) search query. (required)
 # @param int $number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
 # @param boolean $meta_information Whether to return more meta information about the ingredients. (optional)
 # @param string $intolerances A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. (optional)
@@ -63,7 +63,7 @@ sub new {
     'query' => {
         data_type => 'string',
         description => 'The (natural language) search query.',
-        required => '0',
+        required => '1',
     },
     'number' => {
         data_type => 'int',
@@ -96,6 +96,11 @@ sub new {
 #
 sub autocomplete_ingredient_search {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling autocomplete_ingredient_search");
+    }
 
     # parse inputs
     my $_resource_path = '/food/ingredients/autocomplete';
@@ -157,14 +162,14 @@ sub autocomplete_ingredient_search {
 #
 # Compute Ingredient Amount
 #
-# @param double $id The id of the ingredient you want the amount for. (required)
+# @param int $id The id of the ingredient you want the amount for. (required)
 # @param string $nutrient The target nutrient. See a list of supported nutrients. (required)
-# @param double $target The target number of the given nutrient. (required)
+# @param int $target The target number of the given nutrient. (required)
 # @param string $unit The target unit. (optional)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The id of the ingredient you want the amount for.',
         required => '1',
     },
@@ -174,7 +179,7 @@ sub autocomplete_ingredient_search {
         required => '1',
     },
     'target' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The target number of the given nutrient.',
         required => '1',
     },
@@ -267,14 +272,14 @@ sub compute_ingredient_amount {
 #
 # Get Ingredient Information
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The ingredient id. (required)
 # @param double $amount The amount of this ingredient. (optional)
 # @param string $unit The unit for the given amount. (optional)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The ingredient id.',
         required => '1',
     },
     'amount' => {
@@ -291,10 +296,10 @@ sub compute_ingredient_amount {
     __PACKAGE__->method_documentation->{ 'get_ingredient_information' } = {
         summary => 'Get Ingredient Information',
         params => $params,
-        returns => 'GetIngredientInformation200Response',
+        returns => 'IngredientInformation',
         };
 }
-# @return GetIngredientInformation200Response
+# @return IngredientInformation
 #
 sub get_ingredient_information {
     my ($self, %args) = @_;
@@ -347,7 +352,7 @@ sub get_ingredient_information {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('GetIngredientInformation200Response', $response);
+    my $_response_object = $self->{api_client}->deserialize('IngredientInformation', $response);
     return $_response_object;
 }
 
@@ -421,12 +426,12 @@ sub get_ingredient_substitutes {
 #
 # Get Ingredient Substitutes by ID
 #
-# @param int $id The item&#39;s id. (required)
+# @param int $id The id of the ingredient you want substitutes for. (required)
 {
     my $params = {
     'id' => {
         data_type => 'int',
-        description => 'The item&#39;s id.',
+        description => 'The id of the ingredient you want substitutes for.',
         required => '1',
     },
     };
@@ -488,7 +493,7 @@ sub get_ingredient_substitutes_by_id {
 #
 # Ingredient Search
 #
-# @param string $query The (natural language) search query. (optional)
+# @param string $query The (natural language) search query. (required)
 # @param boolean $add_children Whether to add children of found foods. (optional)
 # @param double $min_protein_percent The minimum percentage of protein the food must have (between 0 and 100). (optional)
 # @param double $max_protein_percent The maximum percentage of protein the food can have (between 0 and 100). (optional)
@@ -508,7 +513,7 @@ sub get_ingredient_substitutes_by_id {
     'query' => {
         data_type => 'string',
         description => 'The (natural language) search query.',
-        required => '0',
+        required => '1',
     },
     'add_children' => {
         data_type => 'boolean',
@@ -591,6 +596,11 @@ sub get_ingredient_substitutes_by_id {
 #
 sub ingredient_search {
     my ($self, %args) = @_;
+
+    # verify the required parameter 'query' is set
+    unless (exists $args{'query'}) {
+      croak("Missing the required parameter 'query' when calling ingredient_search");
+    }
 
     # parse inputs
     my $_resource_path = '/food/ingredients/search';
@@ -702,12 +712,12 @@ sub ingredient_search {
 #
 # Ingredients by ID Image
 #
-# @param double $id The recipe id. (required)
+# @param int $id The recipe id. (required)
 # @param string $measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
 {
     my $params = {
     'id' => {
-        data_type => 'double',
+        data_type => 'int',
         description => 'The recipe id.',
         required => '1',
     },

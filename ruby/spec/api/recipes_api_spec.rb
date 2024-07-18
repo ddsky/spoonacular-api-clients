@@ -59,8 +59,8 @@ describe 'RecipesApi' do
   # unit tests for autocomplete_recipe_search
   # Autocomplete Recipe Search
   # Autocomplete a partial input to suggest possible recipe names.
+  # @param query The (natural language) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
   # @return [Array<AutocompleteRecipeSearch200ResponseInner>]
   describe 'autocomplete_recipe_search test' do
@@ -156,7 +156,7 @@ describe 'RecipesApi' do
   # @option opts [Boolean] :analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more.
   # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
   # @option opts [Boolean] :include_taste Whether taste data should be added to correctly parsed ingredients.
-  # @return [GetRecipeInformation200Response]
+  # @return [RecipeInformation]
   describe 'extract_recipe_from_website test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -166,10 +166,10 @@ describe 'RecipesApi' do
   # unit tests for get_analyzed_recipe_instructions
   # Get Analyzed Recipe Instructions
   # Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :step_breakdown Whether to break down the recipe steps even more.
-  # @return [GetAnalyzedRecipeInstructions200Response]
+  # @return [Array<GetAnalyzedRecipeInstructions200ResponseInner>]
   describe 'get_analyzed_recipe_instructions test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -194,7 +194,7 @@ describe 'RecipesApi' do
   # unit tests for get_recipe_equipment_by_id
   # Equipment by ID
   # Get a recipe&#39;s equipment list.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @return [GetRecipeEquipmentByID200Response]
   describe 'get_recipe_equipment_by_id test' do
@@ -206,10 +206,12 @@ describe 'RecipesApi' do
   # unit tests for get_recipe_information
   # Get Recipe Information
   # Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-  # @param id The item&#39;s id.
+  # @param id The id of the recipe.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-  # @return [GetRecipeInformation200Response]
+  # @option opts [Boolean] :add_wine_pairing Add a wine pairing to the recipe.
+  # @option opts [Boolean] :add_taste_data Add taste data to the recipe.
+  # @return [RecipeInformation]
   describe 'get_recipe_information test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -222,7 +224,7 @@ describe 'RecipesApi' do
   # @param ids A comma-separated list of recipe ids.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :include_nutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-  # @return [Array<GetRecipeInformationBulk200ResponseInner>]
+  # @return [Array<RecipeInformation>]
   describe 'get_recipe_information_bulk test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -232,7 +234,7 @@ describe 'RecipesApi' do
   # unit tests for get_recipe_ingredients_by_id
   # Ingredients by ID
   # Get a recipe&#39;s ingredient list.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @return [GetRecipeIngredientsByID200Response]
   describe 'get_recipe_ingredients_by_id test' do
@@ -244,7 +246,7 @@ describe 'RecipesApi' do
   # unit tests for get_recipe_nutrition_widget_by_id
   # Nutrition by ID
   # Get a recipe&#39;s nutrition data.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @return [GetRecipeNutritionWidgetByID200Response]
   describe 'get_recipe_nutrition_widget_by_id test' do
@@ -256,7 +258,7 @@ describe 'RecipesApi' do
   # unit tests for get_recipe_price_breakdown_by_id
   # Price Breakdown by ID
   # Get a recipe&#39;s price breakdown data.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @return [GetRecipePriceBreakdownByID200Response]
   describe 'get_recipe_price_breakdown_by_id test' do
@@ -268,10 +270,10 @@ describe 'RecipesApi' do
   # unit tests for get_recipe_taste_by_id
   # Taste by ID
   # Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :normalize Normalize to the strongest taste.
-  # @return [GetRecipeTasteByID200Response]
+  # @return [TasteInformation]
   describe 'get_recipe_taste_by_id test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -281,7 +283,7 @@ describe 'RecipesApi' do
   # unit tests for get_similar_recipes
   # Get Similar Recipes
   # Find recipes which are similar to the given one.
-  # @param id The item&#39;s id.
+  # @param id The id of the source recipe for which similar recipes should be found.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
   # @return [Array<GetSimilarRecipes200ResponseInner>]
@@ -310,8 +312,8 @@ describe 'RecipesApi' do
   # @param servings The number of servings that you can make from the ingredients.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :language The language of the input. Either &#39;en&#39; or &#39;de&#39;.
-  # @option opts [Boolean] :include_nutrition 
-  # @return [Array<ParseIngredients200ResponseInner>]
+  # @option opts [Boolean] :include_nutrition Whether nutrition data should be added to correctly parsed ingredients.
+  # @return [Array<IngredientInformation>]
   describe 'parse_ingredients test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -402,8 +404,8 @@ describe 'RecipesApi' do
   # unit tests for search_recipes
   # Search Recipes
   # Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
+  # @param query The (natural language) search query.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :query The (natural language) search query.
   # @option opts [String] :cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines.
   # @option opts [String] :exclude_cuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines.
   # @option opts [String] :diet The diet for which the recipes must be suitable. See a full list of supported diets.
@@ -418,7 +420,7 @@ describe 'RecipesApi' do
   # @option opts [Boolean] :add_recipe_nutrition If set to true, you get nutritional information about each recipes returned.
   # @option opts [String] :author The username of the recipe author.
   # @option opts [String] :tags The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-  # @option opts [Float] :recipe_box_id The id of the recipe box to which the search should be limited to.
+  # @option opts [Integer] :recipe_box_id The id of the recipe box to which the search should be limited to.
   # @option opts [String] :title_match Enter text that must be found in the title of the recipes.
   # @option opts [Float] :max_ready_time The maximum time in minutes it should take to prepare and cook the recipe.
   # @option opts [Float] :min_servings The minimum amount of servings the recipe is for.
@@ -510,10 +512,10 @@ describe 'RecipesApi' do
   # unit tests for search_recipes_by_ingredients
   # Search Recipes by Ingredients
   #  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
+  # @param ingredients A comma-separated list of ingredients that the recipes should contain.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :ingredients A comma-separated list of ingredients that the recipes should contain.
   # @option opts [Integer] :number The maximum number of items to return (between 1 and 100). Defaults to 10.
-  # @option opts [Float] :ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+  # @option opts [Integer] :ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   # @option opts [Boolean] :ignore_pantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
   # @return [Array<SearchRecipesByIngredients200ResponseInner>]
   describe 'search_recipes_by_ingredients test' do
@@ -611,7 +613,7 @@ describe 'RecipesApi' do
   # unit tests for summarize_recipe
   # Summarize Recipe
   # Automatically generate a short description that summarizes key information about the recipe.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @return [SummarizeRecipe200Response]
   describe 'summarize_recipe test' do
@@ -655,7 +657,7 @@ describe 'RecipesApi' do
   # unit tests for visualize_recipe_equipment_by_id
   # Equipment by ID Widget
   # Visualize a recipe&#39;s equipment list.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
   # @return [String]
@@ -668,7 +670,7 @@ describe 'RecipesApi' do
   # unit tests for visualize_recipe_ingredients_by_id
   # Ingredients by ID Widget
   # Visualize a recipe&#39;s ingredient list.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
   # @option opts [String] :measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;.
@@ -698,7 +700,7 @@ describe 'RecipesApi' do
   # unit tests for visualize_recipe_nutrition_by_id
   # Recipe Nutrition by ID Widget
   # Visualize a recipe&#39;s nutritional information as HTML including CSS.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
   # @return [String]
@@ -711,7 +713,7 @@ describe 'RecipesApi' do
   # unit tests for visualize_recipe_price_breakdown_by_id
   # Price Breakdown by ID Widget
   # Visualize a recipe&#39;s price breakdown.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :default_css Whether the default CSS should be added to the response.
   # @return [String]
@@ -739,7 +741,7 @@ describe 'RecipesApi' do
   # unit tests for visualize_recipe_taste_by_id
   # Recipe Taste by ID Widget
   # Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-  # @param id The item&#39;s id.
+  # @param id The recipe id.
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :normalize Whether to normalize to the strongest taste.
   # @option opts [String] :rgb Red, green, blue values for the chart color.

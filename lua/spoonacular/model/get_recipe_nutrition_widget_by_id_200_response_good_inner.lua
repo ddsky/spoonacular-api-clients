@@ -19,12 +19,12 @@ local function cast_get_recipe_nutrition_widget_by_id_200_response_good_inner(t)
 	return setmetatable(t, get_recipe_nutrition_widget_by_id_200_response_good_inner_mt)
 end
 
-local function new_get_recipe_nutrition_widget_by_id_200_response_good_inner(amount, indented, percent_of_daily_needs, name)
+local function new_get_recipe_nutrition_widget_by_id_200_response_good_inner(amount, indented, percent_of_daily_needs, title)
 	return cast_get_recipe_nutrition_widget_by_id_200_response_good_inner({
 		["amount"] = amount;
 		["indented"] = indented;
 		["percentOfDailyNeeds"] = percent_of_daily_needs;
-		["name"] = name;
+		["title"] = title;
 	})
 end
 

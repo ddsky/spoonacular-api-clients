@@ -15,6 +15,6 @@ export interface GetRecipeNutritionWidgetByID200ResponseGoodInner {
     amount: string;
     indented: boolean;
     percentOfDailyNeeds: number;
-    name: string;
+    title: string;
 }
 

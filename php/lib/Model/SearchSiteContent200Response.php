@@ -59,10 +59,10 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'articles' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]',
-        'grocery_products' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]',
-        'menu_items' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]',
-        'recipes' => '\OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]'
+        'articles' => '\OpenAPI\Client\Model\SearchResult[]',
+        'grocery_products' => '\OpenAPI\Client\Model\SearchResult[]',
+        'menu_items' => '\OpenAPI\Client\Model\SearchResult[]',
+        'recipes' => '\OpenAPI\Client\Model\SearchResult[]'
     ];
 
     /**
@@ -300,31 +300,15 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
         if ($this->container['articles'] === null) {
             $invalidProperties[] = "'articles' can't be null";
         }
-        if ((count($this->container['articles']) < 0)) {
-            $invalidProperties[] = "invalid value for 'articles', number of items must be greater than or equal to 0.";
-        }
-
         if ($this->container['grocery_products'] === null) {
             $invalidProperties[] = "'grocery_products' can't be null";
         }
-        if ((count($this->container['grocery_products']) < 0)) {
-            $invalidProperties[] = "invalid value for 'grocery_products', number of items must be greater than or equal to 0.";
-        }
-
         if ($this->container['menu_items'] === null) {
             $invalidProperties[] = "'menu_items' can't be null";
         }
-        if ((count($this->container['menu_items']) < 0)) {
-            $invalidProperties[] = "invalid value for 'menu_items', number of items must be greater than or equal to 0.";
-        }
-
         if ($this->container['recipes'] === null) {
             $invalidProperties[] = "'recipes' can't be null";
         }
-        if ((count($this->container['recipes']) < 0)) {
-            $invalidProperties[] = "invalid value for 'recipes', number of items must be greater than or equal to 0.";
-        }
-
         return $invalidProperties;
     }
 
@@ -343,7 +327,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets articles
      *
-     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]
+     * @return \OpenAPI\Client\Model\SearchResult[]
      */
     public function getArticles()
     {
@@ -353,7 +337,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets articles
      *
-     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[] $articles articles
+     * @param \OpenAPI\Client\Model\SearchResult[] $articles articles
      *
      * @return self
      */
@@ -361,11 +345,6 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($articles)) {
             throw new \InvalidArgumentException('non-nullable articles cannot be null');
-        }
-
-
-        if ((count($articles) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $articles when calling SearchSiteContent200Response., number of items must be greater than or equal to 0.');
         }
         $this->container['articles'] = $articles;
 
@@ -375,7 +354,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets grocery_products
      *
-     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]
+     * @return \OpenAPI\Client\Model\SearchResult[]
      */
     public function getGroceryProducts()
     {
@@ -385,7 +364,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets grocery_products
      *
-     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[] $grocery_products grocery_products
+     * @param \OpenAPI\Client\Model\SearchResult[] $grocery_products grocery_products
      *
      * @return self
      */
@@ -393,11 +372,6 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($grocery_products)) {
             throw new \InvalidArgumentException('non-nullable grocery_products cannot be null');
-        }
-
-
-        if ((count($grocery_products) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $grocery_products when calling SearchSiteContent200Response., number of items must be greater than or equal to 0.');
         }
         $this->container['grocery_products'] = $grocery_products;
 
@@ -407,7 +381,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets menu_items
      *
-     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]
+     * @return \OpenAPI\Client\Model\SearchResult[]
      */
     public function getMenuItems()
     {
@@ -417,7 +391,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets menu_items
      *
-     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[] $menu_items menu_items
+     * @param \OpenAPI\Client\Model\SearchResult[] $menu_items menu_items
      *
      * @return self
      */
@@ -425,11 +399,6 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($menu_items)) {
             throw new \InvalidArgumentException('non-nullable menu_items cannot be null');
-        }
-
-
-        if ((count($menu_items) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $menu_items when calling SearchSiteContent200Response., number of items must be greater than or equal to 0.');
         }
         $this->container['menu_items'] = $menu_items;
 
@@ -439,7 +408,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets recipes
      *
-     * @return \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[]
+     * @return \OpenAPI\Client\Model\SearchResult[]
      */
     public function getRecipes()
     {
@@ -449,7 +418,7 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets recipes
      *
-     * @param \OpenAPI\Client\Model\SearchSiteContent200ResponseArticlesInner[] $recipes recipes
+     * @param \OpenAPI\Client\Model\SearchResult[] $recipes recipes
      *
      * @return self
      */
@@ -457,11 +426,6 @@ class SearchSiteContent200Response implements ModelInterface, ArrayAccess, \Json
     {
         if (is_null($recipes)) {
             throw new \InvalidArgumentException('non-nullable recipes cannot be null');
-        }
-
-
-        if ((count($recipes) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $recipes when calling SearchSiteContent200Response., number of items must be greater than or equal to 0.');
         }
         $this->container['recipes'] = $recipes;
 

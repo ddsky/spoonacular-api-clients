@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 import com.spoonacular.client.model.DetectFoodInText200Response;
 import com.spoonacular.client.model.GetARandomFoodJoke200Response;
 import com.spoonacular.client.model.GetConversationSuggests200Response;
-import com.spoonacular.client.model.GetRandomFoodTrivia200Response;
 import com.spoonacular.client.model.ImageAnalysisByURL200Response;
 import com.spoonacular.client.model.ImageClassificationByURL200Response;
 import com.spoonacular.client.model.SearchAllFood200Response;
@@ -93,7 +92,7 @@ public class MiscApiTest {
      */
     @Test
     public void getRandomFoodTriviaTest() throws ApiException {
-        GetRandomFoodTrivia200Response response = api.getRandomFoodTrivia();
+        GetARandomFoodJoke200Response response = api.getRandomFoodTrivia();
         // TODO: test validations
     }
 
@@ -150,12 +149,12 @@ public class MiscApiTest {
      */
     @Test
     public void searchCustomFoodsTest() throws ApiException {
+        String query = null;
         String username = null;
         String hash = null;
-        String query = null;
         Integer offset = null;
         Integer number = null;
-        SearchCustomFoods200Response response = api.searchCustomFoods(username, hash, query, offset, number);
+        SearchCustomFoods200Response response = api.searchCustomFoods(query, username, hash, offset, number);
         // TODO: test validations
     }
 

@@ -15,18 +15,18 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchSiteContent200Response {
     #[serde(rename = "Articles")]
-    pub articles: Vec<models::SearchSiteContent200ResponseArticlesInner>,
+    pub articles: Vec<models::SearchResult>,
     #[serde(rename = "Grocery Products")]
-    pub grocery_products: Vec<models::SearchSiteContent200ResponseArticlesInner>,
+    pub grocery_products: Vec<models::SearchResult>,
     #[serde(rename = "Menu Items")]
-    pub menu_items: Vec<models::SearchSiteContent200ResponseArticlesInner>,
+    pub menu_items: Vec<models::SearchResult>,
     #[serde(rename = "Recipes")]
-    pub recipes: Vec<models::SearchSiteContent200ResponseArticlesInner>,
+    pub recipes: Vec<models::SearchResult>,
 }
 
 impl SearchSiteContent200Response {
     /// 
-    pub fn new(articles: Vec<models::SearchSiteContent200ResponseArticlesInner>, grocery_products: Vec<models::SearchSiteContent200ResponseArticlesInner>, menu_items: Vec<models::SearchSiteContent200ResponseArticlesInner>, recipes: Vec<models::SearchSiteContent200ResponseArticlesInner>) -> SearchSiteContent200Response {
+    pub fn new(articles: Vec<models::SearchResult>, grocery_products: Vec<models::SearchResult>, menu_items: Vec<models::SearchResult>, recipes: Vec<models::SearchResult>) -> SearchSiteContent200Response {
         SearchSiteContent200Response {
             articles,
             grocery_products,

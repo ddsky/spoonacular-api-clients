@@ -19,7 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.GetComparableProducts200ResponseComparableProducts
-import com.spoonacular.client.model.GetComparableProducts200ResponseComparableProductsProteinInner
+import com.spoonacular.client.model.ComparableProduct
 
 class GetComparableProducts200ResponseComparableProductsTest : ShouldSpec() {
     init {

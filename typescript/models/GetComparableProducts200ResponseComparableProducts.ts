@@ -10,16 +10,16 @@
  * Do not edit the class manually.
  */
 
-import { GetComparableProducts200ResponseComparableProductsProteinInner } from '../models/GetComparableProducts200ResponseComparableProductsProteinInner';
+import { ComparableProduct } from '../models/ComparableProduct';
 import { HttpFile } from '../http/http';
 
 export class GetComparableProducts200ResponseComparableProducts {
-    'calories': Array<any>;
-    'likes': Array<any>;
-    'price': Array<any>;
-    'protein': Set<GetComparableProducts200ResponseComparableProductsProteinInner>;
-    'spoonacularScore': Set<GetComparableProducts200ResponseComparableProductsProteinInner>;
-    'sugar': Array<any>;
+    'calories': Array<ComparableProduct>;
+    'likes': Array<ComparableProduct>;
+    'price': Array<ComparableProduct>;
+    'protein': Array<ComparableProduct>;
+    'spoonacularScore': Array<ComparableProduct>;
+    'sugar': Array<ComparableProduct>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -27,37 +27,37 @@ export class GetComparableProducts200ResponseComparableProducts {
         {
             "name": "calories",
             "baseName": "calories",
-            "type": "Array<any>",
+            "type": "Array<ComparableProduct>",
             "format": ""
         },
         {
             "name": "likes",
             "baseName": "likes",
-            "type": "Array<any>",
+            "type": "Array<ComparableProduct>",
             "format": ""
         },
         {
             "name": "price",
             "baseName": "price",
-            "type": "Array<any>",
+            "type": "Array<ComparableProduct>",
             "format": ""
         },
         {
             "name": "protein",
             "baseName": "protein",
-            "type": "Set<GetComparableProducts200ResponseComparableProductsProteinInner>",
+            "type": "Array<ComparableProduct>",
             "format": ""
         },
         {
             "name": "spoonacularScore",
-            "baseName": "spoonacularScore",
-            "type": "Set<GetComparableProducts200ResponseComparableProductsProteinInner>",
+            "baseName": "spoonacular_score",
+            "type": "Array<ComparableProduct>",
             "format": ""
         },
         {
             "name": "sugar",
             "baseName": "sugar",
-            "type": "Array<any>",
+            "type": "Array<ComparableProduct>",
             "format": ""
         }    ];
 

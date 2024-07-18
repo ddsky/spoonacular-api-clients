@@ -19,8 +19,8 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.MenuItemsApi
-import com.spoonacular.client.model.AutocompleteMenuItemSearch200Response
-import com.spoonacular.client.model.GetMenuItemInformation200Response
+import com.spoonacular.client.model.AutocompleteProductSearch200Response
+import com.spoonacular.client.model.MenuItem
 import com.spoonacular.client.model.SearchMenuItems200Response
 
 class MenuItemsApiTest : ShouldSpec() {
@@ -32,23 +32,23 @@ class MenuItemsApiTest : ShouldSpec() {
         should("test autocompleteMenuItemSearch") {
             // uncomment below to test autocompleteMenuItemSearch
             //val query : kotlin.String = chicke // kotlin.String | The (partial) search query.
-            //val number : java.math.BigDecimal = 10 // java.math.BigDecimal | The number of results to return (between 1 and 25).
-            //val result : AutocompleteMenuItemSearch200Response = apiInstance.autocompleteMenuItemSearch(query, number)
+            //val number : kotlin.Int = 10 // kotlin.Int | The number of results to return (between 1 and 25).
+            //val result : AutocompleteProductSearch200Response = apiInstance.autocompleteMenuItemSearch(query, number)
             //result shouldBe ("TODO")
         }
 
         // to test getMenuItemInformation
         should("test getMenuItemInformation") {
             // uncomment below to test getMenuItemInformation
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
-            //val result : GetMenuItemInformation200Response = apiInstance.getMenuItemInformation(id)
+            //val id : kotlin.Int = 424571 // kotlin.Int | The menu item id.
+            //val result : MenuItem = apiInstance.getMenuItemInformation(id)
             //result shouldBe ("TODO")
         }
 
         // to test menuItemNutritionByIDImage
         should("test menuItemNutritionByIDImage") {
             // uncomment below to test menuItemNutritionByIDImage
-            //val id : java.math.BigDecimal = 424571 // java.math.BigDecimal | The menu item id.
+            //val id : kotlin.Int = 424571 // kotlin.Int | The menu item id.
             //val result : java.io.File = apiInstance.menuItemNutritionByIDImage(id)
             //result shouldBe ("TODO")
         }
@@ -56,7 +56,7 @@ class MenuItemsApiTest : ShouldSpec() {
         // to test menuItemNutritionLabelImage
         should("test menuItemNutritionLabelImage") {
             // uncomment below to test menuItemNutritionLabelImage
-            //val id : java.math.BigDecimal = 342313 // java.math.BigDecimal | The menu item id.
+            //val id : kotlin.Int = 342313 // kotlin.Int | The menu item id.
             //val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
             //val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
             //val showIngredients : kotlin.Boolean = false // kotlin.Boolean | Whether to show a list of ingredients.
@@ -67,7 +67,7 @@ class MenuItemsApiTest : ShouldSpec() {
         // to test menuItemNutritionLabelWidget
         should("test menuItemNutritionLabelWidget") {
             // uncomment below to test menuItemNutritionLabelWidget
-            //val id : java.math.BigDecimal = 342313 // java.math.BigDecimal | The menu item id.
+            //val id : kotlin.Int = 342313 // kotlin.Int | The menu item id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val showOptionalNutrients : kotlin.Boolean = false // kotlin.Boolean | Whether to show optional nutrients.
             //val showZeroValues : kotlin.Boolean = false // kotlin.Boolean | Whether to show zero values.
@@ -98,7 +98,7 @@ class MenuItemsApiTest : ShouldSpec() {
         // to test visualizeMenuItemNutritionByID
         should("test visualizeMenuItemNutritionByID") {
             // uncomment below to test visualizeMenuItemNutritionByID
-            //val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+            //val id : kotlin.Int = 1003464 // kotlin.Int | The menu item id.
             //val defaultCss : kotlin.Boolean = false // kotlin.Boolean | Whether the default CSS should be added to the response.
             //val result : kotlin.String = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss)
             //result shouldBe ("TODO")

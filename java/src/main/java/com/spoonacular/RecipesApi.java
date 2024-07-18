@@ -37,24 +37,23 @@ import com.spoonacular.client.model.ComputeGlycemicLoadRequest;
 import com.spoonacular.client.model.ConvertAmounts200Response;
 import com.spoonacular.client.model.CreateRecipeCard200Response;
 import java.io.File;
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response;
+import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseInner;
 import com.spoonacular.client.model.GetRandomRecipes200Response;
 import com.spoonacular.client.model.GetRecipeEquipmentByID200Response;
-import com.spoonacular.client.model.GetRecipeInformation200Response;
-import com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInner;
 import com.spoonacular.client.model.GetRecipeIngredientsByID200Response;
 import com.spoonacular.client.model.GetRecipeNutritionWidgetByID200Response;
 import com.spoonacular.client.model.GetRecipePriceBreakdownByID200Response;
-import com.spoonacular.client.model.GetRecipeTasteByID200Response;
 import com.spoonacular.client.model.GetSimilarRecipes200ResponseInner;
 import com.spoonacular.client.model.GuessNutritionByDishName200Response;
-import com.spoonacular.client.model.ParseIngredients200ResponseInner;
+import com.spoonacular.client.model.IngredientInformation;
 import com.spoonacular.client.model.QuickAnswer200Response;
+import com.spoonacular.client.model.RecipeInformation;
 import com.spoonacular.client.model.SearchRecipes200Response;
 import com.spoonacular.client.model.SearchRecipesByIngredients200ResponseInner;
 import com.spoonacular.client.model.SearchRecipesByNutrients200ResponseInner;
 import java.util.Set;
 import com.spoonacular.client.model.SummarizeRecipe200Response;
+import com.spoonacular.client.model.TasteInformation;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -394,7 +393,7 @@ public class RecipesApi {
     }
     /**
      * Build call for autocompleteRecipeSearch
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -464,6 +463,11 @@ public class RecipesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call autocompleteRecipeSearchValidateBeforeCall(String query, Integer number, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling autocompleteRecipeSearch(Async)");
+        }
+
         return autocompleteRecipeSearchCall(query, number, _callback);
 
     }
@@ -471,7 +475,7 @@ public class RecipesApi {
     /**
      * Autocomplete Recipe Search
      * Autocomplete a partial input to suggest possible recipe names.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return Set&lt;AutocompleteRecipeSearch200ResponseInner&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -494,7 +498,7 @@ public class RecipesApi {
     /**
      * Autocomplete Recipe Search
      * Autocomplete a partial input to suggest possible recipe names.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse&lt;Set&lt;AutocompleteRecipeSearch200ResponseInner&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -518,7 +522,7 @@ public class RecipesApi {
     /**
      * Autocomplete Recipe Search (asynchronously)
      * Autocomplete a partial input to suggest possible recipe names.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1335,7 +1339,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Equipment-by-ID-Image">Equipment by ID Image Documentation</a>
      */
-    public okhttp3.Call equipmentByIDImageCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call equipmentByIDImageCall(Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1381,7 +1385,7 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call equipmentByIDImageValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call equipmentByIDImageValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling equipmentByIDImage(Async)");
@@ -1408,7 +1412,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Equipment-by-ID-Image">Equipment by ID Image Documentation</a>
      */
-    public File equipmentByIDImage(BigDecimal id) throws ApiException {
+    public File equipmentByIDImage(Integer id) throws ApiException {
         ApiResponse<File> localVarResp = equipmentByIDImageWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -1430,7 +1434,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Equipment-by-ID-Image">Equipment by ID Image Documentation</a>
      */
-    public ApiResponse<File> equipmentByIDImageWithHttpInfo(BigDecimal id) throws ApiException {
+    public ApiResponse<File> equipmentByIDImageWithHttpInfo(Integer id) throws ApiException {
         okhttp3.Call localVarCall = equipmentByIDImageValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1454,7 +1458,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Equipment-by-ID-Image">Equipment by ID Image Documentation</a>
      */
-    public okhttp3.Call equipmentByIDImageAsync(BigDecimal id, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call equipmentByIDImageAsync(Integer id, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = equipmentByIDImageValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -1565,7 +1569,7 @@ public class RecipesApi {
      * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
      * @param includeTaste Whether taste data should be added to correctly parsed ingredients. (optional, default to false)
-     * @return GetRecipeInformation200Response
+     * @return RecipeInformation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1578,8 +1582,8 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
      */
-    public GetRecipeInformation200Response extractRecipeFromWebsite(String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste) throws ApiException {
-        ApiResponse<GetRecipeInformation200Response> localVarResp = extractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste);
+    public RecipeInformation extractRecipeFromWebsite(String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste) throws ApiException {
+        ApiResponse<RecipeInformation> localVarResp = extractRecipeFromWebsiteWithHttpInfo(url, forceExtraction, analyze, includeNutrition, includeTaste);
         return localVarResp.getData();
     }
 
@@ -1591,7 +1595,7 @@ public class RecipesApi {
      * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
      * @param includeTaste Whether taste data should be added to correctly parsed ingredients. (optional, default to false)
-     * @return ApiResponse&lt;GetRecipeInformation200Response&gt;
+     * @return ApiResponse&lt;RecipeInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1604,9 +1608,9 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
      */
-    public ApiResponse<GetRecipeInformation200Response> extractRecipeFromWebsiteWithHttpInfo(String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste) throws ApiException {
+    public ApiResponse<RecipeInformation> extractRecipeFromWebsiteWithHttpInfo(String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste) throws ApiException {
         okhttp3.Call localVarCall = extractRecipeFromWebsiteValidateBeforeCall(url, forceExtraction, analyze, includeNutrition, includeTaste, null);
-        Type localVarReturnType = new TypeToken<GetRecipeInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RecipeInformation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1632,16 +1636,16 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Extract-Recipe-from-Website">Extract Recipe from Website Documentation</a>
      */
-    public okhttp3.Call extractRecipeFromWebsiteAsync(String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste, final ApiCallback<GetRecipeInformation200Response> _callback) throws ApiException {
+    public okhttp3.Call extractRecipeFromWebsiteAsync(String url, Boolean forceExtraction, Boolean analyze, Boolean includeNutrition, Boolean includeTaste, final ApiCallback<RecipeInformation> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = extractRecipeFromWebsiteValidateBeforeCall(url, forceExtraction, analyze, includeNutrition, includeTaste, _callback);
-        Type localVarReturnType = new TypeToken<GetRecipeInformation200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RecipeInformation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAnalyzedRecipeInstructions
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1720,9 +1724,9 @@ public class RecipesApi {
     /**
      * Get Analyzed Recipe Instructions
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
-     * @return GetAnalyzedRecipeInstructions200Response
+     * @return List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1735,17 +1739,17 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed Recipe Instructions Documentation</a>
      */
-    public GetAnalyzedRecipeInstructions200Response getAnalyzedRecipeInstructions(Integer id, Boolean stepBreakdown) throws ApiException {
-        ApiResponse<GetAnalyzedRecipeInstructions200Response> localVarResp = getAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown);
+    public List<GetAnalyzedRecipeInstructions200ResponseInner> getAnalyzedRecipeInstructions(Integer id, Boolean stepBreakdown) throws ApiException {
+        ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>> localVarResp = getAnalyzedRecipeInstructionsWithHttpInfo(id, stepBreakdown);
         return localVarResp.getData();
     }
 
     /**
      * Get Analyzed Recipe Instructions
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
-     * @return ApiResponse&lt;GetAnalyzedRecipeInstructions200Response&gt;
+     * @return ApiResponse&lt;List&lt;GetAnalyzedRecipeInstructions200ResponseInner&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1758,16 +1762,16 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed Recipe Instructions Documentation</a>
      */
-    public ApiResponse<GetAnalyzedRecipeInstructions200Response> getAnalyzedRecipeInstructionsWithHttpInfo(Integer id, Boolean stepBreakdown) throws ApiException {
+    public ApiResponse<List<GetAnalyzedRecipeInstructions200ResponseInner>> getAnalyzedRecipeInstructionsWithHttpInfo(Integer id, Boolean stepBreakdown) throws ApiException {
         okhttp3.Call localVarCall = getAnalyzedRecipeInstructionsValidateBeforeCall(id, stepBreakdown, null);
-        Type localVarReturnType = new TypeToken<GetAnalyzedRecipeInstructions200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<GetAnalyzedRecipeInstructions200ResponseInner>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Analyzed Recipe Instructions (asynchronously)
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1783,10 +1787,10 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Analyzed-Recipe-Instructions">Get Analyzed Recipe Instructions Documentation</a>
      */
-    public okhttp3.Call getAnalyzedRecipeInstructionsAsync(Integer id, Boolean stepBreakdown, final ApiCallback<GetAnalyzedRecipeInstructions200Response> _callback) throws ApiException {
+    public okhttp3.Call getAnalyzedRecipeInstructionsAsync(Integer id, Boolean stepBreakdown, final ApiCallback<List<GetAnalyzedRecipeInstructions200ResponseInner>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAnalyzedRecipeInstructionsValidateBeforeCall(id, stepBreakdown, _callback);
-        Type localVarReturnType = new TypeToken<GetAnalyzedRecipeInstructions200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<GetAnalyzedRecipeInstructions200ResponseInner>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1957,7 +1961,7 @@ public class RecipesApi {
     }
     /**
      * Build call for getRecipeEquipmentByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2031,7 +2035,7 @@ public class RecipesApi {
     /**
      * Equipment by ID
      * Get a recipe&#39;s equipment list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return GetRecipeEquipmentByID200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2053,7 +2057,7 @@ public class RecipesApi {
     /**
      * Equipment by ID
      * Get a recipe&#39;s equipment list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return ApiResponse&lt;GetRecipeEquipmentByID200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2076,7 +2080,7 @@ public class RecipesApi {
     /**
      * Equipment by ID (asynchronously)
      * Get a recipe&#39;s equipment list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2100,8 +2104,10 @@ public class RecipesApi {
     }
     /**
      * Build call for getRecipeInformation
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the recipe. (required)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param addWinePairing Add a wine pairing to the recipe. (optional)
+     * @param addTasteData Add taste data to the recipe. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2116,7 +2122,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
      */
-    public okhttp3.Call getRecipeInformationCall(Integer id, Boolean includeNutrition, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRecipeInformationCall(Integer id, Boolean includeNutrition, Boolean addWinePairing, Boolean addTasteData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2146,6 +2152,14 @@ public class RecipesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeNutrition", includeNutrition));
         }
 
+        if (addWinePairing != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("addWinePairing", addWinePairing));
+        }
+
+        if (addTasteData != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("addTasteData", addTasteData));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2166,22 +2180,24 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRecipeInformationValidateBeforeCall(Integer id, Boolean includeNutrition, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRecipeInformationValidateBeforeCall(Integer id, Boolean includeNutrition, Boolean addWinePairing, Boolean addTasteData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getRecipeInformation(Async)");
         }
 
-        return getRecipeInformationCall(id, includeNutrition, _callback);
+        return getRecipeInformationCall(id, includeNutrition, addWinePairing, addTasteData, _callback);
 
     }
 
     /**
      * Get Recipe Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the recipe. (required)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return GetRecipeInformation200Response
+     * @param addWinePairing Add a wine pairing to the recipe. (optional)
+     * @param addTasteData Add taste data to the recipe. (optional)
+     * @return RecipeInformation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2194,17 +2210,19 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
      */
-    public GetRecipeInformation200Response getRecipeInformation(Integer id, Boolean includeNutrition) throws ApiException {
-        ApiResponse<GetRecipeInformation200Response> localVarResp = getRecipeInformationWithHttpInfo(id, includeNutrition);
+    public RecipeInformation getRecipeInformation(Integer id, Boolean includeNutrition, Boolean addWinePairing, Boolean addTasteData) throws ApiException {
+        ApiResponse<RecipeInformation> localVarResp = getRecipeInformationWithHttpInfo(id, includeNutrition, addWinePairing, addTasteData);
         return localVarResp.getData();
     }
 
     /**
      * Get Recipe Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the recipe. (required)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return ApiResponse&lt;GetRecipeInformation200Response&gt;
+     * @param addWinePairing Add a wine pairing to the recipe. (optional)
+     * @param addTasteData Add taste data to the recipe. (optional)
+     * @return ApiResponse&lt;RecipeInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2217,17 +2235,19 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
      */
-    public ApiResponse<GetRecipeInformation200Response> getRecipeInformationWithHttpInfo(Integer id, Boolean includeNutrition) throws ApiException {
-        okhttp3.Call localVarCall = getRecipeInformationValidateBeforeCall(id, includeNutrition, null);
-        Type localVarReturnType = new TypeToken<GetRecipeInformation200Response>(){}.getType();
+    public ApiResponse<RecipeInformation> getRecipeInformationWithHttpInfo(Integer id, Boolean includeNutrition, Boolean addWinePairing, Boolean addTasteData) throws ApiException {
+        okhttp3.Call localVarCall = getRecipeInformationValidateBeforeCall(id, includeNutrition, addWinePairing, addTasteData, null);
+        Type localVarReturnType = new TypeToken<RecipeInformation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get Recipe Information (asynchronously)
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the recipe. (required)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param addWinePairing Add a wine pairing to the recipe. (optional)
+     * @param addTasteData Add taste data to the recipe. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2242,10 +2262,10 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information">Get Recipe Information Documentation</a>
      */
-    public okhttp3.Call getRecipeInformationAsync(Integer id, Boolean includeNutrition, final ApiCallback<GetRecipeInformation200Response> _callback) throws ApiException {
+    public okhttp3.Call getRecipeInformationAsync(Integer id, Boolean includeNutrition, Boolean addWinePairing, Boolean addTasteData, final ApiCallback<RecipeInformation> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRecipeInformationValidateBeforeCall(id, includeNutrition, _callback);
-        Type localVarReturnType = new TypeToken<GetRecipeInformation200Response>(){}.getType();
+        okhttp3.Call localVarCall = getRecipeInformationValidateBeforeCall(id, includeNutrition, addWinePairing, addTasteData, _callback);
+        Type localVarReturnType = new TypeToken<RecipeInformation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2335,7 +2355,7 @@ public class RecipesApi {
      * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
      * @param ids A comma-separated list of recipe ids. (required)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return Set&lt;GetRecipeInformationBulk200ResponseInner&gt;
+     * @return Set&lt;RecipeInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2348,8 +2368,8 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get Recipe Information Bulk Documentation</a>
      */
-    public Set<GetRecipeInformationBulk200ResponseInner> getRecipeInformationBulk(String ids, Boolean includeNutrition) throws ApiException {
-        ApiResponse<Set<GetRecipeInformationBulk200ResponseInner>> localVarResp = getRecipeInformationBulkWithHttpInfo(ids, includeNutrition);
+    public Set<RecipeInformation> getRecipeInformationBulk(String ids, Boolean includeNutrition) throws ApiException {
+        ApiResponse<Set<RecipeInformation>> localVarResp = getRecipeInformationBulkWithHttpInfo(ids, includeNutrition);
         return localVarResp.getData();
     }
 
@@ -2358,7 +2378,7 @@ public class RecipesApi {
      * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
      * @param ids A comma-separated list of recipe ids. (required)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return ApiResponse&lt;Set&lt;GetRecipeInformationBulk200ResponseInner&gt;&gt;
+     * @return ApiResponse&lt;Set&lt;RecipeInformation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2371,9 +2391,9 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get Recipe Information Bulk Documentation</a>
      */
-    public ApiResponse<Set<GetRecipeInformationBulk200ResponseInner>> getRecipeInformationBulkWithHttpInfo(String ids, Boolean includeNutrition) throws ApiException {
+    public ApiResponse<Set<RecipeInformation>> getRecipeInformationBulkWithHttpInfo(String ids, Boolean includeNutrition) throws ApiException {
         okhttp3.Call localVarCall = getRecipeInformationBulkValidateBeforeCall(ids, includeNutrition, null);
-        Type localVarReturnType = new TypeToken<Set<GetRecipeInformationBulk200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Set<RecipeInformation>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2396,16 +2416,16 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Get-Recipe-Information-Bulk">Get Recipe Information Bulk Documentation</a>
      */
-    public okhttp3.Call getRecipeInformationBulkAsync(String ids, Boolean includeNutrition, final ApiCallback<Set<GetRecipeInformationBulk200ResponseInner>> _callback) throws ApiException {
+    public okhttp3.Call getRecipeInformationBulkAsync(String ids, Boolean includeNutrition, final ApiCallback<Set<RecipeInformation>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRecipeInformationBulkValidateBeforeCall(ids, includeNutrition, _callback);
-        Type localVarReturnType = new TypeToken<Set<GetRecipeInformationBulk200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Set<RecipeInformation>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getRecipeIngredientsByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2479,7 +2499,7 @@ public class RecipesApi {
     /**
      * Ingredients by ID
      * Get a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return GetRecipeIngredientsByID200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2501,7 +2521,7 @@ public class RecipesApi {
     /**
      * Ingredients by ID
      * Get a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return ApiResponse&lt;GetRecipeIngredientsByID200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2524,7 +2544,7 @@ public class RecipesApi {
     /**
      * Ingredients by ID (asynchronously)
      * Get a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2548,7 +2568,7 @@ public class RecipesApi {
     }
     /**
      * Build call for getRecipeNutritionWidgetByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2622,7 +2642,7 @@ public class RecipesApi {
     /**
      * Nutrition by ID
      * Get a recipe&#39;s nutrition data.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return GetRecipeNutritionWidgetByID200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2644,7 +2664,7 @@ public class RecipesApi {
     /**
      * Nutrition by ID
      * Get a recipe&#39;s nutrition data.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return ApiResponse&lt;GetRecipeNutritionWidgetByID200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2667,7 +2687,7 @@ public class RecipesApi {
     /**
      * Nutrition by ID (asynchronously)
      * Get a recipe&#39;s nutrition data.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2691,7 +2711,7 @@ public class RecipesApi {
     }
     /**
      * Build call for getRecipePriceBreakdownByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2765,7 +2785,7 @@ public class RecipesApi {
     /**
      * Price Breakdown by ID
      * Get a recipe&#39;s price breakdown data.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return GetRecipePriceBreakdownByID200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2787,7 +2807,7 @@ public class RecipesApi {
     /**
      * Price Breakdown by ID
      * Get a recipe&#39;s price breakdown data.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return ApiResponse&lt;GetRecipePriceBreakdownByID200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2810,7 +2830,7 @@ public class RecipesApi {
     /**
      * Price Breakdown by ID (asynchronously)
      * Get a recipe&#39;s price breakdown data.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2834,7 +2854,7 @@ public class RecipesApi {
     }
     /**
      * Build call for getRecipeTasteByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Normalize to the strongest taste. (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2913,9 +2933,9 @@ public class RecipesApi {
     /**
      * Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Normalize to the strongest taste. (optional, default to true)
-     * @return GetRecipeTasteByID200Response
+     * @return TasteInformation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2928,17 +2948,17 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Taste-by-ID">Taste by ID Documentation</a>
      */
-    public GetRecipeTasteByID200Response getRecipeTasteByID(Integer id, Boolean normalize) throws ApiException {
-        ApiResponse<GetRecipeTasteByID200Response> localVarResp = getRecipeTasteByIDWithHttpInfo(id, normalize);
+    public TasteInformation getRecipeTasteByID(Integer id, Boolean normalize) throws ApiException {
+        ApiResponse<TasteInformation> localVarResp = getRecipeTasteByIDWithHttpInfo(id, normalize);
         return localVarResp.getData();
     }
 
     /**
      * Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Normalize to the strongest taste. (optional, default to true)
-     * @return ApiResponse&lt;GetRecipeTasteByID200Response&gt;
+     * @return ApiResponse&lt;TasteInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2951,16 +2971,16 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Taste-by-ID">Taste by ID Documentation</a>
      */
-    public ApiResponse<GetRecipeTasteByID200Response> getRecipeTasteByIDWithHttpInfo(Integer id, Boolean normalize) throws ApiException {
+    public ApiResponse<TasteInformation> getRecipeTasteByIDWithHttpInfo(Integer id, Boolean normalize) throws ApiException {
         okhttp3.Call localVarCall = getRecipeTasteByIDValidateBeforeCall(id, normalize, null);
-        Type localVarReturnType = new TypeToken<GetRecipeTasteByID200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<TasteInformation>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Taste by ID (asynchronously)
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Normalize to the strongest taste. (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2976,16 +2996,16 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Taste-by-ID">Taste by ID Documentation</a>
      */
-    public okhttp3.Call getRecipeTasteByIDAsync(Integer id, Boolean normalize, final ApiCallback<GetRecipeTasteByID200Response> _callback) throws ApiException {
+    public okhttp3.Call getRecipeTasteByIDAsync(Integer id, Boolean normalize, final ApiCallback<TasteInformation> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRecipeTasteByIDValidateBeforeCall(id, normalize, _callback);
-        Type localVarReturnType = new TypeToken<GetRecipeTasteByID200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<TasteInformation>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSimilarRecipes
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the source recipe for which similar recipes should be found. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3064,7 +3084,7 @@ public class RecipesApi {
     /**
      * Get Similar Recipes
      * Find recipes which are similar to the given one.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the source recipe for which similar recipes should be found. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return Set&lt;GetSimilarRecipes200ResponseInner&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3087,7 +3107,7 @@ public class RecipesApi {
     /**
      * Get Similar Recipes
      * Find recipes which are similar to the given one.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the source recipe for which similar recipes should be found. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse&lt;Set&lt;GetSimilarRecipes200ResponseInner&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3111,7 +3131,7 @@ public class RecipesApi {
     /**
      * Get Similar Recipes (asynchronously)
      * Find recipes which are similar to the given one.
-     * @param id The item&#39;s id. (required)
+     * @param id The id of the source recipe for which similar recipes should be found. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3285,7 +3305,7 @@ public class RecipesApi {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings that you can make from the ingredients. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param includeNutrition  (optional)
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3383,8 +3403,8 @@ public class RecipesApi {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings that you can make from the ingredients. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param includeNutrition  (optional)
-     * @return Set&lt;ParseIngredients200ResponseInner&gt;
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
+     * @return Set&lt;IngredientInformation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3397,8 +3417,8 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Parse-Ingredients">Parse Ingredients Documentation</a>
      */
-    public Set<ParseIngredients200ResponseInner> parseIngredients(String ingredientList, BigDecimal servings, String language, Boolean includeNutrition) throws ApiException {
-        ApiResponse<Set<ParseIngredients200ResponseInner>> localVarResp = parseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
+    public Set<IngredientInformation> parseIngredients(String ingredientList, BigDecimal servings, String language, Boolean includeNutrition) throws ApiException {
+        ApiResponse<Set<IngredientInformation>> localVarResp = parseIngredientsWithHttpInfo(ingredientList, servings, language, includeNutrition);
         return localVarResp.getData();
     }
 
@@ -3408,8 +3428,8 @@ public class RecipesApi {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings that you can make from the ingredients. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param includeNutrition  (optional)
-     * @return ApiResponse&lt;Set&lt;ParseIngredients200ResponseInner&gt;&gt;
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
+     * @return ApiResponse&lt;Set&lt;IngredientInformation&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -3422,9 +3442,9 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Parse-Ingredients">Parse Ingredients Documentation</a>
      */
-    public ApiResponse<Set<ParseIngredients200ResponseInner>> parseIngredientsWithHttpInfo(String ingredientList, BigDecimal servings, String language, Boolean includeNutrition) throws ApiException {
+    public ApiResponse<Set<IngredientInformation>> parseIngredientsWithHttpInfo(String ingredientList, BigDecimal servings, String language, Boolean includeNutrition) throws ApiException {
         okhttp3.Call localVarCall = parseIngredientsValidateBeforeCall(ingredientList, servings, language, includeNutrition, null);
-        Type localVarReturnType = new TypeToken<Set<ParseIngredients200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Set<IngredientInformation>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3434,7 +3454,7 @@ public class RecipesApi {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line. (required)
      * @param servings The number of servings that you can make from the ingredients. (required)
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param includeNutrition  (optional)
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3449,10 +3469,10 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Parse-Ingredients">Parse Ingredients Documentation</a>
      */
-    public okhttp3.Call parseIngredientsAsync(String ingredientList, BigDecimal servings, String language, Boolean includeNutrition, final ApiCallback<Set<ParseIngredients200ResponseInner>> _callback) throws ApiException {
+    public okhttp3.Call parseIngredientsAsync(String ingredientList, BigDecimal servings, String language, Boolean includeNutrition, final ApiCallback<Set<IngredientInformation>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = parseIngredientsValidateBeforeCall(ingredientList, servings, language, includeNutrition, _callback);
-        Type localVarReturnType = new TypeToken<Set<ParseIngredients200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Set<IngredientInformation>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3473,7 +3493,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Price-Breakdown-by-ID-Image">Price Breakdown by ID Image Documentation</a>
      */
-    public okhttp3.Call priceBreakdownByIDImageCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call priceBreakdownByIDImageCall(Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3519,7 +3539,7 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call priceBreakdownByIDImageValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call priceBreakdownByIDImageValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling priceBreakdownByIDImage(Async)");
@@ -3546,7 +3566,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Price-Breakdown-by-ID-Image">Price Breakdown by ID Image Documentation</a>
      */
-    public File priceBreakdownByIDImage(BigDecimal id) throws ApiException {
+    public File priceBreakdownByIDImage(Integer id) throws ApiException {
         ApiResponse<File> localVarResp = priceBreakdownByIDImageWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -3568,7 +3588,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Price-Breakdown-by-ID-Image">Price Breakdown by ID Image Documentation</a>
      */
-    public ApiResponse<File> priceBreakdownByIDImageWithHttpInfo(BigDecimal id) throws ApiException {
+    public ApiResponse<File> priceBreakdownByIDImageWithHttpInfo(Integer id) throws ApiException {
         okhttp3.Call localVarCall = priceBreakdownByIDImageValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3592,7 +3612,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Price-Breakdown-by-ID-Image">Price Breakdown by ID Image Documentation</a>
      */
-    public okhttp3.Call priceBreakdownByIDImageAsync(BigDecimal id, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call priceBreakdownByIDImageAsync(Integer id, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = priceBreakdownByIDImageValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -3762,7 +3782,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-by-ID-Image">Recipe Nutrition by ID Image Documentation</a>
      */
-    public okhttp3.Call recipeNutritionByIDImageCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call recipeNutritionByIDImageCall(Integer id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3808,7 +3828,7 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call recipeNutritionByIDImageValidateBeforeCall(BigDecimal id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call recipeNutritionByIDImageValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling recipeNutritionByIDImage(Async)");
@@ -3835,7 +3855,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-by-ID-Image">Recipe Nutrition by ID Image Documentation</a>
      */
-    public File recipeNutritionByIDImage(BigDecimal id) throws ApiException {
+    public File recipeNutritionByIDImage(Integer id) throws ApiException {
         ApiResponse<File> localVarResp = recipeNutritionByIDImageWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -3857,7 +3877,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-by-ID-Image">Recipe Nutrition by ID Image Documentation</a>
      */
-    public ApiResponse<File> recipeNutritionByIDImageWithHttpInfo(BigDecimal id) throws ApiException {
+    public ApiResponse<File> recipeNutritionByIDImageWithHttpInfo(Integer id) throws ApiException {
         okhttp3.Call localVarCall = recipeNutritionByIDImageValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3881,7 +3901,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-by-ID-Image">Recipe Nutrition by ID Image Documentation</a>
      */
-    public okhttp3.Call recipeNutritionByIDImageAsync(BigDecimal id, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call recipeNutritionByIDImageAsync(Integer id, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = recipeNutritionByIDImageValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -3908,7 +3928,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Image">Recipe Nutrition Label Image Documentation</a>
      */
-    public okhttp3.Call recipeNutritionLabelImageCall(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call recipeNutritionLabelImageCall(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3966,7 +3986,7 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call recipeNutritionLabelImageValidateBeforeCall(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call recipeNutritionLabelImageValidateBeforeCall(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling recipeNutritionLabelImage(Async)");
@@ -3996,7 +4016,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Image">Recipe Nutrition Label Image Documentation</a>
      */
-    public File recipeNutritionLabelImage(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public File recipeNutritionLabelImage(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         ApiResponse<File> localVarResp = recipeNutritionLabelImageWithHttpInfo(id, showOptionalNutrients, showZeroValues, showIngredients);
         return localVarResp.getData();
     }
@@ -4021,7 +4041,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Image">Recipe Nutrition Label Image Documentation</a>
      */
-    public ApiResponse<File> recipeNutritionLabelImageWithHttpInfo(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public ApiResponse<File> recipeNutritionLabelImageWithHttpInfo(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         okhttp3.Call localVarCall = recipeNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4048,7 +4068,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Image">Recipe Nutrition Label Image Documentation</a>
      */
-    public okhttp3.Call recipeNutritionLabelImageAsync(BigDecimal id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call recipeNutritionLabelImageAsync(Integer id, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = recipeNutritionLabelImageValidateBeforeCall(id, showOptionalNutrients, showZeroValues, showIngredients, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -4076,7 +4096,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Widget">Recipe Nutrition Label Widget Documentation</a>
      */
-    public okhttp3.Call recipeNutritionLabelWidgetCall(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call recipeNutritionLabelWidgetCall(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4138,7 +4158,7 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call recipeNutritionLabelWidgetValidateBeforeCall(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call recipeNutritionLabelWidgetValidateBeforeCall(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling recipeNutritionLabelWidget(Async)");
@@ -4169,7 +4189,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Widget">Recipe Nutrition Label Widget Documentation</a>
      */
-    public String recipeNutritionLabelWidget(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public String recipeNutritionLabelWidget(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         ApiResponse<String> localVarResp = recipeNutritionLabelWidgetWithHttpInfo(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients);
         return localVarResp.getData();
     }
@@ -4195,7 +4215,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Widget">Recipe Nutrition Label Widget Documentation</a>
      */
-    public ApiResponse<String> recipeNutritionLabelWidgetWithHttpInfo(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
+    public ApiResponse<String> recipeNutritionLabelWidgetWithHttpInfo(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients) throws ApiException {
         okhttp3.Call localVarCall = recipeNutritionLabelWidgetValidateBeforeCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4223,7 +4243,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Nutrition-Label-Widget">Recipe Nutrition Label Widget Documentation</a>
      */
-    public okhttp3.Call recipeNutritionLabelWidgetAsync(BigDecimal id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call recipeNutritionLabelWidgetAsync(Integer id, Boolean defaultCss, Boolean showOptionalNutrients, Boolean showZeroValues, Boolean showIngredients, final ApiCallback<String> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = recipeNutritionLabelWidgetValidateBeforeCall(id, defaultCss, showOptionalNutrients, showZeroValues, showIngredients, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
@@ -4249,7 +4269,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Taste-by-ID-Image">Recipe Taste by ID Image Documentation</a>
      */
-    public okhttp3.Call recipeTasteByIDImageCall(BigDecimal id, Boolean normalize, String rgb, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call recipeTasteByIDImageCall(Integer id, Boolean normalize, String rgb, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4303,7 +4323,7 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call recipeTasteByIDImageValidateBeforeCall(BigDecimal id, Boolean normalize, String rgb, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call recipeTasteByIDImageValidateBeforeCall(Integer id, Boolean normalize, String rgb, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling recipeTasteByIDImage(Async)");
@@ -4332,7 +4352,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Taste-by-ID-Image">Recipe Taste by ID Image Documentation</a>
      */
-    public File recipeTasteByIDImage(BigDecimal id, Boolean normalize, String rgb) throws ApiException {
+    public File recipeTasteByIDImage(Integer id, Boolean normalize, String rgb) throws ApiException {
         ApiResponse<File> localVarResp = recipeTasteByIDImageWithHttpInfo(id, normalize, rgb);
         return localVarResp.getData();
     }
@@ -4356,7 +4376,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Taste-by-ID-Image">Recipe Taste by ID Image Documentation</a>
      */
-    public ApiResponse<File> recipeTasteByIDImageWithHttpInfo(BigDecimal id, Boolean normalize, String rgb) throws ApiException {
+    public ApiResponse<File> recipeTasteByIDImageWithHttpInfo(Integer id, Boolean normalize, String rgb) throws ApiException {
         okhttp3.Call localVarCall = recipeTasteByIDImageValidateBeforeCall(id, normalize, rgb, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4382,7 +4402,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Recipe-Taste-by-ID-Image">Recipe Taste by ID Image Documentation</a>
      */
-    public okhttp3.Call recipeTasteByIDImageAsync(BigDecimal id, Boolean normalize, String rgb, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call recipeTasteByIDImageAsync(Integer id, Boolean normalize, String rgb, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = recipeTasteByIDImageValidateBeforeCall(id, normalize, rgb, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -4391,7 +4411,7 @@ public class RecipesApi {
     }
     /**
      * Build call for searchRecipes
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -4502,7 +4522,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public okhttp3.Call searchRecipesCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRecipesCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, Integer recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4935,7 +4955,12 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipesValidateBeforeCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchRecipesValidateBeforeCall(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, Integer recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchRecipes(Async)");
+        }
+
         return searchRecipesCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, _callback);
 
     }
@@ -4943,7 +4968,7 @@ public class RecipesApi {
     /**
      * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -5053,7 +5078,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public SearchRecipes200Response searchRecipes(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number) throws ApiException {
+    public SearchRecipes200Response searchRecipes(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, Integer recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number) throws ApiException {
         ApiResponse<SearchRecipes200Response> localVarResp = searchRecipesWithHttpInfo(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number);
         return localVarResp.getData();
     }
@@ -5061,7 +5086,7 @@ public class RecipesApi {
     /**
      * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -5171,7 +5196,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public ApiResponse<SearchRecipes200Response> searchRecipesWithHttpInfo(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number) throws ApiException {
+    public ApiResponse<SearchRecipes200Response> searchRecipesWithHttpInfo(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, Integer recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number) throws ApiException {
         okhttp3.Call localVarCall = searchRecipesValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, null);
         Type localVarReturnType = new TypeToken<SearchRecipes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5180,7 +5205,7 @@ public class RecipesApi {
     /**
      * Search Recipes (asynchronously)
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query. (required)
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -5291,7 +5316,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes">Search Recipes Documentation</a>
      */
-    public okhttp3.Call searchRecipesAsync(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, BigDecimal recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final ApiCallback<SearchRecipes200Response> _callback) throws ApiException {
+    public okhttp3.Call searchRecipesAsync(String query, String cuisine, String excludeCuisine, String diet, String intolerances, String equipment, String includeIngredients, String excludeIngredients, String type, Boolean instructionsRequired, Boolean fillIngredients, Boolean addRecipeInformation, Boolean addRecipeNutrition, String author, String tags, Integer recipeBoxId, String titleMatch, BigDecimal maxReadyTime, BigDecimal minServings, BigDecimal maxServings, Boolean ignorePantry, String sort, String sortDirection, BigDecimal minCarbs, BigDecimal maxCarbs, BigDecimal minProtein, BigDecimal maxProtein, BigDecimal minCalories, BigDecimal maxCalories, BigDecimal minFat, BigDecimal maxFat, BigDecimal minAlcohol, BigDecimal maxAlcohol, BigDecimal minCaffeine, BigDecimal maxCaffeine, BigDecimal minCopper, BigDecimal maxCopper, BigDecimal minCalcium, BigDecimal maxCalcium, BigDecimal minCholine, BigDecimal maxCholine, BigDecimal minCholesterol, BigDecimal maxCholesterol, BigDecimal minFluoride, BigDecimal maxFluoride, BigDecimal minSaturatedFat, BigDecimal maxSaturatedFat, BigDecimal minVitaminA, BigDecimal maxVitaminA, BigDecimal minVitaminC, BigDecimal maxVitaminC, BigDecimal minVitaminD, BigDecimal maxVitaminD, BigDecimal minVitaminE, BigDecimal maxVitaminE, BigDecimal minVitaminK, BigDecimal maxVitaminK, BigDecimal minVitaminB1, BigDecimal maxVitaminB1, BigDecimal minVitaminB2, BigDecimal maxVitaminB2, BigDecimal minVitaminB5, BigDecimal maxVitaminB5, BigDecimal minVitaminB3, BigDecimal maxVitaminB3, BigDecimal minVitaminB6, BigDecimal maxVitaminB6, BigDecimal minVitaminB12, BigDecimal maxVitaminB12, BigDecimal minFiber, BigDecimal maxFiber, BigDecimal minFolate, BigDecimal maxFolate, BigDecimal minFolicAcid, BigDecimal maxFolicAcid, BigDecimal minIodine, BigDecimal maxIodine, BigDecimal minIron, BigDecimal maxIron, BigDecimal minMagnesium, BigDecimal maxMagnesium, BigDecimal minManganese, BigDecimal maxManganese, BigDecimal minPhosphorus, BigDecimal maxPhosphorus, BigDecimal minPotassium, BigDecimal maxPotassium, BigDecimal minSelenium, BigDecimal maxSelenium, BigDecimal minSodium, BigDecimal maxSodium, BigDecimal minSugar, BigDecimal maxSugar, BigDecimal minZinc, BigDecimal maxZinc, Integer offset, Integer number, final ApiCallback<SearchRecipes200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchRecipesValidateBeforeCall(query, cuisine, excludeCuisine, diet, intolerances, equipment, includeIngredients, excludeIngredients, type, instructionsRequired, fillIngredients, addRecipeInformation, addRecipeNutrition, author, tags, recipeBoxId, titleMatch, maxReadyTime, minServings, maxServings, ignorePantry, sort, sortDirection, minCarbs, maxCarbs, minProtein, maxProtein, minCalories, maxCalories, minFat, maxFat, minAlcohol, maxAlcohol, minCaffeine, maxCaffeine, minCopper, maxCopper, minCalcium, maxCalcium, minCholine, maxCholine, minCholesterol, maxCholesterol, minFluoride, maxFluoride, minSaturatedFat, maxSaturatedFat, minVitaminA, maxVitaminA, minVitaminC, maxVitaminC, minVitaminD, maxVitaminD, minVitaminE, maxVitaminE, minVitaminK, maxVitaminK, minVitaminB1, maxVitaminB1, minVitaminB2, maxVitaminB2, minVitaminB5, maxVitaminB5, minVitaminB3, maxVitaminB3, minVitaminB6, maxVitaminB6, minVitaminB12, maxVitaminB12, minFiber, maxFiber, minFolate, maxFolate, minFolicAcid, maxFolicAcid, minIodine, maxIodine, minIron, maxIron, minMagnesium, maxMagnesium, minManganese, maxManganese, minPhosphorus, maxPhosphorus, minPotassium, maxPotassium, minSelenium, maxSelenium, minSodium, maxSodium, minSugar, maxSugar, minZinc, maxZinc, offset, number, _callback);
         Type localVarReturnType = new TypeToken<SearchRecipes200Response>(){}.getType();
@@ -5300,7 +5325,7 @@ public class RecipesApi {
     }
     /**
      * Build call for searchRecipesByIngredients
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
@@ -5318,7 +5343,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
      */
-    public okhttp3.Call searchRecipesByIngredientsCall(String ingredients, Integer number, BigDecimal ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchRecipesByIngredientsCall(String ingredients, Integer number, Integer ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5379,7 +5404,12 @@ public class RecipesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchRecipesByIngredientsValidateBeforeCall(String ingredients, Integer number, BigDecimal ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchRecipesByIngredientsValidateBeforeCall(String ingredients, Integer number, Integer ranking, Boolean ignorePantry, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'ingredients' is set
+        if (ingredients == null) {
+            throw new ApiException("Missing the required parameter 'ingredients' when calling searchRecipesByIngredients(Async)");
+        }
+
         return searchRecipesByIngredientsCall(ingredients, number, ranking, ignorePantry, _callback);
 
     }
@@ -5387,7 +5417,7 @@ public class RecipesApi {
     /**
      * Search Recipes by Ingredients
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
@@ -5404,7 +5434,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
      */
-    public Set<SearchRecipesByIngredients200ResponseInner> searchRecipesByIngredients(String ingredients, Integer number, BigDecimal ranking, Boolean ignorePantry) throws ApiException {
+    public Set<SearchRecipesByIngredients200ResponseInner> searchRecipesByIngredients(String ingredients, Integer number, Integer ranking, Boolean ignorePantry) throws ApiException {
         ApiResponse<Set<SearchRecipesByIngredients200ResponseInner>> localVarResp = searchRecipesByIngredientsWithHttpInfo(ingredients, number, ranking, ignorePantry);
         return localVarResp.getData();
     }
@@ -5412,7 +5442,7 @@ public class RecipesApi {
     /**
      * Search Recipes by Ingredients
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
@@ -5429,7 +5459,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
      */
-    public ApiResponse<Set<SearchRecipesByIngredients200ResponseInner>> searchRecipesByIngredientsWithHttpInfo(String ingredients, Integer number, BigDecimal ranking, Boolean ignorePantry) throws ApiException {
+    public ApiResponse<Set<SearchRecipesByIngredients200ResponseInner>> searchRecipesByIngredientsWithHttpInfo(String ingredients, Integer number, Integer ranking, Boolean ignorePantry) throws ApiException {
         okhttp3.Call localVarCall = searchRecipesByIngredientsValidateBeforeCall(ingredients, number, ranking, ignorePantry, null);
         Type localVarReturnType = new TypeToken<Set<SearchRecipesByIngredients200ResponseInner>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -5438,7 +5468,7 @@ public class RecipesApi {
     /**
      * Search Recipes by Ingredients (asynchronously)
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (required)
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
@@ -5456,7 +5486,7 @@ public class RecipesApi {
      * Read entire docs
      * @see <a href="https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients">Search Recipes by Ingredients Documentation</a>
      */
-    public okhttp3.Call searchRecipesByIngredientsAsync(String ingredients, Integer number, BigDecimal ranking, Boolean ignorePantry, final ApiCallback<Set<SearchRecipesByIngredients200ResponseInner>> _callback) throws ApiException {
+    public okhttp3.Call searchRecipesByIngredientsAsync(String ingredients, Integer number, Integer ranking, Boolean ignorePantry, final ApiCallback<Set<SearchRecipesByIngredients200ResponseInner>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchRecipesByIngredientsValidateBeforeCall(ingredients, number, ranking, ignorePantry, _callback);
         Type localVarReturnType = new TypeToken<Set<SearchRecipesByIngredients200ResponseInner>>(){}.getType();
@@ -6198,7 +6228,7 @@ public class RecipesApi {
     }
     /**
      * Build call for summarizeRecipe
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6272,7 +6302,7 @@ public class RecipesApi {
     /**
      * Summarize Recipe
      * Automatically generate a short description that summarizes key information about the recipe.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return SummarizeRecipe200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6294,7 +6324,7 @@ public class RecipesApi {
     /**
      * Summarize Recipe
      * Automatically generate a short description that summarizes key information about the recipe.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @return ApiResponse&lt;SummarizeRecipe200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6317,7 +6347,7 @@ public class RecipesApi {
     /**
      * Summarize Recipe (asynchronously)
      * Automatically generate a short description that summarizes key information about the recipe.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6704,7 +6734,7 @@ public class RecipesApi {
     }
     /**
      * Build call for visualizeRecipeEquipmentByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6783,7 +6813,7 @@ public class RecipesApi {
     /**
      * Equipment by ID Widget
      * Visualize a recipe&#39;s equipment list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6806,7 +6836,7 @@ public class RecipesApi {
     /**
      * Equipment by ID Widget
      * Visualize a recipe&#39;s equipment list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6830,7 +6860,7 @@ public class RecipesApi {
     /**
      * Equipment by ID Widget (asynchronously)
      * Visualize a recipe&#39;s equipment list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6855,7 +6885,7 @@ public class RecipesApi {
     }
     /**
      * Build call for visualizeRecipeIngredientsByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param _callback Callback for upload/download progress
@@ -6939,7 +6969,7 @@ public class RecipesApi {
     /**
      * Ingredients by ID Widget
      * Visualize a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @return String
@@ -6963,7 +6993,7 @@ public class RecipesApi {
     /**
      * Ingredients by ID Widget
      * Visualize a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @return ApiResponse&lt;String&gt;
@@ -6988,7 +7018,7 @@ public class RecipesApi {
     /**
      * Ingredients by ID Widget (asynchronously)
      * Visualize a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -7198,7 +7228,7 @@ public class RecipesApi {
     }
     /**
      * Build call for visualizeRecipeNutritionByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -7277,7 +7307,7 @@ public class RecipesApi {
     /**
      * Recipe Nutrition by ID Widget
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7300,7 +7330,7 @@ public class RecipesApi {
     /**
      * Recipe Nutrition by ID Widget
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7324,7 +7354,7 @@ public class RecipesApi {
     /**
      * Recipe Nutrition by ID Widget (asynchronously)
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7349,7 +7379,7 @@ public class RecipesApi {
     }
     /**
      * Build call for visualizeRecipePriceBreakdownByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -7428,7 +7458,7 @@ public class RecipesApi {
     /**
      * Price Breakdown by ID Widget
      * Visualize a recipe&#39;s price breakdown.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7451,7 +7481,7 @@ public class RecipesApi {
     /**
      * Price Breakdown by ID Widget
      * Visualize a recipe&#39;s price breakdown.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7475,7 +7505,7 @@ public class RecipesApi {
     /**
      * Price Breakdown by ID Widget (asynchronously)
      * Visualize a recipe&#39;s price breakdown.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7671,7 +7701,7 @@ public class RecipesApi {
     }
     /**
      * Build call for visualizeRecipeTasteByID
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @param _callback Callback for upload/download progress
@@ -7755,7 +7785,7 @@ public class RecipesApi {
     /**
      * Recipe Taste by ID Widget
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return String
@@ -7779,7 +7809,7 @@ public class RecipesApi {
     /**
      * Recipe Taste by ID Widget
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return ApiResponse&lt;String&gt;
@@ -7804,7 +7834,7 @@ public class RecipesApi {
     /**
      * Recipe Taste by ID Widget (asynchronously)
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id. (required)
+     * @param id The recipe id. (required)
      * @param normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @param _callback The callback to be executed when the API call finishes

@@ -45,7 +45,7 @@ namespace spoonacular.Model
         /// <param name="type">type (required).</param>
         /// <param name="offset">offset (required).</param>
         /// <param name="number">number (required).</param>
-        public SearchMenuItems200Response(List<SearchMenuItems200ResponseMenuItemsInner> menuItems = default(List<SearchMenuItems200ResponseMenuItemsInner>), int totalMenuItems = default(int), string type = default(string), int offset = default(int), int number = default(int))
+        public SearchMenuItems200Response(List<MenuItem> menuItems = default(List<MenuItem>), int totalMenuItems = default(int), string type = default(string), int offset = default(int), int number = default(int))
         {
             // to ensure "menuItems" is required (not null)
             if (menuItems == null)
@@ -68,7 +68,7 @@ namespace spoonacular.Model
         /// Gets or Sets MenuItems
         /// </summary>
         [DataMember(Name = "menuItems", IsRequired = true, EmitDefaultValue = true)]
-        public List<SearchMenuItems200ResponseMenuItemsInner> MenuItems { get; set; }
+        public List<MenuItem> MenuItems { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalMenuItems

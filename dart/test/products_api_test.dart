@@ -48,7 +48,7 @@ void main() {
     //
     // Find comparable products to the given one.
     //
-    //Future<GetComparableProducts200Response> getComparableProducts(num upc) async
+    //Future<GetComparableProducts200Response> getComparableProducts(String upc) async
     test('test getComparableProducts', () async {
       // TODO
     });
@@ -57,7 +57,7 @@ void main() {
     //
     // Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
     //
-    //Future<GetProductInformation200Response> getProductInformation(int id) async
+    //Future<ProductInformation> getProductInformation(int id) async
     test('test getProductInformation', () async {
       // TODO
     });
@@ -66,7 +66,7 @@ void main() {
     //
     // Visualize a product's nutritional information as an image.
     //
-    //Future<MultipartFile> productNutritionByIDImage(num id) async
+    //Future<MultipartFile> productNutritionByIDImage(int id) async
     test('test productNutritionByIDImage', () async {
       // TODO
     });
@@ -75,7 +75,7 @@ void main() {
     //
     // Get a product's nutrition label as an image.
     //
-    //Future<MultipartFile> productNutritionLabelImage(num id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<MultipartFile> productNutritionLabelImage(int id, { bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test productNutritionLabelImage', () async {
       // TODO
     });
@@ -84,7 +84,7 @@ void main() {
     //
     // Get a product's nutrition label as an HTML widget.
     //
-    //Future<String> productNutritionLabelWidget(num id, { bool defaultCss, bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
+    //Future<String> productNutritionLabelWidget(int id, { bool defaultCss, bool showOptionalNutrients, bool showZeroValues, bool showIngredients }) async
     test('test productNutritionLabelWidget', () async {
       // TODO
     });
@@ -93,7 +93,7 @@ void main() {
     //
     // Search packaged food products, such as frozen pizza or Greek yogurt.
     //
-    //Future<SearchGroceryProducts200Response> searchGroceryProducts({ String query, num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, bool addProductInformation, int offset, int number }) async
+    //Future<SearchGroceryProducts200Response> searchGroceryProducts(String query, { num minCalories, num maxCalories, num minCarbs, num maxCarbs, num minProtein, num maxProtein, num minFat, num maxFat, bool addProductInformation, int offset, int number }) async
     test('test searchGroceryProducts', () async {
       // TODO
     });
@@ -102,7 +102,7 @@ void main() {
     //
     // Get information about a packaged food using its UPC.
     //
-    //Future<SearchGroceryProductsByUPC200Response> searchGroceryProductsByUPC(num upc) async
+    //Future<SearchGroceryProductsByUPC200Response> searchGroceryProductsByUPC(String upc) async
     test('test searchGroceryProductsByUPC', () async {
       // TODO
     });

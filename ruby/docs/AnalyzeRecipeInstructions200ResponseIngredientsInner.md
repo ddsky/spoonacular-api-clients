@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** |  |  |
+| **id** | **Integer** |  |  |
 | **name** | **String** |  |  |
 
 ## Example

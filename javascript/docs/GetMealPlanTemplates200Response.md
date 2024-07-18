@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**templates** | [**[GetAnalyzedRecipeInstructions200ResponseIngredientsInner]**](GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md) |  | 
+**templates** | [**[GetMealPlanTemplates200ResponseTemplatesInner]**](GetMealPlanTemplates200ResponseTemplatesInner.md) |  | 
 
 

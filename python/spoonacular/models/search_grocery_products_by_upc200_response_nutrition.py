@@ -21,8 +21,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from spoonacular.models.parse_ingredients200_response_inner_nutrition_caloric_breakdown import ParseIngredients200ResponseInnerNutritionCaloricBreakdown
-from spoonacular.models.parse_ingredients200_response_inner_nutrition_nutrients_inner import ParseIngredients200ResponseInnerNutritionNutrientsInner
+from spoonacular.models.search_grocery_products_by_upc200_response_nutrition_caloric_breakdown import SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
+from spoonacular.models.search_grocery_products_by_upc200_response_nutrition_nutrients_inner import SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,8 +30,8 @@ class SearchGroceryProductsByUPC200ResponseNutrition(BaseModel):
     """
     SearchGroceryProductsByUPC200ResponseNutrition
     """ # noqa: E501
-    nutrients: Annotated[List[ParseIngredients200ResponseInnerNutritionNutrientsInner], Field(min_length=0)]
-    caloric_breakdown: ParseIngredients200ResponseInnerNutritionCaloricBreakdown = Field(alias="caloricBreakdown")
+    nutrients: Annotated[List[SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner], Field(min_length=0)]
+    caloric_breakdown: SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown = Field(alias="caloricBreakdown")
     __properties: ClassVar[List[str]] = ["nutrients", "caloricBreakdown"]
 
     model_config = ConfigDict(
@@ -95,8 +95,8 @@ class SearchGroceryProductsByUPC200ResponseNutrition(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "nutrients": [ParseIngredients200ResponseInnerNutritionNutrientsInner.from_dict(_item) for _item in obj["nutrients"]] if obj.get("nutrients") is not None else None,
-            "caloricBreakdown": ParseIngredients200ResponseInnerNutritionCaloricBreakdown.from_dict(obj["caloricBreakdown"]) if obj.get("caloricBreakdown") is not None else None
+            "nutrients": [SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner.from_dict(_item) for _item in obj["nutrients"]] if obj.get("nutrients") is not None else None,
+            "caloricBreakdown": SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown.from_dict(obj["caloricBreakdown"]) if obj.get("caloricBreakdown") is not None else None
         })
         return _obj
 

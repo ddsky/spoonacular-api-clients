@@ -43,10 +43,10 @@ class GetRecipeNutritionWidgetByID200ResponseGoodInnerTest : ShouldSpec() {
             //modelInstance.percentOfDailyNeeds shouldBe ("TODO")
         }
 
-        // to test the property `name`
-        should("test name") {
+        // to test the property `title`
+        should("test title") {
             // uncomment below to test the property
-            //modelInstance.name shouldBe ("TODO")
+            //modelInstance.title shouldBe ("TODO")
         }
 
     }

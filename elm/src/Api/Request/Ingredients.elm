@@ -180,13 +180,13 @@ stringFromView model =
 
 {-| Autocomplete the entry of an ingredient.
 -}
-autocompleteIngredientSearch : Maybe String -> Maybe Int -> Maybe Bool -> Maybe String -> Maybe Language -> Api.Request (List Api.Data.AutocompleteIngredientSearch200ResponseInner)
+autocompleteIngredientSearch : String -> Maybe Int -> Maybe Bool -> Maybe String -> Maybe Language -> Api.Request (List Api.Data.AutocompleteIngredientSearch200ResponseInner)
 autocompleteIngredientSearch query_query number_query metaInformation_query intolerances_query language_query =
     Api.request
         "GET"
         "/food/ingredients/autocomplete"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "number", Maybe.map String.fromInt number_query ), ( "metaInformation", Maybe.map (\val -> if val then "true" else "false") metaInformation_query ), ( "intolerances", Maybe.map identity intolerances_query ), ( "language", Maybe.map stringFromLanguage language_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "number", Maybe.map String.fromInt number_query ), ( "metaInformation", Maybe.map (\val -> if val then "true" else "false") metaInformation_query ), ( "intolerances", Maybe.map identity intolerances_query ), ( "language", Maybe.map stringFromLanguage language_query ) ]
         []
         Nothing
         (Json.Decode.list Api.Data.autocompleteIngredientSearch200ResponseInnerDecoder)
@@ -194,13 +194,13 @@ autocompleteIngredientSearch query_query number_query metaInformation_query into
 
 {-| Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?
 -}
-computeIngredientAmount : Float -> String -> Float -> Maybe String -> Api.Request Api.Data.ComputeIngredientAmount200Response
+computeIngredientAmount : Int -> String -> Int -> Maybe String -> Api.Request Api.Data.ComputeIngredientAmount200Response
 computeIngredientAmount id_path nutrient_query target_query unit_query =
     Api.request
         "GET"
         "/food/ingredients/{id}/amount"
-        [ ( "id", String.fromFloat id_path ) ]
-        [ ( "nutrient", Just <| identity nutrient_query ), ( "target", Just <| String.fromFloat target_query ), ( "unit", Maybe.map identity unit_query ) ]
+        [ ( "id", String.fromInt id_path ) ]
+        [ ( "nutrient", Just <| identity nutrient_query ), ( "target", Just <| String.fromInt target_query ), ( "unit", Maybe.map identity unit_query ) ]
         []
         Nothing
         Api.Data.computeIngredientAmount200ResponseDecoder
@@ -208,7 +208,7 @@ computeIngredientAmount id_path nutrient_query target_query unit_query =
 
 {-| Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle.
 -}
-getIngredientInformation : Int -> Maybe Float -> Maybe String -> Api.Request Api.Data.GetIngredientInformation200Response
+getIngredientInformation : Int -> Maybe Float -> Maybe String -> Api.Request Api.Data.IngredientInformation
 getIngredientInformation id_path amount_query unit_query =
     Api.request
         "GET"
@@ -217,7 +217,7 @@ getIngredientInformation id_path amount_query unit_query =
         [ ( "amount", Maybe.map String.fromFloat amount_query ), ( "unit", Maybe.map identity unit_query ) ]
         []
         Nothing
-        Api.Data.getIngredientInformation200ResponseDecoder
+        Api.Data.ingredientInformationDecoder
 
 
 {-| Search for substitutes for a given ingredient.
@@ -250,13 +250,13 @@ getIngredientSubstitutesByID id_path =
 
 {-| Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.).
 -}
-ingredientSearch : Maybe String -> Maybe Bool -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe String -> Maybe String -> Maybe String -> Maybe Int -> Maybe Int -> Maybe Language -> Api.Request Api.Data.IngredientSearch200Response
+ingredientSearch : String -> Maybe Bool -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Float -> Maybe Bool -> Maybe String -> Maybe String -> Maybe String -> Maybe Int -> Maybe Int -> Maybe Language -> Api.Request Api.Data.IngredientSearch200Response
 ingredientSearch query_query addChildren_query minProteinPercent_query maxProteinPercent_query minFatPercent_query maxFatPercent_query minCarbsPercent_query maxCarbsPercent_query metaInformation_query intolerances_query sort_query sortDirection_query offset_query number_query language_query =
     Api.request
         "GET"
         "/food/ingredients/search"
         []
-        [ ( "query", Maybe.map identity query_query ), ( "addChildren", Maybe.map (\val -> if val then "true" else "false") addChildren_query ), ( "minProteinPercent", Maybe.map String.fromFloat minProteinPercent_query ), ( "maxProteinPercent", Maybe.map String.fromFloat maxProteinPercent_query ), ( "minFatPercent", Maybe.map String.fromFloat minFatPercent_query ), ( "maxFatPercent", Maybe.map String.fromFloat maxFatPercent_query ), ( "minCarbsPercent", Maybe.map String.fromFloat minCarbsPercent_query ), ( "maxCarbsPercent", Maybe.map String.fromFloat maxCarbsPercent_query ), ( "metaInformation", Maybe.map (\val -> if val then "true" else "false") metaInformation_query ), ( "intolerances", Maybe.map identity intolerances_query ), ( "sort", Maybe.map identity sort_query ), ( "sortDirection", Maybe.map identity sortDirection_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ), ( "language", Maybe.map stringFromLanguage language_query ) ]
+        [ ( "query", Just <| identity query_query ), ( "addChildren", Maybe.map (\val -> if val then "true" else "false") addChildren_query ), ( "minProteinPercent", Maybe.map String.fromFloat minProteinPercent_query ), ( "maxProteinPercent", Maybe.map String.fromFloat maxProteinPercent_query ), ( "minFatPercent", Maybe.map String.fromFloat minFatPercent_query ), ( "maxFatPercent", Maybe.map String.fromFloat maxFatPercent_query ), ( "minCarbsPercent", Maybe.map String.fromFloat minCarbsPercent_query ), ( "maxCarbsPercent", Maybe.map String.fromFloat maxCarbsPercent_query ), ( "metaInformation", Maybe.map (\val -> if val then "true" else "false") metaInformation_query ), ( "intolerances", Maybe.map identity intolerances_query ), ( "sort", Maybe.map identity sort_query ), ( "sortDirection", Maybe.map identity sortDirection_query ), ( "offset", Maybe.map String.fromInt offset_query ), ( "number", Maybe.map String.fromInt number_query ), ( "language", Maybe.map stringFromLanguage language_query ) ]
         []
         Nothing
         Api.Data.ingredientSearch200ResponseDecoder
@@ -264,12 +264,12 @@ ingredientSearch query_query addChildren_query minProteinPercent_query maxProtei
 
 {-| Visualize a recipe's ingredient list.
 -}
-ingredientsByIDImage : Float -> Maybe Measure -> Api.Request File
+ingredientsByIDImage : Int -> Maybe Measure -> Api.Request File
 ingredientsByIDImage id_path measure_query =
     Api.request
         "GET"
         "/recipes/{id}/ingredientWidget.png"
-        [ ( "id", String.fromFloat id_path ) ]
+        [ ( "id", String.fromInt id_path ) ]
         [ ( "measure", Maybe.map stringFromMeasure measure_query ) ]
         []
         Nothing

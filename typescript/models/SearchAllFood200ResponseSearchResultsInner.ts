@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 
-import { SearchAllFood200ResponseSearchResultsInnerResultsInner } from '../models/SearchAllFood200ResponseSearchResultsInnerResultsInner';
+import { SearchResult } from '../models/SearchResult';
 import { HttpFile } from '../http/http';
 
 export class SearchAllFood200ResponseSearchResultsInner {
     'name': string;
     'totalResults': number;
-    'results'?: Set<SearchAllFood200ResponseSearchResultsInnerResultsInner>;
+    'results'?: Set<SearchResult>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -36,7 +36,7 @@ export class SearchAllFood200ResponseSearchResultsInner {
         {
             "name": "results",
             "baseName": "results",
-            "type": "Set<SearchAllFood200ResponseSearchResultsInnerResultsInner>",
+            "type": "Set<SearchResult>",
             "format": ""
         }    ];
 

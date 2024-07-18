@@ -188,7 +188,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional] 
+ **query** | **string**| The (natural language) search query. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -465,7 +465,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 44860; # double | The recipe id.
+my $id = 44860; # int | The recipe id.
 
 eval {
     my $result = $api_instance->equipment_by_id_image(id => $id);
@@ -480,7 +480,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **extract_recipe_from_website**
-> GetRecipeInformation200Response extract_recipe_from_website(url => $url, force_extraction => $force_extraction, analyze => $analyze, include_nutrition => $include_nutrition, include_taste => $include_taste)
+> RecipeInformation extract_recipe_from_website(url => $url, force_extraction => $force_extraction, analyze => $analyze, include_nutrition => $include_nutrition, include_taste => $include_taste)
 
 Extract Recipe from Website
 
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_analyzed_recipe_instructions**
-> GetAnalyzedRecipeInstructions200Response get_analyzed_recipe_instructions(id => $id, step_breakdown => $step_breakdown)
+> ARRAY[GetAnalyzedRecipeInstructions200ResponseInner] get_analyzed_recipe_instructions(id => $id, step_breakdown => $step_breakdown)
 
 Get Analyzed Recipe Instructions
 
@@ -575,7 +575,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 324694; # int | The recipe id.
 my $step_breakdown = true; # boolean | Whether to break down the recipe steps even more.
 
 eval {
@@ -591,12 +591,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **step_breakdown** | **boolean**| Whether to break down the recipe steps even more. | [optional] 
 
 ### Return type
 
-[**GetAnalyzedRecipeInstructions200Response**](GetAnalyzedRecipeInstructions200Response.md)
+[**ARRAY[GetAnalyzedRecipeInstructions200ResponseInner]**](GetAnalyzedRecipeInstructions200ResponseInner.md)
 
 ### Authorization
 
@@ -685,7 +685,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1003464; # int | The recipe id.
 
 eval {
     my $result = $api_instance->get_recipe_equipment_by_id(id => $id);
@@ -700,7 +700,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -718,7 +718,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_information**
-> GetRecipeInformation200Response get_recipe_information(id => $id, include_nutrition => $include_nutrition)
+> RecipeInformation get_recipe_information(id => $id, include_nutrition => $include_nutrition, add_wine_pairing => $add_wine_pairing, add_taste_data => $add_taste_data)
 
 Get Recipe Information
 
@@ -736,11 +736,13 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 716429; # int | The id of the recipe.
 my $include_nutrition = false; # boolean | Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+my $add_wine_pairing = false; # boolean | Add a wine pairing to the recipe.
+my $add_taste_data = false; # boolean | Add taste data to the recipe.
 
 eval {
-    my $result = $api_instance->get_recipe_information(id => $id, include_nutrition => $include_nutrition);
+    my $result = $api_instance->get_recipe_information(id => $id, include_nutrition => $include_nutrition, add_wine_pairing => $add_wine_pairing, add_taste_data => $add_taste_data);
     print Dumper($result);
 };
 if ($@) {
@@ -752,12 +754,14 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the recipe. | 
  **include_nutrition** | **boolean**| Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. | [optional] [default to false]
+ **add_wine_pairing** | **boolean**| Add a wine pairing to the recipe. | [optional] 
+ **add_taste_data** | **boolean**| Add taste data to the recipe. | [optional] 
 
 ### Return type
 
-[**GetRecipeInformation200Response**](GetRecipeInformation200Response.md)
+[**RecipeInformation**](RecipeInformation.md)
 
 ### Authorization
 
@@ -771,7 +775,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_information_bulk**
-> ARRAY[GetRecipeInformationBulk200ResponseInner] get_recipe_information_bulk(ids => $ids, include_nutrition => $include_nutrition)
+> ARRAY[RecipeInformation] get_recipe_information_bulk(ids => $ids, include_nutrition => $include_nutrition)
 
 Get Recipe Information Bulk
 
@@ -810,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[GetRecipeInformationBulk200ResponseInner]**](GetRecipeInformationBulk200ResponseInner.md)
+[**ARRAY[RecipeInformation]**](RecipeInformation.md)
 
 ### Authorization
 
@@ -842,7 +846,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1003464; # int | The recipe id.
 
 eval {
     my $result = $api_instance->get_recipe_ingredients_by_id(id => $id);
@@ -857,7 +861,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -893,7 +897,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1003464; # int | The recipe id.
 
 eval {
     my $result = $api_instance->get_recipe_nutrition_widget_by_id(id => $id);
@@ -908,7 +912,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -944,7 +948,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1003464; # int | The recipe id.
 
 eval {
     my $result = $api_instance->get_recipe_price_breakdown_by_id(id => $id);
@@ -959,7 +963,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -977,7 +981,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_recipe_taste_by_id**
-> GetRecipeTasteByID200Response get_recipe_taste_by_id(id => $id, normalize => $normalize)
+> TasteInformation get_recipe_taste_by_id(id => $id, normalize => $normalize)
 
 Taste by ID
 
@@ -995,7 +999,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 69095; # int | The recipe id.
 my $normalize = true; # boolean | Normalize to the strongest taste.
 
 eval {
@@ -1011,12 +1015,12 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **boolean**| Normalize to the strongest taste. | [optional] [default to true]
 
 ### Return type
 
-[**GetRecipeTasteByID200Response**](GetRecipeTasteByID200Response.md)
+[**TasteInformation**](TasteInformation.md)
 
 ### Authorization
 
@@ -1048,7 +1052,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 715538; # int | The id of the source recipe for which similar recipes should be found.
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
 
 eval {
@@ -1064,7 +1068,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The id of the source recipe for which similar recipes should be found. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
 
 ### Return type
@@ -1134,7 +1138,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **parse_ingredients**
-> ARRAY[ParseIngredients200ResponseInner] parse_ingredients(ingredient_list => $ingredient_list, servings => $servings, language => $language, include_nutrition => $include_nutrition)
+> ARRAY[IngredientInformation] parse_ingredients(ingredient_list => $ingredient_list, servings => $servings, language => $language, include_nutrition => $include_nutrition)
 
 Parse Ingredients
 
@@ -1155,7 +1159,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 my $ingredient_list = "ingredient_list_example"; # string | The ingredient list of the recipe, one ingredient per line.
 my $servings = 3.4; # double | The number of servings that you can make from the ingredients.
 my $language = en; # string | The language of the input. Either 'en' or 'de'.
-my $include_nutrition = null; # boolean | 
+my $include_nutrition = null; # boolean | Whether nutrition data should be added to correctly parsed ingredients.
 
 eval {
     my $result = $api_instance->parse_ingredients(ingredient_list => $ingredient_list, servings => $servings, language => $language, include_nutrition => $include_nutrition);
@@ -1173,11 +1177,11 @@ Name | Type | Description  | Notes
  **ingredient_list** | **string**| The ingredient list of the recipe, one ingredient per line. | 
  **servings** | **double**| The number of servings that you can make from the ingredients. | 
  **language** | **string**| The language of the input. Either &#39;en&#39; or &#39;de&#39;. | [optional] 
- **include_nutrition** | **boolean**|  | [optional] 
+ **include_nutrition** | **boolean**| Whether nutrition data should be added to correctly parsed ingredients. | [optional] 
 
 ### Return type
 
-[**ARRAY[ParseIngredients200ResponseInner]**](ParseIngredients200ResponseInner.md)
+[**ARRAY[IngredientInformation]**](IngredientInformation.md)
 
 ### Authorization
 
@@ -1209,7 +1213,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1082038; # double | The recipe id.
+my $id = 1082038; # int | The recipe id.
 
 eval {
     my $result = $api_instance->price_breakdown_by_id_image(id => $id);
@@ -1224,7 +1228,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1311,7 +1315,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1082038; # double | The recipe id.
+my $id = 1082038; # int | The recipe id.
 
 eval {
     my $result = $api_instance->recipe_nutrition_by_id_image(id => $id);
@@ -1326,7 +1330,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -1362,7 +1366,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 641166; # double | The recipe id.
+my $id = 641166; # int | The recipe id.
 my $show_optional_nutrients = false; # boolean | Whether to show optional nutrients.
 my $show_zero_values = false; # boolean | Whether to show zero values.
 my $show_ingredients = false; # boolean | Whether to show a list of ingredients.
@@ -1380,7 +1384,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **show_optional_nutrients** | **boolean**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **boolean**| Whether to show zero values. | [optional] 
  **show_ingredients** | **boolean**| Whether to show a list of ingredients. | [optional] 
@@ -1419,7 +1423,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 641166; # double | The recipe id.
+my $id = 641166; # int | The recipe id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $show_optional_nutrients = false; # boolean | Whether to show optional nutrients.
 my $show_zero_values = false; # boolean | Whether to show zero values.
@@ -1438,7 +1442,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **show_optional_nutrients** | **boolean**| Whether to show optional nutrients. | [optional] 
  **show_zero_values** | **boolean**| Whether to show zero values. | [optional] 
@@ -1478,7 +1482,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 69095; # double | The recipe id.
+my $id = 69095; # int | The recipe id.
 my $normalize = false; # boolean | Normalize to the strongest taste.
 my $rgb = 75,192,192; # string | Red, green, blue values for the chart color.
 
@@ -1495,7 +1499,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **double**| The recipe id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **boolean**| Normalize to the strongest taste. | [optional] 
  **rgb** | **string**| Red, green, blue values for the chart color. | [optional] 
 
@@ -1548,7 +1552,7 @@ my $add_recipe_information = false; # boolean | If set to true, you get more inf
 my $add_recipe_nutrition = false; # boolean | If set to true, you get nutritional information about each recipes returned.
 my $author = coffeebean; # string | The username of the recipe author.
 my $tags = "tags_example"; # string | The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-my $recipe_box_id = 2468; # double | The id of the recipe box to which the search should be limited to.
+my $recipe_box_id = 2468; # int | The id of the recipe box to which the search should be limited to.
 my $title_match = Crock Pot; # string | Enter text that must be found in the title of the recipes.
 my $max_ready_time = 20; # double | The maximum time in minutes it should take to prepare and cook the recipe.
 my $min_servings = 1; # double | The minimum amount of servings the recipe is for.
@@ -1644,7 +1648,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The (natural language) search query. | [optional] 
+ **query** | **string**| The (natural language) search query. | 
  **cuisine** | **string**| The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. | [optional] 
  **exclude_cuisine** | **string**| The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. | [optional] 
  **diet** | **string**| The diet for which the recipes must be suitable. See a full list of supported diets. | [optional] 
@@ -1659,7 +1663,7 @@ Name | Type | Description  | Notes
  **add_recipe_nutrition** | **boolean**| If set to true, you get nutritional information about each recipes returned. | [optional] 
  **author** | **string**| The username of the recipe author. | [optional] 
  **tags** | **string**| The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have. | [optional] 
- **recipe_box_id** | **double**| The id of the recipe box to which the search should be limited to. | [optional] 
+ **recipe_box_id** | **int**| The id of the recipe box to which the search should be limited to. | [optional] 
  **title_match** | **string**| Enter text that must be found in the title of the recipes. | [optional] 
  **max_ready_time** | **double**| The maximum time in minutes it should take to prepare and cook the recipe. | [optional] 
  **min_servings** | **double**| The minimum amount of servings the recipe is for. | [optional] 
@@ -1778,7 +1782,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
 
 my $ingredients = carrots,tomatoes; # string | A comma-separated list of ingredients that the recipes should contain.
 my $number = 10; # int | The maximum number of items to return (between 1 and 100). Defaults to 10.
-my $ranking = 1; # double | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
+my $ranking = 1; # int | Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
 my $ignore_pantry = false; # boolean | Whether to ignore typical pantry items, such as water, salt, flour, etc.
 
 eval {
@@ -1794,9 +1798,9 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | [optional] 
+ **ingredients** | **string**| A comma-separated list of ingredients that the recipes should contain. | 
  **number** | **int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10]
- **ranking** | **double**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
+ **ranking** | **int**| Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. | [optional] 
  **ignore_pantry** | **boolean**| Whether to ignore typical pantry items, such as water, salt, flour, etc. | [optional] [default to false]
 
 ### Return type
@@ -2032,7 +2036,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 4632; # int | The recipe id.
 
 eval {
     my $result = $api_instance->summarize_recipe(id => $id);
@@ -2047,7 +2051,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
 
 ### Return type
 
@@ -2201,7 +2205,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 44860; # int | The recipe id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 
 eval {
@@ -2217,7 +2221,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2254,7 +2258,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1082038; # int | The recipe id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 my $measure = metric; # string | Whether the the measures should be 'us' or 'metric'.
 
@@ -2271,7 +2275,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **measure** | **string**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] 
 
@@ -2368,7 +2372,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1082038; # int | The recipe id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 
 eval {
@@ -2384,7 +2388,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2421,7 +2425,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 1082038; # int | The recipe id.
 my $default_css = false; # boolean | Whether the default CSS should be added to the response.
 
 eval {
@@ -2437,7 +2441,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **default_css** | **boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type
@@ -2531,7 +2535,7 @@ my $api_instance = WWW::OpenAPIClient::RecipesApi->new(
     #api_key_prefix => {'x-api-key' => 'Bearer'},
 );
 
-my $id = 1; # int | The item's id.
+my $id = 69095; # int | The recipe id.
 my $normalize = true; # boolean | Whether to normalize to the strongest taste.
 my $rgb = 75,192,192; # string | Red, green, blue values for the chart color.
 
@@ -2548,7 +2552,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The recipe id. | 
  **normalize** | **boolean**| Whether to normalize to the strongest taste. | [optional] [default to true]
  **rgb** | **string**| Red, green, blue values for the chart color. | [optional] 
 

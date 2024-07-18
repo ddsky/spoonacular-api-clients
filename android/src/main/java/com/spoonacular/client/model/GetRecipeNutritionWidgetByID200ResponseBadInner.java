@@ -19,8 +19,8 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class GetRecipeNutritionWidgetByID200ResponseBadInner {
   
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("title")
+  private String title = null;
   @SerializedName("amount")
   private String amount = null;
   @SerializedName("indented")
@@ -31,11 +31,11 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  public String getName() {
-    return name;
+  public String getTitle() {
+    return title;
   }
-  public void setName(String name) {
-    this.name = name;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   /**
@@ -78,7 +78,7 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
       return false;
     }
     GetRecipeNutritionWidgetByID200ResponseBadInner getRecipeNutritionWidgetByID200ResponseBadInner = (GetRecipeNutritionWidgetByID200ResponseBadInner) o;
-    return (this.name == null ? getRecipeNutritionWidgetByID200ResponseBadInner.name == null : this.name.equals(getRecipeNutritionWidgetByID200ResponseBadInner.name)) &&
+    return (this.title == null ? getRecipeNutritionWidgetByID200ResponseBadInner.title == null : this.title.equals(getRecipeNutritionWidgetByID200ResponseBadInner.title)) &&
         (this.amount == null ? getRecipeNutritionWidgetByID200ResponseBadInner.amount == null : this.amount.equals(getRecipeNutritionWidgetByID200ResponseBadInner.amount)) &&
         (this.indented == null ? getRecipeNutritionWidgetByID200ResponseBadInner.indented == null : this.indented.equals(getRecipeNutritionWidgetByID200ResponseBadInner.indented)) &&
         (this.percentOfDailyNeeds == null ? getRecipeNutritionWidgetByID200ResponseBadInner.percentOfDailyNeeds == null : this.percentOfDailyNeeds.equals(getRecipeNutritionWidgetByID200ResponseBadInner.percentOfDailyNeeds));
@@ -87,7 +87,7 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.name == null ? 0: this.name.hashCode());
+    result = 31 * result + (this.title == null ? 0: this.title.hashCode());
     result = 31 * result + (this.amount == null ? 0: this.amount.hashCode());
     result = 31 * result + (this.indented == null ? 0: this.indented.hashCode());
     result = 31 * result + (this.percentOfDailyNeeds == null ? 0: this.percentOfDailyNeeds.hashCode());
@@ -99,7 +99,7 @@ public class GetRecipeNutritionWidgetByID200ResponseBadInner {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetRecipeNutritionWidgetByID200ResponseBadInner {\n");
     
-    sb.append("  name: ").append(name).append("\n");
+    sb.append("  title: ").append(title).append("\n");
     sb.append("  amount: ").append(amount).append("\n");
     sb.append("  indented: ").append(indented).append("\n");
     sb.append("  percentOfDailyNeeds: ").append(percentOfDailyNeeds).append("\n");

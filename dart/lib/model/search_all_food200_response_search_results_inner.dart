@@ -22,7 +22,7 @@ class SearchAllFood200ResponseSearchResultsInner {
 
   int totalResults;
 
-  Set<SearchAllFood200ResponseSearchResultsInnerResultsInner> results;
+  Set<SearchResult> results;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchAllFood200ResponseSearchResultsInner &&
@@ -69,7 +69,7 @@ class SearchAllFood200ResponseSearchResultsInner {
       return SearchAllFood200ResponseSearchResultsInner(
         name: mapValueOfType<String>(json, r'name')!,
         totalResults: mapValueOfType<int>(json, r'totalResults')!,
-        results: SearchAllFood200ResponseSearchResultsInnerResultsInner.listFromJson(json[r'results']).toSet(),
+        results: SearchResult.listFromJson(json[r'results']).toSet(),
       );
     }
     return null;

@@ -6,10 +6,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**articles** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**grocery_products** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**menu_items** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
-**recipes** | [**List[SearchSiteContent200ResponseArticlesInner]**](SearchSiteContent200ResponseArticlesInner.md) |  | 
+**articles** | [**List[SearchResult]**](SearchResult.md) |  | 
+**grocery_products** | [**List[SearchResult]**](SearchResult.md) |  | 
+**menu_items** | [**List[SearchResult]**](SearchResult.md) |  | 
+**recipes** | [**List[SearchResult]**](SearchResult.md) |  | 
 
 ## Example
 

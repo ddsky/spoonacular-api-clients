@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MenuItems** | [**[]SearchMenuItems200ResponseMenuItemsInner**](SearchMenuItems200ResponseMenuItemsInner.md) |  | 
+**MenuItems** | [**[]MenuItem**](MenuItem.md) |  | 
 **TotalMenuItems** | **int32** |  | 
 **Type** | **string** |  | 
 **Offset** | **int32** |  | 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewSearchMenuItems200Response
 
-`func NewSearchMenuItems200Response(menuItems []SearchMenuItems200ResponseMenuItemsInner, totalMenuItems int32, type_ string, offset int32, number int32, ) *SearchMenuItems200Response`
+`func NewSearchMenuItems200Response(menuItems []MenuItem, totalMenuItems int32, type_ string, offset int32, number int32, ) *SearchMenuItems200Response`
 
 NewSearchMenuItems200Response instantiates a new SearchMenuItems200Response object
 This constructor will assign default values to properties that have it defined,
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMenuItems
 
-`func (o *SearchMenuItems200Response) GetMenuItems() []SearchMenuItems200ResponseMenuItemsInner`
+`func (o *SearchMenuItems200Response) GetMenuItems() []MenuItem`
 
 GetMenuItems returns the MenuItems field if non-nil, zero value otherwise.
 
 ### GetMenuItemsOk
 
-`func (o *SearchMenuItems200Response) GetMenuItemsOk() (*[]SearchMenuItems200ResponseMenuItemsInner, bool)`
+`func (o *SearchMenuItems200Response) GetMenuItemsOk() (*[]MenuItem, bool)`
 
 GetMenuItemsOk returns a tuple with the MenuItems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMenuItems
 
-`func (o *SearchMenuItems200Response) SetMenuItems(v []SearchMenuItems200ResponseMenuItemsInner)`
+`func (o *SearchMenuItems200Response) SetMenuItems(v []MenuItem)`
 
 SetMenuItems sets MenuItems field to given value.
 

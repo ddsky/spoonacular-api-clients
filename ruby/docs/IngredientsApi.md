@@ -17,7 +17,7 @@ All URIs are relative to *https://api.spoonacular.com*
 
 ## autocomplete_ingredient_search
 
-> <Array<AutocompleteIngredientSearch200ResponseInner>> autocomplete_ingredient_search(opts)
+> <Array<AutocompleteIngredientSearch200ResponseInner>> autocomplete_ingredient_search(query, opts)
 
 Autocomplete Ingredient Search
 
@@ -37,8 +37,8 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::IngredientsApi.new
+query = 'burger' # String | The (natural language) search query.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   number: 10, # Integer | The maximum number of items to return (between 1 and 100). Defaults to 10.
   meta_information: false, # Boolean | Whether to return more meta information about the ingredients.
   intolerances: 'egg', # String | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
@@ -47,7 +47,7 @@ opts = {
 
 begin
   # Autocomplete Ingredient Search
-  result = api_instance.autocomplete_ingredient_search(opts)
+  result = api_instance.autocomplete_ingredient_search(query, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling IngredientsApi->autocomplete_ingredient_search: #{e}"
@@ -58,12 +58,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<AutocompleteIngredientSearch200ResponseInner>>, Integer, Hash)> autocomplete_ingredient_search_with_http_info(opts)
+> <Array(<Array<AutocompleteIngredientSearch200ResponseInner>>, Integer, Hash)> autocomplete_ingredient_search_with_http_info(query, opts)
 
 ```ruby
 begin
   # Autocomplete Ingredient Search
-  data, status_code, headers = api_instance.autocomplete_ingredient_search_with_http_info(opts)
+  data, status_code, headers = api_instance.autocomplete_ingredient_search_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AutocompleteIngredientSearch200ResponseInner>>
@@ -76,7 +76,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query** | **String** | The (natural language) search query. | [optional] |
+| **query** | **String** | The (natural language) search query. |  |
 | **number** | **Integer** | The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional][default to 10] |
 | **meta_information** | **Boolean** | Whether to return more meta information about the ingredients. | [optional] |
 | **intolerances** | **String** | A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
@@ -118,9 +118,9 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::IngredientsApi.new
-id = 9266 # Float | The id of the ingredient you want the amount for.
+id = 9266 # Integer | The id of the ingredient you want the amount for.
 nutrient = 'protein' # String | The target nutrient. See a list of supported nutrients.
-target = 2 # Float | The target number of the given nutrient.
+target = 2 # Integer | The target number of the given nutrient.
 opts = {
   unit: 'oz' # String | The target unit.
 }
@@ -156,9 +156,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The id of the ingredient you want the amount for. |  |
+| **id** | **Integer** | The id of the ingredient you want the amount for. |  |
 | **nutrient** | **String** | The target nutrient. See a list of supported nutrients. |  |
-| **target** | **Float** | The target number of the given nutrient. |  |
+| **target** | **Integer** | The target number of the given nutrient. |  |
 | **unit** | **String** | The target unit. | [optional] |
 
 ### Return type
@@ -177,7 +177,7 @@ end
 
 ## get_ingredient_information
 
-> <GetIngredientInformation200Response> get_ingredient_information(id, opts)
+> <IngredientInformation> get_ingredient_information(id, opts)
 
 Get Ingredient Information
 
@@ -197,7 +197,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::IngredientsApi.new
-id = 1 # Integer | The item's id.
+id = 9266 # Integer | The ingredient id.
 opts = {
   amount: 150, # Float | The amount of this ingredient.
   unit: 'grams' # String | The unit for the given amount.
@@ -216,7 +216,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GetIngredientInformation200Response>, Integer, Hash)> get_ingredient_information_with_http_info(id, opts)
+> <Array(<IngredientInformation>, Integer, Hash)> get_ingredient_information_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -224,7 +224,7 @@ begin
   data, status_code, headers = api_instance.get_ingredient_information_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GetIngredientInformation200Response>
+  p data # => <IngredientInformation>
 rescue OpenapiClient::ApiError => e
   puts "Error when calling IngredientsApi->get_ingredient_information_with_http_info: #{e}"
 end
@@ -234,13 +234,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The ingredient id. |  |
 | **amount** | **Float** | The amount of this ingredient. | [optional] |
 | **unit** | **String** | The unit for the given amount. | [optional] |
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::IngredientsApi.new
-id = 1 # Integer | The item's id.
+id = 1001 # Integer | The id of the ingredient you want substitutes for.
 
 begin
   # Get Ingredient Substitutes by ID
@@ -378,7 +378,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Integer** | The item&#39;s id. |  |
+| **id** | **Integer** | The id of the ingredient you want substitutes for. |  |
 
 ### Return type
 
@@ -396,7 +396,7 @@ end
 
 ## ingredient_search
 
-> <IngredientSearch200Response> ingredient_search(opts)
+> <IngredientSearch200Response> ingredient_search(query, opts)
 
 Ingredient Search
 
@@ -416,8 +416,8 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::IngredientsApi.new
+query = 'burger' # String | The (natural language) search query.
 opts = {
-  query: 'burger', # String | The (natural language) search query.
   add_children: true, # Boolean | Whether to add children of found foods.
   min_protein_percent: 10, # Float | The minimum percentage of protein the food must have (between 0 and 100).
   max_protein_percent: 90, # Float | The maximum percentage of protein the food can have (between 0 and 100).
@@ -436,7 +436,7 @@ opts = {
 
 begin
   # Ingredient Search
-  result = api_instance.ingredient_search(opts)
+  result = api_instance.ingredient_search(query, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Error when calling IngredientsApi->ingredient_search: #{e}"
@@ -447,12 +447,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<IngredientSearch200Response>, Integer, Hash)> ingredient_search_with_http_info(opts)
+> <Array(<IngredientSearch200Response>, Integer, Hash)> ingredient_search_with_http_info(query, opts)
 
 ```ruby
 begin
   # Ingredient Search
-  data, status_code, headers = api_instance.ingredient_search_with_http_info(opts)
+  data, status_code, headers = api_instance.ingredient_search_with_http_info(query, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IngredientSearch200Response>
@@ -465,7 +465,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query** | **String** | The (natural language) search query. | [optional] |
+| **query** | **String** | The (natural language) search query. |  |
 | **add_children** | **Boolean** | Whether to add children of found foods. | [optional] |
 | **min_protein_percent** | **Float** | The minimum percentage of protein the food must have (between 0 and 100). | [optional] |
 | **max_protein_percent** | **Float** | The maximum percentage of protein the food can have (between 0 and 100). | [optional] |
@@ -517,7 +517,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::IngredientsApi.new
-id = 1082038 # Float | The recipe id.
+id = 1082038 # Integer | The recipe id.
 opts = {
   measure: 'us' # String | Whether the the measures should be 'us' or 'metric'.
 }
@@ -553,7 +553,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **Float** | The recipe id. |  |
+| **id** | **Integer** | The recipe id. |  |
 | **measure** | **String** | Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] |
 
 ### Return type

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## autocompleteMenuItemSearch
 
-> AutocompleteMenuItemSearch200Response autocompleteMenuItemSearch(query, number)
+> AutocompleteProductSearch200Response autocompleteMenuItemSearch(query, number)
 
 Autocomplete Menu Item Search
 
@@ -30,9 +30,9 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 
 MenuItemsApi apiInstance = new MenuItemsApi();
 String query = chicke; // String | The (partial) search query.
-BigDecimal number = 10; // BigDecimal | The number of results to return (between 1 and 25).
+Integer number = 10; // Integer | The number of results to return (between 1 and 25).
 try {
-    AutocompleteMenuItemSearch200Response result = apiInstance.autocompleteMenuItemSearch(query, number);
+    AutocompleteProductSearch200Response result = apiInstance.autocompleteMenuItemSearch(query, number);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#autocompleteMenuItemSearch");
@@ -46,11 +46,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| The (partial) search query. | [default to null]
- **number** | **BigDecimal**| The number of results to return (between 1 and 25). | [optional] [default to null]
+ **number** | **Integer**| The number of results to return (between 1 and 25). | [optional] [default to null]
 
 ### Return type
 
-[**AutocompleteMenuItemSearch200Response**](AutocompleteMenuItemSearch200Response.md)
+[**AutocompleteProductSearch200Response**](AutocompleteProductSearch200Response.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ## getMenuItemInformation
 
-> GetMenuItemInformation200Response getMenuItemInformation(id)
+> MenuItem getMenuItemInformation(id)
 
 Get Menu Item Information
 
@@ -77,9 +77,9 @@ Use a menu item id to get all available information about a menu item, such as n
 //import com.spoonacular.MenuItemsApi;
 
 MenuItemsApi apiInstance = new MenuItemsApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 424571; // Integer | The menu item id.
 try {
-    GetMenuItemInformation200Response result = apiInstance.getMenuItemInformation(id);
+    MenuItem result = apiInstance.getMenuItemInformation(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MenuItemsApi#getMenuItemInformation");
@@ -92,11 +92,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The menu item id. | [default to null]
 
 ### Return type
 
-[**GetMenuItemInformation200Response**](GetMenuItemInformation200Response.md)
+[**MenuItem**](MenuItem.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.MenuItemsApi;
 
 MenuItemsApi apiInstance = new MenuItemsApi();
-BigDecimal id = 424571; // BigDecimal | The menu item id.
+Integer id = 424571; // Integer | The menu item id.
 try {
     File result = apiInstance.menuItemNutritionByIDImage(id);
     System.out.println(result);
@@ -138,7 +138,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The menu item id. | [default to null]
+ **id** | **Integer**| The menu item id. | [default to null]
 
 ### Return type
 
@@ -169,7 +169,7 @@ Visualize a menu item&#39;s nutritional label information as an image.
 //import com.spoonacular.MenuItemsApi;
 
 MenuItemsApi apiInstance = new MenuItemsApi();
-BigDecimal id = 342313; // BigDecimal | The menu item id.
+Integer id = 342313; // Integer | The menu item id.
 Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
 Boolean showIngredients = false; // Boolean | Whether to show a list of ingredients.
@@ -187,7 +187,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The menu item id. | [default to null]
+ **id** | **Integer**| The menu item id. | [default to null]
  **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] [default to null]
  **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] [default to null]
  **showIngredients** | **Boolean**| Whether to show a list of ingredients. | [optional] [default to null]
@@ -221,7 +221,7 @@ Visualize a menu item&#39;s nutritional label information as HTML including CSS.
 //import com.spoonacular.MenuItemsApi;
 
 MenuItemsApi apiInstance = new MenuItemsApi();
-BigDecimal id = 342313; // BigDecimal | The menu item id.
+Integer id = 342313; // Integer | The menu item id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 Boolean showOptionalNutrients = false; // Boolean | Whether to show optional nutrients.
 Boolean showZeroValues = false; // Boolean | Whether to show zero values.
@@ -240,7 +240,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **BigDecimal**| The menu item id. | [default to null]
+ **id** | **Integer**| The menu item id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **showOptionalNutrients** | **Boolean**| Whether to show optional nutrients. | [optional] [default to null]
  **showZeroValues** | **Boolean**| Whether to show zero values. | [optional] [default to null]
@@ -301,7 +301,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] [default to null]
+ **query** | **String**| The (natural language) search query. | [default to null]
  **minCalories** | **BigDecimal**| The minimum amount of calories the menu item must have. | [optional] [default to null]
  **maxCalories** | **BigDecimal**| The maximum amount of calories the menu item can have. | [optional] [default to null]
  **minCarbs** | **BigDecimal**| The minimum amount of carbohydrates in grams the menu item must have. | [optional] [default to null]
@@ -343,7 +343,7 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 //import com.spoonacular.MenuItemsApi;
 
 MenuItemsApi apiInstance = new MenuItemsApi();
-Integer id = 1; // Integer | The item's id.
+Integer id = 1003464; // Integer | The menu item id.
 Boolean defaultCss = false; // Boolean | Whether the default CSS should be added to the response.
 try {
     String result = apiInstance.visualizeMenuItemNutritionByID(id, defaultCss);
@@ -359,7 +359,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Integer**| The item&#39;s id. | [default to null]
+ **id** | **Integer**| The menu item id. | [default to null]
  **defaultCss** | **Boolean**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

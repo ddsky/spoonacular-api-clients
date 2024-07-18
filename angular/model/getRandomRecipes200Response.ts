@@ -9,13 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { GetRandomRecipes200ResponseRecipesInner } from './getRandomRecipes200ResponseRecipesInner';
+import { RecipeInformation } from './recipeInformation';
 
 
 /**
  * 
  */
 export interface GetRandomRecipes200Response { 
-    recipes: Set<GetRandomRecipes200ResponseRecipesInner>;
+    recipes: Set<RecipeInformation>;
 }
 

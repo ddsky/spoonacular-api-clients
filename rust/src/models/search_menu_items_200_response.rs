@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchMenuItems200Response {
     #[serde(rename = "menuItems")]
-    pub menu_items: Vec<models::SearchMenuItems200ResponseMenuItemsInner>,
+    pub menu_items: Vec<models::MenuItem>,
     #[serde(rename = "totalMenuItems")]
     pub total_menu_items: i32,
     #[serde(rename = "type")]
@@ -28,7 +28,7 @@ pub struct SearchMenuItems200Response {
 
 impl SearchMenuItems200Response {
     /// 
-    pub fn new(menu_items: Vec<models::SearchMenuItems200ResponseMenuItemsInner>, total_menu_items: i32, r#type: String, offset: i32, number: i32) -> SearchMenuItems200Response {
+    pub fn new(menu_items: Vec<models::MenuItem>, total_menu_items: i32, r#type: String, offset: i32, number: i32) -> SearchMenuItems200Response {
         SearchMenuItems200Response {
             menu_items,
             total_menu_items,

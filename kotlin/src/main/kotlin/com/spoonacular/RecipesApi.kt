@@ -27,23 +27,22 @@ import com.spoonacular.client.model.ComputeGlycemicLoad200Response
 import com.spoonacular.client.model.ComputeGlycemicLoadRequest
 import com.spoonacular.client.model.ConvertAmounts200Response
 import com.spoonacular.client.model.CreateRecipeCard200Response
-import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200Response
+import com.spoonacular.client.model.GetAnalyzedRecipeInstructions200ResponseInner
 import com.spoonacular.client.model.GetRandomRecipes200Response
 import com.spoonacular.client.model.GetRecipeEquipmentByID200Response
-import com.spoonacular.client.model.GetRecipeInformation200Response
-import com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInner
 import com.spoonacular.client.model.GetRecipeIngredientsByID200Response
 import com.spoonacular.client.model.GetRecipeNutritionWidgetByID200Response
 import com.spoonacular.client.model.GetRecipePriceBreakdownByID200Response
-import com.spoonacular.client.model.GetRecipeTasteByID200Response
 import com.spoonacular.client.model.GetSimilarRecipes200ResponseInner
 import com.spoonacular.client.model.GuessNutritionByDishName200Response
-import com.spoonacular.client.model.ParseIngredients200ResponseInner
+import com.spoonacular.client.model.IngredientInformation
 import com.spoonacular.client.model.QuickAnswer200Response
+import com.spoonacular.client.model.RecipeInformation
 import com.spoonacular.client.model.SearchRecipes200Response
 import com.spoonacular.client.model.SearchRecipesByIngredients200ResponseInner
 import com.spoonacular.client.model.SearchRecipesByNutrients200ResponseInner
 import com.spoonacular.client.model.SummarizeRecipe200Response
+import com.spoonacular.client.model.TasteInformation
 
 import com.squareup.moshi.Json
 
@@ -218,7 +217,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Autocomplete Recipe Search
      * Autocomplete a partial input to suggest possible recipe names.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return kotlin.collections.Set<AutocompleteRecipeSearch200ResponseInner>
      * @throws IllegalStateException If the request is not correctly configured
@@ -229,7 +228,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun autocompleteRecipeSearch(query: kotlin.String? = null, number: kotlin.Int? = 10) : kotlin.collections.Set<AutocompleteRecipeSearch200ResponseInner> {
+    fun autocompleteRecipeSearch(query: kotlin.String, number: kotlin.Int? = 10) : kotlin.collections.Set<AutocompleteRecipeSearch200ResponseInner> {
         val localVarResponse = autocompleteRecipeSearchWithHttpInfo(query = query, number = number)
 
         return when (localVarResponse.responseType) {
@@ -250,7 +249,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Autocomplete Recipe Search
      * Autocomplete a partial input to suggest possible recipe names.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse<kotlin.collections.Set<AutocompleteRecipeSearch200ResponseInner>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -258,7 +257,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun autocompleteRecipeSearchWithHttpInfo(query: kotlin.String?, number: kotlin.Int?) : ApiResponse<kotlin.collections.Set<AutocompleteRecipeSearch200ResponseInner>?> {
+    fun autocompleteRecipeSearchWithHttpInfo(query: kotlin.String, number: kotlin.Int?) : ApiResponse<kotlin.collections.Set<AutocompleteRecipeSearch200ResponseInner>?> {
         val localVariableConfig = autocompleteRecipeSearchRequestConfig(query = query, number = number)
 
         return request<Unit, kotlin.collections.Set<AutocompleteRecipeSearch200ResponseInner>>(
@@ -269,17 +268,15 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation autocompleteRecipeSearch
      *
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
-    fun autocompleteRecipeSearchRequestConfig(query: kotlin.String?, number: kotlin.Int?) : RequestConfig<Unit> {
+    fun autocompleteRecipeSearchRequestConfig(query: kotlin.String, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 if (number != null) {
                     put("number", listOf(number.toString()))
                 }
@@ -753,7 +750,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun equipmentByIDImage(id: java.math.BigDecimal) : java.io.File {
+    fun equipmentByIDImage(id: kotlin.Int) : java.io.File {
         val localVarResponse = equipmentByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
@@ -781,7 +778,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun equipmentByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
+    fun equipmentByIDImageWithHttpInfo(id: kotlin.Int) : ApiResponse<java.io.File?> {
         val localVariableConfig = equipmentByIDImageRequestConfig(id = id)
 
         return request<Unit, java.io.File>(
@@ -795,7 +792,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param id The recipe id.
      * @return RequestConfig
      */
-    fun equipmentByIDImageRequestConfig(id: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun equipmentByIDImageRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -818,7 +815,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
      * @param includeTaste Whether taste data should be added to correctly parsed ingredients. (optional, default to false)
-     * @return GetRecipeInformation200Response
+     * @return RecipeInformation
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -827,11 +824,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun extractRecipeFromWebsite(url: kotlin.String, forceExtraction: kotlin.Boolean? = null, analyze: kotlin.Boolean? = null, includeNutrition: kotlin.Boolean? = false, includeTaste: kotlin.Boolean? = false) : GetRecipeInformation200Response {
+    fun extractRecipeFromWebsite(url: kotlin.String, forceExtraction: kotlin.Boolean? = null, analyze: kotlin.Boolean? = null, includeNutrition: kotlin.Boolean? = false, includeTaste: kotlin.Boolean? = false) : RecipeInformation {
         val localVarResponse = extractRecipeFromWebsiteWithHttpInfo(url = url, forceExtraction = forceExtraction, analyze = analyze, includeNutrition = includeNutrition, includeTaste = includeTaste)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetRecipeInformation200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RecipeInformation
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -853,16 +850,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param analyze If true, the recipe will be analyzed and classified resolving in more data such as cuisines, dish types, and more. (optional)
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
      * @param includeTaste Whether taste data should be added to correctly parsed ingredients. (optional, default to false)
-     * @return ApiResponse<GetRecipeInformation200Response?>
+     * @return ApiResponse<RecipeInformation?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun extractRecipeFromWebsiteWithHttpInfo(url: kotlin.String, forceExtraction: kotlin.Boolean?, analyze: kotlin.Boolean?, includeNutrition: kotlin.Boolean?, includeTaste: kotlin.Boolean?) : ApiResponse<GetRecipeInformation200Response?> {
+    fun extractRecipeFromWebsiteWithHttpInfo(url: kotlin.String, forceExtraction: kotlin.Boolean?, analyze: kotlin.Boolean?, includeNutrition: kotlin.Boolean?, includeTaste: kotlin.Boolean?) : ApiResponse<RecipeInformation?> {
         val localVariableConfig = extractRecipeFromWebsiteRequestConfig(url = url, forceExtraction = forceExtraction, analyze = analyze, includeNutrition = includeNutrition, includeTaste = includeTaste)
 
-        return request<Unit, GetRecipeInformation200Response>(
+        return request<Unit, RecipeInformation>(
             localVariableConfig
         )
     }
@@ -911,9 +908,9 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Analyzed Recipe Instructions
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
-     * @return GetAnalyzedRecipeInstructions200Response
+     * @return kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -922,11 +919,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getAnalyzedRecipeInstructions(id: kotlin.Int, stepBreakdown: kotlin.Boolean? = null) : GetAnalyzedRecipeInstructions200Response {
+    fun getAnalyzedRecipeInstructions(id: kotlin.Int, stepBreakdown: kotlin.Boolean? = null) : kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner> {
         val localVarResponse = getAnalyzedRecipeInstructionsWithHttpInfo(id = id, stepBreakdown = stepBreakdown)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetAnalyzedRecipeInstructions200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -943,18 +940,18 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Analyzed Recipe Instructions
      * Get an analyzed breakdown of a recipe&#39;s instructions. Each step is enriched with the ingredients and equipment required.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
-     * @return ApiResponse<GetAnalyzedRecipeInstructions200Response?>
+     * @return ApiResponse<kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getAnalyzedRecipeInstructionsWithHttpInfo(id: kotlin.Int, stepBreakdown: kotlin.Boolean?) : ApiResponse<GetAnalyzedRecipeInstructions200Response?> {
+    fun getAnalyzedRecipeInstructionsWithHttpInfo(id: kotlin.Int, stepBreakdown: kotlin.Boolean?) : ApiResponse<kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner>?> {
         val localVariableConfig = getAnalyzedRecipeInstructionsRequestConfig(id = id, stepBreakdown = stepBreakdown)
 
-        return request<Unit, GetAnalyzedRecipeInstructions200Response>(
+        return request<Unit, kotlin.collections.List<GetAnalyzedRecipeInstructions200ResponseInner>>(
             localVariableConfig
         )
     }
@@ -962,7 +959,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getAnalyzedRecipeInstructions
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param stepBreakdown Whether to break down the recipe steps even more. (optional)
      * @return RequestConfig
      */
@@ -1084,7 +1081,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Equipment by ID
      * Get a recipe&#39;s equipment list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return GetRecipeEquipmentByID200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1115,7 +1112,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Equipment by ID
      * Get a recipe&#39;s equipment list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return ApiResponse<GetRecipeEquipmentByID200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1133,7 +1130,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getRecipeEquipmentByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return RequestConfig
      */
     fun getRecipeEquipmentByIDRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1155,9 +1152,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Recipe Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-     * @param id The item&#39;s id.
+     * @param id The id of the recipe.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return GetRecipeInformation200Response
+     * @param addWinePairing Add a wine pairing to the recipe. (optional)
+     * @param addTasteData Add taste data to the recipe. (optional)
+     * @return RecipeInformation
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1166,11 +1165,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRecipeInformation(id: kotlin.Int, includeNutrition: kotlin.Boolean? = false) : GetRecipeInformation200Response {
-        val localVarResponse = getRecipeInformationWithHttpInfo(id = id, includeNutrition = includeNutrition)
+    fun getRecipeInformation(id: kotlin.Int, includeNutrition: kotlin.Boolean? = false, addWinePairing: kotlin.Boolean? = null, addTasteData: kotlin.Boolean? = null) : RecipeInformation {
+        val localVarResponse = getRecipeInformationWithHttpInfo(id = id, includeNutrition = includeNutrition, addWinePairing = addWinePairing, addTasteData = addTasteData)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetRecipeInformation200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as RecipeInformation
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1187,18 +1186,20 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Recipe Information
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
-     * @param id The item&#39;s id.
+     * @param id The id of the recipe.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return ApiResponse<GetRecipeInformation200Response?>
+     * @param addWinePairing Add a wine pairing to the recipe. (optional)
+     * @param addTasteData Add taste data to the recipe. (optional)
+     * @return ApiResponse<RecipeInformation?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRecipeInformationWithHttpInfo(id: kotlin.Int, includeNutrition: kotlin.Boolean?) : ApiResponse<GetRecipeInformation200Response?> {
-        val localVariableConfig = getRecipeInformationRequestConfig(id = id, includeNutrition = includeNutrition)
+    fun getRecipeInformationWithHttpInfo(id: kotlin.Int, includeNutrition: kotlin.Boolean?, addWinePairing: kotlin.Boolean?, addTasteData: kotlin.Boolean?) : ApiResponse<RecipeInformation?> {
+        val localVariableConfig = getRecipeInformationRequestConfig(id = id, includeNutrition = includeNutrition, addWinePairing = addWinePairing, addTasteData = addTasteData)
 
-        return request<Unit, GetRecipeInformation200Response>(
+        return request<Unit, RecipeInformation>(
             localVariableConfig
         )
     }
@@ -1206,16 +1207,24 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getRecipeInformation
      *
-     * @param id The item&#39;s id.
+     * @param id The id of the recipe.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
+     * @param addWinePairing Add a wine pairing to the recipe. (optional)
+     * @param addTasteData Add taste data to the recipe. (optional)
      * @return RequestConfig
      */
-    fun getRecipeInformationRequestConfig(id: kotlin.Int, includeNutrition: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun getRecipeInformationRequestConfig(id: kotlin.Int, includeNutrition: kotlin.Boolean?, addWinePairing: kotlin.Boolean?, addTasteData: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (includeNutrition != null) {
                     put("includeNutrition", listOf(includeNutrition.toString()))
+                }
+                if (addWinePairing != null) {
+                    put("addWinePairing", listOf(addWinePairing.toString()))
+                }
+                if (addTasteData != null) {
+                    put("addTasteData", listOf(addTasteData.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -1236,7 +1245,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
      * @param ids A comma-separated list of recipe ids.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner>
+     * @return kotlin.collections.Set<RecipeInformation>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1245,11 +1254,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRecipeInformationBulk(ids: kotlin.String, includeNutrition: kotlin.Boolean? = false) : kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner> {
+    fun getRecipeInformationBulk(ids: kotlin.String, includeNutrition: kotlin.Boolean? = false) : kotlin.collections.Set<RecipeInformation> {
         val localVarResponse = getRecipeInformationBulkWithHttpInfo(ids = ids, includeNutrition = includeNutrition)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<RecipeInformation>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1268,16 +1277,16 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * Get information about multiple recipes at once. This is equivalent to calling the Get Recipe Information endpoint multiple times, but faster.
      * @param ids A comma-separated list of recipe ids.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings. (optional, default to false)
-     * @return ApiResponse<kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner>?>
+     * @return ApiResponse<kotlin.collections.Set<RecipeInformation>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRecipeInformationBulkWithHttpInfo(ids: kotlin.String, includeNutrition: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner>?> {
+    fun getRecipeInformationBulkWithHttpInfo(ids: kotlin.String, includeNutrition: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<RecipeInformation>?> {
         val localVariableConfig = getRecipeInformationBulkRequestConfig(ids = ids, includeNutrition = includeNutrition)
 
-        return request<Unit, kotlin.collections.Set<GetRecipeInformationBulk200ResponseInner>>(
+        return request<Unit, kotlin.collections.Set<RecipeInformation>>(
             localVariableConfig
         )
     }
@@ -1314,7 +1323,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Ingredients by ID
      * Get a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return GetRecipeIngredientsByID200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1345,7 +1354,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Ingredients by ID
      * Get a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return ApiResponse<GetRecipeIngredientsByID200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1363,7 +1372,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getRecipeIngredientsByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return RequestConfig
      */
     fun getRecipeIngredientsByIDRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1385,7 +1394,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Nutrition by ID
      * Get a recipe&#39;s nutrition data.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return GetRecipeNutritionWidgetByID200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1416,7 +1425,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Nutrition by ID
      * Get a recipe&#39;s nutrition data.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return ApiResponse<GetRecipeNutritionWidgetByID200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1434,7 +1443,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getRecipeNutritionWidgetByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return RequestConfig
      */
     fun getRecipeNutritionWidgetByIDRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1456,7 +1465,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Price Breakdown by ID
      * Get a recipe&#39;s price breakdown data.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return GetRecipePriceBreakdownByID200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1487,7 +1496,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Price Breakdown by ID
      * Get a recipe&#39;s price breakdown data.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return ApiResponse<GetRecipePriceBreakdownByID200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1505,7 +1514,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getRecipePriceBreakdownByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return RequestConfig
      */
     fun getRecipePriceBreakdownByIDRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -1527,9 +1536,9 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param normalize Normalize to the strongest taste. (optional, default to true)
-     * @return GetRecipeTasteByID200Response
+     * @return TasteInformation
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1538,11 +1547,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getRecipeTasteByID(id: kotlin.Int, normalize: kotlin.Boolean? = true) : GetRecipeTasteByID200Response {
+    fun getRecipeTasteByID(id: kotlin.Int, normalize: kotlin.Boolean? = true) : TasteInformation {
         val localVarResponse = getRecipeTasteByIDWithHttpInfo(id = id, normalize = normalize)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as GetRecipeTasteByID200Response
+            ResponseType.Success -> (localVarResponse as Success<*>).data as TasteInformation
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1559,18 +1568,18 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Taste by ID
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param normalize Normalize to the strongest taste. (optional, default to true)
-     * @return ApiResponse<GetRecipeTasteByID200Response?>
+     * @return ApiResponse<TasteInformation?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getRecipeTasteByIDWithHttpInfo(id: kotlin.Int, normalize: kotlin.Boolean?) : ApiResponse<GetRecipeTasteByID200Response?> {
+    fun getRecipeTasteByIDWithHttpInfo(id: kotlin.Int, normalize: kotlin.Boolean?) : ApiResponse<TasteInformation?> {
         val localVariableConfig = getRecipeTasteByIDRequestConfig(id = id, normalize = normalize)
 
-        return request<Unit, GetRecipeTasteByID200Response>(
+        return request<Unit, TasteInformation>(
             localVariableConfig
         )
     }
@@ -1578,7 +1587,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getRecipeTasteByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param normalize Normalize to the strongest taste. (optional, default to true)
      * @return RequestConfig
      */
@@ -1606,7 +1615,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Similar Recipes
      * Find recipes which are similar to the given one.
-     * @param id The item&#39;s id.
+     * @param id The id of the source recipe for which similar recipes should be found.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return kotlin.collections.Set<GetSimilarRecipes200ResponseInner>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1638,7 +1647,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Get Similar Recipes
      * Find recipes which are similar to the given one.
-     * @param id The item&#39;s id.
+     * @param id The id of the source recipe for which similar recipes should be found.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return ApiResponse<kotlin.collections.Set<GetSimilarRecipes200ResponseInner>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -1657,7 +1666,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation getSimilarRecipes
      *
-     * @param id The item&#39;s id.
+     * @param id The id of the source recipe for which similar recipes should be found.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
@@ -1779,8 +1788,8 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param includeNutrition  (optional)
-     * @return kotlin.collections.Set<ParseIngredients200ResponseInner>
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
+     * @return kotlin.collections.Set<IngredientInformation>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -1789,11 +1798,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun parseIngredients(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients? = null, includeNutrition: kotlin.Boolean? = null) : kotlin.collections.Set<ParseIngredients200ResponseInner> {
+    fun parseIngredients(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients? = null, includeNutrition: kotlin.Boolean? = null) : kotlin.collections.Set<IngredientInformation> {
         val localVarResponse = parseIngredientsWithHttpInfo(ingredientList = ingredientList, servings = servings, language = language, includeNutrition = includeNutrition)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<ParseIngredients200ResponseInner>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Set<IngredientInformation>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -1813,17 +1822,17 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param includeNutrition  (optional)
-     * @return ApiResponse<kotlin.collections.Set<ParseIngredients200ResponseInner>?>
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
+     * @return ApiResponse<kotlin.collections.Set<IngredientInformation>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun parseIngredientsWithHttpInfo(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients?, includeNutrition: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<ParseIngredients200ResponseInner>?> {
+    fun parseIngredientsWithHttpInfo(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients?, includeNutrition: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<IngredientInformation>?> {
         val localVariableConfig = parseIngredientsRequestConfig(ingredientList = ingredientList, servings = servings, language = language, includeNutrition = includeNutrition)
 
-        return request<Map<String, PartConfig<*>>, kotlin.collections.Set<ParseIngredients200ResponseInner>>(
+        return request<Map<String, PartConfig<*>>, kotlin.collections.Set<IngredientInformation>>(
             localVariableConfig
         )
     }
@@ -1834,7 +1843,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either &#39;en&#39; or &#39;de&#39;. (optional)
-     * @param includeNutrition  (optional)
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients. (optional)
      * @return RequestConfig
      */
     fun parseIngredientsRequestConfig(ingredientList: kotlin.String, servings: java.math.BigDecimal, language: LanguageParseIngredients?, includeNutrition: kotlin.Boolean?) : RequestConfig<Map<String, PartConfig<*>>> {
@@ -1874,7 +1883,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun priceBreakdownByIDImage(id: java.math.BigDecimal) : java.io.File {
+    fun priceBreakdownByIDImage(id: kotlin.Int) : java.io.File {
         val localVarResponse = priceBreakdownByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
@@ -1902,7 +1911,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun priceBreakdownByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
+    fun priceBreakdownByIDImageWithHttpInfo(id: kotlin.Int) : ApiResponse<java.io.File?> {
         val localVariableConfig = priceBreakdownByIDImageRequestConfig(id = id)
 
         return request<Unit, java.io.File>(
@@ -1916,7 +1925,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param id The recipe id.
      * @return RequestConfig
      */
-    fun priceBreakdownByIDImageRequestConfig(id: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun priceBreakdownByIDImageRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -2018,7 +2027,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recipeNutritionByIDImage(id: java.math.BigDecimal) : java.io.File {
+    fun recipeNutritionByIDImage(id: kotlin.Int) : java.io.File {
         val localVarResponse = recipeNutritionByIDImageWithHttpInfo(id = id)
 
         return when (localVarResponse.responseType) {
@@ -2046,7 +2055,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recipeNutritionByIDImageWithHttpInfo(id: java.math.BigDecimal) : ApiResponse<java.io.File?> {
+    fun recipeNutritionByIDImageWithHttpInfo(id: kotlin.Int) : ApiResponse<java.io.File?> {
         val localVariableConfig = recipeNutritionByIDImageRequestConfig(id = id)
 
         return request<Unit, java.io.File>(
@@ -2060,7 +2069,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param id The recipe id.
      * @return RequestConfig
      */
-    fun recipeNutritionByIDImageRequestConfig(id: java.math.BigDecimal) : RequestConfig<Unit> {
+    fun recipeNutritionByIDImageRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -2091,7 +2100,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recipeNutritionLabelImage(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
+    fun recipeNutritionLabelImage(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : java.io.File {
         val localVarResponse = recipeNutritionLabelImageWithHttpInfo(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
@@ -2122,7 +2131,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recipeNutritionLabelImageWithHttpInfo(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
+    fun recipeNutritionLabelImageWithHttpInfo(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<java.io.File?> {
         val localVariableConfig = recipeNutritionLabelImageRequestConfig(id = id, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return request<Unit, java.io.File>(
@@ -2139,7 +2148,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param showIngredients Whether to show a list of ingredients. (optional)
      * @return RequestConfig
      */
-    fun recipeNutritionLabelImageRequestConfig(id: java.math.BigDecimal, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun recipeNutritionLabelImageRequestConfig(id: kotlin.Int, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2182,7 +2191,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recipeNutritionLabelWidget(id: java.math.BigDecimal, defaultCss: kotlin.Boolean? = true, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.String {
+    fun recipeNutritionLabelWidget(id: kotlin.Int, defaultCss: kotlin.Boolean? = true, showOptionalNutrients: kotlin.Boolean? = null, showZeroValues: kotlin.Boolean? = null, showIngredients: kotlin.Boolean? = null) : kotlin.String {
         val localVarResponse = recipeNutritionLabelWidgetWithHttpInfo(id = id, defaultCss = defaultCss, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return when (localVarResponse.responseType) {
@@ -2214,7 +2223,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recipeNutritionLabelWidgetWithHttpInfo(id: java.math.BigDecimal, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
+    fun recipeNutritionLabelWidgetWithHttpInfo(id: kotlin.Int, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : ApiResponse<kotlin.String?> {
         val localVariableConfig = recipeNutritionLabelWidgetRequestConfig(id = id, defaultCss = defaultCss, showOptionalNutrients = showOptionalNutrients, showZeroValues = showZeroValues, showIngredients = showIngredients)
 
         return request<Unit, kotlin.String>(
@@ -2232,7 +2241,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param showIngredients Whether to show a list of ingredients. (optional)
      * @return RequestConfig
      */
-    fun recipeNutritionLabelWidgetRequestConfig(id: java.math.BigDecimal, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun recipeNutritionLabelWidgetRequestConfig(id: kotlin.Int, defaultCss: kotlin.Boolean?, showOptionalNutrients: kotlin.Boolean?, showZeroValues: kotlin.Boolean?, showIngredients: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2276,7 +2285,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recipeTasteByIDImage(id: java.math.BigDecimal, normalize: kotlin.Boolean? = null, rgb: kotlin.String? = null) : java.io.File {
+    fun recipeTasteByIDImage(id: kotlin.Int, normalize: kotlin.Boolean? = null, rgb: kotlin.String? = null) : java.io.File {
         val localVarResponse = recipeTasteByIDImageWithHttpInfo(id = id, normalize = normalize, rgb = rgb)
 
         return when (localVarResponse.responseType) {
@@ -2306,7 +2315,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun recipeTasteByIDImageWithHttpInfo(id: java.math.BigDecimal, normalize: kotlin.Boolean?, rgb: kotlin.String?) : ApiResponse<java.io.File?> {
+    fun recipeTasteByIDImageWithHttpInfo(id: kotlin.Int, normalize: kotlin.Boolean?, rgb: kotlin.String?) : ApiResponse<java.io.File?> {
         val localVariableConfig = recipeTasteByIDImageRequestConfig(id = id, normalize = normalize, rgb = rgb)
 
         return request<Unit, java.io.File>(
@@ -2322,7 +2331,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return RequestConfig
      */
-    fun recipeTasteByIDImageRequestConfig(id: java.math.BigDecimal, normalize: kotlin.Boolean?, rgb: kotlin.String?) : RequestConfig<Unit> {
+    fun recipeTasteByIDImageRequestConfig(id: kotlin.Int, normalize: kotlin.Boolean?, rgb: kotlin.String?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -2348,7 +2357,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2454,7 +2463,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRecipes(query: kotlin.String? = null, cuisine: kotlin.String? = null, excludeCuisine: kotlin.String? = null, diet: kotlin.String? = null, intolerances: kotlin.String? = null, equipment: kotlin.String? = null, includeIngredients: kotlin.String? = null, excludeIngredients: kotlin.String? = null, type: kotlin.String? = null, instructionsRequired: kotlin.Boolean? = null, fillIngredients: kotlin.Boolean? = null, addRecipeInformation: kotlin.Boolean? = null, addRecipeNutrition: kotlin.Boolean? = null, author: kotlin.String? = null, tags: kotlin.String? = null, recipeBoxId: java.math.BigDecimal? = null, titleMatch: kotlin.String? = null, maxReadyTime: java.math.BigDecimal? = null, minServings: java.math.BigDecimal? = null, maxServings: java.math.BigDecimal? = null, ignorePantry: kotlin.Boolean? = false, sort: kotlin.String? = null, sortDirection: kotlin.String? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, minAlcohol: java.math.BigDecimal? = null, maxAlcohol: java.math.BigDecimal? = null, minCaffeine: java.math.BigDecimal? = null, maxCaffeine: java.math.BigDecimal? = null, minCopper: java.math.BigDecimal? = null, maxCopper: java.math.BigDecimal? = null, minCalcium: java.math.BigDecimal? = null, maxCalcium: java.math.BigDecimal? = null, minCholine: java.math.BigDecimal? = null, maxCholine: java.math.BigDecimal? = null, minCholesterol: java.math.BigDecimal? = null, maxCholesterol: java.math.BigDecimal? = null, minFluoride: java.math.BigDecimal? = null, maxFluoride: java.math.BigDecimal? = null, minSaturatedFat: java.math.BigDecimal? = null, maxSaturatedFat: java.math.BigDecimal? = null, minVitaminA: java.math.BigDecimal? = null, maxVitaminA: java.math.BigDecimal? = null, minVitaminC: java.math.BigDecimal? = null, maxVitaminC: java.math.BigDecimal? = null, minVitaminD: java.math.BigDecimal? = null, maxVitaminD: java.math.BigDecimal? = null, minVitaminE: java.math.BigDecimal? = null, maxVitaminE: java.math.BigDecimal? = null, minVitaminK: java.math.BigDecimal? = null, maxVitaminK: java.math.BigDecimal? = null, minVitaminB1: java.math.BigDecimal? = null, maxVitaminB1: java.math.BigDecimal? = null, minVitaminB2: java.math.BigDecimal? = null, maxVitaminB2: java.math.BigDecimal? = null, minVitaminB5: java.math.BigDecimal? = null, maxVitaminB5: java.math.BigDecimal? = null, minVitaminB3: java.math.BigDecimal? = null, maxVitaminB3: java.math.BigDecimal? = null, minVitaminB6: java.math.BigDecimal? = null, maxVitaminB6: java.math.BigDecimal? = null, minVitaminB12: java.math.BigDecimal? = null, maxVitaminB12: java.math.BigDecimal? = null, minFiber: java.math.BigDecimal? = null, maxFiber: java.math.BigDecimal? = null, minFolate: java.math.BigDecimal? = null, maxFolate: java.math.BigDecimal? = null, minFolicAcid: java.math.BigDecimal? = null, maxFolicAcid: java.math.BigDecimal? = null, minIodine: java.math.BigDecimal? = null, maxIodine: java.math.BigDecimal? = null, minIron: java.math.BigDecimal? = null, maxIron: java.math.BigDecimal? = null, minMagnesium: java.math.BigDecimal? = null, maxMagnesium: java.math.BigDecimal? = null, minManganese: java.math.BigDecimal? = null, maxManganese: java.math.BigDecimal? = null, minPhosphorus: java.math.BigDecimal? = null, maxPhosphorus: java.math.BigDecimal? = null, minPotassium: java.math.BigDecimal? = null, maxPotassium: java.math.BigDecimal? = null, minSelenium: java.math.BigDecimal? = null, maxSelenium: java.math.BigDecimal? = null, minSodium: java.math.BigDecimal? = null, maxSodium: java.math.BigDecimal? = null, minSugar: java.math.BigDecimal? = null, maxSugar: java.math.BigDecimal? = null, minZinc: java.math.BigDecimal? = null, maxZinc: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchRecipes200Response {
+    fun searchRecipes(query: kotlin.String, cuisine: kotlin.String? = null, excludeCuisine: kotlin.String? = null, diet: kotlin.String? = null, intolerances: kotlin.String? = null, equipment: kotlin.String? = null, includeIngredients: kotlin.String? = null, excludeIngredients: kotlin.String? = null, type: kotlin.String? = null, instructionsRequired: kotlin.Boolean? = null, fillIngredients: kotlin.Boolean? = null, addRecipeInformation: kotlin.Boolean? = null, addRecipeNutrition: kotlin.Boolean? = null, author: kotlin.String? = null, tags: kotlin.String? = null, recipeBoxId: kotlin.Int? = null, titleMatch: kotlin.String? = null, maxReadyTime: java.math.BigDecimal? = null, minServings: java.math.BigDecimal? = null, maxServings: java.math.BigDecimal? = null, ignorePantry: kotlin.Boolean? = false, sort: kotlin.String? = null, sortDirection: kotlin.String? = null, minCarbs: java.math.BigDecimal? = null, maxCarbs: java.math.BigDecimal? = null, minProtein: java.math.BigDecimal? = null, maxProtein: java.math.BigDecimal? = null, minCalories: java.math.BigDecimal? = null, maxCalories: java.math.BigDecimal? = null, minFat: java.math.BigDecimal? = null, maxFat: java.math.BigDecimal? = null, minAlcohol: java.math.BigDecimal? = null, maxAlcohol: java.math.BigDecimal? = null, minCaffeine: java.math.BigDecimal? = null, maxCaffeine: java.math.BigDecimal? = null, minCopper: java.math.BigDecimal? = null, maxCopper: java.math.BigDecimal? = null, minCalcium: java.math.BigDecimal? = null, maxCalcium: java.math.BigDecimal? = null, minCholine: java.math.BigDecimal? = null, maxCholine: java.math.BigDecimal? = null, minCholesterol: java.math.BigDecimal? = null, maxCholesterol: java.math.BigDecimal? = null, minFluoride: java.math.BigDecimal? = null, maxFluoride: java.math.BigDecimal? = null, minSaturatedFat: java.math.BigDecimal? = null, maxSaturatedFat: java.math.BigDecimal? = null, minVitaminA: java.math.BigDecimal? = null, maxVitaminA: java.math.BigDecimal? = null, minVitaminC: java.math.BigDecimal? = null, maxVitaminC: java.math.BigDecimal? = null, minVitaminD: java.math.BigDecimal? = null, maxVitaminD: java.math.BigDecimal? = null, minVitaminE: java.math.BigDecimal? = null, maxVitaminE: java.math.BigDecimal? = null, minVitaminK: java.math.BigDecimal? = null, maxVitaminK: java.math.BigDecimal? = null, minVitaminB1: java.math.BigDecimal? = null, maxVitaminB1: java.math.BigDecimal? = null, minVitaminB2: java.math.BigDecimal? = null, maxVitaminB2: java.math.BigDecimal? = null, minVitaminB5: java.math.BigDecimal? = null, maxVitaminB5: java.math.BigDecimal? = null, minVitaminB3: java.math.BigDecimal? = null, maxVitaminB3: java.math.BigDecimal? = null, minVitaminB6: java.math.BigDecimal? = null, maxVitaminB6: java.math.BigDecimal? = null, minVitaminB12: java.math.BigDecimal? = null, maxVitaminB12: java.math.BigDecimal? = null, minFiber: java.math.BigDecimal? = null, maxFiber: java.math.BigDecimal? = null, minFolate: java.math.BigDecimal? = null, maxFolate: java.math.BigDecimal? = null, minFolicAcid: java.math.BigDecimal? = null, maxFolicAcid: java.math.BigDecimal? = null, minIodine: java.math.BigDecimal? = null, maxIodine: java.math.BigDecimal? = null, minIron: java.math.BigDecimal? = null, maxIron: java.math.BigDecimal? = null, minMagnesium: java.math.BigDecimal? = null, maxMagnesium: java.math.BigDecimal? = null, minManganese: java.math.BigDecimal? = null, maxManganese: java.math.BigDecimal? = null, minPhosphorus: java.math.BigDecimal? = null, maxPhosphorus: java.math.BigDecimal? = null, minPotassium: java.math.BigDecimal? = null, maxPotassium: java.math.BigDecimal? = null, minSelenium: java.math.BigDecimal? = null, maxSelenium: java.math.BigDecimal? = null, minSodium: java.math.BigDecimal? = null, maxSodium: java.math.BigDecimal? = null, minSugar: java.math.BigDecimal? = null, maxSugar: java.math.BigDecimal? = null, minZinc: java.math.BigDecimal? = null, maxZinc: java.math.BigDecimal? = null, offset: kotlin.Int? = null, number: kotlin.Int? = 10) : SearchRecipes200Response {
         val localVarResponse = searchRecipesWithHttpInfo(query = query, cuisine = cuisine, excludeCuisine = excludeCuisine, diet = diet, intolerances = intolerances, equipment = equipment, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, type = type, instructionsRequired = instructionsRequired, fillIngredients = fillIngredients, addRecipeInformation = addRecipeInformation, addRecipeNutrition = addRecipeNutrition, author = author, tags = tags, recipeBoxId = recipeBoxId, titleMatch = titleMatch, maxReadyTime = maxReadyTime, minServings = minServings, maxServings = maxServings, ignorePantry = ignorePantry, sort = sort, sortDirection = sortDirection, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number)
 
         return when (localVarResponse.responseType) {
@@ -2475,7 +2484,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Search Recipes
      * Search through hundreds of thousands of recipes using advanced filtering and ranking. NOTE: This method combines searching by query, by ingredients, and by nutrients into one endpoint.
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2578,7 +2587,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRecipesWithHttpInfo(query: kotlin.String?, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchRecipes200Response?> {
+    fun searchRecipesWithHttpInfo(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: kotlin.Int?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : ApiResponse<SearchRecipes200Response?> {
         val localVariableConfig = searchRecipesRequestConfig(query = query, cuisine = cuisine, excludeCuisine = excludeCuisine, diet = diet, intolerances = intolerances, equipment = equipment, includeIngredients = includeIngredients, excludeIngredients = excludeIngredients, type = type, instructionsRequired = instructionsRequired, fillIngredients = fillIngredients, addRecipeInformation = addRecipeInformation, addRecipeNutrition = addRecipeNutrition, author = author, tags = tags, recipeBoxId = recipeBoxId, titleMatch = titleMatch, maxReadyTime = maxReadyTime, minServings = minServings, maxServings = maxServings, ignorePantry = ignorePantry, sort = sort, sortDirection = sortDirection, minCarbs = minCarbs, maxCarbs = maxCarbs, minProtein = minProtein, maxProtein = maxProtein, minCalories = minCalories, maxCalories = maxCalories, minFat = minFat, maxFat = maxFat, minAlcohol = minAlcohol, maxAlcohol = maxAlcohol, minCaffeine = minCaffeine, maxCaffeine = maxCaffeine, minCopper = minCopper, maxCopper = maxCopper, minCalcium = minCalcium, maxCalcium = maxCalcium, minCholine = minCholine, maxCholine = maxCholine, minCholesterol = minCholesterol, maxCholesterol = maxCholesterol, minFluoride = minFluoride, maxFluoride = maxFluoride, minSaturatedFat = minSaturatedFat, maxSaturatedFat = maxSaturatedFat, minVitaminA = minVitaminA, maxVitaminA = maxVitaminA, minVitaminC = minVitaminC, maxVitaminC = maxVitaminC, minVitaminD = minVitaminD, maxVitaminD = maxVitaminD, minVitaminE = minVitaminE, maxVitaminE = maxVitaminE, minVitaminK = minVitaminK, maxVitaminK = maxVitaminK, minVitaminB1 = minVitaminB1, maxVitaminB1 = maxVitaminB1, minVitaminB2 = minVitaminB2, maxVitaminB2 = maxVitaminB2, minVitaminB5 = minVitaminB5, maxVitaminB5 = maxVitaminB5, minVitaminB3 = minVitaminB3, maxVitaminB3 = maxVitaminB3, minVitaminB6 = minVitaminB6, maxVitaminB6 = maxVitaminB6, minVitaminB12 = minVitaminB12, maxVitaminB12 = maxVitaminB12, minFiber = minFiber, maxFiber = maxFiber, minFolate = minFolate, maxFolate = maxFolate, minFolicAcid = minFolicAcid, maxFolicAcid = maxFolicAcid, minIodine = minIodine, maxIodine = maxIodine, minIron = minIron, maxIron = maxIron, minMagnesium = minMagnesium, maxMagnesium = maxMagnesium, minManganese = minManganese, maxManganese = maxManganese, minPhosphorus = minPhosphorus, maxPhosphorus = maxPhosphorus, minPotassium = minPotassium, maxPotassium = maxPotassium, minSelenium = minSelenium, maxSelenium = maxSelenium, minSodium = minSodium, maxSodium = maxSodium, minSugar = minSugar, maxSugar = maxSugar, minZinc = minZinc, maxZinc = maxZinc, offset = offset, number = number)
 
         return request<Unit, SearchRecipes200Response>(
@@ -2589,7 +2598,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation searchRecipes
      *
-     * @param query The (natural language) search query. (optional)
+     * @param query The (natural language) search query.
      * @param cuisine The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as &#39;OR&#39;). See a full list of supported cuisines. (optional)
      * @param excludeCuisine The cuisine(s) the recipes must not match. One or more, comma separated (will be interpreted as &#39;AND&#39;). See a full list of supported cuisines. (optional)
      * @param diet The diet for which the recipes must be suitable. See a full list of supported diets. (optional)
@@ -2688,13 +2697,11 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @return RequestConfig
      */
-    fun searchRecipesRequestConfig(query: kotlin.String?, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: java.math.BigDecimal?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
+    fun searchRecipesRequestConfig(query: kotlin.String, cuisine: kotlin.String?, excludeCuisine: kotlin.String?, diet: kotlin.String?, intolerances: kotlin.String?, equipment: kotlin.String?, includeIngredients: kotlin.String?, excludeIngredients: kotlin.String?, type: kotlin.String?, instructionsRequired: kotlin.Boolean?, fillIngredients: kotlin.Boolean?, addRecipeInformation: kotlin.Boolean?, addRecipeNutrition: kotlin.Boolean?, author: kotlin.String?, tags: kotlin.String?, recipeBoxId: kotlin.Int?, titleMatch: kotlin.String?, maxReadyTime: java.math.BigDecimal?, minServings: java.math.BigDecimal?, maxServings: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?, sort: kotlin.String?, sortDirection: kotlin.String?, minCarbs: java.math.BigDecimal?, maxCarbs: java.math.BigDecimal?, minProtein: java.math.BigDecimal?, maxProtein: java.math.BigDecimal?, minCalories: java.math.BigDecimal?, maxCalories: java.math.BigDecimal?, minFat: java.math.BigDecimal?, maxFat: java.math.BigDecimal?, minAlcohol: java.math.BigDecimal?, maxAlcohol: java.math.BigDecimal?, minCaffeine: java.math.BigDecimal?, maxCaffeine: java.math.BigDecimal?, minCopper: java.math.BigDecimal?, maxCopper: java.math.BigDecimal?, minCalcium: java.math.BigDecimal?, maxCalcium: java.math.BigDecimal?, minCholine: java.math.BigDecimal?, maxCholine: java.math.BigDecimal?, minCholesterol: java.math.BigDecimal?, maxCholesterol: java.math.BigDecimal?, minFluoride: java.math.BigDecimal?, maxFluoride: java.math.BigDecimal?, minSaturatedFat: java.math.BigDecimal?, maxSaturatedFat: java.math.BigDecimal?, minVitaminA: java.math.BigDecimal?, maxVitaminA: java.math.BigDecimal?, minVitaminC: java.math.BigDecimal?, maxVitaminC: java.math.BigDecimal?, minVitaminD: java.math.BigDecimal?, maxVitaminD: java.math.BigDecimal?, minVitaminE: java.math.BigDecimal?, maxVitaminE: java.math.BigDecimal?, minVitaminK: java.math.BigDecimal?, maxVitaminK: java.math.BigDecimal?, minVitaminB1: java.math.BigDecimal?, maxVitaminB1: java.math.BigDecimal?, minVitaminB2: java.math.BigDecimal?, maxVitaminB2: java.math.BigDecimal?, minVitaminB5: java.math.BigDecimal?, maxVitaminB5: java.math.BigDecimal?, minVitaminB3: java.math.BigDecimal?, maxVitaminB3: java.math.BigDecimal?, minVitaminB6: java.math.BigDecimal?, maxVitaminB6: java.math.BigDecimal?, minVitaminB12: java.math.BigDecimal?, maxVitaminB12: java.math.BigDecimal?, minFiber: java.math.BigDecimal?, maxFiber: java.math.BigDecimal?, minFolate: java.math.BigDecimal?, maxFolate: java.math.BigDecimal?, minFolicAcid: java.math.BigDecimal?, maxFolicAcid: java.math.BigDecimal?, minIodine: java.math.BigDecimal?, maxIodine: java.math.BigDecimal?, minIron: java.math.BigDecimal?, maxIron: java.math.BigDecimal?, minMagnesium: java.math.BigDecimal?, maxMagnesium: java.math.BigDecimal?, minManganese: java.math.BigDecimal?, maxManganese: java.math.BigDecimal?, minPhosphorus: java.math.BigDecimal?, maxPhosphorus: java.math.BigDecimal?, minPotassium: java.math.BigDecimal?, maxPotassium: java.math.BigDecimal?, minSelenium: java.math.BigDecimal?, maxSelenium: java.math.BigDecimal?, minSodium: java.math.BigDecimal?, maxSodium: java.math.BigDecimal?, minSugar: java.math.BigDecimal?, maxSugar: java.math.BigDecimal?, minZinc: java.math.BigDecimal?, maxZinc: java.math.BigDecimal?, offset: kotlin.Int?, number: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (query != null) {
-                    put("query", listOf(query.toString()))
-                }
+                put("query", listOf(query.toString()))
                 if (cuisine != null) {
                     put("cuisine", listOf(cuisine.toString()))
                 }
@@ -3000,7 +3007,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Search Recipes by Ingredients
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
@@ -3013,7 +3020,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchRecipesByIngredients(ingredients: kotlin.String? = null, number: kotlin.Int? = 10, ranking: java.math.BigDecimal? = null, ignorePantry: kotlin.Boolean? = false) : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> {
+    fun searchRecipesByIngredients(ingredients: kotlin.String, number: kotlin.Int? = 10, ranking: kotlin.Int? = null, ignorePantry: kotlin.Boolean? = false) : kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner> {
         val localVarResponse = searchRecipesByIngredientsWithHttpInfo(ingredients = ingredients, number = number, ranking = ranking, ignorePantry = ignorePantry)
 
         return when (localVarResponse.responseType) {
@@ -3034,7 +3041,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Search Recipes by Ingredients
      *  Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don&#39;t currently have (post shopping).         
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
@@ -3044,7 +3051,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun searchRecipesByIngredientsWithHttpInfo(ingredients: kotlin.String?, number: kotlin.Int?, ranking: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>?> {
+    fun searchRecipesByIngredientsWithHttpInfo(ingredients: kotlin.String, number: kotlin.Int?, ranking: kotlin.Int?, ignorePantry: kotlin.Boolean?) : ApiResponse<kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>?> {
         val localVariableConfig = searchRecipesByIngredientsRequestConfig(ingredients = ingredients, number = number, ranking = ranking, ignorePantry = ignorePantry)
 
         return request<Unit, kotlin.collections.Set<SearchRecipesByIngredients200ResponseInner>>(
@@ -3055,19 +3062,17 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation searchRecipesByIngredients
      *
-     * @param ingredients A comma-separated list of ingredients that the recipes should contain. (optional)
+     * @param ingredients A comma-separated list of ingredients that the recipes should contain.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10. (optional, default to 10)
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first. (optional)
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc. (optional, default to false)
      * @return RequestConfig
      */
-    fun searchRecipesByIngredientsRequestConfig(ingredients: kotlin.String?, number: kotlin.Int?, ranking: java.math.BigDecimal?, ignorePantry: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun searchRecipesByIngredientsRequestConfig(ingredients: kotlin.String, number: kotlin.Int?, ranking: kotlin.Int?, ignorePantry: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                if (ingredients != null) {
-                    put("ingredients", listOf(ingredients.toString()))
-                }
+                put("ingredients", listOf(ingredients.toString()))
                 if (number != null) {
                     put("number", listOf(number.toString()))
                 }
@@ -3614,7 +3619,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Summarize Recipe
      * Automatically generate a short description that summarizes key information about the recipe.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return SummarizeRecipe200Response
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3645,7 +3650,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Summarize Recipe
      * Automatically generate a short description that summarizes key information about the recipe.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return ApiResponse<SummarizeRecipe200Response?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -3663,7 +3668,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation summarizeRecipe
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @return RequestConfig
      */
     fun summarizeRecipeRequestConfig(id: kotlin.Int) : RequestConfig<Unit> {
@@ -3897,7 +3902,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Equipment by ID Widget
      * Visualize a recipe&#39;s equipment list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -3929,7 +3934,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Equipment by ID Widget
      * Visualize a recipe&#39;s equipment list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -3948,7 +3953,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeRecipeEquipmentByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return RequestConfig
      */
@@ -3992,7 +3997,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Ingredients by ID Widget
      * Visualize a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @return kotlin.String
@@ -4025,7 +4030,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Ingredients by ID Widget
      * Visualize a recipe&#39;s ingredient list.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @return ApiResponse<kotlin.String?>
@@ -4045,7 +4050,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeRecipeIngredientsByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @param measure Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. (optional)
      * @return RequestConfig
@@ -4184,7 +4189,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Recipe Nutrition by ID Widget
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -4216,7 +4221,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Recipe Nutrition by ID Widget
      * Visualize a recipe&#39;s nutritional information as HTML including CSS.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -4235,7 +4240,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeRecipeNutritionByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return RequestConfig
      */
@@ -4262,7 +4267,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Price Breakdown by ID Widget
      * Visualize a recipe&#39;s price breakdown.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -4294,7 +4299,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Price Breakdown by ID Widget
      * Visualize a recipe&#39;s price breakdown.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -4313,7 +4318,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeRecipePriceBreakdownByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response. (optional, default to true)
      * @return RequestConfig
      */
@@ -4444,7 +4449,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Recipe Taste by ID Widget
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return kotlin.String
@@ -4477,7 +4482,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * Recipe Taste by ID Widget
      * Get a recipe&#39;s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return ApiResponse<kotlin.String?>
@@ -4497,7 +4502,7 @@ class RecipesApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
     /**
      * To obtain the request config of the operation visualizeRecipeTasteByID
      *
-     * @param id The item&#39;s id.
+     * @param id The recipe id.
      * @param normalize Whether to normalize to the strongest taste. (optional, default to true)
      * @param rgb Red, green, blue values for the chart color. (optional)
      * @return RequestConfig

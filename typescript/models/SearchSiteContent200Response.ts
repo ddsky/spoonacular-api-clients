@@ -10,17 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { SearchSiteContent200ResponseArticlesInner } from '../models/SearchSiteContent200ResponseArticlesInner';
+import { SearchResult } from '../models/SearchResult';
 import { HttpFile } from '../http/http';
 
 /**
 * 
 */
 export class SearchSiteContent200Response {
-    'articles': Set<SearchSiteContent200ResponseArticlesInner>;
-    'groceryProducts': Set<SearchSiteContent200ResponseArticlesInner>;
-    'menuItems': Set<SearchSiteContent200ResponseArticlesInner>;
-    'recipes': Set<SearchSiteContent200ResponseArticlesInner>;
+    'articles': Array<SearchResult>;
+    'groceryProducts': Array<SearchResult>;
+    'menuItems': Array<SearchResult>;
+    'recipes': Array<SearchResult>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -28,25 +28,25 @@ export class SearchSiteContent200Response {
         {
             "name": "articles",
             "baseName": "Articles",
-            "type": "Set<SearchSiteContent200ResponseArticlesInner>",
+            "type": "Array<SearchResult>",
             "format": ""
         },
         {
             "name": "groceryProducts",
             "baseName": "Grocery Products",
-            "type": "Set<SearchSiteContent200ResponseArticlesInner>",
+            "type": "Array<SearchResult>",
             "format": ""
         },
         {
             "name": "menuItems",
             "baseName": "Menu Items",
-            "type": "Set<SearchSiteContent200ResponseArticlesInner>",
+            "type": "Array<SearchResult>",
             "format": ""
         },
         {
             "name": "recipes",
             "baseName": "Recipes",
-            "type": "Set<SearchSiteContent200ResponseArticlesInner>",
+            "type": "Array<SearchResult>",
             "format": ""
         }    ];
 

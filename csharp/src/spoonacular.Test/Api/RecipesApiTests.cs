@@ -86,7 +86,7 @@ namespace spoonacular.Test.Api
         public void AutocompleteRecipeSearchTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
+            //string query = null;
             //int? number = null;
             //var response = instance.AutocompleteRecipeSearch(query, number);
             //Assert.IsType<List<AutocompleteRecipeSearch200ResponseInner>>(response);
@@ -165,7 +165,7 @@ namespace spoonacular.Test.Api
         public void EquipmentByIDImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //var response = instance.EquipmentByIDImage(id);
             //Assert.IsType<System.IO.Stream>(response);
         }
@@ -183,7 +183,7 @@ namespace spoonacular.Test.Api
             //bool? includeNutrition = null;
             //bool? includeTaste = null;
             //var response = instance.ExtractRecipeFromWebsite(url, forceExtraction, analyze, includeNutrition, includeTaste);
-            //Assert.IsType<GetRecipeInformation200Response>(response);
+            //Assert.IsType<RecipeInformation>(response);
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace spoonacular.Test.Api
             //int id = null;
             //bool? stepBreakdown = null;
             //var response = instance.GetAnalyzedRecipeInstructions(id, stepBreakdown);
-            //Assert.IsType<GetAnalyzedRecipeInstructions200Response>(response);
+            //Assert.IsType<List<GetAnalyzedRecipeInstructions200ResponseInner>>(response);
         }
 
         /// <summary>
@@ -235,8 +235,10 @@ namespace spoonacular.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //int id = null;
             //bool? includeNutrition = null;
-            //var response = instance.GetRecipeInformation(id, includeNutrition);
-            //Assert.IsType<GetRecipeInformation200Response>(response);
+            //bool? addWinePairing = null;
+            //bool? addTasteData = null;
+            //var response = instance.GetRecipeInformation(id, includeNutrition, addWinePairing, addTasteData);
+            //Assert.IsType<RecipeInformation>(response);
         }
 
         /// <summary>
@@ -249,7 +251,7 @@ namespace spoonacular.Test.Api
             //string ids = null;
             //bool? includeNutrition = null;
             //var response = instance.GetRecipeInformationBulk(ids, includeNutrition);
-            //Assert.IsType<List<GetRecipeInformationBulk200ResponseInner>>(response);
+            //Assert.IsType<List<RecipeInformation>>(response);
         }
 
         /// <summary>
@@ -298,7 +300,7 @@ namespace spoonacular.Test.Api
             //int id = null;
             //bool? normalize = null;
             //var response = instance.GetRecipeTasteByID(id, normalize);
-            //Assert.IsType<GetRecipeTasteByID200Response>(response);
+            //Assert.IsType<TasteInformation>(response);
         }
 
         /// <summary>
@@ -338,7 +340,7 @@ namespace spoonacular.Test.Api
             //string? language = null;
             //bool? includeNutrition = null;
             //var response = instance.ParseIngredients(ingredientList, servings, language, includeNutrition);
-            //Assert.IsType<List<ParseIngredients200ResponseInner>>(response);
+            //Assert.IsType<List<IngredientInformation>>(response);
         }
 
         /// <summary>
@@ -348,7 +350,7 @@ namespace spoonacular.Test.Api
         public void PriceBreakdownByIDImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //var response = instance.PriceBreakdownByIDImage(id);
             //Assert.IsType<System.IO.Stream>(response);
         }
@@ -372,7 +374,7 @@ namespace spoonacular.Test.Api
         public void RecipeNutritionByIDImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //var response = instance.RecipeNutritionByIDImage(id);
             //Assert.IsType<System.IO.Stream>(response);
         }
@@ -384,7 +386,7 @@ namespace spoonacular.Test.Api
         public void RecipeNutritionLabelImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //bool? showOptionalNutrients = null;
             //bool? showZeroValues = null;
             //bool? showIngredients = null;
@@ -399,7 +401,7 @@ namespace spoonacular.Test.Api
         public void RecipeNutritionLabelWidgetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //bool? defaultCss = null;
             //bool? showOptionalNutrients = null;
             //bool? showZeroValues = null;
@@ -415,7 +417,7 @@ namespace spoonacular.Test.Api
         public void RecipeTasteByIDImageTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //decimal id = null;
+            //int id = null;
             //bool? normalize = null;
             //string? rgb = null;
             //var response = instance.RecipeTasteByIDImage(id, normalize, rgb);
@@ -429,7 +431,7 @@ namespace spoonacular.Test.Api
         public void SearchRecipesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? query = null;
+            //string query = null;
             //string? cuisine = null;
             //string? excludeCuisine = null;
             //string? diet = null;
@@ -444,7 +446,7 @@ namespace spoonacular.Test.Api
             //bool? addRecipeNutrition = null;
             //string? author = null;
             //string? tags = null;
-            //decimal? recipeBoxId = null;
+            //int? recipeBoxId = null;
             //string? titleMatch = null;
             //decimal? maxReadyTime = null;
             //decimal? minServings = null;
@@ -537,9 +539,9 @@ namespace spoonacular.Test.Api
         public void SearchRecipesByIngredientsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string? ingredients = null;
+            //string ingredients = null;
             //int? number = null;
-            //decimal? ranking = null;
+            //int? ranking = null;
             //bool? ignorePantry = null;
             //var response = instance.SearchRecipesByIngredients(ingredients, number, ranking, ignorePantry);
             //Assert.IsType<List<SearchRecipesByIngredients200ResponseInner>>(response);

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Recipes** | [**[]GetRandomRecipes200ResponseRecipesInner**](GetRandomRecipes200ResponseRecipesInner.md) |  | 
+**Recipes** | [**[]RecipeInformation**](RecipeInformation.md) |  | 
 
 ## Methods
 
 ### NewGetRandomRecipes200Response
 
-`func NewGetRandomRecipes200Response(recipes []GetRandomRecipes200ResponseRecipesInner, ) *GetRandomRecipes200Response`
+`func NewGetRandomRecipes200Response(recipes []RecipeInformation, ) *GetRandomRecipes200Response`
 
 NewGetRandomRecipes200Response instantiates a new GetRandomRecipes200Response object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetRecipes
 
-`func (o *GetRandomRecipes200Response) GetRecipes() []GetRandomRecipes200ResponseRecipesInner`
+`func (o *GetRandomRecipes200Response) GetRecipes() []RecipeInformation`
 
 GetRecipes returns the Recipes field if non-nil, zero value otherwise.
 
 ### GetRecipesOk
 
-`func (o *GetRandomRecipes200Response) GetRecipesOk() (*[]GetRandomRecipes200ResponseRecipesInner, bool)`
+`func (o *GetRandomRecipes200Response) GetRecipesOk() (*[]RecipeInformation, bool)`
 
 GetRecipesOk returns a tuple with the Recipes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipes
 
-`func (o *GetRandomRecipes200Response) SetRecipes(v []GetRandomRecipes200ResponseRecipesInner)`
+`func (o *GetRandomRecipes200Response) SetRecipes(v []RecipeInformation)`
 
 SetRecipes sets Recipes field to given value.
 

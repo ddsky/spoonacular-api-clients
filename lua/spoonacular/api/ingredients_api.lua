@@ -16,9 +16,9 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
+local spoonacular_ingredient_information = require "spoonacular.model.ingredient_information"
 local spoonacular_autocomplete_ingredient_search_200_response_inner = require "spoonacular.model.autocomplete_ingredient_search_200_response_inner"
 local spoonacular_compute_ingredient_amount_200_response = require "spoonacular.model.compute_ingredient_amount_200_response"
-local spoonacular_get_ingredient_information_200_response = require "spoonacular.model.get_ingredient_information_200_response"
 local spoonacular_get_ingredient_substitutes_200_response = require "spoonacular.model.get_ingredient_substitutes_200_response"
 local spoonacular_ingredient_search_200_response = require "spoonacular.model.ingredient_search_200_response"
 local spoonacular_map_ingredients_to_grocery_products_200_response_inner = require "spoonacular.model.map_ingredients_to_grocery_products_200_response_inner"
@@ -192,7 +192,7 @@ function ingredients_api:get_ingredient_information(id, amount, unit)
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_ingredient_information_200_response.cast(result), headers
+		return spoonacular_ingredient_information.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

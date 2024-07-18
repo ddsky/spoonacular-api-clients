@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_to_shopping_list**
-> GenerateShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
+> GetShoppingList200Response add_to_shopping_list(username, hash, add_to_shopping_list_request)
 
 Add to Shopping List
 
@@ -204,7 +204,7 @@ Add an item to the current shopping list of a user.
 ```python
 import spoonacular
 from spoonacular.models.add_to_shopping_list_request import AddToShoppingListRequest
-from spoonacular.models.generate_shopping_list200_response import GenerateShoppingList200Response
+from spoonacular.models.get_shopping_list200_response import GetShoppingList200Response
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -483,7 +483,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MealPlanningApi(api_client)
     username = 'dsky' # str | The username.
-    id = 15678 # float | The shopping list item id.
+    id = 15678 # int | The shopping list item id.
     hash = 'hash_example' # str | The private hash for the username.
 
     try:
@@ -503,7 +503,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| The username. | 
- **id** | **float**| The shopping list item id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **str**| The private hash for the username. | 
 
 ### Return type
@@ -568,7 +568,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MealPlanningApi(api_client)
     username = 'dsky' # str | The username.
-    id = 1 # int | The item's id.
+    id = 15678 # int | The shopping list item id.
     hash = 'hash_example' # str | The private hash for the username.
 
     try:
@@ -588,7 +588,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| The username. | 
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **str**| The private hash for the username. | 
 
 ### Return type
@@ -653,7 +653,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MealPlanningApi(api_client)
     username = 'dsky' # str | The username.
-    id = 1 # int | The item's id.
+    id = 15678 # int | The shopping list item id.
     hash = '4b5v4398573406' # str | The private hash for the username.
 
     try:
@@ -673,7 +673,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| The username. | 
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **str**| The private hash for the username. | 
 
 ### Return type
@@ -789,7 +789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_shopping_list**
-> GenerateShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
+> GetShoppingList200Response generate_shopping_list(username, start_date, end_date, hash)
 
 Generate Shopping List
 
@@ -801,7 +801,7 @@ Generate the shopping list for a user from the meal planner in a given time fram
 
 ```python
 import spoonacular
-from spoonacular.models.generate_shopping_list200_response import GenerateShoppingList200Response
+from spoonacular.models.get_shopping_list200_response import GetShoppingList200Response
 from spoonacular.rest import ApiException
 from pprint import pprint
 
@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -915,7 +915,7 @@ with spoonacular.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = spoonacular.MealPlanningApi(api_client)
     username = 'dsky' # str | The username.
-    id = 1 # int | The item's id.
+    id = 15678 # int | The shopping list item id.
     hash = 'hash_example' # str | The private hash for the username.
 
     try:
@@ -935,7 +935,7 @@ with spoonacular.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **username** | **str**| The username. | 
- **id** | **int**| The item&#39;s id. | 
+ **id** | **int**| The shopping list item id. | 
  **hash** | **str**| The private hash for the username. | 
 
 ### Return type

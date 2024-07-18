@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **recipes** | [**Array&lt;GetRandomRecipes200ResponseRecipesInner&gt;**](GetRandomRecipes200ResponseRecipesInner.md) |  |  |
+| **recipes** | [**Array&lt;RecipeInformation&gt;**](RecipeInformation.md) |  |  |
 
 ## Example
 

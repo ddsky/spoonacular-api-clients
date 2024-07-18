@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {
     #[serde(rename = "id")]
-    pub id: f64,
+    pub id: i32,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "localizedName")]
@@ -24,7 +24,7 @@ pub struct AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
 }
 
 impl AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {
-    pub fn new(id: f64, name: String, localized_name: String, image: String) -> AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {
+    pub fn new(id: i32, name: String, localized_name: String, image: String) -> AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {
         AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner {
             id,
             name,

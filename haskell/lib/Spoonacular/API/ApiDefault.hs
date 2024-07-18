@@ -115,9 +115,9 @@ instance Produces AnalyzeRecipe MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 createRecipeCardGet
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest CreateRecipeCardGet MimeNoContent A.Value MimeJSON
-createRecipeCardGet (IdDouble id) =
+createRecipeCardGet (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/card"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 

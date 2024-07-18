@@ -93,7 +93,7 @@ namespace spoonacular.Test.Api
             //string hash = null;
             //AddToShoppingListRequest addToShoppingListRequest = null;
             //var response = instance.AddToShoppingList(username, hash, addToShoppingListRequest);
-            //Assert.IsType<GenerateShoppingList200Response>(response);
+            //Assert.IsType<GetShoppingList200Response>(response);
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace spoonacular.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
-            //decimal id = null;
+            //int id = null;
             //string hash = null;
             //var response = instance.DeleteFromMealPlan(username, id, hash);
             //Assert.IsType<Object>(response);
@@ -191,7 +191,7 @@ namespace spoonacular.Test.Api
             //string endDate = null;
             //string hash = null;
             //var response = instance.GenerateShoppingList(username, startDate, endDate, hash);
-            //Assert.IsType<GenerateShoppingList200Response>(response);
+            //Assert.IsType<GetShoppingList200Response>(response);
         }
 
         /// <summary>

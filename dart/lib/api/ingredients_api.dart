@@ -24,7 +24,7 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [int] number:
@@ -38,7 +38,7 @@ class IngredientsApi {
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<Response> autocompleteIngredientSearchWithHttpInfo({ String? query, int? number, bool? metaInformation, String? intolerances, String? language, }) async {
+  Future<Response> autocompleteIngredientSearchWithHttpInfo(String query, { int? number, bool? metaInformation, String? intolerances, String? language, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/ingredients/autocomplete';
 
@@ -49,9 +49,7 @@ class IngredientsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
     if (number != null) {
       queryParams.addAll(_queryParams('', 'number', number));
     }
@@ -85,7 +83,7 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [int] number:
@@ -99,8 +97,8 @@ class IngredientsApi {
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<Set<AutocompleteIngredientSearch200ResponseInner>?> autocompleteIngredientSearch({ String? query, int? number, bool? metaInformation, String? intolerances, String? language, }) async {
-    final response = await autocompleteIngredientSearchWithHttpInfo( query: query, number: number, metaInformation: metaInformation, intolerances: intolerances, language: language, );
+  Future<Set<AutocompleteIngredientSearch200ResponseInner>?> autocompleteIngredientSearch(String query, { int? number, bool? metaInformation, String? intolerances, String? language, }) async {
+    final response = await autocompleteIngredientSearchWithHttpInfo(query,  number: number, metaInformation: metaInformation, intolerances: intolerances, language: language, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -125,18 +123,18 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The id of the ingredient you want the amount for.
   ///
   /// * [String] nutrient (required):
   ///   The target nutrient. See a list of supported nutrients.
   ///
-  /// * [num] target (required):
+  /// * [int] target (required):
   ///   The target number of the given nutrient.
   ///
   /// * [String] unit:
   ///   The target unit.
-  Future<Response> computeIngredientAmountWithHttpInfo(num id, String nutrient, num target, { String? unit, }) async {
+  Future<Response> computeIngredientAmountWithHttpInfo(int id, String nutrient, int target, { String? unit, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/ingredients/{id}/amount'
       .replaceAll('{id}', id.toString());
@@ -174,18 +172,18 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The id of the ingredient you want the amount for.
   ///
   /// * [String] nutrient (required):
   ///   The target nutrient. See a list of supported nutrients.
   ///
-  /// * [num] target (required):
+  /// * [int] target (required):
   ///   The target number of the given nutrient.
   ///
   /// * [String] unit:
   ///   The target unit.
-  Future<ComputeIngredientAmount200Response?> computeIngredientAmount(num id, String nutrient, num target, { String? unit, }) async {
+  Future<ComputeIngredientAmount200Response?> computeIngredientAmount(int id, String nutrient, int target, { String? unit, }) async {
     final response = await computeIngredientAmountWithHttpInfo(id, nutrient, target,  unit: unit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -209,7 +207,7 @@ class IngredientsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The ingredient id.
   ///
   /// * [num] amount:
   ///   The amount of this ingredient.
@@ -256,14 +254,14 @@ class IngredientsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The ingredient id.
   ///
   /// * [num] amount:
   ///   The amount of this ingredient.
   ///
   /// * [String] unit:
   ///   The unit for the given amount.
-  Future<GetIngredientInformation200Response?> getIngredientInformation(int id, { num? amount, String? unit, }) async {
+  Future<IngredientInformation?> getIngredientInformation(int id, { num? amount, String? unit, }) async {
     final response = await getIngredientInformationWithHttpInfo(id,  amount: amount, unit: unit, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -272,7 +270,7 @@ class IngredientsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetIngredientInformation200Response',) as GetIngredientInformation200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'IngredientInformation',) as IngredientInformation;
     
     }
     return null;
@@ -347,7 +345,7 @@ class IngredientsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the ingredient you want substitutes for.
   Future<Response> getIngredientSubstitutesByIDWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/ingredients/{id}/substitutes'
@@ -381,7 +379,7 @@ class IngredientsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the ingredient you want substitutes for.
   Future<GetIngredientSubstitutes200Response?> getIngredientSubstitutesByID(int id,) async {
     final response = await getIngredientSubstitutesByIDWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -405,7 +403,7 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [bool] addChildren:
@@ -449,7 +447,7 @@ class IngredientsApi {
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<Response> ingredientSearchWithHttpInfo({ String? query, bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, String? language, }) async {
+  Future<Response> ingredientSearchWithHttpInfo(String query, { bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, String? language, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/ingredients/search';
 
@@ -460,9 +458,7 @@ class IngredientsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
     if (addChildren != null) {
       queryParams.addAll(_queryParams('', 'addChildren', addChildren));
     }
@@ -526,7 +522,7 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [bool] addChildren:
@@ -570,8 +566,8 @@ class IngredientsApi {
   ///
   /// * [String] language:
   ///   The language of the input. Either 'en' or 'de'.
-  Future<IngredientSearch200Response?> ingredientSearch({ String? query, bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, String? language, }) async {
-    final response = await ingredientSearchWithHttpInfo( query: query, addChildren: addChildren, minProteinPercent: minProteinPercent, maxProteinPercent: maxProteinPercent, minFatPercent: minFatPercent, maxFatPercent: maxFatPercent, minCarbsPercent: minCarbsPercent, maxCarbsPercent: maxCarbsPercent, metaInformation: metaInformation, intolerances: intolerances, sort: sort, sortDirection: sortDirection, offset: offset, number: number, language: language, );
+  Future<IngredientSearch200Response?> ingredientSearch(String query, { bool? addChildren, num? minProteinPercent, num? maxProteinPercent, num? minFatPercent, num? maxFatPercent, num? minCarbsPercent, num? maxCarbsPercent, bool? metaInformation, String? intolerances, String? sort, String? sortDirection, int? offset, int? number, String? language, }) async {
+    final response = await ingredientSearchWithHttpInfo(query,  addChildren: addChildren, minProteinPercent: minProteinPercent, maxProteinPercent: maxProteinPercent, minFatPercent: minFatPercent, maxFatPercent: maxFatPercent, minCarbsPercent: minCarbsPercent, maxCarbsPercent: maxCarbsPercent, metaInformation: metaInformation, intolerances: intolerances, sort: sort, sortDirection: sortDirection, offset: offset, number: number, language: language, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -593,12 +589,12 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [String] measure:
   ///   Whether the the measures should be 'us' or 'metric'.
-  Future<Response> ingredientsByIDImageWithHttpInfo(num id, { String? measure, }) async {
+  Future<Response> ingredientsByIDImageWithHttpInfo(int id, { String? measure, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/ingredientWidget.png'
       .replaceAll('{id}', id.toString());
@@ -634,12 +630,12 @@ class IngredientsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [String] measure:
   ///   Whether the the measures should be 'us' or 'metric'.
-  Future<MultipartFile?> ingredientsByIDImage(num id, { String? measure, }) async {
+  Future<MultipartFile?> ingredientsByIDImage(int id, { String? measure, }) async {
     final response = await ingredientsByIDImageWithHttpInfo(id,  measure: measure, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

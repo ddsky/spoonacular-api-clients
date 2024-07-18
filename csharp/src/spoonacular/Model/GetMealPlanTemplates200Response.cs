@@ -41,7 +41,7 @@ namespace spoonacular.Model
         /// Initializes a new instance of the <see cref="GetMealPlanTemplates200Response" /> class.
         /// </summary>
         /// <param name="templates">templates (required).</param>
-        public GetMealPlanTemplates200Response(List<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates = default(List<GetAnalyzedRecipeInstructions200ResponseIngredientsInner>))
+        public GetMealPlanTemplates200Response(List<GetMealPlanTemplates200ResponseTemplatesInner> templates = default(List<GetMealPlanTemplates200ResponseTemplatesInner>))
         {
             // to ensure "templates" is required (not null)
             if (templates == null)
@@ -55,7 +55,7 @@ namespace spoonacular.Model
         /// Gets or Sets Templates
         /// </summary>
         [DataMember(Name = "templates", IsRequired = true, EmitDefaultValue = true)]
-        public List<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> Templates { get; set; }
+        public List<GetMealPlanTemplates200ResponseTemplatesInner> Templates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

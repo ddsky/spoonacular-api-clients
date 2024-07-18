@@ -93,10 +93,10 @@ QJsonObject OAISearchSiteContent_200_response::asJsonObject() const {
     return obj;
 }
 
-QSet<OAISearchSiteContent_200_response_Articles_inner> OAISearchSiteContent_200_response::getArticles() const {
+QList<OAISearchResult> OAISearchSiteContent_200_response::getArticles() const {
     return m_articles;
 }
-void OAISearchSiteContent_200_response::setArticles(const QSet<OAISearchSiteContent_200_response_Articles_inner> &articles) {
+void OAISearchSiteContent_200_response::setArticles(const QList<OAISearchResult> &articles) {
     m_articles = articles;
     m_articles_isSet = true;
 }
@@ -109,10 +109,10 @@ bool OAISearchSiteContent_200_response::is_articles_Valid() const{
     return m_articles_isValid;
 }
 
-QSet<OAISearchSiteContent_200_response_Articles_inner> OAISearchSiteContent_200_response::getGroceryProducts() const {
+QList<OAISearchResult> OAISearchSiteContent_200_response::getGroceryProducts() const {
     return m_grocery_products;
 }
-void OAISearchSiteContent_200_response::setGroceryProducts(const QSet<OAISearchSiteContent_200_response_Articles_inner> &grocery_products) {
+void OAISearchSiteContent_200_response::setGroceryProducts(const QList<OAISearchResult> &grocery_products) {
     m_grocery_products = grocery_products;
     m_grocery_products_isSet = true;
 }
@@ -125,10 +125,10 @@ bool OAISearchSiteContent_200_response::is_grocery_products_Valid() const{
     return m_grocery_products_isValid;
 }
 
-QSet<OAISearchSiteContent_200_response_Articles_inner> OAISearchSiteContent_200_response::getMenuItems() const {
+QList<OAISearchResult> OAISearchSiteContent_200_response::getMenuItems() const {
     return m_menu_items;
 }
-void OAISearchSiteContent_200_response::setMenuItems(const QSet<OAISearchSiteContent_200_response_Articles_inner> &menu_items) {
+void OAISearchSiteContent_200_response::setMenuItems(const QList<OAISearchResult> &menu_items) {
     m_menu_items = menu_items;
     m_menu_items_isSet = true;
 }
@@ -141,10 +141,10 @@ bool OAISearchSiteContent_200_response::is_menu_items_Valid() const{
     return m_menu_items_isValid;
 }
 
-QSet<OAISearchSiteContent_200_response_Articles_inner> OAISearchSiteContent_200_response::getRecipes() const {
+QList<OAISearchResult> OAISearchSiteContent_200_response::getRecipes() const {
     return m_recipes;
 }
-void OAISearchSiteContent_200_response::setRecipes(const QSet<OAISearchSiteContent_200_response_Articles_inner> &recipes) {
+void OAISearchSiteContent_200_response::setRecipes(const QList<OAISearchResult> &recipes) {
     m_recipes = recipes;
     m_recipes_isSet = true;
 }

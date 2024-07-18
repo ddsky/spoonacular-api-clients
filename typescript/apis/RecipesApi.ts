@@ -16,23 +16,22 @@ import { ComputeGlycemicLoad200Response } from '../models/ComputeGlycemicLoad200
 import { ComputeGlycemicLoadRequest } from '../models/ComputeGlycemicLoadRequest';
 import { ConvertAmounts200Response } from '../models/ConvertAmounts200Response';
 import { CreateRecipeCard200Response } from '../models/CreateRecipeCard200Response';
-import { GetAnalyzedRecipeInstructions200Response } from '../models/GetAnalyzedRecipeInstructions200Response';
+import { GetAnalyzedRecipeInstructions200ResponseInner } from '../models/GetAnalyzedRecipeInstructions200ResponseInner';
 import { GetRandomRecipes200Response } from '../models/GetRandomRecipes200Response';
 import { GetRecipeEquipmentByID200Response } from '../models/GetRecipeEquipmentByID200Response';
-import { GetRecipeInformation200Response } from '../models/GetRecipeInformation200Response';
-import { GetRecipeInformationBulk200ResponseInner } from '../models/GetRecipeInformationBulk200ResponseInner';
 import { GetRecipeIngredientsByID200Response } from '../models/GetRecipeIngredientsByID200Response';
 import { GetRecipeNutritionWidgetByID200Response } from '../models/GetRecipeNutritionWidgetByID200Response';
 import { GetRecipePriceBreakdownByID200Response } from '../models/GetRecipePriceBreakdownByID200Response';
-import { GetRecipeTasteByID200Response } from '../models/GetRecipeTasteByID200Response';
 import { GetSimilarRecipes200ResponseInner } from '../models/GetSimilarRecipes200ResponseInner';
 import { GuessNutritionByDishName200Response } from '../models/GuessNutritionByDishName200Response';
-import { ParseIngredients200ResponseInner } from '../models/ParseIngredients200ResponseInner';
+import { IngredientInformation } from '../models/IngredientInformation';
 import { QuickAnswer200Response } from '../models/QuickAnswer200Response';
+import { RecipeInformation } from '../models/RecipeInformation';
 import { SearchRecipes200Response } from '../models/SearchRecipes200Response';
 import { SearchRecipesByIngredients200ResponseInner } from '../models/SearchRecipesByIngredients200ResponseInner';
 import { SearchRecipesByNutrients200ResponseInner } from '../models/SearchRecipesByNutrients200ResponseInner';
 import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
+import { TasteInformation } from '../models/TasteInformation';
 
 /**
  * no description
@@ -149,8 +148,13 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * @param query The (natural language) search query.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public async autocompleteRecipeSearch(query?: string, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async autocompleteRecipeSearch(query: string, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("RecipesApi", "autocompleteRecipeSearch", "query");
+        }
 
 
 
@@ -677,7 +681,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get an analyzed breakdown of a recipe\'s instructions. Each step is enriched with the ingredients and equipment required.
      * Get Analyzed Recipe Instructions
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param stepBreakdown Whether to break down the recipe steps even more.
      */
     public async getAnalyzedRecipeInstructions(id: number, stepBreakdown?: boolean, _options?: Configuration): Promise<RequestContext> {
@@ -780,7 +784,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get a recipe\'s equipment list.
      * Equipment by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public async getRecipeEquipmentByID(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -818,16 +822,20 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Use a recipe id to get full information about a recipe, such as ingredients, nutrition, diet and allergen information, etc.
      * Get Recipe Information
-     * @param id The item\&#39;s id.
+     * @param id The id of the recipe.
      * @param includeNutrition Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
+     * @param addWinePairing Add a wine pairing to the recipe.
+     * @param addTasteData Add taste data to the recipe.
      */
-    public async getRecipeInformation(id: number, includeNutrition?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async getRecipeInformation(id: number, includeNutrition?: boolean, addWinePairing?: boolean, addTasteData?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("RecipesApi", "getRecipeInformation", "id");
         }
+
+
 
 
 
@@ -842,6 +850,16 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (includeNutrition !== undefined) {
             requestContext.setQueryParam("includeNutrition", ObjectSerializer.serialize(includeNutrition, "boolean", ""));
+        }
+
+        // Query Params
+        if (addWinePairing !== undefined) {
+            requestContext.setQueryParam("addWinePairing", ObjectSerializer.serialize(addWinePairing, "boolean", ""));
+        }
+
+        // Query Params
+        if (addTasteData !== undefined) {
+            requestContext.setQueryParam("addTasteData", ObjectSerializer.serialize(addTasteData, "boolean", ""));
         }
 
 
@@ -912,7 +930,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get a recipe\'s ingredient list.
      * Ingredients by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public async getRecipeIngredientsByID(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -950,7 +968,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get a recipe\'s nutrition data.
      * Nutrition by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public async getRecipeNutritionWidgetByID(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -988,7 +1006,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get a recipe\'s price breakdown data.
      * Price Breakdown by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public async getRecipePriceBreakdownByID(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -1026,7 +1044,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Taste by ID
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Normalize to the strongest taste.
      */
     public async getRecipeTasteByID(id: number, normalize?: boolean, _options?: Configuration): Promise<RequestContext> {
@@ -1071,7 +1089,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Find recipes which are similar to the given one.
      * Get Similar Recipes
-     * @param id The item\&#39;s id.
+     * @param id The id of the source recipe for which similar recipes should be found.
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
     public async getSimilarRecipes(id: number, number?: number, _options?: Configuration): Promise<RequestContext> {
@@ -1161,7 +1179,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * @param ingredientList The ingredient list of the recipe, one ingredient per line.
      * @param servings The number of servings that you can make from the ingredients.
      * @param language The language of the input. Either \&#39;en\&#39; or \&#39;de\&#39;.
-     * @param includeNutrition 
+     * @param includeNutrition Whether nutrition data should be added to correctly parsed ingredients.
      */
     public async parseIngredients(ingredientList: string, servings: number, language?: 'en' | 'de', includeNutrition?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -1637,8 +1655,13 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public async searchRecipes(query?: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async searchRecipes(query: string, cuisine?: string, excludeCuisine?: string, diet?: string, intolerances?: string, equipment?: string, includeIngredients?: string, excludeIngredients?: string, type?: string, instructionsRequired?: boolean, fillIngredients?: boolean, addRecipeInformation?: boolean, addRecipeNutrition?: boolean, author?: string, tags?: string, recipeBoxId?: number, titleMatch?: string, maxReadyTime?: number, minServings?: number, maxServings?: number, ignorePantry?: boolean, sort?: string, sortDirection?: string, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minCalories?: number, maxCalories?: number, minFat?: number, maxFat?: number, minAlcohol?: number, maxAlcohol?: number, minCaffeine?: number, maxCaffeine?: number, minCopper?: number, maxCopper?: number, minCalcium?: number, maxCalcium?: number, minCholine?: number, maxCholine?: number, minCholesterol?: number, maxCholesterol?: number, minFluoride?: number, maxFluoride?: number, minSaturatedFat?: number, maxSaturatedFat?: number, minVitaminA?: number, maxVitaminA?: number, minVitaminC?: number, maxVitaminC?: number, minVitaminD?: number, maxVitaminD?: number, minVitaminE?: number, maxVitaminE?: number, minVitaminK?: number, maxVitaminK?: number, minVitaminB1?: number, maxVitaminB1?: number, minVitaminB2?: number, maxVitaminB2?: number, minVitaminB5?: number, maxVitaminB5?: number, minVitaminB3?: number, maxVitaminB3?: number, minVitaminB6?: number, maxVitaminB6?: number, minVitaminB12?: number, maxVitaminB12?: number, minFiber?: number, maxFiber?: number, minFolate?: number, maxFolate?: number, minFolicAcid?: number, maxFolicAcid?: number, minIodine?: number, maxIodine?: number, minIron?: number, maxIron?: number, minMagnesium?: number, maxMagnesium?: number, minManganese?: number, maxManganese?: number, minPhosphorus?: number, maxPhosphorus?: number, minPotassium?: number, maxPotassium?: number, minSelenium?: number, maxSelenium?: number, minSodium?: number, maxSodium?: number, minSugar?: number, maxSugar?: number, minZinc?: number, maxZinc?: number, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("RecipesApi", "searchRecipes", "query");
+        }
 
 
 
@@ -2253,8 +2276,13 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
      * @param ranking Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
      * @param ignorePantry Whether to ignore typical pantry items, such as water, salt, flour, etc.
      */
-    public async searchRecipesByIngredients(ingredients?: string, number?: number, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async searchRecipesByIngredients(ingredients: string, number?: number, ranking?: number, ignorePantry?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'ingredients' is not null or undefined
+        if (ingredients === null || ingredients === undefined) {
+            throw new RequiredError("RecipesApi", "searchRecipesByIngredients", "ingredients");
+        }
 
 
 
@@ -2861,7 +2889,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Automatically generate a short description that summarizes key information about the recipe.
      * Summarize Recipe
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      */
     public async summarizeRecipe(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -3077,7 +3105,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a recipe\'s equipment list.
      * Equipment by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public async visualizeRecipeEquipmentByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<RequestContext> {
@@ -3122,7 +3150,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a recipe\'s ingredient list.
      * Ingredients by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      * @param measure Whether the the measures should be \&#39;us\&#39; or \&#39;metric\&#39;.
      */
@@ -3266,7 +3294,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a recipe\'s nutritional information as HTML including CSS.
      * Recipe Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public async visualizeRecipeNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<RequestContext> {
@@ -3311,7 +3339,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a recipe\'s price breakdown.
      * Price Breakdown by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public async visualizeRecipePriceBreakdownByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<RequestContext> {
@@ -3437,7 +3465,7 @@ export class RecipesApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get a recipe\'s taste. The tastes supported are sweet, salty, sour, bitter, savory, and fatty.
      * Recipe Taste by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The recipe id.
      * @param normalize Whether to normalize to the strongest taste.
      * @param rgb Red, green, blue values for the chart color.
      */
@@ -3798,13 +3826,13 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to extractRecipeFromWebsite
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async extractRecipeFromWebsiteWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetRecipeInformation200Response >> {
+     public async extractRecipeFromWebsiteWithHttpInfo(response: ResponseContext): Promise<HttpInfo<RecipeInformation >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetRecipeInformation200Response = ObjectSerializer.deserialize(
+            const body: RecipeInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRecipeInformation200Response", ""
-            ) as GetRecipeInformation200Response;
+                "RecipeInformation", ""
+            ) as RecipeInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -3819,10 +3847,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetRecipeInformation200Response = ObjectSerializer.deserialize(
+            const body: RecipeInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRecipeInformation200Response", ""
-            ) as GetRecipeInformation200Response;
+                "RecipeInformation", ""
+            ) as RecipeInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -3836,13 +3864,13 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to getAnalyzedRecipeInstructions
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getAnalyzedRecipeInstructionsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetAnalyzedRecipeInstructions200Response >> {
+     public async getAnalyzedRecipeInstructionsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<GetAnalyzedRecipeInstructions200ResponseInner> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetAnalyzedRecipeInstructions200Response = ObjectSerializer.deserialize(
+            const body: Array<GetAnalyzedRecipeInstructions200ResponseInner> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetAnalyzedRecipeInstructions200Response", ""
-            ) as GetAnalyzedRecipeInstructions200Response;
+                "Array<GetAnalyzedRecipeInstructions200ResponseInner>", ""
+            ) as Array<GetAnalyzedRecipeInstructions200ResponseInner>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -3857,10 +3885,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetAnalyzedRecipeInstructions200Response = ObjectSerializer.deserialize(
+            const body: Array<GetAnalyzedRecipeInstructions200ResponseInner> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetAnalyzedRecipeInstructions200Response", ""
-            ) as GetAnalyzedRecipeInstructions200Response;
+                "Array<GetAnalyzedRecipeInstructions200ResponseInner>", ""
+            ) as Array<GetAnalyzedRecipeInstructions200ResponseInner>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -3950,13 +3978,13 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to getRecipeInformation
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRecipeInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetRecipeInformation200Response >> {
+     public async getRecipeInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<RecipeInformation >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetRecipeInformation200Response = ObjectSerializer.deserialize(
+            const body: RecipeInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRecipeInformation200Response", ""
-            ) as GetRecipeInformation200Response;
+                "RecipeInformation", ""
+            ) as RecipeInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -3971,10 +3999,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetRecipeInformation200Response = ObjectSerializer.deserialize(
+            const body: RecipeInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRecipeInformation200Response", ""
-            ) as GetRecipeInformation200Response;
+                "RecipeInformation", ""
+            ) as RecipeInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -3988,13 +4016,13 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to getRecipeInformationBulk
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRecipeInformationBulkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Set<GetRecipeInformationBulk200ResponseInner> >> {
+     public async getRecipeInformationBulkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Set<RecipeInformation> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Set<GetRecipeInformationBulk200ResponseInner> = ObjectSerializer.deserialize(
+            const body: Set<RecipeInformation> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Set<GetRecipeInformationBulk200ResponseInner>", ""
-            ) as Set<GetRecipeInformationBulk200ResponseInner>;
+                "Set<RecipeInformation>", ""
+            ) as Set<RecipeInformation>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -4009,10 +4037,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Set<GetRecipeInformationBulk200ResponseInner> = ObjectSerializer.deserialize(
+            const body: Set<RecipeInformation> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Set<GetRecipeInformationBulk200ResponseInner>", ""
-            ) as Set<GetRecipeInformationBulk200ResponseInner>;
+                "Set<RecipeInformation>", ""
+            ) as Set<RecipeInformation>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -4140,13 +4168,13 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to getRecipeTasteByID
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getRecipeTasteByIDWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetRecipeTasteByID200Response >> {
+     public async getRecipeTasteByIDWithHttpInfo(response: ResponseContext): Promise<HttpInfo<TasteInformation >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetRecipeTasteByID200Response = ObjectSerializer.deserialize(
+            const body: TasteInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRecipeTasteByID200Response", ""
-            ) as GetRecipeTasteByID200Response;
+                "TasteInformation", ""
+            ) as TasteInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -4161,10 +4189,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetRecipeTasteByID200Response = ObjectSerializer.deserialize(
+            const body: TasteInformation = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetRecipeTasteByID200Response", ""
-            ) as GetRecipeTasteByID200Response;
+                "TasteInformation", ""
+            ) as TasteInformation;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -4254,13 +4282,13 @@ export class RecipesApiResponseProcessor {
      * @params response Response returned by the server for a request to parseIngredients
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async parseIngredientsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Set<ParseIngredients200ResponseInner> >> {
+     public async parseIngredientsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Set<IngredientInformation> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: Set<ParseIngredients200ResponseInner> = ObjectSerializer.deserialize(
+            const body: Set<IngredientInformation> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Set<ParseIngredients200ResponseInner>", ""
-            ) as Set<ParseIngredients200ResponseInner>;
+                "Set<IngredientInformation>", ""
+            ) as Set<IngredientInformation>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -4275,10 +4303,10 @@ export class RecipesApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: Set<ParseIngredients200ResponseInner> = ObjectSerializer.deserialize(
+            const body: Set<IngredientInformation> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "Set<ParseIngredients200ResponseInner>", ""
-            ) as Set<ParseIngredients200ResponseInner>;
+                "Set<IngredientInformation>", ""
+            ) as Set<IngredientInformation>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

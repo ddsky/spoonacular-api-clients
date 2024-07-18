@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** |  |  |
+| **title** | **String** |  |  |
 | **amount** | **String** |  |  |
 | **indented** | **Boolean** |  |  |
 | **percent_of_daily_needs** | **Float** |  |  |
@@ -15,7 +15,7 @@
 require 'openapi_client'
 
 instance = OpenapiClient::GetRecipeNutritionWidgetByID200ResponseBadInner.new(
-  name: null,
+  title: null,
   amount: null,
   indented: null,
   percent_of_daily_needs: null

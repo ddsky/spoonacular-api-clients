@@ -19,7 +19,6 @@ local basexx = require "basexx"
 local spoonacular_detect_food_in_text_200_response = require "spoonacular.model.detect_food_in_text_200_response"
 local spoonacular_get_a_random_food_joke_200_response = require "spoonacular.model.get_a_random_food_joke_200_response"
 local spoonacular_get_conversation_suggests_200_response = require "spoonacular.model.get_conversation_suggests_200_response"
-local spoonacular_get_random_food_trivia_200_response = require "spoonacular.model.get_random_food_trivia_200_response"
 local spoonacular_image_analysis_by_url_200_response = require "spoonacular.model.image_analysis_by_url_200_response"
 local spoonacular_image_classification_by_url_200_response = require "spoonacular.model.image_classification_by_url_200_response"
 local spoonacular_search_all_food_200_response = require "spoonacular.model.search_all_food_200_response"
@@ -249,7 +248,7 @@ function misc_api:get_random_food_trivia()
 		if result == nil then
 			return nil, err3
 		end
-		return spoonacular_get_random_food_trivia_200_response.cast(result), headers
+		return spoonacular_get_a_random_food_joke_200_response.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -411,7 +410,7 @@ function misc_api:search_all_food(query, offset, Number_)
 	end
 end
 
-function misc_api:search_custom_foods(username, hash, query, offset, Number_)
+function misc_api:search_custom_foods(query, username, hash, offset, Number_)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;

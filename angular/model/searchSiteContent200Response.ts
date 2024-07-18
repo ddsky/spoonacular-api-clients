@@ -9,16 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { SearchSiteContent200ResponseArticlesInner } from './searchSiteContent200ResponseArticlesInner';
+import { SearchResult } from './searchResult';
 
 
 /**
  * 
  */
 export interface SearchSiteContent200Response { 
-    Articles: Set<SearchSiteContent200ResponseArticlesInner>;
-    Grocery_Products: Set<SearchSiteContent200ResponseArticlesInner>;
-    Menu_Items: Set<SearchSiteContent200ResponseArticlesInner>;
-    Recipes: Set<SearchSiteContent200ResponseArticlesInner>;
+    Articles: Array<SearchResult>;
+    Grocery_Products: Array<SearchResult>;
+    Menu_Items: Array<SearchResult>;
+    Recipes: Array<SearchResult>;
 }
 

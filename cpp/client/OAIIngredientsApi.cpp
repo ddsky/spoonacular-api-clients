@@ -229,7 +229,7 @@ QString OAIIngredientsApi::getParamStyleDelimiter(const QString &style, const QS
     }
 }
 
-void OAIIngredientsApi::autocompleteIngredientSearch(const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<qint32> &number, const ::OpenAPI::OptionalParam<bool> &meta_information, const ::OpenAPI::OptionalParam<QString> &intolerances, const ::OpenAPI::OptionalParam<QString> &language) {
+void OAIIngredientsApi::autocompleteIngredientSearch(const QString &query, const ::OpenAPI::OptionalParam<qint32> &number, const ::OpenAPI::OptionalParam<bool> &meta_information, const ::OpenAPI::OptionalParam<QString> &intolerances, const ::OpenAPI::OptionalParam<QString> &language) {
     QString fullPath = QString(_serverConfigs["autocompleteIngredientSearch"][_serverIndices.value("autocompleteIngredientSearch")].URL()+"/food/ingredients/autocomplete");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -237,7 +237,7 @@ void OAIIngredientsApi::autocompleteIngredientSearch(const ::OpenAPI::OptionalPa
     }
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (query.hasValue())
+    
     {
         queryStyle = "form";
         if (queryStyle == "")
@@ -250,7 +250,7 @@ void OAIIngredientsApi::autocompleteIngredientSearch(const ::OpenAPI::OptionalPa
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (number.hasValue())
     {
@@ -393,7 +393,7 @@ void OAIIngredientsApi::autocompleteIngredientSearchCallback(OAIHttpRequestWorke
     }
 }
 
-void OAIIngredientsApi::computeIngredientAmount(const double &id, const QString &nutrient, const double &target, const ::OpenAPI::OptionalParam<QString> &unit) {
+void OAIIngredientsApi::computeIngredientAmount(const qint32 &id, const QString &nutrient, const qint32 &target, const ::OpenAPI::OptionalParam<QString> &unit) {
     QString fullPath = QString(_serverConfigs["computeIngredientAmount"][_serverIndices.value("computeIngredientAmount")].URL()+"/food/ingredients/{id}/amount");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -618,7 +618,7 @@ void OAIIngredientsApi::getIngredientInformationCallback(OAIHttpRequestWorker *w
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIGetIngredientInformation_200_response output(QString(worker->response));
+    OAIIngredientInformation output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -844,7 +844,7 @@ void OAIIngredientsApi::getIngredientSubstitutesByIDCallback(OAIHttpRequestWorke
     }
 }
 
-void OAIIngredientsApi::ingredientSearch(const ::OpenAPI::OptionalParam<QString> &query, const ::OpenAPI::OptionalParam<bool> &add_children, const ::OpenAPI::OptionalParam<double> &min_protein_percent, const ::OpenAPI::OptionalParam<double> &max_protein_percent, const ::OpenAPI::OptionalParam<double> &min_fat_percent, const ::OpenAPI::OptionalParam<double> &max_fat_percent, const ::OpenAPI::OptionalParam<double> &min_carbs_percent, const ::OpenAPI::OptionalParam<double> &max_carbs_percent, const ::OpenAPI::OptionalParam<bool> &meta_information, const ::OpenAPI::OptionalParam<QString> &intolerances, const ::OpenAPI::OptionalParam<QString> &sort, const ::OpenAPI::OptionalParam<QString> &sort_direction, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number, const ::OpenAPI::OptionalParam<QString> &language) {
+void OAIIngredientsApi::ingredientSearch(const QString &query, const ::OpenAPI::OptionalParam<bool> &add_children, const ::OpenAPI::OptionalParam<double> &min_protein_percent, const ::OpenAPI::OptionalParam<double> &max_protein_percent, const ::OpenAPI::OptionalParam<double> &min_fat_percent, const ::OpenAPI::OptionalParam<double> &max_fat_percent, const ::OpenAPI::OptionalParam<double> &min_carbs_percent, const ::OpenAPI::OptionalParam<double> &max_carbs_percent, const ::OpenAPI::OptionalParam<bool> &meta_information, const ::OpenAPI::OptionalParam<QString> &intolerances, const ::OpenAPI::OptionalParam<QString> &sort, const ::OpenAPI::OptionalParam<QString> &sort_direction, const ::OpenAPI::OptionalParam<qint32> &offset, const ::OpenAPI::OptionalParam<qint32> &number, const ::OpenAPI::OptionalParam<QString> &language) {
     QString fullPath = QString(_serverConfigs["ingredientSearch"][_serverIndices.value("ingredientSearch")].URL()+"/food/ingredients/search");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -852,7 +852,7 @@ void OAIIngredientsApi::ingredientSearch(const ::OpenAPI::OptionalParam<QString>
     }
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
-    if (query.hasValue())
+    
     {
         queryStyle = "form";
         if (queryStyle == "")
@@ -865,7 +865,7 @@ void OAIIngredientsApi::ingredientSearch(const ::OpenAPI::OptionalParam<QString>
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query.stringValue()));
+        fullPath.append(QUrl::toPercentEncoding("query")).append(querySuffix).append(QUrl::toPercentEncoding(query));
     }
     if (add_children.hasValue())
     {
@@ -1149,7 +1149,7 @@ void OAIIngredientsApi::ingredientSearchCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIIngredientsApi::ingredientsByIDImage(const double &id, const ::OpenAPI::OptionalParam<QString> &measure) {
+void OAIIngredientsApi::ingredientsByIDImage(const qint32 &id, const ::OpenAPI::OptionalParam<QString> &measure) {
     QString fullPath = QString(_serverConfigs["ingredientsByIDImage"][_serverIndices.value("ingredientsByIDImage")].URL()+"/recipes/{id}/ingredientWidget.png");
     
     if (_apiKeys.contains("apiKeyScheme")) {

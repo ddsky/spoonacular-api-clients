@@ -59,7 +59,7 @@ public class DefaultApiTest {
      */
     @Test
     public void createRecipeCardGetTest() throws ApiException {
-        BigDecimal id = null;
+        Integer id = null;
         String mask = null;
         String backgroundImage = null;
         String backgroundColor = null;

@@ -16,8 +16,8 @@ Please update as you see appropriate
 describe("get_recipe_nutrition_widget_by_id_200_response_bad_inner", function()
   local spoonacular_get_recipe_nutrition_widget_by_id_200_response_bad_inner = require "spoonacular.model.get_recipe_nutrition_widget_by_id_200_response_bad_inner"
 
-  -- unit tests for the property 'name'
-  describe("property name test", function()
+  -- unit tests for the property 'title'
+  describe("property title test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

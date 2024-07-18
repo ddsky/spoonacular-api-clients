@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**templates** | [**\OpenAPI\Client\Model\GetAnalyzedRecipeInstructions200ResponseIngredientsInner[]**](GetAnalyzedRecipeInstructions200ResponseIngredientsInner.md) |  |
+**templates** | [**\OpenAPI\Client\Model\GetMealPlanTemplates200ResponseTemplatesInner[]**](GetMealPlanTemplates200ResponseTemplatesInner.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

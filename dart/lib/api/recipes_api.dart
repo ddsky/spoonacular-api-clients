@@ -145,12 +145,12 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> autocompleteRecipeSearchWithHttpInfo({ String? query, int? number, }) async {
+  Future<Response> autocompleteRecipeSearchWithHttpInfo(String query, { int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/autocomplete';
 
@@ -161,9 +161,7 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
     if (number != null) {
       queryParams.addAll(_queryParams('', 'number', number));
     }
@@ -188,13 +186,13 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Set<AutocompleteRecipeSearch200ResponseInner>?> autocompleteRecipeSearch({ String? query, int? number, }) async {
-    final response = await autocompleteRecipeSearchWithHttpInfo( query: query, number: number, );
+  Future<Set<AutocompleteRecipeSearch200ResponseInner>?> autocompleteRecipeSearch(String query, { int? number, }) async {
+    final response = await autocompleteRecipeSearchWithHttpInfo(query,  number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -634,9 +632,9 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
-  Future<Response> equipmentByIDImageWithHttpInfo(num id,) async {
+  Future<Response> equipmentByIDImageWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/equipmentWidget.png'
       .replaceAll('{id}', id.toString());
@@ -668,9 +666,9 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
-  Future<MultipartFile?> equipmentByIDImage(num id,) async {
+  Future<MultipartFile?> equipmentByIDImage(int id,) async {
     final response = await equipmentByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -766,7 +764,7 @@ class RecipesApi {
   ///
   /// * [bool] includeTaste:
   ///   Whether taste data should be added to correctly parsed ingredients.
-  Future<GetRecipeInformation200Response?> extractRecipeFromWebsite(String url, { bool? forceExtraction, bool? analyze, bool? includeNutrition, bool? includeTaste, }) async {
+  Future<RecipeInformation?> extractRecipeFromWebsite(String url, { bool? forceExtraction, bool? analyze, bool? includeNutrition, bool? includeTaste, }) async {
     final response = await extractRecipeFromWebsiteWithHttpInfo(url,  forceExtraction: forceExtraction, analyze: analyze, includeNutrition: includeNutrition, includeTaste: includeTaste, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -775,7 +773,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetRecipeInformation200Response',) as GetRecipeInformation200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'RecipeInformation',) as RecipeInformation;
     
     }
     return null;
@@ -790,7 +788,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] stepBreakdown:
   ///   Whether to break down the recipe steps even more.
@@ -831,11 +829,11 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] stepBreakdown:
   ///   Whether to break down the recipe steps even more.
-  Future<GetAnalyzedRecipeInstructions200Response?> getAnalyzedRecipeInstructions(int id, { bool? stepBreakdown, }) async {
+  Future<List<GetAnalyzedRecipeInstructions200ResponseInner>?> getAnalyzedRecipeInstructions(int id, { bool? stepBreakdown, }) async {
     final response = await getAnalyzedRecipeInstructionsWithHttpInfo(id,  stepBreakdown: stepBreakdown, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -844,8 +842,11 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetAnalyzedRecipeInstructions200Response',) as GetAnalyzedRecipeInstructions200Response;
-    
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<GetAnalyzedRecipeInstructions200ResponseInner>') as List)
+        .cast<GetAnalyzedRecipeInstructions200ResponseInner>()
+        .toList(growable: false);
+
     }
     return null;
   }
@@ -948,7 +949,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<Response> getRecipeEquipmentByIDWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/equipmentWidget.json'
@@ -982,7 +983,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<GetRecipeEquipmentByID200Response?> getRecipeEquipmentByID(int id,) async {
     final response = await getRecipeEquipmentByIDWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1007,11 +1008,17 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the recipe.
   ///
   /// * [bool] includeNutrition:
   ///   Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-  Future<Response> getRecipeInformationWithHttpInfo(int id, { bool? includeNutrition, }) async {
+  ///
+  /// * [bool] addWinePairing:
+  ///   Add a wine pairing to the recipe.
+  ///
+  /// * [bool] addTasteData:
+  ///   Add taste data to the recipe.
+  Future<Response> getRecipeInformationWithHttpInfo(int id, { bool? includeNutrition, bool? addWinePairing, bool? addTasteData, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/information'
       .replaceAll('{id}', id.toString());
@@ -1025,6 +1032,12 @@ class RecipesApi {
 
     if (includeNutrition != null) {
       queryParams.addAll(_queryParams('', 'includeNutrition', includeNutrition));
+    }
+    if (addWinePairing != null) {
+      queryParams.addAll(_queryParams('', 'addWinePairing', addWinePairing));
+    }
+    if (addTasteData != null) {
+      queryParams.addAll(_queryParams('', 'addTasteData', addTasteData));
     }
 
     const contentTypes = <String>[];
@@ -1048,12 +1061,18 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the recipe.
   ///
   /// * [bool] includeNutrition:
   ///   Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-  Future<GetRecipeInformation200Response?> getRecipeInformation(int id, { bool? includeNutrition, }) async {
-    final response = await getRecipeInformationWithHttpInfo(id,  includeNutrition: includeNutrition, );
+  ///
+  /// * [bool] addWinePairing:
+  ///   Add a wine pairing to the recipe.
+  ///
+  /// * [bool] addTasteData:
+  ///   Add taste data to the recipe.
+  Future<RecipeInformation?> getRecipeInformation(int id, { bool? includeNutrition, bool? addWinePairing, bool? addTasteData, }) async {
+    final response = await getRecipeInformationWithHttpInfo(id,  includeNutrition: includeNutrition, addWinePairing: addWinePairing, addTasteData: addTasteData, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -1061,7 +1080,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetRecipeInformation200Response',) as GetRecipeInformation200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'RecipeInformation',) as RecipeInformation;
     
     }
     return null;
@@ -1121,7 +1140,7 @@ class RecipesApi {
   ///
   /// * [bool] includeNutrition:
   ///   Include nutrition data in the recipe information. Nutrition data is per serving. If you want the nutrition data for the entire recipe, just multiply by the number of servings.
-  Future<Set<GetRecipeInformationBulk200ResponseInner>?> getRecipeInformationBulk(String ids, { bool? includeNutrition, }) async {
+  Future<Set<RecipeInformation>?> getRecipeInformationBulk(String ids, { bool? includeNutrition, }) async {
     final response = await getRecipeInformationBulkWithHttpInfo(ids,  includeNutrition: includeNutrition, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1131,8 +1150,8 @@ class RecipesApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'Set<GetRecipeInformationBulk200ResponseInner>') as List)
-        .cast<GetRecipeInformationBulk200ResponseInner>()
+      return (await apiClient.deserializeAsync(responseBody, 'Set<RecipeInformation>') as List)
+        .cast<RecipeInformation>()
         .toSet();
 
     }
@@ -1148,7 +1167,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<Response> getRecipeIngredientsByIDWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/ingredientWidget.json'
@@ -1182,7 +1201,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<GetRecipeIngredientsByID200Response?> getRecipeIngredientsByID(int id,) async {
     final response = await getRecipeIngredientsByIDWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1207,7 +1226,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<Response> getRecipeNutritionWidgetByIDWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/nutritionWidget.json'
@@ -1241,7 +1260,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<GetRecipeNutritionWidgetByID200Response?> getRecipeNutritionWidgetByID(int id,) async {
     final response = await getRecipeNutritionWidgetByIDWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1266,7 +1285,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<Response> getRecipePriceBreakdownByIDWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/priceBreakdownWidget.json'
@@ -1300,7 +1319,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<GetRecipePriceBreakdownByID200Response?> getRecipePriceBreakdownByID(int id,) async {
     final response = await getRecipePriceBreakdownByIDWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1325,7 +1344,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] normalize:
   ///   Normalize to the strongest taste.
@@ -1366,11 +1385,11 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] normalize:
   ///   Normalize to the strongest taste.
-  Future<GetRecipeTasteByID200Response?> getRecipeTasteByID(int id, { bool? normalize, }) async {
+  Future<TasteInformation?> getRecipeTasteByID(int id, { bool? normalize, }) async {
     final response = await getRecipeTasteByIDWithHttpInfo(id,  normalize: normalize, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1379,7 +1398,7 @@ class RecipesApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetRecipeTasteByID200Response',) as GetRecipeTasteByID200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TasteInformation',) as TasteInformation;
     
     }
     return null;
@@ -1394,7 +1413,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the source recipe for which similar recipes should be found.
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
@@ -1435,7 +1454,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The id of the source recipe for which similar recipes should be found.
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
@@ -1535,6 +1554,7 @@ class RecipesApi {
   ///   The language of the input. Either 'en' or 'de'.
   ///
   /// * [bool] includeNutrition:
+  ///   Whether nutrition data should be added to correctly parsed ingredients.
   Future<Response> parseIngredientsWithHttpInfo(String ingredientList, num servings, { String? language, bool? includeNutrition, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/parseIngredients';
@@ -1589,7 +1609,8 @@ class RecipesApi {
   ///   The language of the input. Either 'en' or 'de'.
   ///
   /// * [bool] includeNutrition:
-  Future<Set<ParseIngredients200ResponseInner>?> parseIngredients(String ingredientList, num servings, { String? language, bool? includeNutrition, }) async {
+  ///   Whether nutrition data should be added to correctly parsed ingredients.
+  Future<Set<IngredientInformation>?> parseIngredients(String ingredientList, num servings, { String? language, bool? includeNutrition, }) async {
     final response = await parseIngredientsWithHttpInfo(ingredientList, servings,  language: language, includeNutrition: includeNutrition, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1599,8 +1620,8 @@ class RecipesApi {
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       final responseBody = await _decodeBodyBytes(response);
-      return (await apiClient.deserializeAsync(responseBody, 'Set<ParseIngredients200ResponseInner>') as List)
-        .cast<ParseIngredients200ResponseInner>()
+      return (await apiClient.deserializeAsync(responseBody, 'Set<IngredientInformation>') as List)
+        .cast<IngredientInformation>()
         .toSet();
 
     }
@@ -1615,9 +1636,9 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
-  Future<Response> priceBreakdownByIDImageWithHttpInfo(num id,) async {
+  Future<Response> priceBreakdownByIDImageWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/priceBreakdownWidget.png'
       .replaceAll('{id}', id.toString());
@@ -1649,9 +1670,9 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
-  Future<MultipartFile?> priceBreakdownByIDImage(num id,) async {
+  Future<MultipartFile?> priceBreakdownByIDImage(int id,) async {
     final response = await priceBreakdownByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1734,9 +1755,9 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
-  Future<Response> recipeNutritionByIDImageWithHttpInfo(num id,) async {
+  Future<Response> recipeNutritionByIDImageWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/nutritionWidget.png'
       .replaceAll('{id}', id.toString());
@@ -1768,9 +1789,9 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
-  Future<MultipartFile?> recipeNutritionByIDImage(num id,) async {
+  Future<MultipartFile?> recipeNutritionByIDImage(int id,) async {
     final response = await recipeNutritionByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1793,7 +1814,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [bool] showOptionalNutrients:
@@ -1804,7 +1825,7 @@ class RecipesApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Response> recipeNutritionLabelImageWithHttpInfo(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<Response> recipeNutritionLabelImageWithHttpInfo(int id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/nutritionLabel.png'
       .replaceAll('{id}', id.toString());
@@ -1846,7 +1867,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [bool] showOptionalNutrients:
@@ -1857,7 +1878,7 @@ class RecipesApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<MultipartFile?> recipeNutritionLabelImage(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<MultipartFile?> recipeNutritionLabelImage(int id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await recipeNutritionLabelImageWithHttpInfo(id,  showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1880,7 +1901,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [bool] defaultCss:
@@ -1894,7 +1915,7 @@ class RecipesApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Response> recipeNutritionLabelWidgetWithHttpInfo(num id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<Response> recipeNutritionLabelWidgetWithHttpInfo(int id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/nutritionLabel'
       .replaceAll('{id}', id.toString());
@@ -1939,7 +1960,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [bool] defaultCss:
@@ -1953,7 +1974,7 @@ class RecipesApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<String?> recipeNutritionLabelWidget(num id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<String?> recipeNutritionLabelWidget(int id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await recipeNutritionLabelWidgetWithHttpInfo(id,  defaultCss: defaultCss, showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1976,7 +1997,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [bool] normalize:
@@ -1984,7 +2005,7 @@ class RecipesApi {
   ///
   /// * [String] rgb:
   ///   Red, green, blue values for the chart color.
-  Future<Response> recipeTasteByIDImageWithHttpInfo(num id, { bool? normalize, String? rgb, }) async {
+  Future<Response> recipeTasteByIDImageWithHttpInfo(int id, { bool? normalize, String? rgb, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/tasteWidget.png'
       .replaceAll('{id}', id.toString());
@@ -2023,7 +2044,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The recipe id.
   ///
   /// * [bool] normalize:
@@ -2031,7 +2052,7 @@ class RecipesApi {
   ///
   /// * [String] rgb:
   ///   Red, green, blue values for the chart color.
-  Future<MultipartFile?> recipeTasteByIDImage(num id, { bool? normalize, String? rgb, }) async {
+  Future<MultipartFile?> recipeTasteByIDImage(int id, { bool? normalize, String? rgb, }) async {
     final response = await recipeTasteByIDImageWithHttpInfo(id,  normalize: normalize, rgb: rgb, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2054,7 +2075,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [String] cuisine:
@@ -2099,7 +2120,7 @@ class RecipesApi {
   /// * [String] tags:
   ///   The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
   ///
-  /// * [num] recipeBoxId:
+  /// * [int] recipeBoxId:
   ///   The id of the recipe box to which the search should be limited to.
   ///
   /// * [String] titleMatch:
@@ -2344,7 +2365,7 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> searchRecipesWithHttpInfo({ String? query, String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, num? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, }) async {
+  Future<Response> searchRecipesWithHttpInfo(String query, { String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, int? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/complexSearch';
 
@@ -2355,9 +2376,7 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
     if (cuisine != null) {
       queryParams.addAll(_queryParams('', 'cuisine', cuisine));
     }
@@ -2667,7 +2686,7 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [String] cuisine:
@@ -2712,7 +2731,7 @@ class RecipesApi {
   /// * [String] tags:
   ///   The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
   ///
-  /// * [num] recipeBoxId:
+  /// * [int] recipeBoxId:
   ///   The id of the recipe box to which the search should be limited to.
   ///
   /// * [String] titleMatch:
@@ -2957,8 +2976,8 @@ class RecipesApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<SearchRecipes200Response?> searchRecipes({ String? query, String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, num? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, }) async {
-    final response = await searchRecipesWithHttpInfo( query: query, cuisine: cuisine, excludeCuisine: excludeCuisine, diet: diet, intolerances: intolerances, equipment: equipment, includeIngredients: includeIngredients, excludeIngredients: excludeIngredients, type: type, instructionsRequired: instructionsRequired, fillIngredients: fillIngredients, addRecipeInformation: addRecipeInformation, addRecipeNutrition: addRecipeNutrition, author: author, tags: tags, recipeBoxId: recipeBoxId, titleMatch: titleMatch, maxReadyTime: maxReadyTime, minServings: minServings, maxServings: maxServings, ignorePantry: ignorePantry, sort: sort, sortDirection: sortDirection, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minCalories: minCalories, maxCalories: maxCalories, minFat: minFat, maxFat: maxFat, minAlcohol: minAlcohol, maxAlcohol: maxAlcohol, minCaffeine: minCaffeine, maxCaffeine: maxCaffeine, minCopper: minCopper, maxCopper: maxCopper, minCalcium: minCalcium, maxCalcium: maxCalcium, minCholine: minCholine, maxCholine: maxCholine, minCholesterol: minCholesterol, maxCholesterol: maxCholesterol, minFluoride: minFluoride, maxFluoride: maxFluoride, minSaturatedFat: minSaturatedFat, maxSaturatedFat: maxSaturatedFat, minVitaminA: minVitaminA, maxVitaminA: maxVitaminA, minVitaminC: minVitaminC, maxVitaminC: maxVitaminC, minVitaminD: minVitaminD, maxVitaminD: maxVitaminD, minVitaminE: minVitaminE, maxVitaminE: maxVitaminE, minVitaminK: minVitaminK, maxVitaminK: maxVitaminK, minVitaminB1: minVitaminB1, maxVitaminB1: maxVitaminB1, minVitaminB2: minVitaminB2, maxVitaminB2: maxVitaminB2, minVitaminB5: minVitaminB5, maxVitaminB5: maxVitaminB5, minVitaminB3: minVitaminB3, maxVitaminB3: maxVitaminB3, minVitaminB6: minVitaminB6, maxVitaminB6: maxVitaminB6, minVitaminB12: minVitaminB12, maxVitaminB12: maxVitaminB12, minFiber: minFiber, maxFiber: maxFiber, minFolate: minFolate, maxFolate: maxFolate, minFolicAcid: minFolicAcid, maxFolicAcid: maxFolicAcid, minIodine: minIodine, maxIodine: maxIodine, minIron: minIron, maxIron: maxIron, minMagnesium: minMagnesium, maxMagnesium: maxMagnesium, minManganese: minManganese, maxManganese: maxManganese, minPhosphorus: minPhosphorus, maxPhosphorus: maxPhosphorus, minPotassium: minPotassium, maxPotassium: maxPotassium, minSelenium: minSelenium, maxSelenium: maxSelenium, minSodium: minSodium, maxSodium: maxSodium, minSugar: minSugar, maxSugar: maxSugar, minZinc: minZinc, maxZinc: maxZinc, offset: offset, number: number, );
+  Future<SearchRecipes200Response?> searchRecipes(String query, { String? cuisine, String? excludeCuisine, String? diet, String? intolerances, String? equipment, String? includeIngredients, String? excludeIngredients, String? type, bool? instructionsRequired, bool? fillIngredients, bool? addRecipeInformation, bool? addRecipeNutrition, String? author, String? tags, int? recipeBoxId, String? titleMatch, num? maxReadyTime, num? minServings, num? maxServings, bool? ignorePantry, String? sort, String? sortDirection, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minCalories, num? maxCalories, num? minFat, num? maxFat, num? minAlcohol, num? maxAlcohol, num? minCaffeine, num? maxCaffeine, num? minCopper, num? maxCopper, num? minCalcium, num? maxCalcium, num? minCholine, num? maxCholine, num? minCholesterol, num? maxCholesterol, num? minFluoride, num? maxFluoride, num? minSaturatedFat, num? maxSaturatedFat, num? minVitaminA, num? maxVitaminA, num? minVitaminC, num? maxVitaminC, num? minVitaminD, num? maxVitaminD, num? minVitaminE, num? maxVitaminE, num? minVitaminK, num? maxVitaminK, num? minVitaminB1, num? maxVitaminB1, num? minVitaminB2, num? maxVitaminB2, num? minVitaminB5, num? maxVitaminB5, num? minVitaminB3, num? maxVitaminB3, num? minVitaminB6, num? maxVitaminB6, num? minVitaminB12, num? maxVitaminB12, num? minFiber, num? maxFiber, num? minFolate, num? maxFolate, num? minFolicAcid, num? maxFolicAcid, num? minIodine, num? maxIodine, num? minIron, num? maxIron, num? minMagnesium, num? maxMagnesium, num? minManganese, num? maxManganese, num? minPhosphorus, num? maxPhosphorus, num? minPotassium, num? maxPotassium, num? minSelenium, num? maxSelenium, num? minSodium, num? maxSodium, num? minSugar, num? maxSugar, num? minZinc, num? maxZinc, int? offset, int? number, }) async {
+    final response = await searchRecipesWithHttpInfo(query,  cuisine: cuisine, excludeCuisine: excludeCuisine, diet: diet, intolerances: intolerances, equipment: equipment, includeIngredients: includeIngredients, excludeIngredients: excludeIngredients, type: type, instructionsRequired: instructionsRequired, fillIngredients: fillIngredients, addRecipeInformation: addRecipeInformation, addRecipeNutrition: addRecipeNutrition, author: author, tags: tags, recipeBoxId: recipeBoxId, titleMatch: titleMatch, maxReadyTime: maxReadyTime, minServings: minServings, maxServings: maxServings, ignorePantry: ignorePantry, sort: sort, sortDirection: sortDirection, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minCalories: minCalories, maxCalories: maxCalories, minFat: minFat, maxFat: maxFat, minAlcohol: minAlcohol, maxAlcohol: maxAlcohol, minCaffeine: minCaffeine, maxCaffeine: maxCaffeine, minCopper: minCopper, maxCopper: maxCopper, minCalcium: minCalcium, maxCalcium: maxCalcium, minCholine: minCholine, maxCholine: maxCholine, minCholesterol: minCholesterol, maxCholesterol: maxCholesterol, minFluoride: minFluoride, maxFluoride: maxFluoride, minSaturatedFat: minSaturatedFat, maxSaturatedFat: maxSaturatedFat, minVitaminA: minVitaminA, maxVitaminA: maxVitaminA, minVitaminC: minVitaminC, maxVitaminC: maxVitaminC, minVitaminD: minVitaminD, maxVitaminD: maxVitaminD, minVitaminE: minVitaminE, maxVitaminE: maxVitaminE, minVitaminK: minVitaminK, maxVitaminK: maxVitaminK, minVitaminB1: minVitaminB1, maxVitaminB1: maxVitaminB1, minVitaminB2: minVitaminB2, maxVitaminB2: maxVitaminB2, minVitaminB5: minVitaminB5, maxVitaminB5: maxVitaminB5, minVitaminB3: minVitaminB3, maxVitaminB3: maxVitaminB3, minVitaminB6: minVitaminB6, maxVitaminB6: maxVitaminB6, minVitaminB12: minVitaminB12, maxVitaminB12: maxVitaminB12, minFiber: minFiber, maxFiber: maxFiber, minFolate: minFolate, maxFolate: maxFolate, minFolicAcid: minFolicAcid, maxFolicAcid: maxFolicAcid, minIodine: minIodine, maxIodine: maxIodine, minIron: minIron, maxIron: maxIron, minMagnesium: minMagnesium, maxMagnesium: maxMagnesium, minManganese: minManganese, maxManganese: maxManganese, minPhosphorus: minPhosphorus, maxPhosphorus: maxPhosphorus, minPotassium: minPotassium, maxPotassium: maxPotassium, minSelenium: minSelenium, maxSelenium: maxSelenium, minSodium: minSodium, maxSodium: maxSodium, minSugar: minSugar, maxSugar: maxSugar, minZinc: minZinc, maxZinc: maxZinc, offset: offset, number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -2980,18 +2999,18 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] ingredients:
+  /// * [String] ingredients (required):
   ///   A comma-separated list of ingredients that the recipes should contain.
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
   ///
-  /// * [num] ranking:
+  /// * [int] ranking:
   ///   Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   ///
   /// * [bool] ignorePantry:
   ///   Whether to ignore typical pantry items, such as water, salt, flour, etc.
-  Future<Response> searchRecipesByIngredientsWithHttpInfo({ String? ingredients, int? number, num? ranking, bool? ignorePantry, }) async {
+  Future<Response> searchRecipesByIngredientsWithHttpInfo(String ingredients, { int? number, int? ranking, bool? ignorePantry, }) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/findByIngredients';
 
@@ -3002,9 +3021,7 @@ class RecipesApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (ingredients != null) {
       queryParams.addAll(_queryParams('', 'ingredients', ingredients));
-    }
     if (number != null) {
       queryParams.addAll(_queryParams('', 'number', number));
     }
@@ -3035,19 +3052,19 @@ class RecipesApi {
   ///
   /// Parameters:
   ///
-  /// * [String] ingredients:
+  /// * [String] ingredients (required):
   ///   A comma-separated list of ingredients that the recipes should contain.
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
   ///
-  /// * [num] ranking:
+  /// * [int] ranking:
   ///   Whether to maximize used ingredients (1) or minimize missing ingredients (2) first.
   ///
   /// * [bool] ignorePantry:
   ///   Whether to ignore typical pantry items, such as water, salt, flour, etc.
-  Future<Set<SearchRecipesByIngredients200ResponseInner>?> searchRecipesByIngredients({ String? ingredients, int? number, num? ranking, bool? ignorePantry, }) async {
-    final response = await searchRecipesByIngredientsWithHttpInfo( ingredients: ingredients, number: number, ranking: ranking, ignorePantry: ignorePantry, );
+  Future<Set<SearchRecipesByIngredients200ResponseInner>?> searchRecipesByIngredients(String ingredients, { int? number, int? ranking, bool? ignorePantry, }) async {
+    final response = await searchRecipesByIngredientsWithHttpInfo(ingredients,  number: number, ranking: ranking, ignorePantry: ignorePantry, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -3804,7 +3821,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<Response> summarizeRecipeWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/recipes/{id}/summary'
@@ -3838,7 +3855,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   Future<SummarizeRecipe200Response?> summarizeRecipe(int id,) async {
     final response = await summarizeRecipeWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -4058,7 +4075,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4099,7 +4116,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4127,7 +4144,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4174,7 +4191,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4303,7 +4320,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4344,7 +4361,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4372,7 +4389,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4413,7 +4430,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -4530,7 +4547,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] normalize:
   ///   Whether to normalize to the strongest taste.
@@ -4577,7 +4594,7 @@ class RecipesApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The recipe id.
   ///
   /// * [bool] normalize:
   ///   Whether to normalize to the strongest taste.

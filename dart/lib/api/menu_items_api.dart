@@ -27,9 +27,9 @@ class MenuItemsApi {
   /// * [String] query (required):
   ///   The (partial) search query.
   ///
-  /// * [num] number:
+  /// * [int] number:
   ///   The number of results to return (between 1 and 25).
-  Future<Response> autocompleteMenuItemSearchWithHttpInfo(String query, { num? number, }) async {
+  Future<Response> autocompleteMenuItemSearchWithHttpInfo(String query, { int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/menuItems/suggest';
 
@@ -68,9 +68,9 @@ class MenuItemsApi {
   /// * [String] query (required):
   ///   The (partial) search query.
   ///
-  /// * [num] number:
+  /// * [int] number:
   ///   The number of results to return (between 1 and 25).
-  Future<AutocompleteMenuItemSearch200Response?> autocompleteMenuItemSearch(String query, { num? number, }) async {
+  Future<AutocompleteProductSearch200Response?> autocompleteMenuItemSearch(String query, { int? number, }) async {
     final response = await autocompleteMenuItemSearchWithHttpInfo(query,  number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -79,7 +79,7 @@ class MenuItemsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AutocompleteMenuItemSearch200Response',) as AutocompleteMenuItemSearch200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AutocompleteProductSearch200Response',) as AutocompleteProductSearch200Response;
     
     }
     return null;
@@ -94,7 +94,7 @@ class MenuItemsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The menu item id.
   Future<Response> getMenuItemInformationWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/menuItems/{id}'
@@ -128,8 +128,8 @@ class MenuItemsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
-  Future<GetMenuItemInformation200Response?> getMenuItemInformation(int id,) async {
+  ///   The menu item id.
+  Future<MenuItem?> getMenuItemInformation(int id,) async {
     final response = await getMenuItemInformationWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -138,7 +138,7 @@ class MenuItemsApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetMenuItemInformation200Response',) as GetMenuItemInformation200Response;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MenuItem',) as MenuItem;
     
     }
     return null;
@@ -152,9 +152,9 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The menu item id.
-  Future<Response> menuItemNutritionByIDImageWithHttpInfo(num id,) async {
+  Future<Response> menuItemNutritionByIDImageWithHttpInfo(int id,) async {
     // ignore: prefer_const_declarations
     final path = r'/food/menuItems/{id}/nutritionWidget.png'
       .replaceAll('{id}', id.toString());
@@ -186,9 +186,9 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The menu item id.
-  Future<MultipartFile?> menuItemNutritionByIDImage(num id,) async {
+  Future<MultipartFile?> menuItemNutritionByIDImage(int id,) async {
     final response = await menuItemNutritionByIDImageWithHttpInfo(id,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -211,7 +211,7 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The menu item id.
   ///
   /// * [bool] showOptionalNutrients:
@@ -222,7 +222,7 @@ class MenuItemsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Response> menuItemNutritionLabelImageWithHttpInfo(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<Response> menuItemNutritionLabelImageWithHttpInfo(int id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/menuItems/{id}/nutritionLabel.png'
       .replaceAll('{id}', id.toString());
@@ -264,7 +264,7 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The menu item id.
   ///
   /// * [bool] showOptionalNutrients:
@@ -275,7 +275,7 @@ class MenuItemsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<MultipartFile?> menuItemNutritionLabelImage(num id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<MultipartFile?> menuItemNutritionLabelImage(int id, { bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await menuItemNutritionLabelImageWithHttpInfo(id,  showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -298,7 +298,7 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The menu item id.
   ///
   /// * [bool] defaultCss:
@@ -312,7 +312,7 @@ class MenuItemsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<Response> menuItemNutritionLabelWidgetWithHttpInfo(num id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<Response> menuItemNutritionLabelWidgetWithHttpInfo(int id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/menuItems/{id}/nutritionLabel'
       .replaceAll('{id}', id.toString());
@@ -357,7 +357,7 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [num] id (required):
+  /// * [int] id (required):
   ///   The menu item id.
   ///
   /// * [bool] defaultCss:
@@ -371,7 +371,7 @@ class MenuItemsApi {
   ///
   /// * [bool] showIngredients:
   ///   Whether to show a list of ingredients.
-  Future<String?> menuItemNutritionLabelWidget(num id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
+  Future<String?> menuItemNutritionLabelWidget(int id, { bool? defaultCss, bool? showOptionalNutrients, bool? showZeroValues, bool? showIngredients, }) async {
     final response = await menuItemNutritionLabelWidgetWithHttpInfo(id,  defaultCss: defaultCss, showOptionalNutrients: showOptionalNutrients, showZeroValues: showZeroValues, showIngredients: showIngredients, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -394,7 +394,7 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [num] minCalories:
@@ -429,7 +429,7 @@ class MenuItemsApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<Response> searchMenuItemsWithHttpInfo({ String? query, num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addMenuItemInformation, int? offset, int? number, }) async {
+  Future<Response> searchMenuItemsWithHttpInfo(String query, { num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addMenuItemInformation, int? offset, int? number, }) async {
     // ignore: prefer_const_declarations
     final path = r'/food/menuItems/search';
 
@@ -440,9 +440,7 @@ class MenuItemsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (query != null) {
       queryParams.addAll(_queryParams('', 'query', query));
-    }
     if (minCalories != null) {
       queryParams.addAll(_queryParams('', 'minCalories', minCalories));
     }
@@ -497,7 +495,7 @@ class MenuItemsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] query:
+  /// * [String] query (required):
   ///   The (natural language) search query.
   ///
   /// * [num] minCalories:
@@ -532,8 +530,8 @@ class MenuItemsApi {
   ///
   /// * [int] number:
   ///   The maximum number of items to return (between 1 and 100). Defaults to 10.
-  Future<SearchMenuItems200Response?> searchMenuItems({ String? query, num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addMenuItemInformation, int? offset, int? number, }) async {
-    final response = await searchMenuItemsWithHttpInfo( query: query, minCalories: minCalories, maxCalories: maxCalories, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minFat: minFat, maxFat: maxFat, addMenuItemInformation: addMenuItemInformation, offset: offset, number: number, );
+  Future<SearchMenuItems200Response?> searchMenuItems(String query, { num? minCalories, num? maxCalories, num? minCarbs, num? maxCarbs, num? minProtein, num? maxProtein, num? minFat, num? maxFat, bool? addMenuItemInformation, int? offset, int? number, }) async {
+    final response = await searchMenuItemsWithHttpInfo(query,  minCalories: minCalories, maxCalories: maxCalories, minCarbs: minCarbs, maxCarbs: maxCarbs, minProtein: minProtein, maxProtein: maxProtein, minFat: minFat, maxFat: maxFat, addMenuItemInformation: addMenuItemInformation, offset: offset, number: number, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -556,7 +554,7 @@ class MenuItemsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The menu item id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.
@@ -597,7 +595,7 @@ class MenuItemsApi {
   /// Parameters:
   ///
   /// * [int] id (required):
-  ///   The item's id.
+  ///   The menu item id.
   ///
   /// * [bool] defaultCss:
   ///   Whether the default CSS should be added to the response.

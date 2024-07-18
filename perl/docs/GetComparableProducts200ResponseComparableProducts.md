@@ -8,12 +8,12 @@ use WWW::OpenAPIClient::Object::GetComparableProducts200ResponseComparableProduc
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calories** | **ARRAY[object]** |  | 
-**likes** | **ARRAY[object]** |  | 
-**price** | **ARRAY[object]** |  | 
-**protein** | [**ARRAY[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**spoonacular_score** | [**ARRAY[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**sugar** | **ARRAY[object]** |  | 
+**calories** | [**ARRAY[ComparableProduct]**](ComparableProduct.md) |  | 
+**likes** | [**ARRAY[ComparableProduct]**](ComparableProduct.md) |  | 
+**price** | [**ARRAY[ComparableProduct]**](ComparableProduct.md) |  | 
+**protein** | [**ARRAY[ComparableProduct]**](ComparableProduct.md) |  | 
+**spoonacular_score** | [**ARRAY[ComparableProduct]**](ComparableProduct.md) |  | 
+**sugar** | [**ARRAY[ComparableProduct]**](ComparableProduct.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,8 +24,8 @@
 #include "OAIClassifyGroceryProduct_200_response.h"
 #include "OAIClassifyGroceryProduct_request.h"
 #include "OAIGetComparableProducts_200_response.h"
-#include "OAIGetProductInformation_200_response.h"
 #include "OAIHttpFileElement.h"
+#include "OAIProductInformation.h"
 #include "OAISearchGroceryProductsByUPC_200_response.h"
 #include "OAISearchGroceryProducts_200_response.h"
 #include <QSet>
@@ -86,9 +86,9 @@ public:
     void classifyGroceryProductBulk(const QSet<OAIClassifyGroceryProductBulk_request_inner> &oai_classify_grocery_product_bulk_request_inner, const ::OpenAPI::OptionalParam<QString> &locale = ::OpenAPI::OptionalParam<QString>());
 
     /**
-    * @param[in]  upc double [required]
+    * @param[in]  upc QString [required]
     */
-    void getComparableProducts(const double &upc);
+    void getComparableProducts(const QString &upc);
 
     /**
     * @param[in]  id qint32 [required]
@@ -96,29 +96,29 @@ public:
     void getProductInformation(const qint32 &id);
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     */
-    void productNutritionByIDImage(const double &id);
+    void productNutritionByIDImage(const qint32 &id);
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  show_optional_nutrients bool [optional]
     * @param[in]  show_zero_values bool [optional]
     * @param[in]  show_ingredients bool [optional]
     */
-    void productNutritionLabelImage(const double &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
+    void productNutritionLabelImage(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  default_css bool [optional]
     * @param[in]  show_optional_nutrients bool [optional]
     * @param[in]  show_zero_values bool [optional]
     * @param[in]  show_ingredients bool [optional]
     */
-    void productNutritionLabelWidget(const double &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
+    void productNutritionLabelWidget(const qint32 &id, const ::OpenAPI::OptionalParam<bool> &default_css = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_optional_nutrients = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_zero_values = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &show_ingredients = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  query QString [optional]
+    * @param[in]  query QString [required]
     * @param[in]  min_calories double [optional]
     * @param[in]  max_calories double [optional]
     * @param[in]  min_carbs double [optional]
@@ -131,12 +131,12 @@ public:
     * @param[in]  offset qint32 [optional]
     * @param[in]  number qint32 [optional]
     */
-    void searchGroceryProducts(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<double> &min_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &add_product_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
+    void searchGroceryProducts(const QString &query, const ::OpenAPI::OptionalParam<double> &min_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_calories = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &add_product_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>());
 
     /**
-    * @param[in]  upc double [required]
+    * @param[in]  upc QString [required]
     */
-    void searchGroceryProductsByUPC(const double &upc);
+    void searchGroceryProductsByUPC(const QString &upc);
 
     /**
     * @param[in]  id qint32 [required]
@@ -185,7 +185,7 @@ Q_SIGNALS:
     void classifyGroceryProductSignal(OAIClassifyGroceryProduct_200_response summary);
     void classifyGroceryProductBulkSignal(QSet<OAIClassifyGroceryProductBulk_200_response_inner> summary);
     void getComparableProductsSignal(OAIGetComparableProducts_200_response summary);
-    void getProductInformationSignal(OAIGetProductInformation_200_response summary);
+    void getProductInformationSignal(OAIProductInformation summary);
     void productNutritionByIDImageSignal(OAIHttpFileElement summary);
     void productNutritionLabelImageSignal(OAIHttpFileElement summary);
     void productNutritionLabelWidgetSignal(QString summary);
@@ -197,7 +197,7 @@ Q_SIGNALS:
     void classifyGroceryProductSignalFull(OAIHttpRequestWorker *worker, OAIClassifyGroceryProduct_200_response summary);
     void classifyGroceryProductBulkSignalFull(OAIHttpRequestWorker *worker, QSet<OAIClassifyGroceryProductBulk_200_response_inner> summary);
     void getComparableProductsSignalFull(OAIHttpRequestWorker *worker, OAIGetComparableProducts_200_response summary);
-    void getProductInformationSignalFull(OAIHttpRequestWorker *worker, OAIGetProductInformation_200_response summary);
+    void getProductInformationSignalFull(OAIHttpRequestWorker *worker, OAIProductInformation summary);
     void productNutritionByIDImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void productNutritionLabelImageSignalFull(OAIHttpRequestWorker *worker, OAIHttpFileElement summary);
     void productNutritionLabelWidgetSignalFull(OAIHttpRequestWorker *worker, QString summary);
@@ -218,8 +218,8 @@ Q_SIGNALS:
     void getComparableProductsSignalE(OAIGetComparableProducts_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getComparableProductsSignalError(OAIGetComparableProducts_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getProductInformationSignalError() instead")
-    void getProductInformationSignalE(OAIGetProductInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getProductInformationSignalError(OAIGetProductInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getProductInformationSignalE(OAIProductInformation summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getProductInformationSignalError(OAIProductInformation summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use productNutritionByIDImageSignalError() instead")
     void productNutritionByIDImageSignalE(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, QString error_str);
     void productNutritionByIDImageSignalError(OAIHttpFileElement summary, QNetworkReply::NetworkError error_type, const QString &error_str);

@@ -185,7 +185,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = ProductsApi();
-final upc = 33698816271; // num | The UPC of the product for which you want to find comparable products.
+final upc = 033698816271; // String | The UPC of the product for which you want to find comparable products.
 
 try {
     final result = api_instance.getComparableProducts(upc);
@@ -199,7 +199,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **num**| The UPC of the product for which you want to find comparable products. | 
+ **upc** | **String**| The UPC of the product for which you want to find comparable products. | 
 
 ### Return type
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getProductInformation**
-> GetProductInformation200Response getProductInformation(id)
+> ProductInformation getProductInformation(id)
 
 Get Product Information
 
@@ -232,7 +232,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = ProductsApi();
-final id = 1; // int | The item's id.
+final id = 22347; // int | The id of the packaged food.
 
 try {
     final result = api_instance.getProductInformation(id);
@@ -246,11 +246,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The id of the packaged food. | 
 
 ### Return type
 
-[**GetProductInformation200Response**](GetProductInformation200Response.md)
+[**ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = ProductsApi();
-final id = 7657; // num | The id of the product.
+final id = 7657; // int | The id of the product.
 
 try {
     final result = api_instance.productNutritionByIDImage(id);
@@ -293,7 +293,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The id of the product. | 
+ **id** | **int**| The id of the product. | 
 
 ### Return type
 
@@ -326,7 +326,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = ProductsApi();
-final id = 22347; // num | The product id.
+final id = 22347; // int | The product id.
 final showOptionalNutrients = false; // bool | Whether to show optional nutrients.
 final showZeroValues = false; // bool | Whether to show zero values.
 final showIngredients = false; // bool | Whether to show a list of ingredients.
@@ -343,7 +343,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The product id. | 
+ **id** | **int**| The product id. | 
  **showOptionalNutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **showZeroValues** | **bool**| Whether to show zero values. | [optional] 
  **showIngredients** | **bool**| Whether to show a list of ingredients. | [optional] 
@@ -379,7 +379,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = ProductsApi();
-final id = 22347; // num | The product id.
+final id = 22347; // int | The product id.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 final showOptionalNutrients = false; // bool | Whether to show optional nutrients.
 final showZeroValues = false; // bool | Whether to show zero values.
@@ -397,7 +397,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **num**| The product id. | 
+ **id** | **int**| The product id. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
  **showOptionalNutrients** | **bool**| Whether to show optional nutrients. | [optional] 
  **showZeroValues** | **bool**| Whether to show zero values. | [optional] 
@@ -459,7 +459,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**| The (natural language) search query. | [optional] 
+ **query** | **String**| The (natural language) search query. | 
  **minCalories** | **num**| The minimum amount of calories the product must have. | [optional] 
  **maxCalories** | **num**| The maximum amount of calories the product can have. | [optional] 
  **minCarbs** | **num**| The minimum amount of carbohydrates in grams the product must have. | [optional] 
@@ -503,7 +503,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = ProductsApi();
-final upc = 41631000564; // num | The product's UPC.
+final upc = 041631000564; // String | The product's UPC.
 
 try {
     final result = api_instance.searchGroceryProductsByUPC(upc);
@@ -517,7 +517,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **upc** | **num**| The product's UPC. | 
+ **upc** | **String**| The product's UPC. | 
 
 ### Return type
 
@@ -550,7 +550,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('apiKeyScheme').apiKeyPrefix = 'Bearer';
 
 final api_instance = ProductsApi();
-final id = 1; // int | The item's id.
+final id = 7657; // int | The id of the product.
 final defaultCss = false; // bool | Whether the default CSS should be added to the response.
 
 try {
@@ -565,7 +565,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**| The item's id. | 
+ **id** | **int**| The id of the product. | 
  **defaultCss** | **bool**| Whether the default CSS should be added to the response. | [optional] [default to true]
 
 ### Return type

@@ -21,16 +21,14 @@
 
 #include <QJsonObject>
 
-#include "OAIGetComparableProducts_200_response_comparableProducts_protein_inner.h"
-#include "OAIObject.h"
+#include "OAIComparableProduct.h"
 #include <QList>
-#include <QSet>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAIGetComparableProducts_200_response_comparableProducts_protein_inner;
+class OAIComparableProduct;
 
 class OAIGetComparableProducts_200_response_comparableProducts : public OAIObject {
 public:
@@ -43,33 +41,33 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIObject> getCalories() const;
-    void setCalories(const QList<OAIObject> &calories);
+    QList<OAIComparableProduct> getCalories() const;
+    void setCalories(const QList<OAIComparableProduct> &calories);
     bool is_calories_Set() const;
     bool is_calories_Valid() const;
 
-    QList<OAIObject> getLikes() const;
-    void setLikes(const QList<OAIObject> &likes);
+    QList<OAIComparableProduct> getLikes() const;
+    void setLikes(const QList<OAIComparableProduct> &likes);
     bool is_likes_Set() const;
     bool is_likes_Valid() const;
 
-    QList<OAIObject> getPrice() const;
-    void setPrice(const QList<OAIObject> &price);
+    QList<OAIComparableProduct> getPrice() const;
+    void setPrice(const QList<OAIComparableProduct> &price);
     bool is_price_Set() const;
     bool is_price_Valid() const;
 
-    QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> getProtein() const;
-    void setProtein(const QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> &protein);
+    QList<OAIComparableProduct> getProtein() const;
+    void setProtein(const QList<OAIComparableProduct> &protein);
     bool is_protein_Set() const;
     bool is_protein_Valid() const;
 
-    QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> getSpoonacularScore() const;
-    void setSpoonacularScore(const QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> &spoonacular_score);
+    QList<OAIComparableProduct> getSpoonacularScore() const;
+    void setSpoonacularScore(const QList<OAIComparableProduct> &spoonacular_score);
     bool is_spoonacular_score_Set() const;
     bool is_spoonacular_score_Valid() const;
 
-    QList<OAIObject> getSugar() const;
-    void setSugar(const QList<OAIObject> &sugar);
+    QList<OAIComparableProduct> getSugar() const;
+    void setSugar(const QList<OAIComparableProduct> &sugar);
     bool is_sugar_Set() const;
     bool is_sugar_Valid() const;
 
@@ -79,27 +77,27 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIObject> m_calories;
+    QList<OAIComparableProduct> m_calories;
     bool m_calories_isSet;
     bool m_calories_isValid;
 
-    QList<OAIObject> m_likes;
+    QList<OAIComparableProduct> m_likes;
     bool m_likes_isSet;
     bool m_likes_isValid;
 
-    QList<OAIObject> m_price;
+    QList<OAIComparableProduct> m_price;
     bool m_price_isSet;
     bool m_price_isValid;
 
-    QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> m_protein;
+    QList<OAIComparableProduct> m_protein;
     bool m_protein_isSet;
     bool m_protein_isValid;
 
-    QSet<OAIGetComparableProducts_200_response_comparableProducts_protein_inner> m_spoonacular_score;
+    QList<OAIComparableProduct> m_spoonacular_score;
     bool m_spoonacular_score_isSet;
     bool m_spoonacular_score_isValid;
 
-    QList<OAIObject> m_sugar;
+    QList<OAIComparableProduct> m_sugar;
     bool m_sugar_isSet;
     bool m_sugar_isValid;
 };

@@ -225,7 +225,7 @@ catch (ApiException e)
 
 <a id="addtoshoppinglist"></a>
 # **AddToShoppingList**
-> GenerateShoppingList200Response AddToShoppingList (string username, string hash, AddToShoppingListRequest addToShoppingListRequest)
+> GetShoppingList200Response AddToShoppingList (string username, string hash, AddToShoppingListRequest addToShoppingListRequest)
 
 Add to Shopping List
 
@@ -260,7 +260,7 @@ namespace Example
             try
             {
                 // Add to Shopping List
-                GenerateShoppingList200Response result = apiInstance.AddToShoppingList(username, hash, addToShoppingListRequest);
+                GetShoppingList200Response result = apiInstance.AddToShoppingList(username, hash, addToShoppingListRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -281,7 +281,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add to Shopping List
-    ApiResponse<GenerateShoppingList200Response> response = apiInstance.AddToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest);
+    ApiResponse<GetShoppingList200Response> response = apiInstance.AddToShoppingListWithHttpInfo(username, hash, addToShoppingListRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -304,7 +304,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -530,7 +530,7 @@ catch (ApiException e)
 
 <a id="deletefrommealplan"></a>
 # **DeleteFromMealPlan**
-> Object DeleteFromMealPlan (string username, decimal id, string hash)
+> Object DeleteFromMealPlan (string username, int id, string hash)
 
 Delete from Meal Plan
 
@@ -559,7 +559,7 @@ namespace Example
 
             var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 15678;  // decimal | The shopping list item id.
+            var id = 15678;  // int | The shopping list item id.
             var hash = "hash_example";  // string | The private hash for the username.
 
             try
@@ -604,7 +604,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **username** | **string** | The username. |  |
-| **id** | **decimal** | The shopping list item id. |  |
+| **id** | **int** | The shopping list item id. |  |
 | **hash** | **string** | The private hash for the username. |  |
 
 ### Return type
@@ -662,7 +662,7 @@ namespace Example
 
             var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 1;  // int | The item's id.
+            var id = 15678;  // int | The shopping list item id.
             var hash = "hash_example";  // string | The private hash for the username.
 
             try
@@ -707,7 +707,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **username** | **string** | The username. |  |
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The shopping list item id. |  |
 | **hash** | **string** | The private hash for the username. |  |
 
 ### Return type
@@ -765,7 +765,7 @@ namespace Example
 
             var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 1;  // int | The item's id.
+            var id = 15678;  // int | The shopping list item id.
             var hash = 4b5v4398573406;  // string | The private hash for the username.
 
             try
@@ -810,7 +810,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **username** | **string** | The username. |  |
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The shopping list item id. |  |
 | **hash** | **string** | The private hash for the username. |  |
 
 ### Return type
@@ -944,7 +944,7 @@ catch (ApiException e)
 
 <a id="generateshoppinglist"></a>
 # **GenerateShoppingList**
-> GenerateShoppingList200Response GenerateShoppingList (string username, string startDate, string endDate, string hash)
+> GetShoppingList200Response GenerateShoppingList (string username, string startDate, string endDate, string hash)
 
 Generate Shopping List
 
@@ -980,7 +980,7 @@ namespace Example
             try
             {
                 // Generate Shopping List
-                GenerateShoppingList200Response result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash);
+                GetShoppingList200Response result = apiInstance.GenerateShoppingList(username, startDate, endDate, hash);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1001,7 +1001,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Generate Shopping List
-    ApiResponse<GenerateShoppingList200Response> response = apiInstance.GenerateShoppingListWithHttpInfo(username, startDate, endDate, hash);
+    ApiResponse<GetShoppingList200Response> response = apiInstance.GenerateShoppingListWithHttpInfo(username, startDate, endDate, hash);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1025,7 +1025,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**GenerateShoppingList200Response**](GenerateShoppingList200Response.md)
+[**GetShoppingList200Response**](GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -1078,7 +1078,7 @@ namespace Example
 
             var apiInstance = new MealPlanningApi(config);
             var username = dsky;  // string | The username.
-            var id = 1;  // int | The item's id.
+            var id = 15678;  // int | The shopping list item id.
             var hash = "hash_example";  // string | The private hash for the username.
 
             try
@@ -1123,7 +1123,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **username** | **string** | The username. |  |
-| **id** | **int** | The item&#39;s id. |  |
+| **id** | **int** | The shopping list item id. |  |
 | **hash** | **string** | The private hash for the username. |  |
 
 ### Return type

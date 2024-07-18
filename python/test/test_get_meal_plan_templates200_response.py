@@ -37,7 +37,7 @@ class TestGetMealPlanTemplates200Response(unittest.TestCase):
         if include_optional:
             return GetMealPlanTemplates200Response(
                 templates = [
-                    spoonacular.models.get_analyzed_recipe_instructions_200_response_ingredients_inner.getAnalyzedRecipeInstructions_200_response_ingredients_inner(
+                    spoonacular.models.get_meal_plan_templates_200_response_templates_inner.getMealPlanTemplates_200_response_templates_inner(
                         id = 56, 
                         name = '0', )
                     ]
@@ -45,7 +45,7 @@ class TestGetMealPlanTemplates200Response(unittest.TestCase):
         else:
             return GetMealPlanTemplates200Response(
                 templates = [
-                    spoonacular.models.get_analyzed_recipe_instructions_200_response_ingredients_inner.getAnalyzedRecipeInstructions_200_response_ingredients_inner(
+                    spoonacular.models.get_meal_plan_templates_200_response_templates_inner.getMealPlanTemplates_200_response_templates_inner(
                         id = 56, 
                         name = '0', )
                     ],

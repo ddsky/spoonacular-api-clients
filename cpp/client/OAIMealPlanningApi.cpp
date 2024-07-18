@@ -538,7 +538,7 @@ void OAIMealPlanningApi::addToShoppingListCallback(OAIHttpRequestWorker *worker)
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIGenerateShoppingList_200_response output(QString(worker->response));
+    OAIGetShoppingList_200_response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -783,7 +783,7 @@ void OAIMealPlanningApi::connectUserCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIMealPlanningApi::deleteFromMealPlan(const QString &username, const double &id, const QString &hash) {
+void OAIMealPlanningApi::deleteFromMealPlan(const QString &username, const qint32 &id, const QString &hash) {
     QString fullPath = QString(_serverConfigs["deleteFromMealPlan"][_serverIndices.value("deleteFromMealPlan")].URL()+"/mealplanner/{username}/items/{id}");
     
     if (_apiKeys.contains("apiKeyScheme")) {
@@ -1391,7 +1391,7 @@ void OAIMealPlanningApi::generateShoppingListCallback(OAIHttpRequestWorker *work
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    OAIGenerateShoppingList_200_response output(QString(worker->response));
+    OAIGetShoppingList_200_response output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

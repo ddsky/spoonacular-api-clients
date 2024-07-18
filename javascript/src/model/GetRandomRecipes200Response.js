@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import GetRandomRecipes200ResponseRecipesInner from './GetRandomRecipes200ResponseRecipesInner';
+import RecipeInformation from './RecipeInformation';
 
 /**
  * The GetRandomRecipes200Response model module.
@@ -24,7 +24,7 @@ class GetRandomRecipes200Response {
      * Constructs a new <code>GetRandomRecipes200Response</code>.
      * 
      * @alias module:model/GetRandomRecipes200Response
-     * @param recipes {Array.<module:model/GetRandomRecipes200ResponseRecipesInner>} 
+     * @param recipes {Array.<module:model/RecipeInformation>} 
      */
     constructor(recipes) { 
         
@@ -52,7 +52,7 @@ class GetRandomRecipes200Response {
             obj = obj || new GetRandomRecipes200Response();
 
             if (data.hasOwnProperty('recipes')) {
-                obj['recipes'] = ApiClient.convertToType(data['recipes'], [GetRandomRecipes200ResponseRecipesInner]);
+                obj['recipes'] = ApiClient.convertToType(data['recipes'], [RecipeInformation]);
             }
         }
         return obj;
@@ -77,7 +77,7 @@ class GetRandomRecipes200Response {
             }
             // validate the optional field `recipes` (array)
             for (const item of data['recipes']) {
-                GetRandomRecipes200ResponseRecipesInner.validateJSON(item);
+                RecipeInformation.validateJSON(item);
             };
         }
 
@@ -90,7 +90,7 @@ class GetRandomRecipes200Response {
 GetRandomRecipes200Response.RequiredProperties = ["recipes"];
 
 /**
- * @member {Array.<module:model/GetRandomRecipes200ResponseRecipesInner>} recipes
+ * @member {Array.<module:model/RecipeInformation>} recipes
  */
 GetRandomRecipes200Response.prototype['recipes'] = undefined;
 

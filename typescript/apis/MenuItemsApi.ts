@@ -8,8 +8,8 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { AutocompleteMenuItemSearch200Response } from '../models/AutocompleteMenuItemSearch200Response';
-import { GetMenuItemInformation200Response } from '../models/GetMenuItemInformation200Response';
+import { AutocompleteProductSearch200Response } from '../models/AutocompleteProductSearch200Response';
+import { MenuItem } from '../models/MenuItem';
 import { SearchMenuItems200Response } from '../models/SearchMenuItems200Response';
 
 /**
@@ -69,7 +69,7 @@ export class MenuItemsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Use a menu item id to get all available information about a menu item, such as nutrition.
      * Get Menu Item Information
-     * @param id The item\&#39;s id.
+     * @param id The menu item id.
      */
     public async getMenuItemInformation(id: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -283,8 +283,13 @@ export class MenuItemsApiRequestFactory extends BaseAPIRequestFactory {
      * @param offset The number of results to skip (between 0 and 900).
      * @param number The maximum number of items to return (between 1 and 100). Defaults to 10.
      */
-    public async searchMenuItems(query?: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addMenuItemInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
+    public async searchMenuItems(query: string, minCalories?: number, maxCalories?: number, minCarbs?: number, maxCarbs?: number, minProtein?: number, maxProtein?: number, minFat?: number, maxFat?: number, addMenuItemInformation?: boolean, offset?: number, number?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'query' is not null or undefined
+        if (query === null || query === undefined) {
+            throw new RequiredError("MenuItemsApi", "searchMenuItems", "query");
+        }
 
 
 
@@ -384,7 +389,7 @@ export class MenuItemsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Visualize a menu item\'s nutritional information as HTML including CSS.
      * Menu Item Nutrition by ID Widget
-     * @param id The item\&#39;s id.
+     * @param id The menu item id.
      * @param defaultCss Whether the default CSS should be added to the response.
      */
     public async visualizeMenuItemNutritionByID(id: number, defaultCss?: boolean, _options?: Configuration): Promise<RequestContext> {
@@ -437,13 +442,13 @@ export class MenuItemsApiResponseProcessor {
      * @params response Response returned by the server for a request to autocompleteMenuItemSearch
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async autocompleteMenuItemSearchWithHttpInfo(response: ResponseContext): Promise<HttpInfo<AutocompleteMenuItemSearch200Response >> {
+     public async autocompleteMenuItemSearchWithHttpInfo(response: ResponseContext): Promise<HttpInfo<AutocompleteProductSearch200Response >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AutocompleteMenuItemSearch200Response = ObjectSerializer.deserialize(
+            const body: AutocompleteProductSearch200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AutocompleteMenuItemSearch200Response", ""
-            ) as AutocompleteMenuItemSearch200Response;
+                "AutocompleteProductSearch200Response", ""
+            ) as AutocompleteProductSearch200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -458,10 +463,10 @@ export class MenuItemsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AutocompleteMenuItemSearch200Response = ObjectSerializer.deserialize(
+            const body: AutocompleteProductSearch200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "AutocompleteMenuItemSearch200Response", ""
-            ) as AutocompleteMenuItemSearch200Response;
+                "AutocompleteProductSearch200Response", ""
+            ) as AutocompleteProductSearch200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -475,13 +480,13 @@ export class MenuItemsApiResponseProcessor {
      * @params response Response returned by the server for a request to getMenuItemInformation
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async getMenuItemInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<GetMenuItemInformation200Response >> {
+     public async getMenuItemInformationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MenuItem >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: GetMenuItemInformation200Response = ObjectSerializer.deserialize(
+            const body: MenuItem = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetMenuItemInformation200Response", ""
-            ) as GetMenuItemInformation200Response;
+                "MenuItem", ""
+            ) as MenuItem;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -496,10 +501,10 @@ export class MenuItemsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: GetMenuItemInformation200Response = ObjectSerializer.deserialize(
+            const body: MenuItem = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "GetMenuItemInformation200Response", ""
-            ) as GetMenuItemInformation200Response;
+                "MenuItem", ""
+            ) as MenuItem;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

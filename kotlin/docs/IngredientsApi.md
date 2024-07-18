@@ -48,7 +48,7 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | **number** | **kotlin.Int**| The maximum number of items to return (between 1 and 100). Defaults to 10. | [optional] [default to 10] |
 | **metaInformation** | **kotlin.Boolean**| Whether to return more meta information about the ingredients. | [optional] |
 | **intolerances** | **kotlin.String**| A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances. | [optional] |
@@ -87,9 +87,9 @@ Compute the amount you need of a certain ingredient for a certain nutritional go
 //import com.spoonacular.client.model.*
 
 val apiInstance = IngredientsApi()
-val id : java.math.BigDecimal = 9266 // java.math.BigDecimal | The id of the ingredient you want the amount for.
+val id : kotlin.Int = 9266 // kotlin.Int | The id of the ingredient you want the amount for.
 val nutrient : kotlin.String = protein // kotlin.String | The target nutrient. See a list of supported nutrients.
-val target : java.math.BigDecimal = 2 // java.math.BigDecimal | The target number of the given nutrient.
+val target : kotlin.Int = 2 // kotlin.Int | The target number of the given nutrient.
 val unit : kotlin.String = oz // kotlin.String | The target unit.
 try {
     val result : ComputeIngredientAmount200Response = apiInstance.computeIngredientAmount(id, nutrient, target, unit)
@@ -104,9 +104,9 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The id of the ingredient you want the amount for. | |
+| **id** | **kotlin.Int**| The id of the ingredient you want the amount for. | |
 | **nutrient** | **kotlin.String**| The target nutrient. See a list of supported nutrients. | |
-| **target** | **java.math.BigDecimal**| The target number of the given nutrient. | |
+| **target** | **kotlin.Int**| The target number of the given nutrient. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **unit** | **kotlin.String**| The target unit. | [optional] |
@@ -129,7 +129,7 @@ Configure apiKeyScheme:
 
 <a id="getIngredientInformation"></a>
 # **getIngredientInformation**
-> GetIngredientInformation200Response getIngredientInformation(id, amount, unit)
+> IngredientInformation getIngredientInformation(id, amount, unit)
 
 Get Ingredient Information
 
@@ -142,11 +142,11 @@ Use an ingredient id to get all available information about an ingredient, such 
 //import com.spoonacular.client.model.*
 
 val apiInstance = IngredientsApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 9266 // kotlin.Int | The ingredient id.
 val amount : java.math.BigDecimal = 150 // java.math.BigDecimal | The amount of this ingredient.
 val unit : kotlin.String = grams // kotlin.String | The unit for the given amount.
 try {
-    val result : GetIngredientInformation200Response = apiInstance.getIngredientInformation(id, amount, unit)
+    val result : IngredientInformation = apiInstance.getIngredientInformation(id, amount, unit)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling IngredientsApi#getIngredientInformation")
@@ -158,7 +158,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The ingredient id. | |
 | **amount** | **java.math.BigDecimal**| The amount of this ingredient. | [optional] |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -166,7 +166,7 @@ try {
 
 ### Return type
 
-[**GetIngredientInformation200Response**](GetIngredientInformation200Response.md)
+[**IngredientInformation**](IngredientInformation.md)
 
 ### Authorization
 
@@ -244,7 +244,7 @@ Search for substitutes for a given ingredient.
 //import com.spoonacular.client.model.*
 
 val apiInstance = IngredientsApi()
-val id : kotlin.Int = 1 // kotlin.Int | The item's id.
+val id : kotlin.Int = 1001 // kotlin.Int | The id of the ingredient you want substitutes for.
 try {
     val result : GetIngredientSubstitutes200Response = apiInstance.getIngredientSubstitutesByID(id)
     println(result)
@@ -260,7 +260,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **kotlin.Int**| The item&#39;s id. | |
+| **id** | **kotlin.Int**| The id of the ingredient you want substitutes for. | |
 
 ### Return type
 
@@ -321,7 +321,7 @@ try {
 ```
 
 ### Parameters
-| **query** | **kotlin.String**| The (natural language) search query. | [optional] |
+| **query** | **kotlin.String**| The (natural language) search query. | |
 | **addChildren** | **kotlin.Boolean**| Whether to add children of found foods. | [optional] |
 | **minProteinPercent** | **java.math.BigDecimal**| The minimum percentage of protein the food must have (between 0 and 100). | [optional] |
 | **maxProteinPercent** | **java.math.BigDecimal**| The maximum percentage of protein the food can have (between 0 and 100). | [optional] |
@@ -370,7 +370,7 @@ Visualize a recipe&#39;s ingredient list.
 //import com.spoonacular.client.model.*
 
 val apiInstance = IngredientsApi()
-val id : java.math.BigDecimal = 1082038 // java.math.BigDecimal | The recipe id.
+val id : kotlin.Int = 1082038 // kotlin.Int | The recipe id.
 val measure : kotlin.String = metric // kotlin.String | Whether the the measures should be 'us' or 'metric'.
 try {
     val result : java.io.File = apiInstance.ingredientsByIDImage(id, measure)
@@ -385,7 +385,7 @@ try {
 ```
 
 ### Parameters
-| **id** | **java.math.BigDecimal**| The recipe id. | |
+| **id** | **kotlin.Int**| The recipe id. | |
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **measure** | **kotlin.String**| Whether the the measures should be &#39;us&#39; or &#39;metric&#39;. | [optional] [enum: us, metric] |

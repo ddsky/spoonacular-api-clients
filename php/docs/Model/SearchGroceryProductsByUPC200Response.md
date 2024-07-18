@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **image_type** | **string** |  |
 **ingredient_count** | **int** |  | [optional]
 **ingredient_list** | **string** |  |
-**ingredients** | [**\OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseIngredientsInner[]**](SearchGroceryProductsByUPC200ResponseIngredientsInner.md) |  |
+**ingredients** | [**\OpenAPI\Client\Model\IngredientBasics[]**](IngredientBasics.md) |  |
 **likes** | **float** |  |
 **nutrition** | [**\OpenAPI\Client\Model\SearchGroceryProductsByUPC200ResponseNutrition**](SearchGroceryProductsByUPC200ResponseNutrition.md) |  |
 **price** | **float** |  |

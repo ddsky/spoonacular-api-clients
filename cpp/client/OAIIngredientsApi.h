@@ -20,9 +20,9 @@
 
 #include "OAIAutocompleteIngredientSearch_200_response_inner.h"
 #include "OAIComputeIngredientAmount_200_response.h"
-#include "OAIGetIngredientInformation_200_response.h"
 #include "OAIGetIngredientSubstitutes_200_response.h"
 #include "OAIHttpFileElement.h"
+#include "OAIIngredientInformation.h"
 #include "OAIIngredientSearch_200_response.h"
 #include "OAIMapIngredientsToGroceryProducts_200_response_inner.h"
 #include "OAIMapIngredientsToGroceryProducts_request.h"
@@ -66,21 +66,21 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
-    * @param[in]  query QString [optional]
+    * @param[in]  query QString [required]
     * @param[in]  number qint32 [optional]
     * @param[in]  meta_information bool [optional]
     * @param[in]  intolerances QString [optional]
     * @param[in]  language QString [optional]
     */
-    void autocompleteIngredientSearch(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<bool> &meta_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &intolerances = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
+    void autocompleteIngredientSearch(const QString &query, const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<bool> &meta_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &intolerances = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  nutrient QString [required]
-    * @param[in]  target double [required]
+    * @param[in]  target qint32 [required]
     * @param[in]  unit QString [optional]
     */
-    void computeIngredientAmount(const double &id, const QString &nutrient, const double &target, const ::OpenAPI::OptionalParam<QString> &unit = ::OpenAPI::OptionalParam<QString>());
+    void computeIngredientAmount(const qint32 &id, const QString &nutrient, const qint32 &target, const ::OpenAPI::OptionalParam<QString> &unit = ::OpenAPI::OptionalParam<QString>());
 
     /**
     * @param[in]  id qint32 [required]
@@ -100,7 +100,7 @@ public:
     void getIngredientSubstitutesByID(const qint32 &id);
 
     /**
-    * @param[in]  query QString [optional]
+    * @param[in]  query QString [required]
     * @param[in]  add_children bool [optional]
     * @param[in]  min_protein_percent double [optional]
     * @param[in]  max_protein_percent double [optional]
@@ -116,13 +116,13 @@ public:
     * @param[in]  number qint32 [optional]
     * @param[in]  language QString [optional]
     */
-    void ingredientSearch(const ::OpenAPI::OptionalParam<QString> &query = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &add_children = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<double> &min_protein_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_carbs_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &meta_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &intolerances = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &sort = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &sort_direction = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
+    void ingredientSearch(const QString &query, const ::OpenAPI::OptionalParam<bool> &add_children = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<double> &min_protein_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_protein_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_fat_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_fat_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &min_carbs_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<double> &max_carbs_percent = ::OpenAPI::OptionalParam<double>(), const ::OpenAPI::OptionalParam<bool> &meta_information = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<QString> &intolerances = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &sort = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &sort_direction = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<qint32> &offset = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<qint32> &number = ::OpenAPI::OptionalParam<qint32>(), const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  measure QString [optional]
     */
-    void ingredientsByIDImage(const double &id, const ::OpenAPI::OptionalParam<QString> &measure = ::OpenAPI::OptionalParam<QString>());
+    void ingredientsByIDImage(const qint32 &id, const ::OpenAPI::OptionalParam<QString> &measure = ::OpenAPI::OptionalParam<QString>());
 
     /**
     * @param[in]  oai_map_ingredients_to_grocery_products_request OAIMapIngredientsToGroceryProducts_request [required]
@@ -177,7 +177,7 @@ Q_SIGNALS:
 
     void autocompleteIngredientSearchSignal(QSet<OAIAutocompleteIngredientSearch_200_response_inner> summary);
     void computeIngredientAmountSignal(OAIComputeIngredientAmount_200_response summary);
-    void getIngredientInformationSignal(OAIGetIngredientInformation_200_response summary);
+    void getIngredientInformationSignal(OAIIngredientInformation summary);
     void getIngredientSubstitutesSignal(OAIGetIngredientSubstitutes_200_response summary);
     void getIngredientSubstitutesByIDSignal(OAIGetIngredientSubstitutes_200_response summary);
     void ingredientSearchSignal(OAIIngredientSearch_200_response summary);
@@ -187,7 +187,7 @@ Q_SIGNALS:
 
     void autocompleteIngredientSearchSignalFull(OAIHttpRequestWorker *worker, QSet<OAIAutocompleteIngredientSearch_200_response_inner> summary);
     void computeIngredientAmountSignalFull(OAIHttpRequestWorker *worker, OAIComputeIngredientAmount_200_response summary);
-    void getIngredientInformationSignalFull(OAIHttpRequestWorker *worker, OAIGetIngredientInformation_200_response summary);
+    void getIngredientInformationSignalFull(OAIHttpRequestWorker *worker, OAIIngredientInformation summary);
     void getIngredientSubstitutesSignalFull(OAIHttpRequestWorker *worker, OAIGetIngredientSubstitutes_200_response summary);
     void getIngredientSubstitutesByIDSignalFull(OAIHttpRequestWorker *worker, OAIGetIngredientSubstitutes_200_response summary);
     void ingredientSearchSignalFull(OAIHttpRequestWorker *worker, OAIIngredientSearch_200_response summary);
@@ -202,8 +202,8 @@ Q_SIGNALS:
     void computeIngredientAmountSignalE(OAIComputeIngredientAmount_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void computeIngredientAmountSignalError(OAIComputeIngredientAmount_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getIngredientInformationSignalError() instead")
-    void getIngredientInformationSignalE(OAIGetIngredientInformation_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getIngredientInformationSignalError(OAIGetIngredientInformation_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);
+    void getIngredientInformationSignalE(OAIIngredientInformation summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getIngredientInformationSignalError(OAIIngredientInformation summary, QNetworkReply::NetworkError error_type, const QString &error_str);
     Q_DECL_DEPRECATED_X("Use getIngredientSubstitutesSignalError() instead")
     void getIngredientSubstitutesSignalE(OAIGetIngredientSubstitutes_200_response summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getIngredientSubstitutesSignalError(OAIGetIngredientSubstitutes_200_response summary, QNetworkReply::NetworkError error_type, const QString &error_str);

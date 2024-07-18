@@ -16,7 +16,7 @@ void main() {
   // final instance = GetMealPlanTemplates200Response();
 
   group('test GetMealPlanTemplates200Response', () {
-    // Set<GetAnalyzedRecipeInstructions200ResponseIngredientsInner> templates (default value: const {})
+    // Set<GetMealPlanTemplates200ResponseTemplatesInner> templates (default value: const {})
     test('to test the property `templates`', () async {
       // TODO
     });

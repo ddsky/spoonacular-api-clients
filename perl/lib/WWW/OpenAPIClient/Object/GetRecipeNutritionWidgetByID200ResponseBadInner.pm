@@ -219,9 +219,9 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'name' => {
+    'title' => {
         datatype => 'string',
-        base_name => 'name',
+        base_name => 'title',
         description => '',
         format => '',
         read_only => '',
@@ -250,14 +250,14 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'name' => 'string',
+    'title' => 'string',
     'amount' => 'string',
     'indented' => 'boolean',
     'percent_of_daily_needs' => 'double'
 } );
 
 __PACKAGE__->attribute_map( {
-    'name' => 'name',
+    'title' => 'title',
     'amount' => 'amount',
     'indented' => 'indented',
     'percent_of_daily_needs' => 'percentOfDailyNeeds'

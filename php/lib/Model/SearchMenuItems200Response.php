@@ -59,7 +59,7 @@ class SearchMenuItems200Response implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'menu_items' => '\OpenAPI\Client\Model\SearchMenuItems200ResponseMenuItemsInner[]',
+        'menu_items' => '\OpenAPI\Client\Model\MenuItem[]',
         'total_menu_items' => 'int',
         'type' => 'string',
         'offset' => 'int',
@@ -345,7 +345,7 @@ class SearchMenuItems200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets menu_items
      *
-     * @return \OpenAPI\Client\Model\SearchMenuItems200ResponseMenuItemsInner[]
+     * @return \OpenAPI\Client\Model\MenuItem[]
      */
     public function getMenuItems()
     {
@@ -355,7 +355,7 @@ class SearchMenuItems200Response implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets menu_items
      *
-     * @param \OpenAPI\Client\Model\SearchMenuItems200ResponseMenuItemsInner[] $menu_items menu_items
+     * @param \OpenAPI\Client\Model\MenuItem[] $menu_items menu_items
      *
      * @return self
      */

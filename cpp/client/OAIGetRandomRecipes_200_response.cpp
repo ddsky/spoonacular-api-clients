@@ -66,10 +66,10 @@ QJsonObject OAIGetRandomRecipes_200_response::asJsonObject() const {
     return obj;
 }
 
-QSet<OAIGetRandomRecipes_200_response_recipes_inner> OAIGetRandomRecipes_200_response::getRecipes() const {
+QSet<OAIRecipeInformation> OAIGetRandomRecipes_200_response::getRecipes() const {
     return m_recipes;
 }
-void OAIGetRandomRecipes_200_response::setRecipes(const QSet<OAIGetRandomRecipes_200_response_recipes_inner> &recipes) {
+void OAIGetRandomRecipes_200_response::setRecipes(const QSet<OAIRecipeInformation> &recipes) {
     m_recipes = recipes;
     m_recipes_isSet = true;
 }

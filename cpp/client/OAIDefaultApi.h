@@ -68,13 +68,13 @@ public:
     void analyzeRecipe(const OAIAnalyzeRecipe_request &oai_analyze_recipe_request, const ::OpenAPI::OptionalParam<QString> &language = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<bool> &include_nutrition = ::OpenAPI::OptionalParam<bool>(), const ::OpenAPI::OptionalParam<bool> &include_taste = ::OpenAPI::OptionalParam<bool>());
 
     /**
-    * @param[in]  id double [required]
+    * @param[in]  id qint32 [required]
     * @param[in]  mask QString [optional]
     * @param[in]  background_image QString [optional]
     * @param[in]  background_color QString [optional]
     * @param[in]  font_color QString [optional]
     */
-    void createRecipeCardGet(const double &id, const ::OpenAPI::OptionalParam<QString> &mask = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &background_image = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &background_color = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &font_color = ::OpenAPI::OptionalParam<QString>());
+    void createRecipeCardGet(const qint32 &id, const ::OpenAPI::OptionalParam<QString> &mask = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &background_image = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &background_color = ::OpenAPI::OptionalParam<QString>(), const ::OpenAPI::OptionalParam<QString> &font_color = ::OpenAPI::OptionalParam<QString>());
 
     /**
     * @param[in]  query QString [optional]

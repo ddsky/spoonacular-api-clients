@@ -43,7 +43,7 @@ namespace spoonacular.Model
         /// <param name="name">name (required).</param>
         /// <param name="totalResults">totalResults (required).</param>
         /// <param name="results">results.</param>
-        public SearchAllFood200ResponseSearchResultsInner(string name = default(string), int totalResults = default(int), List<SearchAllFood200ResponseSearchResultsInnerResultsInner> results = default(List<SearchAllFood200ResponseSearchResultsInnerResultsInner>))
+        public SearchAllFood200ResponseSearchResultsInner(string name = default(string), int totalResults = default(int), List<SearchResult> results = default(List<SearchResult>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -71,7 +71,7 @@ namespace spoonacular.Model
         /// Gets or Sets Results
         /// </summary>
         [DataMember(Name = "results", EmitDefaultValue = false)]
-        public List<SearchAllFood200ResponseSearchResultsInnerResultsInner> Results { get; set; }
+        public List<SearchResult> Results { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -123,7 +123,7 @@ Find comparable products to the given one.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**upc** | **f64** | The UPC of the product for which you want to find comparable products. | [required] |
+**upc** | **String** | The UPC of the product for which you want to find comparable products. | [required] |
 
 ### Return type
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_product_information
 
-> models::GetProductInformation200Response get_product_information(id)
+> models::ProductInformation get_product_information(id)
 Get Product Information
 
 Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
@@ -153,11 +153,11 @@ Use a product id to get full information about a product, such as ingredients, n
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The id of the packaged food. | [required] |
 
 ### Return type
 
-[**models::GetProductInformation200Response**](getProductInformation_200_response.md)
+[**models::ProductInformation**](ProductInformation.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ Visualize a product's nutritional information as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The id of the product. | [required] |
+**id** | **i32** | The id of the product. | [required] |
 
 ### Return type
 
@@ -213,7 +213,7 @@ Get a product's nutrition label as an image.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The product id. | [required] |
+**id** | **i32** | The product id. | [required] |
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
 **show_ingredients** | Option<**bool**> | Whether to show a list of ingredients. |  |
@@ -246,7 +246,7 @@ Get a product's nutrition label as an HTML widget.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **f64** | The product id. | [required] |
+**id** | **i32** | The product id. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 **show_optional_nutrients** | Option<**bool**> | Whether to show optional nutrients. |  |
 **show_zero_values** | Option<**bool**> | Whether to show zero values. |  |
@@ -280,7 +280,7 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**query** | Option<**String**> | The (natural language) search query. |  |
+**query** | **String** | The (natural language) search query. | [required] |
 **min_calories** | Option<**f64**> | The minimum amount of calories the product must have. |  |
 **max_calories** | Option<**f64**> | The maximum amount of calories the product can have. |  |
 **min_carbs** | Option<**f64**> | The minimum amount of carbohydrates in grams the product must have. |  |
@@ -321,7 +321,7 @@ Get information about a packaged food using its UPC.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**upc** | **f64** | The product's UPC. | [required] |
+**upc** | **String** | The product's UPC. | [required] |
 
 ### Return type
 
@@ -351,7 +351,7 @@ Visualize a product's nutritional information as HTML including CSS.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**id** | **i32** | The item's id. | [required] |
+**id** | **i32** | The id of the product. | [required] |
 **default_css** | Option<**bool**> | Whether the default CSS should be added to the response. |  |[default to true]
 
 ### Return type

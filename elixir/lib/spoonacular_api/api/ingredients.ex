@@ -16,8 +16,8 @@ defmodule SpoonacularAPI.Api.Ingredients do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `query` (String.t): The (natural language) search query.
   - `opts` (keyword): Optional parameters
-    - `:query` (String.t): The (natural language) search query.
     - `:number` (integer()): The maximum number of items to return (between 1 and 100). Defaults to 10.
     - `:metaInformation` (boolean()): Whether to return more meta information about the ingredients.
     - `:intolerances` (String.t): A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.
@@ -28,10 +28,9 @@ defmodule SpoonacularAPI.Api.Ingredients do
   - `{:ok, [%AutocompleteIngredientSearch200ResponseInner{}, ...]}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec autocomplete_ingredient_search(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, [SpoonacularAPI.Model.AutocompleteIngredientSearch200ResponseInner.t]} | {:error, Tesla.Env.t}
-  def autocomplete_ingredient_search(connection, opts \\ []) do
+  @spec autocomplete_ingredient_search(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, [SpoonacularAPI.Model.AutocompleteIngredientSearch200ResponseInner.t]} | {:error, Tesla.Env.t}
+  def autocomplete_ingredient_search(connection, query, opts \\ []) do
     optional_params = %{
-      :query => :query,
       :number => :query,
       :metaInformation => :query,
       :intolerances => :query,
@@ -42,6 +41,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
       %{}
       |> method(:get)
       |> url("/food/ingredients/autocomplete")
+      |> add_param(:query, :query, query)
       |> add_optional_params(optional_params, opts)
       |> Enum.into([])
 
@@ -62,9 +62,9 @@ defmodule SpoonacularAPI.Api.Ingredients do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (float()): The id of the ingredient you want the amount for.
+  - `id` (integer()): The id of the ingredient you want the amount for.
   - `nutrient` (String.t): The target nutrient. See a list of supported nutrients.
-  - `target` (float()): The target number of the given nutrient.
+  - `target` (integer()): The target number of the given nutrient.
   - `opts` (keyword): Optional parameters
     - `:unit` (String.t): The target unit.
 
@@ -73,7 +73,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
   - `{:ok, SpoonacularAPI.Model.ComputeIngredientAmount200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec compute_ingredient_amount(Tesla.Env.client, float(), String.t, float(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.ComputeIngredientAmount200Response.t} | {:error, Tesla.Env.t}
+  @spec compute_ingredient_amount(Tesla.Env.client, integer(), String.t, integer(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.ComputeIngredientAmount200Response.t} | {:error, Tesla.Env.t}
   def compute_ingredient_amount(connection, id, nutrient, target, opts \\ []) do
     optional_params = %{
       :unit => :query
@@ -105,17 +105,17 @@ defmodule SpoonacularAPI.Api.Ingredients do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (integer()): The item's id.
+  - `id` (integer()): The ingredient id.
   - `opts` (keyword): Optional parameters
     - `:amount` (float()): The amount of this ingredient.
     - `:unit` (String.t): The unit for the given amount.
 
   ### Returns
 
-  - `{:ok, SpoonacularAPI.Model.GetIngredientInformation200Response.t}` on success
+  - `{:ok, SpoonacularAPI.Model.IngredientInformation.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec get_ingredient_information(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.GetIngredientInformation200Response.t} | {:error, Tesla.Env.t}
+  @spec get_ingredient_information(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.IngredientInformation.t} | {:error, Tesla.Env.t}
   def get_ingredient_information(connection, id, opts \\ []) do
     optional_params = %{
       :amount => :query,
@@ -132,7 +132,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
     connection
     |> Connection.request(request)
     |> evaluate_response([
-      {200, SpoonacularAPI.Model.GetIngredientInformation200Response},
+      {200, SpoonacularAPI.Model.IngredientInformation},
       {401, false},
       {403, false},
       {404, false}
@@ -180,7 +180,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (integer()): The item's id.
+  - `id` (integer()): The id of the ingredient you want substitutes for.
   - `opts` (keyword): Optional parameters
 
   ### Returns
@@ -213,8 +213,8 @@ defmodule SpoonacularAPI.Api.Ingredients do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
+  - `query` (String.t): The (natural language) search query.
   - `opts` (keyword): Optional parameters
-    - `:query` (String.t): The (natural language) search query.
     - `:addChildren` (boolean()): Whether to add children of found foods.
     - `:minProteinPercent` (float()): The minimum percentage of protein the food must have (between 0 and 100).
     - `:maxProteinPercent` (float()): The maximum percentage of protein the food can have (between 0 and 100).
@@ -235,10 +235,9 @@ defmodule SpoonacularAPI.Api.Ingredients do
   - `{:ok, SpoonacularAPI.Model.IngredientSearch200Response.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec ingredient_search(Tesla.Env.client, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.IngredientSearch200Response.t} | {:error, Tesla.Env.t}
-  def ingredient_search(connection, opts \\ []) do
+  @spec ingredient_search(Tesla.Env.client, String.t, keyword()) :: {:ok, nil} | {:ok, SpoonacularAPI.Model.IngredientSearch200Response.t} | {:error, Tesla.Env.t}
+  def ingredient_search(connection, query, opts \\ []) do
     optional_params = %{
-      :query => :query,
       :addChildren => :query,
       :minProteinPercent => :query,
       :maxProteinPercent => :query,
@@ -259,6 +258,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
       %{}
       |> method(:get)
       |> url("/food/ingredients/search")
+      |> add_param(:query, :query, query)
       |> add_optional_params(optional_params, opts)
       |> Enum.into([])
 
@@ -279,7 +279,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
   ### Parameters
 
   - `connection` (SpoonacularAPI.Connection): Connection to server
-  - `id` (float()): The recipe id.
+  - `id` (integer()): The recipe id.
   - `opts` (keyword): Optional parameters
     - `:measure` (String.t): Whether the the measures should be 'us' or 'metric'.
 
@@ -288,7 +288,7 @@ defmodule SpoonacularAPI.Api.Ingredients do
   - `{:ok, String.t}` on success
   - `{:error, Tesla.Env.t}` on failure
   """
-  @spec ingredients_by_id_image(Tesla.Env.client, float(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
+  @spec ingredients_by_id_image(Tesla.Env.client, integer(), keyword()) :: {:ok, nil} | {:ok, String.t} | {:error, Tesla.Env.t}
   def ingredients_by_id_image(connection, id, opts \\ []) do
     optional_params = %{
       :measure => :query

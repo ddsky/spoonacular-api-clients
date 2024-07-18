@@ -153,7 +153,7 @@ try {
 ## `addToShoppingList()`
 
 ```php
-addToShoppingList($username, $hash, $add_to_shopping_list_request): \OpenAPI\Client\Model\GenerateShoppingList200Response
+addToShoppingList($username, $hash, $add_to_shopping_list_request): \OpenAPI\Client\Model\GetShoppingList200Response
 ```
 
 Add to Shopping List
@@ -201,7 +201,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
+[**\OpenAPI\Client\Model\GetShoppingList200Response**](../Model/GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     $config
 );
 $username = dsky; // string | The username.
-$id = 15678; // float | The shopping list item id.
+$id = 15678; // int | The shopping list item id.
 $hash = 'hash_example'; // string | The private hash for the username.
 
 try {
@@ -390,7 +390,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **username** | **string**| The username. | |
-| **id** | **float**| The shopping list item id. | |
+| **id** | **int**| The shopping list item id. | |
 | **hash** | **string**| The private hash for the username. | |
 
 ### Return type
@@ -440,7 +440,7 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     $config
 );
 $username = dsky; // string | The username.
-$id = 1; // int | The item's id.
+$id = 15678; // int | The shopping list item id.
 $hash = 'hash_example'; // string | The private hash for the username.
 
 try {
@@ -456,7 +456,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **username** | **string**| The username. | |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The shopping list item id. | |
 | **hash** | **string**| The private hash for the username. | |
 
 ### Return type
@@ -506,7 +506,7 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     $config
 );
 $username = dsky; // string | The username.
-$id = 1; // int | The item's id.
+$id = 15678; // int | The shopping list item id.
 $hash = 4b5v4398573406; // string | The private hash for the username.
 
 try {
@@ -522,7 +522,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **username** | **string**| The username. | |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The shopping list item id. | |
 | **hash** | **string**| The private hash for the username. | |
 
 ### Return type
@@ -613,7 +613,7 @@ try {
 ## `generateShoppingList()`
 
 ```php
-generateShoppingList($username, $start_date, $end_date, $hash): \OpenAPI\Client\Model\GenerateShoppingList200Response
+generateShoppingList($username, $start_date, $end_date, $hash): \OpenAPI\Client\Model\GetShoppingList200Response
 ```
 
 Generate Shopping List
@@ -663,7 +663,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GenerateShoppingList200Response**](../Model/GenerateShoppingList200Response.md)
+[**\OpenAPI\Client\Model\GetShoppingList200Response**](../Model/GetShoppingList200Response.md)
 
 ### Authorization
 
@@ -708,7 +708,7 @@ $apiInstance = new OpenAPI\Client\Api\MealPlanningApi(
     $config
 );
 $username = dsky; // string | The username.
-$id = 1; // int | The item's id.
+$id = 15678; // int | The shopping list item id.
 $hash = 'hash_example'; // string | The private hash for the username.
 
 try {
@@ -724,7 +724,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **username** | **string**| The username. | |
-| **id** | **int**| The item&#39;s id. | |
+| **id** | **int**| The shopping list item id. | |
 | **hash** | **string**| The private hash for the username. | |
 
 ### Return type

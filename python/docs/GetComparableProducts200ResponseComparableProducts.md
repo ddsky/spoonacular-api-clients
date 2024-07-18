@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**calories** | **List[object]** |  | 
-**likes** | **List[object]** |  | 
-**price** | **List[object]** |  | 
-**protein** | [**List[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**spoonacular_score** | [**List[GetComparableProducts200ResponseComparableProductsProteinInner]**](GetComparableProducts200ResponseComparableProductsProteinInner.md) |  | 
-**sugar** | **List[object]** |  | 
+**calories** | [**List[ComparableProduct]**](ComparableProduct.md) |  | 
+**likes** | [**List[ComparableProduct]**](ComparableProduct.md) |  | 
+**price** | [**List[ComparableProduct]**](ComparableProduct.md) |  | 
+**protein** | [**List[ComparableProduct]**](ComparableProduct.md) |  | 
+**spoonacular_score** | [**List[ComparableProduct]**](ComparableProduct.md) |  | 
+**sugar** | [**List[ComparableProduct]**](ComparableProduct.md) |  | 
 
 ## Example
 

@@ -120,17 +120,14 @@ instance Produces AnalyzeRecipeInstructions MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 autocompleteRecipeSearch
-  :: SpoonacularRequest AutocompleteRecipeSearch MimeNoContent [AutocompleteRecipeSearch200ResponseInner] MimeJSON
-autocompleteRecipeSearch =
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> SpoonacularRequest AutocompleteRecipeSearch MimeNoContent [AutocompleteRecipeSearch200ResponseInner] MimeJSON
+autocompleteRecipeSearch (Query query) =
   _mkRequest "GET" ["/recipes/autocomplete"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
 
 data AutocompleteRecipeSearch  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam AutocompleteRecipeSearch Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "number" - The maximum number of items to return (between 1 and 100). Defaults to 10.
 instance HasOptionalParam AutocompleteRecipeSearch Number where
@@ -319,9 +316,9 @@ instance Produces CreateRecipeCard MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 equipmentByIDImage
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest EquipmentByIDImage MimeNoContent FilePath MimeImagePng
-equipmentByIDImage (IdDouble id) =
+equipmentByIDImage (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/equipmentWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -342,7 +339,7 @@ instance Produces EquipmentByIDImage MimeImagePng
 -- 
 extractRecipeFromWebsite
   :: Url -- ^ "url" -  The URL of the recipe page.
-  -> SpoonacularRequest ExtractRecipeFromWebsite MimeNoContent GetRecipeInformation200Response MimeJSON
+  -> SpoonacularRequest ExtractRecipeFromWebsite MimeNoContent RecipeInformation MimeJSON
 extractRecipeFromWebsite (Url url) =
   _mkRequest "GET" ["/recipes/extract"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -384,8 +381,8 @@ instance Produces ExtractRecipeFromWebsite MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getAnalyzedRecipeInstructions
-  :: Id -- ^ "id" -  The item's id.
-  -> SpoonacularRequest GetAnalyzedRecipeInstructions MimeNoContent GetAnalyzedRecipeInstructions200Response MimeJSON
+  :: Id -- ^ "id" -  The recipe id.
+  -> SpoonacularRequest GetAnalyzedRecipeInstructions MimeNoContent [GetAnalyzedRecipeInstructions200ResponseInner] MimeJSON
 getAnalyzedRecipeInstructions (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/analyzedInstructions"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -452,7 +449,7 @@ instance Produces GetRandomRecipes MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRecipeEquipmentByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipeEquipmentByID MimeNoContent GetRecipeEquipmentByID200Response MimeJSON
 getRecipeEquipmentByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/equipmentWidget.json"]
@@ -474,8 +471,8 @@ instance Produces GetRecipeEquipmentByID MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRecipeInformation
-  :: Id -- ^ "id" -  The item's id.
-  -> SpoonacularRequest GetRecipeInformation MimeNoContent GetRecipeInformation200Response MimeJSON
+  :: Id -- ^ "id" -  The id of the recipe.
+  -> SpoonacularRequest GetRecipeInformation MimeNoContent RecipeInformation MimeJSON
 getRecipeInformation (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/information"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -486,6 +483,16 @@ data GetRecipeInformation
 instance HasOptionalParam GetRecipeInformation IncludeNutrition where
   applyOptionalParam req (IncludeNutrition xs) =
     req `addQuery` toQuery ("includeNutrition", Just xs)
+
+-- | /Optional Param/ "addWinePairing" - Add a wine pairing to the recipe.
+instance HasOptionalParam GetRecipeInformation AddWinePairing where
+  applyOptionalParam req (AddWinePairing xs) =
+    req `addQuery` toQuery ("addWinePairing", Just xs)
+
+-- | /Optional Param/ "addTasteData" - Add taste data to the recipe.
+instance HasOptionalParam GetRecipeInformation AddTasteData where
+  applyOptionalParam req (AddTasteData xs) =
+    req `addQuery` toQuery ("addTasteData", Just xs)
 -- | @application/json@
 instance Produces GetRecipeInformation MimeJSON
 
@@ -502,7 +509,7 @@ instance Produces GetRecipeInformation MimeJSON
 -- 
 getRecipeInformationBulk
   :: Ids -- ^ "ids" -  A comma-separated list of recipe ids.
-  -> SpoonacularRequest GetRecipeInformationBulk MimeNoContent [GetRecipeInformationBulk200ResponseInner] MimeJSON
+  -> SpoonacularRequest GetRecipeInformationBulk MimeNoContent [RecipeInformation] MimeJSON
 getRecipeInformationBulk (Ids ids) =
   _mkRequest "GET" ["/recipes/informationBulk"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -529,7 +536,7 @@ instance Produces GetRecipeInformationBulk MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRecipeIngredientsByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipeIngredientsByID MimeNoContent GetRecipeIngredientsByID200Response MimeJSON
 getRecipeIngredientsByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/ingredientWidget.json"]
@@ -551,7 +558,7 @@ instance Produces GetRecipeIngredientsByID MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRecipeNutritionWidgetByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipeNutritionWidgetByID MimeNoContent GetRecipeNutritionWidgetByID200Response MimeJSON
 getRecipeNutritionWidgetByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionWidget.json"]
@@ -573,7 +580,7 @@ instance Produces GetRecipeNutritionWidgetByID MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRecipePriceBreakdownByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest GetRecipePriceBreakdownByID MimeNoContent GetRecipePriceBreakdownByID200Response MimeJSON
 getRecipePriceBreakdownByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/priceBreakdownWidget.json"]
@@ -595,8 +602,8 @@ instance Produces GetRecipePriceBreakdownByID MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getRecipeTasteByID
-  :: Id -- ^ "id" -  The item's id.
-  -> SpoonacularRequest GetRecipeTasteByID MimeNoContent GetRecipeTasteByID200Response MimeJSON
+  :: Id -- ^ "id" -  The recipe id.
+  -> SpoonacularRequest GetRecipeTasteByID MimeNoContent TasteInformation MimeJSON
 getRecipeTasteByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget.json"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -622,7 +629,7 @@ instance Produces GetRecipeTasteByID MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 getSimilarRecipes
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The id of the source recipe for which similar recipes should be found.
   -> SpoonacularRequest GetSimilarRecipes MimeNoContent [GetSimilarRecipes200ResponseInner] MimeJSON
 getSimilarRecipes (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/similar"]
@@ -675,7 +682,7 @@ parseIngredients
   :: (Consumes ParseIngredients MimeFormUrlEncoded)
   => IngredientList -- ^ "ingredientList" -  The ingredient list of the recipe, one ingredient per line.
   -> Servings -- ^ "servings" -  The number of servings that you can make from the ingredients.
-  -> SpoonacularRequest ParseIngredients MimeFormUrlEncoded [ParseIngredients200ResponseInner] MimeJSON
+  -> SpoonacularRequest ParseIngredients MimeFormUrlEncoded [IngredientInformation] MimeJSON
 parseIngredients (IngredientList ingredientList) (Servings servings) =
   _mkRequest "POST" ["/recipes/parseIngredients"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
@@ -683,6 +690,8 @@ parseIngredients (IngredientList ingredientList) (Servings servings) =
     `addForm` toForm ("servings", servings)
 
 data ParseIngredients  
+
+-- | /Optional Param/ "includeNutrition" - Whether nutrition data should be added to correctly parsed ingredients.
 instance HasOptionalParam ParseIngredients IncludeNutrition where
   applyOptionalParam req (IncludeNutrition xs) =
     req `addForm` toForm ("includeNutrition", xs)
@@ -710,9 +719,9 @@ instance Produces ParseIngredients MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 priceBreakdownByIDImage
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest PriceBreakdownByIDImage MimeNoContent FilePath MimeImagePng
-priceBreakdownByIDImage (IdDouble id) =
+priceBreakdownByIDImage (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/priceBreakdownWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -755,9 +764,9 @@ instance Produces QuickAnswer MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 recipeNutritionByIDImage
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest RecipeNutritionByIDImage MimeNoContent FilePath MimeImagePng
-recipeNutritionByIDImage (IdDouble id) =
+recipeNutritionByIDImage (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -777,9 +786,9 @@ instance Produces RecipeNutritionByIDImage MimeImagePng
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 recipeNutritionLabelImage
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest RecipeNutritionLabelImage MimeNoContent FilePath MimeImagePng
-recipeNutritionLabelImage (IdDouble id) =
+recipeNutritionLabelImage (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionLabel.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -814,9 +823,9 @@ instance Produces RecipeNutritionLabelImage MimeImagePng
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 recipeNutritionLabelWidget
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest RecipeNutritionLabelWidget MimeNoContent Text MimeTextHtml
-recipeNutritionLabelWidget (IdDouble id) =
+recipeNutritionLabelWidget (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionLabel"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -856,9 +865,9 @@ instance Produces RecipeNutritionLabelWidget MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 recipeTasteByIDImage
-  :: IdDouble -- ^ "id" -  The recipe id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest RecipeTasteByIDImage MimeNoContent FilePath MimeImagePng
-recipeTasteByIDImage (IdDouble id) =
+recipeTasteByIDImage (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget.png"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
 
@@ -888,17 +897,14 @@ instance Produces RecipeTasteByIDImage MimeImagePng
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 searchRecipes
-  :: SpoonacularRequest SearchRecipes MimeNoContent SearchRecipes200Response MimeJSON
-searchRecipes =
+  :: Query -- ^ "query" -  The (natural language) search query.
+  -> SpoonacularRequest SearchRecipes MimeNoContent SearchRecipes200Response MimeJSON
+searchRecipes (Query query) =
   _mkRequest "GET" ["/recipes/complexSearch"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("query", Just query)
 
 data SearchRecipes  
-
--- | /Optional Param/ "query" - The (natural language) search query.
-instance HasOptionalParam SearchRecipes Query where
-  applyOptionalParam req (Query xs) =
-    req `addQuery` toQuery ("query", Just xs)
 
 -- | /Optional Param/ "cuisine" - The cuisine(s) of the recipes. One or more, comma separated (will be interpreted as 'OR'). See a full list of supported cuisines.
 instance HasOptionalParam SearchRecipes Cuisine where
@@ -1394,17 +1400,14 @@ instance Produces SearchRecipes MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 searchRecipesByIngredients
-  :: SpoonacularRequest SearchRecipesByIngredients MimeNoContent [SearchRecipesByIngredients200ResponseInner] MimeJSON
-searchRecipesByIngredients =
+  :: Ingredients -- ^ "ingredients" -  A comma-separated list of ingredients that the recipes should contain.
+  -> SpoonacularRequest SearchRecipesByIngredients MimeNoContent [SearchRecipesByIngredients200ResponseInner] MimeJSON
+searchRecipesByIngredients (Ingredients ingredients) =
   _mkRequest "GET" ["/recipes/findByIngredients"]
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApiKeyScheme)
+    `addQuery` toQuery ("ingredients", Just ingredients)
 
 data SearchRecipesByIngredients  
-
--- | /Optional Param/ "ingredients" - A comma-separated list of ingredients that the recipes should contain.
-instance HasOptionalParam SearchRecipesByIngredients Ingredients where
-  applyOptionalParam req (Ingredients xs) =
-    req `addQuery` toQuery ("ingredients", Just xs)
 
 -- | /Optional Param/ "number" - The maximum number of items to return (between 1 and 100). Defaults to 10.
 instance HasOptionalParam SearchRecipesByIngredients Number where
@@ -1831,7 +1834,7 @@ instance Produces SearchRecipesByNutrients MimeJSON
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 summarizeRecipe
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest SummarizeRecipe MimeNoContent SummarizeRecipe200Response MimeJSON
 summarizeRecipe (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/summary"]
@@ -1946,7 +1949,7 @@ instance Produces VisualizePriceBreakdown MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeRecipeEquipmentByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeEquipmentByID MimeNoContent Text MimeTextHtml
 visualizeRecipeEquipmentByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/equipmentWidget"]
@@ -1973,7 +1976,7 @@ instance Produces VisualizeRecipeEquipmentByID MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeRecipeIngredientsByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeIngredientsByID MimeNoContent Text MimeTextHtml
 visualizeRecipeIngredientsByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/ingredientWidget"]
@@ -2050,7 +2053,7 @@ instance Produces VisualizeRecipeNutrition MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeRecipeNutritionByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeNutritionByID MimeNoContent Text MimeTextHtml
 visualizeRecipeNutritionByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/nutritionWidget"]
@@ -2077,7 +2080,7 @@ instance Produces VisualizeRecipeNutritionByID MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeRecipePriceBreakdownByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipePriceBreakdownByID MimeNoContent Text MimeTextHtml
 visualizeRecipePriceBreakdownByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/priceBreakdownWidget"]
@@ -2147,7 +2150,7 @@ instance Produces VisualizeRecipeTaste MimeTextHtml
 -- AuthMethod: 'AuthApiKeyApiKeyScheme'
 -- 
 visualizeRecipeTasteByID
-  :: Id -- ^ "id" -  The item's id.
+  :: Id -- ^ "id" -  The recipe id.
   -> SpoonacularRequest VisualizeRecipeTasteByID MimeNoContent Text MimeTextHtml
 visualizeRecipeTasteByID (Id id) =
   _mkRequest "GET" ["/recipes/",toPath id,"/tasteWidget"]

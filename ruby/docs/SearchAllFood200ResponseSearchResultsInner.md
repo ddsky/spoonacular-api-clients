@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **total_results** | **Integer** |  |  |
-| **results** | [**Array&lt;SearchAllFood200ResponseSearchResultsInnerResultsInner&gt;**](SearchAllFood200ResponseSearchResultsInnerResultsInner.md) |  | [optional] |
+| **results** | [**Array&lt;SearchResult&gt;**](SearchResult.md) |  | [optional] |
 
 ## Example
 

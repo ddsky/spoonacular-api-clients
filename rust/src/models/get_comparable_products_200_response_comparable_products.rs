@@ -14,21 +14,21 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct GetComparableProducts200ResponseComparableProducts {
     #[serde(rename = "calories")]
-    pub calories: Vec<serde_json::Value>,
+    pub calories: Vec<models::ComparableProduct>,
     #[serde(rename = "likes")]
-    pub likes: Vec<serde_json::Value>,
+    pub likes: Vec<models::ComparableProduct>,
     #[serde(rename = "price")]
-    pub price: Vec<serde_json::Value>,
+    pub price: Vec<models::ComparableProduct>,
     #[serde(rename = "protein")]
-    pub protein: Vec<models::GetComparableProducts200ResponseComparableProductsProteinInner>,
-    #[serde(rename = "spoonacularScore")]
-    pub spoonacular_score: Vec<models::GetComparableProducts200ResponseComparableProductsProteinInner>,
+    pub protein: Vec<models::ComparableProduct>,
+    #[serde(rename = "spoonacular_score")]
+    pub spoonacular_score: Vec<models::ComparableProduct>,
     #[serde(rename = "sugar")]
-    pub sugar: Vec<serde_json::Value>,
+    pub sugar: Vec<models::ComparableProduct>,
 }
 
 impl GetComparableProducts200ResponseComparableProducts {
-    pub fn new(calories: Vec<serde_json::Value>, likes: Vec<serde_json::Value>, price: Vec<serde_json::Value>, protein: Vec<models::GetComparableProducts200ResponseComparableProductsProteinInner>, spoonacular_score: Vec<models::GetComparableProducts200ResponseComparableProductsProteinInner>, sugar: Vec<serde_json::Value>) -> GetComparableProducts200ResponseComparableProducts {
+    pub fn new(calories: Vec<models::ComparableProduct>, likes: Vec<models::ComparableProduct>, price: Vec<models::ComparableProduct>, protein: Vec<models::ComparableProduct>, spoonacular_score: Vec<models::ComparableProduct>, sugar: Vec<models::ComparableProduct>) -> GetComparableProducts200ResponseComparableProducts {
         GetComparableProducts200ResponseComparableProducts {
             calories,
             likes,

@@ -13,7 +13,7 @@
 | **image_type** | **String** |  |  |
 | **ingredient_count** | **Integer** |  | [optional] |
 | **ingredient_list** | **String** |  |  |
-| **ingredients** | [**Array&lt;SearchGroceryProductsByUPC200ResponseIngredientsInner&gt;**](SearchGroceryProductsByUPC200ResponseIngredientsInner.md) |  |  |
+| **ingredients** | [**Array&lt;IngredientBasics&gt;**](IngredientBasics.md) |  |  |
 | **likes** | **Float** |  |  |
 | **nutrition** | [**SearchGroceryProductsByUPC200ResponseNutrition**](SearchGroceryProductsByUPC200ResponseNutrition.md) |  |  |
 | **price** | **Float** |  |  |

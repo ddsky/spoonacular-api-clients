@@ -17,7 +17,7 @@ class AnalyzeRecipeInstructions200ResponseIngredientsInner {
     required this.name,
   });
 
-  num id;
+  int id;
 
   String name;
 
@@ -61,7 +61,7 @@ class AnalyzeRecipeInstructions200ResponseIngredientsInner {
       }());
 
       return AnalyzeRecipeInstructions200ResponseIngredientsInner(
-        id: num.parse('${json[r'id']}'),
+        id: mapValueOfType<int>(json, r'id')!,
         name: mapValueOfType<String>(json, r'name')!,
       );
     }

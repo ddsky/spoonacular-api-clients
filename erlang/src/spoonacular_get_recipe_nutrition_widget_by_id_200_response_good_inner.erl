@@ -8,16 +8,16 @@
     #{ 'amount' := binary(),
        'indented' := boolean(),
        'percentOfDailyNeeds' := integer(),
-       'name' := binary()
+       'title' := binary()
      }.
 
 encode(#{ 'amount' := Amount,
           'indented' := Indented,
           'percentOfDailyNeeds' := PercentOfDailyNeeds,
-          'name' := Name
+          'title' := Title
         }) ->
     #{ 'amount' => Amount,
        'indented' => Indented,
        'percentOfDailyNeeds' => PercentOfDailyNeeds,
-       'name' => Name
+       'title' => Title
      }.

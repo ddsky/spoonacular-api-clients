@@ -61,11 +61,11 @@ add_to_meal_plan(Ctx, Username, Hash, SpoonacularAddToMealPlanRequest, Optional)
 
 %% @doc Add to Shopping List
 %% Add an item to the current shopping list of a user.
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_shopping_list_request:spoonacular_add_to_shopping_list_request()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_shopping_list_request:spoonacular_add_to_shopping_list_request()) -> {ok, spoonacular_get_shopping_list_200_response:spoonacular_get_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToShoppingListRequest) ->
     add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToShoppingListRequest, #{}).
 
--spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_shopping_list_request:spoonacular_add_to_shopping_list_request(), maps:map()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec add_to_shopping_list(ctx:ctx(), binary(), binary(), spoonacular_add_to_shopping_list_request:spoonacular_add_to_shopping_list_request(), maps:map()) -> {ok, spoonacular_get_shopping_list_200_response:spoonacular_get_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 add_to_shopping_list(Ctx, Username, Hash, SpoonacularAddToShoppingListRequest, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
@@ -208,11 +208,11 @@ generate_meal_plan(Ctx, Optional) ->
 
 %% @doc Generate Shopping List
 %% Generate the shopping list for a user from the meal planner in a given time frame.
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary()) -> {ok, spoonacular_get_shopping_list_200_response:spoonacular_get_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash) ->
     generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, #{}).
 
--spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), maps:map()) -> {ok, spoonacular_generate_shopping_list_200_response:spoonacular_generate_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
+-spec generate_shopping_list(ctx:ctx(), binary(), binary(), binary(), binary(), maps:map()) -> {ok, spoonacular_get_shopping_list_200_response:spoonacular_get_shopping_list_200_response(), spoonacular_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), spoonacular_utils:response_info()}.
 generate_shopping_list(Ctx, Username, StartDate, EndDate, Hash, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(spoonacular_api, config, #{})),
