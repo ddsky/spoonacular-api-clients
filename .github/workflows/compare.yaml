@@ -1,6 +1,9 @@
 name: Compare spec to docs
 on:
   workflow_dispatch:
+  pull_request:
+  push:
+    branches: [master]
 jobs:
   compare:
     runs-on: ubuntu-22.04
