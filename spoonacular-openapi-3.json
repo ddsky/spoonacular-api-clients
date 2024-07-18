@@ -8175,8 +8175,7 @@
                       "type": "integer"
                     },
                     "title": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "badges": {
                       "type": "array",
@@ -8198,23 +8197,19 @@
                     },
                     "generatedText": {
                       "type": "string",
-                      "minLength": 1
+                      "nullable": true
                     },
                     "imageType": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "ingredientCount": {
                       "type": "integer"
                     },
                     "ingredientList": {
-                      "type": "string",
-                      "minLength": 1
+                      "type": "string"
                     },
                     "ingredients": {
                       "type": "array",
-                      "uniqueItems": true,
-                      "minItems": 0,
                       "items": {
                         "$ref": "#/components/schemas/IngredientBasics"
                       }
