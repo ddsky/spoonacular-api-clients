@@ -152,7 +152,6 @@ import SearchRestaurants200ResponseRestaurantsInnerAddress from './model/SearchR
 import SearchRestaurants200ResponseRestaurantsInnerLocalHours from './model/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
 import SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational from './model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import SearchResult from './model/SearchResult';
-import SearchResultDataPointsInner from './model/SearchResultDataPointsInner';
 import SearchSiteContent200Response from './model/SearchSiteContent200Response';
 import SummarizeRecipe200Response from './model/SummarizeRecipe200Response';
 import TalkToChatbot200Response from './model/TalkToChatbot200Response';
@@ -1039,12 +1038,6 @@ export {
      * @property {module:model/SearchResult}
      */
     SearchResult,
-
-    /**
-     * The SearchResultDataPointsInner model constructor.
-     * @property {module:model/SearchResultDataPointsInner}
-     */
-    SearchResultDataPointsInner,
 
     /**
      * The SearchSiteContent200Response model constructor.

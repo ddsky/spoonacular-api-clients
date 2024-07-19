@@ -154,7 +154,6 @@ module Api.Data exposing
     , SearchRestaurants200ResponseRestaurantsInnerLocalHours
     , SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
     , SearchResult
-    , SearchResultDataPointsInner
     , SearchSiteContent200Response
     , SummarizeRecipe200Response
     , TalkToChatbot200Response
@@ -299,7 +298,6 @@ module Api.Data exposing
     , encodeSearchRestaurants200ResponseRestaurantsInnerLocalHours
     , encodeSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
     , encodeSearchResult
-    , encodeSearchResultDataPointsInner
     , encodeSearchSiteContent200Response
     , encodeSummarizeRecipe200Response
     , encodeTalkToChatbot200Response
@@ -444,7 +442,6 @@ module Api.Data exposing
     , searchRestaurants200ResponseRestaurantsInnerLocalHoursDecoder
     , searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder
     , searchResultDecoder
-    , searchResultDataPointsInnerDecoder
     , searchSiteContent200ResponseDecoder
     , summarizeRecipe200ResponseDecoder
     , talkToChatbot200ResponseDecoder
@@ -1713,8 +1710,7 @@ type alias SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
 {-| 
 -}
 type alias SearchResult =
-    { dataPoints : Maybe ( List SearchResultDataPointsInner )
-    , image : Maybe String
+    { image : Maybe String
     , link : Maybe String
     , name : String
     , type_ : Maybe String
@@ -1722,13 +1718,6 @@ type alias SearchResult =
     , content : Maybe String
     , id : Maybe Int
     , relevance : Maybe Float
-    }
-
-
-type alias SearchResultDataPointsInner =
-    { key : String
-    , value : Maybe AnyType
-    , show : Maybe Bool
     }
 
 
@@ -5011,8 +5000,7 @@ encodeSearchResultPairs : SearchResult -> List EncodedField
 encodeSearchResultPairs model =
     let
         pairs =
-            [ maybeEncode "dataPoints" (Json.Encode.list encodeSearchResultDataPointsInner) model.dataPoints
-            , maybeEncode "image" Json.Encode.string model.image
+            [ maybeEncode "image" Json.Encode.string model.image
             , maybeEncodeNullable "link" Json.Encode.string model.link
             , encode "name" Json.Encode.string model.name
             , maybeEncode "type" Json.Encode.string model.type_
@@ -5020,28 +5008,6 @@ encodeSearchResultPairs model =
             , maybeEncodeNullable "content" Json.Encode.string model.content
             , maybeEncode "id" Json.Encode.int model.id
             , maybeEncode "relevance" Json.Encode.float model.relevance
-            ]
-    in
-    pairs
-
-
-encodeSearchResultDataPointsInner : SearchResultDataPointsInner -> Json.Encode.Value
-encodeSearchResultDataPointsInner =
-    encodeObject << encodeSearchResultDataPointsInnerPairs
-
-
-encodeSearchResultDataPointsInnerWithTag : ( String, String ) -> SearchResultDataPointsInner -> Json.Encode.Value
-encodeSearchResultDataPointsInnerWithTag (tagField, tag) model =
-    encodeObject (encodeSearchResultDataPointsInnerPairs model ++ [ encode tagField Json.Encode.string tag ])
-
-
-encodeSearchResultDataPointsInnerPairs : SearchResultDataPointsInner -> List EncodedField
-encodeSearchResultDataPointsInnerPairs model =
-    let
-        pairs =
-            [ encode "key" Json.Encode.string model.key
-            , encodeNullable "value" encodeAnyType model.value
-            , maybeEncode "show" Json.Encode.bool model.show
             ]
     in
     pairs
@@ -6450,7 +6416,6 @@ searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalDecoder =
 searchResultDecoder : Json.Decode.Decoder SearchResult
 searchResultDecoder =
     Json.Decode.succeed SearchResult
-        |> maybeDecode "dataPoints" (Json.Decode.list searchResultDataPointsInnerDecoder) Nothing
         |> maybeDecode "image" Json.Decode.string Nothing
         |> maybeDecodeNullable "link" Json.Decode.string Nothing
         |> decode "name" Json.Decode.string 
@@ -6459,14 +6424,6 @@ searchResultDecoder =
         |> maybeDecodeNullable "content" Json.Decode.string Nothing
         |> maybeDecode "id" Json.Decode.int Nothing
         |> maybeDecode "relevance" Json.Decode.float Nothing
-
-
-searchResultDataPointsInnerDecoder : Json.Decode.Decoder SearchResultDataPointsInner
-searchResultDataPointsInnerDecoder =
-    Json.Decode.succeed SearchResultDataPointsInner
-        |> decode "key" Json.Decode.string 
-        |> decodeNullable "value" anyTypeDecoder 
-        |> maybeDecode "show" Json.Decode.bool Nothing
 
 
 searchSiteContent200ResponseDecoder : Json.Decode.Decoder SearchSiteContent200Response

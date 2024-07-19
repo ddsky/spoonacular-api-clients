@@ -40,12 +40,6 @@ class TestSearchAllFood200ResponseSearchResultsInner(unittest.TestCase):
                 total_results = 56,
                 results = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 

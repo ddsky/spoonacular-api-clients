@@ -4,7 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data_points** | [**Array&lt;SearchResultDataPointsInner&gt;**](SearchResultDataPointsInner.md) |  | [optional] |
 | **image** | **String** |  | [optional] |
 | **link** | **String** |  | [optional] |
 | **name** | **String** |  |  |
@@ -20,7 +19,6 @@
 require 'openapi_client'
 
 instance = OpenapiClient::SearchResult.new(
-  data_points: null,
   image: null,
   link: null,
   name: null,

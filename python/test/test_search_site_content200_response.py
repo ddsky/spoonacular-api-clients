@@ -38,12 +38,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
             return SearchSiteContent200Response(
                 articles = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 
@@ -55,12 +49,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
                     ],
                 grocery_products = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 
@@ -72,12 +60,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
                     ],
                 menu_items = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 
@@ -89,12 +71,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
                     ],
                 recipes = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 
@@ -109,12 +85,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
             return SearchSiteContent200Response(
                 articles = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 
@@ -126,12 +96,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
                     ],
                 grocery_products = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 
@@ -143,12 +107,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
                     ],
                 menu_items = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 
@@ -160,12 +118,6 @@ class TestSearchSiteContent200Response(unittest.TestCase):
                     ],
                 recipes = [
                     spoonacular.models.search_result.SearchResult(
-                        data_points = [
-                            spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                                key = '', 
-                                value = null, 
-                                show = True, )
-                            ], 
                         image = '', 
                         link = '', 
                         name = '', 

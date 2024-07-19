@@ -8,7 +8,6 @@ defmodule SpoonacularAPI.Model.SearchResult do
 
   @derive Jason.Encoder
   defstruct [
-    :dataPoints,
     :image,
     :link,
     :name,
@@ -20,7 +19,6 @@ defmodule SpoonacularAPI.Model.SearchResult do
   ]
 
   @type t :: %__MODULE__{
-    :dataPoints => [SpoonacularAPI.Model.SearchResultDataPointsInner.t] | nil,
     :image => String.t | nil,
     :link => String.t | nil,
     :name => String.t,
@@ -31,11 +29,8 @@ defmodule SpoonacularAPI.Model.SearchResult do
     :relevance => float() | nil
   }
 
-  alias SpoonacularAPI.Deserializer
-
   def decode(value) do
     value
-     |> Deserializer.deserialize(:dataPoints, :list, SpoonacularAPI.Model.SearchResultDataPointsInner)
   end
 end
 

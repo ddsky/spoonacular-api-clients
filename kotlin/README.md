@@ -291,7 +291,6 @@ All URIs are relative to *https://api.spoonacular.com*
  - [com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
  - [com.spoonacular.client.model.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [com.spoonacular.client.model.SearchResult](docs/SearchResult.md)
- - [com.spoonacular.client.model.SearchResultDataPointsInner](docs/SearchResultDataPointsInner.md)
  - [com.spoonacular.client.model.SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [com.spoonacular.client.model.SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [com.spoonacular.client.model.TalkToChatbot200Response](docs/TalkToChatbot200Response.md)

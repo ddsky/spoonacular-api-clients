@@ -149,7 +149,6 @@ docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchResult.md
-docs/SearchResultDataPointsInner.md
 docs/SearchSiteContent200Response.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
@@ -308,7 +307,6 @@ src/models/search_restaurants_200_response_restaurants_inner_address.rs
 src/models/search_restaurants_200_response_restaurants_inner_local_hours.rs
 src/models/search_restaurants_200_response_restaurants_inner_local_hours_operational.rs
 src/models/search_result.rs
-src/models/search_result_data_points_inner.rs
 src/models/search_site_content_200_response.rs
 src/models/summarize_recipe_200_response.rs
 src/models/talk_to_chatbot_200_response.rs

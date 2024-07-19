@@ -5,7 +5,6 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **name** | **kotlin.String** |  |  |
-| **dataPoints** | [**kotlin.collections.List&lt;SearchResultDataPointsInner&gt;**](SearchResultDataPointsInner.md) |  |  [optional] |
 | **image** | **kotlin.String** |  |  [optional] |
 | **link** | **kotlin.String** |  |  [optional] |
 | **type** | **kotlin.String** |  |  [optional] |

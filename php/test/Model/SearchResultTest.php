@@ -81,15 +81,6 @@ class SearchResultTest extends TestCase
     }
 
     /**
-     * Test attribute "data_points"
-     */
-    public function testPropertyDataPoints()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "image"
      */
     public function testPropertyImage()

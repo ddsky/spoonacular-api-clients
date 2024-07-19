@@ -19,7 +19,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.spoonacular.client.model.SearchResult
-import com.spoonacular.client.model.SearchResultDataPointsInner
 
 class SearchResultTest : ShouldSpec() {
     init {
@@ -30,12 +29,6 @@ class SearchResultTest : ShouldSpec() {
         should("test name") {
             // uncomment below to test the property
             //modelInstance.name shouldBe ("TODO")
-        }
-
-        // to test the property `dataPoints`
-        should("test dataPoints") {
-            // uncomment below to test the property
-            //modelInstance.dataPoints shouldBe ("TODO")
         }
 
         // to test the property `image`

@@ -10226,22 +10226,11 @@ components:
         kvtable: kvtable
         link: link
         name: name
-        dataPoints:
-        - show: true
-          value: ""
-          key: key
-        - show: true
-          value: ""
-          key: key
         id: 0
         type: type
         content: content
         relevance: 6.027456183070403
       properties:
-        dataPoints:
-          items:
-            $ref: '#/components/schemas/SearchResult_dataPoints_inner'
-          type: array
         image:
           type: string
         link:
@@ -16229,13 +16218,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16244,13 +16226,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16260,13 +16235,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16275,13 +16243,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16291,13 +16252,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16306,13 +16260,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16322,13 +16269,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16337,13 +16277,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16380,13 +16313,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16395,13 +16321,6 @@ components:
           kvtable: kvtable
           link: link
           name: name
-          dataPoints:
-          - show: true
-            value: ""
-            key: key
-          - show: true
-            value: ""
-            key: key
           id: 0
           type: type
           content: content
@@ -16437,13 +16356,6 @@ components:
             kvtable: kvtable
             link: link
             name: name
-            dataPoints:
-            - show: true
-              value: ""
-              key: key
-            - show: true
-              value: ""
-              key: key
             id: 0
             type: type
             content: content
@@ -16452,13 +16364,6 @@ components:
             kvtable: kvtable
             link: link
             name: name
-            dataPoints:
-            - show: true
-              value: ""
-              key: key
-            - show: true
-              value: ""
-              key: key
             id: 0
             type: type
             content: content
@@ -16470,13 +16375,6 @@ components:
             kvtable: kvtable
             link: link
             name: name
-            dataPoints:
-            - show: true
-              value: ""
-              key: key
-            - show: true
-              value: ""
-              key: key
             id: 0
             type: type
             content: content
@@ -16485,13 +16383,6 @@ components:
             kvtable: kvtable
             link: link
             name: name
-            dataPoints:
-            - show: true
-              value: ""
-              key: key
-            - show: true
-              value: ""
-              key: key
             id: 0
             type: type
             content: content
@@ -16680,20 +16571,6 @@ components:
       - suggests
       - words
       type: object
-    SearchResult_dataPoints_inner:
-      example:
-        show: true
-        value: ""
-        key: key
-      properties:
-        key:
-          type: string
-        value: {}
-        show:
-          type: boolean
-      required:
-      - key
-      - value
     ProductInformation_credits:
       properties:
         text:

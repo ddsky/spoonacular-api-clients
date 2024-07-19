@@ -276,8 +276,6 @@ pub mod search_restaurants_200_response_restaurants_inner_local_hours_operationa
 pub use self::search_restaurants_200_response_restaurants_inner_local_hours_operational::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 pub mod search_result;
 pub use self::search_result::SearchResult;
-pub mod search_result_data_points_inner;
-pub use self::search_result_data_points_inner::SearchResultDataPointsInner;
 pub mod search_site_content_200_response;
 pub use self::search_site_content_200_response::SearchSiteContent200Response;
 pub mod summarize_recipe_200_response;

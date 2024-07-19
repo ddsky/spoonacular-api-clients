@@ -22,7 +22,7 @@ Find a dish that goes well with a given wine.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
+import SpoonacularApi from 'spoonacular_api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -73,7 +73,7 @@ Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;ri
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
+import SpoonacularApi from 'spoonacular_api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -124,7 +124,7 @@ Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&q
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
+import SpoonacularApi from 'spoonacular_api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
@@ -179,7 +179,7 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
+import SpoonacularApi from 'spoonacular_api';
 let defaultClient = SpoonacularApi.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];

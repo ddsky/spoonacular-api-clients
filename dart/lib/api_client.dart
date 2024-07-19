@@ -460,8 +460,6 @@ class ApiClient {
           return SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.fromJson(value);
         case 'SearchResult':
           return SearchResult.fromJson(value);
-        case 'SearchResultDataPointsInner':
-          return SearchResultDataPointsInner.fromJson(value);
         case 'SearchSiteContent200Response':
           return SearchSiteContent200Response.fromJson(value);
         case 'SummarizeRecipe200Response':

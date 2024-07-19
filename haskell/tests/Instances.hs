@@ -1678,8 +1678,7 @@ instance Arbitrary SearchResult where
 genSearchResult :: Int -> Gen SearchResult
 genSearchResult n =
   SearchResult
-    <$> arbitraryReducedMaybe n -- searchResultDataPoints :: Maybe [SearchResultDataPointsInner]
-    <*> arbitraryReducedMaybe n -- searchResultImage :: Maybe Text
+    <$> arbitraryReducedMaybe n -- searchResultImage :: Maybe Text
     <*> arbitraryReducedMaybe n -- searchResultLink :: Maybe Text
     <*> arbitrary -- searchResultName :: Text
     <*> arbitraryReducedMaybe n -- searchResultType :: Maybe Text
@@ -1687,16 +1686,6 @@ genSearchResult n =
     <*> arbitraryReducedMaybe n -- searchResultContent :: Maybe Text
     <*> arbitraryReducedMaybe n -- searchResultId :: Maybe Int
     <*> arbitraryReducedMaybe n -- searchResultRelevance :: Maybe Double
-  
-instance Arbitrary SearchResultDataPointsInner where
-  arbitrary = sized genSearchResultDataPointsInner
-
-genSearchResultDataPointsInner :: Int -> Gen SearchResultDataPointsInner
-genSearchResultDataPointsInner n =
-  SearchResultDataPointsInner
-    <$> arbitrary -- searchResultDataPointsInnerKey :: Text
-    <*> arbitraryReduced n -- searchResultDataPointsInnerValue :: AnyType
-    <*> arbitraryReducedMaybe n -- searchResultDataPointsInnerShow :: Maybe Bool
   
 instance Arbitrary SearchSiteContent200Response where
   arbitrary = sized genSearchSiteContent200Response

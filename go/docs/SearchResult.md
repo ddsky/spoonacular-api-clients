@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataPoints** | Pointer to [**[]SearchResultDataPointsInner**](SearchResultDataPointsInner.md) |  | [optional] 
 **Image** | Pointer to **string** |  | [optional] 
 **Link** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
@@ -32,31 +31,6 @@ will change when the set of required properties is changed
 NewSearchResultWithDefaults instantiates a new SearchResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetDataPoints
-
-`func (o *SearchResult) GetDataPoints() []SearchResultDataPointsInner`
-
-GetDataPoints returns the DataPoints field if non-nil, zero value otherwise.
-
-### GetDataPointsOk
-
-`func (o *SearchResult) GetDataPointsOk() (*[]SearchResultDataPointsInner, bool)`
-
-GetDataPointsOk returns a tuple with the DataPoints field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDataPoints
-
-`func (o *SearchResult) SetDataPoints(v []SearchResultDataPointsInner)`
-
-SetDataPoints sets DataPoints field to given value.
-
-### HasDataPoints
-
-`func (o *SearchResult) HasDataPoints() bool`
-
-HasDataPoints returns a boolean if a field has been set.
 
 ### GetImage
 

@@ -18,9 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from spoonacular.models.search_result_data_points_inner import SearchResultDataPointsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +27,6 @@ class SearchResult(BaseModel):
     """
     
     """ # noqa: E501
-    data_points: Optional[List[SearchResultDataPointsInner]] = Field(default=None, alias="dataPoints")
     image: Optional[StrictStr] = None
     link: Optional[StrictStr] = None
     name: StrictStr
@@ -37,7 +35,7 @@ class SearchResult(BaseModel):
     content: Optional[StrictStr] = None
     id: Optional[StrictInt] = None
     relevance: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["dataPoints", "image", "link", "name", "type", "kvtable", "content", "id", "relevance"]
+    __properties: ClassVar[List[str]] = ["image", "link", "name", "type", "kvtable", "content", "id", "relevance"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,13 +76,6 @@ class SearchResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in data_points (list)
-        _items = []
-        if self.data_points:
-            for _item in self.data_points:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['dataPoints'] = _items
         # set to None if link (nullable) is None
         # and model_fields_set contains the field
         if self.link is None and "link" in self.model_fields_set:
@@ -107,7 +98,6 @@ class SearchResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "dataPoints": [SearchResultDataPointsInner.from_dict(_item) for _item in obj["dataPoints"]] if obj.get("dataPoints") is not None else None,
             "image": obj.get("image"),
             "link": obj.get("link"),
             "name": obj.get("name"),

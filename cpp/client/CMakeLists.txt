@@ -150,7 +150,6 @@ add_library(${PROJECT_NAME}
   OAISearchRestaurants_200_response_restaurants_inner_local_hours.h
   OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.h
   OAISearchResult.h
-  OAISearchResult_dataPoints_inner.h
   OAISearchSiteContent_200_response.h
   OAISummarizeRecipe_200_response.h
   OAITalkToChatbot_200_response.h
@@ -311,7 +310,6 @@ add_library(${PROJECT_NAME}
   OAISearchRestaurants_200_response_restaurants_inner_local_hours.cpp
   OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.cpp
   OAISearchResult.cpp
-  OAISearchResult_dataPoints_inner.cpp
   OAISearchSiteContent_200_response.cpp
   OAISummarizeRecipe_200_response.cpp
   OAITalkToChatbot_200_response.cpp

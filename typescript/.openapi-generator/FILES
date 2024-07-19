@@ -166,7 +166,6 @@ models/SearchRestaurants200ResponseRestaurantsInnerAddress.ts
 models/SearchRestaurants200ResponseRestaurantsInnerLocalHours.ts
 models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.ts
 models/SearchResult.ts
-models/SearchResultDataPointsInner.ts
 models/SearchSiteContent200Response.ts
 models/SummarizeRecipe200Response.ts
 models/TalkToChatbot200Response.ts

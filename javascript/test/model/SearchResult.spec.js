@@ -54,12 +54,6 @@
       //expect(instance).to.be.a(SpoonacularApi.SearchResult);
     });
 
-    it('should have the property dataPoints (base name: "dataPoints")', function() {
-      // uncomment below and update the code to test the property dataPoints
-      //var instance = new SpoonacularApi.SearchResult();
-      //expect(instance).to.be();
-    });
-
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
       //var instance = new SpoonacularApi.SearchResult();

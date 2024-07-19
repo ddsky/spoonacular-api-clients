@@ -334,7 +334,6 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
  - [OpenapiClient::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [OpenapiClient::SearchResult](docs/SearchResult.md)
- - [OpenapiClient::SearchResultDataPointsInner](docs/SearchResultDataPointsInner.md)
  - [OpenapiClient::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [OpenapiClient::SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [OpenapiClient::TalkToChatbot200Response](docs/TalkToChatbot200Response.md)

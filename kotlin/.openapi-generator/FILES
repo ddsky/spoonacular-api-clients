@@ -147,7 +147,6 @@ docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchResult.md
-docs/SearchResultDataPointsInner.md
 docs/SearchSiteContent200Response.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
@@ -306,7 +305,6 @@ src/main/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaur
 src/main/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.kt
 src/main/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.kt
 src/main/kotlin/com/spoonacular/client/model/SearchResult.kt
-src/main/kotlin/com/spoonacular/client/model/SearchResultDataPointsInner.kt
 src/main/kotlin/com/spoonacular/client/model/SearchSiteContent200Response.kt
 src/main/kotlin/com/spoonacular/client/model/SummarizeRecipe200Response.kt
 src/main/kotlin/com/spoonacular/client/model/TalkToChatbot200Response.kt
@@ -475,7 +473,6 @@ src/test/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaur
 src/test/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTest.kt
 src/test/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerTest.kt
 src/test/kotlin/com/spoonacular/client/model/SearchRestaurants200ResponseTest.kt
-src/test/kotlin/com/spoonacular/client/model/SearchResultDataPointsInnerTest.kt
 src/test/kotlin/com/spoonacular/client/model/SearchResultTest.kt
 src/test/kotlin/com/spoonacular/client/model/SearchSiteContent200ResponseTest.kt
 src/test/kotlin/com/spoonacular/client/model/SummarizeRecipe200ResponseTest.kt

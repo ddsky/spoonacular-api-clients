@@ -386,7 +386,6 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddr
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchResult;
-use WWW::OpenAPIClient::Object::SearchResultDataPointsInner;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
@@ -552,7 +551,6 @@ use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerAddr
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours;
 use WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational;
 use WWW::OpenAPIClient::Object::SearchResult;
-use WWW::OpenAPIClient::Object::SearchResultDataPointsInner;
 use WWW::OpenAPIClient::Object::SearchSiteContent200Response;
 use WWW::OpenAPIClient::Object::SummarizeRecipe200Response;
 use WWW::OpenAPIClient::Object::TalkToChatbot200Response;
@@ -832,7 +830,6 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
  - [WWW::OpenAPIClient::Object::SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [WWW::OpenAPIClient::Object::SearchResult](docs/SearchResult.md)
- - [WWW::OpenAPIClient::Object::SearchResultDataPointsInner](docs/SearchResultDataPointsInner.md)
  - [WWW::OpenAPIClient::Object::SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [WWW::OpenAPIClient::Object::SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [WWW::OpenAPIClient::Object::TalkToChatbot200Response](docs/TalkToChatbot200Response.md)

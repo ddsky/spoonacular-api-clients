@@ -149,7 +149,6 @@ docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchResult.md
-docs/SearchResultDataPointsInner.md
 docs/SearchSiteContent200Response.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
@@ -308,7 +307,6 @@ src/model/SearchRestaurants200ResponseRestaurantsInnerAddress.js
 src/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.js
 src/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.js
 src/model/SearchResult.js
-src/model/SearchResultDataPointsInner.js
 src/model/SearchSiteContent200Response.js
 src/model/SummarizeRecipe200Response.js
 src/model/TalkToChatbot200Response.js
@@ -461,7 +459,6 @@ test/model/SearchRestaurants200ResponseRestaurantsInnerAddress.spec.js
 test/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.spec.js
 test/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.spec.js
 test/model/SearchResult.spec.js
-test/model/SearchResultDataPointsInner.spec.js
 test/model/SearchSiteContent200Response.spec.js
 test/model/SummarizeRecipe200Response.spec.js
 test/model/TalkToChatbot200Response.spec.js

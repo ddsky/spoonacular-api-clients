@@ -8,7 +8,6 @@ use WWW::OpenAPIClient::Object::SearchResult;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | [**ARRAY[SearchResultDataPointsInner]**](SearchResultDataPointsInner.md) |  | [optional] 
 **image** | **string** |  | [optional] 
 **link** | **string** |  | [optional] 
 **name** | **string** |  | 

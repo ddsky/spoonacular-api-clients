@@ -30,7 +30,6 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::SearchResultDataPointsInner;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
 
@@ -220,13 +219,6 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'data_points' => {
-        datatype => 'ARRAY[SearchResultDataPointsInner]',
-        base_name => 'dataPoints',
-        description => '',
-        format => '',
-        read_only => '',
-            },
     'image' => {
         datatype => 'string',
         base_name => 'image',
@@ -286,7 +278,6 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'data_points' => 'ARRAY[SearchResultDataPointsInner]',
     'image' => 'string',
     'link' => 'string',
     'name' => 'string',
@@ -298,7 +289,6 @@ __PACKAGE__->openapi_types( {
 } );
 
 __PACKAGE__->attribute_map( {
-    'data_points' => 'dataPoints',
     'image' => 'image',
     'link' => 'link',
     'name' => 'name',

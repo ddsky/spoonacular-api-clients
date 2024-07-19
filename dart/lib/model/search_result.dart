@@ -13,7 +13,6 @@ part of openapi.api;
 class SearchResult {
   /// Returns a new [SearchResult] instance.
   SearchResult({
-    this.dataPoints = const [],
     this.image,
     this.link,
     required this.name,
@@ -23,8 +22,6 @@ class SearchResult {
     this.id,
     this.relevance,
   });
-
-  List<SearchResultDataPointsInner> dataPoints;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -74,7 +71,6 @@ class SearchResult {
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is SearchResult &&
-    _deepEquality.equals(other.dataPoints, dataPoints) &&
     other.image == image &&
     other.link == link &&
     other.name == name &&
@@ -87,7 +83,6 @@ class SearchResult {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (dataPoints.hashCode) +
     (image == null ? 0 : image!.hashCode) +
     (link == null ? 0 : link!.hashCode) +
     (name.hashCode) +
@@ -98,11 +93,10 @@ class SearchResult {
     (relevance == null ? 0 : relevance!.hashCode);
 
   @override
-  String toString() => 'SearchResult[dataPoints=$dataPoints, image=$image, link=$link, name=$name, type=$type, kvtable=$kvtable, content=$content, id=$id, relevance=$relevance]';
+  String toString() => 'SearchResult[image=$image, link=$link, name=$name, type=$type, kvtable=$kvtable, content=$content, id=$id, relevance=$relevance]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'dataPoints'] = this.dataPoints;
     if (this.image != null) {
       json[r'image'] = this.image;
     } else {
@@ -161,7 +155,6 @@ class SearchResult {
       }());
 
       return SearchResult(
-        dataPoints: SearchResultDataPointsInner.listFromJson(json[r'dataPoints']),
         image: mapValueOfType<String>(json, r'image'),
         link: mapValueOfType<String>(json, r'link'),
         name: mapValueOfType<String>(json, r'name')!,

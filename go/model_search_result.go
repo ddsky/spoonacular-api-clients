@@ -22,7 +22,6 @@ var _ MappedNullable = &SearchResult{}
 
 // SearchResult 
 type SearchResult struct {
-	DataPoints []SearchResultDataPointsInner `json:"dataPoints,omitempty"`
 	Image *string `json:"image,omitempty"`
 	Link NullableString `json:"link,omitempty"`
 	Name string `json:"name"`
@@ -51,38 +50,6 @@ func NewSearchResult(name string) *SearchResult {
 func NewSearchResultWithDefaults() *SearchResult {
 	this := SearchResult{}
 	return &this
-}
-
-// GetDataPoints returns the DataPoints field value if set, zero value otherwise.
-func (o *SearchResult) GetDataPoints() []SearchResultDataPointsInner {
-	if o == nil || IsNil(o.DataPoints) {
-		var ret []SearchResultDataPointsInner
-		return ret
-	}
-	return o.DataPoints
-}
-
-// GetDataPointsOk returns a tuple with the DataPoints field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SearchResult) GetDataPointsOk() ([]SearchResultDataPointsInner, bool) {
-	if o == nil || IsNil(o.DataPoints) {
-		return nil, false
-	}
-	return o.DataPoints, true
-}
-
-// HasDataPoints returns a boolean if a field has been set.
-func (o *SearchResult) HasDataPoints() bool {
-	if o != nil && !IsNil(o.DataPoints) {
-		return true
-	}
-
-	return false
-}
-
-// SetDataPoints gets a reference to the given []SearchResultDataPointsInner and assigns it to the DataPoints field.
-func (o *SearchResult) SetDataPoints(v []SearchResultDataPointsInner) {
-	o.DataPoints = v
 }
 
 // GetImage returns the Image field value if set, zero value otherwise.
@@ -363,9 +330,6 @@ func (o SearchResult) MarshalJSON() ([]byte, error) {
 
 func (o SearchResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.DataPoints) {
-		toSerialize["dataPoints"] = o.DataPoints
-	}
 	if !IsNil(o.Image) {
 		toSerialize["image"] = o.Image
 	}

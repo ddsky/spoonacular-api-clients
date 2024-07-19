@@ -150,7 +150,6 @@ docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchResult.md
-docs/SearchResultDataPointsInner.md
 docs/SearchSiteContent200Response.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
@@ -305,7 +304,6 @@ lib/WWW/OpenAPIClient/Object/SearchRestaurants200ResponseRestaurantsInnerAddress
 lib/WWW/OpenAPIClient/Object/SearchRestaurants200ResponseRestaurantsInnerLocalHours.pm
 lib/WWW/OpenAPIClient/Object/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.pm
 lib/WWW/OpenAPIClient/Object/SearchResult.pm
-lib/WWW/OpenAPIClient/Object/SearchResultDataPointsInner.pm
 lib/WWW/OpenAPIClient/Object/SearchSiteContent200Response.pm
 lib/WWW/OpenAPIClient/Object/SummarizeRecipe200Response.pm
 lib/WWW/OpenAPIClient/Object/TalkToChatbot200Response.pm
@@ -461,7 +459,6 @@ t/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTest.t
 t/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTest.t
 t/SearchRestaurants200ResponseRestaurantsInnerTest.t
 t/SearchRestaurants200ResponseTest.t
-t/SearchResultDataPointsInnerTest.t
 t/SearchResultTest.t
 t/SearchSiteContent200ResponseTest.t
 t/SummarizeRecipe200ResponseTest.t

@@ -16,8 +16,6 @@ require 'time'
 module OpenapiClient
   # 
   class SearchResult
-    attr_accessor :data_points
-
     attr_accessor :image
 
     attr_accessor :link
@@ -37,7 +35,6 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'data_points' => :'dataPoints',
         :'image' => :'image',
         :'link' => :'link',
         :'name' => :'name',
@@ -57,7 +54,6 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data_points' => :'Array<SearchResultDataPointsInner>',
         :'image' => :'String',
         :'link' => :'String',
         :'name' => :'String',
@@ -91,12 +87,6 @@ module OpenapiClient
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'data_points')
-        if (value = attributes[:'data_points']).is_a?(Array)
-          self.data_points = value
-        end
-      end
 
       if attributes.key?(:'image')
         self.image = attributes[:'image']
@@ -158,7 +148,6 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data_points == o.data_points &&
           image == o.image &&
           link == o.link &&
           name == o.name &&
@@ -178,7 +167,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data_points, image, link, name, type, kvtable, content, id, relevance].hash
+      [image, link, name, type, kvtable, content, id, relevance].hash
     end
 
     # Builds the object from hash

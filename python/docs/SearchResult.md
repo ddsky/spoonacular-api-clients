@@ -6,7 +6,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | [**List[SearchResultDataPointsInner]**](SearchResultDataPointsInner.md) |  | [optional] 
 **image** | **str** |  | [optional] 
 **link** | **str** |  | [optional] 
 **name** | **str** |  | 

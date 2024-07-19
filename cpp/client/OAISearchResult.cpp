@@ -34,9 +34,6 @@ OAISearchResult::~OAISearchResult() {}
 
 void OAISearchResult::initializeModel() {
 
-    m_data_points_isSet = false;
-    m_data_points_isValid = false;
-
     m_image_isSet = false;
     m_image_isValid = false;
 
@@ -70,9 +67,6 @@ void OAISearchResult::fromJson(QString jsonString) {
 }
 
 void OAISearchResult::fromJsonObject(QJsonObject json) {
-
-    m_data_points_isValid = ::OpenAPI::fromJsonValue(m_data_points, json[QString("dataPoints")]);
-    m_data_points_isSet = !json[QString("dataPoints")].isNull() && m_data_points_isValid;
 
     m_image_isValid = ::OpenAPI::fromJsonValue(m_image, json[QString("image")]);
     m_image_isSet = !json[QString("image")].isNull() && m_image_isValid;
@@ -108,9 +102,6 @@ QString OAISearchResult::asJson() const {
 
 QJsonObject OAISearchResult::asJsonObject() const {
     QJsonObject obj;
-    if (m_data_points.size() > 0) {
-        obj.insert(QString("dataPoints"), ::OpenAPI::toJsonValue(m_data_points));
-    }
     if (m_image_isSet) {
         obj.insert(QString("image"), ::OpenAPI::toJsonValue(m_image));
     }
@@ -136,22 +127,6 @@ QJsonObject OAISearchResult::asJsonObject() const {
         obj.insert(QString("relevance"), ::OpenAPI::toJsonValue(m_relevance));
     }
     return obj;
-}
-
-QList<OAISearchResult_dataPoints_inner> OAISearchResult::getDataPoints() const {
-    return m_data_points;
-}
-void OAISearchResult::setDataPoints(const QList<OAISearchResult_dataPoints_inner> &data_points) {
-    m_data_points = data_points;
-    m_data_points_isSet = true;
-}
-
-bool OAISearchResult::is_data_points_Set() const{
-    return m_data_points_isSet;
-}
-
-bool OAISearchResult::is_data_points_Valid() const{
-    return m_data_points_isValid;
 }
 
 QString OAISearchResult::getImage() const {
@@ -285,11 +260,6 @@ bool OAISearchResult::is_relevance_Valid() const{
 bool OAISearchResult::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_data_points.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_image_isSet) {
             isObjectUpdated = true;
             break;
