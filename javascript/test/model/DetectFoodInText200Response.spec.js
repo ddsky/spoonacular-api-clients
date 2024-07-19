@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.DetectFoodInText200Response();
+    instance = new Spoonacular.DetectFoodInText200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('DetectFoodInText200Response', function() {
     it('should create an instance of DetectFoodInText200Response', function() {
       // uncomment below and update the code to test DetectFoodInText200Response
-      //var instance = new SpoonacularApi.DetectFoodInText200Response();
-      //expect(instance).to.be.a(SpoonacularApi.DetectFoodInText200Response);
+      //var instance = new Spoonacular.DetectFoodInText200Response();
+      //expect(instance).to.be.a(Spoonacular.DetectFoodInText200Response);
     });
 
     it('should have the property annotations (base name: "annotations")', function() {
       // uncomment below and update the code to test the property annotations
-      //var instance = new SpoonacularApi.DetectFoodInText200Response();
+      //var instance = new Spoonacular.DetectFoodInText200Response();
       //expect(instance).to.be();
     });
 

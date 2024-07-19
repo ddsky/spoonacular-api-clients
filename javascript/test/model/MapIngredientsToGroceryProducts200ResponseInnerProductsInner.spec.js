@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
+    instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('MapIngredientsToGroceryProducts200ResponseInnerProductsInner', function() {
     it('should create an instance of MapIngredientsToGroceryProducts200ResponseInnerProductsInner', function() {
       // uncomment below and update the code to test MapIngredientsToGroceryProducts200ResponseInnerProductsInner
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
-      //expect(instance).to.be.a(SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInnerProductsInner);
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
+      //expect(instance).to.be.a(Spoonacular.MapIngredientsToGroceryProducts200ResponseInnerProductsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property upc (base name: "upc")', function() {
       // uncomment below and update the code to test the property upc
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInnerProductsInner();
       //expect(instance).to.be();
     });
 

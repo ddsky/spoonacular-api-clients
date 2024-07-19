@@ -1,4 +1,4 @@
-# SpoonacularApi.MenuItemsApi
+# Spoonacular.MenuItemsApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -25,15 +25,15 @@ Generate suggestions for menu items based on a (partial) query. The matches will
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MenuItemsApi();
+let apiInstance = new Spoonacular.MenuItemsApi();
 let query = "chicke"; // String | The (partial) search query.
 let opts = {
   'number': 10 // Number | The number of results to return (between 1 and 25).
@@ -80,15 +80,15 @@ Use a menu item id to get all available information about a menu item, such as n
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MenuItemsApi();
+let apiInstance = new Spoonacular.MenuItemsApi();
 let id = 424571; // Number | The menu item id.
 apiInstance.getMenuItemInformation(id, (error, data, response) => {
   if (error) {
@@ -131,15 +131,15 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MenuItemsApi();
+let apiInstance = new Spoonacular.MenuItemsApi();
 let id = 424571; // Number | The menu item id.
 apiInstance.menuItemNutritionByIDImage(id, (error, data, response) => {
   if (error) {
@@ -182,15 +182,15 @@ Visualize a menu item&#39;s nutritional label information as an image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MenuItemsApi();
+let apiInstance = new Spoonacular.MenuItemsApi();
 let id = 342313; // Number | The menu item id.
 let opts = {
   'showOptionalNutrients': false, // Boolean | Whether to show optional nutrients.
@@ -241,15 +241,15 @@ Visualize a menu item&#39;s nutritional label information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MenuItemsApi();
+let apiInstance = new Spoonacular.MenuItemsApi();
 let id = 342313; // Number | The menu item id.
 let opts = {
   'defaultCss': false, // Boolean | Whether the default CSS should be added to the response.
@@ -302,15 +302,15 @@ Search over 115,000 menu items from over 800 fast food and chain restaurants. Fo
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MenuItemsApi();
+let apiInstance = new Spoonacular.MenuItemsApi();
 let query = "burger"; // String | The (natural language) search query.
 let opts = {
   'minCalories': 50, // Number | The minimum amount of calories the menu item must have.
@@ -377,15 +377,15 @@ Visualize a menu item&#39;s nutritional information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MenuItemsApi();
+let apiInstance = new Spoonacular.MenuItemsApi();
 let id = 1003464; // Number | The menu item id.
 let opts = {
   'defaultCss': false // Boolean | Whether the default CSS should be added to the response.

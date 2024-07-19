@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
+    instance = new Spoonacular.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue', function() {
     it('should create an instance of GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue', function() {
       // uncomment below and update the code to test GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue
-      //var instance = new SpoonacularApi.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
-      //expect(instance).to.be.a(SpoonacularApi.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue);
+      //var instance = new Spoonacular.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
+      //expect(instance).to.be.a(Spoonacular.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
+      //var instance = new Spoonacular.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
+      //var instance = new Spoonacular.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
       //expect(instance).to.be();
     });
 
     it('should have the property imageType (base name: "imageType")', function() {
       // uncomment below and update the code to test the property imageType
-      //var instance = new SpoonacularApi.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
+      //var instance = new Spoonacular.GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.ClassifyGroceryProductBulk200ResponseInner
+# Spoonacular.ClassifyGroceryProductBulk200ResponseInner
 
 ## Properties
 

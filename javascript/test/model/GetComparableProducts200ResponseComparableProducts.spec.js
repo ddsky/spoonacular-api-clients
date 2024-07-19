@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
+    instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,43 +50,43 @@
   describe('GetComparableProducts200ResponseComparableProducts', function() {
     it('should create an instance of GetComparableProducts200ResponseComparableProducts', function() {
       // uncomment below and update the code to test GetComparableProducts200ResponseComparableProducts
-      //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
-      //expect(instance).to.be.a(SpoonacularApi.GetComparableProducts200ResponseComparableProducts);
+      //var instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
+      //expect(instance).to.be.a(Spoonacular.GetComparableProducts200ResponseComparableProducts);
     });
 
     it('should have the property calories (base name: "calories")', function() {
       // uncomment below and update the code to test the property calories
-      //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
+      //var instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
       //expect(instance).to.be();
     });
 
     it('should have the property likes (base name: "likes")', function() {
       // uncomment below and update the code to test the property likes
-      //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
+      //var instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
       //expect(instance).to.be();
     });
 
     it('should have the property price (base name: "price")', function() {
       // uncomment below and update the code to test the property price
-      //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
+      //var instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
       //expect(instance).to.be();
     });
 
     it('should have the property protein (base name: "protein")', function() {
       // uncomment below and update the code to test the property protein
-      //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
+      //var instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
       //expect(instance).to.be();
     });
 
     it('should have the property spoonacularScore (base name: "spoonacular_score")', function() {
       // uncomment below and update the code to test the property spoonacularScore
-      //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
+      //var instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
       //expect(instance).to.be();
     });
 
     it('should have the property sugar (base name: "sugar")', function() {
       // uncomment below and update the code to test the property sugar
-      //var instance = new SpoonacularApi.GetComparableProducts200ResponseComparableProducts();
+      //var instance = new Spoonacular.GetComparableProducts200ResponseComparableProducts();
       //expect(instance).to.be();
     });
 

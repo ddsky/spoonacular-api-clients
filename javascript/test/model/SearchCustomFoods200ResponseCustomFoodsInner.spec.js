@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner();
+    instance = new Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('SearchCustomFoods200ResponseCustomFoodsInner', function() {
     it('should create an instance of SearchCustomFoods200ResponseCustomFoodsInner', function() {
       // uncomment below and update the code to test SearchCustomFoods200ResponseCustomFoodsInner
-      //var instance = new SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner();
-      //expect(instance).to.be.a(SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner);
+      //var instance = new Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner();
+      //expect(instance).to.be.a(Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner();
+      //var instance = new Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner();
+      //var instance = new Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property servings (base name: "servings")', function() {
       // uncomment below and update the code to test the property servings
-      //var instance = new SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner();
+      //var instance = new Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property imageUrl (base name: "imageUrl")', function() {
       // uncomment below and update the code to test the property imageUrl
-      //var instance = new SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner();
+      //var instance = new Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property price (base name: "price")', function() {
       // uncomment below and update the code to test the property price
-      //var instance = new SpoonacularApi.SearchCustomFoods200ResponseCustomFoodsInner();
+      //var instance = new Spoonacular.SearchCustomFoods200ResponseCustomFoodsInner();
       //expect(instance).to.be();
     });
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
+    instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('RecipeInformationExtendedIngredientsInnerMeasuresMetric', function() {
     it('should create an instance of RecipeInformationExtendedIngredientsInnerMeasuresMetric', function() {
       // uncomment below and update the code to test RecipeInformationExtendedIngredientsInnerMeasuresMetric
-      //var instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
-      //expect(instance).to.be.a(SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasuresMetric);
+      //var instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
+      //expect(instance).to.be.a(Spoonacular.RecipeInformationExtendedIngredientsInnerMeasuresMetric);
     });
 
     it('should have the property amount (base name: "amount")', function() {
       // uncomment below and update the code to test the property amount
-      //var instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
+      //var instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
       //expect(instance).to.be();
     });
 
     it('should have the property unitLong (base name: "unitLong")', function() {
       // uncomment below and update the code to test the property unitLong
-      //var instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
+      //var instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
       //expect(instance).to.be();
     });
 
     it('should have the property unitShort (base name: "unitShort")', function() {
       // uncomment below and update the code to test the property unitShort
-      //var instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
+      //var instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasuresMetric();
       //expect(instance).to.be();
     });
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ImageClassificationByURL200Response();
+    instance = new Spoonacular.ImageClassificationByURL200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('ImageClassificationByURL200Response', function() {
     it('should create an instance of ImageClassificationByURL200Response', function() {
       // uncomment below and update the code to test ImageClassificationByURL200Response
-      //var instance = new SpoonacularApi.ImageClassificationByURL200Response();
-      //expect(instance).to.be.a(SpoonacularApi.ImageClassificationByURL200Response);
+      //var instance = new Spoonacular.ImageClassificationByURL200Response();
+      //expect(instance).to.be.a(Spoonacular.ImageClassificationByURL200Response);
     });
 
     it('should have the property category (base name: "category")', function() {
       // uncomment below and update the code to test the property category
-      //var instance = new SpoonacularApi.ImageClassificationByURL200Response();
+      //var instance = new Spoonacular.ImageClassificationByURL200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property probability (base name: "probability")', function() {
       // uncomment below and update the code to test the property probability
-      //var instance = new SpoonacularApi.ImageClassificationByURL200Response();
+      //var instance = new Spoonacular.ImageClassificationByURL200Response();
       //expect(instance).to.be();
     });
 

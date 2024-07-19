@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GuessNutritionByDishName200Response();
+    instance = new Spoonacular.GuessNutritionByDishName200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('GuessNutritionByDishName200Response', function() {
     it('should create an instance of GuessNutritionByDishName200Response', function() {
       // uncomment below and update the code to test GuessNutritionByDishName200Response
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GuessNutritionByDishName200Response);
+      //var instance = new Spoonacular.GuessNutritionByDishName200Response();
+      //expect(instance).to.be.a(Spoonacular.GuessNutritionByDishName200Response);
     });
 
     it('should have the property calories (base name: "calories")', function() {
       // uncomment below and update the code to test the property calories
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200Response();
+      //var instance = new Spoonacular.GuessNutritionByDishName200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property carbs (base name: "carbs")', function() {
       // uncomment below and update the code to test the property carbs
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200Response();
+      //var instance = new Spoonacular.GuessNutritionByDishName200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property fat (base name: "fat")', function() {
       // uncomment below and update the code to test the property fat
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200Response();
+      //var instance = new Spoonacular.GuessNutritionByDishName200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property protein (base name: "protein")', function() {
       // uncomment below and update the code to test the property protein
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200Response();
+      //var instance = new Spoonacular.GuessNutritionByDishName200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property recipesUsed (base name: "recipesUsed")', function() {
       // uncomment below and update the code to test the property recipesUsed
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200Response();
+      //var instance = new Spoonacular.GuessNutritionByDishName200Response();
       //expect(instance).to.be();
     });
 

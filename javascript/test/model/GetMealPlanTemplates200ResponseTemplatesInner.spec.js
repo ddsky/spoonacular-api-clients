@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetMealPlanTemplates200ResponseTemplatesInner();
+    instance = new Spoonacular.GetMealPlanTemplates200ResponseTemplatesInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GetMealPlanTemplates200ResponseTemplatesInner', function() {
     it('should create an instance of GetMealPlanTemplates200ResponseTemplatesInner', function() {
       // uncomment below and update the code to test GetMealPlanTemplates200ResponseTemplatesInner
-      //var instance = new SpoonacularApi.GetMealPlanTemplates200ResponseTemplatesInner();
-      //expect(instance).to.be.a(SpoonacularApi.GetMealPlanTemplates200ResponseTemplatesInner);
+      //var instance = new Spoonacular.GetMealPlanTemplates200ResponseTemplatesInner();
+      //expect(instance).to.be.a(Spoonacular.GetMealPlanTemplates200ResponseTemplatesInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.GetMealPlanTemplates200ResponseTemplatesInner();
+      //var instance = new Spoonacular.GetMealPlanTemplates200ResponseTemplatesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.GetMealPlanTemplates200ResponseTemplatesInner();
+      //var instance = new Spoonacular.GetMealPlanTemplates200ResponseTemplatesInner();
       //expect(instance).to.be();
     });
 

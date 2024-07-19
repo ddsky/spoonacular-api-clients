@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerNutritionSummary();
+    instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerNutritionSummary();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('GetMealPlanWeek200ResponseDaysInnerNutritionSummary', function() {
     it('should create an instance of GetMealPlanWeek200ResponseDaysInnerNutritionSummary', function() {
       // uncomment below and update the code to test GetMealPlanWeek200ResponseDaysInnerNutritionSummary
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerNutritionSummary();
-      //expect(instance).to.be.a(SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerNutritionSummary);
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerNutritionSummary();
+      //expect(instance).to.be.a(Spoonacular.GetMealPlanWeek200ResponseDaysInnerNutritionSummary);
     });
 
     it('should have the property nutrients (base name: "nutrients")', function() {
       // uncomment below and update the code to test the property nutrients
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerNutritionSummary();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerNutritionSummary();
       //expect(instance).to.be();
     });
 

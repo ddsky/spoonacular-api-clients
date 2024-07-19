@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetWinePairing200Response();
+    instance = new Spoonacular.GetWinePairing200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('GetWinePairing200Response', function() {
     it('should create an instance of GetWinePairing200Response', function() {
       // uncomment below and update the code to test GetWinePairing200Response
-      //var instance = new SpoonacularApi.GetWinePairing200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetWinePairing200Response);
+      //var instance = new Spoonacular.GetWinePairing200Response();
+      //expect(instance).to.be.a(Spoonacular.GetWinePairing200Response);
     });
 
     it('should have the property pairedWines (base name: "pairedWines")', function() {
       // uncomment below and update the code to test the property pairedWines
-      //var instance = new SpoonacularApi.GetWinePairing200Response();
+      //var instance = new Spoonacular.GetWinePairing200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property pairingText (base name: "pairingText")', function() {
       // uncomment below and update the code to test the property pairingText
-      //var instance = new SpoonacularApi.GetWinePairing200Response();
+      //var instance = new Spoonacular.GetWinePairing200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property productMatches (base name: "productMatches")', function() {
       // uncomment below and update the code to test the property productMatches
-      //var instance = new SpoonacularApi.GetWinePairing200Response();
+      //var instance = new Spoonacular.GetWinePairing200Response();
       //expect(instance).to.be();
     });
 

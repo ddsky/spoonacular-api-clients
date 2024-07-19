@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SummarizeRecipe200Response();
+    instance = new Spoonacular.SummarizeRecipe200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('SummarizeRecipe200Response', function() {
     it('should create an instance of SummarizeRecipe200Response', function() {
       // uncomment below and update the code to test SummarizeRecipe200Response
-      //var instance = new SpoonacularApi.SummarizeRecipe200Response();
-      //expect(instance).to.be.a(SpoonacularApi.SummarizeRecipe200Response);
+      //var instance = new Spoonacular.SummarizeRecipe200Response();
+      //expect(instance).to.be.a(Spoonacular.SummarizeRecipe200Response);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.SummarizeRecipe200Response();
+      //var instance = new Spoonacular.SummarizeRecipe200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property summary (base name: "summary")', function() {
       // uncomment below and update the code to test the property summary
-      //var instance = new SpoonacularApi.SummarizeRecipe200Response();
+      //var instance = new Spoonacular.SummarizeRecipe200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.SummarizeRecipe200Response();
+      //var instance = new Spoonacular.SummarizeRecipe200Response();
       //expect(instance).to.be();
     });
 

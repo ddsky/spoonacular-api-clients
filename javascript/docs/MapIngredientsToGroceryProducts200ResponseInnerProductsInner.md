@@ -1,4 +1,4 @@
-# SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInnerProductsInner
+# Spoonacular.MapIngredientsToGroceryProducts200ResponseInnerProductsInner
 
 ## Properties
 

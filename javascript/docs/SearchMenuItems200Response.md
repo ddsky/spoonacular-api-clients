@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchMenuItems200Response
+# Spoonacular.SearchMenuItems200Response
 
 ## Properties
 

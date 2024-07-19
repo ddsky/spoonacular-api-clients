@@ -1,4 +1,4 @@
-# SpoonacularApi.ProductsApi
+# Spoonacular.ProductsApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -29,15 +29,15 @@ Generate suggestions for grocery products based on a (partial) query. The matche
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let query = "chicke"; // String | The (partial) search query.
 let opts = {
   'number': 10 // Number | The number of results to return (between 1 and 25).
@@ -84,15 +84,15 @@ This endpoint allows you to match a packaged food to a basic category, e.g. a sp
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let classifyGroceryProductRequest = {"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}; // ClassifyGroceryProductRequest | 
 let opts = {
   'locale': "en_US" // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
@@ -139,15 +139,15 @@ Provide a set of product jsons, get back classified products.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let classifyGroceryProductBulkRequestInner = [{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}]; // [ClassifyGroceryProductBulkRequestInner] | 
 let opts = {
   'locale': "en_US" // String | The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
@@ -194,15 +194,15 @@ Find comparable products to the given one.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let upc = "033698816271"; // String | The UPC of the product for which you want to find comparable products.
 apiInstance.getComparableProducts(upc, (error, data, response) => {
   if (error) {
@@ -245,15 +245,15 @@ Use a product id to get full information about a product, such as ingredients, n
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let id = 22347; // Number | The id of the packaged food.
 apiInstance.getProductInformation(id, (error, data, response) => {
   if (error) {
@@ -296,15 +296,15 @@ Visualize a product&#39;s nutritional information as an image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let id = 7657; // Number | The id of the product.
 apiInstance.productNutritionByIDImage(id, (error, data, response) => {
   if (error) {
@@ -347,15 +347,15 @@ Get a product&#39;s nutrition label as an image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let id = 22347; // Number | The product id.
 let opts = {
   'showOptionalNutrients': false, // Boolean | Whether to show optional nutrients.
@@ -406,15 +406,15 @@ Get a product&#39;s nutrition label as an HTML widget.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let id = 22347; // Number | The product id.
 let opts = {
   'defaultCss': false, // Boolean | Whether the default CSS should be added to the response.
@@ -467,15 +467,15 @@ Search packaged food products, such as frozen pizza or Greek yogurt.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let query = "burger"; // String | The (natural language) search query.
 let opts = {
   'minCalories': 50, // Number | The minimum amount of calories the product must have.
@@ -542,15 +542,15 @@ Get information about a packaged food using its UPC.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let upc = "041631000564"; // String | The product's UPC.
 apiInstance.searchGroceryProductsByUPC(upc, (error, data, response) => {
   if (error) {
@@ -593,15 +593,15 @@ Visualize a product&#39;s nutritional information as HTML including CSS.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.ProductsApi();
+let apiInstance = new Spoonacular.ProductsApi();
 let id = 7657; // Number | The id of the product.
 let opts = {
   'defaultCss': false // Boolean | Whether the default CSS should be added to the response.

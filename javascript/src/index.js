@@ -173,9 +173,9 @@ import WineApi from './api/WineApi';
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
 * <pre>
-* var SpoonacularApi = require('index'); // See note below*.
-* var xxxSvc = new SpoonacularApi.XxxApi(); // Allocate the API class we're going to use.
-* var yyyModel = new SpoonacularApi.Yyy(); // Construct a model instance.
+* var Spoonacular = require('index'); // See note below*.
+* var xxxSvc = new Spoonacular.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new Spoonacular.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -187,8 +187,8 @@ import WineApi from './api/WineApi';
 * <p>
 * A non-AMD browser application (discouraged) might do something like this:
 * <pre>
-* var xxxSvc = new SpoonacularApi.XxxApi(); // Allocate the API class we're going to use.
-* var yyy = new SpoonacularApi.Yyy(); // Construct a model instance.
+* var xxxSvc = new Spoonacular.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new Spoonacular.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

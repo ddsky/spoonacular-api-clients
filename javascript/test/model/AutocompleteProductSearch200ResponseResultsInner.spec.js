@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AutocompleteProductSearch200ResponseResultsInner();
+    instance = new Spoonacular.AutocompleteProductSearch200ResponseResultsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('AutocompleteProductSearch200ResponseResultsInner', function() {
     it('should create an instance of AutocompleteProductSearch200ResponseResultsInner', function() {
       // uncomment below and update the code to test AutocompleteProductSearch200ResponseResultsInner
-      //var instance = new SpoonacularApi.AutocompleteProductSearch200ResponseResultsInner();
-      //expect(instance).to.be.a(SpoonacularApi.AutocompleteProductSearch200ResponseResultsInner);
+      //var instance = new Spoonacular.AutocompleteProductSearch200ResponseResultsInner();
+      //expect(instance).to.be.a(Spoonacular.AutocompleteProductSearch200ResponseResultsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.AutocompleteProductSearch200ResponseResultsInner();
+      //var instance = new Spoonacular.AutocompleteProductSearch200ResponseResultsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.AutocompleteProductSearch200ResponseResultsInner();
+      //var instance = new Spoonacular.AutocompleteProductSearch200ResponseResultsInner();
       //expect(instance).to.be();
     });
 

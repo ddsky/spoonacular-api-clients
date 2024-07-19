@@ -1,4 +1,4 @@
-# SpoonacularApi.CreateRecipeCard200Response
+# Spoonacular.CreateRecipeCard200Response
 
 ## Properties
 

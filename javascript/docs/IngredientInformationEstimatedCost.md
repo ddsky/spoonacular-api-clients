@@ -1,4 +1,4 @@
-# SpoonacularApi.IngredientInformationEstimatedCost
+# Spoonacular.IngredientInformationEstimatedCost
 
 ## Properties
 

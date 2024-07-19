@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
+    instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('GetShoppingList200ResponseAislesInnerItemsInnerMeasures', function() {
     it('should create an instance of GetShoppingList200ResponseAislesInnerItemsInnerMeasures', function() {
       // uncomment below and update the code to test GetShoppingList200ResponseAislesInnerItemsInnerMeasures
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
-      //expect(instance).to.be.a(SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasures);
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
+      //expect(instance).to.be.a(Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasures);
     });
 
     it('should have the property original (base name: "original")', function() {
       // uncomment below and update the code to test the property original
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
       //expect(instance).to.be();
     });
 
     it('should have the property metric (base name: "metric")', function() {
       // uncomment below and update the code to test the property metric
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
       //expect(instance).to.be();
     });
 
     it('should have the property us (base name: "us")', function() {
       // uncomment below and update the code to test the property us
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasures();
       //expect(instance).to.be();
     });
 

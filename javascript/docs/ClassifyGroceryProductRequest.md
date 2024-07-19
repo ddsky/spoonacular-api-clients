@@ -1,4 +1,4 @@
-# SpoonacularApi.ClassifyGroceryProductRequest
+# Spoonacular.ClassifyGroceryProductRequest
 
 ## Properties
 

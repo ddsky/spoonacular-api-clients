@@ -1,4 +1,4 @@
-# SpoonacularApi.GetComparableProducts200Response
+# Spoonacular.GetComparableProducts200Response
 
 ## Properties
 

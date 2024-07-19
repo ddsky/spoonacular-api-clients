@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
+    instance = new Spoonacular.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent', function() {
     it('should create an instance of GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent', function() {
       // uncomment below and update the code to test GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
-      //expect(instance).to.be.a(SpoonacularApi.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent);
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
+      //expect(instance).to.be.a(Spoonacular.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent);
     });
 
     it('should have the property max (base name: "max")', function() {
       // uncomment below and update the code to test the property max
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
       //expect(instance).to.be();
     });
 
     it('should have the property min (base name: "min")', function() {
       // uncomment below and update the code to test the property min
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent();
       //expect(instance).to.be();
     });
 

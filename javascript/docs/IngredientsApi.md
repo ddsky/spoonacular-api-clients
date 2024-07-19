@@ -1,4 +1,4 @@
-# SpoonacularApi.IngredientsApi
+# Spoonacular.IngredientsApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -27,15 +27,15 @@ Autocomplete the entry of an ingredient.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let query = "burger"; // String | The (natural language) search query.
 let opts = {
   'number': 10, // Number | The maximum number of items to return (between 1 and 100). Defaults to 10.
@@ -88,15 +88,15 @@ Compute the amount you need of a certain ingredient for a certain nutritional go
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let id = 9266; // Number | The id of the ingredient you want the amount for.
 let nutrient = "protein"; // String | The target nutrient. See a list of supported nutrients.
 let target = 2; // Number | The target number of the given nutrient.
@@ -147,15 +147,15 @@ Use an ingredient id to get all available information about an ingredient, such 
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let id = 9266; // Number | The ingredient id.
 let opts = {
   'amount': 150, // Number | The amount of this ingredient.
@@ -204,15 +204,15 @@ Search for substitutes for a given ingredient.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let ingredientName = "butter"; // String | The name of the ingredient you want to replace.
 apiInstance.getIngredientSubstitutes(ingredientName, (error, data, response) => {
   if (error) {
@@ -255,15 +255,15 @@ Search for substitutes for a given ingredient.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let id = 1001; // Number | The id of the ingredient you want substitutes for.
 apiInstance.getIngredientSubstitutesByID(id, (error, data, response) => {
   if (error) {
@@ -306,15 +306,15 @@ Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let query = "burger"; // String | The (natural language) search query.
 let opts = {
   'addChildren': true, // Boolean | Whether to add children of found foods.
@@ -387,15 +387,15 @@ Visualize a recipe&#39;s ingredient list.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let id = 1082038; // Number | The recipe id.
 let opts = {
   'measure': "metric" // String | Whether the the measures should be 'us' or 'metric'.
@@ -442,15 +442,15 @@ Map a set of ingredients to products you can buy in the grocery store.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let mapIngredientsToGroceryProductsRequest = {"ingredients":["eggs","bacon"],"servings":2}; // MapIngredientsToGroceryProductsRequest | 
 apiInstance.mapIngredientsToGroceryProducts(mapIngredientsToGroceryProductsRequest, (error, data, response) => {
   if (error) {
@@ -493,15 +493,15 @@ Visualize ingredients of a recipe. You can play around with that endpoint!
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.IngredientsApi();
+let apiInstance = new Spoonacular.IngredientsApi();
 let ingredientList = "ingredientList_example"; // String | The ingredient list of the recipe, one ingredient per line (separate lines with \\\\n).
 let servings = 3.4; // Number | The number of servings.
 let opts = {

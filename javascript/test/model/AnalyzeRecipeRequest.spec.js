@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeRecipeRequest();
+    instance = new Spoonacular.AnalyzeRecipeRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('AnalyzeRecipeRequest', function() {
     it('should create an instance of AnalyzeRecipeRequest', function() {
       // uncomment below and update the code to test AnalyzeRecipeRequest
-      //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeRecipeRequest);
+      //var instance = new Spoonacular.AnalyzeRecipeRequest();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeRecipeRequest);
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
+      //var instance = new Spoonacular.AnalyzeRecipeRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property servings (base name: "servings")', function() {
       // uncomment below and update the code to test the property servings
-      //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
+      //var instance = new Spoonacular.AnalyzeRecipeRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
+      //var instance = new Spoonacular.AnalyzeRecipeRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property instructions (base name: "instructions")', function() {
       // uncomment below and update the code to test the property instructions
-      //var instance = new SpoonacularApi.AnalyzeRecipeRequest();
+      //var instance = new Spoonacular.AnalyzeRecipeRequest();
       //expect(instance).to.be();
     });
 

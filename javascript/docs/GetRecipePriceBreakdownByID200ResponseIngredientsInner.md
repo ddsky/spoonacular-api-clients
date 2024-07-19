@@ -1,4 +1,4 @@
-# SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner
+# Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner
 
 ## Properties
 

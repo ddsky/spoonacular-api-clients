@@ -1,4 +1,4 @@
-# SpoonacularApi.GenerateMealPlan200ResponseNutrients
+# Spoonacular.GenerateMealPlan200ResponseNutrients
 
 ## Properties
 

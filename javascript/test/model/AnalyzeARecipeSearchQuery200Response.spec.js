@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200Response();
+    instance = new Spoonacular.AnalyzeARecipeSearchQuery200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('AnalyzeARecipeSearchQuery200Response', function() {
     it('should create an instance of AnalyzeARecipeSearchQuery200Response', function() {
       // uncomment below and update the code to test AnalyzeARecipeSearchQuery200Response
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200Response();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeARecipeSearchQuery200Response);
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200Response();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeARecipeSearchQuery200Response);
     });
 
     it('should have the property dishes (base name: "dishes")', function() {
       // uncomment below and update the code to test the property dishes
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200Response();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200Response();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property cuisines (base name: "cuisines")', function() {
       // uncomment below and update the code to test the property cuisines
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200Response();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property modifiers (base name: "modifiers")', function() {
       // uncomment below and update the code to test the property modifiers
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200Response();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200Response();
       //expect(instance).to.be();
     });
 

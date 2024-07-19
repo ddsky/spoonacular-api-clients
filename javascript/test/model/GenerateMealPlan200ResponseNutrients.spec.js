@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GenerateMealPlan200ResponseNutrients();
+    instance = new Spoonacular.GenerateMealPlan200ResponseNutrients();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('GenerateMealPlan200ResponseNutrients', function() {
     it('should create an instance of GenerateMealPlan200ResponseNutrients', function() {
       // uncomment below and update the code to test GenerateMealPlan200ResponseNutrients
-      //var instance = new SpoonacularApi.GenerateMealPlan200ResponseNutrients();
-      //expect(instance).to.be.a(SpoonacularApi.GenerateMealPlan200ResponseNutrients);
+      //var instance = new Spoonacular.GenerateMealPlan200ResponseNutrients();
+      //expect(instance).to.be.a(Spoonacular.GenerateMealPlan200ResponseNutrients);
     });
 
     it('should have the property calories (base name: "calories")', function() {
       // uncomment below and update the code to test the property calories
-      //var instance = new SpoonacularApi.GenerateMealPlan200ResponseNutrients();
+      //var instance = new Spoonacular.GenerateMealPlan200ResponseNutrients();
       //expect(instance).to.be();
     });
 
     it('should have the property carbohydrates (base name: "carbohydrates")', function() {
       // uncomment below and update the code to test the property carbohydrates
-      //var instance = new SpoonacularApi.GenerateMealPlan200ResponseNutrients();
+      //var instance = new Spoonacular.GenerateMealPlan200ResponseNutrients();
       //expect(instance).to.be();
     });
 
     it('should have the property fat (base name: "fat")', function() {
       // uncomment below and update the code to test the property fat
-      //var instance = new SpoonacularApi.GenerateMealPlan200ResponseNutrients();
+      //var instance = new Spoonacular.GenerateMealPlan200ResponseNutrients();
       //expect(instance).to.be();
     });
 
     it('should have the property protein (base name: "protein")', function() {
       // uncomment below and update the code to test the property protein
-      //var instance = new SpoonacularApi.GenerateMealPlan200ResponseNutrients();
+      //var instance = new Spoonacular.GenerateMealPlan200ResponseNutrients();
       //expect(instance).to.be();
     });
 

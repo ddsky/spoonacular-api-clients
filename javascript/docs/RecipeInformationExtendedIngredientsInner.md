@@ -1,4 +1,4 @@
-# SpoonacularApi.RecipeInformationExtendedIngredientsInner
+# Spoonacular.RecipeInformationExtendedIngredientsInner
 
 ## Properties
 

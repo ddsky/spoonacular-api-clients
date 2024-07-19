@@ -1,4 +1,4 @@
-# SpoonacularApi.AnalyzeARecipeSearchQuery200Response
+# Spoonacular.AnalyzeARecipeSearchQuery200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.WineApi
+# Spoonacular.WineApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -22,15 +22,15 @@ Find a dish that goes well with a given wine.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.WineApi();
+let apiInstance = new Spoonacular.WineApi();
 let wine = "malbec"; // String | The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 apiInstance.getDishPairingForWine(wine, (error, data, response) => {
   if (error) {
@@ -73,15 +73,15 @@ Get a simple description of a certain wine, e.g. \&quot;malbec\&quot;, \&quot;ri
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.WineApi();
+let apiInstance = new Spoonacular.WineApi();
 let wine = "merlot"; // String | The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".
 apiInstance.getWineDescription(wine, (error, data, response) => {
   if (error) {
@@ -124,15 +124,15 @@ Find a wine that goes well with a food. Food can be a dish name (\&quot;steak\&q
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.WineApi();
+let apiInstance = new Spoonacular.WineApi();
 let food = "steak"; // String | The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").
 let opts = {
   'maxPrice': 50 // Number | The maximum price for the specific wine recommendation in USD.
@@ -179,15 +179,15 @@ Get a specific wine recommendation (concrete product) for a given wine type, e.g
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.WineApi();
+let apiInstance = new Spoonacular.WineApi();
 let wine = "merlot"; // String | The type of wine to get a specific product recommendation for.
 let opts = {
   'maxPrice': 50, // Number | The maximum price for the specific wine recommendation in USD.

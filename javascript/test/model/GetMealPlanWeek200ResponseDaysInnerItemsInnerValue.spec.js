@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
+    instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('GetMealPlanWeek200ResponseDaysInnerItemsInnerValue', function() {
     it('should create an instance of GetMealPlanWeek200ResponseDaysInnerItemsInnerValue', function() {
       // uncomment below and update the code to test GetMealPlanWeek200ResponseDaysInnerItemsInnerValue
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
-      //expect(instance).to.be.a(SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue);
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
+      //expect(instance).to.be.a(Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue);
     });
 
     it('should have the property servings (base name: "servings")', function() {
       // uncomment below and update the code to test the property servings
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
       //expect(instance).to.be();
     });
 
     it('should have the property imageType (base name: "imageType")', function() {
       // uncomment below and update the code to test the property imageType
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInnerValue();
       //expect(instance).to.be();
     });
 

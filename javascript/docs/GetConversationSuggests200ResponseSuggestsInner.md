@@ -1,4 +1,4 @@
-# SpoonacularApi.GetConversationSuggests200ResponseSuggestsInner
+# Spoonacular.GetConversationSuggests200ResponseSuggestsInner
 
 ## Properties
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.IngredientBasics();
+    instance = new Spoonacular.IngredientBasics();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('IngredientBasics', function() {
     it('should create an instance of IngredientBasics', function() {
       // uncomment below and update the code to test IngredientBasics
-      //var instance = new SpoonacularApi.IngredientBasics();
-      //expect(instance).to.be.a(SpoonacularApi.IngredientBasics);
+      //var instance = new Spoonacular.IngredientBasics();
+      //expect(instance).to.be.a(Spoonacular.IngredientBasics);
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new SpoonacularApi.IngredientBasics();
+      //var instance = new Spoonacular.IngredientBasics();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.IngredientBasics();
+      //var instance = new Spoonacular.IngredientBasics();
       //expect(instance).to.be();
     });
 
     it('should have the property safetyLevel (base name: "safety_level")', function() {
       // uncomment below and update the code to test the property safetyLevel
-      //var instance = new SpoonacularApi.IngredientBasics();
+      //var instance = new Spoonacular.IngredientBasics();
       //expect(instance).to.be();
     });
 

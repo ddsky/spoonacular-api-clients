@@ -1,4 +1,4 @@
-# SpoonacularApi.ConnectUserRequest
+# Spoonacular.ConnectUserRequest
 
 ## Properties
 

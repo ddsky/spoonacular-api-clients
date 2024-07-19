@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+    instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,67 +50,67 @@
   describe('SearchRecipesByIngredients200ResponseInner', function() {
     it('should create an instance of SearchRecipesByIngredients200ResponseInner', function() {
       // uncomment below and update the code to test SearchRecipesByIngredients200ResponseInner
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
-      //expect(instance).to.be.a(SpoonacularApi.SearchRecipesByIngredients200ResponseInner);
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
+      //expect(instance).to.be.a(Spoonacular.SearchRecipesByIngredients200ResponseInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property imageType (base name: "imageType")', function() {
       // uncomment below and update the code to test the property imageType
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property likes (base name: "likes")', function() {
       // uncomment below and update the code to test the property likes
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property missedIngredientCount (base name: "missedIngredientCount")', function() {
       // uncomment below and update the code to test the property missedIngredientCount
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property missedIngredients (base name: "missedIngredients")', function() {
       // uncomment below and update the code to test the property missedIngredients
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property unusedIngredients (base name: "unusedIngredients")', function() {
       // uncomment below and update the code to test the property unusedIngredients
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property usedIngredientCount (base name: "usedIngredientCount")', function() {
       // uncomment below and update the code to test the property usedIngredientCount
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property usedIngredients (base name: "usedIngredients")', function() {
       // uncomment below and update the code to test the property usedIngredients
-      //var instance = new SpoonacularApi.SearchRecipesByIngredients200ResponseInner();
+      //var instance = new Spoonacular.SearchRecipesByIngredients200ResponseInner();
       //expect(instance).to.be();
     });
 

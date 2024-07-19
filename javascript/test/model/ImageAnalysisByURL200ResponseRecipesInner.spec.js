@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ImageAnalysisByURL200ResponseRecipesInner();
+    instance = new Spoonacular.ImageAnalysisByURL200ResponseRecipesInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('ImageAnalysisByURL200ResponseRecipesInner', function() {
     it('should create an instance of ImageAnalysisByURL200ResponseRecipesInner', function() {
       // uncomment below and update the code to test ImageAnalysisByURL200ResponseRecipesInner
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseRecipesInner();
-      //expect(instance).to.be.a(SpoonacularApi.ImageAnalysisByURL200ResponseRecipesInner);
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseRecipesInner();
+      //expect(instance).to.be.a(Spoonacular.ImageAnalysisByURL200ResponseRecipesInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseRecipesInner();
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseRecipesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseRecipesInner();
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseRecipesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property imageType (base name: "imageType")', function() {
       // uncomment below and update the code to test the property imageType
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseRecipesInner();
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseRecipesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseRecipesInner();
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseRecipesInner();
       //expect(instance).to.be();
     });
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
+    instance = new Spoonacular.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent', function() {
     it('should create an instance of ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent', function() {
       // uncomment below and update the code to test ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
-      //expect(instance).to.be.a(SpoonacularApi.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent);
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
+      //expect(instance).to.be.a(Spoonacular.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent);
     });
 
     it('should have the property min (base name: "min")', function() {
       // uncomment below and update the code to test the property min
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
       //expect(instance).to.be();
     });
 
     it('should have the property max (base name: "max")', function() {
       // uncomment below and update the code to test the property max
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
+      //var instance = new Spoonacular.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
+# Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
 
 ## Properties
 

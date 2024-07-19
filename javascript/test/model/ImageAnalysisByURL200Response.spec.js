@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ImageAnalysisByURL200Response();
+    instance = new Spoonacular.ImageAnalysisByURL200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('ImageAnalysisByURL200Response', function() {
     it('should create an instance of ImageAnalysisByURL200Response', function() {
       // uncomment below and update the code to test ImageAnalysisByURL200Response
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200Response();
-      //expect(instance).to.be.a(SpoonacularApi.ImageAnalysisByURL200Response);
+      //var instance = new Spoonacular.ImageAnalysisByURL200Response();
+      //expect(instance).to.be.a(Spoonacular.ImageAnalysisByURL200Response);
     });
 
     it('should have the property nutrition (base name: "nutrition")', function() {
       // uncomment below and update the code to test the property nutrition
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200Response();
+      //var instance = new Spoonacular.ImageAnalysisByURL200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property category (base name: "category")', function() {
       // uncomment below and update the code to test the property category
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200Response();
+      //var instance = new Spoonacular.ImageAnalysisByURL200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property recipes (base name: "recipes")', function() {
       // uncomment below and update the code to test the property recipes
-      //var instance = new SpoonacularApi.ImageAnalysisByURL200Response();
+      //var instance = new Spoonacular.ImageAnalysisByURL200Response();
       //expect(instance).to.be();
     });
 

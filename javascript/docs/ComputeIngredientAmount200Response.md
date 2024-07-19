@@ -1,4 +1,4 @@
-# SpoonacularApi.ComputeIngredientAmount200Response
+# Spoonacular.ComputeIngredientAmount200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner
+# Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner
 
 ## Properties
 

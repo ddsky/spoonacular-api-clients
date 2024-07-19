@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ConvertAmounts200Response();
+    instance = new Spoonacular.ConvertAmounts200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('ConvertAmounts200Response', function() {
     it('should create an instance of ConvertAmounts200Response', function() {
       // uncomment below and update the code to test ConvertAmounts200Response
-      //var instance = new SpoonacularApi.ConvertAmounts200Response();
-      //expect(instance).to.be.a(SpoonacularApi.ConvertAmounts200Response);
+      //var instance = new Spoonacular.ConvertAmounts200Response();
+      //expect(instance).to.be.a(Spoonacular.ConvertAmounts200Response);
     });
 
     it('should have the property sourceAmount (base name: "sourceAmount")', function() {
       // uncomment below and update the code to test the property sourceAmount
-      //var instance = new SpoonacularApi.ConvertAmounts200Response();
+      //var instance = new Spoonacular.ConvertAmounts200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property sourceUnit (base name: "sourceUnit")', function() {
       // uncomment below and update the code to test the property sourceUnit
-      //var instance = new SpoonacularApi.ConvertAmounts200Response();
+      //var instance = new Spoonacular.ConvertAmounts200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property targetAmount (base name: "targetAmount")', function() {
       // uncomment below and update the code to test the property targetAmount
-      //var instance = new SpoonacularApi.ConvertAmounts200Response();
+      //var instance = new Spoonacular.ConvertAmounts200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property targetUnit (base name: "targetUnit")', function() {
       // uncomment below and update the code to test the property targetUnit
-      //var instance = new SpoonacularApi.ConvertAmounts200Response();
+      //var instance = new Spoonacular.ConvertAmounts200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property answer (base name: "answer")', function() {
       // uncomment below and update the code to test the property answer
-      //var instance = new SpoonacularApi.ConvertAmounts200Response();
+      //var instance = new Spoonacular.ConvertAmounts200Response();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.GetIngredientSubstitutes200Response
+# Spoonacular.GetIngredientSubstitutes200Response
 
 ## Properties
 

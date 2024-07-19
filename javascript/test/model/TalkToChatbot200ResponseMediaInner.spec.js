@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.TalkToChatbot200ResponseMediaInner();
+    instance = new Spoonacular.TalkToChatbot200ResponseMediaInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('TalkToChatbot200ResponseMediaInner', function() {
     it('should create an instance of TalkToChatbot200ResponseMediaInner', function() {
       // uncomment below and update the code to test TalkToChatbot200ResponseMediaInner
-      //var instance = new SpoonacularApi.TalkToChatbot200ResponseMediaInner();
-      //expect(instance).to.be.a(SpoonacularApi.TalkToChatbot200ResponseMediaInner);
+      //var instance = new Spoonacular.TalkToChatbot200ResponseMediaInner();
+      //expect(instance).to.be.a(Spoonacular.TalkToChatbot200ResponseMediaInner);
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.TalkToChatbot200ResponseMediaInner();
+      //var instance = new Spoonacular.TalkToChatbot200ResponseMediaInner();
       //expect(instance).to.be();
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instance = new SpoonacularApi.TalkToChatbot200ResponseMediaInner();
+      //var instance = new Spoonacular.TalkToChatbot200ResponseMediaInner();
       //expect(instance).to.be();
     });
 
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
-      //var instance = new SpoonacularApi.TalkToChatbot200ResponseMediaInner();
+      //var instance = new Spoonacular.TalkToChatbot200ResponseMediaInner();
       //expect(instance).to.be();
     });
 

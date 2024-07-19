@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasures();
+    instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasures();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('RecipeInformationExtendedIngredientsInnerMeasures', function() {
     it('should create an instance of RecipeInformationExtendedIngredientsInnerMeasures', function() {
       // uncomment below and update the code to test RecipeInformationExtendedIngredientsInnerMeasures
-      //var instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasures();
-      //expect(instance).to.be.a(SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasures);
+      //var instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasures();
+      //expect(instance).to.be.a(Spoonacular.RecipeInformationExtendedIngredientsInnerMeasures);
     });
 
     it('should have the property metric (base name: "metric")', function() {
       // uncomment below and update the code to test the property metric
-      //var instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasures();
+      //var instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasures();
       //expect(instance).to.be();
     });
 
     it('should have the property us (base name: "us")', function() {
       // uncomment below and update the code to test the property us
-      //var instance = new SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasures();
+      //var instance = new Spoonacular.RecipeInformationExtendedIngredientsInnerMeasures();
       //expect(instance).to.be();
     });
 

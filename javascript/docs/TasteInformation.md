@@ -1,4 +1,4 @@
-# SpoonacularApi.TasteInformation
+# Spoonacular.TasteInformation
 
 ## Properties
 

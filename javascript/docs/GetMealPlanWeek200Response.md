@@ -1,4 +1,4 @@
-# SpoonacularApi.GetMealPlanWeek200Response
+# Spoonacular.GetMealPlanWeek200Response
 
 ## Properties
 

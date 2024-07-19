@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseIngredientsInner();
+    instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseIngredientsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('AnalyzeRecipeInstructions200ResponseIngredientsInner', function() {
     it('should create an instance of AnalyzeRecipeInstructions200ResponseIngredientsInner', function() {
       // uncomment below and update the code to test AnalyzeRecipeInstructions200ResponseIngredientsInner
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseIngredientsInner();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeRecipeInstructions200ResponseIngredientsInner);
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseIngredientsInner();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeRecipeInstructions200ResponseIngredientsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 

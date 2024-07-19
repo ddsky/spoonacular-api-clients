@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetDishPairingForWine200Response();
+    instance = new Spoonacular.GetDishPairingForWine200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GetDishPairingForWine200Response', function() {
     it('should create an instance of GetDishPairingForWine200Response', function() {
       // uncomment below and update the code to test GetDishPairingForWine200Response
-      //var instance = new SpoonacularApi.GetDishPairingForWine200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetDishPairingForWine200Response);
+      //var instance = new Spoonacular.GetDishPairingForWine200Response();
+      //expect(instance).to.be.a(Spoonacular.GetDishPairingForWine200Response);
     });
 
     it('should have the property pairings (base name: "pairings")', function() {
       // uncomment below and update the code to test the property pairings
-      //var instance = new SpoonacularApi.GetDishPairingForWine200Response();
+      //var instance = new Spoonacular.GetDishPairingForWine200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property text (base name: "text")', function() {
       // uncomment below and update the code to test the property text
-      //var instance = new SpoonacularApi.GetDishPairingForWine200Response();
+      //var instance = new Spoonacular.GetDishPairingForWine200Response();
       //expect(instance).to.be();
     });
 

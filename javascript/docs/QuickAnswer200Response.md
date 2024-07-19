@@ -1,4 +1,4 @@
-# SpoonacularApi.QuickAnswer200Response
+# Spoonacular.QuickAnswer200Response
 
 ## Properties
 

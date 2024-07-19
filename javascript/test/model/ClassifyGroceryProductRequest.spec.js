@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ClassifyGroceryProductRequest();
+    instance = new Spoonacular.ClassifyGroceryProductRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('ClassifyGroceryProductRequest', function() {
     it('should create an instance of ClassifyGroceryProductRequest', function() {
       // uncomment below and update the code to test ClassifyGroceryProductRequest
-      //var instance = new SpoonacularApi.ClassifyGroceryProductRequest();
-      //expect(instance).to.be.a(SpoonacularApi.ClassifyGroceryProductRequest);
+      //var instance = new Spoonacular.ClassifyGroceryProductRequest();
+      //expect(instance).to.be.a(Spoonacular.ClassifyGroceryProductRequest);
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.ClassifyGroceryProductRequest();
+      //var instance = new Spoonacular.ClassifyGroceryProductRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property upc (base name: "upc")', function() {
       // uncomment below and update the code to test the property upc
-      //var instance = new SpoonacularApi.ClassifyGroceryProductRequest();
+      //var instance = new Spoonacular.ClassifyGroceryProductRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property pluCode (base name: "plu_code")', function() {
       // uncomment below and update the code to test the property pluCode
-      //var instance = new SpoonacularApi.ClassifyGroceryProductRequest();
+      //var instance = new Spoonacular.ClassifyGroceryProductRequest();
       //expect(instance).to.be();
     });
 

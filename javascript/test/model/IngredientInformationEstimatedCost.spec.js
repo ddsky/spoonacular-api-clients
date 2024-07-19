@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.IngredientInformationEstimatedCost();
+    instance = new Spoonacular.IngredientInformationEstimatedCost();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('IngredientInformationEstimatedCost', function() {
     it('should create an instance of IngredientInformationEstimatedCost', function() {
       // uncomment below and update the code to test IngredientInformationEstimatedCost
-      //var instance = new SpoonacularApi.IngredientInformationEstimatedCost();
-      //expect(instance).to.be.a(SpoonacularApi.IngredientInformationEstimatedCost);
+      //var instance = new Spoonacular.IngredientInformationEstimatedCost();
+      //expect(instance).to.be.a(Spoonacular.IngredientInformationEstimatedCost);
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instance = new SpoonacularApi.IngredientInformationEstimatedCost();
+      //var instance = new Spoonacular.IngredientInformationEstimatedCost();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instance = new SpoonacularApi.IngredientInformationEstimatedCost();
+      //var instance = new Spoonacular.IngredientInformationEstimatedCost();
       //expect(instance).to.be();
     });
 

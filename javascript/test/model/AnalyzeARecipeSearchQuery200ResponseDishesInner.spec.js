@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseDishesInner();
+    instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseDishesInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('AnalyzeARecipeSearchQuery200ResponseDishesInner', function() {
     it('should create an instance of AnalyzeARecipeSearchQuery200ResponseDishesInner', function() {
       // uncomment below and update the code to test AnalyzeARecipeSearchQuery200ResponseDishesInner
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseDishesInner();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseDishesInner);
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseDishesInner();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeARecipeSearchQuery200ResponseDishesInner);
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseDishesInner();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseDishesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseDishesInner();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseDishesInner();
       //expect(instance).to.be();
     });
 

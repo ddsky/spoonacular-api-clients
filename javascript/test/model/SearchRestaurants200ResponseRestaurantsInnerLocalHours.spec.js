@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
+    instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('SearchRestaurants200ResponseRestaurantsInnerLocalHours', function() {
     it('should create an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHours', function() {
       // uncomment below and update the code to test SearchRestaurants200ResponseRestaurantsInnerLocalHours
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
-      //expect(instance).to.be.a(SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHours);
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
+      //expect(instance).to.be.a(Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHours);
     });
 
     it('should have the property operational (base name: "operational")', function() {
       // uncomment below and update the code to test the property operational
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
       //expect(instance).to.be();
     });
 
     it('should have the property delivery (base name: "delivery")', function() {
       // uncomment below and update the code to test the property delivery
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
       //expect(instance).to.be();
     });
 
     it('should have the property pickup (base name: "pickup")', function() {
       // uncomment below and update the code to test the property pickup
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
       //expect(instance).to.be();
     });
 
     it('should have the property dineIn (base name: "dine_in")', function() {
       // uncomment below and update the code to test the property dineIn
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHours();
       //expect(instance).to.be();
     });
 

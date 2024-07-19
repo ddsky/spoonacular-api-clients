@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
+    instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('AnalyzeRecipeInstructions200ResponseParsedInstructionsInner', function() {
     it('should create an instance of AnalyzeRecipeInstructions200ResponseParsedInstructionsInner', function() {
       // uncomment below and update the code to test AnalyzeRecipeInstructions200ResponseParsedInstructionsInner
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner);
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property steps (base name: "steps")', function() {
       // uncomment below and update the code to test the property steps
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInner();
       //expect(instance).to.be();
     });
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AddToShoppingListRequest();
+    instance = new Spoonacular.AddToShoppingListRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('AddToShoppingListRequest', function() {
     it('should create an instance of AddToShoppingListRequest', function() {
       // uncomment below and update the code to test AddToShoppingListRequest
-      //var instance = new SpoonacularApi.AddToShoppingListRequest();
-      //expect(instance).to.be.a(SpoonacularApi.AddToShoppingListRequest);
+      //var instance = new Spoonacular.AddToShoppingListRequest();
+      //expect(instance).to.be.a(Spoonacular.AddToShoppingListRequest);
     });
 
     it('should have the property item (base name: "item")', function() {
       // uncomment below and update the code to test the property item
-      //var instance = new SpoonacularApi.AddToShoppingListRequest();
+      //var instance = new Spoonacular.AddToShoppingListRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property aisle (base name: "aisle")', function() {
       // uncomment below and update the code to test the property aisle
-      //var instance = new SpoonacularApi.AddToShoppingListRequest();
+      //var instance = new Spoonacular.AddToShoppingListRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property parse (base name: "parse")', function() {
       // uncomment below and update the code to test the property parse
-      //var instance = new SpoonacularApi.AddToShoppingListRequest();
+      //var instance = new Spoonacular.AddToShoppingListRequest();
       //expect(instance).to.be();
     });
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
+    instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner', function() {
     it('should create an instance of AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner', function() {
       // uncomment below and update the code to test AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner);
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner);
     });
 
     it('should have the property number (base name: "number")', function() {
       // uncomment below and update the code to test the property number
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property step (base name: "step")', function() {
       // uncomment below and update the code to test the property step
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property equipment (base name: "equipment")', function() {
       // uncomment below and update the code to test the property equipment
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInner();
       //expect(instance).to.be();
     });
 

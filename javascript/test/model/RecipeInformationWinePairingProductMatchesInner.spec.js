@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+    instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,61 +50,61 @@
   describe('RecipeInformationWinePairingProductMatchesInner', function() {
     it('should create an instance of RecipeInformationWinePairingProductMatchesInner', function() {
       // uncomment below and update the code to test RecipeInformationWinePairingProductMatchesInner
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
-      //expect(instance).to.be.a(SpoonacularApi.RecipeInformationWinePairingProductMatchesInner);
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
+      //expect(instance).to.be.a(Spoonacular.RecipeInformationWinePairingProductMatchesInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property price (base name: "price")', function() {
       // uncomment below and update the code to test the property price
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property imageUrl (base name: "imageUrl")', function() {
       // uncomment below and update the code to test the property imageUrl
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property averageRating (base name: "averageRating")', function() {
       // uncomment below and update the code to test the property averageRating
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property ratingCount (base name: "ratingCount")', function() {
       // uncomment below and update the code to test the property ratingCount
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property score (base name: "score")', function() {
       // uncomment below and update the code to test the property score
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property link (base name: "link")', function() {
       // uncomment below and update the code to test the property link
-      //var instance = new SpoonacularApi.RecipeInformationWinePairingProductMatchesInner();
+      //var instance = new Spoonacular.RecipeInformationWinePairingProductMatchesInner();
       //expect(instance).to.be();
     });
 

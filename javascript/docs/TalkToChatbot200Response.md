@@ -1,4 +1,4 @@
-# SpoonacularApi.TalkToChatbot200Response
+# Spoonacular.TalkToChatbot200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.AddToMealPlanRequest
+# Spoonacular.AddToMealPlanRequest
 
 ## Properties
 

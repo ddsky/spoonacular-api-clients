@@ -1,4 +1,4 @@
-# SpoonacularApi.MealPlanningApi
+# Spoonacular.MealPlanningApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -32,15 +32,15 @@ Add a meal plan template for a user.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let hash = "4b5v4398573406"; // String | The private hash for the username.
 apiInstance.addMealPlanTemplate(username, hash, (error, data, response) => {
@@ -85,15 +85,15 @@ Add an item to the user&#39;s meal plan.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 let addToMealPlanRequest = {"date":1589500800,"slot":1,"position":0,"type":"INGREDIENTS","value":{"ingredients":[{"name":"1 banana"}]}}; // AddToMealPlanRequest | 
@@ -140,15 +140,15 @@ Add an item to the current shopping list of a user.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 let addToShoppingListRequest = {"item":"1 package baking powder","aisle":"Baking","parse":true}; // AddToShoppingListRequest | 
@@ -195,15 +195,15 @@ Delete all planned items from the user&#39;s meal plan for a specific day.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let date = "2020-06-01"; // String | The date in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
@@ -250,15 +250,15 @@ In order to call user-specific endpoints, you need to connect your app&#39;s use
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let connectUserRequest = {"username":"your user's name","firstName":"your user's first name","lastName":"your user's last name","email":"your user's email"}; // ConnectUserRequest | 
 apiInstance.connectUser(connectUserRequest, (error, data, response) => {
   if (error) {
@@ -301,15 +301,15 @@ Delete an item from the user&#39;s meal plan.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
@@ -356,15 +356,15 @@ Delete an item from the current shopping list of the user.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
@@ -411,15 +411,15 @@ Delete a meal plan template for a user.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let id = 15678; // Number | The shopping list item id.
 let hash = "4b5v4398573406"; // String | The private hash for the username.
@@ -466,15 +466,15 @@ Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let opts = {
   'timeFrame': "day", // String | Either for one \"day\" or an entire \"week\".
   'targetCalories': 2000, // Number | What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal.
@@ -525,15 +525,15 @@ Generate the shopping list for a user from the meal planner in a given time fram
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let startDate = "2020-06-01"; // String | The start date in the format yyyy-mm-dd.
 let endDate = "2020-06-07"; // String | The end date in the format yyyy-mm-dd.
@@ -582,15 +582,15 @@ Get information about a meal plan template.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let id = 15678; // Number | The shopping list item id.
 let hash = "hash_example"; // String | The private hash for the username.
@@ -637,15 +637,15 @@ Get meal plan templates from user or public ones.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.getMealPlanTemplates(username, hash, (error, data, response) => {
@@ -690,15 +690,15 @@ Retrieve a meal planned week for the given user. The username must be a spoonacu
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let startDate = "2020-06-01"; // String | The start date of the meal planned week in the format yyyy-mm-dd.
 let hash = "hash_example"; // String | The private hash for the username.
@@ -745,15 +745,15 @@ Get the current shopping list for the given user.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular_api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MealPlanningApi();
+let apiInstance = new Spoonacular.MealPlanningApi();
 let username = "dsky"; // String | The username.
 let hash = "hash_example"; // String | The private hash for the username.
 apiInstance.getShoppingList(username, hash, (error, data, response) => {

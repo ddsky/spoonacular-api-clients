@@ -1,4 +1,4 @@
-# SpoonacularApi.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
+# Spoonacular.GuessNutritionByDishName200ResponseCaloriesConfidenceRange95Percent
 
 ## Properties
 

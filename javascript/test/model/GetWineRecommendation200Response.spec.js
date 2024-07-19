@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetWineRecommendation200Response();
+    instance = new Spoonacular.GetWineRecommendation200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GetWineRecommendation200Response', function() {
     it('should create an instance of GetWineRecommendation200Response', function() {
       // uncomment below and update the code to test GetWineRecommendation200Response
-      //var instance = new SpoonacularApi.GetWineRecommendation200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetWineRecommendation200Response);
+      //var instance = new Spoonacular.GetWineRecommendation200Response();
+      //expect(instance).to.be.a(Spoonacular.GetWineRecommendation200Response);
     });
 
     it('should have the property recommendedWines (base name: "recommendedWines")', function() {
       // uncomment below and update the code to test the property recommendedWines
-      //var instance = new SpoonacularApi.GetWineRecommendation200Response();
+      //var instance = new Spoonacular.GetWineRecommendation200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property totalFound (base name: "totalFound")', function() {
       // uncomment below and update the code to test the property totalFound
-      //var instance = new SpoonacularApi.GetWineRecommendation200Response();
+      //var instance = new Spoonacular.GetWineRecommendation200Response();
       //expect(instance).to.be();
     });
 

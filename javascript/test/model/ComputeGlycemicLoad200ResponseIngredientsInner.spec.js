@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner();
+    instance = new Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('ComputeGlycemicLoad200ResponseIngredientsInner', function() {
     it('should create an instance of ComputeGlycemicLoad200ResponseIngredientsInner', function() {
       // uncomment below and update the code to test ComputeGlycemicLoad200ResponseIngredientsInner
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner();
-      //expect(instance).to.be.a(SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner);
+      //var instance = new Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner();
+      //expect(instance).to.be.a(Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner();
+      //var instance = new Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property original (base name: "original")', function() {
       // uncomment below and update the code to test the property original
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner();
+      //var instance = new Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property glycemicIndex (base name: "glycemicIndex")', function() {
       // uncomment below and update the code to test the property glycemicIndex
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner();
+      //var instance = new Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property glycemicLoad (base name: "glycemicLoad")', function() {
       // uncomment below and update the code to test the property glycemicLoad
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner();
+      //var instance = new Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 

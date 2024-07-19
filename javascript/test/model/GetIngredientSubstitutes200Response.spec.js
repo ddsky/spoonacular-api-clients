@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetIngredientSubstitutes200Response();
+    instance = new Spoonacular.GetIngredientSubstitutes200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('GetIngredientSubstitutes200Response', function() {
     it('should create an instance of GetIngredientSubstitutes200Response', function() {
       // uncomment below and update the code to test GetIngredientSubstitutes200Response
-      //var instance = new SpoonacularApi.GetIngredientSubstitutes200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetIngredientSubstitutes200Response);
+      //var instance = new Spoonacular.GetIngredientSubstitutes200Response();
+      //expect(instance).to.be.a(Spoonacular.GetIngredientSubstitutes200Response);
     });
 
     it('should have the property ingredient (base name: "ingredient")', function() {
       // uncomment below and update the code to test the property ingredient
-      //var instance = new SpoonacularApi.GetIngredientSubstitutes200Response();
+      //var instance = new Spoonacular.GetIngredientSubstitutes200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property substitutes (base name: "substitutes")', function() {
       // uncomment below and update the code to test the property substitutes
-      //var instance = new SpoonacularApi.GetIngredientSubstitutes200Response();
+      //var instance = new Spoonacular.GetIngredientSubstitutes200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instance = new SpoonacularApi.GetIngredientSubstitutes200Response();
+      //var instance = new Spoonacular.GetIngredientSubstitutes200Response();
       //expect(instance).to.be();
     });
 

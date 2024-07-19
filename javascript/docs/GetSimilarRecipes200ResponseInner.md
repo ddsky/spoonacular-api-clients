@@ -1,4 +1,4 @@
-# SpoonacularApi.GetSimilarRecipes200ResponseInner
+# Spoonacular.GetSimilarRecipes200ResponseInner
 
 ## Properties
 

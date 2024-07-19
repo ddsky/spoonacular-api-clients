@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetAnalyzedRecipeInstructions200ResponseInner();
+    instance = new Spoonacular.GetAnalyzedRecipeInstructions200ResponseInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GetAnalyzedRecipeInstructions200ResponseInner', function() {
     it('should create an instance of GetAnalyzedRecipeInstructions200ResponseInner', function() {
       // uncomment below and update the code to test GetAnalyzedRecipeInstructions200ResponseInner
-      //var instance = new SpoonacularApi.GetAnalyzedRecipeInstructions200ResponseInner();
-      //expect(instance).to.be.a(SpoonacularApi.GetAnalyzedRecipeInstructions200ResponseInner);
+      //var instance = new Spoonacular.GetAnalyzedRecipeInstructions200ResponseInner();
+      //expect(instance).to.be.a(Spoonacular.GetAnalyzedRecipeInstructions200ResponseInner);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.GetAnalyzedRecipeInstructions200ResponseInner();
+      //var instance = new Spoonacular.GetAnalyzedRecipeInstructions200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property steps (base name: "steps")', function() {
       // uncomment below and update the code to test the property steps
-      //var instance = new SpoonacularApi.GetAnalyzedRecipeInstructions200ResponseInner();
+      //var instance = new Spoonacular.GetAnalyzedRecipeInstructions200ResponseInner();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.GetRecipeEquipmentByID200ResponseEquipmentInner
+# Spoonacular.GetRecipeEquipmentByID200ResponseEquipmentInner
 
 ## Properties
 

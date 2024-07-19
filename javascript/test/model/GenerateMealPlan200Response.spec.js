@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GenerateMealPlan200Response();
+    instance = new Spoonacular.GenerateMealPlan200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GenerateMealPlan200Response', function() {
     it('should create an instance of GenerateMealPlan200Response', function() {
       // uncomment below and update the code to test GenerateMealPlan200Response
-      //var instance = new SpoonacularApi.GenerateMealPlan200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GenerateMealPlan200Response);
+      //var instance = new Spoonacular.GenerateMealPlan200Response();
+      //expect(instance).to.be.a(Spoonacular.GenerateMealPlan200Response);
     });
 
     it('should have the property meals (base name: "meals")', function() {
       // uncomment below and update the code to test the property meals
-      //var instance = new SpoonacularApi.GenerateMealPlan200Response();
+      //var instance = new Spoonacular.GenerateMealPlan200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property nutrients (base name: "nutrients")', function() {
       // uncomment below and update the code to test the property nutrients
-      //var instance = new SpoonacularApi.GenerateMealPlan200Response();
+      //var instance = new Spoonacular.GenerateMealPlan200Response();
       //expect(instance).to.be();
     });
 

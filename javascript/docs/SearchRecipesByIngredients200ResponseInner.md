@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchRecipesByIngredients200ResponseInner
+# Spoonacular.SearchRecipesByIngredients200ResponseInner
 
 ## Properties
 

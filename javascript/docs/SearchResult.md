@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchResult
+# Spoonacular.SearchResult
 
 ## Properties
 

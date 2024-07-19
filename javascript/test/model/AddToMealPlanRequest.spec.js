@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AddToMealPlanRequest();
+    instance = new Spoonacular.AddToMealPlanRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('AddToMealPlanRequest', function() {
     it('should create an instance of AddToMealPlanRequest', function() {
       // uncomment below and update the code to test AddToMealPlanRequest
-      //var instance = new SpoonacularApi.AddToMealPlanRequest();
-      //expect(instance).to.be.a(SpoonacularApi.AddToMealPlanRequest);
+      //var instance = new Spoonacular.AddToMealPlanRequest();
+      //expect(instance).to.be.a(Spoonacular.AddToMealPlanRequest);
     });
 
     it('should have the property date (base name: "date")', function() {
       // uncomment below and update the code to test the property date
-      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //var instance = new Spoonacular.AddToMealPlanRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property slot (base name: "slot")', function() {
       // uncomment below and update the code to test the property slot
-      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //var instance = new Spoonacular.AddToMealPlanRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property position (base name: "position")', function() {
       // uncomment below and update the code to test the property position
-      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //var instance = new Spoonacular.AddToMealPlanRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //var instance = new Spoonacular.AddToMealPlanRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instance = new SpoonacularApi.AddToMealPlanRequest();
+      //var instance = new Spoonacular.AddToMealPlanRequest();
       //expect(instance).to.be();
     });
 

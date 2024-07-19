@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.IngredientSearch200Response();
+    instance = new Spoonacular.IngredientSearch200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('IngredientSearch200Response', function() {
     it('should create an instance of IngredientSearch200Response', function() {
       // uncomment below and update the code to test IngredientSearch200Response
-      //var instance = new SpoonacularApi.IngredientSearch200Response();
-      //expect(instance).to.be.a(SpoonacularApi.IngredientSearch200Response);
+      //var instance = new Spoonacular.IngredientSearch200Response();
+      //expect(instance).to.be.a(Spoonacular.IngredientSearch200Response);
     });
 
     it('should have the property results (base name: "results")', function() {
       // uncomment below and update the code to test the property results
-      //var instance = new SpoonacularApi.IngredientSearch200Response();
+      //var instance = new Spoonacular.IngredientSearch200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property offset (base name: "offset")', function() {
       // uncomment below and update the code to test the property offset
-      //var instance = new SpoonacularApi.IngredientSearch200Response();
+      //var instance = new Spoonacular.IngredientSearch200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property number (base name: "number")', function() {
       // uncomment below and update the code to test the property number
-      //var instance = new SpoonacularApi.IngredientSearch200Response();
+      //var instance = new Spoonacular.IngredientSearch200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property totalResults (base name: "totalResults")', function() {
       // uncomment below and update the code to test the property totalResults
-      //var instance = new SpoonacularApi.IngredientSearch200Response();
+      //var instance = new Spoonacular.IngredientSearch200Response();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.ImageClassificationByURL200Response
+# Spoonacular.ImageClassificationByURL200Response
 
 ## Properties
 

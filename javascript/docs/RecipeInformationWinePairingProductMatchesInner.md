@@ -1,4 +1,4 @@
-# SpoonacularApi.RecipeInformationWinePairingProductMatchesInner
+# Spoonacular.RecipeInformationWinePairingProductMatchesInner
 
 ## Properties
 

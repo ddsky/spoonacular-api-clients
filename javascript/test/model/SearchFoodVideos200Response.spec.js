@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchFoodVideos200Response();
+    instance = new Spoonacular.SearchFoodVideos200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('SearchFoodVideos200Response', function() {
     it('should create an instance of SearchFoodVideos200Response', function() {
       // uncomment below and update the code to test SearchFoodVideos200Response
-      //var instance = new SpoonacularApi.SearchFoodVideos200Response();
-      //expect(instance).to.be.a(SpoonacularApi.SearchFoodVideos200Response);
+      //var instance = new Spoonacular.SearchFoodVideos200Response();
+      //expect(instance).to.be.a(Spoonacular.SearchFoodVideos200Response);
     });
 
     it('should have the property videos (base name: "videos")', function() {
       // uncomment below and update the code to test the property videos
-      //var instance = new SpoonacularApi.SearchFoodVideos200Response();
+      //var instance = new Spoonacular.SearchFoodVideos200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property totalResults (base name: "totalResults")', function() {
       // uncomment below and update the code to test the property totalResults
-      //var instance = new SpoonacularApi.SearchFoodVideos200Response();
+      //var instance = new Spoonacular.SearchFoodVideos200Response();
       //expect(instance).to.be();
     });
 

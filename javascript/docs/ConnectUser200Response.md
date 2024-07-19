@@ -1,4 +1,4 @@
-# SpoonacularApi.ConnectUser200Response
+# Spoonacular.ConnectUser200Response
 
 ## Properties
 

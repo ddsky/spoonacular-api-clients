@@ -1,4 +1,4 @@
-# SpoonacularApi.ComparableProduct
+# Spoonacular.ComparableProduct
 
 ## Properties
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.TasteInformation();
+    instance = new Spoonacular.TasteInformation();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('TasteInformation', function() {
     it('should create an instance of TasteInformation', function() {
       // uncomment below and update the code to test TasteInformation
-      //var instance = new SpoonacularApi.TasteInformation();
-      //expect(instance).to.be.a(SpoonacularApi.TasteInformation);
+      //var instance = new Spoonacular.TasteInformation();
+      //expect(instance).to.be.a(Spoonacular.TasteInformation);
     });
 
     it('should have the property sweetness (base name: "sweetness")', function() {
       // uncomment below and update the code to test the property sweetness
-      //var instance = new SpoonacularApi.TasteInformation();
+      //var instance = new Spoonacular.TasteInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property saltiness (base name: "saltiness")', function() {
       // uncomment below and update the code to test the property saltiness
-      //var instance = new SpoonacularApi.TasteInformation();
+      //var instance = new Spoonacular.TasteInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property sourness (base name: "sourness")', function() {
       // uncomment below and update the code to test the property sourness
-      //var instance = new SpoonacularApi.TasteInformation();
+      //var instance = new Spoonacular.TasteInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property bitterness (base name: "bitterness")', function() {
       // uncomment below and update the code to test the property bitterness
-      //var instance = new SpoonacularApi.TasteInformation();
+      //var instance = new Spoonacular.TasteInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property savoriness (base name: "savoriness")', function() {
       // uncomment below and update the code to test the property savoriness
-      //var instance = new SpoonacularApi.TasteInformation();
+      //var instance = new Spoonacular.TasteInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property fattiness (base name: "fattiness")', function() {
       // uncomment below and update the code to test the property fattiness
-      //var instance = new SpoonacularApi.TasteInformation();
+      //var instance = new Spoonacular.TasteInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property spiciness (base name: "spiciness")', function() {
       // uncomment below and update the code to test the property spiciness
-      //var instance = new SpoonacularApi.TasteInformation();
+      //var instance = new Spoonacular.TasteInformation();
       //expect(instance).to.be();
     });
 

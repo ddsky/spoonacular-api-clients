@@ -1,4 +1,4 @@
-# SpoonacularApi.ComputeGlycemicLoad200Response
+# Spoonacular.ComputeGlycemicLoad200Response
 
 ## Properties
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ComparableProduct();
+    instance = new Spoonacular.ComparableProduct();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('ComparableProduct', function() {
     it('should create an instance of ComparableProduct', function() {
       // uncomment below and update the code to test ComparableProduct
-      //var instance = new SpoonacularApi.ComparableProduct();
-      //expect(instance).to.be.a(SpoonacularApi.ComparableProduct);
+      //var instance = new Spoonacular.ComparableProduct();
+      //expect(instance).to.be.a(Spoonacular.ComparableProduct);
     });
 
     it('should have the property difference (base name: "difference")', function() {
       // uncomment below and update the code to test the property difference
-      //var instance = new SpoonacularApi.ComparableProduct();
+      //var instance = new Spoonacular.ComparableProduct();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.ComparableProduct();
+      //var instance = new Spoonacular.ComparableProduct();
       //expect(instance).to.be();
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instance = new SpoonacularApi.ComparableProduct();
+      //var instance = new Spoonacular.ComparableProduct();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.ComparableProduct();
+      //var instance = new Spoonacular.ComparableProduct();
       //expect(instance).to.be();
     });
 
