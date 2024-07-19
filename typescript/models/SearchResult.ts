@@ -10,14 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { SearchResultDataPointsInner } from '../models/SearchResultDataPointsInner';
 import { HttpFile } from '../http/http';
 
 /**
 * 
 */
 export class SearchResult {
-    'dataPoints'?: Array<SearchResultDataPointsInner>;
     'image'?: string;
     'link'?: string | null;
     'name': string;
@@ -30,12 +28,6 @@ export class SearchResult {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "dataPoints",
-            "baseName": "dataPoints",
-            "type": "Array<SearchResultDataPointsInner>",
-            "format": ""
-        },
         {
             "name": "image",
             "baseName": "image",

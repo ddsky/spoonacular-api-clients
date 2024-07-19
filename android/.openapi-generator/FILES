@@ -148,7 +148,6 @@ docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchResult.md
-docs/SearchResultDataPointsInner.md
 docs/SearchSiteContent200Response.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
@@ -317,7 +316,6 @@ src/main/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestauran
 src/main/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.java
 src/main/java/com/spoonacular/client/model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.java
 src/main/java/com/spoonacular/client/model/SearchResult.java
-src/main/java/com/spoonacular/client/model/SearchResultDataPointsInner.java
 src/main/java/com/spoonacular/client/model/SearchSiteContent200Response.java
 src/main/java/com/spoonacular/client/model/SummarizeRecipe200Response.java
 src/main/java/com/spoonacular/client/model/TalkToChatbot200Response.java

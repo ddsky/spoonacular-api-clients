@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | Option<[**Vec<models::SearchResultDataPointsInner>**](SearchResult_dataPoints_inner.md)> |  | [optional]
 **image** | Option<**String**> |  | [optional]
 **link** | Option<**String**> |  | [optional]
 **name** | **String** |  | 

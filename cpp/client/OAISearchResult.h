@@ -21,15 +21,12 @@
 
 #include <QJsonObject>
 
-#include "OAISearchResult_dataPoints_inner.h"
-#include <QList>
 #include <QString>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
-class OAISearchResult_dataPoints_inner;
 
 class OAISearchResult : public OAIObject {
 public:
@@ -41,11 +38,6 @@ public:
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
-
-    QList<OAISearchResult_dataPoints_inner> getDataPoints() const;
-    void setDataPoints(const QList<OAISearchResult_dataPoints_inner> &data_points);
-    bool is_data_points_Set() const;
-    bool is_data_points_Valid() const;
 
     QString getImage() const;
     void setImage(const QString &image);
@@ -92,10 +84,6 @@ public:
 
 private:
     void initializeModel();
-
-    QList<OAISearchResult_dataPoints_inner> m_data_points;
-    bool m_data_points_isSet;
-    bool m_data_points_isValid;
 
     QString m_image;
     bool m_image_isSet;

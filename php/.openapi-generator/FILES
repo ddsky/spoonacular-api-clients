@@ -151,14 +151,12 @@ docs/Model/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/Model/SearchResult.md
-docs/Model/SearchResultDataPointsInner.md
 docs/Model/SearchSiteContent200Response.md
 docs/Model/SummarizeRecipe200Response.md
 docs/Model/TalkToChatbot200Response.md
 docs/Model/TalkToChatbot200ResponseMediaInner.md
 docs/Model/TasteInformation.md
 git_push.sh
-lib/ApiException.php
 lib/Api/DefaultApi.php
 lib/Api/IngredientsApi.php
 lib/Api/MealPlanningApi.php
@@ -167,6 +165,7 @@ lib/Api/MiscApi.php
 lib/Api/ProductsApi.php
 lib/Api/RecipesApi.php
 lib/Api/WineApi.php
+lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/AddMealPlanTemplate200Response.php
@@ -309,7 +308,6 @@ lib/Model/SearchRestaurants200ResponseRestaurantsInnerAddress.php
 lib/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.php
 lib/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.php
 lib/Model/SearchResult.php
-lib/Model/SearchResultDataPointsInner.php
 lib/Model/SearchSiteContent200Response.php
 lib/Model/SummarizeRecipe200Response.php
 lib/Model/TalkToChatbot200Response.php
@@ -463,7 +461,6 @@ test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalTest
 test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTest.php
 test/Model/SearchRestaurants200ResponseRestaurantsInnerTest.php
 test/Model/SearchRestaurants200ResponseTest.php
-test/Model/SearchResultDataPointsInnerTest.php
 test/Model/SearchResultTest.php
 test/Model/SearchSiteContent200ResponseTest.php
 test/Model/SummarizeRecipe200ResponseTest.php

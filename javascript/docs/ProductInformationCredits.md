@@ -1,4 +1,4 @@
-# SpoonacularApi.ProductInformationCredits
+# Spoonacular.ProductInformationCredits
 
 ## Properties
 

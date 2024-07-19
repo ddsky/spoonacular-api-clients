@@ -159,7 +159,6 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy SearchRestaurants200ResponseRestaurantsInnerLocalHours)
       propMimeEq MimeJSON (Proxy :: Proxy SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational)
       propMimeEq MimeJSON (Proxy :: Proxy SearchResult)
-      propMimeEq MimeJSON (Proxy :: Proxy SearchResultDataPointsInner)
       propMimeEq MimeJSON (Proxy :: Proxy SearchSiteContent200Response)
       propMimeEq MimeJSON (Proxy :: Proxy SummarizeRecipe200Response)
       propMimeEq MimeJSON (Proxy :: Proxy TalkToChatbot200Response)

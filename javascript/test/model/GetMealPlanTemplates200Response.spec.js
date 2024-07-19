@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetMealPlanTemplates200Response();
+    instance = new Spoonacular.GetMealPlanTemplates200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('GetMealPlanTemplates200Response', function() {
     it('should create an instance of GetMealPlanTemplates200Response', function() {
       // uncomment below and update the code to test GetMealPlanTemplates200Response
-      //var instance = new SpoonacularApi.GetMealPlanTemplates200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetMealPlanTemplates200Response);
+      //var instance = new Spoonacular.GetMealPlanTemplates200Response();
+      //expect(instance).to.be.a(Spoonacular.GetMealPlanTemplates200Response);
     });
 
     it('should have the property templates (base name: "templates")', function() {
       // uncomment below and update the code to test the property templates
-      //var instance = new SpoonacularApi.GetMealPlanTemplates200Response();
+      //var instance = new Spoonacular.GetMealPlanTemplates200Response();
       //expect(instance).to.be();
     });
 

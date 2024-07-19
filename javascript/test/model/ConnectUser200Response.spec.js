@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ConnectUser200Response();
+    instance = new Spoonacular.ConnectUser200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('ConnectUser200Response', function() {
     it('should create an instance of ConnectUser200Response', function() {
       // uncomment below and update the code to test ConnectUser200Response
-      //var instance = new SpoonacularApi.ConnectUser200Response();
-      //expect(instance).to.be.a(SpoonacularApi.ConnectUser200Response);
+      //var instance = new Spoonacular.ConnectUser200Response();
+      //expect(instance).to.be.a(Spoonacular.ConnectUser200Response);
     });
 
     it('should have the property username (base name: "username")', function() {
       // uncomment below and update the code to test the property username
-      //var instance = new SpoonacularApi.ConnectUser200Response();
+      //var instance = new Spoonacular.ConnectUser200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property hash (base name: "hash")', function() {
       // uncomment below and update the code to test the property hash
-      //var instance = new SpoonacularApi.ConnectUser200Response();
+      //var instance = new Spoonacular.ConnectUser200Response();
       //expect(instance).to.be();
     });
 

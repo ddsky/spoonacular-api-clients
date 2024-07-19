@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_points** | [**\OpenAPI\Client\Model\SearchResultDataPointsInner[]**](SearchResultDataPointsInner.md) |  | [optional]
 **image** | **string** |  | [optional]
 **link** | **string** |  | [optional]
 **name** | **string** |  |

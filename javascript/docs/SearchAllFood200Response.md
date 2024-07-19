@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchAllFood200Response
+# Spoonacular.SearchAllFood200Response
 
 ## Properties
 

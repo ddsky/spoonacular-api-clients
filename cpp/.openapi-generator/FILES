@@ -304,8 +304,6 @@ client/OAISearchRestaurants_200_response_restaurants_inner_local_hours_operation
 client/OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.h
 client/OAISearchResult.cpp
 client/OAISearchResult.h
-client/OAISearchResult_dataPoints_inner.cpp
-client/OAISearchResult_dataPoints_inner.h
 client/OAISearchSiteContent_200_response.cpp
 client/OAISearchSiteContent_200_response.h
 client/OAIServerConfiguration.h

@@ -1,4 +1,4 @@
-# SpoonacularApi.ConvertAmounts200Response
+# Spoonacular.ConvertAmounts200Response
 
 ## Properties
 

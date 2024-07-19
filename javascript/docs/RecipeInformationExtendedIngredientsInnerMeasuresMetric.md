@@ -1,4 +1,4 @@
-# SpoonacularApi.RecipeInformationExtendedIngredientsInnerMeasuresMetric
+# Spoonacular.RecipeInformationExtendedIngredientsInnerMeasuresMetric
 
 ## Properties
 

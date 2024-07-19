@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
+    instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown', function() {
     it('should create an instance of SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown', function() {
       // uncomment below and update the code to test SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
-      //expect(instance).to.be.a(SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown);
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
+      //expect(instance).to.be.a(Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown);
     });
 
     it('should have the property percentProtein (base name: "percentProtein")', function() {
       // uncomment below and update the code to test the property percentProtein
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
       //expect(instance).to.be();
     });
 
     it('should have the property percentFat (base name: "percentFat")', function() {
       // uncomment below and update the code to test the property percentFat
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
       //expect(instance).to.be();
     });
 
     it('should have the property percentCarbs (base name: "percentCarbs")', function() {
       // uncomment below and update the code to test the property percentCarbs
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionCaloricBreakdown();
       //expect(instance).to.be();
     });
 

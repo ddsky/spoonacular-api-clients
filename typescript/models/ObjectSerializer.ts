@@ -137,7 +137,6 @@ export * from '../models/SearchRestaurants200ResponseRestaurantsInnerAddress';
 export * from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
 export * from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 export * from '../models/SearchResult';
-export * from '../models/SearchResultDataPointsInner';
 export * from '../models/SearchSiteContent200Response';
 export * from '../models/SummarizeRecipe200Response';
 export * from '../models/TalkToChatbot200Response';
@@ -283,7 +282,6 @@ import { SearchRestaurants200ResponseRestaurantsInnerAddress } from '../models/S
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHours } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHours';
 import { SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational } from '../models/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 import { SearchResult } from '../models/SearchResult';
-import { SearchResultDataPointsInner } from '../models/SearchResultDataPointsInner';
 import { SearchSiteContent200Response } from '../models/SearchSiteContent200Response';
 import { SummarizeRecipe200Response } from '../models/SummarizeRecipe200Response';
 import { TalkToChatbot200Response } from '../models/TalkToChatbot200Response';
@@ -445,7 +443,6 @@ let typeMap: {[index: string]: any} = {
     "SearchRestaurants200ResponseRestaurantsInnerLocalHours": SearchRestaurants200ResponseRestaurantsInnerLocalHours,
     "SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational": SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational,
     "SearchResult": SearchResult,
-    "SearchResultDataPointsInner": SearchResultDataPointsInner,
     "SearchSiteContent200Response": SearchSiteContent200Response,
     "SummarizeRecipe200Response": SummarizeRecipe200Response,
     "TalkToChatbot200Response": TalkToChatbot200Response,

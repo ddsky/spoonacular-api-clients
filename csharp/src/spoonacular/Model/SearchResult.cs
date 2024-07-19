@@ -40,7 +40,6 @@ namespace spoonacular.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SearchResult" /> class.
         /// </summary>
-        /// <param name="dataPoints">dataPoints.</param>
         /// <param name="image">image.</param>
         /// <param name="link">link.</param>
         /// <param name="name">name (required).</param>
@@ -49,7 +48,7 @@ namespace spoonacular.Model
         /// <param name="content">content.</param>
         /// <param name="id">id.</param>
         /// <param name="relevance">relevance.</param>
-        public SearchResult(List<SearchResultDataPointsInner> dataPoints = default(List<SearchResultDataPointsInner>), string image = default(string), string link = default(string), string name = default(string), string type = default(string), string kvtable = default(string), string content = default(string), int id = default(int), decimal relevance = default(decimal))
+        public SearchResult(string image = default(string), string link = default(string), string name = default(string), string type = default(string), string kvtable = default(string), string content = default(string), int id = default(int), decimal relevance = default(decimal))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -57,7 +56,6 @@ namespace spoonacular.Model
                 throw new ArgumentNullException("name is a required property for SearchResult and cannot be null");
             }
             this.Name = name;
-            this.DataPoints = dataPoints;
             this.Image = image;
             this.Link = link;
             this.Type = type;
@@ -66,12 +64,6 @@ namespace spoonacular.Model
             this.Id = id;
             this.Relevance = relevance;
         }
-
-        /// <summary>
-        /// Gets or Sets DataPoints
-        /// </summary>
-        [DataMember(Name = "dataPoints", EmitDefaultValue = false)]
-        public List<SearchResultDataPointsInner> DataPoints { get; set; }
 
         /// <summary>
         /// Gets or Sets Image
@@ -129,7 +121,6 @@ namespace spoonacular.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SearchResult {\n");
-            sb.Append("  DataPoints: ").Append(DataPoints).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");

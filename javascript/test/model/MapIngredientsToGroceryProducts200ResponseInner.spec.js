@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner();
+    instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('MapIngredientsToGroceryProducts200ResponseInner', function() {
     it('should create an instance of MapIngredientsToGroceryProducts200ResponseInner', function() {
       // uncomment below and update the code to test MapIngredientsToGroceryProducts200ResponseInner
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner();
-      //expect(instance).to.be.a(SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner);
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInner();
+      //expect(instance).to.be.a(Spoonacular.MapIngredientsToGroceryProducts200ResponseInner);
     });
 
     it('should have the property original (base name: "original")', function() {
       // uncomment below and update the code to test the property original
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property originalName (base name: "originalName")', function() {
       // uncomment below and update the code to test the property originalName
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredientImage (base name: "ingredientImage")', function() {
       // uncomment below and update the code to test the property ingredientImage
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property meta (base name: "meta")', function() {
       // uncomment below and update the code to test the property meta
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInner();
       //expect(instance).to.be();
     });
 
     it('should have the property products (base name: "products")', function() {
       // uncomment below and update the code to test the property products
-      //var instance = new SpoonacularApi.MapIngredientsToGroceryProducts200ResponseInner();
+      //var instance = new Spoonacular.MapIngredientsToGroceryProducts200ResponseInner();
       //expect(instance).to.be();
     });
 

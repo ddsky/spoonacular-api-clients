@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
+    instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('AnalyzeARecipeSearchQuery200ResponseIngredientsInner', function() {
     it('should create an instance of AnalyzeARecipeSearchQuery200ResponseIngredientsInner', function() {
       // uncomment below and update the code to test AnalyzeARecipeSearchQuery200ResponseIngredientsInner
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseIngredientsInner);
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeARecipeSearchQuery200ResponseIngredientsInner);
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property include (base name: "include")', function() {
       // uncomment below and update the code to test the property include
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeARecipeSearchQuery200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 

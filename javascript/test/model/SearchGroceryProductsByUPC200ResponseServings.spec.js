@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseServings();
+    instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseServings();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('SearchGroceryProductsByUPC200ResponseServings', function() {
     it('should create an instance of SearchGroceryProductsByUPC200ResponseServings', function() {
       // uncomment below and update the code to test SearchGroceryProductsByUPC200ResponseServings
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseServings();
-      //expect(instance).to.be.a(SpoonacularApi.SearchGroceryProductsByUPC200ResponseServings);
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseServings();
+      //expect(instance).to.be.a(Spoonacular.SearchGroceryProductsByUPC200ResponseServings);
     });
 
     it('should have the property number (base name: "number")', function() {
       // uncomment below and update the code to test the property number
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseServings();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseServings();
       //expect(instance).to.be();
     });
 
     it('should have the property size (base name: "size")', function() {
       // uncomment below and update the code to test the property size
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseServings();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseServings();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseServings();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseServings();
       //expect(instance).to.be();
     });
 

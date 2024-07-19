@@ -36,12 +36,6 @@ class TestSearchResult(unittest.TestCase):
         model = SearchResult()
         if include_optional:
             return SearchResult(
-                data_points = [
-                    spoonacular.models.search_result_data_points_inner.SearchResult_dataPoints_inner(
-                        key = '', 
-                        value = null, 
-                        show = True, )
-                    ],
                 image = '',
                 link = '',
                 name = '',

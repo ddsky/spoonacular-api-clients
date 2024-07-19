@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
+    instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount', function() {
     it('should create an instance of GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount', function() {
       // uncomment below and update the code to test GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
-      //expect(instance).to.be.a(SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount);
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
+      //expect(instance).to.be.a(Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount);
     });
 
     it('should have the property metric (base name: "metric")', function() {
       // uncomment below and update the code to test the property metric
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
       //expect(instance).to.be();
     });
 
     it('should have the property us (base name: "us")', function() {
       // uncomment below and update the code to test the property us
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount();
       //expect(instance).to.be();
     });
 

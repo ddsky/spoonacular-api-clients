@@ -1,4 +1,4 @@
-# SpoonacularApi.AutocompleteProductSearch200ResponseResultsInner
+# Spoonacular.AutocompleteProductSearch200ResponseResultsInner
 
 ## Properties
 

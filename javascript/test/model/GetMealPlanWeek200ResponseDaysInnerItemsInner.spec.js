@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner();
+    instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('GetMealPlanWeek200ResponseDaysInnerItemsInner', function() {
     it('should create an instance of GetMealPlanWeek200ResponseDaysInnerItemsInner', function() {
       // uncomment below and update the code to test GetMealPlanWeek200ResponseDaysInnerItemsInner
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner();
-      //expect(instance).to.be.a(SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner);
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner();
+      //expect(instance).to.be.a(Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property slot (base name: "slot")', function() {
       // uncomment below and update the code to test the property slot
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property position (base name: "position")', function() {
       // uncomment below and update the code to test the property position
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instance = new SpoonacularApi.GetMealPlanWeek200ResponseDaysInnerItemsInner();
+      //var instance = new Spoonacular.GetMealPlanWeek200ResponseDaysInnerItemsInner();
       //expect(instance).to.be();
     });
 

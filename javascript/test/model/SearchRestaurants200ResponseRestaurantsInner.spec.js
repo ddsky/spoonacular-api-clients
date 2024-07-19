@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+    instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,127 +50,127 @@
   describe('SearchRestaurants200ResponseRestaurantsInner', function() {
     it('should create an instance of SearchRestaurants200ResponseRestaurantsInner', function() {
       // uncomment below and update the code to test SearchRestaurants200ResponseRestaurantsInner
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
-      //expect(instance).to.be.a(SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner);
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
+      //expect(instance).to.be.a(Spoonacular.SearchRestaurants200ResponseRestaurantsInner);
     });
 
     it('should have the property id (base name: "_id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property phoneNumber (base name: "phone_number")', function() {
       // uncomment below and update the code to test the property phoneNumber
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property address (base name: "address")', function() {
       // uncomment below and update the code to test the property address
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property localHours (base name: "local_hours")', function() {
       // uncomment below and update the code to test the property localHours
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property cuisines (base name: "cuisines")', function() {
       // uncomment below and update the code to test the property cuisines
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property foodPhotos (base name: "food_photos")', function() {
       // uncomment below and update the code to test the property foodPhotos
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property logoPhotos (base name: "logo_photos")', function() {
       // uncomment below and update the code to test the property logoPhotos
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property storePhotos (base name: "store_photos")', function() {
       // uncomment below and update the code to test the property storePhotos
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property dollarSigns (base name: "dollar_signs")', function() {
       // uncomment below and update the code to test the property dollarSigns
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property pickupEnabled (base name: "pickup_enabled")', function() {
       // uncomment below and update the code to test the property pickupEnabled
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property deliveryEnabled (base name: "delivery_enabled")', function() {
       // uncomment below and update the code to test the property deliveryEnabled
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property isOpen (base name: "is_open")', function() {
       // uncomment below and update the code to test the property isOpen
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property offersFirstPartyDelivery (base name: "offers_first_party_delivery")', function() {
       // uncomment below and update the code to test the property offersFirstPartyDelivery
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property offersThirdPartyDelivery (base name: "offers_third_party_delivery")', function() {
       // uncomment below and update the code to test the property offersThirdPartyDelivery
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property miles (base name: "miles")', function() {
       // uncomment below and update the code to test the property miles
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property weightedRatingValue (base name: "weighted_rating_value")', function() {
       // uncomment below and update the code to test the property weightedRatingValue
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property aggregatedRatingCount (base name: "aggregated_rating_count")', function() {
       // uncomment below and update the code to test the property aggregatedRatingCount
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInner();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInner();
       //expect(instance).to.be();
     });
 

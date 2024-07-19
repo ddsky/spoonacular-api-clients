@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
+    instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner', function() {
     it('should create an instance of SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner', function() {
       // uncomment below and update the code to test SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
-      //expect(instance).to.be.a(SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner);
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
+      //expect(instance).to.be.a(Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property amount (base name: "amount")', function() {
       // uncomment below and update the code to test the property amount
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property percentOfDailyNeeds (base name: "percentOfDailyNeeds")', function() {
       // uncomment below and update the code to test the property percentOfDailyNeeds
-      //var instance = new SpoonacularApi.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
+      //var instance = new Spoonacular.SearchGroceryProductsByUPC200ResponseNutritionNutrientsInner();
       //expect(instance).to.be();
     });
 

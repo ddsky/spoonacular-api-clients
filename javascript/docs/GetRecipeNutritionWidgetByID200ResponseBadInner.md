@@ -1,4 +1,4 @@
-# SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseBadInner
+# Spoonacular.GetRecipeNutritionWidgetByID200ResponseBadInner
 
 ## Properties
 

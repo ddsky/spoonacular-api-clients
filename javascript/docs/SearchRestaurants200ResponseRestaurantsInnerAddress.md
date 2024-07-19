@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerAddress
+# Spoonacular.SearchRestaurants200ResponseRestaurantsInnerAddress
 
 ## Properties
 

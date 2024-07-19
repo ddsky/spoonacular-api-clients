@@ -156,7 +156,6 @@ require 'openapi_client/models/search_restaurants200_response_restaurants_inner_
 require 'openapi_client/models/search_restaurants200_response_restaurants_inner_local_hours'
 require 'openapi_client/models/search_restaurants200_response_restaurants_inner_local_hours_operational'
 require 'openapi_client/models/search_result'
-require 'openapi_client/models/search_result_data_points_inner'
 require 'openapi_client/models/search_site_content200_response'
 require 'openapi_client/models/summarize_recipe200_response'
 require 'openapi_client/models/talk_to_chatbot200_response'

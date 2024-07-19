@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+    instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('SearchFoodVideos200ResponseVideosInner', function() {
     it('should create an instance of SearchFoodVideos200ResponseVideosInner', function() {
       // uncomment below and update the code to test SearchFoodVideos200ResponseVideosInner
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
-      //expect(instance).to.be.a(SpoonacularApi.SearchFoodVideos200ResponseVideosInner);
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
+      //expect(instance).to.be.a(Spoonacular.SearchFoodVideos200ResponseVideosInner);
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
       //expect(instance).to.be();
     });
 
     it('should have the property length (base name: "length")', function() {
       // uncomment below and update the code to test the property length
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
       //expect(instance).to.be();
     });
 
     it('should have the property rating (base name: "rating")', function() {
       // uncomment below and update the code to test the property rating
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
       //expect(instance).to.be();
     });
 
     it('should have the property shortTitle (base name: "shortTitle")', function() {
       // uncomment below and update the code to test the property shortTitle
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
       //expect(instance).to.be();
     });
 
     it('should have the property thumbnail (base name: "thumbnail")', function() {
       // uncomment below and update the code to test the property thumbnail
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
       //expect(instance).to.be();
     });
 
     it('should have the property views (base name: "views")', function() {
       // uncomment below and update the code to test the property views
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
       //expect(instance).to.be();
     });
 
     it('should have the property youTubeId (base name: "youTubeId")', function() {
       // uncomment below and update the code to test the property youTubeId
-      //var instance = new SpoonacularApi.SearchFoodVideos200ResponseVideosInner();
+      //var instance = new Spoonacular.SearchFoodVideos200ResponseVideosInner();
       //expect(instance).to.be();
     });
 

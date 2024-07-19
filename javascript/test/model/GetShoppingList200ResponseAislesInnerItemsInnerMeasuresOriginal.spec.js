@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
+    instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal', function() {
     it('should create an instance of GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal', function() {
       // uncomment below and update the code to test GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
-      //expect(instance).to.be.a(SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal);
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
+      //expect(instance).to.be.a(Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal);
     });
 
     it('should have the property amount (base name: "amount")', function() {
       // uncomment below and update the code to test the property amount
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInnerMeasuresOriginal();
       //expect(instance).to.be();
     });
 

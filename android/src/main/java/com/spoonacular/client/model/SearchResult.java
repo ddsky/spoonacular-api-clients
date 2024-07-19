@@ -12,9 +12,7 @@
 
 package com.spoonacular.client.model;
 
-import com.spoonacular.client.model.SearchResultDataPointsInner;
 import java.math.BigDecimal;
-import java.util.*;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
@@ -24,8 +22,6 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class SearchResult {
   
-  @SerializedName("dataPoints")
-  private List<SearchResultDataPointsInner> dataPoints = null;
   @SerializedName("image")
   private String image = null;
   @SerializedName("link")
@@ -42,16 +38,6 @@ public class SearchResult {
   private Integer id = null;
   @SerializedName("relevance")
   private BigDecimal relevance = null;
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public List<SearchResultDataPointsInner> getDataPoints() {
-    return dataPoints;
-  }
-  public void setDataPoints(List<SearchResultDataPointsInner> dataPoints) {
-    this.dataPoints = dataPoints;
-  }
 
   /**
    **/
@@ -143,8 +129,7 @@ public class SearchResult {
       return false;
     }
     SearchResult searchResult = (SearchResult) o;
-    return (this.dataPoints == null ? searchResult.dataPoints == null : this.dataPoints.equals(searchResult.dataPoints)) &&
-        (this.image == null ? searchResult.image == null : this.image.equals(searchResult.image)) &&
+    return (this.image == null ? searchResult.image == null : this.image.equals(searchResult.image)) &&
         (this.link == null ? searchResult.link == null : this.link.equals(searchResult.link)) &&
         (this.name == null ? searchResult.name == null : this.name.equals(searchResult.name)) &&
         (this.type == null ? searchResult.type == null : this.type.equals(searchResult.type)) &&
@@ -157,7 +142,6 @@ public class SearchResult {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.dataPoints == null ? 0: this.dataPoints.hashCode());
     result = 31 * result + (this.image == null ? 0: this.image.hashCode());
     result = 31 * result + (this.link == null ? 0: this.link.hashCode());
     result = 31 * result + (this.name == null ? 0: this.name.hashCode());
@@ -174,7 +158,6 @@ public class SearchResult {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResult {\n");
     
-    sb.append("  dataPoints: ").append(dataPoints).append("\n");
     sb.append("  image: ").append(image).append("\n");
     sb.append("  link: ").append(link).append("\n");
     sb.append("  name: ").append(name).append("\n");

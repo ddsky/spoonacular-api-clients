@@ -9,14 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { SearchResultDataPointsInner } from './searchResultDataPointsInner';
 
 
 /**
  * 
  */
 export interface SearchResult { 
-    dataPoints?: Array<SearchResultDataPointsInner>;
     image?: string;
     link?: string | null;
     name: string;

@@ -1,4 +1,4 @@
-# SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
+# Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
 
 ## Properties
 

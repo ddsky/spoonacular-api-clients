@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ProductInformation();
+    instance = new Spoonacular.ProductInformation();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,121 +50,121 @@
   describe('ProductInformation', function() {
     it('should create an instance of ProductInformation', function() {
       // uncomment below and update the code to test ProductInformation
-      //var instance = new SpoonacularApi.ProductInformation();
-      //expect(instance).to.be.a(SpoonacularApi.ProductInformation);
+      //var instance = new Spoonacular.ProductInformation();
+      //expect(instance).to.be.a(Spoonacular.ProductInformation);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property upc (base name: "upc")', function() {
       // uncomment below and update the code to test the property upc
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property usdaCode (base name: "usdaCode")', function() {
       // uncomment below and update the code to test the property usdaCode
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property breadcrumbs (base name: "breadcrumbs")', function() {
       // uncomment below and update the code to test the property breadcrumbs
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property imageType (base name: "imageType")', function() {
       // uncomment below and update the code to test the property imageType
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property badges (base name: "badges")', function() {
       // uncomment below and update the code to test the property badges
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property importantBadges (base name: "importantBadges")', function() {
       // uncomment below and update the code to test the property importantBadges
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredientCount (base name: "ingredientCount")', function() {
       // uncomment below and update the code to test the property ingredientCount
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property generatedText (base name: "generatedText")', function() {
       // uncomment below and update the code to test the property generatedText
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredientList (base name: "ingredientList")', function() {
       // uncomment below and update the code to test the property ingredientList
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property likes (base name: "likes")', function() {
       // uncomment below and update the code to test the property likes
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property aisle (base name: "aisle")', function() {
       // uncomment below and update the code to test the property aisle
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property credits (base name: "credits")', function() {
       // uncomment below and update the code to test the property credits
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property nutrition (base name: "nutrition")', function() {
       // uncomment below and update the code to test the property nutrition
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property price (base name: "price")', function() {
       // uncomment below and update the code to test the property price
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property servings (base name: "servings")', function() {
       // uncomment below and update the code to test the property servings
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 
     it('should have the property spoonacularScore (base name: "spoonacularScore")', function() {
       // uncomment below and update the code to test the property spoonacularScore
-      //var instance = new SpoonacularApi.ProductInformation();
+      //var instance = new Spoonacular.ProductInformation();
       //expect(instance).to.be();
     });
 

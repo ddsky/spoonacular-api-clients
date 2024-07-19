@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetShoppingList200Response();
+    instance = new Spoonacular.GetShoppingList200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('GetShoppingList200Response', function() {
     it('should create an instance of GetShoppingList200Response', function() {
       // uncomment below and update the code to test GetShoppingList200Response
-      //var instance = new SpoonacularApi.GetShoppingList200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetShoppingList200Response);
+      //var instance = new Spoonacular.GetShoppingList200Response();
+      //expect(instance).to.be.a(Spoonacular.GetShoppingList200Response);
     });
 
     it('should have the property aisles (base name: "aisles")', function() {
       // uncomment below and update the code to test the property aisles
-      //var instance = new SpoonacularApi.GetShoppingList200Response();
+      //var instance = new Spoonacular.GetShoppingList200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property cost (base name: "cost")', function() {
       // uncomment below and update the code to test the property cost
-      //var instance = new SpoonacularApi.GetShoppingList200Response();
+      //var instance = new Spoonacular.GetShoppingList200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property startDate (base name: "startDate")', function() {
       // uncomment below and update the code to test the property startDate
-      //var instance = new SpoonacularApi.GetShoppingList200Response();
+      //var instance = new Spoonacular.GetShoppingList200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property endDate (base name: "endDate")', function() {
       // uncomment below and update the code to test the property endDate
-      //var instance = new SpoonacularApi.GetShoppingList200Response();
+      //var instance = new Spoonacular.GetShoppingList200Response();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.GetMealPlanTemplates200ResponseTemplatesInner
+# Spoonacular.GetMealPlanTemplates200ResponseTemplatesInner
 
 ## Properties
 

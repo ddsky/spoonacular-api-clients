@@ -1,4 +1,4 @@
-# SpoonacularApi.ClassifyCuisine200Response
+# Spoonacular.ClassifyCuisine200Response
 
 ## Properties
 

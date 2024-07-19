@@ -59,7 +59,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data_points' => '\OpenAPI\Client\Model\SearchResultDataPointsInner[]',
         'image' => 'string',
         'link' => 'string',
         'name' => 'string',
@@ -78,7 +77,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'data_points' => null,
         'image' => null,
         'link' => null,
         'name' => null,
@@ -95,7 +93,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'data_points' => false,
         'image' => false,
         'link' => true,
         'name' => false,
@@ -192,7 +189,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'data_points' => 'dataPoints',
         'image' => 'image',
         'link' => 'link',
         'name' => 'name',
@@ -209,7 +205,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'data_points' => 'setDataPoints',
         'image' => 'setImage',
         'link' => 'setLink',
         'name' => 'setName',
@@ -226,7 +221,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'data_points' => 'getDataPoints',
         'image' => 'getImage',
         'link' => 'getLink',
         'name' => 'getName',
@@ -294,7 +288,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('data_points', $data ?? [], null);
         $this->setIfExists('image', $data ?? [], null);
         $this->setIfExists('link', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
@@ -349,33 +342,6 @@ class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets data_points
-     *
-     * @return \OpenAPI\Client\Model\SearchResultDataPointsInner[]|null
-     */
-    public function getDataPoints()
-    {
-        return $this->container['data_points'];
-    }
-
-    /**
-     * Sets data_points
-     *
-     * @param \OpenAPI\Client\Model\SearchResultDataPointsInner[]|null $data_points data_points
-     *
-     * @return self
-     */
-    public function setDataPoints($data_points)
-    {
-        if (is_null($data_points)) {
-            throw new \InvalidArgumentException('non-nullable data_points cannot be null');
-        }
-        $this->container['data_points'] = $data_points;
-
-        return $this;
-    }
 
     /**
      * Gets image

@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import SearchResultDataPointsInner from './SearchResultDataPointsInner';
 
 /**
  * The SearchResult model module.
@@ -51,9 +50,6 @@ class SearchResult {
         if (data) {
             obj = obj || new SearchResult();
 
-            if (data.hasOwnProperty('dataPoints')) {
-                obj['dataPoints'] = ApiClient.convertToType(data['dataPoints'], [SearchResultDataPointsInner]);
-            }
             if (data.hasOwnProperty('image')) {
                 obj['image'] = ApiClient.convertToType(data['image'], 'String');
             }
@@ -94,16 +90,6 @@ class SearchResult {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        if (data['dataPoints']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['dataPoints'])) {
-                throw new Error("Expected the field `dataPoints` to be an array in the JSON data but got " + data['dataPoints']);
-            }
-            // validate the optional field `dataPoints` (array)
-            for (const item of data['dataPoints']) {
-                SearchResultDataPointsInner.validateJSON(item);
-            };
-        }
         // ensure the json data is a string
         if (data['image'] && !(typeof data['image'] === 'string' || data['image'] instanceof String)) {
             throw new Error("Expected the field `image` to be a primitive type in the JSON string but got " + data['image']);
@@ -136,11 +122,6 @@ class SearchResult {
 }
 
 SearchResult.RequiredProperties = ["name"];
-
-/**
- * @member {Array.<module:model/SearchResultDataPointsInner>} dataPoints
- */
-SearchResult.prototype['dataPoints'] = undefined;
 
 /**
  * @member {String} image

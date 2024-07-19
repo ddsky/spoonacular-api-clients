@@ -17226,24 +17226,6 @@
         "description": "",
         "type": "object",
         "properties": {
-          "dataPoints": {
-            "type": "array",
-            "items": {
-              "required": [
-                "key",
-                "value"
-              ],
-              "properties": {
-                "key": {
-                  "type": "string"
-                },
-                "value": {},
-                "show": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
           "image": {
             "type": "string"
           },

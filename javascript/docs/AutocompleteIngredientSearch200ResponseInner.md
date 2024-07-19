@@ -1,4 +1,4 @@
-# SpoonacularApi.AutocompleteIngredientSearch200ResponseInner
+# Spoonacular.AutocompleteIngredientSearch200ResponseInner
 
 ## Properties
 

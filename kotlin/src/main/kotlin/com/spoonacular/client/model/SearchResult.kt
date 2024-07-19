@@ -15,7 +15,6 @@
 
 package com.spoonacular.client.model
 
-import com.spoonacular.client.model.SearchResultDataPointsInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -24,7 +23,6 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param name 
- * @param dataPoints 
  * @param image 
  * @param link 
  * @param type 
@@ -39,9 +37,6 @@ data class SearchResult (
 
     @Json(name = "name")
     val name: kotlin.String,
-
-    @Json(name = "dataPoints")
-    val dataPoints: kotlin.collections.List<SearchResultDataPointsInner>? = null,
 
     @Json(name = "image")
     val image: kotlin.String? = null,

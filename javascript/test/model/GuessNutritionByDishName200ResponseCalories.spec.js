@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCalories();
+    instance = new Spoonacular.GuessNutritionByDishName200ResponseCalories();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('GuessNutritionByDishName200ResponseCalories', function() {
     it('should create an instance of GuessNutritionByDishName200ResponseCalories', function() {
       // uncomment below and update the code to test GuessNutritionByDishName200ResponseCalories
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCalories();
-      //expect(instance).to.be.a(SpoonacularApi.GuessNutritionByDishName200ResponseCalories);
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCalories();
+      //expect(instance).to.be.a(Spoonacular.GuessNutritionByDishName200ResponseCalories);
     });
 
     it('should have the property confidenceRange95Percent (base name: "confidenceRange95Percent")', function() {
       // uncomment below and update the code to test the property confidenceRange95Percent
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCalories();
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCalories();
       //expect(instance).to.be();
     });
 
     it('should have the property standardDeviation (base name: "standardDeviation")', function() {
       // uncomment below and update the code to test the property standardDeviation
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCalories();
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCalories();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCalories();
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCalories();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instance = new SpoonacularApi.GuessNutritionByDishName200ResponseCalories();
+      //var instance = new Spoonacular.GuessNutritionByDishName200ResponseCalories();
       //expect(instance).to.be();
     });
 

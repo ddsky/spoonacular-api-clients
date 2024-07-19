@@ -1,4 +1,4 @@
-# SpoonacularApi.MenuItemServings
+# Spoonacular.MenuItemServings
 
 ## Properties
 

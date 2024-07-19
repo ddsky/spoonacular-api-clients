@@ -14,8 +14,6 @@ use serde::{Deserialize, Serialize};
 /// SearchResult : 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchResult {
-    #[serde(rename = "dataPoints", skip_serializing_if = "Option::is_none")]
-    pub data_points: Option<Vec<models::SearchResultDataPointsInner>>,
     #[serde(rename = "image", skip_serializing_if = "Option::is_none")]
     pub image: Option<String>,
     #[serde(rename = "link", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -38,7 +36,6 @@ impl SearchResult {
     /// 
     pub fn new(name: String) -> SearchResult {
         SearchResult {
-            data_points: None,
             image: None,
             link: None,
             name,

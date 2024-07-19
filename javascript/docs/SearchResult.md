@@ -1,10 +1,9 @@
-# SpoonacularApi.SearchResult
+# Spoonacular.SearchResult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dataPoints** | [**[SearchResultDataPointsInner]**](SearchResultDataPointsInner.md) |  | [optional] 
 **image** | **String** |  | [optional] 
 **link** | **String** |  | [optional] 
 **name** | **String** |  | 

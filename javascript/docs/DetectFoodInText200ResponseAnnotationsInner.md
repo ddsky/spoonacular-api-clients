@@ -1,4 +1,4 @@
-# SpoonacularApi.DetectFoodInText200ResponseAnnotationsInner
+# Spoonacular.DetectFoodInText200ResponseAnnotationsInner
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# SpoonacularApi.ComputeGlycemicLoad200ResponseIngredientsInner
+# Spoonacular.ComputeGlycemicLoad200ResponseIngredientsInner
 
 ## Properties
 

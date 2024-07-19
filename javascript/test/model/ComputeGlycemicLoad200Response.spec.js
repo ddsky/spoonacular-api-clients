@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ComputeGlycemicLoad200Response();
+    instance = new Spoonacular.ComputeGlycemicLoad200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('ComputeGlycemicLoad200Response', function() {
     it('should create an instance of ComputeGlycemicLoad200Response', function() {
       // uncomment below and update the code to test ComputeGlycemicLoad200Response
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200Response();
-      //expect(instance).to.be.a(SpoonacularApi.ComputeGlycemicLoad200Response);
+      //var instance = new Spoonacular.ComputeGlycemicLoad200Response();
+      //expect(instance).to.be.a(Spoonacular.ComputeGlycemicLoad200Response);
     });
 
     it('should have the property totalGlycemicLoad (base name: "totalGlycemicLoad")', function() {
       // uncomment below and update the code to test the property totalGlycemicLoad
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200Response();
+      //var instance = new Spoonacular.ComputeGlycemicLoad200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.ComputeGlycemicLoad200Response();
+      //var instance = new Spoonacular.ComputeGlycemicLoad200Response();
       //expect(instance).to.be();
     });
 

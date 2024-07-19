@@ -155,7 +155,6 @@ model/searchRestaurants200ResponseRestaurantsInnerAddress.ts
 model/searchRestaurants200ResponseRestaurantsInnerLocalHours.ts
 model/searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.ts
 model/searchResult.ts
-model/searchResultDataPointsInner.ts
 model/searchSiteContent200Response.ts
 model/summarizeRecipe200Response.ts
 model/talkToChatbot200Response.ts

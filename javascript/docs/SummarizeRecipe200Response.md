@@ -1,4 +1,4 @@
-# SpoonacularApi.SummarizeRecipe200Response
+# Spoonacular.SummarizeRecipe200Response
 
 ## Properties
 

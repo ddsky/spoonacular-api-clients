@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ClassifyCuisine200Response();
+    instance = new Spoonacular.ClassifyCuisine200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('ClassifyCuisine200Response', function() {
     it('should create an instance of ClassifyCuisine200Response', function() {
       // uncomment below and update the code to test ClassifyCuisine200Response
-      //var instance = new SpoonacularApi.ClassifyCuisine200Response();
-      //expect(instance).to.be.a(SpoonacularApi.ClassifyCuisine200Response);
+      //var instance = new Spoonacular.ClassifyCuisine200Response();
+      //expect(instance).to.be.a(Spoonacular.ClassifyCuisine200Response);
     });
 
     it('should have the property cuisine (base name: "cuisine")', function() {
       // uncomment below and update the code to test the property cuisine
-      //var instance = new SpoonacularApi.ClassifyCuisine200Response();
+      //var instance = new Spoonacular.ClassifyCuisine200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property cuisines (base name: "cuisines")', function() {
       // uncomment below and update the code to test the property cuisines
-      //var instance = new SpoonacularApi.ClassifyCuisine200Response();
+      //var instance = new Spoonacular.ClassifyCuisine200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property confidence (base name: "confidence")', function() {
       // uncomment below and update the code to test the property confidence
-      //var instance = new SpoonacularApi.ClassifyCuisine200Response();
+      //var instance = new Spoonacular.ClassifyCuisine200Response();
       //expect(instance).to.be();
     });
 

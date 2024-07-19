@@ -1,4 +1,4 @@
-# SpoonacularApi.ComputeGlycemicLoadRequest
+# Spoonacular.ComputeGlycemicLoadRequest
 
 ## Properties
 

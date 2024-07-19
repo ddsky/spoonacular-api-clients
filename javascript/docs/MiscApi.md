@@ -1,4 +1,4 @@
-# SpoonacularApi.MiscApi
+# Spoonacular.MiscApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -29,15 +29,15 @@ Take any text and find all mentions of food contained within it. This task is al
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let text = "text_example"; // String | 
 apiInstance.detectFoodInText(text, (error, data, response) => {
   if (error) {
@@ -80,15 +80,15 @@ Get a random joke that is related to food. Caution: this is an endpoint for adul
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 apiInstance.getARandomFoodJoke((error, data, response) => {
   if (error) {
     console.error(error);
@@ -127,15 +127,15 @@ This endpoint returns suggestions for things the user can say or ask the chatbot
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let query = "tell"; // String | A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
 let opts = {
   'number': 5 // Number | The number of suggestions to return (between 1 and 25).
@@ -182,15 +182,15 @@ Returns random food trivia.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 apiInstance.getRandomFoodTrivia((error, data, response) => {
   if (error) {
     console.error(error);
@@ -229,15 +229,15 @@ Analyze a food image. The API tries to classify the image, guess the nutrition, 
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let imageUrl = "https://spoonacular.com/recipeImages/635350-240x150.jpg"; // String | The URL of the image to be analyzed.
 apiInstance.imageAnalysisByURL(imageUrl, (error, data, response) => {
   if (error) {
@@ -280,15 +280,15 @@ Classify a food image.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let imageUrl = "https://spoonacular.com/recipeImages/635350-240x150.jpg"; // String | The URL of the image to be classified.
 apiInstance.imageClassificationByURL(imageUrl, (error, data, response) => {
   if (error) {
@@ -331,15 +331,15 @@ Search all food content with one call. That includes recipes, grocery products, 
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let query = "apple"; // String | The search query.
 let opts = {
   'offset': 56, // Number | The number of results to skip (between 0 and 900).
@@ -388,15 +388,15 @@ Search custom foods in a user&#39;s account.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let query = "burger"; // String | The (natural language) search query.
 let username = "dsky"; // String | The username.
 let hash = "4b5v4398573406"; // String | The private hash for the username.
@@ -449,15 +449,15 @@ Find recipe and other food related videos.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let query = "burger"; // String | The (natural language) search query.
 let opts = {
   'type': "main course", // String | The type of the recipes. See a full list of supported meal types.
@@ -520,15 +520,15 @@ Search spoonacular&#39;s site content. You&#39;ll be able to find everything tha
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let query = "past"; // String | The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.
 apiInstance.searchSiteContent(query, (error, data, response) => {
   if (error) {
@@ -571,15 +571,15 @@ This endpoint can be used to have a conversation about food with the spoonacular
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.MiscApi();
+let apiInstance = new Spoonacular.MiscApi();
 let text = "donut recipes"; // String | The request / question / answer from the user to the chatbot.
 let opts = {
   'contextId': "342938" // String | An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.

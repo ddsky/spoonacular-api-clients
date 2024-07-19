@@ -19,9 +19,8 @@ local function cast_search_result(t)
 	return setmetatable(t, search_result_mt)
 end
 
-local function new_search_result(data_points, image, link, name, type, kvtable, content, id, relevance)
+local function new_search_result(image, link, name, type, kvtable, content, id, relevance)
 	return cast_search_result({
-		["dataPoints"] = data_points;
 		["image"] = image;
 		["link"] = link;
 		["name"] = name;

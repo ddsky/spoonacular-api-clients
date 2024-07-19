@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ConnectUserRequest();
+    instance = new Spoonacular.ConnectUserRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('ConnectUserRequest', function() {
     it('should create an instance of ConnectUserRequest', function() {
       // uncomment below and update the code to test ConnectUserRequest
-      //var instance = new SpoonacularApi.ConnectUserRequest();
-      //expect(instance).to.be.a(SpoonacularApi.ConnectUserRequest);
+      //var instance = new Spoonacular.ConnectUserRequest();
+      //expect(instance).to.be.a(Spoonacular.ConnectUserRequest);
     });
 
     it('should have the property username (base name: "username")', function() {
       // uncomment below and update the code to test the property username
-      //var instance = new SpoonacularApi.ConnectUserRequest();
+      //var instance = new Spoonacular.ConnectUserRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property firstName (base name: "firstName")', function() {
       // uncomment below and update the code to test the property firstName
-      //var instance = new SpoonacularApi.ConnectUserRequest();
+      //var instance = new Spoonacular.ConnectUserRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property lastName (base name: "lastName")', function() {
       // uncomment below and update the code to test the property lastName
-      //var instance = new SpoonacularApi.ConnectUserRequest();
+      //var instance = new Spoonacular.ConnectUserRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instance = new SpoonacularApi.ConnectUserRequest();
+      //var instance = new Spoonacular.ConnectUserRequest();
       //expect(instance).to.be();
     });
 

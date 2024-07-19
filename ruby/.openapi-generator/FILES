@@ -153,7 +153,6 @@ docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchResult.md
-docs/SearchResultDataPointsInner.md
 docs/SearchSiteContent200Response.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
@@ -312,7 +311,6 @@ lib/openapi_client/models/search_restaurants200_response_restaurants_inner_addre
 lib/openapi_client/models/search_restaurants200_response_restaurants_inner_local_hours.rb
 lib/openapi_client/models/search_restaurants200_response_restaurants_inner_local_hours_operational.rb
 lib/openapi_client/models/search_result.rb
-lib/openapi_client/models/search_result_data_points_inner.rb
 lib/openapi_client/models/search_site_content200_response.rb
 lib/openapi_client/models/summarize_recipe200_response.rb
 lib/openapi_client/models/talk_to_chatbot200_response.rb
@@ -466,7 +464,6 @@ spec/models/search_restaurants200_response_restaurants_inner_local_hours_operati
 spec/models/search_restaurants200_response_restaurants_inner_local_hours_spec.rb
 spec/models/search_restaurants200_response_restaurants_inner_spec.rb
 spec/models/search_restaurants200_response_spec.rb
-spec/models/search_result_data_points_inner_spec.rb
 spec/models/search_result_spec.rb
 spec/models/search_site_content200_response_spec.rb
 spec/models/summarize_recipe200_response_spec.rb

@@ -1,4 +1,4 @@
-# SpoonacularApi.GetRecipeIngredientsByID200Response
+# Spoonacular.GetRecipeIngredientsByID200Response
 
 ## Properties
 

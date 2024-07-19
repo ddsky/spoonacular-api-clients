@@ -1,4 +1,4 @@
-# SpoonacularApi.GetRandomRecipes200Response
+# Spoonacular.GetRandomRecipes200Response
 
 ## Properties
 

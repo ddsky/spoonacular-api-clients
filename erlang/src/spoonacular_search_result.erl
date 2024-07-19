@@ -5,8 +5,7 @@
 -export_type([spoonacular_search_result/0]).
 
 -type spoonacular_search_result() ::
-    #{ 'dataPoints' => list(),
-       'image' => binary(),
+    #{ 'image' => binary(),
        'link' => binary(),
        'name' := binary(),
        'type' => binary(),
@@ -16,8 +15,7 @@
        'relevance' => integer()
      }.
 
-encode(#{ 'dataPoints' := DataPoints,
-          'image' := Image,
+encode(#{ 'image' := Image,
           'link' := Link,
           'name' := Name,
           'type' := Type,
@@ -26,8 +24,7 @@ encode(#{ 'dataPoints' := DataPoints,
           'id' := Id,
           'relevance' := Relevance
         }) ->
-    #{ 'dataPoints' => DataPoints,
-       'image' => Image,
+    #{ 'image' => Image,
        'link' => Link,
        'name' => Name,
        'type' => Type,

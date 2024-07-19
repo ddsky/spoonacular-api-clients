@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchRestaurants200Response();
+    instance = new Spoonacular.SearchRestaurants200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('SearchRestaurants200Response', function() {
     it('should create an instance of SearchRestaurants200Response', function() {
       // uncomment below and update the code to test SearchRestaurants200Response
-      //var instance = new SpoonacularApi.SearchRestaurants200Response();
-      //expect(instance).to.be.a(SpoonacularApi.SearchRestaurants200Response);
+      //var instance = new Spoonacular.SearchRestaurants200Response();
+      //expect(instance).to.be.a(Spoonacular.SearchRestaurants200Response);
     });
 
     it('should have the property restaurants (base name: "restaurants")', function() {
       // uncomment below and update the code to test the property restaurants
-      //var instance = new SpoonacularApi.SearchRestaurants200Response();
+      //var instance = new Spoonacular.SearchRestaurants200Response();
       //expect(instance).to.be();
     });
 

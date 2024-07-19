@@ -137,7 +137,6 @@ export * from './searchRestaurants200ResponseRestaurantsInnerAddress';
 export * from './searchRestaurants200ResponseRestaurantsInnerLocalHours';
 export * from './searchRestaurants200ResponseRestaurantsInnerLocalHoursOperational';
 export * from './searchResult';
-export * from './searchResultDataPointsInner';
 export * from './searchSiteContent200Response';
 export * from './summarizeRecipe200Response';
 export * from './talkToChatbot200Response';

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetConversationSuggests200ResponseSuggestsInner();
+    instance = new Spoonacular.GetConversationSuggests200ResponseSuggestsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('GetConversationSuggests200ResponseSuggestsInner', function() {
     it('should create an instance of GetConversationSuggests200ResponseSuggestsInner', function() {
       // uncomment below and update the code to test GetConversationSuggests200ResponseSuggestsInner
-      //var instance = new SpoonacularApi.GetConversationSuggests200ResponseSuggestsInner();
-      //expect(instance).to.be.a(SpoonacularApi.GetConversationSuggests200ResponseSuggestsInner);
+      //var instance = new Spoonacular.GetConversationSuggests200ResponseSuggestsInner();
+      //expect(instance).to.be.a(Spoonacular.GetConversationSuggests200ResponseSuggestsInner);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.GetConversationSuggests200ResponseSuggestsInner();
+      //var instance = new Spoonacular.GetConversationSuggests200ResponseSuggestsInner();
       //expect(instance).to.be();
     });
 

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetRecipePriceBreakdownByID200Response();
+    instance = new Spoonacular.GetRecipePriceBreakdownByID200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('GetRecipePriceBreakdownByID200Response', function() {
     it('should create an instance of GetRecipePriceBreakdownByID200Response', function() {
       // uncomment below and update the code to test GetRecipePriceBreakdownByID200Response
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetRecipePriceBreakdownByID200Response);
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200Response();
+      //expect(instance).to.be.a(Spoonacular.GetRecipePriceBreakdownByID200Response);
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200Response();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property totalCost (base name: "totalCost")', function() {
       // uncomment below and update the code to test the property totalCost
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200Response();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property totalCostPerServing (base name: "totalCostPerServing")', function() {
       // uncomment below and update the code to test the property totalCostPerServing
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200Response();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200Response();
       //expect(instance).to.be();
     });
 

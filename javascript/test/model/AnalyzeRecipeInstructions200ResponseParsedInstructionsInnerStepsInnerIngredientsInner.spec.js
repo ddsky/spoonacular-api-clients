@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
+    instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner', function() {
     it('should create an instance of AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner', function() {
       // uncomment below and update the code to test AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
-      //expect(instance).to.be.a(SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner);
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
+      //expect(instance).to.be.a(Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property localizedName (base name: "localizedName")', function() {
       // uncomment below and update the code to test the property localizedName
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instance = new SpoonacularApi.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
+      //var instance = new Spoonacular.AnalyzeRecipeInstructions200ResponseParsedInstructionsInnerStepsInnerIngredientsInner();
       //expect(instance).to.be();
     });
 

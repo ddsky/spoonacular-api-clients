@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DataPoints** | [**List&lt;SearchResultDataPointsInner&gt;**](SearchResultDataPointsInner.md) |  | [optional] 
 **Image** | **string** |  | [optional] 
 **Link** | **string** |  | [optional] 
 **Name** | **string** |  | 

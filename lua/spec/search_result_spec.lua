@@ -16,13 +16,6 @@ Please update as you see appropriate
 describe("search_result", function()
   local spoonacular_search_result = require "spoonacular.model.search_result"
 
-  -- unit tests for the property 'data_points'
-  describe("property data_points test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
   -- unit tests for the property 'image'
   describe("property image test", function()
     it("should work", function()

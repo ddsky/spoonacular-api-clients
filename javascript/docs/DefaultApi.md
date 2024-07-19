@@ -1,4 +1,4 @@
-# SpoonacularApi.DefaultApi
+# Spoonacular.DefaultApi
 
 All URIs are relative to *https://api.spoonacular.com*
 
@@ -21,15 +21,15 @@ This endpoint allows you to send raw recipe information, such as title, servings
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.DefaultApi();
+let apiInstance = new Spoonacular.DefaultApi();
 let analyzeRecipeRequest = {"title":"Spaghetti Carbonara","servings":2,"ingredients":["1 lb spaghetti","3.5 oz pancetta","2 Tbsps olive oil","1  egg","0.5 cup parmesan cheese"],"instructions":"Bring a large pot of water to a boil and season generously with salt. Add the pasta to the water once boiling and cook until al dente. Reserve 2 cups of cooking water and drain the pasta. "}; // AnalyzeRecipeRequest | Example request body.
 let opts = {
   'language': "en", // String | The input language, either \"en\" or \"de\".
@@ -80,15 +80,15 @@ Generate a recipe card for a recipe.
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.DefaultApi();
+let apiInstance = new Spoonacular.DefaultApi();
 let id = 4632; // Number | The recipe id.
 let opts = {
   'mask': "ellipseMask", // String | The mask to put over the recipe image (\"ellipseMask\", \"diamondMask\", \"starMask\", \"heartMask\", \"potMask\", \"fishMask\").
@@ -141,15 +141,15 @@ Search through thousands of restaurants (in North America) by location, cuisine,
 ### Example
 
 ```javascript
-import SpoonacularApi from 'spoonacular-api';
-let defaultClient = SpoonacularApi.ApiClient.instance;
+import Spoonacular from 'spoonacular';
+let defaultClient = Spoonacular.ApiClient.instance;
 // Configure API key authorization: apiKeyScheme
 let apiKeyScheme = defaultClient.authentications['apiKeyScheme'];
 apiKeyScheme.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //apiKeyScheme.apiKeyPrefix = 'Token';
 
-let apiInstance = new SpoonacularApi.DefaultApi();
+let apiInstance = new Spoonacular.DefaultApi();
 let opts = {
   'query': "beach cafe", // String | The search query.
   'lat': 37.7786357, // Number | The latitude of the user's location.

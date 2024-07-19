@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
+# Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
 
 ## Properties
 

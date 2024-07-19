@@ -16,11 +16,6 @@ void main() {
   // final instance = SearchResult();
 
   group('test SearchResult', () {
-    // List<SearchResultDataPointsInner> dataPoints (default value: const [])
-    test('to test the property `dataPoints`', () async {
-      // TODO
-    });
-
     // String image
     test('to test the property `image`', () async {
       // TODO

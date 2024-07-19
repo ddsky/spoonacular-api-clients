@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+    instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational', function() {
     it('should create an instance of SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational', function() {
       // uncomment below and update the code to test SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
-      //expect(instance).to.be.a(SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational);
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //expect(instance).to.be.a(Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational);
     });
 
     it('should have the property monday (base name: "Monday")', function() {
       // uncomment below and update the code to test the property monday
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
       //expect(instance).to.be();
     });
 
     it('should have the property tuesday (base name: "Tuesday")', function() {
       // uncomment below and update the code to test the property tuesday
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
       //expect(instance).to.be();
     });
 
     it('should have the property wednesday (base name: "Wednesday")', function() {
       // uncomment below and update the code to test the property wednesday
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
       //expect(instance).to.be();
     });
 
     it('should have the property thursday (base name: "Thursday")', function() {
       // uncomment below and update the code to test the property thursday
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
       //expect(instance).to.be();
     });
 
     it('should have the property friday (base name: "Friday")', function() {
       // uncomment below and update the code to test the property friday
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
       //expect(instance).to.be();
     });
 
     it('should have the property saturday (base name: "Saturday")', function() {
       // uncomment below and update the code to test the property saturday
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
       //expect(instance).to.be();
     });
 
     it('should have the property sunday (base name: "Sunday")', function() {
       // uncomment below and update the code to test the property sunday
-      //var instance = new SpoonacularApi.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
+      //var instance = new Spoonacular.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational();
       //expect(instance).to.be();
     });
 

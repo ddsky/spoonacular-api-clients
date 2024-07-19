@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AutocompleteProductSearch200Response();
+    instance = new Spoonacular.AutocompleteProductSearch200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('AutocompleteProductSearch200Response', function() {
     it('should create an instance of AutocompleteProductSearch200Response', function() {
       // uncomment below and update the code to test AutocompleteProductSearch200Response
-      //var instance = new SpoonacularApi.AutocompleteProductSearch200Response();
-      //expect(instance).to.be.a(SpoonacularApi.AutocompleteProductSearch200Response);
+      //var instance = new Spoonacular.AutocompleteProductSearch200Response();
+      //expect(instance).to.be.a(Spoonacular.AutocompleteProductSearch200Response);
     });
 
     it('should have the property results (base name: "results")', function() {
       // uncomment below and update the code to test the property results
-      //var instance = new SpoonacularApi.AutocompleteProductSearch200Response();
+      //var instance = new Spoonacular.AutocompleteProductSearch200Response();
       //expect(instance).to.be();
     });
 

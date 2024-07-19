@@ -19,12 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.spoonacular.client.model.SearchResultDataPointsInner;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -56,10 +53,6 @@ import com.spoonacular.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0-SNAPSHOT")
 public class SearchResult {
-  public static final String SERIALIZED_NAME_DATA_POINTS = "dataPoints";
-  @SerializedName(SERIALIZED_NAME_DATA_POINTS)
-  private List<SearchResultDataPointsInner> dataPoints = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
   private String image;
@@ -94,33 +87,6 @@ public class SearchResult {
 
   public SearchResult() {
   }
-
-  public SearchResult dataPoints(List<SearchResultDataPointsInner> dataPoints) {
-    this.dataPoints = dataPoints;
-    return this;
-  }
-
-  public SearchResult addDataPointsItem(SearchResultDataPointsInner dataPointsItem) {
-    if (this.dataPoints == null) {
-      this.dataPoints = new ArrayList<>();
-    }
-    this.dataPoints.add(dataPointsItem);
-    return this;
-  }
-
-  /**
-   * Get dataPoints
-   * @return dataPoints
-   */
-  @javax.annotation.Nullable
-  public List<SearchResultDataPointsInner> getDataPoints() {
-    return dataPoints;
-  }
-
-  public void setDataPoints(List<SearchResultDataPointsInner> dataPoints) {
-    this.dataPoints = dataPoints;
-  }
-
 
   public SearchResult image(String image) {
     this.image = image;
@@ -284,8 +250,7 @@ public class SearchResult {
       return false;
     }
     SearchResult searchResult = (SearchResult) o;
-    return Objects.equals(this.dataPoints, searchResult.dataPoints) &&
-        Objects.equals(this.image, searchResult.image) &&
+    return Objects.equals(this.image, searchResult.image) &&
         Objects.equals(this.link, searchResult.link) &&
         Objects.equals(this.name, searchResult.name) &&
         Objects.equals(this.type, searchResult.type) &&
@@ -301,7 +266,7 @@ public class SearchResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataPoints, image, link, name, type, kvtable, content, id, relevance);
+    return Objects.hash(image, link, name, type, kvtable, content, id, relevance);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -315,7 +280,6 @@ public class SearchResult {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResult {\n");
-    sb.append("    dataPoints: ").append(toIndentedString(dataPoints)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    link: ").append(toIndentedString(link)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -346,7 +310,6 @@ public class SearchResult {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("dataPoints");
     openapiFields.add("image");
     openapiFields.add("link");
     openapiFields.add("name");
@@ -389,20 +352,6 @@ public class SearchResult {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("dataPoints") != null && !jsonObj.get("dataPoints").isJsonNull()) {
-        JsonArray jsonArraydataPoints = jsonObj.getAsJsonArray("dataPoints");
-        if (jsonArraydataPoints != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("dataPoints").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `dataPoints` to be an array in the JSON string but got `%s`", jsonObj.get("dataPoints").toString()));
-          }
-
-          // validate the optional field `dataPoints` (array)
-          for (int i = 0; i < jsonArraydataPoints.size(); i++) {
-            SearchResultDataPointsInner.validateJsonElement(jsonArraydataPoints.get(i));
-          };
-        }
-      }
       if ((jsonObj.get("image") != null && !jsonObj.get("image").isJsonNull()) && !jsonObj.get("image").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }

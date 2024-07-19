@@ -1,4 +1,4 @@
-# SpoonacularApi.SearchSiteContent200Response
+# Spoonacular.SearchSiteContent200Response
 
 ## Properties
 

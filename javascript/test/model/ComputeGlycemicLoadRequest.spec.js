@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.ComputeGlycemicLoadRequest();
+    instance = new Spoonacular.ComputeGlycemicLoadRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('ComputeGlycemicLoadRequest', function() {
     it('should create an instance of ComputeGlycemicLoadRequest', function() {
       // uncomment below and update the code to test ComputeGlycemicLoadRequest
-      //var instance = new SpoonacularApi.ComputeGlycemicLoadRequest();
-      //expect(instance).to.be.a(SpoonacularApi.ComputeGlycemicLoadRequest);
+      //var instance = new Spoonacular.ComputeGlycemicLoadRequest();
+      //expect(instance).to.be.a(Spoonacular.ComputeGlycemicLoadRequest);
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.ComputeGlycemicLoadRequest();
+      //var instance = new Spoonacular.ComputeGlycemicLoadRequest();
       //expect(instance).to.be();
     });
 

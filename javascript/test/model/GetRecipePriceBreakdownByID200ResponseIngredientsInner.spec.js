@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
+    instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('GetRecipePriceBreakdownByID200ResponseIngredientsInner', function() {
     it('should create an instance of GetRecipePriceBreakdownByID200ResponseIngredientsInner', function() {
       // uncomment below and update the code to test GetRecipePriceBreakdownByID200ResponseIngredientsInner
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
-      //expect(instance).to.be.a(SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner);
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
+      //expect(instance).to.be.a(Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner);
     });
 
     it('should have the property amount (base name: "amount")', function() {
       // uncomment below and update the code to test the property amount
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property image (base name: "image")', function() {
       // uncomment below and update the code to test the property image
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property price (base name: "price")', function() {
       // uncomment below and update the code to test the property price
-      //var instance = new SpoonacularApi.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
+      //var instance = new Spoonacular.GetRecipePriceBreakdownByID200ResponseIngredientsInner();
       //expect(instance).to.be();
     });
 

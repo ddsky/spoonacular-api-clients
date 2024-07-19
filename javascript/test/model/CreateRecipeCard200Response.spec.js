@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.CreateRecipeCard200Response();
+    instance = new Spoonacular.CreateRecipeCard200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('CreateRecipeCard200Response', function() {
     it('should create an instance of CreateRecipeCard200Response', function() {
       // uncomment below and update the code to test CreateRecipeCard200Response
-      //var instance = new SpoonacularApi.CreateRecipeCard200Response();
-      //expect(instance).to.be.a(SpoonacularApi.CreateRecipeCard200Response);
+      //var instance = new Spoonacular.CreateRecipeCard200Response();
+      //expect(instance).to.be.a(Spoonacular.CreateRecipeCard200Response);
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instance = new SpoonacularApi.CreateRecipeCard200Response();
+      //var instance = new Spoonacular.CreateRecipeCard200Response();
       //expect(instance).to.be();
     });
 

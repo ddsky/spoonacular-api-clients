@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AddMealPlanTemplate200Response();
+    instance = new Spoonacular.AddMealPlanTemplate200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('AddMealPlanTemplate200Response', function() {
     it('should create an instance of AddMealPlanTemplate200Response', function() {
       // uncomment below and update the code to test AddMealPlanTemplate200Response
-      //var instance = new SpoonacularApi.AddMealPlanTemplate200Response();
-      //expect(instance).to.be.a(SpoonacularApi.AddMealPlanTemplate200Response);
+      //var instance = new Spoonacular.AddMealPlanTemplate200Response();
+      //expect(instance).to.be.a(Spoonacular.AddMealPlanTemplate200Response);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.AddMealPlanTemplate200Response();
+      //var instance = new Spoonacular.AddMealPlanTemplate200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property items (base name: "items")', function() {
       // uncomment below and update the code to test the property items
-      //var instance = new SpoonacularApi.AddMealPlanTemplate200Response();
+      //var instance = new Spoonacular.AddMealPlanTemplate200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property publishAsPublic (base name: "publishAsPublic")', function() {
       // uncomment below and update the code to test the property publishAsPublic
-      //var instance = new SpoonacularApi.AddMealPlanTemplate200Response();
+      //var instance = new Spoonacular.AddMealPlanTemplate200Response();
       //expect(instance).to.be();
     });
 

@@ -6846,8 +6846,7 @@ mkSearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational =
 -- | SearchResult
 -- 
 data SearchResult = SearchResult
-  { searchResultDataPoints :: !(Maybe [SearchResultDataPointsInner]) -- ^ "dataPoints"
-  , searchResultImage :: !(Maybe Text) -- ^ "image"
+  { searchResultImage :: !(Maybe Text) -- ^ "image"
   , searchResultLink :: !(Maybe Text) -- ^ "link"
   , searchResultName :: !(Text) -- ^ /Required/ "name"
   , searchResultType :: !(Maybe Text) -- ^ "type"
@@ -6861,8 +6860,7 @@ data SearchResult = SearchResult
 instance A.FromJSON SearchResult where
   parseJSON = A.withObject "SearchResult" $ \o ->
     SearchResult
-      <$> (o .:? "dataPoints")
-      <*> (o .:? "image")
+      <$> (o .:? "image")
       <*> (o .:? "link")
       <*> (o .:  "name")
       <*> (o .:? "type")
@@ -6875,8 +6873,7 @@ instance A.FromJSON SearchResult where
 instance A.ToJSON SearchResult where
   toJSON SearchResult {..} =
    _omitNulls
-      [ "dataPoints" .= searchResultDataPoints
-      , "image" .= searchResultImage
+      [ "image" .= searchResultImage
       , "link" .= searchResultLink
       , "name" .= searchResultName
       , "type" .= searchResultType
@@ -6893,8 +6890,7 @@ mkSearchResult
   -> SearchResult
 mkSearchResult searchResultName =
   SearchResult
-  { searchResultDataPoints = Nothing
-  , searchResultImage = Nothing
+  { searchResultImage = Nothing
   , searchResultLink = Nothing
   , searchResultName
   , searchResultType = Nothing
@@ -6902,44 +6898,6 @@ mkSearchResult searchResultName =
   , searchResultContent = Nothing
   , searchResultId = Nothing
   , searchResultRelevance = Nothing
-  }
-
--- ** SearchResultDataPointsInner
--- | SearchResultDataPointsInner
-data SearchResultDataPointsInner = SearchResultDataPointsInner
-  { searchResultDataPointsInnerKey :: !(Text) -- ^ /Required/ "key"
-  , searchResultDataPointsInnerValue :: !(AnyType) -- ^ /Required/ "value"
-  , searchResultDataPointsInnerShow :: !(Maybe Bool) -- ^ "show"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON SearchResultDataPointsInner
-instance A.FromJSON SearchResultDataPointsInner where
-  parseJSON = A.withObject "SearchResultDataPointsInner" $ \o ->
-    SearchResultDataPointsInner
-      <$> (o .:  "key")
-      <*> (o .:  "value")
-      <*> (o .:? "show")
-
--- | ToJSON SearchResultDataPointsInner
-instance A.ToJSON SearchResultDataPointsInner where
-  toJSON SearchResultDataPointsInner {..} =
-   _omitNulls
-      [ "key" .= searchResultDataPointsInnerKey
-      , "value" .= searchResultDataPointsInnerValue
-      , "show" .= searchResultDataPointsInnerShow
-      ]
-
-
--- | Construct a value of type 'SearchResultDataPointsInner' (by applying it's required fields, if any)
-mkSearchResultDataPointsInner
-  :: Text -- ^ 'searchResultDataPointsInnerKey' 
-  -> AnyType -- ^ 'searchResultDataPointsInnerValue' 
-  -> SearchResultDataPointsInner
-mkSearchResultDataPointsInner searchResultDataPointsInnerKey searchResultDataPointsInnerValue =
-  SearchResultDataPointsInner
-  { searchResultDataPointsInnerKey
-  , searchResultDataPointsInnerValue
-  , searchResultDataPointsInnerShow = Nothing
   }
 
 -- ** SearchSiteContent200Response

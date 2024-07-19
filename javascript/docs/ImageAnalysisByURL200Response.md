@@ -1,4 +1,4 @@
-# SpoonacularApi.ImageAnalysisByURL200Response
+# Spoonacular.ImageAnalysisByURL200Response
 
 ## Properties
 

@@ -56,15 +56,6 @@ namespace spoonacular.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'DataPoints'
-        /// </summary>
-        [Fact]
-        public void DataPointsTest()
-        {
-            // TODO unit test for the property 'DataPoints'
-        }
-
-        /// <summary>
         /// Test the property 'Image'
         /// </summary>
         [Fact]

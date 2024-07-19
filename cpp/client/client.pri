@@ -141,7 +141,6 @@ HEADERS += \
     $${PWD}/OAISearchRestaurants_200_response_restaurants_inner_local_hours.h \
     $${PWD}/OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.h \
     $${PWD}/OAISearchResult.h \
-    $${PWD}/OAISearchResult_dataPoints_inner.h \
     $${PWD}/OAISearchSiteContent_200_response.h \
     $${PWD}/OAISummarizeRecipe_200_response.h \
     $${PWD}/OAITalkToChatbot_200_response.h \
@@ -307,7 +306,6 @@ SOURCES += \
     $${PWD}/OAISearchRestaurants_200_response_restaurants_inner_local_hours.cpp \
     $${PWD}/OAISearchRestaurants_200_response_restaurants_inner_local_hours_operational.cpp \
     $${PWD}/OAISearchResult.cpp \
-    $${PWD}/OAISearchResult_dataPoints_inner.cpp \
     $${PWD}/OAISearchSiteContent_200_response.cpp \
     $${PWD}/OAISummarizeRecipe_200_response.cpp \
     $${PWD}/OAITalkToChatbot_200_response.cpp \

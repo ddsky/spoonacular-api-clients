@@ -1,4 +1,4 @@
-# SpoonacularApi.AddToShoppingListRequest
+# Spoonacular.AddToShoppingListRequest
 
 ## Properties
 

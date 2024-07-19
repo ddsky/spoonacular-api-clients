@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.AddToMealPlanRequestValue();
+    instance = new Spoonacular.AddToMealPlanRequestValue();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('AddToMealPlanRequestValue', function() {
     it('should create an instance of AddToMealPlanRequestValue', function() {
       // uncomment below and update the code to test AddToMealPlanRequestValue
-      //var instance = new SpoonacularApi.AddToMealPlanRequestValue();
-      //expect(instance).to.be.a(SpoonacularApi.AddToMealPlanRequestValue);
+      //var instance = new Spoonacular.AddToMealPlanRequestValue();
+      //expect(instance).to.be.a(Spoonacular.AddToMealPlanRequestValue);
     });
 
     it('should have the property ingredients (base name: "ingredients")', function() {
       // uncomment below and update the code to test the property ingredients
-      //var instance = new SpoonacularApi.AddToMealPlanRequestValue();
+      //var instance = new Spoonacular.AddToMealPlanRequestValue();
       //expect(instance).to.be();
     });
 

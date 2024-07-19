@@ -1,4 +1,4 @@
-# SpoonacularApi.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
+# Spoonacular.ImageAnalysisByURL200ResponseNutritionCaloriesConfidenceRange95Percent
 
 ## Properties
 

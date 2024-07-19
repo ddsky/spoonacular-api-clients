@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchSiteContent200Response();
+    instance = new Spoonacular.SearchSiteContent200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('SearchSiteContent200Response', function() {
     it('should create an instance of SearchSiteContent200Response', function() {
       // uncomment below and update the code to test SearchSiteContent200Response
-      //var instance = new SpoonacularApi.SearchSiteContent200Response();
-      //expect(instance).to.be.a(SpoonacularApi.SearchSiteContent200Response);
+      //var instance = new Spoonacular.SearchSiteContent200Response();
+      //expect(instance).to.be.a(Spoonacular.SearchSiteContent200Response);
     });
 
     it('should have the property articles (base name: "Articles")', function() {
       // uncomment below and update the code to test the property articles
-      //var instance = new SpoonacularApi.SearchSiteContent200Response();
+      //var instance = new Spoonacular.SearchSiteContent200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property groceryProducts (base name: "Grocery Products")', function() {
       // uncomment below and update the code to test the property groceryProducts
-      //var instance = new SpoonacularApi.SearchSiteContent200Response();
+      //var instance = new Spoonacular.SearchSiteContent200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property menuItems (base name: "Menu Items")', function() {
       // uncomment below and update the code to test the property menuItems
-      //var instance = new SpoonacularApi.SearchSiteContent200Response();
+      //var instance = new Spoonacular.SearchSiteContent200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property recipes (base name: "Recipes")', function() {
       // uncomment below and update the code to test the property recipes
-      //var instance = new SpoonacularApi.SearchSiteContent200Response();
+      //var instance = new Spoonacular.SearchSiteContent200Response();
       //expect(instance).to.be();
     });
 

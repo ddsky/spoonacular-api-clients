@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.RecipeInformationWinePairing();
+    instance = new Spoonacular.RecipeInformationWinePairing();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('RecipeInformationWinePairing', function() {
     it('should create an instance of RecipeInformationWinePairing', function() {
       // uncomment below and update the code to test RecipeInformationWinePairing
-      //var instance = new SpoonacularApi.RecipeInformationWinePairing();
-      //expect(instance).to.be.a(SpoonacularApi.RecipeInformationWinePairing);
+      //var instance = new Spoonacular.RecipeInformationWinePairing();
+      //expect(instance).to.be.a(Spoonacular.RecipeInformationWinePairing);
     });
 
     it('should have the property pairedWines (base name: "pairedWines")', function() {
       // uncomment below and update the code to test the property pairedWines
-      //var instance = new SpoonacularApi.RecipeInformationWinePairing();
+      //var instance = new Spoonacular.RecipeInformationWinePairing();
       //expect(instance).to.be();
     });
 
     it('should have the property pairingText (base name: "pairingText")', function() {
       // uncomment below and update the code to test the property pairingText
-      //var instance = new SpoonacularApi.RecipeInformationWinePairing();
+      //var instance = new Spoonacular.RecipeInformationWinePairing();
       //expect(instance).to.be();
     });
 
     it('should have the property productMatches (base name: "productMatches")', function() {
       // uncomment below and update the code to test the property productMatches
-      //var instance = new SpoonacularApi.RecipeInformationWinePairing();
+      //var instance = new Spoonacular.RecipeInformationWinePairing();
       //expect(instance).to.be();
     });
 

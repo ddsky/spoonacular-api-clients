@@ -149,7 +149,6 @@ docs/SearchRestaurants200ResponseRestaurantsInnerAddress.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md
 docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md
 docs/SearchResult.md
-docs/SearchResultDataPointsInner.md
 docs/SearchSiteContent200Response.md
 docs/SummarizeRecipe200Response.md
 docs/TalkToChatbot200Response.md
@@ -304,7 +303,6 @@ src/spoonacular.Test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHour
 src/spoonacular.Test/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursTests.cs
 src/spoonacular.Test/Model/SearchRestaurants200ResponseRestaurantsInnerTests.cs
 src/spoonacular.Test/Model/SearchRestaurants200ResponseTests.cs
-src/spoonacular.Test/Model/SearchResultDataPointsInnerTests.cs
 src/spoonacular.Test/Model/SearchResultTests.cs
 src/spoonacular.Test/Model/SearchSiteContent200ResponseTests.cs
 src/spoonacular.Test/Model/SummarizeRecipe200ResponseTests.cs
@@ -476,7 +474,6 @@ src/spoonacular/Model/SearchRestaurants200ResponseRestaurantsInnerAddress.cs
 src/spoonacular/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHours.cs
 src/spoonacular/Model/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.cs
 src/spoonacular/Model/SearchResult.cs
-src/spoonacular/Model/SearchResultDataPointsInner.cs
 src/spoonacular/Model/SearchSiteContent200Response.cs
 src/spoonacular/Model/SummarizeRecipe200Response.cs
 src/spoonacular/Model/TalkToChatbot200Response.cs

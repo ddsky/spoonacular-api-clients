@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.MenuItemServings();
+    instance = new Spoonacular.MenuItemServings();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('MenuItemServings', function() {
     it('should create an instance of MenuItemServings', function() {
       // uncomment below and update the code to test MenuItemServings
-      //var instance = new SpoonacularApi.MenuItemServings();
-      //expect(instance).to.be.a(SpoonacularApi.MenuItemServings);
+      //var instance = new Spoonacular.MenuItemServings();
+      //expect(instance).to.be.a(Spoonacular.MenuItemServings);
     });
 
     it('should have the property number (base name: "number")', function() {
       // uncomment below and update the code to test the property number
-      //var instance = new SpoonacularApi.MenuItemServings();
+      //var instance = new Spoonacular.MenuItemServings();
       //expect(instance).to.be();
     });
 
     it('should have the property size (base name: "size")', function() {
       // uncomment below and update the code to test the property size
-      //var instance = new SpoonacularApi.MenuItemServings();
+      //var instance = new Spoonacular.MenuItemServings();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instance = new SpoonacularApi.MenuItemServings();
+      //var instance = new Spoonacular.MenuItemServings();
       //expect(instance).to.be();
     });
 

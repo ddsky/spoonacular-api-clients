@@ -1,4 +1,4 @@
-# SpoonacularApi.GetWinePairing200Response
+# Spoonacular.GetWinePairing200Response
 
 ## Properties
 

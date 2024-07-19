@@ -3556,11 +3556,6 @@ searchRestaurants200ResponseRestaurantsInnerLocalHoursOperationalSundayL f Searc
 
 -- * SearchResult
 
--- | 'searchResultDataPoints' Lens
-searchResultDataPointsL :: Lens_' SearchResult (Maybe [SearchResultDataPointsInner])
-searchResultDataPointsL f SearchResult{..} = (\searchResultDataPoints -> SearchResult { searchResultDataPoints, ..} ) <$> f searchResultDataPoints
-{-# INLINE searchResultDataPointsL #-}
-
 -- | 'searchResultImage' Lens
 searchResultImageL :: Lens_' SearchResult (Maybe Text)
 searchResultImageL f SearchResult{..} = (\searchResultImage -> SearchResult { searchResultImage, ..} ) <$> f searchResultImage
@@ -3600,25 +3595,6 @@ searchResultIdL f SearchResult{..} = (\searchResultId -> SearchResult { searchRe
 searchResultRelevanceL :: Lens_' SearchResult (Maybe Double)
 searchResultRelevanceL f SearchResult{..} = (\searchResultRelevance -> SearchResult { searchResultRelevance, ..} ) <$> f searchResultRelevance
 {-# INLINE searchResultRelevanceL #-}
-
-
-
--- * SearchResultDataPointsInner
-
--- | 'searchResultDataPointsInnerKey' Lens
-searchResultDataPointsInnerKeyL :: Lens_' SearchResultDataPointsInner (Text)
-searchResultDataPointsInnerKeyL f SearchResultDataPointsInner{..} = (\searchResultDataPointsInnerKey -> SearchResultDataPointsInner { searchResultDataPointsInnerKey, ..} ) <$> f searchResultDataPointsInnerKey
-{-# INLINE searchResultDataPointsInnerKeyL #-}
-
--- | 'searchResultDataPointsInnerValue' Lens
-searchResultDataPointsInnerValueL :: Lens_' SearchResultDataPointsInner (AnyType)
-searchResultDataPointsInnerValueL f SearchResultDataPointsInner{..} = (\searchResultDataPointsInnerValue -> SearchResultDataPointsInner { searchResultDataPointsInnerValue, ..} ) <$> f searchResultDataPointsInnerValue
-{-# INLINE searchResultDataPointsInnerValueL #-}
-
--- | 'searchResultDataPointsInnerShow' Lens
-searchResultDataPointsInnerShowL :: Lens_' SearchResultDataPointsInner (Maybe Bool)
-searchResultDataPointsInnerShowL f SearchResultDataPointsInner{..} = (\searchResultDataPointsInnerShow -> SearchResultDataPointsInner { searchResultDataPointsInnerShow, ..} ) <$> f searchResultDataPointsInnerShow
-{-# INLINE searchResultDataPointsInnerShowL #-}
 
 
 

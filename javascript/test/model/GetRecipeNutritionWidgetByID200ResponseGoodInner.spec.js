@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseGoodInner();
+    instance = new Spoonacular.GetRecipeNutritionWidgetByID200ResponseGoodInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('GetRecipeNutritionWidgetByID200ResponseGoodInner', function() {
     it('should create an instance of GetRecipeNutritionWidgetByID200ResponseGoodInner', function() {
       // uncomment below and update the code to test GetRecipeNutritionWidgetByID200ResponseGoodInner
-      //var instance = new SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseGoodInner();
-      //expect(instance).to.be.a(SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseGoodInner);
+      //var instance = new Spoonacular.GetRecipeNutritionWidgetByID200ResponseGoodInner();
+      //expect(instance).to.be.a(Spoonacular.GetRecipeNutritionWidgetByID200ResponseGoodInner);
     });
 
     it('should have the property amount (base name: "amount")', function() {
       // uncomment below and update the code to test the property amount
-      //var instance = new SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseGoodInner();
+      //var instance = new Spoonacular.GetRecipeNutritionWidgetByID200ResponseGoodInner();
       //expect(instance).to.be();
     });
 
     it('should have the property indented (base name: "indented")', function() {
       // uncomment below and update the code to test the property indented
-      //var instance = new SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseGoodInner();
+      //var instance = new Spoonacular.GetRecipeNutritionWidgetByID200ResponseGoodInner();
       //expect(instance).to.be();
     });
 
     it('should have the property percentOfDailyNeeds (base name: "percentOfDailyNeeds")', function() {
       // uncomment below and update the code to test the property percentOfDailyNeeds
-      //var instance = new SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseGoodInner();
+      //var instance = new Spoonacular.GetRecipeNutritionWidgetByID200ResponseGoodInner();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instance = new SpoonacularApi.GetRecipeNutritionWidgetByID200ResponseGoodInner();
+      //var instance = new Spoonacular.GetRecipeNutritionWidgetByID200ResponseGoodInner();
       //expect(instance).to.be();
     });
 

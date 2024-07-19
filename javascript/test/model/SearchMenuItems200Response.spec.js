@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.SearchMenuItems200Response();
+    instance = new Spoonacular.SearchMenuItems200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('SearchMenuItems200Response', function() {
     it('should create an instance of SearchMenuItems200Response', function() {
       // uncomment below and update the code to test SearchMenuItems200Response
-      //var instance = new SpoonacularApi.SearchMenuItems200Response();
-      //expect(instance).to.be.a(SpoonacularApi.SearchMenuItems200Response);
+      //var instance = new Spoonacular.SearchMenuItems200Response();
+      //expect(instance).to.be.a(Spoonacular.SearchMenuItems200Response);
     });
 
     it('should have the property menuItems (base name: "menuItems")', function() {
       // uncomment below and update the code to test the property menuItems
-      //var instance = new SpoonacularApi.SearchMenuItems200Response();
+      //var instance = new Spoonacular.SearchMenuItems200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property totalMenuItems (base name: "totalMenuItems")', function() {
       // uncomment below and update the code to test the property totalMenuItems
-      //var instance = new SpoonacularApi.SearchMenuItems200Response();
+      //var instance = new Spoonacular.SearchMenuItems200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instance = new SpoonacularApi.SearchMenuItems200Response();
+      //var instance = new Spoonacular.SearchMenuItems200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property offset (base name: "offset")', function() {
       // uncomment below and update the code to test the property offset
-      //var instance = new SpoonacularApi.SearchMenuItems200Response();
+      //var instance = new Spoonacular.SearchMenuItems200Response();
       //expect(instance).to.be();
     });
 
     it('should have the property number (base name: "number")', function() {
       // uncomment below and update the code to test the property number
-      //var instance = new SpoonacularApi.SearchMenuItems200Response();
+      //var instance = new Spoonacular.SearchMenuItems200Response();
       //expect(instance).to.be();
     });
 

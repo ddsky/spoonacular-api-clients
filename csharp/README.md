@@ -368,7 +368,6 @@ Class | Method | HTTP request | Description
  - [Model.SearchRestaurants200ResponseRestaurantsInnerLocalHours](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHours.md)
  - [Model.SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational](docs/SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational.md)
  - [Model.SearchResult](docs/SearchResult.md)
- - [Model.SearchResultDataPointsInner](docs/SearchResultDataPointsInner.md)
  - [Model.SearchSiteContent200Response](docs/SearchSiteContent200Response.md)
  - [Model.SummarizeRecipe200Response](docs/SummarizeRecipe200Response.md)
  - [Model.TalkToChatbot200Response](docs/TalkToChatbot200Response.md)

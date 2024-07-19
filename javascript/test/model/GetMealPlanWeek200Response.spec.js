@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetMealPlanWeek200Response();
+    instance = new Spoonacular.GetMealPlanWeek200Response();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('GetMealPlanWeek200Response', function() {
     it('should create an instance of GetMealPlanWeek200Response', function() {
       // uncomment below and update the code to test GetMealPlanWeek200Response
-      //var instance = new SpoonacularApi.GetMealPlanWeek200Response();
-      //expect(instance).to.be.a(SpoonacularApi.GetMealPlanWeek200Response);
+      //var instance = new Spoonacular.GetMealPlanWeek200Response();
+      //expect(instance).to.be.a(Spoonacular.GetMealPlanWeek200Response);
     });
 
     it('should have the property days (base name: "days")', function() {
       // uncomment below and update the code to test the property days
-      //var instance = new SpoonacularApi.GetMealPlanWeek200Response();
+      //var instance = new Spoonacular.GetMealPlanWeek200Response();
       //expect(instance).to.be();
     });
 

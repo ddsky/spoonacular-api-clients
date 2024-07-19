@@ -1,4 +1,4 @@
-# SpoonacularApi.GetARandomFoodJoke200Response
+# Spoonacular.GetARandomFoodJoke200Response
 
 ## Properties
 

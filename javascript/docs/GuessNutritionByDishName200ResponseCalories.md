@@ -1,4 +1,4 @@
-# SpoonacularApi.GuessNutritionByDishName200ResponseCalories
+# Spoonacular.GuessNutritionByDishName200ResponseCalories
 
 ## Properties
 

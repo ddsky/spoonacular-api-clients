@@ -613,10 +613,6 @@ public class JsonUtil {
       return new TypeToken<List<SearchResult>>(){}.getType();
     }
     
-    if ("SearchResultDataPointsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<List<SearchResultDataPointsInner>>(){}.getType();
-    }
-    
     if ("SearchSiteContent200Response".equalsIgnoreCase(className)) {
       return new TypeToken<List<SearchSiteContent200Response>>(){}.getType();
     }
@@ -1197,10 +1193,6 @@ public class JsonUtil {
     
     if ("SearchResult".equalsIgnoreCase(className)) {
       return new TypeToken<SearchResult>(){}.getType();
-    }
-    
-    if ("SearchResultDataPointsInner".equalsIgnoreCase(className)) {
-      return new TypeToken<SearchResultDataPointsInner>(){}.getType();
     }
     
     if ("SearchSiteContent200Response".equalsIgnoreCase(className)) {

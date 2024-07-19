@@ -41,7 +41,6 @@
             [spoonacular-api.specs.get-meal-plan-template-200-response-days-inner :refer :all]
             [spoonacular-api.specs.map-ingredients-to-grocery-products-request :refer :all]
             [spoonacular-api.specs.search-all-food-200-response-search-results-inner :refer :all]
-            [spoonacular-api.specs.search-result-data-points-inner :refer :all]
             [spoonacular-api.specs.product-information :refer :all]
             [spoonacular-api.specs.search-restaurants-200-response-restaurants-inner :refer :all]
             [spoonacular-api.specs.compute-ingredient-amount-200-response :refer :all]

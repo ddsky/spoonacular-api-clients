@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.SpoonacularApi);
+    factory(root.expect, root.Spoonacular);
   }
-}(this, function(expect, SpoonacularApi) {
+}(this, function(expect, Spoonacular) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+    instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('GetShoppingList200ResponseAislesInnerItemsInner', function() {
     it('should create an instance of GetShoppingList200ResponseAislesInnerItemsInner', function() {
       // uncomment below and update the code to test GetShoppingList200ResponseAislesInnerItemsInner
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
-      //expect(instance).to.be.a(SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner);
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
+      //expect(instance).to.be.a(Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property measures (base name: "measures")', function() {
       // uncomment below and update the code to test the property measures
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property pantryItem (base name: "pantryItem")', function() {
       // uncomment below and update the code to test the property pantryItem
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property aisle (base name: "aisle")', function() {
       // uncomment below and update the code to test the property aisle
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property cost (base name: "cost")', function() {
       // uncomment below and update the code to test the property cost
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
       //expect(instance).to.be();
     });
 
     it('should have the property ingredientId (base name: "ingredientId")', function() {
       // uncomment below and update the code to test the property ingredientId
-      //var instance = new SpoonacularApi.GetShoppingList200ResponseAislesInnerItemsInner();
+      //var instance = new Spoonacular.GetShoppingList200ResponseAislesInnerItemsInner();
       //expect(instance).to.be();
     });
 
