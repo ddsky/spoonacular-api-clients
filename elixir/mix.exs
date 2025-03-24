@@ -4,7 +4,7 @@ defmodule SpoonacularAPI.Mixfile do
   def project do
     [
       app: :spoonacular,
-      version: "2.0.1",
+      version: "2.0.2",
       elixir: "~> 1.10",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,

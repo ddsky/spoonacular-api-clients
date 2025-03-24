@@ -8,7 +8,7 @@
       "email": "mail@spoonacular.com",
       "url": "https://spoonacular.com/contact"
     },
-    "version": "2.0.1",
+    "version": "2.0.2",
     "x-codegen-settings": {
       "Nullify404": false,
       "GenerateAsyncCode": true,

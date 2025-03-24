@@ -96,7 +96,7 @@ defmodule SpoonacularAPI.Connection do
         Keyword.get(
           tesla_options,
           :user_agent,
-          "openapi-generator - SpoonacularAPI 2.0.1 - elixir"
+          "openapi-generator - SpoonacularAPI 2.0.2 - elixir"
         )
       )
 
