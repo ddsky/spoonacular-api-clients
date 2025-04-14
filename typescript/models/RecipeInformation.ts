@@ -13,6 +13,7 @@
 import { RecipeInformationExtendedIngredientsInner } from '../models/RecipeInformationExtendedIngredientsInner';
 import { RecipeInformationWinePairing } from '../models/RecipeInformationWinePairing';
 import { TasteInformation } from '../models/TasteInformation';
+import { AnalyzeRecipeInstructions200ResponseParsedInstructionsInner } from "../models/AnalyzeRecipeInstructions200ResponseParsedInstructionsInner";
 import { HttpFile } from '../http/http';
 
 /**
@@ -35,7 +36,7 @@ export class RecipeInformation {
     'healthScore': number;
     'spoonacularScore': number;
     'pricePerServing': number;
-    'analyzedInstructions': Array<any>;
+    'analyzedInstructions': Array<AnalyzeRecipeInstructions200ResponseParsedInstructionsInner>;
     'cheap': boolean;
     'creditsText': string;
     'cuisines': Array<string>;
