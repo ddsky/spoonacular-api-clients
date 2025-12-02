@@ -1,0 +1,32 @@
+name: Update Postman Collection
+
+on:
+  push:
+    paths:
+      - spoonacular-openapi-3.json
+  workflow_dispatch:
+
+jobs:
+  publish-postman:
+    name: Publish Postman Collection
+    runs-on: ubuntu-latest
+    env:
+      POSTMAN_COLLECTION_ID: ${{ vars.POSTMAN_COLLECTION_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Transform OpenAPI to Postman collection
+        id: transform
+        uses: stcalica/postman-publish-action/actions/transform-openapi-from-file@v1
+        with:
+          postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
+          openapi_schema_path: './spoonacular-openapi-3.json'
+
+      - name: Update Postman collection
+        uses: stcalica/postman-publish-action/actions/update-collection@v1
+        with:
+          postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
+          collection_id: ${{ env.POSTMAN_COLLECTION_ID }}
+          collection_data: ${{ steps.transform.outputs.postman_collection }}
