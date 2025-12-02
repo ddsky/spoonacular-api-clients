@@ -17,16 +17,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Transform OpenAPI to Postman collection
-        id: transform
-        uses: stcalica/postman-publish-action/actions/transform-openapi-from-file@v1
-        with:
-          postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
-          openapi_schema_path: './spoonacular-openapi-3.json'
+      - name: Install OpenAPI -> Postman converter
+        run: npm i -g openapi-to-postmanv2
 
-      - name: Update Postman collection
-        uses: stcalica/postman-publish-action/actions/update-collection@v1
-        with:
-          postman_api_key: ${{ secrets.POSTMAN_API_KEY }}
-          collection_id: ${{ env.POSTMAN_COLLECTION_ID }}
-          collection_data: ${{ steps.transform.outputs.postman_collection }}
+      - name: Convert OpenAPI to Postman Collection
+        run: |
+          openapi2postmanv2 \
+            -s spoonacular-openapi-3.json \
+            -o postman-collection.json \
+            -p
+
+      - name: Wrap collection JSON for Postman API
+        run: |
+          echo '{"collection":' > postman-collection-wrapped.json
+          cat postman-collection.json >> postman-collection-wrapped.json
+          echo '}' >> postman-collection-wrapped.json
+
+      - name: Update Postman collection via API
+        run: |
+          curl -X PUT "https://api.getpostman.com/collections/${POSTMAN_COLLECTION_ID}" \
+            -H "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            --data-binary @postman-collection-wrapped.json
